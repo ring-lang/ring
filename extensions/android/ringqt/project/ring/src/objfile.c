@@ -13,25 +13,25 @@ void ring_objfile_writefile(RingState *pRingState) {
 	fprintf(fObj, "\n");
 	/* Write Functions Lists */
 	fprintf(fObj, "# Functions List\n");
-	ring_objfile_writelist(pRingState->pRingFunctionsMap, fObj);
+	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFunctionsMap);
 	/* Write Classes List */
 	fprintf(fObj, "# Classes List\n");
-	ring_objfile_writelist(pRingState->pRingClassesMap, fObj);
+	ring_objfile_writelist(pRingState, fObj, pRingState->pRingClassesMap);
 	/* Write Packages */
 	fprintf(fObj, "# Packages List\n");
-	ring_objfile_writelist(pRingState->pRingPackagesMap, fObj);
+	ring_objfile_writelist(pRingState, fObj, pRingState->pRingPackagesMap);
 	/* Write Code */
 	fprintf(fObj, "# Program Code\n");
-	ring_objfile_writelist(pRingState->pRingGenCode, fObj);
+	ring_objfile_writelist(pRingState, fObj, pRingState->pRingGenCode);
 	/* Write Files List */
 	fprintf(fObj, "# Files List\n");
-	ring_objfile_writelist(pRingState->pRingFilesList, fObj);
+	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFilesList);
 	/* Close File */
 	fprintf(fObj, "# End of File\n");
 	fclose(fObj);
 }
 
-void ring_objfile_writelist(List *pList, FILE *fObj) {
+void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pList) {
 	List *pList2;
 	int x, x2, lCont;
 	char *cString;
@@ -54,11 +54,11 @@ void ring_objfile_writelist(List *pList, FILE *fObj) {
 				fprintf(fObj, "[S][%d]", ring_list_getstringsize(pList2, x2));
 				/* Encrypt String */
 				cString = ring_list_getstring(pList2, x2);
-				ring_objfile_xorstring(cString, ring_list_getstringsize(pList2, x2), cKey,
+				ring_objfile_xorstring(pRingState, cString, ring_list_getstringsize(pList2, x2), cKey,
 						       RING_OBJFILE_KEYSIZE);
 				fwrite(ring_list_getstring(pList2, x2), 1, ring_list_getstringsize(pList2, x2), fObj);
 				/* Decrypt String */
-				ring_objfile_xorstring(cString, ring_list_getstringsize(pList2, x2), cKey,
+				ring_objfile_xorstring(pRingState, cString, ring_list_getstringsize(pList2, x2), cKey,
 						       RING_OBJFILE_KEYSIZE);
 				fprintf(fObj, "\n");
 			} else if (ring_list_isint(pList2, x2)) {
@@ -69,7 +69,7 @@ void ring_objfile_writelist(List *pList, FILE *fObj) {
 				fprintf(fObj, "[P]%p\n", (void *)ring_list_getpointer(pList2, x2));
 			} else if (ring_list_islist(pList2, x2)) {
 				fprintf(fObj, "[L]\n");
-				ring_objfile_writelist(ring_list_getlist(pList2, x2), fObj);
+				ring_objfile_writelist(pRingState, fObj, ring_list_getlist(pList2, x2));
 			}
 		}
 		fprintf(fObj, "[E]\n");
@@ -226,7 +226,7 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 				fread(cString, 1, nValue, fObj);
 				cString[nValue] = '\0';
 				/* Decrypt String */
-				ring_objfile_xorstring(cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
+				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
 				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
 				ring_state_free(pRingState, cString);
 				break;
@@ -376,7 +376,7 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 				ring_objfile_readc(pRingState, &cData, cString, nValue);
 				cString[nValue] = '\0';
 				/* Decrypt String */
-				ring_objfile_xorstring(cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
+				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
 				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
 				ring_state_free(pRingState, cString);
 				break;
@@ -457,7 +457,7 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 	return 1;
 }
 
-void ring_objfile_xorstring(char *cString, int nStringSize, char *cKey, int nKeySize) {
+void ring_objfile_xorstring(RingState *pRingState, char *cString, int nStringSize, char *cKey, int nKeySize) {
 	int x;
 	for (x = 1; x <= nStringSize; x++) {
 		cString[x - 1] = cString[x - 1] ^ cKey[(x - 1) % nKeySize];
@@ -526,20 +526,20 @@ void ring_objfile_writeCfile(RingState *pRingState) {
 	/* Declare Ring VM */
 	fprintf(fCode, "\tVM *pVM ;\n");
 	/* Write Data */
-	nFunction = ring_objfile_writelistcode(pRingState->pRingFunctionsMap, fCode, RING_ONE, RING_TRUE, RING_ZERO,
-					       RING_OBJFILE_ITEMSPERFUNCTION2);
+	nFunction = ring_objfile_writelistcode(pRingState, fCode, pRingState->pRingFunctionsMap, RING_ONE, RING_TRUE,
+					       RING_ZERO, RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf(fCode, "\tpRingState->pRingFunctionsMap = pList1;\n");
-	nFunction = ring_objfile_writelistcode(pRingState->pRingClassesMap, fCode, RING_ONE, RING_TRUE, nFunction,
-					       RING_OBJFILE_ITEMSPERFUNCTION2);
+	nFunction = ring_objfile_writelistcode(pRingState, fCode, pRingState->pRingClassesMap, RING_ONE, RING_TRUE,
+					       nFunction, RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf(fCode, "\tpRingState->pRingClassesMap = pList1;\n");
-	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap, fCode, RING_ONE, RING_TRUE, nFunction,
-					       RING_OBJFILE_ITEMSPERFUNCTION2);
+	nFunction = ring_objfile_writelistcode(pRingState, fCode, pRingState->pRingPackagesMap, RING_ONE, RING_TRUE,
+					       nFunction, RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf(fCode, "\tpRingState->pRingPackagesMap = pList1;\n");
 	/* Prepare Ring VM */
 	fprintf(fCode, "\tring_state_newbytecode(pRingState,%d,RING_TRUE);\n",
 		ring_list_getsize(pRingState->pRingGenCode) + 1);
 	fprintf(fCode, "\tpVM = pRingState->pVM;\n");
-	ring_objfile_writebytecode(pRingState->pRingGenCode, fCode);
+	ring_objfile_writebytecode(pRingState, fCode, pRingState->pRingGenCode);
 	fprintf(fCode, "\tring_state_runbytecode(pRingState);  \n");
 	fprintf(fCode, "}\n");
 	/* Close File */
@@ -554,7 +554,7 @@ void ring_objfile_writeCfile(RingState *pRingState) {
 	fclose(fCode2);
 }
 
-int ring_objfile_writelistcode(List *pList, FILE *fCode, int nList, int lSeparate, int nFunction,
+int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List *pList, int nList, int lSeparate, int nFunction,
 			       int nItemsPerFunction) {
 	List *pList2;
 	int x, x2, x3, nMax;
@@ -616,15 +616,16 @@ int ring_objfile_writelistcode(List *pList, FILE *fCode, int nList, int lSeparat
 			} else if (ring_list_islist(pList2, x2)) {
 				fprintf(fCode, "\tpList%d = ring_list_newlist_gc(pRingState,pList%d);\n", nList + 2,
 					nList + 1);
-				nFunction = ring_objfile_writelistcode(ring_list_getlist(pList2, x2), fCode, nList + 2,
-								       lSeparate, nFunction, nItemsPerFunction);
+				nFunction =
+				    ring_objfile_writelistcode(pRingState, fCode, ring_list_getlist(pList2, x2),
+							       nList + 2, lSeparate, nFunction, nItemsPerFunction);
 			}
 		}
 	}
 	return nFunction;
 }
 
-void ring_objfile_writebytecode(List *pList, FILE *fCode) {
+void ring_objfile_writebytecode(RingState *pRingState, FILE *fCode, List *pList) {
 	int x, x2, nReg, x3, nMax;
 	List *pIns;
 	char *cString;

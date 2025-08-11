@@ -62,7 +62,6 @@ Type: char
 cFileType[RING_MEDIUMBUF]
 Type: List *
 pList
-ring_objfile_updateclassespointers
 ring_objfile_xorstring
 Type: int
 x
@@ -100,3 +99,4 @@ Type: List *
 pIns
 Type: char *
 cString
+ring_objfile_updateclassespointers
