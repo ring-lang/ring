@@ -84,10 +84,10 @@ RING_API int ring_vm_api_islist(void *pPointer, int nPara) {
 	if (ring_vm_api_isptr(pPointer, nPara)) {
 		nType = RING_API_GETPOINTERTYPE(nPara);
 		if (nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM) {
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_vm_api_islistornull(void *pPointer, int nPara) {
@@ -95,10 +95,10 @@ RING_API int ring_vm_api_islistornull(void *pPointer, int nPara) {
 	if (RING_API_ISPOINTER(nPara)) {
 		nType = RING_API_GETPOINTERTYPE(nPara);
 		if (nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM) {
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_vm_api_ispointer(void *pPointer, int nPara) {
@@ -106,7 +106,7 @@ RING_API int ring_vm_api_ispointer(void *pPointer, int nPara) {
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (ring_vm_api_isptr(pPointer, nPara)) {
-		return 1;
+		return RING_TRUE;
 	}
 	if (RING_API_ISSTRING(nPara)) {
 		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
@@ -126,10 +126,10 @@ RING_API int ring_vm_api_ispointer(void *pPointer, int nPara) {
 			ring_list_addstring_gc(pVM->pRingState, pList2, "NULLPOINTER");
 			/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
 			ring_list_addint_gc(pVM->pRingState, pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API List *ring_vm_api_getlist(void *pPointer, int nPara) {
@@ -310,20 +310,20 @@ RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cTy
 	ring_list_addint(pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
 }
 
-RING_API int ring_vm_api_iscpointerlist(List *pList) { return ring_list_iscpointerlist(pList); }
+RING_API int ring_vm_api_iscpointerlist(void *pPointer, List *pList) { return ring_list_iscpointerlist(pList); }
 
 RING_API int ring_vm_api_iscpointer(void *pPointer, int nPara) {
 	if (RING_API_ISLISTORNULL(nPara)) {
-		return ring_vm_api_iscpointerlist(RING_API_GETLIST(nPara));
+		return ring_vm_api_iscpointerlist(pPointer, RING_API_GETLIST(nPara));
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_vm_api_isobject(void *pPointer, int nPara) {
 	if (RING_API_ISLISTORNULL(nPara)) {
 		return ring_vm_oop_isobject(RING_API_GETLIST(nPara));
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_vm_api_cpointercmp(void *pPointer, List *pList, List *pList2) {

@@ -901,7 +901,7 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 	pVM->lFullStringToNum = 1;
 	/* Support converting NULL to Zero */
 	if (strcmp(cStr, RING_CSTR_EMPTY) == 0) {
-		return 0.0;
+		return RING_ZEROF;
 	}
 	nResult = strtod(cStr, &cEndStr);
 	if (nResult == 0 && (errno != 0)) {
@@ -910,15 +910,15 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 		} else {
 			ring_vm_error(pVM, RING_VM_ERROR_NUMERICINVALID);
 		}
-		return 0.0;
+		return RING_ZEROF;
 	} else if ((nResult == HUGE_VAL || nResult == -HUGE_VAL) && (errno == ERANGE)) {
 		ring_vm_error(pVM, RING_VM_ERROR_NUMERICOVERFLOW);
-		return 0.0;
+		return RING_ZEROF;
 	} else if (cStr == cEndStr) {
 		if (pVM->lSubStringToNumError) {
 			ring_vm_error(pVM, RING_VM_ERROR_NUMERICINVALID);
 		}
-		return 0.0;
+		return RING_ZEROF;
 	} else if ((cEndStr > cStr) && (cEndStr < cStr + strlen(cStr))) {
 		/* Check Content */
 		if (!ring_string_looksempty(cEndStr, strlen(cEndStr))) {
@@ -926,7 +926,7 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 		}
 		if ((pVM->lSubStringToNumError) && (pVM->lFullStringToNum == 0)) {
 			ring_vm_error(pVM, RING_VM_ERROR_NUMERICINVALID);
-			return 0.0;
+			return RING_ZEROF;
 		}
 	}
 	return nResult;
@@ -935,15 +935,15 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 int ring_vm_stringtologicvalue(VM *pVM, const char *cStr) { return (!(strcmp(cStr, RING_CSTR_EMPTY) == 0)); }
 
 int ring_vm_listtologicvalue(VM *pVM, List *pList) {
-	if (ring_list_getsize(pList) == 0) {
-		return 0;
+	if (ring_list_getsize(pList) == RING_ZERO) {
+		return RING_FALSE;
 	}
 	if (ring_list_iscpointerlist(pList)) {
 		if (ring_list_getpointer(pList, RING_CPOINTER_POINTER) == NULL) {
-			return 0;
+			return RING_FALSE;
 		}
 	}
-	return 1;
+	return RING_TRUE;
 }
 
 void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
@@ -986,7 +986,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 				return;
 			}
 		} else if ((strcmp(cStr, "=") == 0) || (strcmp(cStr, "!=") == 0)) {
-			if (ring_vm_api_iscpointerlist(pList) && ring_vm_api_iscpointerlist(pList2)) {
+			if (ring_list_iscpointerlist(pList) && ring_list_iscpointerlist(pList2)) {
 				RING_VM_STACK_POP;
 				if (ring_vm_api_cpointercmp(pVM, pList, pList2)) {
 					if (strcmp(cStr, "=") == 0) {

@@ -134,7 +134,7 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType);
 
 RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType);
 
-RING_API int ring_vm_api_iscpointerlist(List *pList);
+RING_API int ring_vm_api_iscpointerlist(void *pPointer, List *pList);
 
 RING_API int ring_vm_api_iscpointer(void *pPointer, int nPara);
 
