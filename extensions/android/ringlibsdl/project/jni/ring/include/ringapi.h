@@ -132,8 +132,6 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 
 RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType);
 
-RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType);
-
 RING_API int ring_vm_api_iscpointerlist(void *pPointer, List *pList);
 
 RING_API int ring_vm_api_iscpointer(void *pPointer, int nPara);
@@ -143,8 +141,6 @@ RING_API int ring_vm_api_isobject(void *pPointer, int nPara);
 RING_API int ring_vm_api_cpointercmp(void *pPointer, List *pList, List *pList2);
 
 RING_API void *ring_vm_api_getcpointer2pointer(void *pPointer, int nPara, const char *cType);
-
-RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType);
 
 RING_API void ring_vm_api_retcpointer2(void *pPointer, void *pGeneral, const char *cType,
 				       void (*pFreeFunc)(void *, void *));

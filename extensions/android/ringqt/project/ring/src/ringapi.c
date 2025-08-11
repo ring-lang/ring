@@ -298,18 +298,6 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType) 
 	}
 }
 
-RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType) {
-	List *pList2;
-	/* create sub list */
-	pList2 = ring_list_newlist(pList);
-	/* The variable value will be a list contains the pointer */
-	ring_list_addpointer(pList2, pGeneral);
-	/* Add the pointer type */
-	ring_list_addstring(pList2, cType);
-	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint(pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
-}
-
 RING_API int ring_vm_api_iscpointerlist(void *pPointer, List *pList) { return ring_list_iscpointerlist(pList); }
 
 RING_API int ring_vm_api_iscpointer(void *pPointer, int nPara) {
@@ -370,18 +358,6 @@ RING_API void *ring_vm_api_getcpointer2pointer(void *pPointer, int nPara, const 
 	}
 	RING_API_ERROR(RING_API_NOTPOINTER);
 	return NULL;
-}
-
-RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType) {
-	List *pList2;
-	/* create sub list */
-	pList2 = ring_list_newlist_gc(pState, pList);
-	/* The variable value will be a list contains the pointer */
-	ring_list_addpointer_gc(pState, pList2, pGeneral);
-	/* Add the pointer type */
-	ring_list_addstring_gc(pState, pList2, cType);
-	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint_gc(pState, pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
 }
 
 RING_API void ring_vm_api_retcpointer(void *pPointer, void *pGeneral, const char *cType) {

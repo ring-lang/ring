@@ -1342,3 +1342,27 @@ RING_API int ring_list_cpointercmp(List *pList, List *pList2) {
 	return ring_list_getpointer(pList, RING_CPOINTER_POINTER) ==
 	       ring_list_getpointer(pList2, RING_CPOINTER_POINTER);
 }
+
+RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType) {
+	List *pList2;
+	/* create sub list */
+	pList2 = ring_list_newlist_gc(pState, pList);
+	/* The variable value will be a list contains the pointer */
+	ring_list_addpointer_gc(pState, pList2, pGeneral);
+	/* Add the pointer type */
+	ring_list_addstring_gc(pState, pList2, cType);
+	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint_gc(pState, pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
+}
+
+RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType) {
+	List *pList2;
+	/* create sub list */
+	pList2 = ring_list_newlist(pList);
+	/* The variable value will be a list contains the pointer */
+	ring_list_addpointer(pList2, pGeneral);
+	/* Add the pointer type */
+	ring_list_addstring(pList2, cType);
+	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint(pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
+}

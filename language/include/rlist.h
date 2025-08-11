@@ -339,4 +339,8 @@ RING_API void ring_list_printobj(List *pList, unsigned int nDecimals);
 RING_API int ring_list_iscpointerlist(List *pList);
 
 RING_API int ring_list_cpointercmp(List *pList, List *pList2);
+
+RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType);
+
+RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType);
 #endif

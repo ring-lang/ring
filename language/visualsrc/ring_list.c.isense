@@ -363,3 +363,9 @@ Type: char
 cStr[RING_MEDIUMBUF]
 ring_list_iscpointerlist
 ring_list_cpointercmp
+ring_list_addcpointer_gc
+Type: List *
+pList2
+ring_list_addcpointer
+Type: List *
+pList2
