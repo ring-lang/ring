@@ -933,7 +933,7 @@ void ring_vm_oop_newobj(VM *pVM);
 
 void ring_vm_oop_property(VM *pVM);
 
-int ring_vm_oop_isobject(List *pList);
+int ring_vm_oop_isobject(VM *pVM, List *pList);
 
 List *ring_vm_oop_getobj(VM *pVM);
 

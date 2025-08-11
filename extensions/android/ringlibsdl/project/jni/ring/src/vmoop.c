@@ -257,7 +257,7 @@ void ring_vm_oop_setscope(VM *pVM) {
 	ring_vm_restorestatefornewobjects(pVM);
 }
 
-int ring_vm_oop_isobject(List *pList) { return ring_list_isobject(pList); }
+int ring_vm_oop_isobject(VM *pVM, List *pList) { return ring_list_isobject(pList); }
 
 List *ring_vm_oop_getobj(VM *pVM) {
 	List *pVar;
@@ -287,7 +287,7 @@ List *ring_vm_oop_getobj(VM *pVM) {
 		}
 		pVar = ring_item_getlist(pItem);
 	}
-	if (ring_vm_oop_isobject(pVar) == 0) {
+	if (ring_vm_oop_isobject(pVM, pVar) == 0) {
 		ring_vm_error(pVM, RING_VM_ERROR_NOTOBJECT);
 		return NULL;
 	}
@@ -461,7 +461,7 @@ void ring_vm_oop_printobj(VM *pVM, List *pList) { ring_list_printobj(pList, pVM-
 
 void ring_vm_oop_setbraceobj(VM *pVM, List *pList) {
 	/* Support using { } to access object after object name */
-	if (ring_vm_oop_isobject(pList)) {
+	if (ring_vm_oop_isobject(pVM, pList)) {
 		pVM->pBraceObject = pList;
 	}
 }
@@ -479,7 +479,7 @@ void ring_vm_oop_bracestart(VM *pVM) {
 			pVar = (List *)RING_VM_STACK_READP;
 			if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 				pList = ring_list_getlist(pVar, RING_VAR_VALUE);
-				lShowError = (ring_vm_oop_isobject(pList) == 0);
+				lShowError = (ring_vm_oop_isobject(pVM, pList) == 0);
 			} else {
 				lShowError = 1;
 			}
@@ -487,7 +487,7 @@ void ring_vm_oop_bracestart(VM *pVM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			if (ring_item_islist(pItem)) {
 				pList = (List *)ring_item_getlist(pItem);
-				lShowError = (ring_vm_oop_isobject(pList) == 0);
+				lShowError = (ring_vm_oop_isobject(pVM, pList) == 0);
 			} else {
 				lShowError = 1;
 			}

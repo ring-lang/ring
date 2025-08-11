@@ -206,12 +206,14 @@ void ring_vm_generallib_isnumber(void *pPointer) {
 }
 
 void ring_vm_generallib_islist(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISLIST(1)) {
-		if ((ring_vm_oop_isobject(RING_API_GETLIST(1)) == 0) && (RING_API_ISCPOINTER(1) == 0)) {
+		if ((ring_vm_oop_isobject(pVM, RING_API_GETLIST(1)) == 0) && (RING_API_ISCPOINTER(1) == 0)) {
 			RING_API_RETNUMBER(1);
 			return;
 		}
@@ -271,12 +273,14 @@ void ring_vm_generallib_isnull(void *pPointer) {
 }
 
 void ring_vm_generallib_isobject(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISLIST(1)) {
-		if (ring_vm_oop_isobject(RING_API_GETLIST(1)) == 1) {
+		if (ring_vm_oop_isobject(pVM, RING_API_GETLIST(1)) == 1) {
 			RING_API_RETNUMBER(1);
 			return;
 		}
@@ -1015,7 +1019,7 @@ void ring_vm_generallib_len(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		RING_API_RETNUMBER(RING_API_GETSTRINGSIZE(1));
 	} else if (RING_API_ISLIST(1)) {
-		if (ring_vm_oop_isobject(RING_API_GETLIST(1)) == 0) {
+		if (ring_vm_oop_isobject(pVM, RING_API_GETLIST(1)) == 0) {
 			RING_API_RETNUMBER(ring_list_getsize(RING_API_GETLIST(1)));
 		} else {
 			RING_VM_STACK_PUSHPVALUE(RING_API_GETPOINTER(1));
@@ -1530,7 +1534,7 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 		pList3 = ring_list_getlist(pList, RING_VAR_VALUE);
 		ring_vm_list_copy(pRingSubState->pVM, pList3, pList2);
 		/* Update self object pointer */
-		if (ring_vm_oop_isobject(pList3)) {
+		if (ring_vm_oop_isobject(pVM, pList3)) {
 			ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_VARIABLE, pList);
 		}
 	}
@@ -1764,7 +1768,7 @@ void ring_vm_generallib_see(void *pPointer) {
 		printf("%s", cStr);
 	} else if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_oop_printobj(pVM, pList);
 		} else {
 			ring_list_print2(pList, ((VM *)pPointer)->nDecimals);
@@ -1809,7 +1813,7 @@ void ring_vm_generallib_print(void *pPointer) {
 	}
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_oop_printobj(pVM, pList);
 		} else {
 			ring_list_print2(pList, pVM->nDecimals);
@@ -1854,7 +1858,7 @@ void ring_vm_generallib_puts(void *pPointer) {
 	}
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_oop_printobj(pVM, pList);
 		} else {
 			ring_list_print2(pList, pVM->nDecimals);

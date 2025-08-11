@@ -35,7 +35,7 @@ void ring_vm_listfuncs_add(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -96,7 +96,7 @@ void ring_vm_listfuncs_del(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -141,7 +141,7 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -227,7 +227,7 @@ void ring_vm_listfuncs_find(void *pPointer) {
 		nNum1 = 0;
 		pList = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -307,7 +307,7 @@ void ring_vm_listfuncs_min(void *pPointer) {
 		if (RING_API_ISLIST(1)) {
 			pList = RING_API_GETLIST(1);
 			/* Avoid Objects */
-			if (ring_vm_oop_isobject(pList)) {
+			if (ring_vm_oop_isobject(pVM, pList)) {
 				ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 				return;
 			}
@@ -363,7 +363,7 @@ void ring_vm_listfuncs_max(void *pPointer) {
 		if (RING_API_ISLIST(1)) {
 			pList = RING_API_GETLIST(1);
 			/* Avoid Objects */
-			if (ring_vm_oop_isobject(pList)) {
+			if (ring_vm_oop_isobject(pVM, pList)) {
 				ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 				return;
 			}
@@ -423,7 +423,7 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 	if (RING_API_ISLIST(1) && RING_API_ISNUMBER(2)) {
 		pList = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -450,7 +450,7 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 			} else {
 				ring_vm_list_copy(pVM, pList2, RING_API_GETLIST(3));
 				/* Update self object pointer */
-				if (ring_vm_oop_isobject(pList2)) {
+				if (ring_vm_oop_isobject(pVM, pList2)) {
 					ring_vm_oop_updateselfpointer(pVM, pList2, RING_OBJTYPE_LISTITEM, pItem);
 				}
 			}
@@ -479,7 +479,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 		pList = RING_API_NEWLIST;
 		pList2 = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList2)) {
+		if (ring_vm_oop_isobject(pVM, pList2)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -548,7 +548,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 			if (nColumn > 1) {
 				pList3 = ring_list_getlist(pList3, nColumn);
 			}
-			if (ring_vm_oop_isobject(pList3)) {
+			if (ring_vm_oop_isobject(pVM, pList3)) {
 				nPos = ring_list_findstring_gc(pVM->pRingState,
 							       ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA),
 							       cAttribute, RING_VAR_NAME);
@@ -669,7 +669,7 @@ void ring_vm_listfuncs_reverse(void *pPointer) {
 		pList = RING_API_NEWLIST;
 		pList2 = RING_API_GETLIST(1);
 		/* Avoid Objects */
-		if (ring_vm_oop_isobject(pList2)) {
+		if (ring_vm_oop_isobject(pVM, pList2)) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
@@ -683,7 +683,7 @@ void ring_vm_listfuncs_reverse(void *pPointer) {
 				ring_vm_list_copy(pVM, pList3, ring_list_getlist(pList2, x));
 				pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 				/* Update self object pointer */
-				if (ring_vm_oop_isobject(pList3)) {
+				if (ring_vm_oop_isobject(pVM, pList3)) {
 					ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_LISTITEM, pItem);
 				}
 			}

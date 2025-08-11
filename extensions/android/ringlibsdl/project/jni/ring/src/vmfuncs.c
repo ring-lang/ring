@@ -627,7 +627,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 			**  When we return a local object - Swap Container Lists
 			**  The idea is to return the same object (Keep the Object ID without change)
 			*/
-			if (ring_vm_oop_isobject(pList)) {
+			if (ring_vm_oop_isobject(pVM, pList)) {
 				if (ring_vm_oop_objtypefromobjlist(pVM, pList) == RING_OBJTYPE_VARIABLE) {
 					/* Take in mind that pList could be stored in a Global Variable - Then
 					 * passed/returned from function */
@@ -644,7 +644,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 			}
 		}
 		/* Update self object pointer */
-		if (ring_vm_oop_isobject(pList2)) {
+		if (ring_vm_oop_isobject(pVM, pList2)) {
 			ring_vm_oop_updateselfpointer(pVM, pList2, RING_OBJTYPE_VARIABLE, pList3);
 		}
 	}

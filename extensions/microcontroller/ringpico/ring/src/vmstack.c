@@ -265,7 +265,7 @@ void ring_vm_assignment(VM *pVM) {
 						ring_list_delete_gc(pVM->pRingState, pList);
 					}
 					/* Update self object pointer */
-					if (ring_vm_oop_isobject(ring_list_getlist(pVar, RING_VAR_VALUE))) {
+					if (ring_vm_oop_isobject(pVM, ring_list_getlist(pVar, RING_VAR_VALUE))) {
 						ring_vm_oop_updateselfpointer(pVM,
 									      ring_list_getlist(pVar, RING_VAR_VALUE),
 									      RING_OBJTYPE_VARIABLE, pVar);
@@ -423,7 +423,7 @@ void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
 				/* Copy By Value */
 				ring_vm_list_copy(pVM, pNewList2, pSourceList);
 				/* Update Self Object Pointer */
-				if (ring_vm_oop_isobject(pNewList2)) {
+				if (ring_vm_oop_isobject(pVM, pNewList2)) {
 					pItem = ring_list_getitem_gc(pVM->pRingState, pNewList,
 								     ring_list_getsize(pNewList));
 					ring_vm_oop_updateselfpointer(pVM, pNewList2, RING_OBJTYPE_LISTITEM, pItem);
@@ -644,7 +644,7 @@ void ring_vm_assignmentpointer(VM *pVM) {
 		if (!lCont) {
 			return;
 		}
-		if (ring_list_getsize(pVM->pObjState) && ring_vm_oop_isobject(pList)) {
+		if (ring_list_getsize(pVM->pObjState) && ring_vm_oop_isobject(pVM, pList)) {
 			/* We loop to prevent passing self to function that destroy the self */
 			for (x = 1; x <= ring_list_getsize(pVM->pObjState); x++) {
 				pList2 = ring_list_getlist(pVM->pObjState, x);
@@ -718,7 +718,7 @@ void ring_vm_len(VM *pVM) {
 			pVar = (List *)RING_VM_STACK_READP;
 			if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 				pList = ring_list_getlist(pVar, RING_VAR_VALUE);
-				if (ring_vm_oop_isobject(pList) == 0) {
+				if (ring_vm_oop_isobject(pVM, pList) == 0) {
 					RING_VM_STACK_POP;
 					RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
 				} else {
@@ -742,7 +742,7 @@ void ring_vm_len(VM *pVM) {
 				break;
 			case ITEMTYPE_LIST:
 				pList = ring_item_getlist(pItem);
-				if (ring_vm_oop_isobject(pList) == 0) {
+				if (ring_vm_oop_isobject(pVM, pList) == 0) {
 					RING_VM_STACK_POP;
 					RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
 				} else {

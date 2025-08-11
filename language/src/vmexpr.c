@@ -981,7 +981,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 		}
 		/* We don't check and/or here because short circuit already converted them to logic values 1/0 */
 		if (strcmp(cStr, "+") == 0) {
-			if ((ring_vm_oop_isobject(pList2) == 0)) {
+			if ((ring_vm_oop_isobject(pVM, pList2) == 0)) {
 				ring_vm_addlisttolist(pVM, pList, pList2);
 				return;
 			}
@@ -1004,7 +1004,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 				return;
 			}
 			lCompare = 1;
-			if (ring_vm_oop_isobject(pList2) == 1) {
+			if (ring_vm_oop_isobject(pVM, pList2) == 1) {
 				if (ring_vm_oop_ismethod(pVM, pList2, RING_CSTR_OPERATOR)) {
 					lCompare = 0;
 				}
@@ -1027,12 +1027,12 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 				return;
 			}
 		}
-		if (ring_vm_oop_isobject(pList2) == 1) {
+		if (ring_vm_oop_isobject(pVM, pList2) == 1) {
 			/* Operator Overloading */
 			ring_vm_oop_operatoroverloading(pVM, pList2, cStr, RING_OOPARA_POINTER, RING_CSTR_EMPTY,
 							RING_NOVALUE, pPointer, nType);
 		} else {
-			if (ring_vm_oop_isobject(pList) == 1) {
+			if (ring_vm_oop_isobject(pVM, pList) == 1) {
 				/* Support Operator Overloading when the list comes first then the object */
 				ring_vm_stackswap(pVM, pVM->nSP, pVM->nSP + 1);
 				RING_VM_SP_INC;
@@ -1050,7 +1050,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 			RING_VM_STACK_SETNVALUE(1.0);
 			return;
 		} else if (strcmp(cStr, "and") == 0) {
-			if (ring_vm_oop_isobject(pList) == 0) {
+			if (ring_vm_oop_isobject(pVM, pList) == 0) {
 				RING_VM_STACK_SETNVALUE(
 				    (double)((ring_vm_listtologicvalue(pVM, pList) != 0) && RING_VM_STACK_READN));
 				return;
@@ -1061,7 +1061,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 				}
 			}
 		} else if (strcmp(cStr, "or") == 0) {
-			if (ring_vm_oop_isobject(pList) == 0) {
+			if (ring_vm_oop_isobject(pVM, pList) == 0) {
 				RING_VM_STACK_SETNVALUE(
 				    (double)((ring_vm_listtologicvalue(pVM, pList) != 0) || RING_VM_STACK_READN));
 				return;
@@ -1085,7 +1085,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 			RING_VM_STACK_SETNVALUE(1.0);
 			return;
 		} else if (strcmp(cStr, "and") == 0) {
-			if (ring_vm_oop_isobject(pList) == 0) {
+			if (ring_vm_oop_isobject(pVM, pList) == 0) {
 				RING_VM_STACK_SETNVALUE(
 				    (double)((ring_vm_listtologicvalue(pVM, pList) != 0) &&
 					     (!(strcmp(RING_VM_STACK_READC, RING_CSTR_EMPTY) == 0))));
@@ -1098,7 +1098,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 				}
 			}
 		} else if (strcmp(cStr, "or") == 0) {
-			if (ring_vm_oop_isobject(pList) == 0) {
+			if (ring_vm_oop_isobject(pVM, pList) == 0) {
 				RING_VM_STACK_SETNVALUE(
 				    (double)((ring_vm_listtologicvalue(pVM, pList) != 0) ||
 					     (!(strcmp(RING_VM_STACK_READC, RING_CSTR_EMPTY) == 0))));
@@ -1132,12 +1132,12 @@ void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1) {
 		return;
 	}
 	if (strcmp(cStr, "+") == 0) {
-		if (ring_vm_oop_isobject(pList) == 0) {
+		if (ring_vm_oop_isobject(pVM, pList) == 0) {
 			ring_list_adddouble_gc(pVM->pRingState, pList, nNum1);
 			return;
 		}
 	} else if (strcmp(cStr, "not") == 0) {
-		if (ring_vm_oop_isobject(pList) == 0) {
+		if (ring_vm_oop_isobject(pVM, pList) == 0) {
 			RING_VM_STACK_SETNVALUE((double)(ring_vm_listtologicvalue(pVM, pList) == 0));
 			return;
 		} else {
@@ -1147,27 +1147,29 @@ void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1) {
 			}
 		}
 	} else if (strcmp(cStr, "and") == 0) {
-		if (ring_vm_oop_isobject(pList) == 0) {
+		if (ring_vm_oop_isobject(pVM, pList) == 0) {
 			RING_VM_STACK_SETNVALUE((double)((ring_vm_listtologicvalue(pVM, pList) != 0) && nNum1));
 			return;
 		}
 	} else if (strcmp(cStr, "or") == 0) {
-		if (ring_vm_oop_isobject(pList) == 0) {
+		if (ring_vm_oop_isobject(pVM, pList) == 0) {
 			RING_VM_STACK_SETNVALUE((double)((ring_vm_listtologicvalue(pVM, pList) != 0) || nNum1));
 			return;
 		}
 	} else if (strcmp(cStr, "=") == 0) {
-		if ((ring_vm_oop_isobject(pList) == 0) || (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
+		if ((ring_vm_oop_isobject(pVM, pList) == 0) ||
+		    (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
 			RING_VM_STACK_SETNVALUE(0.0);
 			return;
 		}
 	} else if (strcmp(cStr, "!=") == 0) {
-		if ((ring_vm_oop_isobject(pList) == 0) || (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
+		if ((ring_vm_oop_isobject(pVM, pList) == 0) ||
+		    (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
 			RING_VM_STACK_SETNVALUE(1.0);
 			return;
 		}
 	}
-	if (ring_vm_oop_isobject(pList) == 1) {
+	if (ring_vm_oop_isobject(pVM, pList) == 1) {
 		/* Operator Overloading */
 		ring_vm_oop_operatoroverloading(pVM, pList, cStr, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1, NULL,
 						RING_OBJTYPE_NOTYPE);
@@ -1190,22 +1192,24 @@ void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *pStr2, unsigned in
 		return;
 	}
 	if (strcmp(cStr, "+") == 0) {
-		if (ring_vm_oop_isobject(pList) == 0) {
+		if (ring_vm_oop_isobject(pVM, pList) == 0) {
 			ring_list_addstring2_gc(pVM->pRingState, pList, pStr2, nStrSize);
 			return;
 		}
 	} else if (strcmp(cStr, "=") == 0) {
-		if ((ring_vm_oop_isobject(pList) == 0) || (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
+		if ((ring_vm_oop_isobject(pVM, pList) == 0) ||
+		    (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
 			RING_VM_STACK_SETNVALUE(0.0);
 			return;
 		}
 	} else if (strcmp(cStr, "!=") == 0) {
-		if ((ring_vm_oop_isobject(pList) == 0) || (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
+		if ((ring_vm_oop_isobject(pVM, pList) == 0) ||
+		    (!ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR))) {
 			RING_VM_STACK_SETNVALUE(1.0);
 			return;
 		}
 	}
-	if (ring_vm_oop_isobject(pList) == 1) {
+	if (ring_vm_oop_isobject(pVM, pList) == 1) {
 		/* Operator Overloading */
 		ring_vm_oop_operatoroverloading(pVM, pList, cStr, RING_OOPARA_STRING, pStr2, RING_NOVALUE, NULL,
 						RING_OBJTYPE_NOTYPE);
@@ -1235,7 +1239,7 @@ void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 	pList3 = ring_list_newlist_gc(pVM->pRingState, pList2);
 	ring_vm_list_copy(pVM, pList3, pList4);
 	ring_list_delete_gc(pVM->pRingState, pList4);
-	if ((ring_vm_oop_isobject(pList3) == 1) && (pVM->pBraceObject == pList)) {
+	if ((ring_vm_oop_isobject(pVM, pList3) == 1) && (pVM->pBraceObject == pList)) {
 		pVM->pBraceObject = pList3;
 		/*
 		**  The copied object was created in Temp. memory that will be deleted
@@ -1247,7 +1251,7 @@ void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 		*/
 		ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_LISTITEM,
 					      ring_list_getitem_gc(pVM->pRingState, pList2, ring_list_getsize(pList2)));
-	} else if ((ring_vm_oop_isobject(pList3) == 1) && (pVM->pBraceObject != pList)) {
+	} else if ((ring_vm_oop_isobject(pVM, pList3) == 1) && (pVM->pBraceObject != pList)) {
 		/*
 		**  in ring code if we used mylist + new obj() the init method will be called
 		**  the pVM->pBraceObject will not == pList but we have to update the self pointer!

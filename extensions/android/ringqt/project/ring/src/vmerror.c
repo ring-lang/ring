@@ -16,7 +16,7 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 			if (ring_vm_findvar(pVM, RING_CSTR_SELF)) {
 				pList = ring_vm_oop_getobj(pVM);
 				RING_VM_STACK_POP;
-				if (ring_vm_oop_isobject(pList)) {
+				if (ring_vm_oop_isobject(pVM, pList)) {
 					if (ring_vm_oop_ismethod(pVM, pList, RING_CSTR_BRACEERROR)) {
 						pVM->lActiveError = 0;
 						ring_list_setstring_gc(

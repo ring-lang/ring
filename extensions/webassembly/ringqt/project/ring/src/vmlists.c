@@ -109,7 +109,7 @@ void ring_vm_listitem(VM *pVM) {
 				ring_vm_list_copy(pVM, pList4, pList2);
 				ring_list_swaptwolists(pList3, pList4);
 				/* Update self object Pointer */
-				if (ring_vm_oop_isobject(pList3)) {
+				if (ring_vm_oop_isobject(pVM, pList3)) {
 					pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 					ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_LISTITEM, pItem);
 				}
@@ -127,7 +127,7 @@ void ring_vm_listitem(VM *pVM) {
 				ring_vm_list_copy(pVM, pList4, pList2);
 				ring_list_swaptwolists(pList3, pList4);
 				/* Update self object Pointer */
-				if (ring_vm_oop_isobject(pList3)) {
+				if (ring_vm_oop_isobject(pVM, pList3)) {
 					pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 					ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_LISTITEM, pItem);
 				}
@@ -170,7 +170,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 				if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 					pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
 					/* Check that it's list not object */
-					if (ring_vm_oop_isobject(pVar) == 1) {
+					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						ring_vm_expr_npoo(pVM, "[]", nNum1);
 						return;
 					}
@@ -200,7 +200,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 				if (ring_item_islist(pItem)) {
 					pVar = ring_item_getlist(pItem);
 					/* Check that it's list not object */
-					if (ring_vm_oop_isobject(pVar) == 1) {
+					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						ring_vm_expr_npoo(pVM, "[]", nNum1);
 						return;
 					}
@@ -251,7 +251,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 				if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 					pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
 					/* Check that it's list not object */
-					if (ring_vm_oop_isobject(pVar) == 1) {
+					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						RING_VM_SP_INC;
 						ring_vm_expr_spoo(pVM, "[]", ring_string_get(pString),
 								  ring_string_size(pString));
@@ -267,7 +267,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 				if (ring_item_islist(pItem)) {
 					pVar = ring_item_getlist(pItem);
 					/* Check that it's list not object */
-					if (ring_vm_oop_isobject(pVar) == 1) {
+					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						RING_VM_SP_INC;
 						ring_vm_expr_spoo(pVM, "[]", ring_string_get(pString),
 								  ring_string_size(pString));
@@ -397,7 +397,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 				ring_list_delete_gc(pVM->pRingState, pTempList);
 			}
 			/* Update self object Pointer */
-			if (ring_vm_oop_isobject(pList)) {
+			if (ring_vm_oop_isobject(pVM, pList)) {
 				ring_vm_oop_updateselfpointer(pVM, pList, RING_OBJTYPE_LISTITEM, pItem);
 			}
 		}

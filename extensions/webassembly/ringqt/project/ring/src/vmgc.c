@@ -256,13 +256,18 @@ RING_API void ring_list_updaterefcount_gc(void *pState, List *pList, int nChange
 }
 
 RING_API List *ring_list_newref_gc(void *pState, List *pVariableList, List *pList) {
+	VM *pVM;
+	pVM = NULL;
+	if ((pState != NULL) && ((RingState *)pState)->pVM != NULL) {
+		pVM = ((RingState *)pState)->pVM;
+	}
 	/* Note: The list may already have a container variable (Previous Reference) */
 	pList->vGC.lNewRef = 1;
 	if (pList->vGC.pContainer == NULL) {
 		ring_list_acceptlistbyref_gc(pState, pVariableList, RING_VAR_VALUE, pList);
 		/* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable
 		 */
-		if (ring_vm_oop_isobject(pList)) {
+		if (ring_vm_oop_isobject(pVM, pList)) {
 			ring_vm_oop_updateselfpointer(((RingState *)pState)->pVM, pList, RING_OBJTYPE_VARIABLE,
 						      pVariableList);
 		}

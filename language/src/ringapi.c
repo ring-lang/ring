@@ -308,8 +308,10 @@ RING_API int ring_vm_api_iscpointer(void *pPointer, int nPara) {
 }
 
 RING_API int ring_vm_api_isobject(void *pPointer, int nPara) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_ISLISTORNULL(nPara)) {
-		return ring_vm_oop_isobject(RING_API_GETLIST(nPara));
+		return ring_vm_oop_isobject(pVM, RING_API_GETLIST(nPara));
 	}
 	return RING_FALSE;
 }
@@ -410,7 +412,7 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 	}
 	if ((nRef == RING_OUTPUT_RETLIST) || (nRef == RING_OUTPUT_RETLISTBYREF)) {
 		/* Update self object pointer */
-		if (ring_vm_oop_isobject(pRealList)) {
+		if (ring_vm_oop_isobject(pVM, pRealList)) {
 			ring_vm_oop_updateselfpointer(pVM, pRealList, RING_OBJTYPE_VARIABLE, pVariableList);
 		}
 	}
