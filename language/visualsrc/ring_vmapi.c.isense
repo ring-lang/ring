@@ -177,6 +177,8 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
+Type: VM *
+pVM
 ring_vm_api_newlistusingblocks
 Type: List *
 pList, *pList2, *pList3, *pSubLists
@@ -186,12 +188,32 @@ Type: Items *
 pItems
 Type: Item *
 pItem
+Type: VM *
+pVM
 ring_vm_api_callerscope
+Type: VM *
+pVM
 ring_vm_api_scopescount
+Type: VM *
+pVM
 ring_vm_api_paracount
+Type: VM *
+pVM
 ring_vm_api_ignorecpointertypecheck
+Type: VM *
+pVM
 ring_vm_api_retnumber
+Type: VM *
+pVM
 ring_vm_api_retstring
+Type: VM *
+pVM
 ring_vm_api_retstring2
+Type: VM *
+pVM
 ring_vm_api_retstringsize
+Type: VM *
+pVM
 ring_vm_api_getstringraw
+Type: VM *
+pVM
