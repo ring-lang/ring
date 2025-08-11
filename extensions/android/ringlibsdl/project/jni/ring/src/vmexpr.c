@@ -988,7 +988,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 		} else if ((strcmp(cStr, "=") == 0) || (strcmp(cStr, "!=") == 0)) {
 			if (ring_vm_api_iscpointerlist(pList) && ring_vm_api_iscpointerlist(pList2)) {
 				RING_VM_STACK_POP;
-				if (ring_vm_api_cpointercmp(pList, pList2)) {
+				if (ring_vm_api_cpointercmp(pVM, pList, pList2)) {
 					if (strcmp(cStr, "=") == 0) {
 						RING_VM_STACK_PUSHNVALUE(1.0);
 					} else {

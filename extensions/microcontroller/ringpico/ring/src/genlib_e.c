@@ -1272,7 +1272,7 @@ void ring_vm_generallib_ptrcmp(void *pPointer) {
 	if (RING_API_ISCPOINTER(1) && RING_API_ISCPOINTER(2)) {
 		pList = RING_API_GETLIST(1);
 		pList2 = RING_API_GETLIST(2);
-		RING_API_RETNUMBER(ring_vm_api_cpointercmp(pList, pList2));
+		RING_API_RETNUMBER(ring_vm_api_cpointercmp(pPointer, pList, pList2));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

@@ -140,7 +140,7 @@ RING_API int ring_vm_api_iscpointer(void *pPointer, int nPara);
 
 RING_API int ring_vm_api_isobject(void *pPointer, int nPara);
 
-RING_API int ring_vm_api_cpointercmp(List *pList, List *pList2);
+RING_API int ring_vm_api_cpointercmp(void *pPointer, List *pList, List *pList2);
 
 RING_API void *ring_vm_api_getcpointer2pointer(void *pPointer, int nPara, const char *cType);
 
