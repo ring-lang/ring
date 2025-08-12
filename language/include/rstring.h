@@ -59,7 +59,7 @@ RING_API char *ring_string_find3_gc(void *pState, char *cStr1, unsigned int nStr
 RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
 					 unsigned int nStrSize2, int lNotCaseSensitive);
 
-RING_API char *ring_string_strdup(void *pState, const char *cStr);
+RING_API char *ring_string_strdup_gc(void *pState, const char *cStr);
 
 RING_API String *ring_string_new(const char *cStr);
 

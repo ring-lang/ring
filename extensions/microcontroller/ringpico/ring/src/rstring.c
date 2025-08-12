@@ -169,7 +169,7 @@ RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, unsigned int
 	return NULL;
 }
 
-RING_API char *ring_string_strdup(void *pState, const char *cStr) {
+RING_API char *ring_string_strdup_gc(void *pState, const char *cStr) {
 	char *cString;
 	unsigned int x, nSize;
 	nSize = strlen(cStr);

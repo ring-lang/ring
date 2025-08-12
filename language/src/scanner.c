@@ -266,7 +266,7 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 		cActiveStr = ring_string_get(pScanner->pActiveToken);
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
 	} else {
-		cActiveStr = ring_string_strdup(pScanner->pRingState, ring_string_get(pScanner->pActiveToken));
+		cActiveStr = ring_string_strdup_gc(pScanner->pRingState, ring_string_get(pScanner->pActiveToken));
 		cActiveStr = ring_string_lower(cActiveStr);
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
 		ring_state_free(pScanner->pRingState, cActiveStr);

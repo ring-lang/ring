@@ -539,7 +539,8 @@ void ring_vm_tobytecode(VM *pVM, int nIns) {
 			break;
 		case ITEMTYPE_STRING:
 			pString = ring_item_getstring(pItem);
-			pByteCode->aReg[x - 2].pString = ring_string_strdup(pVM->pRingState, ring_string_get(pString));
+			pByteCode->aReg[x - 2].pString =
+			    ring_string_strdup_gc(pVM->pRingState, ring_string_get(pString));
 			nType = RING_VM_REGTYPE_STRING;
 			break;
 		case ITEMTYPE_POINTER:

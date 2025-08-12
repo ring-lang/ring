@@ -40,7 +40,7 @@ HashItem *ring_hashtable_newitem_gc(void *pRingState, HashTable *pHashTable, con
 		pItem = pItem->pNext;
 	}
 	/* Store Copy from The Key */
-	pItem->cKey = ring_string_strdup(pRingState, cKey);
+	pItem->cKey = ring_string_strdup_gc(pRingState, cKey);
 	/* Item type will be determined from the caller */
 	pItem->nItemType = RING_HASHITEMTYPE_NOTYPE;
 	pItem->pNext = NULL;
