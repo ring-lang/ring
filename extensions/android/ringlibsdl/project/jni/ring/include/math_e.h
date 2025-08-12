@@ -2,6 +2,7 @@
 
 #ifndef ring_math_extension_h
 #define ring_math_extension_h
+#define RING_VM_DECIMALSLIMIT 90
 
 void ring_vm_math_loadfunctions(RingState *pRingState);
 
@@ -52,5 +53,4 @@ void ring_vm_math_random(void *pPointer);
 void ring_vm_math_srandom(void *pPointer);
 
 void ring_vm_math_checkoverflow(void *pPointer);
-#define RING_VM_DECIMALSLIMIT 90
 #endif
