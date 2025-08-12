@@ -218,7 +218,7 @@ RING_API void ring_vm_bytecodefornewthread(VM *pVM, VM *pOldVM) {
 			}
 			/* Create new string */
 			if (nType == RING_VM_REGTYPE_STRING) {
-				pString = ring_string_strdup_gc(NULL, pByteCode->aReg[y].pString);
+				pString = ring_string_strdup(pByteCode->aReg[y].pString);
 				pByteCode->aReg[y].pString = pString;
 			}
 		}

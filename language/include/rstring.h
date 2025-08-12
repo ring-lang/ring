@@ -48,6 +48,8 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 
 RING_API void ring_string_setfromint_gc(void *pState, String *pString, int x);
 
+RING_API char *ring_string_strdup_gc(void *pState, const char *cStr);
+
 RING_API char *ring_string_find_gc(void *pState, char *cStr1, char *cStr2);
 
 RING_API char *ring_string_find2_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
@@ -58,8 +60,6 @@ RING_API char *ring_string_find3_gc(void *pState, char *cStr1, unsigned int nStr
 
 RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
 					 unsigned int nStrSize2, int lNotCaseSensitive);
-
-RING_API char *ring_string_strdup_gc(void *pState, const char *cStr);
 
 RING_API String *ring_string_new(const char *cStr);
 
@@ -76,6 +76,8 @@ RING_API void ring_string_add(String *pString, const char *cStr);
 RING_API void ring_string_add2(String *pString, const char *cStr, unsigned int nStrSize);
 
 RING_API void ring_string_setfromint(String *pString, int x);
+
+RING_API char *ring_string_strdup(const char *cStr);
 
 RING_API int ring_string_size(String *pString);
 

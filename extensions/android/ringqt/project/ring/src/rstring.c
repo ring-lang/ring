@@ -127,6 +127,16 @@ RING_API void ring_string_setfromint_gc(void *pState, String *pString, int x) {
 	ring_string_set_gc(pState, pString, cStr);
 }
 
+RING_API char *ring_string_strdup_gc(void *pState, const char *cStr) {
+	char *cString;
+	unsigned int x, nSize;
+	nSize = strlen(cStr);
+	cString = (char *)ring_state_malloc(pState, nSize + RING_ONE);
+	RING_MEMCPY(cString, cStr, nSize);
+	cString[nSize] = '\0';
+	return cString;
+}
+
 RING_API char *ring_string_find_gc(void *pState, char *cStr1, char *cStr2) {
 	return ring_string_find2_gc(pState, cStr1, strlen(cStr1), cStr2, strlen(cStr2));
 }
@@ -169,16 +179,6 @@ RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, unsigned int
 	return NULL;
 }
 
-RING_API char *ring_string_strdup_gc(void *pState, const char *cStr) {
-	char *cString;
-	unsigned int x, nSize;
-	nSize = strlen(cStr);
-	cString = (char *)ring_state_malloc(pState, nSize + RING_ONE);
-	RING_MEMCPY(cString, cStr, nSize);
-	cString[nSize] = '\0';
-	return cString;
-}
-
 RING_API String *ring_string_new(const char *cStr) { return ring_string_new_gc(NULL, cStr); }
 
 RING_API String *ring_string_new2(const char *cStr, unsigned int nStrSize) {
@@ -200,6 +200,8 @@ RING_API void ring_string_add2(String *pString, const char *cStr, unsigned int n
 }
 
 RING_API void ring_string_setfromint(String *pString, int x) { ring_string_setfromint_gc(NULL, pString, x); }
+
+RING_API char *ring_string_strdup(const char *cStr) { return ring_string_strdup_gc(NULL, cStr); }
 
 RING_API int ring_string_size(String *pString) { return pString->nSize; }
 

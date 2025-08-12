@@ -48,17 +48,17 @@ Type: char *
 pNewStr
 ring_string_setfromint_gc
 cStr[RING_SMALLBUF]
+ring_string_strdup_gc
+Type: char *
+cString
+Type: unsigned int
+x,nSize
 ring_string_find_gc
 ring_string_find2_gc
 ring_string_find3_gc
 ring_string_findsubstr_gc
 Type: unsigned int
 x, nPos
-ring_string_strdup
-Type: char *
-cString
-Type: unsigned int
-x,nSize
 ring_string_new
 ring_string_new2
 ring_string_delete
@@ -67,6 +67,7 @@ ring_string_set2
 ring_string_add
 ring_string_add2
 ring_string_setfromint
+ring_string_strdup
 ring_string_size
 ring_string_print
 ring_string_lower
