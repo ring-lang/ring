@@ -48,7 +48,7 @@ RING_HASHTABLE_HASHFUNCSEED
 ring_hashtable_new_gc
 Type: HashTable *
 pHashTable
-ring_hashtable_hashkey
+ring_hashtable_hashkey_gc
 Type: unsigned int
 nIndex
 ring_hashtable_newitem_gc
@@ -62,15 +62,15 @@ pItem
 ring_hashtable_newpointer_gc
 Type: HashItem *
 pItem
-ring_hashtable_finditem
+ring_hashtable_finditem_gc
 Type: int
 nIndex
 Type: HashItem *
 pItem
-ring_hashtable_findnumber
+ring_hashtable_findnumber_gc
 Type: HashItem *
 pItem
-ring_hashtable_findpointer
+ring_hashtable_findpointer_gc
 Type: HashItem *
 pItem
 ring_hashtable_deleteitem_gc
@@ -89,22 +89,8 @@ pOldArray
 Type: int
 nOldLinkedLists, x, nNewIndex
 Type: HashItem *
-pItem, *pNextItem
-ring_hashtable_rebuild_gc
-Type: HashItem **
-pOldArray
-Type: int
-nOldLinkedLists,x
-Type: HashItem *
-pItem,*pNextItem
-ring_hashtable_rebuild_gc
-Type: HashItem **
-pOldArray
-Type: int
-nOldLinkedLists, x, nNewIndex
-Type: HashItem *
 pItem, *pNextItem, *pItemIterator
-ring_hashtable_print
+ring_hashtable_print_gc
 Type: int
 x
 Type: HashItem *
@@ -116,3 +102,8 @@ ring_hashtable_delete
 ring_hashtable_rebuild
 ring_hashtable_newnumber
 ring_hashtable_newpointer
+ring_hashtable_print
+ring_hashtable_hashkey
+ring_hashtable_finditem
+ring_hashtable_findnumber
+ring_hashtable_findpointer

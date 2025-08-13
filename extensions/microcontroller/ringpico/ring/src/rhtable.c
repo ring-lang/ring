@@ -12,7 +12,7 @@ HashTable *ring_hashtable_new_gc(void *pRingState) {
 	return pHashTable;
 }
 
-unsigned int ring_hashtable_hashkey(HashTable *pHashTable, const char *cKey) {
+unsigned int ring_hashtable_hashkey_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	unsigned int nIndex;
 #if RING_SIMPLEHASHFUNC
 	nIndex = ring_xor_hash((unsigned char *)cKey, strlen(cKey));
@@ -67,7 +67,7 @@ void ring_hashtable_newpointer_gc(void *pRingState, HashTable *pHashTable, const
 	ring_hashtable_rebuild_gc(pRingState, pHashTable);
 }
 
-HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cKey) {
+HashItem *ring_hashtable_finditem_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	int nIndex;
 	HashItem *pItem;
 	nIndex = ring_hashtable_hashkey(pHashTable, cKey);
@@ -82,7 +82,7 @@ HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cKey) {
 	return NULL;
 }
 
-int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey) {
+int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	HashItem *pItem;
 	pItem = ring_hashtable_finditem(pHashTable, cKey);
 	if (pItem != NULL) {
@@ -91,7 +91,7 @@ int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey) {
 	return 0;
 }
 
-void *ring_hashtable_findpointer(HashTable *pHashTable, const char *cKey) {
+void *ring_hashtable_findpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	HashItem *pItem;
 	pItem = ring_hashtable_finditem(pHashTable, cKey);
 	if (pItem != NULL) {
@@ -181,7 +181,7 @@ void ring_hashtable_rebuild_gc(void *pRingState, HashTable *pHashTable) {
 	ring_state_free(pRingState, pOldArray);
 }
 
-void ring_hashtable_print(HashTable *pHashTable) {
+void ring_hashtable_print_gc(void *pRingState, HashTable *pHashTable) {
 	int x;
 	HashItem *pItem;
 	for (x = 0; x < pHashTable->nLinkedLists; x++) {
@@ -196,8 +196,32 @@ void ring_hashtable_print(HashTable *pHashTable) {
 
 HashTable *ring_hashtable_new(void) { return ring_hashtable_new_gc(NULL); }
 
+unsigned int ring_hashtable_hashkey(HashTable *pHashTable, const char *cKey) {
+	return ring_hashtable_hashkey_gc(NULL, pHashTable, cKey);
+}
+
 HashItem *ring_hashtable_newitem(HashTable *pHashTable, const char *cKey) {
 	return ring_hashtable_newitem_gc(NULL, pHashTable, cKey);
+}
+
+void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, int nNumber) {
+	ring_hashtable_newnumber_gc(NULL, pHashTable, cKey, nNumber);
+}
+
+void ring_hashtable_newpointer(HashTable *pHashTable, const char *cKey, void *pPointer) {
+	ring_hashtable_newpointer_gc(NULL, pHashTable, cKey, pPointer);
+}
+
+HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cKey) {
+	return ring_hashtable_finditem_gc(NULL, pHashTable, cKey);
+}
+
+int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey) {
+	return ring_hashtable_findnumber_gc(NULL, pHashTable, cKey);
+}
+
+void *ring_hashtable_findpointer(HashTable *pHashTable, const char *cKey) {
+	return ring_hashtable_findpointer_gc(NULL, pHashTable, cKey);
 }
 
 void ring_hashtable_deleteitem(HashTable *pHashTable, const char *cKey) {
@@ -208,10 +232,4 @@ HashTable *ring_hashtable_delete(HashTable *pHashTable) { return ring_hashtable_
 
 void ring_hashtable_rebuild(HashTable *pHashTable) { ring_hashtable_rebuild_gc(NULL, pHashTable); }
 
-void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, int nNumber) {
-	ring_hashtable_newnumber_gc(NULL, pHashTable, cKey, nNumber);
-}
-
-void ring_hashtable_newpointer(HashTable *pHashTable, const char *cKey, void *pPointer) {
-	ring_hashtable_newpointer_gc(NULL, pHashTable, cKey, pPointer);
-}
+void ring_hashtable_print(HashTable *pHashTable) { ring_hashtable_print_gc(NULL, pHashTable); }

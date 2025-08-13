@@ -29,7 +29,7 @@ typedef struct HashTable {
 
 HashTable *ring_hashtable_new_gc(void *pRingState);
 
-unsigned int ring_hashtable_hashkey(HashTable *pHashTable, const char *cKey);
+unsigned int ring_hashtable_hashkey_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
 HashItem *ring_hashtable_newitem_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
@@ -37,32 +37,42 @@ void ring_hashtable_newnumber_gc(void *pRingState, HashTable *pHashTable, const 
 
 void ring_hashtable_newpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey, void *pPointer);
 
-HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cKey);
+HashItem *ring_hashtable_finditem_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
-int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey);
+int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
-void *ring_hashtable_findpointer(HashTable *pHashTable, const char *cKey);
+void *ring_hashtable_findpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
 void ring_hashtable_deleteitem_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
 HashTable *ring_hashtable_delete_gc(void *pRingState, HashTable *pHashTable);
 
-void ring_hashtable_print(HashTable *pHashTable);
+void ring_hashtable_print_gc(void *pRingState, HashTable *pHashTable);
 
 void ring_hashtable_rebuild_gc(void *pRingState, HashTable *pHashTable);
 /* Functions without the State pointer */
 
 HashTable *ring_hashtable_new(void);
 
+unsigned int ring_hashtable_hashkey(HashTable *pHashTable, const char *cKey);
+
 HashItem *ring_hashtable_newitem(HashTable *pHashTable, const char *cKey);
+
+void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, int nNumber);
+
+void ring_hashtable_newpointer(HashTable *pHashTable, const char *cKey, void *pPointer);
+
+HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cKey);
+
+int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey);
+
+void *ring_hashtable_findpointer(HashTable *pHashTable, const char *cKey);
 
 void ring_hashtable_deleteitem(HashTable *pHashTable, const char *cKey);
 
 HashTable *ring_hashtable_delete(HashTable *pHashTable);
 
+void ring_hashtable_print(HashTable *pHashTable);
+
 void ring_hashtable_rebuild(HashTable *pHashTable);
-
-void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, int nNumber);
-
-void ring_hashtable_newpointer(HashTable *pHashTable, const char *cKey, void *pPointer);
 #endif
