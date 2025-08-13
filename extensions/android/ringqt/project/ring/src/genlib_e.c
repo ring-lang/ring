@@ -2272,10 +2272,10 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 
 int ring_vm_generallib_adddays_isleapyear(int nYear) {
 	if (nYear % 400 == 0) {
-		return 1;
+		return RING_TRUE;
 	}
 	if (nYear % 100 == 0) {
-		return 0;
+		return RING_FALSE;
 	}
 	return nYear % 4 == 0;
 }

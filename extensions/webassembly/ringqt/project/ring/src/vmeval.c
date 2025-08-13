@@ -9,7 +9,7 @@ int ring_vm_eval(VM *pVM, const char *cStr) {
 	List *pIR;
 	nSize = strlen(cStr);
 	if (nSize == 0) {
-		return 0;
+		return RING_FALSE;
 	}
 	nPC = pVM->nPC;
 	/* Add virtual file name */

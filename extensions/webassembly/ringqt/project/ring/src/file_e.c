@@ -643,7 +643,7 @@ int ring_fexists_general(const char *cFileName) {
 	if (_wstat(cPath, &sb) == RING_ZERO) {
 		if (S_ISREG(sb.st_mode)) {
 			/* Path exists and it is a regular file */
-			return 1;
+			return RING_TRUE;
 		}
 	}
 	#else
@@ -663,10 +663,10 @@ int ring_direxists(const char *cDirPath) {
 	if (stat(cDirPath, &sb) == 0) {
 		if (S_ISDIR(sb.st_mode)) {
 			/* Path exists and it is a directory */
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_getpathtype(const char *cDirPath) {

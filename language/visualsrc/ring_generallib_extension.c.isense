@@ -15,6 +15,8 @@ pList
 ring_vm_generallib_isstring
 ring_vm_generallib_isnumber
 ring_vm_generallib_islist
+Type: VM *
+pVM
 ring_vm_generallib_type
 Type: List *
 pList
@@ -22,6 +24,8 @@ ring_vm_generallib_isnull
 Type: char *
 cStr
 ring_vm_generallib_isobject
+Type: VM *
+pVM
 ring_vm_generallib_ispointer
 ring_vm_generallib_hex
 cStr

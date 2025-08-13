@@ -88,7 +88,7 @@ int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const 
 	if (pItem != NULL) {
 		return pItem->HashValue.nIndex;
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void *ring_hashtable_findpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {

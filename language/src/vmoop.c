@@ -181,7 +181,7 @@ int ring_vm_oop_parentinit(VM *pVM, List *pList) {
 						ring_string_delete_gc(pVM->pRingState, pString);
 						/* Delete Classes Pointers List */
 						ring_list_delete_gc(pVM->pRingState, pClassesList);
-						return 0;
+						return RING_FALSE;
 					}
 				}
 				ring_list_addpointer_gc(pVM->pRingState, pClassesList, pList2);
@@ -711,7 +711,7 @@ int ring_vm_oop_callmethodinsideclass(VM *pVM) {
 			/* Be sure that the function is already called using ICO_CALL */
 			if (pFuncCall->nCallerPC != 0) {
 				if (pFuncCall->lMethod == 0) {
-					return 0;
+					return RING_FALSE;
 				} else {
 					break;
 				}
@@ -726,7 +726,7 @@ int ring_vm_oop_callmethodinsideclass(VM *pVM) {
 	if (ring_list_getsize(pVM->pObjState) >= 1) {
 		pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
 		if ((ring_list_getsize(pList) == 4) && (pVM->lCallMethod == 0)) {
-			return 1;
+			return RING_TRUE;
 		}
 	}
 	/* Check using braces { } to access object from a method in the Class */
@@ -738,14 +738,14 @@ int ring_vm_oop_callmethodinsideclass(VM *pVM) {
 			if (ring_list_getsize(pList2) == 4) {
 				pList2 = (List *)ring_list_getpointer(pList2, RING_OBJSTATE_CLASS);
 				if (pList == pList2) {
-					return 1;
+					return RING_TRUE;
 				} else {
 					break;
 				}
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_vm_oop_setget(VM *pVM, List *pVar) {
@@ -1210,7 +1210,7 @@ int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMethods) {
 	if (pVM->nInClassRegion != 0) {
 		pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
 		if (pThis == NULL) {
-			return 0;
+			return RING_FALSE;
 		}
 		if (ring_list_getint(pThis, RING_VAR_PVALUETYPE) == RING_OBJTYPE_VARIABLE) {
 			pVar = (List *)ring_list_getpointer(pThis, RING_VAR_VALUE);
@@ -1218,30 +1218,30 @@ int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMethods) {
 		} else if (ring_list_getint(pThis, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)ring_list_getpointer(pThis, RING_VAR_VALUE);
 			if (pItem == NULL) {
-				return 0;
+				return RING_FALSE;
 			}
 			pList = ring_item_getlist(pItem);
 		} else {
-			return 0;
+			return RING_FALSE;
 		}
 		if (pList == NULL) {
-			return 0;
+			return RING_FALSE;
 		}
 		/* Get Object Class */
 		pClass = (List *)ring_list_getpointer(pList, RING_OBJECT_CLASSPOINTER);
 		if (pClass == NULL) {
-			return 0;
+			return RING_FALSE;
 		}
 		if (ring_list_getsize(pClass) == 0) {
-			return 0;
+			return RING_FALSE;
 		}
 		/* Get Class Methods */
 		pList = ring_list_getlist(pClass, RING_CLASSMAP_METHODSLIST);
 		if (pList == pMethods) {
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_vm_oop_callclassinit(VM *pVM) {

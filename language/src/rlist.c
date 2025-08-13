@@ -357,7 +357,7 @@ RING_API int ring_list_gettype_gc(void *pState, List *pList, unsigned int nIndex
 	if (pItem != NULL) {
 		return ring_item_gettype(pItem);
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_isstring(List *pList, unsigned int nIndex) {
@@ -600,16 +600,16 @@ RING_API int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pIte
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
 		pItem2 = ring_list_getitem_gc(pState, pList, x);
 		if (pItem == pItem2) {
-			return 1;
+			return RING_TRUE;
 		}
 		if (ring_list_islist(pList, x)) {
 			pList2 = ring_item_getlist(pItem2);
 			if (ring_list_isiteminsidelist_gc(pState, pList2, pItem)) {
-				return 1;
+				return RING_TRUE;
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 /* Delete item from list using the item pointer */
 
@@ -621,16 +621,16 @@ RING_API int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pIt
 		pItem2 = ring_list_getitem_gc(pState, pList, x);
 		if (pItem == pItem2) {
 			ring_list_deleteitem_gc(pState, pList, x);
-			return 1;
+			return RING_TRUE;
 		}
 		if (ring_list_islist(pList, x)) {
 			pList2 = ring_item_getlist(pItem2);
 			if (ring_list_isiteminsidelist_gc(pState, pList2, pItem)) {
-				return 1;
+				return RING_TRUE;
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 /* Get Items * using item index */
 
@@ -685,7 +685,7 @@ RING_API int ring_list_findstring_gc(void *pState, List *pList, const char *cStr
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, unsigned int nColumn) {
@@ -719,7 +719,7 @@ RING_API int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, un
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer) {
@@ -731,7 +731,7 @@ RING_API int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer)
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
@@ -764,7 +764,7 @@ RING_API int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, u
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 /* Sort (QuickSort) and Binary Search */
 
@@ -844,7 +844,7 @@ RING_API int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum
 			nLast = nMid - 1;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_binarysearchstr_gc(void *pState, List *pList, const char *cFind, unsigned int nColumn,
@@ -863,7 +863,7 @@ RING_API int ring_list_binarysearchstr_gc(void *pState, List *pList, const char 
 			nLast = nMid - 1;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API void ring_list_swap_gc(void *pState, List *pList, unsigned int x, unsigned int y) {
@@ -1140,7 +1140,7 @@ RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType,
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_findcpointer_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
@@ -1175,7 +1175,7 @@ RING_API int ring_list_findcpointer_gc(void *pState, List *pList, List *pValue, 
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
@@ -1202,7 +1202,7 @@ RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned
 			}
 		}
 	}
-	return 0.0;
+	return RING_ZEROF;
 }
 
 RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,

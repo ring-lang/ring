@@ -392,13 +392,13 @@ int ring_scanner_checklasttoken(Scanner *pScanner) {
 			if (pScanner->pRingState->lCommentsAsTokens) {
 				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_COMMENT);
 			}
-			return 1;
+			return RING_TRUE;
 		}
 	}
 	if (pScanner->cState == SCANNER_STATE_LITERAL) {
 		if (pScanner->pRingState->lOnlyTokens) {
 			pScanner->pRingState->nScannerError = 1;
-			return 0;
+			return RING_FALSE;
 		}
 		ring_state_cgiheader(pScanner->pRingState);
 		printf("Error (S1) In file: %s \n",
@@ -408,7 +408,7 @@ int ring_scanner_checklasttoken(Scanner *pScanner) {
 		if (ring_list_getsize(pScanner->pRingState->pRingFilesList) > 1) {
 			printf("Called from other source code file");
 		}
-		return 0;
+		return RING_FALSE;
 	} else if (pScanner->cState == SCANNER_STATE_GENERAL) {
 		ring_scanner_checktoken(pScanner);
 	} else if ((pScanner->cState == SCANNER_STATE_COMMENT) || (pScanner->cState == SCANNER_STATE_MLCOMMENT)) {
@@ -420,7 +420,7 @@ int ring_scanner_checklasttoken(Scanner *pScanner) {
 		ring_scanner_loadsyntax(pScanner);
 		ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 	}
-	return 1;
+	return RING_TRUE;
 }
 
 int ring_scanner_isoperator(Scanner *pScanner, const char *cStr) {
@@ -428,9 +428,9 @@ int ring_scanner_isoperator(Scanner *pScanner, const char *cStr) {
 	nPos = ring_hashtable_findnumber_gc(pScanner->pRingState, ring_list_gethashtable(pScanner->pOperators), cStr);
 	if (nPos > 0) {
 		pScanner->nTokenIndex = nPos;
-		return 1;
+		return RING_TRUE;
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_scanner_operators(Scanner *pScanner) {

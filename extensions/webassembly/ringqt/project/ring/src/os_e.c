@@ -203,7 +203,7 @@ int setenv(const char *name, const char *value, int overwrite) {
 	size_t envsize = 0;
 		#ifdef __BORLANDC__
 	puts(RING_VM_UNSUPPORTEDFUNCTION);
-	return 0;
+	return RING_FALSE;
 		#else
 	if (!overwrite) {
 		errcode = getenv_s(&envsize, NULL, 0, name);
@@ -218,7 +218,7 @@ int setenv(const char *name, const char *value, int overwrite) {
 int unsetenv(const char *name) {
 		#ifdef __BORLANDC__
 	puts(RING_VM_UNSUPPORTEDFUNCTION);
-	return 0;
+	return RING_FALSE;
 		#else
 	return (int)_putenv_s(name, RING_CSTR_EMPTY);
 		#endif
@@ -278,7 +278,7 @@ int ring_vm_os_gettime(int clk_id, struct timespec *pTS) {
 	pTS->tv_sec = nSec / NANOSEC;
 	pTS->tv_nsec = nSec % NANOSEC;
 	;
-	return 0;
+	return RING_FALSE;
 }
 	#endif
 

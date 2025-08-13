@@ -8,7 +8,7 @@ Type: int
 nNum2
 Type: RING_LONGLONG
 nVal
-ring_custom_fopen
+ring_general_fopen
 Type: RING_FILE
 pFile
 Type: int

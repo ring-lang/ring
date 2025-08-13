@@ -476,10 +476,10 @@ int ring_vm_isoperationaftersublist(VM *pVM) {
 			ring_vm_list_copy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pSub);
 			/* Delete the sub list from the Parent List */
 			ring_list_deleteitem_gc(pVM->pRingState, pParent, ring_list_getsize(pParent));
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_vm_notusingvarduringdef(VM *pVM) {

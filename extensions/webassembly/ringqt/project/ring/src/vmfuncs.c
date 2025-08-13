@@ -54,13 +54,13 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 				if ((ring_vm_oop_callmethodinsideclass(pVM) == 0) &&
 				    (ring_vm_oop_callingclassmethodfromclassregion(pVM, pList) == 0)) {
 					ring_vm_error2(pVM, RING_VM_ERROR_CALLINGPRIVATEMETHOD, cStr);
-					return 0;
+					return RING_FALSE;
 				}
 			}
 			/* Add FuncCall Structure */
 			pFuncCall = ring_vm_funccall_new(pVM);
 			if (pFuncCall == NULL)
-				return 1;
+				return RING_TRUE;
 			pFuncCall->nType = RING_FUNCTYPE_SCRIPT;
 			pFuncCall->cName = cStr;
 			pFuncCall->nPC = ring_list_getint(pList2, RING_FUNCMAP_PC);
@@ -109,7 +109,7 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 			/* Add nLoadAddressScope to pFuncCall */
 			pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
 			pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
-			return 1;
+			return RING_TRUE;
 		}
 	}
 	/* For OOP Support - Check Method not found! */
@@ -117,7 +117,7 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 		/* Pass The Call Instruction and the AfterCallMethod Instruction */
 		pVM->nPC += 2;
 		ring_vm_error2(pVM, RING_VM_ERROR_METHODNOTFOUND, cStr);
-		return 0;
+		return RING_FALSE;
 	}
 	/* Find Function in C Functions List */
 	pCFunc = pVM->pCFunction;
@@ -143,7 +143,7 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 		/* Add FuncCall Structure */
 		pFuncCall = ring_vm_funccall_new(pVM);
 		if (pFuncCall == NULL)
-			return 1;
+			return RING_TRUE;
 		pFuncCall->nType = RING_FUNCTYPE_C;
 		pFuncCall->cName = cStr;
 		pFuncCall->pFunc = pCFunc->pFunc;
@@ -167,12 +167,12 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 		pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
 		ring_vm_funccall_useloadfuncp(pVM, pFuncCall, nPerformance);
-		return 1;
+		return RING_TRUE;
 	}
 	/* Avoid Error if it is automatic call to the main function */
 	if (pVM->lCallMainFunction == 0) {
 		if (strcmp(cStr, RING_CSTR_MAIN) == 0) {
-			return 0;
+			return RING_FALSE;
 		}
 	}
 	/*
@@ -184,7 +184,7 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 	pVM->nPC++;
 	/* Display Error Message */
 	ring_vm_error2(pVM, RING_VM_ERROR_FUNCNOTFOUND, cStr);
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_vm_call(VM *pVM) {
@@ -742,10 +742,10 @@ int ring_vm_timetofreetemplists(VM *pVM) {
 	/* We must start by executing the instruction for the first time (So we use decrement) */
 	if (RING_VM_IR_GETSMALLINTREG == 0) {
 		RING_VM_IR_SETSMALLINTREG(RING_VM_TEMPLISTSCOUNTERMAX);
-		return 1;
+		return RING_TRUE;
 	}
 	RING_VM_IR_SETSMALLINTREG(RING_VM_IR_GETSMALLINTREG - 1);
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_vm_freetemplists(VM *pVM) {

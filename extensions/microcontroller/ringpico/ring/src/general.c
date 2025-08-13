@@ -70,9 +70,9 @@ int ring_general_fexists(const char *cFileName) {
 	pFile = fopen(cFileName, "r");
 	if (pFile) {
 		fclose(pFile);
-		return 1;
+		return RING_TRUE;
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_general_currentdir(char *cDirPath) {
@@ -84,7 +84,7 @@ int ring_general_currentdir(char *cDirPath) {
 	}
 #endif
 	cDirPath[nSize - 1] = '\0';
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_general_exefilename(char *cDirPath) {
@@ -107,16 +107,16 @@ int ring_general_exefilename(char *cDirPath) {
 	size_t cb = nSize;
 	memset(cDirPath, RING_ZERO, nSize);
 	if (sysctl(mib, 4, cDirPath, &cb, NULL, 0) != 0) {
-		return 0;
+		return RING_FALSE;
 	}
 #elif __linux__
 	/* readlink() doesn't null terminate */
 	memset(cDirPath, RING_ZERO, nSize);
 	if (!readlink("/proc/self/exe", cDirPath, nSize)) {
-		return 0;
+		return RING_FALSE;
 	}
 #endif
-	return 1;
+	return RING_TRUE;
 }
 
 int ring_general_chdir(const char *cDir) {
@@ -175,10 +175,10 @@ int ring_general_justfilepath(char *cFileName) {
 	for (x = nSize - 1; x >= 0; x--) {
 		if ((cFileName[x] == '\\') || (cFileName[x] == '/')) {
 			cFileName[x + 1] = '\0';
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_general_justfilename(char *cFileName) {
@@ -202,10 +202,10 @@ int ring_general_issourcefile(const char *cStr) {
 	if (x >= 5) {
 		if (tolower(cStr[x]) == 'g' && tolower(cStr[x - 1]) == 'n' && tolower(cStr[x - 2]) == 'i' &&
 		    tolower(cStr[x - 3]) == 'r' && cStr[x - 4] == '.') {
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_general_isobjectfile(const char *cStr) {
@@ -214,10 +214,10 @@ int ring_general_isobjectfile(const char *cStr) {
 	if (x > 6) {
 		if (tolower(cStr[x]) == 'o' && tolower(cStr[x - 1]) == 'g' && tolower(cStr[x - 2]) == 'n' &&
 		    tolower(cStr[x - 3]) == 'i' && tolower(cStr[x - 4]) == 'r' && cStr[x - 5] == '.') {
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_general_showtime(void) {
@@ -250,19 +250,19 @@ int ring_general_folderexistinfilename(const char *cFolderName, const char *cFil
 #ifdef _WIN32
 		for (x = 0; (unsigned)x < strlen(cFolderName); x++) {
 			if ((tolower(cFolderName[x]) != tolower(cFileName[x]))) {
-				return 0;
+				return RING_FALSE;
 			}
 		}
 #else
 		for (x = 0; (unsigned)x < strlen(cFolderName); x++) {
 			if (cFolderName[x] != cFileName[x]) {
-				return 0;
+				return RING_FALSE;
 			}
 		}
 #endif
-		return 1;
+		return RING_TRUE;
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_general_readline(char *cLine, unsigned int nSize) {

@@ -128,7 +128,7 @@ int ring_vm_findvar(VM *pVM, const char *cStr) {
 			}
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
@@ -152,7 +152,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 		if (pVM->lFirstAddress == 1) {
 			RING_VM_STACK_SETPVALUE(pList2);
 			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE;
-			return 1;
+			return RING_TRUE;
 		}
 		RING_VM_STACK_SETPVALUE(ring_list_getpointer(pList2, RING_VAR_VALUE));
 		RING_VM_STACK_OBJTYPE = ring_list_getint(pList2, RING_VAR_PVALUETYPE);
@@ -190,7 +190,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 					}
 					if (lPrivateError) {
 						ring_vm_error2(pVM, RING_VM_ERROR_USINGPRIVATEATTRIBUTE, cStr);
-						return 0;
+						return RING_FALSE;
 					}
 				}
 			}
@@ -203,7 +203,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 			pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
 			if (pThis != NULL) {
 				if (ring_list_getpointer(pThis, RING_VAR_VALUE) == pVM->pGetSetObject) {
-					return 1;
+					return RING_TRUE;
 				}
 			}
 			ring_vm_oop_setget(pVM, pList2);
@@ -218,7 +218,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 					*init() calling
 					**  This check can be done here or in ring_vm_oop_callmethodinsideclass()
 					*/
-					return 1;
+					return RING_TRUE;
 				}
 				/* Get Object List */
 				pList = (List *)ring_list_getpointer(pList, RING_BRACEOBJECTS_BRACEOBJECT);
@@ -258,7 +258,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 		/* Check lNewRef Flag */
 		ring_list_resetlnewref(pList2);
 	}
-	return 1;
+	return RING_TRUE;
 }
 
 void ring_vm_newvar(VM *pVM, const char *cStr) {
@@ -418,7 +418,7 @@ int ring_vm_var_getprivateflag(VM *pVM, List *pVar) {
 	if (ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG) {
 		return ring_list_getint(pVar, RING_VAR_PRIVATEFLAG);
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_vm_copyscopestolist(VM *pVM, List *pList) {

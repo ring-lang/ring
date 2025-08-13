@@ -166,20 +166,20 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 	fObj = (FILE *)ring_general_fopen(cFileName, "rb");
 	if (fObj == NULL) {
 		printf("%s %s \n", RING_CANTOPENFILE, cFileName);
-		return 0;
+		return RING_FALSE;
 	}
 	fread(cFileType, 1, RING_OBJFILE_FILETYPESTRCOUNT, fObj);
 	cFileType[RING_OBJFILE_FILETYPESTRCOUNT] = '\0';
 	if (strcmp(cFileType, RING_OBJFILE_FILETYPESTR) != 0) {
 		printf(RING_OBJFILEWRONGTYPE);
-		return 0;
+		return RING_FALSE;
 	}
 	c = getc(fObj);
 	fread(cFileType, 1, RING_OBJFILE_VERSIONSTRINGSIZE, fObj);
 	cFileType[RING_OBJFILE_VERSIONSTRINGSIZE] = '\0';
 	if (strcmp(cFileType, RING_OBJFILE_VERSION) != 0) {
 		printf(RING_OBJFILEWRONGVERSION);
-		return 0;
+		return RING_FALSE;
 	}
 	/* Process File */
 	c = getc(fObj);
@@ -220,7 +220,7 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 				nOutput = fscanf(fObj, "[%d]", &nValue);
 				if (nOutput == 0) {
 					printf(RING_FSCANFERROR);
-					return 0;
+					return RING_FALSE;
 				}
 				cString = (char *)ring_state_malloc(pRingState, nValue + 1);
 				fread(cString, 1, nValue, fObj);
@@ -235,7 +235,7 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 				nOutput = fscanf(fObj, "%d", &nValue);
 				if (nOutput == 0) {
 					printf(RING_FSCANFERROR);
-					return 0;
+					return RING_FALSE;
 				}
 				ring_list_addint_gc(pRingState, pList, nValue);
 				break;
@@ -244,7 +244,7 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 				nOutput = fscanf(fObj, "%lf", &dValue);
 				if (nOutput == 0) {
 					printf(RING_FSCANFERROR);
-					return 0;
+					return RING_FALSE;
 				}
 				ring_list_adddouble_gc(pRingState, pList, dValue);
 				break;
@@ -294,7 +294,7 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 	}
 	/* Close File */
 	fclose(fObj);
-	return 1;
+	return RING_TRUE;
 }
 
 int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
@@ -317,14 +317,14 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 	cFileType[RING_OBJFILE_FILETYPESTRCOUNT] = '\0';
 	if (strcmp(cFileType, RING_OBJFILE_FILETYPESTR) != 0) {
 		printf(RING_OBJFILEWRONGTYPE);
-		return 0;
+		return RING_FALSE;
 	}
 	c = ring_objfile_getc(pRingState, &cData);
 	ring_objfile_readc(pRingState, &cData, cFileType, RING_OBJFILE_VERSIONSTRINGSIZE);
 	cFileType[RING_OBJFILE_VERSIONSTRINGSIZE] = '\0';
 	if (strcmp(cFileType, RING_OBJFILE_VERSION) != 0) {
 		printf(RING_OBJFILEWRONGVERSION);
-		return 0;
+		return RING_FALSE;
 	}
 	/* Process Content */
 	c = ring_objfile_getc(pRingState, &cData);
@@ -365,7 +365,7 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 				nOutput = sscanf(cData, "[%d]", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
-					return 0;
+					return RING_FALSE;
 				}
 				/* Pass Letters */
 				c = ' ';
@@ -385,7 +385,7 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 				nOutput = sscanf(cData, "%d", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
-					return 0;
+					return RING_FALSE;
 				}
 				/* Pass Letters */
 				c = '0';
@@ -400,7 +400,7 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 				nOutput = sscanf(cData, "%lf", &dValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
-					return 0;
+					return RING_FALSE;
 				}
 				/* Pass Letters */
 				c = '0';
@@ -454,7 +454,7 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 		}
 		c = ring_objfile_getc(pRingState, &cData);
 	}
-	return 1;
+	return RING_TRUE;
 }
 
 void ring_objfile_xorstring(RingState *pRingState, char *cString, int nStringSize, char *cKey, int nKeySize) {

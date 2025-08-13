@@ -516,9 +516,9 @@ RING_API int ring_list_checkrefinleftside(void *pState, List *pList) {
 	/* If we have Ref()/Reference() at the Left-Side then Delete the reference */
 	if (pList->vGC.lNewRef) {
 		pList->vGC.lNewRef = 0;
-		return 1;
+		return RING_TRUE;
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar) {
@@ -529,14 +529,14 @@ RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar) {
 	**  This could prevent assignment to variables contains temp. lists created while passing para. to functions
 	*/
 	if (strcmp(ring_list_getstring(pVar, RING_VAR_NAME), RING_TEMP_REF) == 0) {
-		return 1;
+		return RING_TRUE;
 	}
 	if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_LIST) {
 		if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 			return ring_list_checkrefinleftside(pState, ring_list_getlist(pVar, RING_VAR_VALUE));
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 RING_API int ring_list_getrefcount(List *pList) { return pList->vGC.nReferenceCount + 1; }
@@ -609,10 +609,10 @@ int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar) {
 		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
 		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem) {
@@ -621,10 +621,10 @@ int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem) {
 		pList = ring_item_getlist(pItem);
 		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {

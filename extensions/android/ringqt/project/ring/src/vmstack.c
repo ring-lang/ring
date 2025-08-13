@@ -71,10 +71,10 @@ int ring_vm_checknull(VM *pVM, int lShowError) {
 				ring_vm_error2(pVM, RING_VM_ERROR_USINGNULLVARIABLE, ring_string_get(pString));
 				ring_string_delete_gc(pVM->pRingState, pString);
 			}
-			return 1;
+			return RING_TRUE;
 		}
 	}
-	return 0;
+	return RING_FALSE;
 }
 
 void ring_vm_varpushv(VM *pVM) {

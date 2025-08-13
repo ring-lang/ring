@@ -131,7 +131,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 	/* Check Path Size */
 	if (strlen(cFileName) > RING_PATHLIMIT) {
 		printf("%s %s %s %d \n", RING_CANTOPENFILE, cFileName, RING_VERYLONGPATH, RING_PATHLIMIT);
-		return 0;
+		return RING_FALSE;
 	}
 	/* Check file */
 	if (pRingState->pRingFilesList == NULL) {
@@ -150,7 +150,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 				if (pRingState->lWarning) {
 					printf("\n%s%s \n", RING_WARNING_DUPLICATIONINFILENAME, cFileName);
 				}
-				return 1;
+				return RING_TRUE;
 			} else {
 				ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
 			}
@@ -169,7 +169,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 		printf("\n%s %s \n", RING_CANTOPENFILE, cFileName);
 		ring_list_deleteitem_gc(pRingState, pRingState->pRingFilesStack,
 					ring_list_getsize(pRingState->pRingFilesStack));
-		return 0;
+		return RING_FALSE;
 	}
 	RING_READCHAR(pFile, c, nSize);
 	pScanner = ring_scanner_new(pRingState);
@@ -236,7 +236,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 			ring_list_swaptwolists(pRingState->pRingFileTokens, pScanner->pTokens);
 		}
 		ring_scanner_delete(pScanner);
-		return 0;
+		return RING_FALSE;
 	}
 	ring_scanner_delete(pScanner);
 	/* Files List */
@@ -253,7 +253,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 		/* Run the Program */
 		if (lRunVM == 1) {
 			ring_state_runprogram(pRingState);
-			return 1;
+			return RING_TRUE;
 		}
 	}
 	return lRunVM;
@@ -363,7 +363,7 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 				if (pRingState->lWarning) {
 					printf("\n%s%s \n", RING_WARNING_DUPLICATIONINFILENAME, cFileName);
 				}
-				return 1;
+				return RING_TRUE;
 			} else {
 				ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
 			}
@@ -406,7 +406,7 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 			ring_list_swaptwolists(pRingState->pRingFileTokens, pScanner->pTokens);
 		}
 		ring_scanner_delete(pScanner);
-		return 0;
+		return RING_FALSE;
 	}
 	ring_scanner_delete(pScanner);
 	/* Files List */
@@ -423,7 +423,7 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 		/* Run the Program */
 		if (lRunVM == 1) {
 			ring_state_runprogram(pRingState);
-			return 1;
+			return RING_TRUE;
 		}
 	}
 	return lRunVM;
