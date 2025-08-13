@@ -18,9 +18,12 @@ typedef struct String {
 	unsigned int nCapacity;
 	char cStrArray[RING_STRING_ARRAYSIZE];
 } String;
-#define ring_string_tolower(pString) ring_string_lower(pString->cStr)
-#define ring_string_toupper(pString) ring_string_upper(pString->cStr)
-#define ring_string_get(pString) (pString->cStr)
+#define ring_string_tolower_gc(pState, pString) ring_string_lower(pString->cStr)
+#define ring_string_toupper_gc(pState, pString) ring_string_upper(pString->cStr)
+#define ring_string_get_gc(pState, pString) (pString->cStr)
+#define ring_string_tolower(pString) ring_string_tolower_gc(NULL, pString)
+#define ring_string_toupper(pString) ring_string_toupper_gc(NULL, pString)
+#define ring_string_get(pString) ring_string_get_gc(NULL, pString)
 #define RING_MEMCPY(cStrDest, cStrSrc, nSize)                                                                          \
 	do {                                                                                                           \
 		if ((nSize) < RING_LOOP_THRESHOLD) {                                                                   \
@@ -48,6 +51,10 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 
 RING_API void ring_string_setfromint_gc(void *pState, String *pString, int x);
 
+RING_API int ring_string_size_gc(void *pState, String *pString);
+
+RING_API void ring_string_print_gc(void *pState, String *pString);
+
 RING_API char *ring_string_strdup_gc(void *pState, const char *cStr);
 
 RING_API char *ring_string_find_gc(void *pState, char *cStr1, char *cStr2);
@@ -57,9 +64,6 @@ RING_API char *ring_string_find2_gc(void *pState, char *cStr1, unsigned int nStr
 
 RING_API char *ring_string_find3_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
 				    unsigned int nStrSize2);
-
-RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
-					 unsigned int nStrSize2, int lNotCaseSensitive);
 
 RING_API String *ring_string_new(const char *cStr);
 
@@ -77,11 +81,20 @@ RING_API void ring_string_add2(String *pString, const char *cStr, unsigned int n
 
 RING_API void ring_string_setfromint(String *pString, int x);
 
-RING_API char *ring_string_strdup(const char *cStr);
-
 RING_API int ring_string_size(String *pString);
 
 RING_API void ring_string_print(String *pString);
+
+RING_API char *ring_string_strdup(const char *cStr);
+
+RING_API char *ring_string_findsubstr(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2,
+				      int lNotCaseSensitive);
+
+RING_API char *ring_string_find(char *cStr1, char *cStr2);
+
+RING_API char *ring_string_find2(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2);
+
+RING_API char *ring_string_find3(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2);
 
 RING_API char *ring_string_lower(char *cStr);
 
@@ -92,12 +105,6 @@ RING_API char *ring_string_upper(char *cStr);
 RING_API char *ring_string_upper2(char *cStr, unsigned int nStrSize);
 
 RING_API int ring_string_looksempty(const char *cStr, unsigned int nSize);
-
-RING_API char *ring_string_find(char *cStr1, char *cStr2);
-
-RING_API char *ring_string_find2(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2);
-
-RING_API char *ring_string_find3(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2);
 
 RING_API void ring_string_word(const char *cStr, unsigned int nIndex, char *cOutput);
 #endif
