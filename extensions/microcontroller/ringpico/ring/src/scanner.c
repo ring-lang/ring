@@ -264,11 +264,13 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 	if (pScanner->pRingState->lNotCaseSensitive) {
 		ring_string_tolower(pScanner->pActiveToken);
 		cActiveStr = ring_string_get(pScanner->pActiveToken);
-		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
+		nResult = ring_hashtable_findnumber_gc(pScanner->pRingState,
+						       ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
 	} else {
 		cActiveStr = ring_string_strdup_gc(pScanner->pRingState, ring_string_get(pScanner->pActiveToken));
 		cActiveStr = ring_string_lower(cActiveStr);
-		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
+		nResult = ring_hashtable_findnumber_gc(pScanner->pRingState,
+						       ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
 		ring_state_free(pScanner->pRingState, cActiveStr);
 	}
 	if (nResult > 0) {
@@ -423,7 +425,7 @@ int ring_scanner_checklasttoken(Scanner *pScanner) {
 
 int ring_scanner_isoperator(Scanner *pScanner, const char *cStr) {
 	int nPos;
-	nPos = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pOperators), cStr);
+	nPos = ring_hashtable_findnumber_gc(pScanner->pRingState, ring_list_gethashtable(pScanner->pOperators), cStr);
 	if (nPos > 0) {
 		pScanner->nTokenIndex = nPos;
 		return 1;
@@ -578,8 +580,8 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 	    (strcmp(ring_string_get(word2), RING_CSTR_EMPTY) == 0)) {
 		puts(RING_WARNING_CHANGEKEYWORDPARA);
 	} else {
-		nResult =
-		    ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords), ring_string_get(word1));
+		nResult = ring_hashtable_findnumber_gc(
+		    pScanner->pRingState, ring_list_gethashtable(pScanner->pKeywords), ring_string_get(word1));
 		if (nResult > 0) {
 			ring_list_setstring_gc(pScanner->pRingState, pScanner->pKeywords, nResult,
 					       ring_string_get(word2));
@@ -623,8 +625,8 @@ void ring_scanner_changeoperator(Scanner *pScanner) {
 	    (strcmp(ring_string_get(word2), RING_CSTR_EMPTY) == 0)) {
 		puts(RING_WARNING_CHANGEOPERATORPARA);
 	} else {
-		nResult =
-		    ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pOperators), ring_string_get(word1));
+		nResult = ring_hashtable_findnumber_gc(
+		    pScanner->pRingState, ring_list_gethashtable(pScanner->pOperators), ring_string_get(word1));
 		if (nResult > 0) {
 			ring_list_setstring_gc(pScanner->pRingState, pScanner->pOperators, nResult,
 					       ring_string_get(word2));
