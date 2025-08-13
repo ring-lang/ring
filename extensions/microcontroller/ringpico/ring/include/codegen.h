@@ -272,19 +272,19 @@ static const char *RING_IC_OP[] = {"NewLine",
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE RING_ONE
-#define RING_PARSER_ICG_PARA1 RING_TWO
-#define RING_PARSER_ICG_PARA2 RING_THREE
-#define RING_PARSER_ICG_PARENTCLASSPOS RING_FOUR
-#define RING_PARSER_ICG_LOADASETTERPOS RING_THREE
+#define RING_PARSER_ICG_PARA1 2
+#define RING_PARSER_ICG_PARA2 3
+#define RING_PARSER_ICG_PARENTCLASSPOS 4
+#define RING_PARSER_ICG_LOADASETTERPOS 3
 #define RING_PARSER_ICG_USEASSIGNMENT RING_ONE
-#define RING_PARSER_ICG_USESETPROPERTY RING_TWO
-#define RING_PARSER_ICG_NORMALPP RING_THREE
-#define RING_PARSER_ICG_NORMALMM RING_FOUR
-#define RING_PARSER_ICG_ASSIGNPTRENABLEPOS RING_TWO
+#define RING_PARSER_ICG_USESETPROPERTY 2
+#define RING_PARSER_ICG_NORMALPP 3
+#define RING_PARSER_ICG_NORMALMM 4
+#define RING_PARSER_ICG_ASSIGNPTRENABLEPOS 2
 /* Macro */
 #define RING_PARSER_ICG_GOTOLASTOP                                                                                     \
 	pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode, ring_list_getsize(pParser->pGenCode))
-#define RING_PARSER_ICG_NOOPERATION RING_MINUSONE
+#define RING_PARSER_ICG_NOOPERATION -1
 #define ring_parser_icg_newlabel(pParser)                                                                              \
 	(ring_list_getsize(pParser->pGenCode) + RING_ONE + pParser->pRingState->nInstructionsCount)
 #define ring_parser_icg_setlastoperation(pParser, nOPCode)                                                             \

@@ -840,7 +840,7 @@ void ring_vm_retitemref(VM *pVM) {
 	if (RING_VM_FUNCCALLSCOUNT > 0) {
 		pFuncCall = RING_VM_LASTFUNCCALL;
 		if ((pFuncCall->lMethod == RING_TRUE) && (strcmp(pFuncCall->cName, RING_CSTR_OPERATOR) == RING_ZERO)) {
-			pVM->nRetItemRef = RING_TWO;
+			pVM->nRetItemRef = 2;
 		}
 	}
 }

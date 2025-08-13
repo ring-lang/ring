@@ -344,7 +344,7 @@ void ring_parser_icg_showoutput(RingState *pRingState) {
 			nCount2 = ring_list_getsize(pList);
 			printf("\n %6d  %18s  ", x, RING_IC_OP[ring_list_getint(pList, RING_PARSER_ICG_OPERATIONCODE)]);
 			if (nCount2 > RING_ONE) {
-				for (y = RING_TWO; y <= nCount2; y++) {
+				for (y = 2; y <= nCount2; y++) {
 					if (ring_list_isstring(pList, y)) {
 						printf(" %18s ", ring_list_getstring(pList, y));
 					} else if (ring_list_isnumber(pList, y)) {

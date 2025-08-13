@@ -170,12 +170,8 @@
 #define RING_NOVALUE 0
 #define RING_ZERO 0
 #define RING_ONE 1
-#define RING_TWO 2
-#define RING_THREE 3
-#define RING_FOUR 4
 #define RING_ZEROF 0.0
 #define RING_ONEF 1.0
-#define RING_MINUSONE -1
 /* Decimals */
 #define RING_DECIMALS 2
 /* C Strings */
