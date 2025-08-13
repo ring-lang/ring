@@ -2,6 +2,69 @@
 
 #include "ring.h"
 
+RING_API void ring_general_printline(void) {
+	puts("===========================================================================");
+}
+
+RING_API char *ring_general_numtostring(double nNum1, char *cStr, int nDecimals) {
+	char cOptions[RING_SMALLBUF];
+	int nNum2;
+	RING_LONGLONG nVal;
+	nVal = (RING_LONGLONG)nNum1;
+	if ((nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE)) {
+		sprintf(cStr, RING_LONGLONG_FORMAT, nVal);
+	} else {
+		sprintf(cOptions, "%s%df", "%.", nDecimals);
+#if RING_NOSNPRINTF
+		sprintf(cStr, cOptions, nNum1);
+#else
+		/* Avoid buffer overrun by using snprint() function */
+		nNum2 = snprintf(cStr, RING_MEDIUMBUF, cOptions, nNum1);
+		if (nNum2 >= RING_MEDIUMBUF) {
+			/* Result truncated so print in compact format with a precision of 90 */
+			nNum2 = snprintf(cStr, RING_MEDIUMBUF, "%.90e", nNum1);
+		}
+		if (nNum2 < 0) {
+			/* Error */
+			cStr[0] = 0;
+		}
+#endif
+	}
+	return cStr;
+}
+
+RING_FILE ring_general_fopen(const char *cFileName, const char *cMode) {
+#if defined(_WIN32) && !defined(__TINYC__)
+	/* Code For MS-Windows */
+	RING_FILE pFile;
+	int nLen1, nLen2, nFileNameSize, nModeSize;
+	wchar_t cPath[MAX_PATH];
+	wchar_t cWMode[MAX_PATH];
+	/* Set Variables */
+	nLen1 = RING_ZERO;
+	nLen2 = RING_ZERO;
+	nFileNameSize = strlen(cFileName);
+	nModeSize = strlen(cMode);
+	if ((nFileNameSize == RING_ZERO) || (nModeSize == RING_ZERO)) {
+		return NULL;
+	}
+	nLen1 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, cFileName, nFileNameSize, cPath, MAX_PATH);
+	if ((nLen1 == RING_ZERO) || (nLen1 >= MAX_PATH)) {
+		return RING_OPENFILE(cFileName, cMode);
+	}
+	cPath[nLen1] = L'\0';
+	nLen2 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, cMode, nModeSize, cWMode, MAX_PATH);
+	if ((nLen2 == RING_ZERO) || (nLen2 >= MAX_PATH)) {
+		return RING_OPENFILE(cFileName, cMode);
+	}
+	cWMode[nLen2] = L'\0';
+	pFile = _wfopen(cPath, cWMode);
+	return pFile;
+#else
+	return RING_OPENFILE(cFileName, cMode);
+#endif
+}
+
 int ring_general_fexists(const char *cFileName) {
 	FILE *pFile;
 	pFile = fopen(cFileName, "r");
@@ -157,10 +220,6 @@ int ring_general_isobjectfile(const char *cStr) {
 	return 0;
 }
 
-RING_API void ring_general_printline(void) {
-	puts("===========================================================================");
-}
-
 void ring_general_showtime(void) {
 	time_t vTimer;
 	char cBuffer[RING_MEDIUMBUF];
@@ -175,38 +234,6 @@ void ring_general_showtime(void) {
 	vClock = clock();
 	printf("Clock : %ld \n", (long)vClock);
 	ring_general_printline();
-}
-
-RING_FILE ring_custom_fopen(const char *cFileName, const char *cMode) {
-#if defined(_WIN32) && !defined(__TINYC__)
-	/* Code For MS-Windows */
-	RING_FILE pFile;
-	int nLen1, nLen2, nFileNameSize, nModeSize;
-	wchar_t cPath[MAX_PATH];
-	wchar_t cWMode[MAX_PATH];
-	/* Set Variables */
-	nLen1 = RING_ZERO;
-	nLen2 = RING_ZERO;
-	nFileNameSize = strlen(cFileName);
-	nModeSize = strlen(cMode);
-	if ((nFileNameSize == RING_ZERO) || (nModeSize == RING_ZERO)) {
-		return NULL;
-	}
-	nLen1 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, cFileName, nFileNameSize, cPath, MAX_PATH);
-	if ((nLen1 == RING_ZERO) || (nLen1 >= MAX_PATH)) {
-		return RING_OPENFILE(cFileName, cMode);
-	}
-	cPath[nLen1] = L'\0';
-	nLen2 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, cMode, nModeSize, cWMode, MAX_PATH);
-	if ((nLen2 == RING_ZERO) || (nLen2 >= MAX_PATH)) {
-		return RING_OPENFILE(cFileName, cMode);
-	}
-	cWMode[nLen2] = L'\0';
-	pFile = _wfopen(cPath, cWMode);
-	return pFile;
-#else
-	return RING_OPENFILE(cFileName, cMode);
-#endif
 }
 
 void ring_general_addosfileseparator(char *cFileName) {
@@ -236,33 +263,6 @@ int ring_general_folderexistinfilename(const char *cFolderName, const char *cFil
 		return 1;
 	}
 	return 0;
-}
-
-RING_API char *ring_general_numtostring(double nNum1, char *cStr, int nDecimals) {
-	char cOptions[RING_SMALLBUF];
-	int nNum2;
-	RING_LONGLONG nVal;
-	nVal = (RING_LONGLONG)nNum1;
-	if ((nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE)) {
-		sprintf(cStr, RING_LONGLONG_FORMAT, nVal);
-	} else {
-		sprintf(cOptions, "%s%df", "%.", nDecimals);
-#if RING_NOSNPRINTF
-		sprintf(cStr, cOptions, nNum1);
-#else
-		/* Avoid buffer overrun by using snprint() function */
-		nNum2 = snprintf(cStr, RING_MEDIUMBUF, cOptions, nNum1);
-		if (nNum2 >= RING_MEDIUMBUF) {
-			/* Result truncated so print in compact format with a precision of 90 */
-			nNum2 = snprintf(cStr, RING_MEDIUMBUF, "%.90e", nNum1);
-		}
-		if (nNum2 < 0) {
-			/* Error */
-			cStr[0] = 0;
-		}
-#endif
-	}
-	return cStr;
 }
 
 void ring_general_readline(char *cLine, unsigned int nSize) {

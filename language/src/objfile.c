@@ -7,7 +7,7 @@ void ring_objfile_writefile(RingState *pRingState) {
 	char cFileName[RING_HUGEBUF];
 	/* Create File */
 	sprintf(cFileName, "%so", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
-	fObj = (FILE *)ring_custom_fopen(cFileName, "w+b");
+	fObj = (FILE *)ring_general_fopen(cFileName, "w+b");
 	fprintf(fObj, "# Ring Object File\n");
 	fprintf(fObj, RING_OBJFILE_VERSION);
 	fprintf(fObj, "\n");
@@ -163,7 +163,7 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 	nBraceEnd = 0;
 	pList = NULL;
 	/* Open File */
-	fObj = (FILE *)ring_custom_fopen(cFileName, "rb");
+	fObj = (FILE *)ring_general_fopen(cFileName, "rb");
 	if (fObj == NULL) {
 		printf("%s %s \n", RING_CANTOPENFILE, cFileName);
 		return 0;
@@ -496,7 +496,7 @@ void ring_objfile_writeCfile(RingState *pRingState) {
 	nSize = strlen(cCodeFileName);
 	cCodeFileName[nSize - 4] = 'c';
 	cCodeFileName[nSize - 3] = '\0';
-	fCode = (FILE *)ring_custom_fopen(cCodeFileName, "w+b");
+	fCode = (FILE *)ring_general_fopen(cCodeFileName, "w+b");
 	/* write the main function */
 	fprintf(fCode, "#include \"ring.h\" \n\n");
 	fprintf(fCode, "#include \"ringappcode.h\" \n\n");
@@ -519,7 +519,7 @@ void ring_objfile_writeCfile(RingState *pRingState) {
 	fprintf(fCode, "}\n\n");
 	/* Create ringappcode.c */
 	fclose(fCode);
-	fCode = (FILE *)ring_custom_fopen("ringappcode.c", "w+b");
+	fCode = (FILE *)ring_general_fopen("ringappcode.c", "w+b");
 	fprintf(fCode, "#include \"ringappcode.h\" \n\n");
 	fprintf(fCode, "void loadRingCode(RingState *pRingState) {\n");
 	fprintf(fCode, "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n");
@@ -545,7 +545,7 @@ void ring_objfile_writeCfile(RingState *pRingState) {
 	/* Close File */
 	fclose(fCode);
 	/* Declare functions that load the Ring code */
-	fCode2 = (FILE *)ring_custom_fopen("ringappcode.h", "w+b");
+	fCode2 = (FILE *)ring_general_fopen("ringappcode.h", "w+b");
 	fprintf(fCode2, "#include \"ring.h\" \n\n");
 	fprintf(fCode2, "void loadRingCode(RingState *pRingState) ;\n\n");
 	for (x = 1; x <= nFunction; x++) {
@@ -582,7 +582,7 @@ int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List *pList, 
 				fclose(fCode);
 				/* Create another source file */
 				sprintf(cFileName, "ringappcode%d.c", nFunction);
-				fCode = (FILE *)ring_custom_fopen(cFileName, "w+b");
+				fCode = (FILE *)ring_general_fopen(cFileName, "w+b");
 				fprintf(fCode, "#include \"ring.h\" \n\n");
 				fprintf(fCode, "#include \"ringappcode.h\" \n\n");
 				/* Start New Functions */

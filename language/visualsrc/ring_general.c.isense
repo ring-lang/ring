@@ -1,5 +1,22 @@
 GetCurrentDir
 GetCurrentDir
+ring_general_printline
+ring_general_numtostring
+Type: char
+cOptions[RING_SMALLBUF]
+Type: int
+nNum2
+Type: RING_LONGLONG
+nVal
+ring_custom_fopen
+Type: RING_FILE
+pFile
+Type: int
+nLen1,nLen2,nFileNameSize,nModeSize
+Type: wchar_t
+cPath[MAX_PATH]
+Type: wchar_t
+cWMode[MAX_PATH]
 ring_general_fexists
 Type: FILE *
 pFile
@@ -36,7 +53,6 @@ x
 ring_general_isobjectfile
 Type: int
 x
-ring_general_printline
 ring_general_showtime
 Type: time_t
 vTimer
@@ -46,26 +62,10 @@ Type: struct tm*
 vTimeInfo
 Type: clock_t
 vClock
-ring_custom_fopen
-Type: RING_FILE
-pFile
-Type: int
-nLen1,nLen2,nFileNameSize,nModeSize
-Type: wchar_t
-cPath[MAX_PATH]
-Type: wchar_t
-cWMode[MAX_PATH]
 ring_general_addosfileseparator
 ring_general_folderexistinfilename
 Type: int
 x
-ring_general_numtostring
-Type: char
-cOptions[RING_SMALLBUF]
-Type: int
-nNum2
-Type: RING_LONGLONG
-nVal
 ring_general_readline
 Type: int
 x

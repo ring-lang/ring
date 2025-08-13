@@ -40,7 +40,7 @@ RING_API RingState *ring_state_new(void) {
 	ring_list_addint(pRingState->pCustomGlobalScopeStack, pRingState->nCustomGlobalScopeCounter);
 /* Log File */
 #if RING_LOGFILE
-	pRingState->pLogFile = (FILE *)ring_custom_fopen(RING_FILES_LOGFILE, "w+");
+	pRingState->pLogFile = (FILE *)ring_general_fopen(RING_FILES_LOGFILE, "w+");
 #endif
 	/* Tokens Only */
 	pRingState->lOnlyTokens = 0;
@@ -159,7 +159,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 	/* Switch To File Folder */
 	strcpy(cFileName2, cFileName);
 	if (lFreeFilesList == 0) {
-		pFile = ring_custom_fopen(cFileName, "r");
+		pFile = ring_general_fopen(cFileName, "r");
 		ring_general_switchtofilefolder(cFileName2);
 	} else {
 		pFile = RING_OPENFILE(cFileName, "r");
