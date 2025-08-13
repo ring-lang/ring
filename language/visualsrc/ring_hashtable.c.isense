@@ -96,14 +96,14 @@ x
 Type: HashItem *
 pItem
 ring_hashtable_new
+ring_hashtable_hashkey
 ring_hashtable_newitem
-ring_hashtable_deleteitem
-ring_hashtable_delete
-ring_hashtable_rebuild
 ring_hashtable_newnumber
 ring_hashtable_newpointer
-ring_hashtable_print
-ring_hashtable_hashkey
 ring_hashtable_finditem
 ring_hashtable_findnumber
 ring_hashtable_findpointer
+ring_hashtable_deleteitem
+ring_hashtable_delete
+ring_hashtable_rebuild
+ring_hashtable_print
