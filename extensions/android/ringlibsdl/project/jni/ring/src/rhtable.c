@@ -84,7 +84,7 @@ HashItem *ring_hashtable_finditem_gc(void *pRingState, HashTable *pHashTable, co
 
 int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	HashItem *pItem;
-	pItem = ring_hashtable_finditem(pHashTable, cKey);
+	pItem = ring_hashtable_finditem_gc(pRingState, pHashTable, cKey);
 	if (pItem != NULL) {
 		return pItem->HashValue.nIndex;
 	}
@@ -93,7 +93,7 @@ int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const 
 
 void *ring_hashtable_findpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	HashItem *pItem;
-	pItem = ring_hashtable_finditem(pHashTable, cKey);
+	pItem = ring_hashtable_finditem_gc(pRingState, pHashTable, cKey);
 	if (pItem != NULL) {
 		return pItem->HashValue.pValue;
 	}
