@@ -27,6 +27,9 @@ func Line75
 	? copy("=",75)
 
 func style cText,nStyle
+	if lower(trim(sysget("CUILIB_COLORS"))) = "0"
+		lCUILibColors = false
+	ok
 	if ! lCUILibColors 
 		see cText 
 		return
