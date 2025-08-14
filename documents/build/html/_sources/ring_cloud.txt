@@ -1,8 +1,8 @@
 .. index::
-	single: Deploying Ring Web Applications; Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)
+	single: Deploying Ring Web Applications; Deploying Ring Web Applications using Docker
 
-Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)
-=======================================================================================================
+Deploying Ring Web Applications using Docker
+============================================
 
 Chapter Author: Youssef Saeed
 

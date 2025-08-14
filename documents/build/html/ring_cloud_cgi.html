@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deploying Ring CGI Applications to Shared Hosting and Cloud Servers &mdash; Ring 1.24.0 documentation</title>
+  <title>Deploying Web Applications to Shared Hosting &mdash; Ring 1.24.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graphics and 2D Games programming using RingAllegro" href="allegro.html" />
-    <link rel="prev" title="Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)" href="ring_cloud.html" /> 
+    <link rel="prev" title="Deploying Ring Web Applications using Docker" href="ring_cloud.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -105,8 +105,8 @@
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Ring CGI Applications to Shared Hosting and Cloud Servers</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Web Applications to Shared Hosting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction-the-cgi-model">1. Introduction: The CGI Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">2. Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-cgi-compatible-ring-script">3. Creating a CGI-Compatible Ring Script</a></li>
@@ -224,7 +224,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Deploying Ring CGI Applications to Shared Hosting and Cloud Servers</li>
+      <li class="breadcrumb-item active">Deploying Web Applications to Shared Hosting</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -233,8 +233,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="deploying-ring-cgi-applications-to-shared-hosting-and-cloud-servers">
-<span id="index-0"></span><h1>Deploying Ring CGI Applications to Shared Hosting and Cloud Servers<a class="headerlink" href="#deploying-ring-cgi-applications-to-shared-hosting-and-cloud-servers" title="Permalink to this heading"></a></h1>
+  <section id="deploying-web-applications-to-shared-hosting">
+<span id="index-0"></span><h1>Deploying Web Applications to Shared Hosting<a class="headerlink" href="#deploying-web-applications-to-shared-hosting" title="Permalink to this heading"></a></h1>
 <p>Chapter Author: Youssef Saeed</p>
 <p>While modern application deployment often involves containers, many hosting environments—especially traditional shared hosting panels like cPanel and Plesk—do not allow running persistent background processes. For these platforms, the classic <strong>CGI (Common Gateway Interface)</strong> model remains the perfect and most compatible solution.</p>
 <p>This tutorial guides you through deploying Ring applications as CGI scripts. We will use a powerful, secure CGI wrapper script that makes the process robust and reliable across different hosting environments.</p>
@@ -651,7 +651,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>install.sh
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ring_cloud.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ring_cloud.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications using Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="allegro.html" class="btn btn-neutral float-right" title="Graphics and 2D Games programming using RingAllegro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

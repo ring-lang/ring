@@ -1,8 +1,8 @@
 .. index::
-	single: Deploying Ring CGI Applications; Deploying Ring CGI Applications to Shared Hosting and Cloud Servers
+	single: Deploying Ring CGI Applications; Deploying Web Applications to Shared Hosting
 
-Deploying Ring CGI Applications to Shared Hosting and Cloud Servers
-===================================================================
+Deploying Web Applications to Shared Hosting
+============================================
 
 Chapter Author: Youssef Saeed
 

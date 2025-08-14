@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy) &mdash; Ring 1.24.0 documentation</title>
+  <title>Deploying Ring Web Applications using Docker &mdash; Ring 1.24.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -27,7 +27,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Deploying Ring CGI Applications to Shared Hosting and Cloud Servers" href="ring_cloud_cgi.html" />
+    <link rel="next" title="Deploying Web Applications to Shared Hosting" href="ring_cloud_cgi.html" />
     <link rel="prev" title="Deploying Web Applications in the Cloud" href="deployincloud.html" /> 
 </head>
 
@@ -105,7 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Web Applications using Docker</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">2. Prerequisites</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dockerizing-your-ring-application">3. Dockerizing Your Ring Application</a><ul>
@@ -163,7 +163,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#conclusion">6. Conclusion</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Ring CGI Applications to Shared Hosting and Cloud Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
@@ -260,7 +260,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</li>
+      <li class="breadcrumb-item active">Deploying Ring Web Applications using Docker</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -269,8 +269,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="deploying-ring-web-applications-to-the-cloud-with-docker-and-a-reverse-proxy-nginx-traefik-or-caddy">
-<span id="index-0"></span><h1>Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)<a class="headerlink" href="#deploying-ring-web-applications-to-the-cloud-with-docker-and-a-reverse-proxy-nginx-traefik-or-caddy" title="Permalink to this heading"></a></h1>
+  <section id="deploying-ring-web-applications-using-docker">
+<span id="index-0"></span><h1>Deploying Ring Web Applications using Docker<a class="headerlink" href="#deploying-ring-web-applications-using-docker" title="Permalink to this heading"></a></h1>
 <p>Chapter Author: Youssef Saeed</p>
 <p>This tutorial guides you through containerizing a Ring application with Docker and setting up a reverse proxy for cloud deployment. We will explore three popular reverse proxy solutions: <strong>Nginx</strong> for a traditional, robust setup, <strong>Traefik</strong> for modern, dynamic routing, and <strong>Caddy</strong> for ultimate simplicity and automated HTTPS. You will learn how to create a production-ready setup using Docker Compose.</p>
 <nav class="contents local" id="table-of-contents">
@@ -944,7 +944,7 @@ ring.your-domain.com { # CHANGE THIS
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="deployincloud.html" class="btn btn-neutral float-left" title="Deploying Web Applications in the Cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-right" title="Deploying Ring CGI Applications to Shared Hosting and Cloud Servers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-right" title="Deploying Web Applications to Shared Hosting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
