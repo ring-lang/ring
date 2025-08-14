@@ -4,6 +4,9 @@
 	Author: Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+# Flag to control displaying console colors
+	lCUILibColors   = True
+
 func Width cString,nWidth
 	# Accept String or Number (Will be converted to a String)
 		if isNumber(cString) cString = "" + cString  ok
@@ -24,6 +27,10 @@ func Line75
 	? copy("=",75)
 
 func style cText,nStyle
+	if ! lCUILibColors 
+		see cText 
+		return
+	ok
 	switch nStyle
 		on :WhiteBlue
 			cc_print(CC_FG_WHITE  | CC_BG_BLUE, cText)
