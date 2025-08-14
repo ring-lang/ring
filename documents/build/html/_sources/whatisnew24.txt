@@ -88,6 +88,7 @@ The next samples are added:
 * samples/UsingJSONLib/test13.ring
 * samples/UsingHTTPLib/test20.ring
 * samples/UsingHTTPLib/test21.ring
+* samples/Language/syntaxfiles
 * samples/Language/ClassMethods/genfunctopassmethod.ring
 * samples/Language/ClassMethods/genfunctopassmethod2.ring
 * samples/Language/ChangeSyntax/newkeywordsinsideclasses.ring

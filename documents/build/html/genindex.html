@@ -102,6 +102,8 @@
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Ring CGI Applications to Shared Hosting and Cloud Servers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
@@ -285,6 +287,13 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    A Crucial Note on Host-Level CGI Support
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-21">Platform-Specific Guides</a>
+</li>
+      </ul></li>
+      <li>
     AbstractAxis Class
 
       <ul>
@@ -410,6 +419,8 @@
         <li><a href="gameengine.html#index-18">Game Engine for 2D Games</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Anonymous and Nested Functions
 
@@ -417,8 +428,6 @@
         <li><a href="fp.html#index-4">Functional Programming</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     apparguments() Function
 
@@ -1372,6 +1381,34 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    Caddy for Simplicity
+
+      <ul>
+        <li><a href="ring_cloud.html#index-18">Configure Your Hosts File</a>
+</li>
+        <li><a href="ring_cloud.html#index-16">Create the Caddyfile for Development</a>
+</li>
+        <li><a href="ring_cloud.html#index-17">Create the Docker Compose File for Development</a>
+</li>
+        <li><a href="ring_cloud.html#index-19">Run It</a>
+</li>
+      </ul></li>
+      <li>
+    Caddy with Automatic Let&#39;s Encrypt SSL
+
+      <ul>
+        <li><a href="ring_cloud.html#index-35">Create the Docker Compose File for Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-34">Create the Production Caddyfile</a>
+</li>
+        <li><a href="ring_cloud.html#index-30">Deploy</a>, <a href="ring_cloud.html#index-36">[1]</a>
+</li>
+        <li><a href="ring_cloud.html#index-32">Deploying to Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-33">Prerequisites for Production</a>
+</li>
+      </ul></li>
+      <li>
     Calculator Application
 
       <ul>
@@ -1712,6 +1749,13 @@
 </li>
       </ul></li>
       <li>
+    Cloud VM with Nginx &amp; FastCGI
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-11">Deployment Scenarios</a>
+</li>
+      </ul></li>
+      <li>
     Code Generator
 
       <ul>
@@ -1856,8 +1900,6 @@
         <li><a href="codegenerator.html#index-10">Code Generator</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Compact Syntax
 
@@ -1893,6 +1935,8 @@
         <li><a href="sourcecode.html#index-2">Building From Source Code</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Composition
 
@@ -1922,12 +1966,28 @@
 </li>
       </ul></li>
       <li>
+    Configure Nginx
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-18">Nginx &amp; FastCGI</a>
+</li>
+      </ul></li>
+      <li>
     Configure the Apache web server
 
       <ul>
         <li><a href="web.html#index-2">Using XAMPP Apache web server</a>
 </li>
         <li><a href="web.html#index-1">Web Development (CGI Library)</a>
+</li>
+      </ul></li>
+      <li>
+    Configure Your Hosts File
+
+      <ul>
+        <li><a href="ring_cloud.html#index-18">Caddy for Simplicity</a>
+</li>
+        <li><a href="ring_cloud.html#index-13">Traefik for Dynamic Routing</a>
 </li>
       </ul></li>
       <li>
@@ -2135,6 +2195,20 @@
 </li>
       </ul></li>
       <li>
+    cPanel
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-22">Platform-Specific Guides</a>
+</li>
+      </ul></li>
+      <li>
+    Create a Directly Executable Ring Script
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-16">Nginx &amp; FastCGI</a>
+</li>
+      </ul></li>
+      <li>
     Create Database
 
       <ul>
@@ -2188,6 +2262,70 @@
 </li>
       </ul></li>
       <li>
+    Create the .htaccess File
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-9">Shared Hosting</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Automated Initialization Script
+
+      <ul>
+        <li><a href="ring_cloud.html#index-24">Nginx with Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Caddyfile for Development
+
+      <ul>
+        <li><a href="ring_cloud.html#index-16">Caddy for Simplicity</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Docker Compose File for Development
+
+      <ul>
+        <li><a href="ring_cloud.html#index-17">Caddy for Simplicity</a>
+</li>
+        <li><a href="ring_cloud.html#index-9">Nginx as a Reverse Proxy</a>
+</li>
+        <li><a href="ring_cloud.html#index-12">Traefik for Dynamic Routing</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Docker Compose File for Production
+
+      <ul>
+        <li><a href="ring_cloud.html#index-35">Caddy with Automatic Let&#39;s Encrypt SSL</a>
+</li>
+        <li><a href="ring_cloud.html#index-23">Nginx with Let&#39;s Encrypt SSL</a>
+</li>
+        <li><a href="ring_cloud.html#index-29">Traefik with Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Nginx Configuration
+
+      <ul>
+        <li><a href="ring_cloud.html#index-8">Nginx as a Reverse Proxy</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Production Caddyfile
+
+      <ul>
+        <li><a href="ring_cloud.html#index-34">Caddy with Automatic Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
+    Create the Production Nginx Configuration
+
+      <ul>
+        <li><a href="ring_cloud.html#index-22">Nginx with Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
     Create Window
 
       <ul>
@@ -2219,6 +2357,13 @@
 
       <ul>
         <li><a href="scope.html#index-10">Scope Rules</a>
+</li>
+      </ul></li>
+      <li>
+    Creating a Sample Ring Application
+
+      <ul>
+        <li><a href="ring_cloud.html#index-4">Dockerizing Your Ring Application</a>
 </li>
       </ul></li>
       <li>
@@ -2261,6 +2406,13 @@
 
       <ul>
         <li><a href="qt.html#index-12">Desktop, WebAssembly and Mobile Development</a>
+</li>
+      </ul></li>
+      <li>
+    Creating the Dockerfile
+
+      <ul>
+        <li><a href="ring_cloud.html#index-5">Dockerizing Your Ring Application</a>
 </li>
       </ul></li>
       <li>
@@ -2660,10 +2812,72 @@
 </li>
       </ul></li>
       <li>
+    Deploy
+
+      <ul>
+        <li><a href="ring_cloud.html#index-30">Caddy with Automatic Let&#39;s Encrypt SSL</a>, <a href="ring_cloud.html#index-36">[1]</a>
+</li>
+        <li><a href="ring_cloud.html#index-31">Traefik with Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
     Deploying after updates
 
       <ul>
         <li><a href="deployincloud.html#index-6">Deploying Web Applications in the Cloud</a>
+</li>
+      </ul></li>
+      <li>
+    Deploying Ring CGI Applications
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-27">Conclusion</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-3">Creating a CGI-Compatible Ring Script</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-0">Deploying Ring CGI Applications to Shared Hosting and Cloud Servers</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-5">Deployment Scenarios</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-1">Introduction: The CGI Model</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-20">Platform-Specific Guides for Shared Hosting</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-2">Prerequisites</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-26">Security Considerations</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-4">The Universal Ring CGI Wrapper</a>
+</li>
+      </ul></li>
+      <li>
+    Deploying Ring Web Applications
+
+      <ul>
+        <li><a href="ring_cloud.html#index-37">Conclusion</a>
+</li>
+        <li><a href="ring_cloud.html#index-0">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</a>
+</li>
+        <li><a href="ring_cloud.html#index-20">Deploying to Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-3">Dockerizing Your Ring Application</a>
+</li>
+        <li><a href="ring_cloud.html#index-1">Introduction</a>
+</li>
+        <li><a href="ring_cloud.html#index-6">Local Development with Docker Compose</a>
+</li>
+        <li><a href="ring_cloud.html#index-2">Prerequisites</a>
+</li>
+      </ul></li>
+      <li>
+    Deploying to Production
+
+      <ul>
+        <li><a href="ring_cloud.html#index-32">Caddy with Automatic Let&#39;s Encrypt SSL</a>
+</li>
+        <li><a href="ring_cloud.html#index-21">Nginx with Let&#39;s Encrypt SSL</a>
+</li>
+        <li><a href="ring_cloud.html#index-26">Traefik with Let&#39;s Encrypt SSL</a>
 </li>
       </ul></li>
       <li>
@@ -2697,6 +2911,15 @@
 
       <ul>
         <li><a href="usingpico.html#index-4">Using Pico</a>
+</li>
+      </ul></li>
+      <li>
+    Deployment Scenarios
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-11">Cloud VM with Nginx &amp; FastCGI</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-6">Shared Hosting with .htaccess (Apache/LiteSpeed)</a>
 </li>
       </ul></li>
       <li>
@@ -2884,6 +3107,13 @@
 </li>
       </ul></li>
       <li>
+    DirectAdmin
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-24">Platform-Specific Guides</a>
+</li>
+      </ul></li>
+      <li>
     Direxists()
 
       <ul>
@@ -3052,6 +3282,15 @@
 
       <ul>
         <li><a href="controlstructures.html#index-9">Control Structures - First Style</a>
+</li>
+      </ul></li>
+      <li>
+    Dockerizing Your Ring Application
+
+      <ul>
+        <li><a href="ring_cloud.html#index-4">Creating a Sample Ring Application</a>
+</li>
+        <li><a href="ring_cloud.html#index-5">Creating the Dockerfile</a>
 </li>
       </ul></li>
       <li>
@@ -3282,6 +3521,13 @@
 
       <ul>
         <li><a href="whatisnew6.html#index-2">What is new in Ring 1.6?</a>
+</li>
+      </ul></li>
+      <li>
+    Enable and Start Services
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-13">Nginx &amp; FastCGI</a>
 </li>
       </ul></li>
       <li>
@@ -5767,10 +6013,24 @@
 </li>
       </ul></li>
       <li>
+    Install Dependencies
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-12">Nginx &amp; FastCGI</a>
+</li>
+      </ul></li>
+      <li>
     Install Qt for Android
 
       <ul>
         <li><a href="qtmobile.html#index-2">Building RingQt Applications for Mobile</a>
+</li>
+      </ul></li>
+      <li>
+    Install Ring in a System Location
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-14">Nginx &amp; FastCGI</a>
 </li>
       </ul></li>
       <li>
@@ -5872,6 +6132,8 @@
         <li><a href="systemfunc.html#index-12">System Functions</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     isappcompiled() Function
 
@@ -5879,8 +6141,6 @@
         <li><a href="stdlib.html#index-1">Stdlib Functions</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     isattribute()
 
@@ -6234,6 +6494,13 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    KeyHelp
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-25">Platform-Specific Guides</a>
+</li>
+      </ul></li>
+      <li>
     KeyPress and Mouse Move Events
 
       <ul>
@@ -6531,8 +6798,6 @@
         <li><a href="whatisnew9.html#index-1">What is new in Ring 1.9?</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     List of Functions
 
@@ -6540,6 +6805,8 @@
         <li><a href="usingrogueutil.html#index-9">Using RogueUtil</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     list of functions
 
@@ -6680,6 +6947,17 @@
 
       <ul>
         <li><a href="debug.html#index-1">The Trace Library and the Interactive Debugger</a>
+</li>
+      </ul></li>
+      <li>
+    Local Development
+
+      <ul>
+        <li><a href="ring_cloud.html#index-15">Using Caddy for Simplicity &amp; Auto-HTTPS</a>
+</li>
+        <li><a href="ring_cloud.html#index-7">Using Nginx as a Reverse Proxy</a>
+</li>
+        <li><a href="ring_cloud.html#index-11">Using Traefik for Dynamic Routing &amp; Local HTTPS</a>
 </li>
       </ul></li>
       <li>
@@ -6843,6 +7121,13 @@
 
       <ul>
         <li><a href="usingopengl.html#index-15">Using RingOpenGL and RingFreeGLUT for 3D  Graphics</a>
+</li>
+      </ul></li>
+      <li>
+    Make the Ring Executable System-Wide
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-15">Nginx &amp; FastCGI</a>
 </li>
       </ul></li>
       <li>
@@ -7705,8 +7990,6 @@
         <li><a href="whatisnew9.html#index-2">What is new in Ring 1.9?</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     New Style to Ring Notepad
 
@@ -7733,6 +8016,55 @@
 
       <ul>
         <li><a href="whatisnew21.html#index-17">What is new in Ring  1.21</a>
+</li>
+      </ul></li>
+      <li>
+    Nginx &amp; FastCGI
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-18">Configure Nginx</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-16">Create a Directly Executable Ring Script</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-13">Enable and Start Services</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-12">Install Dependencies</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-14">Install Ring in a System Location</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-15">Make the Ring Executable System-Wide</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-19">Restart and Test</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-17">Upload Script and Set Permissions</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    Nginx as a Reverse Proxy
+
+      <ul>
+        <li><a href="ring_cloud.html#index-9">Create the Docker Compose File for Development</a>
+</li>
+        <li><a href="ring_cloud.html#index-8">Create the Nginx Configuration</a>
+</li>
+        <li><a href="ring_cloud.html#index-10">Run It</a>
+</li>
+      </ul></li>
+      <li>
+    Nginx with Let&#39;s Encrypt SSL
+
+      <ul>
+        <li><a href="ring_cloud.html#index-24">Create the Automated Initialization Script</a>
+</li>
+        <li><a href="ring_cloud.html#index-23">Create the Docker Compose File for Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-22">Create the Production Nginx Configuration</a>
+</li>
+        <li><a href="ring_cloud.html#index-21">Deploying to Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-25">The Automated Deployment Process</a>
 </li>
       </ul></li>
       <li>
@@ -8431,6 +8763,21 @@
 </li>
       </ul></li>
       <li>
+    Platform-Specific Guides
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-21">A Crucial Note on Host-Level CGI Support</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-22">cPanel</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-24">DirectAdmin</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-25">KeyHelp</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-23">Plesk</a>
+</li>
+      </ul></li>
+      <li>
     Play Sound
 
       <ul>
@@ -8446,6 +8793,13 @@
         <li><a href="gameengine.html#index-16">Game Engine for 2D Games</a>
 </li>
         <li><a href="allegro.html#index-3">Graphics and Game Programming</a>
+</li>
+      </ul></li>
+      <li>
+    Plesk
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-23">Platform-Specific Guides</a>
 </li>
       </ul></li>
       <li>
@@ -8498,6 +8852,8 @@
         <li><a href="postgresql.html#index-4">RingPostgreSQL Functions</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     PostgreSQL Class
 
@@ -8505,8 +8861,6 @@
         <li><a href="stdlibclasses.html#index-18">Stdlib Classes</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Practical
 
@@ -8519,6 +8873,22 @@
 
       <ul>
         <li><a href="codegenerator.html#index-5">Code Generator</a>
+</li>
+      </ul></li>
+      <li>
+    Prepare Production Files
+
+      <ul>
+        <li><a href="ring_cloud.html#index-28">Traefik with Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
+    Prerequisites for Production
+
+      <ul>
+        <li><a href="ring_cloud.html#index-33">Caddy with Automatic Let&#39;s Encrypt SSL</a>
+</li>
+        <li><a href="ring_cloud.html#index-27">Traefik with Let&#39;s Encrypt SSL</a>
 </li>
       </ul></li>
       <li>
@@ -11967,6 +12337,13 @@
 </li>
       </ul></li>
       <li>
+    Restart and Test
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-19">Nginx &amp; FastCGI</a>
+</li>
+      </ul></li>
+      <li>
     Restore Image From The Database
 
       <ul>
@@ -13948,6 +14325,17 @@
 </li>
       </ul></li>
       <li>
+    Run It
+
+      <ul>
+        <li><a href="ring_cloud.html#index-19">Caddy for Simplicity</a>
+</li>
+        <li><a href="ring_cloud.html#index-10">Nginx as a Reverse Proxy</a>
+</li>
+        <li><a href="ring_cloud.html#index-14">Traefik for Dynamic Routing</a>
+</li>
+      </ul></li>
+      <li>
     Run Package
 
       <ul>
@@ -14347,6 +14735,26 @@
 </li>
       </ul></li>
       <li>
+    Shared Hosting
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-9">Create the .htaccess File</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-8">Upload and Configure the CGI Wrapper</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-10">Upload and Test Your Ring Application</a>
+</li>
+        <li><a href="ring_cloud_cgi.html#index-7">Upload the Ring Language</a>
+</li>
+      </ul></li>
+      <li>
+    Shared Hosting with .htaccess (Apache/LiteSpeed)
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-6">Deployment Scenarios</a>
+</li>
+      </ul></li>
+      <li>
     Shared Libraries
 
       <ul>
@@ -14716,6 +15124,8 @@
         <li><a href="stdlibclasses.html#index-1">Stdlib Classes</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     StdLib - More Functions
 
@@ -14770,8 +15180,6 @@
         <li><a href="stdlibclasses.html#index-7">Tree Class</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Stdlib Functions
 
@@ -15447,6 +15855,13 @@
 </li>
       </ul></li>
       <li>
+    The Automated Deployment Process
+
+      <ul>
+        <li><a href="ring_cloud.html#index-25">Nginx with Let&#39;s Encrypt SSL</a>
+</li>
+      </ul></li>
+      <li>
     The Browser Menu
 
       <ul>
@@ -15849,6 +16264,32 @@
 </li>
       </ul></li>
       <li>
+    Traefik for Dynamic Routing
+
+      <ul>
+        <li><a href="ring_cloud.html#index-13">Configure Your Hosts File</a>
+</li>
+        <li><a href="ring_cloud.html#index-12">Create the Docker Compose File for Development</a>
+</li>
+        <li><a href="ring_cloud.html#index-14">Run It</a>
+</li>
+      </ul></li>
+      <li>
+    Traefik with Let&#39;s Encrypt SSL
+
+      <ul>
+        <li><a href="ring_cloud.html#index-29">Create the Docker Compose File for Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-31">Deploy</a>
+</li>
+        <li><a href="ring_cloud.html#index-26">Deploying to Production</a>
+</li>
+        <li><a href="ring_cloud.html#index-28">Prepare Production Files</a>
+</li>
+        <li><a href="ring_cloud.html#index-27">Prerequisites for Production</a>
+</li>
+      </ul></li>
+      <li>
     Transaction Example
 
       <ul>
@@ -16082,10 +16523,38 @@
 </li>
       </ul></li>
       <li>
+    Upload and Configure the CGI Wrapper
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-8">Shared Hosting</a>
+</li>
+      </ul></li>
+      <li>
+    Upload and Test Your Ring Application
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-10">Shared Hosting</a>
+</li>
+      </ul></li>
+      <li>
     Upload Files
 
       <ul>
         <li><a href="web.html#index-10">Web Development (CGI Library)</a>
+</li>
+      </ul></li>
+      <li>
+    Upload Script and Set Permissions
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-17">Nginx &amp; FastCGI</a>
+</li>
+      </ul></li>
+      <li>
+    Upload the Ring Language
+
+      <ul>
+        <li><a href="ring_cloud_cgi.html#index-7">Shared Hosting</a>
 </li>
       </ul></li>
       <li>
@@ -16291,6 +16760,13 @@
 
       <ul>
         <li><a href="distribute.html#index-5">Distributing Ring Application</a>
+</li>
+      </ul></li>
+      <li>
+    Using Caddy for Simplicity &amp; Auto-HTTPS
+
+      <ul>
+        <li><a href="ring_cloud.html#index-15">Local Development</a>
 </li>
       </ul></li>
       <li>
@@ -16516,6 +16992,13 @@
 </li>
       </ul></li>
       <li>
+    Using Nginx as a Reverse Proxy
+
+      <ul>
+        <li><a href="ring_cloud.html#index-7">Local Development</a>
+</li>
+      </ul></li>
+      <li>
     Using Notepad++
 
       <ul>
@@ -16651,6 +17134,8 @@
         <li><a href="qt.html#index-20">Desktop, WebAssembly and Mobile Development</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Using QDockWidget
 
@@ -16672,8 +17157,6 @@
         <li><a href="qt.html#index-44">Desktop, WebAssembly and Mobile Development</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Using qLCDNumber
 
@@ -17188,6 +17671,13 @@
         <li><a href="tokenslib.html#index-1">Introduction</a>
 </li>
         <li><a href="tokenslib.html#index-2">RingTokens Class</a>
+</li>
+      </ul></li>
+      <li>
+    Using Traefik for Dynamic Routing &amp; Local HTTPS
+
+      <ul>
+        <li><a href="ring_cloud.html#index-11">Local Development</a>
 </li>
       </ul></li>
       <li>

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy) &mdash; Ring 1.24.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Deploying Ring CGI Applications to Shared Hosting and Cloud Servers" href="ring_cloud_cgi.html" />
+    <link rel="prev" title="Deploying Web Applications in the Cloud" href="deployincloud.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dockerizing-your-ring-application">3. Dockerizing Your Ring Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-sample-ring-application">Creating a Sample Ring Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-dockerfile">Creating the Dockerfile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#local-development-with-docker-compose">4. Local Development with Docker Compose</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#path-a-using-nginx-as-a-reverse-proxy">Path A: Using Nginx as a Reverse Proxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-nginx-configuration">1. Create the Nginx Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-docker-compose-file-for-development">2. Create the Docker Compose File for Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-it">3. Run It</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#path-b-using-traefik-for-dynamic-routing-local-https">Path B: Using Traefik for Dynamic Routing &amp; Local HTTPS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#index-12">1. Create the Docker Compose File for Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-your-hosts-file">2. Configure Your Hosts File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-14">3. Run It</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#path-c-using-caddy-for-simplicity-auto-https">Path C: Using Caddy for Simplicity &amp; Auto-HTTPS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-caddyfile-for-development">1. Create the Caddyfile for Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-17">2. Create the Docker Compose File for Development</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-18">3. Configure Your Hosts File</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-19">4. Run It</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-to-production">5. Deploying to Production</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#path-a-nginx-with-let-s-encrypt-ssl">Path A: Nginx with Let’s Encrypt SSL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites-for-production">Prerequisites for Production:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-production-nginx-configuration">1. Create the Production Nginx Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-docker-compose-file-for-production">2. Create the Docker Compose File for Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-automated-initialization-script">3. Create the Automated Initialization Script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-automated-deployment-process">4. The Automated Deployment Process</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#path-b-traefik-with-let-s-encrypt-ssl">Path B: Traefik with Let’s Encrypt SSL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#index-27">Prerequisites for Production:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-production-files">1. Prepare Production Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-29">2. Create the Docker Compose File for Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deploy">3. Deploy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#path-c-caddy-with-automatic-let-s-encrypt-ssl">Path C: Caddy with Automatic Let’s Encrypt SSL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#index-33">Prerequisites for Production:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-production-caddyfile">1. Create the Production Caddyfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-35">2. Create the Docker Compose File for Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-36">3. Deploy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">6. Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Ring CGI Applications to Shared Hosting and Cloud Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deploying-ring-web-applications-to-the-cloud-with-docker-and-a-reverse-proxy-nginx-traefik-or-caddy">
+<span id="index-0"></span><h1>Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)<a class="headerlink" href="#deploying-ring-web-applications-to-the-cloud-with-docker-and-a-reverse-proxy-nginx-traefik-or-caddy" title="Permalink to this heading"></a></h1>
+<p>Chapter Author: Youssef Saeed</p>
+<p>This tutorial guides you through containerizing a Ring application with Docker and setting up a reverse proxy for cloud deployment. We will explore three popular reverse proxy solutions: <strong>Nginx</strong> for a traditional, robust setup, <strong>Traefik</strong> for modern, dynamic routing, and <strong>Caddy</strong> for ultimate simplicity and automated HTTPS. You will learn how to create a production-ready setup using Docker Compose.</p>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id11">1. Introduction</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id12">2. Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#dockerizing-your-ring-application" id="id13">3. Dockerizing Your Ring Application</a></p>
+<ul>
+<li><p><a class="reference internal" href="#creating-a-sample-ring-application" id="id14">Creating a Sample Ring Application</a></p></li>
+<li><p><a class="reference internal" href="#creating-the-dockerfile" id="id15">Creating the Dockerfile</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#local-development-with-docker-compose" id="id16">4. Local Development with Docker Compose</a></p>
+<ul>
+<li><p><a class="reference internal" href="#path-a-using-nginx-as-a-reverse-proxy" id="id17">Path A: Using Nginx as a Reverse Proxy</a></p></li>
+<li><p><a class="reference internal" href="#path-b-using-traefik-for-dynamic-routing-local-https" id="id18">Path B: Using Traefik for Dynamic Routing &amp; Local HTTPS</a></p></li>
+<li><p><a class="reference internal" href="#path-c-using-caddy-for-simplicity-auto-https" id="id19">Path C: Using Caddy for Simplicity &amp; Auto-HTTPS</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#deploying-to-production" id="id20">5. Deploying to Production</a></p>
+<ul>
+<li><p><a class="reference internal" href="#path-a-nginx-with-let-s-encrypt-ssl" id="id21">Path A: Nginx with Let’s Encrypt SSL</a></p></li>
+<li><p><a class="reference internal" href="#path-b-traefik-with-let-s-encrypt-ssl" id="id22">Path B: Traefik with Let’s Encrypt SSL</a></p></li>
+<li><p><a class="reference internal" href="#path-c-caddy-with-automatic-let-s-encrypt-ssl" id="id23">Path C: Caddy with Automatic Let’s Encrypt SSL</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conclusion" id="id24">6. Conclusion</a></p></li>
+</ul>
+</nav>
+<section id="introduction">
+<span id="index-1"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink">1. Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>When deploying Ring web applications to the cloud, containerization with Docker is the standard for ensuring consistency across environments. A reverse proxy is essential for managing incoming traffic, handling SSL/TLS termination, and routing requests to your application container.</p>
+<p>This tutorial will demonstrate three common architectures:</p>
+<ul class="simple">
+<li><p><strong>Docker with Nginx:</strong> A classic, high-performance setup where Nginx acts as a reverse proxy. This is great for stable configurations and serving static files.</p></li>
+<li><p><strong>Docker with Traefik:</strong> A modern edge router that automatically discovers services and configures routing, making it ideal for dynamic, microservice-based environments.</p></li>
+<li><p><strong>Docker with Caddy:</strong> An incredibly simple, modern web server that provides automatic HTTPS by default, making secure deployments effortless.</p></li>
+</ul>
+<p>We will use the <code class="docutils literal notranslate"><span class="pre">ysdragon/ring:light</span></code> Docker image, which is optimized for web development.</p>
+</section>
+<section id="prerequisites">
+<span id="index-2"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink">2. Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>Before you begin, ensure you have the following installed on your system:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.docker.com/get-docker/">Docker</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/install/">Docker Compose</a></p></li>
+<li><p>(Optional, for Path B: Traefik) <code class="docutils literal notranslate"><span class="pre">htpasswd</span></code> for generating passwords. It’s often included in <code class="docutils literal notranslate"><span class="pre">apache2-utils</span></code> (Debian/Ubuntu) or <code class="docutils literal notranslate"><span class="pre">httpd-tools</span></code> (CentOS).</p></li>
+<li><p>A basic understanding of the Ring programming language.</p></li>
+<li><p>A basic understanding of command-line interfaces.</p></li>
+</ul>
+</section>
+<section id="dockerizing-your-ring-application">
+<span id="index-3"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">3. Dockerizing Your Ring Application</a><a class="headerlink" href="#dockerizing-your-ring-application" title="Permalink to this heading"></a></h2>
+<p>First, we’ll create a simple Ring web application and package it into a Docker image.</p>
+<section id="creating-a-sample-ring-application">
+<span id="index-4"></span><h3><a class="toc-backref" href="#id14" role="doc-backlink">Creating a Sample Ring Application</a><a class="headerlink" href="#creating-a-sample-ring-application" title="Permalink to this heading"></a></h3>
+<p>Create a new directory for your project, navigate into it, and then create a file named <code class="docutils literal notranslate"><span class="pre">app.ring</span></code> with the following content:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="c"># Main Execution Block</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+    <span class="c"># Route for the root path</span>
+    <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span> <span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="p">:</span><span class="n">mainRoute</span><span class="p">)</span>
+
+    <span class="c"># Listen on all available network interfaces on port 8080</span>
+    <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">mainRoute</span>
+    <span class="c"># Set content type to HTML</span>
+    <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">Ring</span> <span class="n">HTTPLib</span> <span class="n">App</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Hello</span> <span class="k">from</span> <span class="n">Ring</span> <span class="n">HTTPLib</span><span class="o">!&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">This</span> <span class="n">is</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">Ring</span> <span class="n">application</span> <span class="n">running</span> <span class="n">inside</span> <span class="n">a</span> <span class="n">Docker</span> <span class="n">container</span><span class="p">.</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span><span class="s">&quot;, &quot;</span><span class="n">text</span><span class="o">/</span><span class="s">html&quot;)</span>
+</pre></div>
+</div>
+<p>This application uses <code class="docutils literal notranslate"><span class="pre">HTTPLib</span></code> to listen on port <code class="docutils literal notranslate"><span class="pre">8080</span></code> and serve a simple HTML page.</p>
+</section>
+<section id="creating-the-dockerfile">
+<span id="index-5"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Creating the Dockerfile</a><a class="headerlink" href="#creating-the-dockerfile" title="Permalink to this heading"></a></h3>
+<p>In the same project directory, create a file named <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> (no extension):</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># Use a lightweight Ring image as the base</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ysdragon/ring:light</span>
+
+<span class="c"># Set the working directory inside the container</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Copy the application source code</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+
+<span class="c"># The ysdragon/ring:light image uses the RING_FILE environment variable</span>
+<span class="c"># to determine which script to run. We&#39;ll set this in docker compose.</span>
+<span class="c"># It also automatically exposes port 8080.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="local-development-with-docker-compose">
+<span id="index-6"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">4. Local Development with Docker Compose</a><a class="headerlink" href="#local-development-with-docker-compose" title="Permalink to this heading"></a></h2>
+<p>Now, choose one of the following paths for your local development setup.</p>
+<p>—</p>
+<section id="path-a-using-nginx-as-a-reverse-proxy">
+<span id="index-7"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">Path A: Using Nginx as a Reverse Proxy</a><a class="headerlink" href="#path-a-using-nginx-as-a-reverse-proxy" title="Permalink to this heading"></a></h3>
+<p>This approach uses Nginx to forward traffic from <code class="docutils literal notranslate"><span class="pre">http://localhost</span></code> to your Ring application container.</p>
+<section id="create-the-nginx-configuration">
+<span id="index-8"></span><h4>1. Create the Nginx Configuration<a class="headerlink" href="#create-the-nginx-configuration" title="Permalink to this heading"></a></h4>
+<p>Create a directory named <code class="docutils literal notranslate"><span class="pre">nginx</span></code>, and inside it, create a file named <code class="docutils literal notranslate"><span class="pre">nginx.conf</span></code>:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="c1"># nginx/nginx.conf</span>
+<span class="k">events</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">worker_connections</span><span class="w"> </span><span class="mi">1024</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">localhost</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://ring-app-dev:8080</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="create-the-docker-compose-file-for-development">
+<span id="index-9"></span><h4>2. Create the Docker Compose File for Development<a class="headerlink" href="#create-the-docker-compose-file-for-development" title="Permalink to this heading"></a></h4>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.dev.yml</span></code> file in your project root:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.dev.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ring-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app-dev</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RING_FILE=app.ring</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app:ro</span>
+
+<span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-proxy-dev</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./nginx/nginx.conf:/etc/nginx/nginx.conf:ro</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app</span>
+</pre></div>
+</div>
+</section>
+<section id="run-it">
+<span id="index-10"></span><h4>3. Run It<a class="headerlink" href="#run-it" title="Permalink to this heading"></a></h4>
+<p>Open your terminal and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up<span class="w"> </span>--build
+</pre></div>
+</div>
+<p>You can now access your application at <code class="docutils literal notranslate"><span class="pre">http://localhost</span></code>.</p>
+<p>—</p>
+</section>
+</section>
+<section id="path-b-using-traefik-for-dynamic-routing-local-https">
+<span id="index-11"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Path B: Using Traefik for Dynamic Routing &amp; Local HTTPS</a><a class="headerlink" href="#path-b-using-traefik-for-dynamic-routing-local-https" title="Permalink to this heading"></a></h3>
+<p>This approach uses Traefik to automatically detect the Ring application and provide routing, including generating a self-signed SSL certificate for a secure local development environment.</p>
+<section id="index-12">
+<span id="id1"></span><h4>1. Create the Docker Compose File for Development<a class="headerlink" href="#index-12" title="Permalink to this heading"></a></h4>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.dev.yml</span></code> in your project root. <strong>If you created one for Nginx, replace its contents with this.</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.dev.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">traefik</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik-dev</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--api.insecure=true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--providers.docker=true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--providers.docker.exposedbydefault=false</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoints.web.address=:80</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoints.websecure.address=:443</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--serversTransport.insecureSkipVerify=true</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8081:8080&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+
+<span class="w">  </span><span class="nt">ring-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app-dev</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RING_FILE=app.ring</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app:ro</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-http.rule=Host(`ring.localhost`)&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-http.entrypoints=web&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-secure.rule=Host(`ring.localhost`)&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-secure.entrypoints=websecure&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-secure.tls=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.services.ring-app-service.loadbalancer.server.port=8080&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="configure-your-hosts-file">
+<span id="index-13"></span><h4>2. Configure Your Hosts File<a class="headerlink" href="#configure-your-hosts-file" title="Permalink to this heading"></a></h4>
+<p>To make <code class="docutils literal notranslate"><span class="pre">ring.localhost</span></code> work on your machine, edit your <code class="docutils literal notranslate"><span class="pre">hosts</span></code> file to point it to your local machine.</p>
+<ul class="simple">
+<li><p><strong>Linux/macOS:</strong> <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/hosts</span></code></p></li>
+<li><p><strong>Windows:</strong> Open Notepad as Administrator and open <code class="docutils literal notranslate"><span class="pre">C:\Windows\System32\drivers\etc\hosts</span></code></p></li>
+</ul>
+<p>Add the following line:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>127.0.0.1 ring.localhost
+</pre></div>
+</div>
+</section>
+<section id="index-14">
+<span id="id2"></span><h4>3. Run It<a class="headerlink" href="#index-14" title="Permalink to this heading"></a></h4>
+<p>Open your terminal and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up<span class="w"> </span>--build
+</pre></div>
+</div>
+<p>You can now access:</p>
+<ul class="simple">
+<li><p><strong>Your App (HTTP):</strong> <code class="docutils literal notranslate"><span class="pre">http://ring.localhost</span></code></p></li>
+<li><p><strong>Your App (HTTPS):</strong> <code class="docutils literal notranslate"><span class="pre">https://ring.localhost</span></code> (Your browser will show a security warning. Proceed anyway.)</p></li>
+<li><p><strong>Traefik Dashboard:</strong> <code class="docutils literal notranslate"><span class="pre">http://localhost:8081</span></code></p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="path-c-using-caddy-for-simplicity-auto-https">
+<span id="index-15"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Path C: Using Caddy for Simplicity &amp; Auto-HTTPS</a><a class="headerlink" href="#path-c-using-caddy-for-simplicity-auto-https" title="Permalink to this heading"></a></h3>
+<p>This approach uses Caddy to serve your application. Caddy automatically provisions a self-signed certificate for local development, providing HTTPS with zero effort.</p>
+<section id="create-the-caddyfile-for-development">
+<span id="index-16"></span><h4>1. Create the Caddyfile for Development<a class="headerlink" href="#create-the-caddyfile-for-development" title="Permalink to this heading"></a></h4>
+<p>Create a file named <code class="docutils literal notranslate"><span class="pre">Caddyfile.dev</span></code> in your project root:</p>
+<div class="highlight-caddy notranslate"><div class="highlight"><pre><span></span># Caddyfile.dev
+{
+    # For local development, allow Caddy to generate and trust self-signed certs
+    local_certs
+}
+
+ring.localhost {
+    # Reverse proxy requests to our Ring application container
+    reverse_proxy ring-app-dev:8080
+}
+</pre></div>
+</div>
+</section>
+<section id="index-17">
+<span id="id3"></span><h4>2. Create the Docker Compose File for Development<a class="headerlink" href="#index-17" title="Permalink to this heading"></a></h4>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.dev.yml</span></code> file. <strong>If you created one for another path, replace its contents with this.</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.dev.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ring-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app-dev</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RING_FILE=app.ring</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app:ro</span>
+
+<span class="w">  </span><span class="nt">caddy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy-proxy-dev</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Caddyfile.dev:/etc/caddy/Caddyfile</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy_data:/data</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">caddy_data</span><span class="p">:</span>
+</pre></div>
+</div>
+</section>
+<section id="index-18">
+<span id="id4"></span><h4>3. Configure Your Hosts File<a class="headerlink" href="#index-18" title="Permalink to this heading"></a></h4>
+<p>To make <code class="docutils literal notranslate"><span class="pre">ring.localhost</span></code> work, edit your <code class="docutils literal notranslate"><span class="pre">hosts</span></code> file to point it to your local machine.</p>
+<ul class="simple">
+<li><p><strong>Linux/macOS:</strong> <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/hosts</span></code></p></li>
+<li><p><strong>Windows:</strong> Open Notepad as Administrator and open <code class="docutils literal notranslate"><span class="pre">C:\Windows\System32\drivers\etc\hosts</span></code></p></li>
+</ul>
+<p>Add the following line:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>127.0.0.1 ring.localhost
+</pre></div>
+</div>
+</section>
+<section id="index-19">
+<span id="id5"></span><h4>4. Run It<a class="headerlink" href="#index-19" title="Permalink to this heading"></a></h4>
+<p>Open your terminal and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.dev.yml<span class="w"> </span>up<span class="w"> </span>--build
+</pre></div>
+</div>
+<p>You can now access:</p>
+<ul class="simple">
+<li><p><strong>Your App (HTTPS):</strong> <code class="docutils literal notranslate"><span class="pre">https://ring.localhost</span></code> (Your browser may show a one-time warning. Accept it to proceed.)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="deploying-to-production">
+<span id="index-20"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink">5. Deploying to Production</a><a class="headerlink" href="#deploying-to-production" title="Permalink to this heading"></a></h2>
+<section id="path-a-nginx-with-let-s-encrypt-ssl">
+<span id="index-21"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Path A: Nginx with Let’s Encrypt SSL</a><a class="headerlink" href="#path-a-nginx-with-let-s-encrypt-ssl" title="Permalink to this heading"></a></h3>
+<p>This setup uses Nginx alongside Certbot. To solve the initial startup puzzle (where Nginx needs a certificate to start, but Certbot needs a server to get a certificate), we will use an initialization script that leverages Certbot’s <code class="docutils literal notranslate"><span class="pre">standalone</span></code> mode. This runs a temporary webserver on port 80 to get the certificate, cleanly separating the one-time setup from the long-running application stack.</p>
+<section id="prerequisites-for-production">
+<h4>Prerequisites for Production:<a class="headerlink" href="#prerequisites-for-production" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>A cloud VM with Docker and Docker Compose installed.</p></li>
+<li><p>A registered domain name (e.g., <code class="docutils literal notranslate"><span class="pre">your-domain.com</span></code>).</p></li>
+<li><p>A DNS “A” record pointing your domain (e.g., <code class="docutils literal notranslate"><span class="pre">ring.your-domain.com</span></code>) to your VM’s public IP address.</p></li>
+<li><p>Your server’s firewall must allow inbound traffic on port <code class="docutils literal notranslate"><span class="pre">80</span></code> (for the SSL challenge) and <code class="docutils literal notranslate"><span class="pre">443</span></code> (for the final HTTPS traffic).</p></li>
+</ol>
+</section>
+<section id="create-the-production-nginx-configuration">
+<span id="index-22"></span><h4>1. Create the Production Nginx Configuration<a class="headerlink" href="#create-the-production-nginx-configuration" title="Permalink to this heading"></a></h4>
+<p>This will be the final configuration that Nginx uses once SSL is active. Create a directory named <code class="docutils literal notranslate"><span class="pre">nginx-prod</span></code>, and inside it, create a file named <code class="docutils literal notranslate"><span class="pre">default.conf</span></code>:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="c1"># nginx-prod/default.conf</span>
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">ring.your-domain.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+
+<span class="w">    </span><span class="c1"># Certbot validation and redirect all other traffic to HTTPS</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/.well-known/acme-challenge/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/certbot</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">http2</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">ring.your-domain.com</span><span class="p">;</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+
+<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/ring.your-domain.com/fullchain.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/letsencrypt/live/ring.your-domain.com/privkey.pem</span><span class="p">;</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+<span class="w">    </span><span class="kn">include</span><span class="w"> </span><span class="s">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_dhparam</span><span class="w"> </span><span class="s">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://ring-app-prod:8080</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="create-the-docker-compose-file-for-production">
+<span id="index-23"></span><h4>2. Create the Docker Compose File for Production<a class="headerlink" href="#create-the-docker-compose-file-for-production" title="Permalink to this heading"></a></h4>
+<p>This file defines the final, long-running state of your services. It will be used <strong>after</strong> you have obtained the certificates.</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">docker-compose.prod.yml</span></code> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.prod.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ring-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RING_FILE=app.ring</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app:ro</span>
+
+<span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-proxy-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./nginx-prod/default.conf:/etc/nginx/conf.d/default.conf:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./certbot/conf:/etc/letsencrypt:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./certbot/www:/var/www/certbot:ro</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app</span>
+
+<span class="w">  </span><span class="nt">certbot</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certbot/certbot</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certbot-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./certbot/conf:/etc/letsencrypt:rw</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./certbot/www:/var/www/certbot:rw</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">renew --quiet</span>
+</pre></div>
+</div>
+</section>
+<section id="create-the-automated-initialization-script">
+<span id="index-24"></span><h4>3. Create the Automated Initialization Script<a class="headerlink" href="#create-the-automated-initialization-script" title="Permalink to this heading"></a></h4>
+<p>This self-contained script handles the one-time setup by running a temporary Certbot container. Create a file named <code class="docutils literal notranslate"><span class="pre">init-letsencrypt.sh</span></code> in your project root.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># =================================================================</span>
+<span class="c1"># This script uses a standalone &#39;docker run&#39; command to get the</span>
+<span class="c1"># initial SSL certificate, making it independent of docker compose.</span>
+<span class="c1"># =================================================================</span>
+
+<span class="c1"># Stop immediately if any command fails</span>
+<span class="nb">set</span><span class="w"> </span>-e
+
+<span class="c1"># --- Configuration ---</span>
+<span class="nv">DOMAIN</span><span class="o">=</span><span class="s2">&quot;ring.your-domain.com&quot;</span>
+<span class="nv">EMAIL</span><span class="o">=</span><span class="s2">&quot;your-email@example.com&quot;</span>
+<span class="c1"># --- End of Configuration ---</span>
+
+<span class="c1"># Function for colored output</span>
+color_echo<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\e[</span><span class="nv">$1</span><span class="s2">m</span><span class="nv">$2</span><span class="s2">\e[0m&quot;</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
+
+<span class="c1"># Check if certificates already exist</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;certbot/conf/live/</span><span class="nv">$DOMAIN</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>color_echo<span class="w"> </span><span class="s2">&quot;33&quot;</span><span class="w"> </span><span class="s2">&quot;Certificates for </span><span class="nv">$DOMAIN</span><span class="s2"> already exist. Exiting.&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="k">fi</span>
+
+<span class="c1"># Step 1: Create required directories and download SSL parameters</span>
+color_echo<span class="w"> </span><span class="s2">&quot;34&quot;</span><span class="w"> </span><span class="s2">&quot;Creating directories and downloading recommended SSL parameters...&quot;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>./certbot/conf<span class="w"> </span>./certbot/www
+curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;./certbot/conf/options-ssl-nginx.conf&quot;</span>
+curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/certbot/certbot/master/certbot/certbot/ssl-dhparams.pem<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;./certbot/conf/ssl-dhparams.pem&quot;</span>
+
+<span class="c1"># Step 2: Request the certificate using a temporary standalone Certbot container</span>
+color_echo<span class="w"> </span><span class="s2">&quot;34&quot;</span><span class="w"> </span><span class="s2">&quot;Requesting Let&#39;s Encrypt certificate for </span><span class="nv">$DOMAIN</span><span class="s2">...&quot;</span>
+<span class="c1"># Temporarily stop any services running on port 80</span>
+color_echo<span class="w"> </span><span class="s2">&quot;33&quot;</span><span class="w"> </span><span class="s2">&quot;Stopping any running services on port 80...&quot;</span>
+docker<span class="w"> </span>stop<span class="w"> </span>nginx-proxy-prod<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="c1"># Run the certbot container</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="s2">&quot;./certbot/conf:/etc/letsencrypt&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="s2">&quot;./certbot/www:/var/www/certbot&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>certbot/certbot<span class="w"> </span>certonly<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--standalone<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--email<span class="w"> </span><span class="nv">$EMAIL</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--agree-tos<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--no-eff-email<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="nv">$DOMAIN</span>
+
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>color_echo<span class="w"> </span><span class="s2">&quot;31&quot;</span><span class="w"> </span><span class="s2">&quot;Certbot failed. Please check the logs.&quot;</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+
+color_echo<span class="w"> </span><span class="s2">&quot;32&quot;</span><span class="w"> </span><span class="s2">&quot;\n=================================================&quot;</span>
+color_echo<span class="w"> </span><span class="s2">&quot;32&quot;</span><span class="w"> </span><span class="s2">&quot; SSL setup complete!&quot;</span>
+color_echo<span class="w"> </span><span class="s2">&quot;32&quot;</span><span class="w"> </span><span class="s2">&quot; You can now start the full stack with:&quot;</span>
+color_echo<span class="w"> </span><span class="s2">&quot;32&quot;</span><span class="w"> </span><span class="s2">&quot;   docker compose -f docker-compose.prod.yml up -d&quot;</span>
+color_echo<span class="w"> </span><span class="s2">&quot;32&quot;</span><span class="w"> </span><span class="s2">&quot;=================================================&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-automated-deployment-process">
+<span id="index-25"></span><h4>4. The Automated Deployment Process<a class="headerlink" href="#the-automated-deployment-process" title="Permalink to this heading"></a></h4>
+<p>Your deployment is now a simple, reliable two-stage process.</p>
+<p><strong>First, perform the one-time initialization:</strong></p>
+<ol class="arabic">
+<li><p><strong>Edit the script:</strong> Open <code class="docutils literal notranslate"><span class="pre">init-letsencrypt.sh</span></code> and replace the placeholder <code class="docutils literal notranslate"><span class="pre">DOMAIN</span></code> and <code class="docutils literal notranslate"><span class="pre">EMAIL</span></code> with your actual information.</p></li>
+<li><p><strong>Make the script executable:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>init-letsencrypt.sh
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run the script.</strong> It will stop any container using port 80, get the certificate, and then exit.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./init-letsencrypt.sh
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Finally, launch your production stack:</strong></p>
+<p>Once the script succeeds, the certificates exist on your host machine. Now you can start your full application stack. Nginx will find the certificates and start correctly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>Your application is now live, secure, and configured for automatic certificate renewals.</p>
+</section>
+</section>
+<section id="path-b-traefik-with-let-s-encrypt-ssl">
+<span id="index-26"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Path B: Traefik with Let’s Encrypt SSL</a><a class="headerlink" href="#path-b-traefik-with-let-s-encrypt-ssl" title="Permalink to this heading"></a></h3>
+<p>This setup uses Traefik to automatically provision and renew a real SSL certificate from Let’s Encrypt while routing traffic to your application.</p>
+<section id="index-27">
+<span id="id6"></span><h4>Prerequisites for Production:<a class="headerlink" href="#index-27" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>A cloud VM with Docker, Docker Compose, and <code class="docutils literal notranslate"><span class="pre">htpasswd</span></code> installed.</p></li>
+<li><p>A registered domain name (e.g., <code class="docutils literal notranslate"><span class="pre">your-domain.com</span></code>).</p></li>
+<li><p>DNS “A” records pointing your domains (e.g., <code class="docutils literal notranslate"><span class="pre">ring.your-domain.com</span></code> and <code class="docutils literal notranslate"><span class="pre">traefik.your-domain.com</span></code>) to your VM’s public IP address.</p></li>
+</ol>
+</section>
+<section id="prepare-production-files">
+<span id="index-28"></span><h4>1. Prepare Production Files<a class="headerlink" href="#prepare-production-files" title="Permalink to this heading"></a></h4>
+<p>On your cloud VM, prepare the environment for Traefik.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create a directory for Let&#39;s Encrypt data</span>
+mkdir<span class="w"> </span>letsencrypt
+
+<span class="c1"># 2. Create the JSON file that will store certificate data</span>
+touch<span class="w"> </span>letsencrypt/acme.json
+
+<span class="c1"># 3. Set strict permissions on the file for security</span>
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>letsencrypt/acme.json
+
+<span class="c1"># Generate a user:password for the dashboard. Replace &#39;admin&#39; as desired.</span>
+htpasswd<span class="w"> </span>-c<span class="w"> </span>.htpasswd<span class="w"> </span>admin
+</pre></div>
+</div>
+</section>
+<section id="index-29">
+<span id="id7"></span><h4>2. Create the Docker Compose File for Production<a class="headerlink" href="#index-29" title="Permalink to this heading"></a></h4>
+<p>Create a new <code class="docutils literal notranslate"><span class="pre">docker-compose.prod.yml</span></code> file.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.prod.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">traefik</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--api=true</span><span class="w"> </span><span class="c1"># Enable the API</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--providers.docker=true</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--providers.docker.exposedbydefault=false</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoints.web.address=:80</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoints.websecure.address=:443</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--certificatesresolvers.myresolver.acme.email=your-email@example.com</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoints.web.http.redirections.entrypoint.to=websecure</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--entrypoints.web.http.redirections.entrypoint.scheme=https</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./letsencrypt:/letsencrypt</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./.htpasswd:/etc/traefik/.htpasswd:ro</span><span class="w"> </span><span class="c1"># Mount the password file</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.middlewares.my-auth.basicauth.usersfile=/etc/traefik/.htpasswd&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.traefik-dashboard.rule=Host(`traefik.your-domain.com`)&quot;</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.traefik-dashboard.service=api@internal&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.traefik-dashboard.middlewares=my-auth&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.traefik-dashboard.tls.certresolver=myresolver&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.traefik-dashboard.entrypoints=websecure&quot;</span>
+
+<span class="w">  </span><span class="nt">ring-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RING_FILE=app.ring</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app:ro</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-secure.rule=Host(`ring.your-domain.com`)&quot;</span><span class="w"> </span><span class="c1"># CHANGE THIS</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-secure.entrypoints=websecure&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.ring-app-secure.tls.certresolver=myresolver&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.services.ring-app-service.loadbalancer.server.port=8080&quot;</span>
+</pre></div>
+</div>
+<span class="target" id="index-30"></span></section>
+<section id="deploy">
+<span id="index-31"></span><h4>3. Deploy<a class="headerlink" href="#deploy" title="Permalink to this heading"></a></h4>
+<p>Copy your project directory to your VM. Then, SSH into your VM and run Docker Compose:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Your application is live at <code class="docutils literal notranslate"><span class="pre">https://ring.your-domain.com</span></code>.</p></li>
+<li><p>Your secure dashboard is at <code class="docutils literal notranslate"><span class="pre">https://traefik.your-domain.com</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="path-c-caddy-with-automatic-let-s-encrypt-ssl">
+<span id="index-32"></span><h3><a class="toc-backref" href="#id23" role="doc-backlink">Path C: Caddy with Automatic Let’s Encrypt SSL</a><a class="headerlink" href="#path-c-caddy-with-automatic-let-s-encrypt-ssl" title="Permalink to this heading"></a></h3>
+<p>Caddy’s configuration for production is nearly identical to development. It will automatically detect that you are using a public domain and fetch a real SSL certificate from Let’s Encrypt.</p>
+<section id="index-33">
+<span id="id8"></span><h4>Prerequisites for Production:<a class="headerlink" href="#index-33" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>A cloud VM with Docker and Docker Compose installed.</p></li>
+<li><p>A registered domain name (e.g., <code class="docutils literal notranslate"><span class="pre">your-domain.com</span></code>).</p></li>
+<li><p>A DNS “A” record pointing your domain (e.g., <code class="docutils literal notranslate"><span class="pre">ring.your-domain.com</span></code>) to your VM’s public IP address.</p></li>
+</ol>
+</section>
+<section id="create-the-production-caddyfile">
+<span id="index-34"></span><h4>1. Create the Production Caddyfile<a class="headerlink" href="#create-the-production-caddyfile" title="Permalink to this heading"></a></h4>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">Caddyfile.prod</span></code> file. This is the entire configuration needed.</p>
+<div class="highlight-caddy notranslate"><div class="highlight"><pre><span></span># Caddyfile.prod
+{
+    email your-email@example.com # CHANGE THIS
+}
+
+ring.your-domain.com { # CHANGE THIS
+    reverse_proxy ring-app-prod:8080
+}
+</pre></div>
+</div>
+</section>
+<section id="index-35">
+<span id="id9"></span><h4>2. Create the Docker Compose File for Production<a class="headerlink" href="#index-35" title="Permalink to this heading"></a></h4>
+<p>Create a new <code class="docutils literal notranslate"><span class="pre">docker-compose.prod.yml</span></code> file.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker-compose.prod.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ring-app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RING_FILE=app.ring</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app:ro</span>
+
+<span class="w">  </span><span class="nt">caddy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy-proxy-prod</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443/udp&quot;</span><span class="w"> </span><span class="c1"># For HTTP/3</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./Caddyfile.prod:/etc/caddy/Caddyfile</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy_data:/data</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">caddy_config:/config</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ring-app</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">caddy_data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">caddy_config</span><span class="p">:</span>
+</pre></div>
+</div>
+</section>
+<section id="index-36">
+<span id="id10"></span><h4>3. Deploy<a class="headerlink" href="#index-36" title="Permalink to this heading"></a></h4>
+<p>Copy your project directory to your VM. Then, SSH into your VM and run Docker Compose:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.prod.yml<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+</pre></div>
+</div>
+<p>That’s it! Caddy automatically handles SSL certificate acquisition and renewal.</p>
+</section>
+</section>
+</section>
+<section id="conclusion">
+<span id="index-37"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink">6. Conclusion</a><a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h2>
+<p>This tutorial has shown you how to containerize a Ring application and deploy it with three powerful reverse proxy solutions.</p>
+<ul class="simple">
+<li><p><strong>Nginx</strong> is an excellent choice for its performance and stability, especially when your routing needs are simple and well-defined.</p></li>
+<li><p><strong>Traefik</strong> shines in dynamic environments, automating service discovery, routing, and SSL management, which drastically simplifies deployment and scaling.</p></li>
+<li><p><strong>Caddy</strong> is the champion of simplicity, providing an incredibly easy configuration experience with fully automated HTTPS, making it perfect for developers who want to get a secure site running in minutes.</p></li>
+</ul>
+<p>By understanding these approaches, you can choose the right tool for your project and build a robust, scalable, and secure deployment pipeline for your Ring applications in the cloud.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="deployincloud.html" class="btn btn-neutral float-left" title="Deploying Web Applications in the Cloud" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-right" title="Deploying Ring CGI Applications to Shared Hosting and Cloud Servers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
