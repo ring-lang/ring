@@ -1,0 +1,783 @@
+.. index::
+	single: Deploying Ring Web Applications; Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)
+
+Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy)
+=======================================================================================================
+
+This tutorial guides you through containerizing a Ring application with Docker and setting up a reverse proxy for cloud deployment. We will explore three popular reverse proxy solutions: **Nginx** for a traditional, robust setup, **Traefik** for modern, dynamic routing, and **Caddy** for ultimate simplicity and automated HTTPS. You will learn how to create a production-ready setup using Docker Compose.
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+.. index::
+	single: Deploying Ring Web Applications; Introduction
+1. Introduction
+---------------
+
+When deploying Ring web applications to the cloud, containerization with Docker is the standard for ensuring consistency across environments. A reverse proxy is essential for managing incoming traffic, handling SSL/TLS termination, and routing requests to your application container.
+
+This tutorial will demonstrate three common architectures:
+
+*   **Docker with Nginx:** A classic, high-performance setup where Nginx acts as a reverse proxy. This is great for stable configurations and serving static files.
+*   **Docker with Traefik:** A modern edge router that automatically discovers services and configures routing, making it ideal for dynamic, microservice-based environments.
+*   **Docker with Caddy:** An incredibly simple, modern web server that provides automatic HTTPS by default, making secure deployments effortless.
+
+We will use the ``ysdragon/ring:light`` Docker image, which is optimized for web development.
+
+.. index::
+	single: Deploying Ring Web Applications; Prerequisites
+2. Prerequisites
+----------------
+
+Before you begin, ensure you have the following installed on your system:
+
+*   `Docker <https://docs.docker.com/get-docker/>`_
+*   `Docker Compose <https://docs.docker.com/compose/install/>`_
+*   (Optional, for Path B: Traefik) ``htpasswd`` for generating passwords. It's often included in ``apache2-utils`` (Debian/Ubuntu) or ``httpd-tools`` (CentOS).
+*   A basic understanding of the Ring programming language.
+*   A basic understanding of command-line interfaces.
+
+.. index::
+	single: Deploying Ring Web Applications; Dockerizing Your Ring Application
+3. Dockerizing Your Ring Application
+------------------------------------
+
+First, we'll create a simple Ring web application and package it into a Docker image.
+
+.. index::
+	pair: Dockerizing Your Ring Application; Creating a Sample Ring Application
+Creating a Sample Ring Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create a new directory for your project, navigate into it, and then create a file named ``app.ring`` with the following content:
+
+.. code-block:: ring
+
+    load "httplib.ring"
+
+    # Main Execution Block
+    oServer = new Server {
+        # Route for the root path
+        route(:Get, "/", :mainRoute)
+
+        # Listen on all available network interfaces on port 8080
+        listen("0.0.0.0", 8080)
+    }
+
+    func mainRoute
+        # Set content type to HTML
+        oServer.setContent("<!DOCTYPE html>
+    <html>
+    <head><title>Ring HTTPLib App</title></head>
+    <body>
+    <h1>Hello from Ring HTTPLib!</h1>
+    <p>This is a simple Ring application running inside a Docker container.</p>
+    </body>
+    </html>", "text/html")
+
+This application uses ``HTTPLib`` to listen on port ``8080`` and serve a simple HTML page.
+
+.. index::
+	pair: Dockerizing Your Ring Application; Creating the Dockerfile
+Creating the Dockerfile
+~~~~~~~~~~~~~~~~~~~~~~~
+
+In the same project directory, create a file named ``Dockerfile`` (no extension):
+
+.. code-block:: dockerfile
+
+    # Use a lightweight Ring image as the base
+    FROM ysdragon/ring:light
+
+    # Set the working directory inside the container
+    WORKDIR /app
+
+    # Copy the application source code
+    COPY . .
+
+    # The ysdragon/ring:light image uses the RING_FILE environment variable
+    # to determine which script to run. We'll set this in docker compose.
+    # It also automatically exposes port 8080.
+
+.. index::
+	single: Deploying Ring Web Applications; Local Development with Docker Compose
+4. Local Development with Docker Compose
+----------------------------------------
+
+Now, choose one of the following paths for your local development setup.
+
+---
+
+.. index::
+	pair: Local Development; Using Nginx as a Reverse Proxy
+Path A: Using Nginx as a Reverse Proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This approach uses Nginx to forward traffic from ``http://localhost`` to your Ring application container.
+
+.. index::
+	pair: Nginx as a Reverse Proxy; Create the Nginx Configuration
+1. Create the Nginx Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a directory named ``nginx``, and inside it, create a file named ``nginx.conf``:
+
+.. code-block:: nginx
+
+    # nginx/nginx.conf
+    events {
+        worker_connections 1024;
+    }
+
+    http {
+        server {
+            listen 80;
+            server_name localhost;
+
+            location / {
+                proxy_pass http://ring-app-dev:8080;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+            }
+        }
+    }
+
+.. index::
+	pair: Nginx as a Reverse Proxy; Create the Docker Compose File for Development
+2. Create the Docker Compose File for Development
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a ``docker-compose.dev.yml`` file in your project root:
+
+.. code-block:: yaml
+
+    # docker-compose.dev.yml
+    services:
+      ring-app:
+        build: .
+        container_name: ring-app-dev
+        environment:
+          - RING_FILE=app.ring
+        volumes:
+          - .:/app:ro
+
+      nginx:
+        image: nginx:latest
+        container_name: nginx-proxy-dev
+        ports:
+          - "80:80"
+        volumes:
+          - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        depends_on:
+          - ring-app
+
+.. index::
+	pair: Nginx as a Reverse Proxy; Run It
+3. Run It
+^^^^^^^^^
+
+Open your terminal and run:
+
+.. code-block:: bash
+
+    docker compose -f docker-compose.dev.yml up --build
+
+You can now access your application at ``http://localhost``.
+
+---
+
+.. index::
+	pair: Local Development; Using Traefik for Dynamic Routing & Local HTTPS
+Path B: Using Traefik for Dynamic Routing & Local HTTPS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This approach uses Traefik to automatically detect the Ring application and provide routing, including generating a self-signed SSL certificate for a secure local development environment.
+
+.. index::
+	pair: Traefik for Dynamic Routing; Create the Docker Compose File for Development
+1. Create the Docker Compose File for Development
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a ``docker-compose.dev.yml`` in your project root. **If you created one for Nginx, replace its contents with this.**
+
+.. code-block:: yaml
+
+    # docker-compose.dev.yml
+    services:
+      traefik:
+        image: traefik:latest
+        container_name: traefik-dev
+        command:
+          - --api.insecure=true
+          - --providers.docker=true
+          - --providers.docker.exposedbydefault=false
+          - --entrypoints.web.address=:80
+          - --entrypoints.websecure.address=:443
+          - --serversTransport.insecureSkipVerify=true
+        ports:
+          - "80:80"
+          - "443:443"
+          - "8081:8080"
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+
+      ring-app:
+        build: .
+        container_name: ring-app-dev
+        environment:
+          - RING_FILE=app.ring
+        volumes:
+          - .:/app:ro
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.ring-app-http.rule=Host(`ring.localhost`)"
+          - "traefik.http.routers.ring-app-http.entrypoints=web"
+          - "traefik.http.routers.ring-app-secure.rule=Host(`ring.localhost`)"
+          - "traefik.http.routers.ring-app-secure.entrypoints=websecure"
+          - "traefik.http.routers.ring-app-secure.tls=true"
+          - "traefik.http.services.ring-app-service.loadbalancer.server.port=8080"
+
+.. index::
+	pair: Traefik for Dynamic Routing; Configure Your Hosts File
+2. Configure Your Hosts File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To make ``ring.localhost`` work on your machine, edit your ``hosts`` file to point it to your local machine.
+
+*   **Linux/macOS:** ``sudo nano /etc/hosts``
+*   **Windows:** Open Notepad as Administrator and open ``C:\Windows\System32\drivers\etc\hosts``
+
+Add the following line:
+
+.. code-block:: text
+
+    127.0.0.1 ring.localhost
+
+.. index::
+	pair: Traefik for Dynamic Routing; Run It
+3. Run It
+^^^^^^^^^
+
+Open your terminal and run:
+
+.. code-block:: bash
+
+    docker compose -f docker-compose.dev.yml up --build
+
+You can now access:
+
+*   **Your App (HTTP):** ``http://ring.localhost``
+*   **Your App (HTTPS):** ``https://ring.localhost`` (Your browser will show a security warning. Proceed anyway.)
+*   **Traefik Dashboard:** ``http://localhost:8081``
+
+---
+
+.. index::
+	pair: Local Development; Using Caddy for Simplicity & Auto-HTTPS
+Path C: Using Caddy for Simplicity & Auto-HTTPS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This approach uses Caddy to serve your application. Caddy automatically provisions a self-signed certificate for local development, providing HTTPS with zero effort.
+
+.. index::
+	pair: Caddy for Simplicity; Create the Caddyfile for Development
+1. Create the Caddyfile for Development
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a file named ``Caddyfile.dev`` in your project root:
+
+.. code-block:: caddy
+
+    # Caddyfile.dev
+    {
+    	# For local development, allow Caddy to generate and trust self-signed certs
+    	local_certs
+    }
+
+    ring.localhost {
+    	# Reverse proxy requests to our Ring application container
+    	reverse_proxy ring-app-dev:8080
+    }
+
+.. index::
+	pair: Caddy for Simplicity; Create the Docker Compose File for Development
+2. Create the Docker Compose File for Development
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a ``docker-compose.dev.yml`` file. **If you created one for another path, replace its contents with this.**
+
+.. code-block:: yaml
+
+    # docker-compose.dev.yml
+    services:
+      ring-app:
+        build: .
+        container_name: ring-app-dev
+        environment:
+          - RING_FILE=app.ring
+        volumes:
+          - .:/app:ro
+
+      caddy:
+        image: caddy:latest
+        container_name: caddy-proxy-dev
+        restart: unless-stopped
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./Caddyfile.dev:/etc/caddy/Caddyfile
+          - caddy_data:/data
+
+    volumes:
+      caddy_data:
+
+.. index::
+	pair: Caddy for Simplicity; Configure Your Hosts File
+3. Configure Your Hosts File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To make ``ring.localhost`` work, edit your ``hosts`` file to point it to your local machine.
+
+*   **Linux/macOS:** ``sudo nano /etc/hosts``
+*   **Windows:** Open Notepad as Administrator and open ``C:\Windows\System32\drivers\etc\hosts``
+
+Add the following line:
+
+.. code-block:: text
+
+    127.0.0.1 ring.localhost
+
+.. index::
+	pair: Caddy for Simplicity; Run It
+4. Run It
+^^^^^^^^^
+
+Open your terminal and run:
+
+.. code-block:: bash
+
+    docker compose -f docker-compose.dev.yml up --build
+
+You can now access:
+
+*   **Your App (HTTPS):** ``https://ring.localhost`` (Your browser may show a one-time warning. Accept it to proceed.)
+
+.. index::
+	single: Deploying Ring Web Applications; Deploying to Production
+5. Deploying to Production
+--------------------------
+
+.. index::
+	pair: Deploying to Production; Nginx with Let's Encrypt SSL
+Path A: Nginx with Let's Encrypt SSL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This setup uses Nginx alongside Certbot. To solve the initial startup puzzle (where Nginx needs a certificate to start, but Certbot needs a server to get a certificate), we will use an initialization script that leverages Certbot's ``standalone`` mode. This runs a temporary webserver on port 80 to get the certificate, cleanly separating the one-time setup from the long-running application stack.
+
+Prerequisites for Production:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.  A cloud VM with Docker and Docker Compose installed.
+2.  A registered domain name (e.g., ``your-domain.com``).
+3.  A DNS "A" record pointing your domain (e.g., ``ring.your-domain.com``) to your VM's public IP address.
+4.  Your server's firewall must allow inbound traffic on port ``80`` (for the SSL challenge) and ``443`` (for the final HTTPS traffic).
+
+.. index::
+	pair: Nginx with Let's Encrypt SSL; Create the Production Nginx Configuration
+1. Create the Production Nginx Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This will be the final configuration that Nginx uses once SSL is active. Create a directory named ``nginx-prod``, and inside it, create a file named ``default.conf``:
+
+.. code-block:: nginx
+
+    # nginx-prod/default.conf
+    server {
+        listen 80;
+        server_name ring.your-domain.com; # CHANGE THIS
+
+        # Certbot validation and redirect all other traffic to HTTPS
+        location /.well-known/acme-challenge/ {
+            root /var/www/certbot;
+        }
+
+        location / {
+            return 301 https://$host$request_uri;
+        }
+    }
+
+    server {
+        listen 443 ssl;
+        http2 on;
+        server_name ring.your-domain.com; # CHANGE THIS
+
+        ssl_certificate /etc/letsencrypt/live/ring.your-domain.com/fullchain.pem; # CHANGE THIS
+        ssl_certificate_key /etc/letsencrypt/live/ring.your-domain.com/privkey.pem; # CHANGE THIS
+        include /etc/letsencrypt/options-ssl-nginx.conf;
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+        location / {
+            proxy_pass http://ring-app-prod:8080;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+
+.. index::
+	pair: Nginx with Let's Encrypt SSL; Create the Docker Compose File for Production
+2. Create the Docker Compose File for Production
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This file defines the final, long-running state of your services. It will be used **after** you have obtained the certificates.
+
+Create a ``docker-compose.prod.yml`` file:
+
+.. code-block:: yaml
+
+    # docker-compose.prod.yml
+    services:
+      ring-app:
+        build: .
+        container_name: ring-app-prod
+        restart: unless-stopped
+        environment:
+          - RING_FILE=app.ring
+        volumes:
+          - .:/app:ro
+
+      nginx:
+        image: nginx:latest
+        container_name: nginx-proxy-prod
+        restart: unless-stopped
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - ./nginx-prod/default.conf:/etc/nginx/conf.d/default.conf:ro
+          - ./certbot/conf:/etc/letsencrypt:ro
+          - ./certbot/www:/var/www/certbot:ro
+        depends_on:
+          - ring-app
+
+      certbot:
+        image: certbot/certbot
+        container_name: certbot-prod
+        restart: unless-stopped
+        volumes:
+          - ./certbot/conf:/etc/letsencrypt:rw
+          - ./certbot/www:/var/www/certbot:rw
+        command: renew --quiet
+
+.. index::
+	pair: Nginx with Let's Encrypt SSL; Create the Automated Initialization Script
+3. Create the Automated Initialization Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This self-contained script handles the one-time setup by running a temporary Certbot container. Create a file named ``init-letsencrypt.sh`` in your project root.
+
+.. code-block:: bash
+
+    #!/bin/bash
+    # =================================================================
+    # This script uses a standalone 'docker run' command to get the
+    # initial SSL certificate, making it independent of docker compose.
+    # =================================================================
+
+    # Stop immediately if any command fails
+    set -e
+
+    # --- Configuration ---
+    DOMAIN="ring.your-domain.com"
+    EMAIL="your-email@example.com"
+    # --- End of Configuration ---
+
+    # Function for colored output
+    color_echo() { echo -e "\e[$1m$2\e[0m"; }
+
+    # Check if certificates already exist
+    if [ -d "certbot/conf/live/$DOMAIN" ]; then
+        color_echo "33" "Certificates for $DOMAIN already exist. Exiting."
+        exit 0
+    fi
+
+    # Step 1: Create required directories and download SSL parameters
+    color_echo "34" "Creating directories and downloading recommended SSL parameters..."
+    mkdir -p ./certbot/conf ./certbot/www
+    curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf > "./certbot/conf/options-ssl-nginx.conf"
+    curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/certbot/ssl-dhparams.pem > "./certbot/conf/ssl-dhparams.pem"
+
+    # Step 2: Request the certificate using a temporary standalone Certbot container
+    color_echo "34" "Requesting Let's Encrypt certificate for $DOMAIN..."
+    # Temporarily stop any services running on port 80
+    color_echo "33" "Stopping any running services on port 80..."
+    docker stop nginx-proxy-prod >/dev/null 2>&1 || true
+
+    # Run the certbot container
+    docker run --rm \
+      -p 80:80 \
+      -v "./certbot/conf:/etc/letsencrypt" \
+      -v "./certbot/www:/var/www/certbot" \
+      certbot/certbot certonly \
+      --standalone \
+      --email $EMAIL \
+      --agree-tos \
+      --no-eff-email \
+      -d $DOMAIN
+
+    if [ $? -ne 0 ]; then
+        color_echo "31" "Certbot failed. Please check the logs."
+        exit 1
+    fi
+
+    color_echo "32" "\n================================================="
+    color_echo "32" " SSL setup complete!"
+    color_echo "32" " You can now start the full stack with:"
+    color_echo "32" "   docker compose -f docker-compose.prod.yml up -d"
+    color_echo "32" "================================================="
+
+.. index::
+	pair: Nginx with Let's Encrypt SSL; The Automated Deployment Process
+4. The Automated Deployment Process
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Your deployment is now a simple, reliable two-stage process.
+
+**First, perform the one-time initialization:**
+
+1.  **Edit the script:** Open ``init-letsencrypt.sh`` and replace the placeholder ``DOMAIN`` and ``EMAIL`` with your actual information.
+2.  **Make the script executable:**
+
+    .. code-block:: bash
+
+        chmod +x init-letsencrypt.sh
+
+3.  **Run the script.** It will stop any container using port 80, get the certificate, and then exit.
+
+    .. code-block:: bash
+
+        ./init-letsencrypt.sh
+
+**Finally, launch your production stack:**
+
+Once the script succeeds, the certificates exist on your host machine. Now you can start your full application stack. Nginx will find the certificates and start correctly.
+
+.. code-block:: bash
+
+    docker compose -f docker-compose.prod.yml up -d
+
+Your application is now live, secure, and configured for automatic certificate renewals.
+
+.. index::
+	pair: Deploying to Production; Traefik with Let's Encrypt SSL
+Path B: Traefik with Let's Encrypt SSL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This setup uses Traefik to automatically provision and renew a real SSL certificate from Let's Encrypt while routing traffic to your application.
+
+.. index::
+	pair: Traefik with Let's Encrypt SSL; Prerequisites for Production
+Prerequisites for Production:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.  A cloud VM with Docker, Docker Compose, and ``htpasswd`` installed.
+2.  A registered domain name (e.g., ``your-domain.com``).
+3.  DNS "A" records pointing your domains (e.g., ``ring.your-domain.com`` and ``traefik.your-domain.com``) to your VM's public IP address.
+
+.. index::
+	pair: Traefik with Let's Encrypt SSL; Prepare Production Files
+1. Prepare Production Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On your cloud VM, prepare the environment for Traefik.
+
+.. code-block:: bash
+
+    # 1. Create a directory for Let's Encrypt data
+    mkdir letsencrypt
+
+    # 2. Create the JSON file that will store certificate data
+    touch letsencrypt/acme.json
+
+    # 3. Set strict permissions on the file for security
+    chmod 600 letsencrypt/acme.json
+
+    # Generate a user:password for the dashboard. Replace 'admin' as desired.
+    htpasswd -c .htpasswd admin
+
+.. index::
+	pair: Traefik with Let's Encrypt SSL; Create the Docker Compose File for Production
+2. Create the Docker Compose File for Production
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new ``docker-compose.prod.yml`` file.
+
+.. code-block:: yaml
+
+    # docker-compose.prod.yml
+    services:
+      traefik:
+        image: traefik:latest
+        container_name: traefik-prod
+        restart: unless-stopped
+        command:
+          - --api=true # Enable the API
+          - --providers.docker=true
+          - --providers.docker.exposedbydefault=false
+          - --entrypoints.web.address=:80
+          - --entrypoints.websecure.address=:443
+          - --certificatesresolvers.myresolver.acme.email=your-email@example.com # CHANGE THIS
+          - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+          - --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
+          - --entrypoints.web.http.redirections.entrypoint.to=websecure
+          - --entrypoints.web.http.redirections.entrypoint.scheme=https
+        ports:
+          - "80:80"
+          - "443:443"
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+          - ./letsencrypt:/letsencrypt
+          - ./.htpasswd:/etc/traefik/.htpasswd:ro # Mount the password file
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.middlewares.my-auth.basicauth.usersfile=/etc/traefik/.htpasswd"
+          - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.your-domain.com`)" # CHANGE THIS
+          - "traefik.http.routers.traefik-dashboard.service=api@internal"
+          - "traefik.http.routers.traefik-dashboard.middlewares=my-auth"
+          - "traefik.http.routers.traefik-dashboard.tls.certresolver=myresolver"
+          - "traefik.http.routers.traefik-dashboard.entrypoints=websecure"
+
+      ring-app:
+        build: .
+        container_name: ring-app-prod
+        restart: unless-stopped
+        environment:
+          - RING_FILE=app.ring
+        volumes:
+          - .:/app:ro
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.ring-app-secure.rule=Host(`ring.your-domain.com`)" # CHANGE THIS
+          - "traefik.http.routers.ring-app-secure.entrypoints=websecure"
+          - "traefik.http.routers.ring-app-secure.tls.certresolver=myresolver"
+          - "traefik.http.services.ring-app-service.loadbalancer.server.port=8080"
+
+.. index::
+	pair: Caddy with Automatic Let's Encrypt SSL; Deploy
+.. index::
+	pair: Traefik with Let's Encrypt SSL; Deploy
+3. Deploy
+^^^^^^^^^
+
+Copy your project directory to your VM. Then, SSH into your VM and run Docker Compose:
+
+.. code-block:: bash
+
+    docker compose -f docker-compose.prod.yml up -d --build
+
+*   Your application is live at ``https://ring.your-domain.com``.
+*   Your secure dashboard is at ``https://traefik.your-domain.com``.
+
+.. index::
+	pair: Deploying to Production; Caddy with Automatic Let's Encrypt SSL
+Path C: Caddy with Automatic Let's Encrypt SSL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Caddy's configuration for production is nearly identical to development. It will automatically detect that you are using a public domain and fetch a real SSL certificate from Let's Encrypt.
+
+.. index::
+	pair: Caddy with Automatic Let's Encrypt SSL; Prerequisites for Production
+Prerequisites for Production:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1.  A cloud VM with Docker and Docker Compose installed.
+2.  A registered domain name (e.g., ``your-domain.com``).
+3.  A DNS "A" record pointing your domain (e.g., ``ring.your-domain.com``) to your VM's public IP address.
+
+.. index::
+	pair: Caddy with Automatic Let's Encrypt SSL; Create the Production Caddyfile
+1. Create the Production Caddyfile
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a ``Caddyfile.prod`` file. This is the entire configuration needed.
+
+.. code-block:: caddy
+
+    # Caddyfile.prod
+    {
+    	email your-email@example.com # CHANGE THIS
+    }
+
+    ring.your-domain.com { # CHANGE THIS
+    	reverse_proxy ring-app-prod:8080
+    }
+
+.. index::
+	pair: Caddy with Automatic Let's Encrypt SSL; Create the Docker Compose File for Production
+2. Create the Docker Compose File for Production
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new ``docker-compose.prod.yml`` file.
+
+.. code-block:: yaml
+
+    # docker-compose.prod.yml
+    services:
+      ring-app:
+        build: .
+        container_name: ring-app-prod
+        restart: unless-stopped
+        environment:
+          - RING_FILE=app.ring
+        volumes:
+          - .:/app:ro
+
+      caddy:
+        image: caddy:latest
+        container_name: caddy-proxy-prod
+        restart: unless-stopped
+        ports:
+          - "80:80"
+          - "443:443"
+          - "443:443/udp" # For HTTP/3
+        volumes:
+          - ./Caddyfile.prod:/etc/caddy/Caddyfile
+          - caddy_data:/data
+          - caddy_config:/config
+        depends_on:
+          - ring-app
+
+    volumes:
+      caddy_data:
+      caddy_config:
+
+.. index::
+	pair: Caddy with Automatic Let's Encrypt SSL; Deploy
+3. Deploy
+^^^^^^^^^
+
+Copy your project directory to your VM. Then, SSH into your VM and run Docker Compose:
+
+.. code-block:: bash
+
+    docker compose -f docker-compose.prod.yml up -d --build
+
+That's it! Caddy automatically handles SSL certificate acquisition and renewal.
+
+.. index::
+	single: Deploying Ring Web Applications; Conclusion
+6. Conclusion
+-------------
+
+This tutorial has shown you how to containerize a Ring application and deploy it with three powerful reverse proxy solutions.
+
+*   **Nginx** is an excellent choice for its performance and stability, especially when your routing needs are simple and well-defined.
+*   **Traefik** shines in dynamic environments, automating service discovery, routing, and SSL management, which drastically simplifies deployment and scaling.
+*   **Caddy** is the champion of simplicity, providing an incredibly easy configuration experience with fully automated HTTPS, making it perfect for developers who want to get a secure site running in minutes.
+
+By understanding these approaches, you can choose the right tool for your project and build a robust, scalable, and secure deployment pipeline for your Ring applications in the cloud.

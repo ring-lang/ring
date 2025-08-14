@@ -64,6 +64,8 @@ Contents:
    Building RingQt Applications for WebAssembly <qtwebassembly>
    Web Development (CGI Library) <web>
    Deploying Web Applications in the Cloud <deployincloud>
+   Deploying Ring Web Applications to the Cloud with Docker and a Reverse Proxy (Nginx, Traefik, or Caddy) <ring_cloud>
+   Deploying Ring CGI Applications to Shared Hosting and Cloud Servers <ring_cloud_cgi>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
