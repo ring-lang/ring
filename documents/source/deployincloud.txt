@@ -1,14 +1,14 @@
 .. index:: 
-	single: Deploying Web Applications in the Cloud; Introduction
+	single: Deploying Web Applications using Heroku; Introduction
 
 =======================================
-Deploying Web Applications in the Cloud
+Deploying Web Applications using Heroku
 =======================================
 
 In this chapter we will learn about deploying Ring Web Applications in the Cloud using Heroku
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Introduction
+	pair: Deploying Web Applications using Heroku; Introduction
 
 Introduction
 ============
@@ -23,7 +23,7 @@ Heroku Website : https://www.heroku.com/
 	:alt: Ring Web Application in the Cloud
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Usage
+	pair: Deploying Web Applications using Heroku; Usage
 
 Usage
 =====
@@ -90,7 +90,7 @@ change testring to your application name
 	heroku open
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Ring source code files and permissions
+	pair: Deploying Web Applications using Heroku; Ring source code files and permissions
 
 Ring source code files and permissions
 ======================================
@@ -111,7 +111,7 @@ Right click ---> Properties ---> Git ---> Executable (+x)
 Then commit and deploy!
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Hello World program
+	pair: Deploying Web Applications using Heroku; Hello World program
 
 Hello World program
 ===================
@@ -137,7 +137,7 @@ file : ringapp/helloworld2.ring
 	}
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Application Database
+	pair: Deploying Web Applications using Heroku; Application Database
 
 Application Database
 ====================
@@ -160,7 +160,7 @@ Also you can create configuration file (To write the connection string in one pl
 Database service : https://www.heroku.com/postgres
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Deploying after updates
+	pair: Deploying Web Applications using Heroku; Deploying after updates
 
 Deploying after updates
 =======================
@@ -177,7 +177,7 @@ file: build.bat contains the next commands for quick tests
 	heroku open
 
 .. index:: 
-	pair: Deploying Web Applications in the Cloud; Local Tests
+	pair: Deploying Web Applications using Heroku; Local Tests
 
 Local Tests
 ===========
