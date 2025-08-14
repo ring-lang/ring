@@ -3,39 +3,28 @@
 #include "ring.h"
 /* Item GC Functions */
 
-void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pContainer, int nIndex) {
-	Item *pItem;
-	/*
-	**  Called when we create new pointer (new reference)
-	**  The reference may be to a list or a sublist (list item)
-	**  We care only about list items (sublists)
-	*/
-	if (nType == RING_OBJTYPE_LISTITEM) {
-		pItem = (Item *)pPointer;
-		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-		ring_vm_gc_newitemreference(pItem);
-		/* Set the Free Function */
-		pItem = ring_list_getitem_gc(pVM->pRingState, pContainer, nIndex);
-		ring_vm_gc_setfreefunc(pItem, (void (*)(void *, void *))ring_vm_gc_deleteitem);
-		/* Add the variable list to Tracked Variables */
-		if (!pContainer->vGC.lTrackedList) {
-			pContainer->vGC.lTrackedList = 1;
-			ring_list_addpointer_gc(pVM->pRingState, pVM->pTrackedVariables, pContainer);
+void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *)) { pItem->pGCFreeFunc = pFreeFunc; }
+
+void ring_vm_gc_removetrack(RingState *pState, List *pList) {
+	int nPos;
+	if (pList->vGC.lTrackedList) {
+		nPos = ring_list_findpointer_gc(pState, pState->pVM->pTrackedVariables, pList);
+		if (nPos) {
+			ring_list_deleteitem_gc(pState, pState->pVM->pTrackedVariables, nPos);
 		}
-		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		pList->vGC.lTrackedList = RING_FALSE;
 	}
 }
 
-void ring_vm_gc_checkupdatereference(VM *pVM, List *pList) {
-	Item *pItem;
-	/* Reference Counting to Destination before copy from Source */
-	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_POINTER) {
-		if (ring_list_getint(pList, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) {
-			pItem = (Item *)ring_list_getpointer(pList, RING_VAR_VALUE);
-			ring_item_delete_gc(pVM->pRingState, pItem);
+void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
+	if (pItem->pGCFreeFunc != NULL) {
+		if (pItem->data.pPointer != NULL) {
+			pItem->pGCFreeFunc(pState, pItem->data.pPointer);
 		}
 	}
 }
+
+void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_gc(pState, (List *)pList); }
 
 void ring_vm_gc_finishitemdelete(void *pState, Item *pItem) {
 	/* Call Free Function */
@@ -74,6 +63,40 @@ void ring_vm_gc_deleteitem(void *pState, Item *pItem) {
 		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 		pItem->nGCReferenceCount--;
 		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	}
+}
+
+void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pContainer, int nIndex) {
+	Item *pItem;
+	/*
+	**  Called when we create new pointer (new reference)
+	**  The reference may be to a list or a sublist (list item)
+	**  We care only about list items (sublists)
+	*/
+	if (nType == RING_OBJTYPE_LISTITEM) {
+		pItem = (Item *)pPointer;
+		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		ring_vm_gc_newitemreference(pItem);
+		/* Set the Free Function */
+		pItem = ring_list_getitem_gc(pVM->pRingState, pContainer, nIndex);
+		ring_vm_gc_setfreefunc(pItem, (void (*)(void *, void *))ring_vm_gc_deleteitem);
+		/* Add the variable list to Tracked Variables */
+		if (!pContainer->vGC.lTrackedList) {
+			pContainer->vGC.lTrackedList = 1;
+			ring_list_addpointer_gc(pVM->pRingState, pVM->pTrackedVariables, pContainer);
+		}
+		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	}
+}
+
+void ring_vm_gc_checkupdatereference(VM *pVM, List *pList) {
+	Item *pItem;
+	/* Reference Counting to Destination before copy from Source */
+	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_POINTER) {
+		if (ring_list_getint(pList, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) {
+			pItem = (Item *)ring_list_getpointer(pList, RING_VAR_VALUE);
+			ring_item_delete_gc(pVM->pRingState, pItem);
+		}
 	}
 }
 
@@ -197,40 +220,10 @@ void ring_vm_gc_deletetemplists(VM *pVM) {
 	}
 	ring_list_deleteallitems_gc(pVM->pRingState, ring_vm_prevtempmem(pVM));
 }
-
-void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
-	if (pItem->pGCFreeFunc != NULL) {
-		if (pItem->data.pPointer != NULL) {
-			pItem->pGCFreeFunc(pState, pItem->data.pPointer);
-		}
-	}
-}
-
-void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *)) { pItem->pGCFreeFunc = pFreeFunc; }
-
-void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_gc(pState, (List *)pList); }
-
-void ring_vm_gc_removetrack(RingState *pState, List *pList) {
-	int nPos;
-	if (pList->vGC.lTrackedList) {
-		nPos = ring_list_findpointer_gc(pState, pState->pVM->pTrackedVariables, pList);
-		if (nPos) {
-			ring_list_deleteitem_gc(pState, pState->pVM->pTrackedVariables, nPos);
-		}
-		pList->vGC.lTrackedList = RING_FALSE;
-	}
-}
 /*
 **  List GC Functions
-**  Copy list by Reference
+**  References
 */
-
-RING_API int ring_list_iscopybyref(List *pList) { return pList->vGC.lCopyByRef; }
-
-RING_API void ring_list_enablecopybyref(List *pList) { pList->vGC.lCopyByRef = 1; }
-
-RING_API void ring_list_disablecopybyref(List *pList) { pList->vGC.lCopyByRef = 0; }
-/* References */
 
 RING_API void ring_list_acceptlistbyref_gc(void *pState, List *pList, unsigned int index, List *pRef) {
 	List *pRealList;
@@ -284,8 +277,6 @@ RING_API List *ring_list_newref_gc(void *pState, List *pVariableList, List *pLis
 	return pVariableList;
 }
 
-RING_API int ring_list_isref(List *pList) { return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1); }
-
 RING_API void ring_list_assignreftovar_gc(void *pState, List *pRef, List *pVar, unsigned int nPos) {
 	pRef->vGC.lNewRef = 0;
 	if (ring_list_islist(pVar, nPos)) {
@@ -305,26 +296,6 @@ RING_API void ring_list_assignreftoitem_gc(void *pState, List *pRef, Item *pItem
 		pItem->data.pList = pRef;
 		ring_list_updaterefcount_gc(pState, pRef, RING_LISTREF_INC);
 	}
-}
-
-RING_API int ring_list_isrefcontainer(List *pList) { return pList->vGC.lDontDelete; }
-
-RING_API void ring_list_clearrefdata(List *pList) {
-	pList->vGC.pContainer = NULL;
-	pList->vGC.lCopyByRef = 0;
-	pList->vGC.lNewRef = 0;
-	pList->vGC.lDontDelete = 0;
-	pList->vGC.lDeleteContainerVariable = 0;
-	pList->vGC.nReferenceCount = 0;
-	pList->vGC.lDontRef = 0;
-	pList->vGC.lErrorOnAssignment = 0;
-	pList->vGC.lErrorOnAssignment2 = 0;
-	pList->vGC.lDeletedByParent = 0;
-	pList->vGC.lDontRefAgain = 0;
-	pList->vGC.lTrackedList = 0;
-	pList->vGC.lCheckBeforeAssignmentDone = 0;
-	pList->vGC.lArgCache = 0;
-	pList->vGC.nListType = 0;
 }
 
 RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
@@ -374,8 +345,6 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 	ring_list_deletecontent_gc(pState, pList);
 	return NULL;
 }
-
-RING_API List *ring_list_getrefcontainer(List *pList) { return (List *)pList->vGC.pContainer; }
 
 RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 	List *aProcess, *pActiveList, *pSubList;
@@ -539,8 +508,6 @@ RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar) {
 	return RING_FALSE;
 }
 
-RING_API int ring_list_getrefcount(List *pList) { return pList->vGC.nReferenceCount + 1; }
-
 RING_API int ring_list_isrefparameter(VM *pVM, const char *cVariable) {
 	int lRef;
 	List *pRef, *pVar, *pList;
@@ -562,6 +529,32 @@ RING_API int ring_list_isrefparameter(VM *pVM, const char *cVariable) {
 	}
 	return lRef;
 }
+
+RING_API int ring_list_isref(List *pList) { return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1); }
+
+RING_API int ring_list_isrefcontainer(List *pList) { return pList->vGC.lDontDelete; }
+
+RING_API void ring_list_clearrefdata(List *pList) {
+	pList->vGC.pContainer = NULL;
+	pList->vGC.lCopyByRef = 0;
+	pList->vGC.lNewRef = 0;
+	pList->vGC.lDontDelete = 0;
+	pList->vGC.lDeleteContainerVariable = 0;
+	pList->vGC.nReferenceCount = 0;
+	pList->vGC.lDontRef = 0;
+	pList->vGC.lErrorOnAssignment = 0;
+	pList->vGC.lErrorOnAssignment2 = 0;
+	pList->vGC.lDeletedByParent = 0;
+	pList->vGC.lDontRefAgain = 0;
+	pList->vGC.lTrackedList = 0;
+	pList->vGC.lCheckBeforeAssignmentDone = 0;
+	pList->vGC.lArgCache = 0;
+	pList->vGC.nListType = 0;
+}
+
+RING_API List *ring_list_getrefcontainer(List *pList) { return (List *)pList->vGC.pContainer; }
+
+RING_API int ring_list_getrefcount(List *pList) { return pList->vGC.nReferenceCount + 1; }
 
 RING_API int ring_list_isdontref(List *pList) { return pList->vGC.lDontRef; }
 
@@ -586,6 +579,27 @@ RING_API int ring_list_isdontrefagain(List *pList) { return pList->vGC.lDontRefA
 RING_API void ring_list_enabledontrefagain(List *pList) { pList->vGC.lDontRefAgain = 1; }
 
 RING_API void ring_list_disabledontrefagain(List *pList) { pList->vGC.lDontRefAgain = 0; }
+/* Copy list by Reference */
+
+RING_API int ring_list_iscopybyref(List *pList) { return pList->vGC.lCopyByRef; }
+
+RING_API void ring_list_enablecopybyref(List *pList) { pList->vGC.lCopyByRef = 1; }
+
+RING_API void ring_list_disablecopybyref(List *pList) { pList->vGC.lCopyByRef = 0; }
+/* Error on assignment */
+
+RING_API void ring_list_enableerroronassignment(List *pList) { pList->vGC.lErrorOnAssignment = 1; }
+
+RING_API void ring_list_disableerroronassignment(List *pList) { pList->vGC.lErrorOnAssignment = 0; }
+
+RING_API int ring_list_iserroronassignment(List *pList) { return pList->vGC.lErrorOnAssignment; }
+/* Error on assignment2 */
+
+RING_API void ring_list_enableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 1; }
+
+RING_API int ring_list_iserroronassignment2(List *pList) { return pList->vGC.lErrorOnAssignment2; }
+
+RING_API void ring_list_disableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
 /* Argument Type */
 
 void ring_list_setlisttype(List *pList, int nType) { pList->vGC.nListType = nType; }
@@ -595,13 +609,12 @@ int ring_list_getlisttype(List *pList) { return pList->vGC.nListType; }
 int ring_list_isargcache(List *pList) { return pList->vGC.lArgCache; }
 
 void ring_list_enableargcache(List *pList) { pList->vGC.lArgCache = RING_TRUE; }
+/* Don't delete */
+
+RING_API void ring_list_enabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
+
+RING_API void ring_list_disabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_FALSE; }
 /* Protecting lists */
-
-RING_API void ring_list_enableerroronassignment(List *pList) { pList->vGC.lErrorOnAssignment = 1; }
-
-RING_API void ring_list_disableerroronassignment(List *pList) { pList->vGC.lErrorOnAssignment = 0; }
-
-RING_API int ring_list_iserroronassignment(List *pList) { return pList->vGC.lErrorOnAssignment; }
 
 int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar) {
 	List *pList;
@@ -666,16 +679,6 @@ void ring_vm_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
 		ring_list_delete_gc(pVM->pRingState, pList);
 	}
 }
-
-RING_API int ring_list_iserroronassignment2(List *pList) { return pList->vGC.lErrorOnAssignment2; }
-
-RING_API void ring_list_enableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 1; }
-
-RING_API void ring_list_disableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
-
-RING_API void ring_list_enabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
-
-RING_API void ring_list_disabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_FALSE; }
 /* Memory Functions (General) */
 
 RING_API void *ring_malloc(size_t nSize) {
