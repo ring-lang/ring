@@ -105,7 +105,7 @@ void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
 		*/
 		for (x = pVMState->aNumbers[1] + 1; x <= RING_VM_FUNCCALLSCOUNT; x++) {
 			pFuncCall = RING_VM_GETFUNCCALL(x);
-			ring_vm_removelistprotection(pVM, pVM->pNestedLists, pFuncCall->nNestedLists + 1);
+			ring_vm_gc_removelistprotection(pVM, pVM->pNestedLists, pFuncCall->nNestedLists + 1);
 			ring_vm_backstate(pVM, pVM->pNestedLists, pFuncCall->nNestedLists);
 			if (pFuncCall->pVMState != NULL) {
 				pVMStateForFunc = pFuncCall->pVMState;
@@ -131,7 +131,7 @@ void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
 		*/
 		for (x = pVMState->aNumbers[9] + 1; x <= ring_list_getsize(pVM->pScopeNewObj); x++) {
 			pVMStateForObj = (VMState *)ring_list_getpointer(pVM->pScopeNewObj, x);
-			ring_vm_removelistprotection(pVM, pVM->pNestedLists, pVMStateForObj->aNumbers[28] + 1);
+			ring_vm_gc_removelistprotection(pVM, pVM->pNestedLists, pVMStateForObj->aNumbers[28] + 1);
 			ring_vm_backstate(pVM, pVM->pNestedLists, pVMStateForObj->aNumbers[28]);
 			/* Delete pPCBlockFlag */
 			pListPointer = (List *)pVMStateForObj->aPointers[7];
@@ -160,7 +160,7 @@ void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
 	if (nFlag != RING_STATE_TRYCATCH) {
 		ring_vm_backstate(pVM, pVM->pTry, pVMState->aNumbers[15]);
 	}
-	ring_vm_removelistprotection(pVM, pVM->pNestedLists, pVMState->aNumbers[2] + 1);
+	ring_vm_gc_removelistprotection(pVM, pVM->pNestedLists, pVMState->aNumbers[2] + 1);
 	ring_vm_backstate(pVM, pVM->pNestedLists, pVMState->aNumbers[2]);
 	pVM->nListStart = pVMState->aNumbers[16];
 	pVM->lInsideBraceFlag = pVMState->aNumbers[17];

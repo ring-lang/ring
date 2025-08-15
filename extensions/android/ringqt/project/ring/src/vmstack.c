@@ -177,7 +177,7 @@ void ring_vm_assignment(VM *pVM) {
 			pVar = (List *)RING_VM_STACK_READP;
 			RING_VM_STACK_POP;
 			/* Check Before Assignment */
-			if (ring_vm_checkbeforeassignment(pVM, pVar)) {
+			if (ring_vm_gc_checkbeforeassignment(pVM, pVar)) {
 				return;
 			}
 			if (nBeforeEqual == OP_EQUAL) {
@@ -207,7 +207,7 @@ void ring_vm_assignment(VM *pVM) {
 			pVar = (List *)RING_VM_STACK_READP;
 			RING_VM_STACK_POP;
 			/* Check Before Assignment */
-			if (ring_vm_checkbeforeassignment(pVM, pVar)) {
+			if (ring_vm_gc_checkbeforeassignment(pVM, pVar)) {
 				return;
 			}
 			if (nBeforeEqual == OP_EQUAL) {
@@ -248,7 +248,7 @@ void ring_vm_assignment(VM *pVM) {
 				pVar = (List *)RING_VM_STACK_READP;
 				RING_VM_STACK_POP;
 				/* Check Before Assignment */
-				if (ring_vm_checkbeforeassignment(pVM, pVar)) {
+				if (ring_vm_gc_checkbeforeassignment(pVM, pVar)) {
 					return;
 				}
 				ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);

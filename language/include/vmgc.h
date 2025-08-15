@@ -38,15 +38,15 @@ void ring_vm_gc_deletetemplists(VM *pVM);
 **  Protecting Lists
 */
 
-int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar);
+int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar);
 
-int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem);
+int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem);
 
-int ring_vm_checkbeforeassignment(VM *pVM, List *pVar);
+int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar);
 
-void ring_vm_removelistprotection(VM *pVM, List *pNestedLists, int nStart);
+void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart);
 
-void ring_vm_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos);
+void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos);
 /* References */
 
 RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable);

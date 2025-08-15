@@ -7,7 +7,7 @@ void ring_vm_newnestedlists(VM *pVM) { pVM->nListStart = 0; }
 void ring_vm_restorenestedlists(VM *pVM, int nListStart, int nNestedLists) {
 	pVM->nListStart = nListStart;
 	if (ring_list_getsize(pVM->pNestedLists) > nNestedLists) {
-		ring_vm_removelistprotection(pVM, pVM->pNestedLists, nNestedLists + 1);
+		ring_vm_gc_removelistprotection(pVM, pVM->pNestedLists, nNestedLists + 1);
 		ring_vm_backstate(pVM, pVM->pNestedLists, nNestedLists);
 	}
 }
@@ -47,7 +47,7 @@ void ring_vm_liststart(VM *pVM) {
 		}
 		if (nType == RING_OBJTYPE_VARIABLE) {
 			/* Check error on assignment */
-			if (ring_vm_checkvarerroronassignment(pVM, pVar)) {
+			if (ring_vm_gc_checkvarerroronassignment(pVM, pVar)) {
 				return;
 			}
 			ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
@@ -57,7 +57,7 @@ void ring_vm_liststart(VM *pVM) {
 			ring_list_addpointer_gc(pVM->pRingState, pVM->pNestedLists, pNewList);
 		} else if ((nType == RING_OBJTYPE_LISTITEM) && (pItem != NULL)) {
 			/* Check error on assignment */
-			if (ring_vm_checkitemerroronassignment(pVM, pItem)) {
+			if (ring_vm_gc_checkitemerroronassignment(pVM, pItem)) {
 				return;
 			}
 			ring_item_settype_gc(pVM->pRingState, pItem, ITEMTYPE_LIST);
@@ -150,7 +150,7 @@ void ring_vm_listitemc(VM *pVM) {
 }
 
 void ring_vm_listend(VM *pVM) {
-	ring_vm_removelistprotectionat(pVM, pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
+	ring_vm_gc_removelistprotectionat(pVM, pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
 	pVM->nListStart--;
 	ring_list_deleteitem_gc(pVM->pRingState, pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
 }
@@ -327,7 +327,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		RING_VM_STACK_POP;
 		/* Check error on assignment */
-		if (ring_vm_checkitemerroronassignment(pVM, pItem)) {
+		if (ring_vm_gc_checkitemerroronassignment(pVM, pItem)) {
 			return;
 		}
 		if (nBeforeEqual == OP_EQUAL) {
@@ -350,7 +350,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		RING_VM_STACK_POP;
 		/* Check error on assignment */
-		if (ring_vm_checkitemerroronassignment(pVM, pItem)) {
+		if (ring_vm_gc_checkitemerroronassignment(pVM, pItem)) {
 			return;
 		}
 		if (nBeforeEqual == OP_EQUAL) {
@@ -371,7 +371,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		RING_VM_STACK_POP;
 		/* Check error on assignment */
-		if (ring_vm_checkitemerroronassignment(pVM, pItem)) {
+		if (ring_vm_gc_checkitemerroronassignment(pVM, pItem)) {
 			return;
 		}
 		if (ring_item_gettype(pItem) != ITEMTYPE_LIST) {

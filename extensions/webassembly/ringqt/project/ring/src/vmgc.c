@@ -225,7 +225,7 @@ void ring_vm_gc_deletetemplists(VM *pVM) {
 **  Protecting lists
 */
 
-int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar) {
+int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar) {
 	List *pList;
 	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
@@ -237,7 +237,7 @@ int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar) {
 	return RING_FALSE;
 }
 
-int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem) {
+int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem) {
 	List *pList;
 	if (ring_item_gettype(pItem) == ITEMTYPE_LIST) {
 		pList = ring_item_getlist(pItem);
@@ -249,7 +249,7 @@ int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem) {
 	return RING_FALSE;
 }
 
-int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {
+int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar) {
 	if (pVar->vGC.lCheckBeforeAssignmentDone) {
 		return RING_FALSE;
 	}
@@ -257,7 +257,8 @@ int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {
 	**  Check if the content is protected (List during definition)
 	**  Also, Check Ref()/Reference() usage in the Left-Side
 	*/
-	if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, pVar) || ring_vm_checkvarerroronassignment(pVM, pVar)) {
+	if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, pVar) ||
+	    ring_vm_gc_checkvarerroronassignment(pVM, pVar)) {
 		/*
 		**  Take in mind using Ref()/Reference() in Right-Side too
 		**  I.e. Ref(tmp) = Ref(tmp)
@@ -269,15 +270,15 @@ int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {
 	return RING_FALSE;
 }
 
-void ring_vm_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
+void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
 	int x;
 	List *pList;
 	for (x = nStart; x <= ring_list_getsize(pNestedLists); x++) {
-		ring_vm_removelistprotectionat(pVM, pNestedLists, x);
+		ring_vm_gc_removelistprotectionat(pVM, pNestedLists, x);
 	}
 }
 
-void ring_vm_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
+void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
 	List *pList;
 	/* Disable Error on Assignment */
 	pList = (List *)ring_list_getpointer(pNestedLists, nPos);

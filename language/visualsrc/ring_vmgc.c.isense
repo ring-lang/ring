@@ -233,6 +233,21 @@ newstr
 Type: char
 cStr[RING_CHARBUF]
 ring_vm_gc_deletetemplists
+ring_vm_gc_checkvarerroronassignment
+Type: List *
+pList
+ring_vm_gc_checkitemerroronassignment
+Type: List *
+pList
+ring_vm_gc_checkbeforeassignment
+ring_vm_removelistprotection
+Type: int
+x
+Type: List *
+pList
+ring_vm_removelistprotectionat
+Type: List *
+pList
 ring_vm_gc_isrefparameter
 Type: int
 lRef
@@ -305,21 +320,6 @@ ring_list_isargcache
 ring_list_enableargcache
 ring_list_enabledontdelete
 ring_list_disabledontdelete
-ring_vm_checkvarerroronassignment
-Type: List *
-pList
-ring_vm_checkitemerroronassignment
-Type: List *
-pList
-ring_vm_checkbeforeassignment
-ring_vm_removelistprotection
-Type: int
-x
-Type: List *
-pList
-ring_vm_removelistprotectionat
-Type: List *
-pList
 ring_malloc
 Type: void *
 pMemory

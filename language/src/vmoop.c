@@ -78,7 +78,7 @@ void ring_vm_oop_newobj(VM *pVM) {
 					if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 						pVar = (List *)RING_VM_STACK_READP;
 						/* Check before assignment */
-						if (ring_vm_checkbeforeassignment(pVM, pVar)) {
+						if (ring_vm_gc_checkbeforeassignment(pVM, pVar)) {
 							return;
 						}
 						ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
@@ -87,7 +87,7 @@ void ring_vm_oop_newobj(VM *pVM) {
 					} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 						pItem = (Item *)RING_VM_STACK_READP;
 						/* Check before assignment */
-						if (ring_vm_checkitemerroronassignment(pVM, pItem)) {
+						if (ring_vm_gc_checkitemerroronassignment(pVM, pItem)) {
 							return;
 						}
 						ring_item_settype_gc(pVM->pRingState, pItem, ITEMTYPE_LIST);
