@@ -912,15 +912,6 @@ int ring_vm_funccallparacount(VM *pVM) {
 	return RING_ZERO;
 }
 
-void ring_vm_newscopeid(VM *pVM) {
-	/* Set the Local Scope ID */
-	pVM->nActiveScopeID = ++pVM->nScopeID;
-	/* Check Scope ID overflow */
-	if (pVM->nActiveScopeID == 0) {
-		ring_vm_afterscopeidoverflow(pVM);
-	}
-}
-
 void ring_vm_optionalfunc(void *pPointer) {
 	VM *pVM;
 	pVM = (VM *)pPointer;

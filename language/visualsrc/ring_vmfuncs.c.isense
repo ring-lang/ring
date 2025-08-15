@@ -65,7 +65,6 @@ x, lFound, nID
 ring_vm_anonymous
 Type: char *
 cStr
-ring_vm_isstackpointertoobjstate
 ring_vm_prevtempmem
 Type: List *
 pList, *pTemp

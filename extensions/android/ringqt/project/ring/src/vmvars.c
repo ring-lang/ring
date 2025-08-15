@@ -49,6 +49,51 @@ int ring_vm_newscope(VM *pVM) {
 	return RING_TRUE;
 }
 
+void ring_vm_newscopeid(VM *pVM) {
+	/* Set the Local Scope ID */
+	pVM->nActiveScopeID = ++pVM->nScopeID;
+	/* Check Scope ID overflow */
+	if (pVM->nActiveScopeID == 0) {
+		ring_vm_afterscopeidoverflow(pVM);
+	}
+}
+
+void ring_vm_deletescope(VM *pVM) {
+	List *pList;
+	ListBlocks *pArg;
+	int x;
+	if (RING_VM_SCOPESCOUNT < 2) {
+		ring_vm_error(pVM, RING_NOSCOPE);
+		ring_state_exit(pVM->pRingState, RING_EXIT_FAIL);
+	}
+	/* Process Lists */
+	for (x = ring_list_getsize(pVM->pActiveMem); x >= 1; x--) {
+		if (ring_list_islist(pVM->pActiveMem, x)) {
+			pList = ring_list_getlist(pVM->pActiveMem, x);
+			/* Check adding numeric arguments to the cache */
+			if (ring_list_isargcache(pList)) {
+				/*
+				**  Reset flag that (For-In) could set when using var name similar to argument name
+				**  If we don't do that here, the tracking flag could be True
+				**  And calling ring_vm_deleteargcache() will try to delete the list
+				**  The delete operation will check this flag and if it's true it will call
+				*ring_vm_gc_removetrack
+				**  And this function assume pVM->pTrackedList exist
+				**  But it's deleted before calling ring_vm_deleteargcache inside ring_vm_delete
+				*/
+				ring_vm_gc_removetrack(pVM->pRingState, pList);
+				/* Clean Memory */
+				ring_vm_gc_checkupdatereference(pVM, pList);
+				ring_list_setdouble_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_ZEROF);
+				pVM->aArgCache[pVM->nArgCacheCount++] = pList;
+				continue;
+			}
+		}
+	}
+	RING_VM_DELETELASTSCOPE;
+	pVM->pActiveMem = RING_VM_GETLASTSCOPE;
+}
+
 int ring_vm_findvar(VM *pVM, const char *cStr) {
 	int x, nPos, nMax1;
 	List *pList, *pList2;
@@ -368,42 +413,6 @@ void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const 
 	ring_list_addstring_gc(pVM->pRingState, pList2, cStr2);
 	/* Add Status Number */
 	ring_list_addint_gc(pVM->pRingState, pList2, RING_CPOINTERSTATUS_NOTCOPIED);
-}
-
-void ring_vm_deletescope(VM *pVM) {
-	List *pList;
-	ListBlocks *pArg;
-	int x;
-	if (RING_VM_SCOPESCOUNT < 2) {
-		ring_vm_error(pVM, RING_NOSCOPE);
-		ring_state_exit(pVM->pRingState, RING_EXIT_FAIL);
-	}
-	/* Process Lists */
-	for (x = ring_list_getsize(pVM->pActiveMem); x >= 1; x--) {
-		if (ring_list_islist(pVM->pActiveMem, x)) {
-			pList = ring_list_getlist(pVM->pActiveMem, x);
-			/* Check adding numeric arguments to the cache */
-			if (ring_list_isargcache(pList)) {
-				/*
-				**  Reset flag that (For-In) could set when using var name similar to argument name
-				**  If we don't do that here, the tracking flag could be True
-				**  And calling ring_vm_deleteargcache() will try to delete the list
-				**  The delete operation will check this flag and if it's true it will call
-				*ring_vm_gc_removetrack
-				**  And this function assume pVM->pTrackedList exist
-				**  But it's deleted before calling ring_vm_deleteargcache inside ring_vm_delete
-				*/
-				ring_vm_gc_removetrack(pVM->pRingState, pList);
-				/* Clean Memory */
-				ring_vm_gc_checkupdatereference(pVM, pList);
-				ring_list_setdouble_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_ZEROF);
-				pVM->aArgCache[pVM->nArgCacheCount++] = pList;
-				continue;
-			}
-		}
-	}
-	RING_VM_DELETELASTSCOPE;
-	pVM->pActiveMem = RING_VM_GETLASTSCOPE;
 }
 
 void ring_vm_setvarprivateflag(VM *pVM, List *pVar, int nFlag) {
