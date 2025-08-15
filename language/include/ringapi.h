@@ -88,6 +88,8 @@
 */
 /* Support for C Functions */
 
+void ring_vm_extension(RingState *pRingState);
+
 RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *));
 
 RING_API void ring_vm_loadcfunctions(RingState *pRingState);
@@ -125,8 +127,6 @@ RING_API void ring_vm_api_retcpointer(void *pPointer, void *pGeneral, const char
 RING_API void *ring_vm_api_getcpointer(void *pPointer, int nPara, const char *cType);
 
 RING_API void ring_vm_api_setcpointernull(void *pPointer, int nPara);
-
-void ring_vm_extension(RingState *pRingState);
 
 RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *cStr2);
 
