@@ -53,3 +53,5 @@ void ring_general_addosfileseparator(char *cFileName);
 int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName);
 
 void ring_general_readline(char *cLine, unsigned int nSize);
+
+int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2);

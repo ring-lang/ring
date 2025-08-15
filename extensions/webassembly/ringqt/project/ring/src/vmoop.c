@@ -70,7 +70,7 @@ void ring_vm_oop_newobj(VM *pVM) {
 					pList2 = ring_list_getlist(pVar, RING_VAR_VALUE);
 					/* When using something like Ref(new myclass) don't create new reference */
 					if (ring_vm_funccallbeforecall(pVM)) {
-						ring_vm_cleansetpropertylist(pVM);
+						ring_vm_oop_cleansetpropertylist(pVM);
 						ring_list_enabledontref(pList2);
 					}
 				} else {
@@ -1269,4 +1269,10 @@ int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr) {
 	ring_string_lower(cStr);
 	ring_vm_newvar2(pVM, cStr, pList);
 	return RING_TRUE;
+}
+
+void ring_vm_oop_cleansetpropertylist(VM *pVM) {
+	if (ring_list_getsize(pVM->pSetProperty) > 0) {
+		ring_list_deleteitem_gc(pVM->pRingState, pVM->pSetProperty, ring_list_getsize(pVM->pSetProperty));
+	}
 }

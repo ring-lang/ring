@@ -1,3 +1,4 @@
+ring_vmoop
 RING_CLASSMAP_CLASSNAME
 RING_CLASSMAP_PC
 RING_CLASSMAP_PARENTCLASS
@@ -229,3 +230,4 @@ pList
 Type: int
 lResult
 ring_vm_oop_addattribute
+ring_vm_oop_cleansetpropertylist

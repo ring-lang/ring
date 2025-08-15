@@ -494,12 +494,6 @@ void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
 	}
 }
 
-void ring_vm_cleansetpropertylist(VM *pVM) {
-	if (ring_list_getsize(pVM->pSetProperty) > 0) {
-		ring_list_deleteitem_gc(pVM->pRingState, pVM->pSetProperty, ring_list_getsize(pVM->pSetProperty));
-	}
-}
-
 int ring_vm_isoperationaftersublist(VM *pVM) {
 	int nOPCode;
 	List *pParent, *pSub, *pVar;

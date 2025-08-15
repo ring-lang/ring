@@ -150,4 +150,6 @@ void ring_vm_oop_preparecallmethodfrombrace(VM *pVM);
 int ring_vm_oop_isattribute(VM *pVM, List *pList, const char *cStr);
 
 int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr);
+
+void ring_vm_oop_cleansetpropertylist(VM *pVM);
 #endif

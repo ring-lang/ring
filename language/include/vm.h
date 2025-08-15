@@ -739,6 +739,8 @@ int ring_vm_getvarprivateflag(VM *pVM, List *pVar);
 void ring_vm_copyscopestolist(VM *pVM, List *pList);
 
 void ring_vm_addvarpointertoscopehash(VM *pVM, List *pParent, const char *cVar, List *pList);
+
+int ring_vm_notusingvarduringdef(VM *pVM);
 /* Parameters */
 
 void ring_vm_newargcache(VM *pVM);
@@ -787,13 +789,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual);
 
 void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr);
 
-int ring_vm_strcmpnotcasesensitive(const char *cStr1, const char *cStr2);
-
-void ring_vm_cleansetpropertylist(VM *pVM);
-
 int ring_vm_isoperationaftersublist(VM *pVM);
-
-int ring_vm_notusingvarduringdef(VM *pVM);
 
 void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);
 /* Functions */
