@@ -106,7 +106,7 @@ void ring_vm_listitem(VM *pVM) {
 				/* Copy by ref (pList2 to pList3) */
 				ring_list_assignreftovar_gc(pVM->pRingState, pList2, pList, ring_list_getsize(pList));
 			} else {
-				ring_vm_list_copy(pVM, pList4, pList2);
+				ring_vm_listcopy(pVM, pList4, pList2);
 				ring_list_swaptwolists(pList3, pList4);
 				/* Update self object Pointer */
 				if (ring_vm_oop_isobject(pVM, pList3)) {
@@ -124,7 +124,7 @@ void ring_vm_listitem(VM *pVM) {
 				pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 				ring_list_assignreftoitem_gc(pVM->pRingState, pList2, pItem);
 			} else {
-				ring_vm_list_copy(pVM, pList4, pList2);
+				ring_vm_listcopy(pVM, pList4, pList2);
 				ring_list_swaptwolists(pList3, pList4);
 				/* Update self object Pointer */
 				if (ring_vm_oop_isobject(pVM, pList3)) {
@@ -392,7 +392,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 				ring_list_swaptwolists(pList, pVar);
 			} else {
 				pTempList = ring_list_new_gc(pVM->pRingState, RING_ZERO);
-				ring_vm_list_copy(pVM, pTempList, pVar);
+				ring_vm_listcopy(pVM, pTempList, pVar);
 				ring_list_swaptwolists(pList, pTempList);
 				ring_list_delete_gc(pVM->pRingState, pTempList);
 			}
@@ -439,70 +439,7 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
 }
 
-int ring_vm_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
-	int nNum1;
-	while (1) {
-		nNum1 = tolower(*cStr1) - tolower(*cStr2);
-		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
-			return nNum1;
-		}
-		cStr1++;
-		cStr2++;
-	}
-}
-
-void ring_vm_cleansetpropertylist(VM *pVM) {
-	if (ring_list_getsize(pVM->pSetProperty) > 0) {
-		ring_list_deleteitem_gc(pVM->pRingState, pVM->pSetProperty, ring_list_getsize(pVM->pSetProperty));
-	}
-}
-
-int ring_vm_isoperationaftersublist(VM *pVM) {
-	int nOPCode;
-	List *pParent, *pSub, *pVar;
-	if (pVM->nListStart > 0) {
-		nOPCode = RING_VM_IR_OPCODEVALUE(pVM->nPC - 3);
-		if (nOPCode == ICO_LISTEND) {
-			/* Get the Parent List */
-			pParent = (List *)ring_list_getpointer(pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
-			/* Get the Sub List */
-			pSub = ring_list_getlist(pParent, ring_list_getsize(pParent));
-			/* Create a Temp. variable for the sub list */
-			ring_vm_createtemplist(pVM);
-			pVar = (List *)RING_VM_STACK_READP;
-			ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
-			ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
-			ring_list_deleteallitems_gc(pVM->pRingState, ring_list_getlist(pVar, RING_VAR_VALUE));
-			ring_vm_list_copy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pSub);
-			/* Delete the sub list from the Parent List */
-			ring_list_deleteitem_gc(pVM->pRingState, pParent, ring_list_getsize(pParent));
-			return RING_TRUE;
-		}
-	}
-	return RING_FALSE;
-}
-
-int ring_vm_notusingvarduringdef(VM *pVM) {
-	int nCont;
-	nCont = RING_TRUE;
-	if ((pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER) {
-		if (RING_VM_STACK_ISASSIGNMENTDEST) {
-			nCont = RING_FALSE;
-			/* Clear the Assignment Pointer */
-			pVM->pAssignment = NULL;
-			ring_vm_cleansetpropertylist(pVM);
-			/* Check using Ref(aList) at the Left-Side */
-			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
-				if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, (List *)RING_VM_STACK_READP)) {
-					nCont = RING_TRUE;
-				}
-			}
-		}
-	}
-	return nCont;
-}
-
-void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
+void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
 	int x, nMax;
 	List *pNewList2, *pSourceList;
 	Item *pItem;
@@ -532,7 +469,7 @@ void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
 							  pSourceList);
 			} else {
 				/* Copy By Value */
-				ring_vm_list_copy(pVM, pNewList2, pSourceList);
+				ring_vm_listcopy(pVM, pNewList2, pSourceList);
 				/* Update Self Object Pointer */
 				if (ring_vm_oop_isobject(pVM, pNewList2)) {
 					pItem = ring_list_getitem_gc(pVM->pRingState, pNewList,
@@ -554,5 +491,68 @@ void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
 		ring_list_setint_gc(pVM->pRingState, pList, RING_CPOINTER_STATUS, RING_CPOINTERSTATUS_NOTCOPIED);
 		ring_list_setint_gc(pVM->pRingState, pNewList, RING_CPOINTER_STATUS, RING_CPOINTERSTATUS_NOTCOPIED);
 		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	}
+}
+
+void ring_vm_cleansetpropertylist(VM *pVM) {
+	if (ring_list_getsize(pVM->pSetProperty) > 0) {
+		ring_list_deleteitem_gc(pVM->pRingState, pVM->pSetProperty, ring_list_getsize(pVM->pSetProperty));
+	}
+}
+
+int ring_vm_isoperationaftersublist(VM *pVM) {
+	int nOPCode;
+	List *pParent, *pSub, *pVar;
+	if (pVM->nListStart > 0) {
+		nOPCode = RING_VM_IR_OPCODEVALUE(pVM->nPC - 3);
+		if (nOPCode == ICO_LISTEND) {
+			/* Get the Parent List */
+			pParent = (List *)ring_list_getpointer(pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
+			/* Get the Sub List */
+			pSub = ring_list_getlist(pParent, ring_list_getsize(pParent));
+			/* Create a Temp. variable for the sub list */
+			ring_vm_createtemplist(pVM);
+			pVar = (List *)RING_VM_STACK_READP;
+			ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
+			ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
+			ring_list_deleteallitems_gc(pVM->pRingState, ring_list_getlist(pVar, RING_VAR_VALUE));
+			ring_vm_listcopy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pSub);
+			/* Delete the sub list from the Parent List */
+			ring_list_deleteitem_gc(pVM->pRingState, pParent, ring_list_getsize(pParent));
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+int ring_vm_notusingvarduringdef(VM *pVM) {
+	int nCont;
+	nCont = RING_TRUE;
+	if ((pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER) {
+		if (RING_VM_STACK_ISASSIGNMENTDEST) {
+			nCont = RING_FALSE;
+			/* Clear the Assignment Pointer */
+			pVM->pAssignment = NULL;
+			ring_vm_cleansetpropertylist(pVM);
+			/* Check using Ref(aList) at the Left-Side */
+			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
+				if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, (List *)RING_VM_STACK_READP)) {
+					nCont = RING_TRUE;
+				}
+			}
+		}
+	}
+	return nCont;
+}
+
+int ring_vm_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
+	int nNum1;
+	while (1) {
+		nNum1 = tolower(*cStr1) - tolower(*cStr2);
+		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
+			return nNum1;
+		}
+		cStr1++;
+		cStr2++;
 	}
 }

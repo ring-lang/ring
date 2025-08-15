@@ -401,7 +401,7 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 	/* Copy the list */
 	if (nRef == RING_OUTPUT_RETLIST) {
 		/* Used by RING_API_RETLIST */
-		ring_vm_list_copy((VM *)pPointer, pRealList, pList);
+		ring_vm_listcopy((VM *)pPointer, pRealList, pList);
 	} else if (nRef == RING_OUTPUT_RETLISTBYREF) {
 		/* Used by RING_API_RETLISTBYREF  (i.e. List() function implementation) */
 		ring_list_enablecopybyref(pList);

@@ -240,12 +240,12 @@ ring_vm_gc_checkitemerroronassignment
 Type: List *
 pList
 ring_vm_gc_checkbeforeassignment
-ring_vm_removelistprotection
+ring_vm_gc_removelistprotection
 Type: int
 x
 Type: List *
 pList
-ring_vm_removelistprotectionat
+ring_vm_gc_removelistprotectionat
 Type: List *
 pList
 ring_vm_gc_isrefparameter

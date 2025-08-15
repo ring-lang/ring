@@ -119,7 +119,7 @@ Type: char *
 cEndStr
 ring_vm_stringtologicvalue
 ring_vm_listtologicvalue
-ring_vm_expr_ppoo
+ring_vm_exprppoo
 Type: List *
 pList,*pList2
 Type: Item *
@@ -134,12 +134,12 @@ Type: int
 nType, lCompare
 Type: char
 cNewOp[RING_SMALLBUF]
-ring_vm_expr_npoo
+ring_vm_exprnpoo
 Type: List *
 pList
 Type: Item *
 pItem
-ring_vm_expr_spoo
+ring_vm_exprspoo
 Type: List *
 pList
 Type: Item *

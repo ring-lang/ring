@@ -1235,9 +1235,9 @@ void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 		return;
 	}
 	pList4 = ring_list_new_gc(pVM->pRingState, RING_ZERO);
-	ring_vm_list_copy(pVM, pList4, pList);
+	ring_vm_listcopy(pVM, pList4, pList);
 	pList3 = ring_list_newlist_gc(pVM->pRingState, pList2);
-	ring_vm_list_copy(pVM, pList3, pList4);
+	ring_vm_listcopy(pVM, pList3, pList4);
 	ring_list_delete_gc(pVM->pRingState, pList4);
 	if ((ring_vm_oop_isobject(pVM, pList3) == 1) && (pVM->pBraceObject == pList)) {
 		pVM->pBraceObject = pList3;

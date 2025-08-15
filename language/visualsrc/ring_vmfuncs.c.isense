@@ -87,17 +87,17 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
-ring_vm_funccall_new
+ring_vm_funccallnew
 Type: FuncCall *
 pFuncCall
-ring_vm_funccall_delete
+ring_vm_funccalldelete
 Type: FuncCall *
 pFuncCall
-ring_vm_funccall_useloadfuncp
-ring_vm_funccall_beforecall
+ring_vm_funccalluseloadfuncp
+ring_vm_funccallbeforecall
 Type: FuncCall *
 pFuncCall
-ring_vm_funccall_paracount
+ring_vm_funccallparacount
 Type: FuncCall *
 pFuncCall
 Type: int

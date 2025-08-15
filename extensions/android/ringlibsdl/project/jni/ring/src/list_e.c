@@ -448,7 +448,7 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 			if (ring_list_isref(RING_API_GETLIST(3))) {
 				ring_list_assignreftoitem_gc(pVM->pRingState, RING_API_GETLIST(3), pItem);
 			} else {
-				ring_vm_list_copy(pVM, pList2, RING_API_GETLIST(3));
+				ring_vm_listcopy(pVM, pList2, RING_API_GETLIST(3));
 				/* Update self object pointer */
 				if (ring_vm_oop_isobject(pVM, pList2)) {
 					ring_vm_oop_updateselfpointer(pVM, pList2, RING_OBJTYPE_LISTITEM, pItem);
@@ -483,7 +483,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
-		ring_vm_list_copy((VM *)pPointer, pList, pList2);
+		ring_vm_listcopy((VM *)pPointer, pList, pList2);
 		if (ring_list_getsize(pList) < 2) {
 			RING_API_RETLIST(pList2);
 			return;
@@ -680,7 +680,7 @@ void ring_vm_listfuncs_reverse(void *pPointer) {
 				ring_list_adddouble(pList, ring_list_getdouble(pList2, x));
 			} else if (ring_list_islist(pList2, x)) {
 				pList3 = ring_list_newlist_gc(pVM->pRingState, pList);
-				ring_vm_list_copy(pVM, pList3, ring_list_getlist(pList2, x));
+				ring_vm_listcopy(pVM, pList3, ring_list_getlist(pList2, x));
 				pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 				/* Update self object pointer */
 				if (ring_vm_oop_isobject(pVM, pList3)) {

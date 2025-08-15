@@ -243,7 +243,7 @@ void ring_vm_assignment(VM *pVM) {
 					/* We use (Temp) List - to avoid problems when coping from parent list to child
 					 * list */
 					pList = ring_list_new_gc(pVM->pRingState, RING_ZERO);
-					ring_vm_list_copy(pVM, pList, pVar);
+					ring_vm_listcopy(pVM, pList, pVar);
 				}
 				pVar = (List *)RING_VM_STACK_READP;
 				RING_VM_STACK_POP;
@@ -261,7 +261,7 @@ void ring_vm_assignment(VM *pVM) {
 						ring_list_disablecopybyref(pList);
 						ring_list_swaptwolists(ring_list_getlist(pVar, RING_VAR_VALUE), pList);
 					} else {
-						ring_vm_list_copy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pList);
+						ring_vm_listcopy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pList);
 						ring_list_delete_gc(pVM->pRingState, pList);
 					}
 					/* Update self object pointer */

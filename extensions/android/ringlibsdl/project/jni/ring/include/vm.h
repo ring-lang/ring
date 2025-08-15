@@ -795,7 +795,7 @@ int ring_vm_isoperationaftersublist(VM *pVM);
 
 int ring_vm_notusingvarduringdef(VM *pVM);
 
-void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList);
+void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);
 /* Functions */
 
 int ring_vm_loadfunc(VM *pVM);

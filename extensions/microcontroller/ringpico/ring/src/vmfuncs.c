@@ -621,7 +621,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 		if (ring_list_iscopybyref(pList)) {
 			ring_list_swaptwolists(pList2, pList);
 		} else {
-			ring_vm_list_copy(pVM, pList2, pList);
+			ring_vm_listcopy(pVM, pList2, pList);
 			ring_list_enabledontref(pList2);
 			/*
 			**  When we return a local object - Swap Container Lists

@@ -174,7 +174,7 @@ void ring_vm_gc_killreference(VM *pVM) {
 					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_LIST);
 					ring_list_setlist_gc(pVM->pRingState, pList, RING_VAR_VALUE);
 					pList2 = ring_list_getlist(pList, RING_VAR_VALUE);
-					ring_vm_list_copy(pVM, pList2, ring_item_getlist(pItem));
+					ring_vm_listcopy(pVM, pList2, ring_item_getlist(pItem));
 				} else {
 					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
 					ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
