@@ -1,5 +1,7 @@
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
+#ifndef ring_vmoop
+#define ring_vmoop
 /*
-**  Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com>
 **  Constants
 **  pClassesMap
 */
@@ -148,3 +150,4 @@ void ring_vm_oop_preparecallmethodfrombrace(VM *pVM);
 int ring_vm_oop_isattribute(VM *pVM, List *pList, const char *cStr);
 
 int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr);
+#endif
