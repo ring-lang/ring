@@ -276,3 +276,15 @@ void ring_general_readline(char *cLine, unsigned int nSize) {
 		}
 	}
 }
+
+int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
+	int nNum1;
+	while (1) {
+		nNum1 = tolower(*cStr1) - tolower(*cStr2);
+		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
+			return nNum1;
+		}
+		cStr1++;
+		cStr2++;
+	}
+}

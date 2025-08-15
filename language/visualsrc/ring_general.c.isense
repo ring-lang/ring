@@ -69,3 +69,6 @@ x
 ring_general_readline
 Type: int
 x
+ring_vm_strcmpnotcasesensitive
+Type: int
+nNum1

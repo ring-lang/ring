@@ -418,7 +418,7 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 				if (ring_list_getsize(pList) == RING_LISTHASH_SIZE) {
 					if (ring_list_isstring(pList, RING_LISTHASH_KEY)) {
 						cStr2 = ring_list_getstring(pList, RING_LISTHASH_KEY);
-						if (ring_vm_strcmpnotcasesensitive(cStr, cStr2) == 0) {
+						if (ring_general_strcmpnotcasesensitive(cStr, cStr2) == 0) {
 							pItem = ring_list_getitem_gc(pVM->pRingState, pList,
 										     RING_LISTHASH_VALUE);
 							RING_VM_STACK_PUSHPVALUE(pItem);
@@ -543,16 +543,4 @@ int ring_vm_notusingvarduringdef(VM *pVM) {
 		}
 	}
 	return nCont;
-}
-
-int ring_vm_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
-	int nNum1;
-	while (1) {
-		nNum1 = tolower(*cStr1) - tolower(*cStr2);
-		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
-			return nNum1;
-		}
-		cStr1++;
-		cStr2++;
-	}
 }

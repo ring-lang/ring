@@ -57,9 +57,13 @@ Type: Item *
 pItem
 Type: const char *
 cStr2
-ring_vm_strcmpnotcasesensitive
+ring_vm_listcopy
 Type: int
-nNum1
+x,nMax
+Type: List *
+pNewList2, *pSourceList
+Type: Item *
+pItem
 ring_vm_cleansetpropertylist
 ring_vm_isoperationaftersublist
 Type: int
@@ -69,10 +73,6 @@ pParent, *pSub, *pVar
 ring_vm_notusingvarduringdef
 Type: int
 nCont
-ring_vm_list_copy
+ring_vm_strcmpnotcasesensitive
 Type: int
-x,nMax
-Type: List *
-pNewList2, *pSourceList
-Type: Item *
-pItem
+nNum1
