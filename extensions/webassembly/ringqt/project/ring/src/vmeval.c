@@ -1,6 +1,95 @@
 /* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
+/* Fast Function Call for Ring VM (Without Eval) */
+
+RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, int lMethod) {
+	int nPC;
+	nPC = pVM->nPC;
+	/* Load the function and call it */
+	ring_vm_loadfunc2(pVM, cFunc, RING_FALSE);
+	ring_vm_call2(pVM);
+	/* Check calling method from brace */
+	if (lMethod) {
+		ring_vm_oop_preparecallmethodfrombrace(pVM);
+	}
+	/* Execute the function */
+	do {
+		ring_vm_fetch(pVM);
+		if (pVM->nPC == nPC) {
+			break;
+		}
+	} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT);
+	/* Prepare the function output as a value */
+	ring_vm_pushv(pVM);
+}
+/* Fast Function Call for Extensions (Without Eval) */
+
+RING_API void ring_vm_callfunction(VM *pVM, char *cFuncName) {
+	int nCurrentFuncCall;
+	/* Lower Case and pass () in the end */
+	ring_string_lower(cFuncName);
+	/* Prepare (Remove effects of the current function) */
+	nCurrentFuncCall = pVM->nCurrentFuncCall;
+	RING_VM_DELETELASTFUNCCALL;
+	/* Load the function and call it */
+	ring_vm_loadfunc2(pVM, cFuncName, RING_FALSE);
+	ring_vm_call2(pVM);
+	/* Execute the function */
+	ring_vm_mainloopforeval(pVM);
+	/* Free Stack */
+	ring_vm_freestack(pVM);
+	pVM->nCurrentFuncCall = nCurrentFuncCall;
+	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
+	pVM->lActiveCatch = 1;
+}
+/* Execute Code for Extensions (Using Eval) */
+
+RING_API void ring_vm_runcode(VM *pVM, const char *cStr) {
+	int nEvalReturnPC, lEvalReallocationFlag, nPC, nRunVM, nSP, nFuncSP, nCFuncSP, nCFuncParaCount, nLineNumber;
+	List *pStackList;
+	/* Save state to take in mind nested events execution */
+	pVM->nRunCode++;
+	nEvalReturnPC = pVM->nEvalReturnPC;
+	lEvalReallocationFlag = pVM->lEvalReallocationFlag;
+	nPC = pVM->nPC;
+	nSP = pVM->nSP;
+	nFuncSP = pVM->nFuncSP;
+	nCFuncSP = pVM->nCFuncSP;
+	nCFuncParaCount = pVM->nCFuncParaCount;
+	pStackList = ring_vm_savestack(pVM);
+	nLineNumber = RING_VM_IR_GETLINENUMBER;
+	ring_vm_mutexlock(pVM);
+	pVM->lEvalCalledFromRingCode = 1;
+	/* Take in mind nested events */
+	if (pVM->nRunCode != 1) {
+		pVM->lRetEvalDontDelete = 1;
+	}
+	nRunVM = ring_vm_eval(pVM, cStr);
+	pVM->lEvalCalledFromRingCode = 0;
+	ring_vm_mutexunlock(pVM);
+	if (nRunVM) {
+		ring_vm_mainloopforeval(pVM);
+	}
+	/* Restore state to take in mind nested events execution */
+	pVM->nRunCode--;
+	pVM->nEvalReturnPC = nEvalReturnPC;
+	pVM->lEvalReallocationFlag = lEvalReallocationFlag;
+	pVM->nPC = nPC;
+	if (pVM->nRunCode != 0) {
+		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
+		ring_vm_restorestack(pVM, pStackList);
+	}
+	/* Here we free the list because, restorestack() don't free it */
+	ring_list_delete_gc(pVM->pRingState, pStackList);
+	/* Restore Stack to avoid Stack Overflow */
+	pVM->nSP = nSP;
+	pVM->nFuncSP = nFuncSP;
+	pVM->nCFuncSP = nCFuncSP;
+	pVM->nCFuncParaCount = nCFuncParaCount;
+	RING_VM_IR_SETLINENUMBER(nLineNumber);
+}
+/* Eval Functions */
 
 int ring_vm_eval(VM *pVM, const char *cStr) {
 	int nPC, nCont, nLastPC, nRunVM, x, nSize, nMark, nIns, lUpdate;
@@ -248,51 +337,6 @@ void ring_vm_mainloopforeval(VM *pVM) {
 	}
 }
 
-RING_API void ring_vm_runcode(VM *pVM, const char *cStr) {
-	int nEvalReturnPC, lEvalReallocationFlag, nPC, nRunVM, nSP, nFuncSP, nCFuncSP, nCFuncParaCount, nLineNumber;
-	List *pStackList;
-	/* Save state to take in mind nested events execution */
-	pVM->nRunCode++;
-	nEvalReturnPC = pVM->nEvalReturnPC;
-	lEvalReallocationFlag = pVM->lEvalReallocationFlag;
-	nPC = pVM->nPC;
-	nSP = pVM->nSP;
-	nFuncSP = pVM->nFuncSP;
-	nCFuncSP = pVM->nCFuncSP;
-	nCFuncParaCount = pVM->nCFuncParaCount;
-	pStackList = ring_vm_savestack(pVM);
-	nLineNumber = RING_VM_IR_GETLINENUMBER;
-	ring_vm_mutexlock(pVM);
-	pVM->lEvalCalledFromRingCode = 1;
-	/* Take in mind nested events */
-	if (pVM->nRunCode != 1) {
-		pVM->lRetEvalDontDelete = 1;
-	}
-	nRunVM = ring_vm_eval(pVM, cStr);
-	pVM->lEvalCalledFromRingCode = 0;
-	ring_vm_mutexunlock(pVM);
-	if (nRunVM) {
-		ring_vm_mainloopforeval(pVM);
-	}
-	/* Restore state to take in mind nested events execution */
-	pVM->nRunCode--;
-	pVM->nEvalReturnPC = nEvalReturnPC;
-	pVM->lEvalReallocationFlag = lEvalReallocationFlag;
-	pVM->nPC = nPC;
-	if (pVM->nRunCode != 0) {
-		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
-		ring_vm_restorestack(pVM, pStackList);
-	}
-	/* Here we free the list because, restorestack() don't free it */
-	ring_list_delete_gc(pVM->pRingState, pStackList);
-	/* Restore Stack to avoid Stack Overflow */
-	pVM->nSP = nSP;
-	pVM->nFuncSP = nFuncSP;
-	pVM->nCFuncSP = nCFuncSP;
-	pVM->nCFuncParaCount = nCFuncParaCount;
-	RING_VM_IR_SETLINENUMBER(nLineNumber);
-}
-
 void ring_vm_cleanevalcode(VM *pVM, int nCodeSize) {
 	if (pVM->lRetEvalDontDelete || (RING_VM_INSTRUCTIONSCOUNT <= nCodeSize)) {
 		return;
@@ -332,45 +376,4 @@ void ring_vm_useextrabytecode(VM *pVM) {
 	if (pVM->nInsideEval) {
 		pVM->lRetEvalDontDelete = RING_TRUE;
 	}
-}
-/* Fast Function Call for Ring VM (Without Eval) */
-
-RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, int lMethod) {
-	int nPC;
-	nPC = pVM->nPC;
-	/* Load the function and call it */
-	ring_vm_loadfunc2(pVM, cFunc, RING_FALSE);
-	ring_vm_call2(pVM);
-	/* Check calling method from brace */
-	if (lMethod) {
-		ring_vm_oop_preparecallmethodfrombrace(pVM);
-	}
-	/* Execute the function */
-	do {
-		ring_vm_fetch(pVM);
-		if (pVM->nPC == nPC) {
-			break;
-		}
-	} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT);
-	/* Prepare the function output as a value */
-	ring_vm_pushv(pVM);
-}
-
-RING_API void ring_vm_callfunction(VM *pVM, char *cFuncName) {
-	int nCurrentFuncCall;
-	/* Lower Case and pass () in the end */
-	ring_string_lower(cFuncName);
-	/* Prepare (Remove effects of the current function) */
-	nCurrentFuncCall = pVM->nCurrentFuncCall;
-	RING_VM_DELETELASTFUNCCALL;
-	/* Load the function and call it */
-	ring_vm_loadfunc2(pVM, cFuncName, RING_FALSE);
-	ring_vm_call2(pVM);
-	/* Execute the function */
-	ring_vm_mainloopforeval(pVM);
-	/* Free Stack */
-	ring_vm_freestack(pVM);
-	pVM->nCurrentFuncCall = nCurrentFuncCall;
-	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
-	pVM->lActiveCatch = 1;
 }
