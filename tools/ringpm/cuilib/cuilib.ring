@@ -27,7 +27,7 @@ func Line75
 	? copy("=",75)
 
 func style cText,nStyle
-	lCUILibColors = ! lower(trim(sysget("CUILIB_COLORS"))) = "0"
+	lCUILibColors = ! trim(sysget("CUILIB_COLORS")) = "0"
 	if ! lCUILibColors see cText return ok
 	switch nStyle
 		on :WhiteBlue
