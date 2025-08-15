@@ -1,12 +1,12 @@
 ring_hashlib_h
-ring_xor_hash
+ring_hashlib_xorhash
 Type: unsigned char *
 cData
 Type: unsigned
 nHash
 Type: int
 i
-ring_murmur3_32
+ring_hashlib_murmurthree32
 Type: static const unsigned int
 c1
 Type: static const unsigned int

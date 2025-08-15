@@ -1,8 +1,8 @@
 /* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
-#include "stdlib.h"
+#include "ring.h"
 
-unsigned ring_xor_hash(unsigned char *cKey, int nLen) {
+RING_API unsigned ring_hashlib_xorhash(unsigned char *cKey, int nLen) {
 	unsigned char *cData = cKey;
 	unsigned nHash = 0;
 	int i;
@@ -13,7 +13,7 @@ unsigned ring_xor_hash(unsigned char *cKey, int nLen) {
 }
 /* See: https://en.wikipedia.org/wiki/MurmurHash */
 
-unsigned int ring_murmur3_32(const char *cKey, unsigned int nLen, unsigned int nSeed) {
+RING_API unsigned int ring_hashlib_murmurthree32(const char *cKey, unsigned int nLen, unsigned int nSeed) {
 	static const unsigned int c1 = 0xcc9e2d51;
 	static const unsigned int c2 = 0x1b873593;
 	static const unsigned int r1 = 15;

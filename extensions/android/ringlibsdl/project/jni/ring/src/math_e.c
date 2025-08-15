@@ -345,7 +345,8 @@ void ring_vm_math_murmur3hash(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2)) {
-		nResult = ring_murmur3_32(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1), RING_API_GETNUMBER(2));
+		nResult =
+		    ring_hashlib_murmurthree32(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1), RING_API_GETNUMBER(2));
 		RING_API_RETNUMBER(nResult);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

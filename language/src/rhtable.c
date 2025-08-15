@@ -15,9 +15,9 @@ RING_API HashTable *ring_hashtable_new_gc(void *pRingState) {
 RING_API unsigned int ring_hashtable_hashkey_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	unsigned int nIndex;
 #if RING_SIMPLEHASHFUNC
-	nIndex = ring_xor_hash((unsigned char *)cKey, strlen(cKey));
+	nIndex = ring_hashlib_xorhash((unsigned char *)cKey, strlen(cKey));
 #else
-	nIndex = ring_murmur3_32((const char *)cKey, strlen(cKey), RING_HASHTABLE_HASHFUNCSEED);
+	nIndex = ring_hashlib_murmurthree32((const char *)cKey, strlen(cKey), RING_HASHTABLE_HASHFUNCSEED);
 #endif
 	nIndex = nIndex % pHashTable->nLinkedLists;
 	return nIndex;
