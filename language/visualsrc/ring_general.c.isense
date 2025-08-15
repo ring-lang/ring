@@ -1,6 +1,5 @@
 GetCurrentDir
 GetCurrentDir
-ring_general_findsubstr
 ring_general_printline
 ring_general_numtostring
 Type: char
@@ -73,9 +72,6 @@ x
 ring_general_strcmpnotcasesensitive
 Type: int
 nNum1
-ring_general_find
-ring_general_find2
-ring_general_find3
 ring_general_lower
 Type: unsigned int
 x, nLen
@@ -96,6 +92,9 @@ Type: char *
 cString
 Type: unsigned int
 x,nStart,nEnd,nSize,nWord,nOutIndex
+ring_general_find
+ring_general_find2
+ring_general_find3
 ring_general_findsubstr
 Type: unsigned int
 x, nPos

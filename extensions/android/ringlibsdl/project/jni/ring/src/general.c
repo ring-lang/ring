@@ -33,7 +33,7 @@ RING_API char *ring_general_numtostring(double nNum1, char *cStr, int nDecimals)
 	return cStr;
 }
 
-RING_FILE ring_general_fopen(const char *cFileName, const char *cMode) {
+RING_API RING_FILE ring_general_fopen(const char *cFileName, const char *cMode) {
 #if defined(_WIN32) && !defined(__TINYC__)
 	/* Code For MS-Windows */
 	RING_FILE pFile;
@@ -65,7 +65,7 @@ RING_FILE ring_general_fopen(const char *cFileName, const char *cMode) {
 #endif
 }
 
-int ring_general_fexists(const char *cFileName) {
+RING_API int ring_general_fexists(const char *cFileName) {
 	FILE *pFile;
 	pFile = fopen(cFileName, "r");
 	if (pFile) {
@@ -75,7 +75,7 @@ int ring_general_fexists(const char *cFileName) {
 	return RING_FALSE;
 }
 
-int ring_general_currentdir(char *cDirPath) {
+RING_API int ring_general_currentdir(char *cDirPath) {
 	int nSize;
 	nSize = RING_PATHSIZE;
 #if RING_CURRENTDIRFUNCTIONS
@@ -87,7 +87,7 @@ int ring_general_currentdir(char *cDirPath) {
 	return RING_FALSE;
 }
 
-int ring_general_exefilename(char *cDirPath) {
+RING_API int ring_general_exefilename(char *cDirPath) {
 	unsigned int nSize;
 	nSize = RING_PATHSIZE;
 #ifdef _WIN32
@@ -119,7 +119,7 @@ int ring_general_exefilename(char *cDirPath) {
 	return RING_TRUE;
 }
 
-int ring_general_chdir(const char *cDir) {
+RING_API int ring_general_chdir(const char *cDir) {
 #if RING_CURRENTDIRFUNCTIONS
 	/* Check OS */
 	#ifdef _WIN32
@@ -139,7 +139,7 @@ int ring_general_chdir(const char *cDir) {
 #endif
 }
 
-void ring_general_exefolder(char *cDirPath) {
+RING_API void ring_general_exefolder(char *cDirPath) {
 	char cDir[RING_PATHSIZE];
 	char cDir2[RING_PATHSIZE];
 	int x, x2, nSize;
@@ -158,7 +158,7 @@ void ring_general_exefolder(char *cDirPath) {
 	strcpy(cDirPath, cDir2);
 }
 
-void ring_general_switchtofilefolder(char *cFileName) {
+RING_API void ring_general_switchtofilefolder(char *cFileName) {
 	char cFileName2[RING_PATHSIZE];
 	strcpy(cFileName2, cFileName);
 	if (ring_general_justfilepath(cFileName2)) {
@@ -169,7 +169,7 @@ void ring_general_switchtofilefolder(char *cFileName) {
 	}
 }
 
-int ring_general_justfilepath(char *cFileName) {
+RING_API int ring_general_justfilepath(char *cFileName) {
 	int x, nSize;
 	nSize = strlen(cFileName);
 	for (x = nSize - 1; x >= 0; x--) {
@@ -181,7 +181,7 @@ int ring_general_justfilepath(char *cFileName) {
 	return RING_FALSE;
 }
 
-void ring_general_justfilename(char *cFileName) {
+RING_API void ring_general_justfilename(char *cFileName) {
 	int x, nSize, r;
 	nSize = strlen(cFileName);
 	for (x = nSize - 1; x >= 0; x--) {
@@ -196,7 +196,7 @@ void ring_general_justfilename(char *cFileName) {
 	}
 }
 
-int ring_general_issourcefile(const char *cStr) {
+RING_API int ring_general_issourcefile(const char *cStr) {
 	int x;
 	x = strlen(cStr) - 1;
 	if (x >= 5) {
@@ -208,7 +208,7 @@ int ring_general_issourcefile(const char *cStr) {
 	return RING_FALSE;
 }
 
-int ring_general_isobjectfile(const char *cStr) {
+RING_API int ring_general_isobjectfile(const char *cStr) {
 	int x;
 	x = strlen(cStr) - 1;
 	if (x > 6) {
@@ -220,7 +220,7 @@ int ring_general_isobjectfile(const char *cStr) {
 	return RING_FALSE;
 }
 
-void ring_general_showtime(void) {
+RING_API void ring_general_showtime(void) {
 	time_t vTimer;
 	char cBuffer[RING_MEDIUMBUF];
 	struct tm *vTimeInfo;
@@ -236,7 +236,7 @@ void ring_general_showtime(void) {
 	ring_general_printline();
 }
 
-void ring_general_addosfileseparator(char *cFileName) {
+RING_API void ring_general_addosfileseparator(char *cFileName) {
 #ifdef _WIN32
 	strcat(cFileName, "\\");
 #else
@@ -244,7 +244,7 @@ void ring_general_addosfileseparator(char *cFileName) {
 #endif
 }
 
-int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName) {
+RING_API int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName) {
 	int x;
 	if (strlen(cFolderName) < strlen(cFileName)) {
 #ifdef _WIN32
@@ -265,7 +265,7 @@ int ring_general_folderexistinfilename(const char *cFolderName, const char *cFil
 	return RING_FALSE;
 }
 
-void ring_general_readline(char *cLine, unsigned int nSize) {
+RING_API void ring_general_readline(char *cLine, unsigned int nSize) {
 	int x;
 	fgets(cLine, nSize, stdin);
 	/* Remove New Line */
@@ -277,7 +277,7 @@ void ring_general_readline(char *cLine, unsigned int nSize) {
 	}
 }
 
-int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
+RING_API int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
 	int nNum1;
 	while (1) {
 		nNum1 = tolower(*cStr1) - tolower(*cStr2);
