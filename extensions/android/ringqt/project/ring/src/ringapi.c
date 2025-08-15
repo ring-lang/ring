@@ -2,6 +2,12 @@
 
 #include "ring.h"
 
+RING_API void ring_vm_loadcfunctions(RingState *pRingState) {
+	ring_vm_generallib_loadfunctions(pRingState);
+	/* Load Modules */
+	ring_vm_extension(pRingState);
+}
+
 RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *)) {
 	List *pList;
 	CFunction *pCFunc;
@@ -14,12 +20,6 @@ RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, voi
 	pCFunc->pFunc = pFunc;
 	pCFunc->pNext = pRingState->pVM->pCFunction;
 	pRingState->pVM->pCFunction = pCFunc;
-}
-
-RING_API void ring_vm_loadcfunctions(RingState *pRingState) {
-	ring_vm_generallib_loadfunctions(pRingState);
-	/* Load Modules */
-	ring_vm_extension(pRingState);
 }
 
 RING_API int ring_vm_api_isstring(void *pPointer, int nPara) {
@@ -77,6 +77,23 @@ RING_API int ring_vm_api_getpointertype(void *pPointer, int nPara) {
 	return RING_VM_STACK_OBJTYPEVALUE(pVM->nCFuncSP + nPara);
 }
 
+RING_API List *ring_vm_api_getlist(void *pPointer, int nPara) {
+	int nType;
+	Item *pItem;
+	List *pList;
+	if (RING_API_ISPOINTER(nPara)) {
+		nType = RING_API_GETPOINTERTYPE(nPara);
+		if (nType == RING_OBJTYPE_VARIABLE) {
+			pList = (List *)RING_API_GETPOINTER(nPara);
+			return ring_list_getlist(pList, RING_VAR_VALUE);
+		} else if (nType == RING_OBJTYPE_LISTITEM) {
+			pItem = (Item *)RING_API_GETPOINTER(nPara);
+			return ring_item_getlist(pItem);
+		}
+	}
+	return NULL;
+}
+
 RING_API int ring_vm_api_islist(void *pPointer, int nPara) {
 	int nType;
 	VM *pVM;
@@ -130,23 +147,6 @@ RING_API int ring_vm_api_ispointer(void *pPointer, int nPara) {
 		}
 	}
 	return RING_FALSE;
-}
-
-RING_API List *ring_vm_api_getlist(void *pPointer, int nPara) {
-	int nType;
-	Item *pItem;
-	List *pList;
-	if (RING_API_ISPOINTER(nPara)) {
-		nType = RING_API_GETPOINTERTYPE(nPara);
-		if (nType == RING_OBJTYPE_VARIABLE) {
-			pList = (List *)RING_API_GETPOINTER(nPara);
-			return ring_list_getlist(pList, RING_VAR_VALUE);
-		} else if (nType == RING_OBJTYPE_LISTITEM) {
-			pItem = (Item *)RING_API_GETPOINTER(nPara);
-			return ring_item_getlist(pItem);
-		}
-	}
-	return NULL;
 }
 
 RING_API void ring_vm_api_retlist(void *pPointer, List *pList) {

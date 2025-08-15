@@ -90,11 +90,9 @@
 
 void ring_vm_extension(RingState *pRingState);
 
-RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *));
-
 RING_API void ring_vm_loadcfunctions(RingState *pRingState);
 
-RING_API List *ring_vm_api_getlist(void *pPointer, int nPara);
+RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *));
 
 RING_API int ring_vm_api_isstring(void *pPointer, int nPara);
 
@@ -113,6 +111,8 @@ RING_API double ring_vm_api_getnumber(void *pPointer, int nPara);
 RING_API void *ring_vm_api_getpointer(void *pPointer, int nPara);
 
 RING_API int ring_vm_api_getpointertype(void *pPointer, int nPara);
+
+RING_API List *ring_vm_api_getlist(void *pPointer, int nPara);
 
 RING_API int ring_vm_api_islist(void *pPointer, int nPara);
 
