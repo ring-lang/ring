@@ -501,3 +501,58 @@ int ring_vm_notusingvarduringdef(VM *pVM) {
 	}
 	return nCont;
 }
+
+void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
+	int x, nMax;
+	List *pNewList2, *pSourceList;
+	Item *pItem;
+	/* Copy Items */
+	nMax = ring_list_getsize(pList);
+	if (nMax == 0) {
+		return;
+	}
+	for (x = 1; x <= nMax; x++) {
+		if (ring_list_isint(pList, x)) {
+			ring_list_addint_gc(pVM->pRingState, pNewList, ring_list_getint(pList, x));
+		} else if (ring_list_isdouble(pList, x)) {
+			ring_list_adddouble_gc(pVM->pRingState, pNewList, ring_list_getdouble(pList, x));
+		} else if (ring_list_isstring(pList, x)) {
+			ring_list_addstring2_gc(pVM->pRingState, pNewList, ring_list_getstring(pList, x),
+						ring_list_getstringsize(pList, x));
+		} else if (ring_list_ispointer(pList, x)) {
+			ring_list_addpointer_gc(pVM->pRingState, pNewList, ring_list_getpointer(pList, x));
+		} else if (ring_list_isfuncpointer(pList, x)) {
+			ring_list_addfuncpointer_gc(pVM->pRingState, pNewList, ring_list_getfuncpointer(pList, x));
+		} else if (ring_list_islist(pList, x)) {
+			pNewList2 = ring_list_newlist_gc(pVM->pRingState, pNewList);
+			pSourceList = ring_list_getlist(pList, x);
+			if (ring_list_isref(pSourceList)) {
+				/* Copy By Reference */
+				ring_list_setlistbyref_gc(pVM->pRingState, pNewList, ring_list_getsize(pNewList),
+							  pSourceList);
+			} else {
+				/* Copy By Value */
+				ring_vm_list_copy(pVM, pNewList2, pSourceList);
+				/* Update Self Object Pointer */
+				if (ring_vm_oop_isobject(pVM, pNewList2)) {
+					pItem = ring_list_getitem_gc(pVM->pRingState, pNewList,
+								     ring_list_getsize(pNewList));
+					ring_vm_oop_updateselfpointer(pVM, pNewList2, RING_OBJTYPE_LISTITEM, pItem);
+				}
+			}
+		}
+	}
+	/* Check if the List is a C Pointer List */
+	if (ring_list_iscpointerlist(pList)) {
+		/* Copy The Pointer by Reference */
+		pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState, pNewList->pFirst->pValue);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_CPOINTER_POINTER);
+		pNewList->pFirst->pValue = pItem;
+		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		ring_vm_gc_newitemreference(pItem);
+		/* Mark the C Pointer List as Not Copied */
+		ring_list_setint_gc(pVM->pRingState, pList, RING_CPOINTER_STATUS, RING_CPOINTERSTATUS_NOTCOPIED);
+		ring_list_setint_gc(pVM->pRingState, pNewList, RING_CPOINTER_STATUS, RING_CPOINTERSTATUS_NOTCOPIED);
+		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	}
+}
