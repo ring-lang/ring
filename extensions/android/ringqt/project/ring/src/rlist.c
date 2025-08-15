@@ -1085,7 +1085,7 @@ RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType,
 	unsigned int x, nCount, nPos;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
-	ring_string_lower(cAttribute);
+	ring_general_lower(cAttribute);
 	/* Find Item */
 	if ((nCount > 0) && (nColumn > 0)) {
 		for (x = 1; x <= nCount; x++) {

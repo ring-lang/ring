@@ -642,7 +642,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			ring_parser_icg_newoperation(pParser, ICO_PUSHC);
 			if (ring_parser_isanykeyword(pParser)) {
 				strcpy(cKeyword, ring_scanner_getkeywordtext(pParser->pRingState, pParser->cTokenText));
-				ring_string_lower(cKeyword);
+				ring_general_lower(cKeyword);
 				ring_parser_icg_newoperand(pParser, cKeyword);
 			} else {
 				ring_parser_icg_newoperand(pParser, pParser->cTokenText);

@@ -543,7 +543,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 			   RING_API_ISSTRING(3)) {
 			nColumn = RING_API_GETNUMBER(2);
 			cAttribute = RING_API_GETSTRING(3);
-			ring_string_lower(cAttribute);
+			ring_general_lower(cAttribute);
 			pList3 = ring_list_getlist(pList, RING_ONE);
 			if (nColumn > 1) {
 				pList3 = ring_list_getlist(pList3, nColumn);

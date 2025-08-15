@@ -101,7 +101,6 @@ Type: FuncCall *
 pFuncCall
 Type: int
 x
-ring_vm_newscopeid
 ring_vm_optionalfunc
 Type: VM *
 pVM

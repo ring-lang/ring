@@ -484,7 +484,7 @@ void ring_vm_newfunc(VM *pVM) {
 				if (RING_VM_IR_READIVALUE(RING_VM_IR_REG2) == 1) {
 					strcpy(pParameter, cParameters);
 				} else {
-					ring_string_word(cParameters, x, pParameter);
+					ring_general_word(cParameters, x, pParameter);
 				}
 				if (RING_VM_STACK_ISSTRING) {
 					ring_vm_addstringarg(pVM, pParameter, RING_VM_STACK_READC,
@@ -702,7 +702,7 @@ void ring_vm_anonymous(VM *pVM) {
 	if (RING_VM_STACK_ISSTRING) {
 		cStr = RING_VM_STACK_READC;
 		RING_VM_STACK_POP;
-		ring_string_lower(cStr);
+		ring_general_lower(cStr);
 		ring_vm_loadfunc2(pVM, cStr, RING_FALSE);
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADCALLPARA);

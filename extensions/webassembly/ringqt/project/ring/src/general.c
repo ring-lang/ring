@@ -289,19 +289,7 @@ int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
 	}
 }
 
-RING_API char *ring_string_find(char *cStr1, char *cStr2) {
-	return ring_string_find2(cStr1, strlen(cStr1), cStr2, strlen(cStr2));
-}
-
-RING_API char *ring_string_find2(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2) {
-	return ring_string_findsubstr(cStr1, nStrSize1, cStr2, nStrSize2, RING_FALSE);
-}
-
-RING_API char *ring_string_find3(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2) {
-	return ring_string_findsubstr(cStr1, nStrSize1, cStr2, nStrSize2, RING_TRUE);
-}
-
-RING_API char *ring_string_lower(char *cStr) {
+RING_API char *ring_general_lower(char *cStr) {
 	unsigned int x, nLen;
 	nLen = strlen(cStr);
 	for (x = RING_ZERO; x < nLen; x++) {
@@ -312,7 +300,7 @@ RING_API char *ring_string_lower(char *cStr) {
 	return cStr;
 }
 
-RING_API char *ring_string_lower2(char *cStr, unsigned int nStrSize) {
+RING_API char *ring_general_lower2(char *cStr, unsigned int nStrSize) {
 	unsigned int x;
 	for (x = RING_ZERO; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
@@ -322,7 +310,7 @@ RING_API char *ring_string_lower2(char *cStr, unsigned int nStrSize) {
 	return cStr;
 }
 
-RING_API char *ring_string_upper(char *cStr) {
+RING_API char *ring_general_upper(char *cStr) {
 	unsigned int x, nLen;
 	nLen = strlen(cStr);
 	for (x = RING_ZERO; x < nLen; x++) {
@@ -333,7 +321,7 @@ RING_API char *ring_string_upper(char *cStr) {
 	return cStr;
 }
 
-RING_API char *ring_string_upper2(char *cStr, unsigned int nStrSize) {
+RING_API char *ring_general_upper2(char *cStr, unsigned int nStrSize) {
 	unsigned int x;
 	for (x = RING_ZERO; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
@@ -343,7 +331,7 @@ RING_API char *ring_string_upper2(char *cStr, unsigned int nStrSize) {
 	return cStr;
 }
 
-RING_API int ring_string_looksempty(const char *cStr, unsigned int nSize) {
+RING_API int ring_general_looksempty(const char *cStr, unsigned int nSize) {
 	unsigned int x;
 	if (nSize == RING_ZERO) {
 		return RING_TRUE;
@@ -356,7 +344,7 @@ RING_API int ring_string_looksempty(const char *cStr, unsigned int nSize) {
 	return RING_TRUE;
 }
 
-RING_API void ring_string_word(const char *cStr, unsigned int nIndex, char *cOutput) {
+RING_API void ring_general_word(const char *cStr, unsigned int nIndex, char *cOutput) {
 	char *cString;
 	unsigned int x, nStart, nEnd, nSize, nWord, nOutIndex;
 	/* This function will return a specific word from a string using the word index */
@@ -383,8 +371,20 @@ RING_API void ring_string_word(const char *cStr, unsigned int nIndex, char *cOut
 	cOutput[nOutIndex] = '\0';
 }
 
-RING_API char *ring_string_findsubstr(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2,
-				      int lNotCaseSensitive) {
+RING_API char *ring_general_find(char *cStr1, char *cStr2) {
+	return ring_general_find2(cStr1, strlen(cStr1), cStr2, strlen(cStr2));
+}
+
+RING_API char *ring_general_find2(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2) {
+	return ring_general_findsubstr(cStr1, nStrSize1, cStr2, nStrSize2, RING_FALSE);
+}
+
+RING_API char *ring_general_find3(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2) {
+	return ring_general_findsubstr(cStr1, nStrSize1, cStr2, nStrSize2, RING_TRUE);
+}
+
+RING_API char *ring_general_findsubstr(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2,
+				       int lNotCaseSensitive) {
 	unsigned int x, nPos;
 	nPos = RING_ZERO;
 	if (nStrSize1 < nStrSize2) {

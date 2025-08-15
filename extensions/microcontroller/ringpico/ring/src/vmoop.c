@@ -1266,7 +1266,7 @@ int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr) {
 		return RING_FALSE;
 	}
 	pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
-	ring_string_lower(cStr);
+	ring_general_lower(cStr);
 	ring_vm_newvar2(pVM, cStr, pList);
 	return RING_TRUE;
 }

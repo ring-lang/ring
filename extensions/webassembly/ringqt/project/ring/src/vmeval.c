@@ -28,7 +28,7 @@ RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, int lMetho
 RING_API void ring_vm_callfunction(VM *pVM, char *cFuncName) {
 	int nCurrentFuncCall;
 	/* Lower Case and pass () in the end */
-	ring_string_lower(cFuncName);
+	ring_general_lower(cFuncName);
 	/* Prepare (Remove effects of the current function) */
 	nCurrentFuncCall = pVM->nCurrentFuncCall;
 	RING_VM_DELETELASTFUNCCALL;

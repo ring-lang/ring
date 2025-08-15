@@ -233,7 +233,7 @@ void ring_scanner_keywords(Scanner *pScanner) {
 	pScanner->pKeywords = ring_list_new_gc(pScanner->pRingState, RING_ZERO);
 	for (x = 0; x < RING_SCANNER_KEYWORDSCOUNT; x++) {
 		sprintf(cKeyword, "%s", RING_KEYWORDS[x]);
-		ring_string_lower(cKeyword);
+		ring_general_lower(cKeyword);
 		ring_list_addstring_gc(pScanner->pRingState, pScanner->pKeywords, cKeyword);
 	}
 	ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pKeywords);
@@ -268,7 +268,7 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 						       ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
 	} else {
 		cActiveStr = ring_string_strdup_gc(pScanner->pRingState, ring_string_get(pScanner->pActiveToken));
-		cActiveStr = ring_string_lower(cActiveStr);
+		cActiveStr = ring_general_lower(cActiveStr);
 		nResult = ring_hashtable_findnumber_gc(pScanner->pRingState,
 						       ring_list_gethashtable(pScanner->pKeywords), cActiveStr);
 		ring_state_free(pScanner->pRingState, cActiveStr);
@@ -573,8 +573,8 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 		}
 	}
 	/* To Lower Case */
-	ring_string_lower(ring_string_get(word1));
-	ring_string_lower(ring_string_get(word2));
+	ring_general_lower(ring_string_get(word1));
+	ring_general_lower(ring_string_get(word2));
 	/* Change Keyword */
 	if ((strcmp(ring_string_get(word1), RING_CSTR_EMPTY) == 0) ||
 	    (strcmp(ring_string_get(word2), RING_CSTR_EMPTY) == 0)) {
@@ -618,8 +618,8 @@ void ring_scanner_changeoperator(Scanner *pScanner) {
 		}
 	}
 	/* To Lower Case */
-	ring_string_lower(ring_string_get(word1));
-	ring_string_lower(ring_string_get(word2));
+	ring_general_lower(ring_string_get(word1));
+	ring_general_lower(ring_string_get(word2));
 	/* Change Operator */
 	if ((strcmp(ring_string_get(word1), RING_CSTR_EMPTY) == 0) ||
 	    (strcmp(ring_string_get(word2), RING_CSTR_EMPTY) == 0)) {

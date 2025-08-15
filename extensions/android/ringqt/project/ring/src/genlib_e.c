@@ -863,7 +863,7 @@ void ring_vm_generallib_substr(void *pPointer) {
 		} else if (RING_API_ISSTRING(2)) {
 			cStr2 = RING_API_GETSTRING(2);
 			nSize2 = RING_API_GETSTRINGSIZE(2);
-			cStr3 = ring_string_find2(cStr, nSize, cStr2, nSize2);
+			cStr3 = ring_general_find2(cStr, nSize, cStr2, nSize2);
 			if (cStr3 != NULL) {
 				nNum1 = (RING_LONGLONG)(1 + (cStr3 - cStr));
 			} else {
@@ -916,9 +916,9 @@ void ring_vm_generallib_substr(void *pPointer) {
 		}
 		/* Search */
 		if (nTransform == 1) {
-			cString = ring_string_find2(cStr, nSize, cStr2, nSize2);
+			cString = ring_general_find2(cStr, nSize, cStr2, nSize2);
 		} else {
-			cString = ring_string_find3(cStr, nSize, cStr2, nSize2);
+			cString = ring_general_find3(cStr, nSize, cStr2, nSize2);
 		}
 		if (cString == NULL) {
 			RING_API_RETSTRING(cStr);
@@ -935,9 +935,11 @@ void ring_vm_generallib_substr(void *pPointer) {
 			nMark = nPos + nSize2 - 1;
 			/* Search */
 			if (nTransform == 1) {
-				cString = ring_string_find2(cStr + ((unsigned int)nMark), nSize - nMark, cStr2, nSize2);
+				cString =
+				    ring_general_find2(cStr + ((unsigned int)nMark), nSize - nMark, cStr2, nSize2);
 			} else {
-				cString = ring_string_find3(cStr + ((unsigned int)nMark), nSize - nMark, cStr2, nSize2);
+				cString =
+				    ring_general_find3(cStr + ((unsigned int)nMark), nSize - nMark, cStr2, nSize2);
 			}
 			if (cString == NULL) {
 				/* Add SubString to pString */
@@ -955,7 +957,7 @@ void ring_vm_generallib_lower(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISSTRING(1)) {
-		RING_API_RETSTRING2(ring_string_lower2(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1)),
+		RING_API_RETSTRING2(ring_general_lower2(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1)),
 				    RING_API_GETSTRINGSIZE(1));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -968,7 +970,7 @@ void ring_vm_generallib_upper(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISSTRING(1)) {
-		RING_API_RETSTRING2(ring_string_upper2(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1)),
+		RING_API_RETSTRING2(ring_general_upper2(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1)),
 				    RING_API_GETSTRINGSIZE(1));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

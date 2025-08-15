@@ -18,8 +18,8 @@ typedef struct String {
 	unsigned int nCapacity;
 	char cStrArray[RING_STRING_ARRAYSIZE];
 } String;
-#define ring_string_tolower_gc(pState, pString) ring_string_lower(pString->cStr)
-#define ring_string_toupper_gc(pState, pString) ring_string_upper(pString->cStr)
+#define ring_string_tolower_gc(pState, pString) ring_general_lower(pString->cStr)
+#define ring_string_toupper_gc(pState, pString) ring_general_upper(pString->cStr)
 #define ring_string_get_gc(pState, pString) (pString->cStr)
 #define ring_string_tolower(pString) ring_string_tolower_gc(NULL, pString)
 #define ring_string_toupper(pString) ring_string_toupper_gc(NULL, pString)
@@ -78,7 +78,4 @@ RING_API int ring_string_size(String *pString);
 RING_API void ring_string_print(String *pString);
 
 RING_API char *ring_string_strdup(const char *cStr);
-
-RING_API char *ring_string_findsubstr(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2,
-				      int lNotCaseSensitive);
 #endif

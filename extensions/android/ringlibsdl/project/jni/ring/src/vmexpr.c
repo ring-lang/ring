@@ -921,7 +921,7 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 		return RING_ZEROF;
 	} else if ((cEndStr > cStr) && (cEndStr < cStr + strlen(cStr))) {
 		/* Check Content */
-		if (!ring_string_looksempty(cEndStr, strlen(cEndStr))) {
+		if (!ring_general_looksempty(cEndStr, strlen(cEndStr))) {
 			pVM->lFullStringToNum = 0;
 		}
 		if ((pVM->lSubStringToNumError) && (pVM->lFullStringToNum == 0)) {
