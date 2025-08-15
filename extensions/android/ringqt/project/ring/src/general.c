@@ -120,6 +120,22 @@ RING_API int ring_general_justfilepath(char *cFileName) {
 	return RING_FALSE;
 }
 
+RING_API int ring_general_justfilename(char *cFileName) {
+	int x, nSize, r;
+	nSize = strlen(cFileName);
+	for (x = nSize - 1; x >= 0; x--) {
+		if ((cFileName[x] == '\\') || (cFileName[x] == '/')) {
+			r = 0;
+			for (x = x + 1; x <= nSize + 1; x++) {
+				cFileName[r] = cFileName[x];
+				r++;
+			}
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
 RING_API int ring_general_issourcefile(const char *cStr) {
 	int x;
 	x = strlen(cStr) - 1;
@@ -192,21 +208,6 @@ RING_API void ring_general_switchtofilefolder(char *cFileName) {
 		/* Remove The Path from the file Name - Keep the File Name Only */
 		ring_general_justfilename(cFileName);
 		return;
-	}
-}
-
-RING_API void ring_general_justfilename(char *cFileName) {
-	int x, nSize, r;
-	nSize = strlen(cFileName);
-	for (x = nSize - 1; x >= 0; x--) {
-		if ((cFileName[x] == '\\') || (cFileName[x] == '/')) {
-			r = 0;
-			for (x = x + 1; x <= nSize + 1; x++) {
-				cFileName[r] = cFileName[x];
-				r++;
-			}
-			break;
-		}
 	}
 }
 

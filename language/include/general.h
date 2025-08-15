@@ -32,6 +32,8 @@ RING_API int ring_general_chdir(const char *cDir);
 
 RING_API int ring_general_justfilepath(char *cFileName);
 
+RING_API int ring_general_justfilename(char *cFileName);
+
 RING_API int ring_general_issourcefile(const char *cStr);
 
 RING_API int ring_general_isobjectfile(const char *cStr);
@@ -41,8 +43,6 @@ RING_API int ring_general_folderexistinfilename(const char *cFolderName, const c
 RING_API void ring_general_exefolder(char *cDirPath);
 
 RING_API void ring_general_switchtofilefolder(char *cFileName);
-
-RING_API void ring_general_justfilename(char *cFileName);
 
 RING_API void ring_general_addosfileseparator(char *cFileName);
 

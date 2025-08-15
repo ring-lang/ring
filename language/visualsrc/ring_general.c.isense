@@ -1,13 +1,5 @@
 GetCurrentDir
 GetCurrentDir
-ring_general_printline
-ring_general_numtostring
-Type: char
-cOptions[RING_SMALLBUF]
-Type: int
-nNum2
-Type: RING_LONGLONG
-nVal
 ring_general_fopen
 Type: RING_FILE
 pFile
@@ -31,16 +23,6 @@ mib[4]
 Type: size_t
 cb
 ring_general_chdir
-ring_general_exefolder
-Type: char
-cDir[RING_PATHSIZE]
-Type: char
-cDir2[RING_PATHSIZE]
-Type: int
-x,x2,nSize
-ring_general_switchtofilefolder
-Type: char
-cFileName2[RING_PATHSIZE]
 ring_general_justfilepath
 Type: int
 x,nSize
@@ -53,6 +35,23 @@ x
 ring_general_isobjectfile
 Type: int
 x
+ring_general_folderexistinfilename
+Type: int
+x
+ring_general_exefolder
+Type: char
+cDir[RING_PATHSIZE]
+Type: char
+cDir2[RING_PATHSIZE]
+Type: int
+x,x2,nSize
+ring_general_switchtofilefolder
+Type: char
+cFileName2[RING_PATHSIZE]
+ring_general_addosfileseparator
+ring_general_readline
+Type: int
+x
 ring_general_showtime
 Type: time_t
 vTimer
@@ -62,16 +61,7 @@ Type: struct tm*
 vTimeInfo
 Type: clock_t
 vClock
-ring_general_addosfileseparator
-ring_general_folderexistinfilename
-Type: int
-x
-ring_general_readline
-Type: int
-x
-ring_general_strcmpnotcasesensitive
-Type: int
-nNum1
+ring_general_printline
 ring_general_lower
 Type: unsigned int
 x, nLen
@@ -84,17 +74,27 @@ x, nLen
 ring_general_upper2
 Type: unsigned int
 x
-ring_general_looksempty
-Type: unsigned int
-x
-ring_general_word
-Type: char *
-cString
-Type: unsigned int
-x,nStart,nEnd,nSize,nWord,nOutIndex
 ring_general_find
 ring_general_find2
 ring_general_find3
 ring_general_findsubstr
 Type: unsigned int
 x, nPos
+ring_general_numtostring
+Type: char
+cOptions[RING_SMALLBUF]
+Type: int
+nNum2
+Type: RING_LONGLONG
+nVal
+ring_general_word
+Type: char *
+cString
+Type: unsigned int
+x,nStart,nEnd,nSize,nWord,nOutIndex
+ring_general_looksempty
+Type: unsigned int
+x
+ring_general_strcmpnotcasesensitive
+Type: int
+nNum1
