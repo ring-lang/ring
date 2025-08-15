@@ -2,37 +2,6 @@
 
 #include "ring.h"
 
-RING_API void ring_general_printline(void) {
-	puts("===========================================================================");
-}
-
-RING_API char *ring_general_numtostring(double nNum1, char *cStr, int nDecimals) {
-	char cOptions[RING_SMALLBUF];
-	int nNum2;
-	RING_LONGLONG nVal;
-	nVal = (RING_LONGLONG)nNum1;
-	if ((nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE)) {
-		sprintf(cStr, RING_LONGLONG_FORMAT, nVal);
-	} else {
-		sprintf(cOptions, "%s%df", "%.", nDecimals);
-#if RING_NOSNPRINTF
-		sprintf(cStr, cOptions, nNum1);
-#else
-		/* Avoid buffer overrun by using snprint() function */
-		nNum2 = snprintf(cStr, RING_MEDIUMBUF, cOptions, nNum1);
-		if (nNum2 >= RING_MEDIUMBUF) {
-			/* Result truncated so print in compact format with a precision of 90 */
-			nNum2 = snprintf(cStr, RING_MEDIUMBUF, "%.90e", nNum1);
-		}
-		if (nNum2 < 0) {
-			/* Error */
-			cStr[0] = 0;
-		}
-#endif
-	}
-	return cStr;
-}
-
 RING_API RING_FILE ring_general_fopen(const char *cFileName, const char *cMode) {
 #if defined(_WIN32) && !defined(__TINYC__)
 	/* Code For MS-Windows */
@@ -139,6 +108,63 @@ RING_API int ring_general_chdir(const char *cDir) {
 #endif
 }
 
+RING_API int ring_general_justfilepath(char *cFileName) {
+	int x, nSize;
+	nSize = strlen(cFileName);
+	for (x = nSize - 1; x >= 0; x--) {
+		if ((cFileName[x] == '\\') || (cFileName[x] == '/')) {
+			cFileName[x + 1] = '\0';
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+RING_API int ring_general_issourcefile(const char *cStr) {
+	int x;
+	x = strlen(cStr) - 1;
+	if (x >= 5) {
+		if (tolower(cStr[x]) == 'g' && tolower(cStr[x - 1]) == 'n' && tolower(cStr[x - 2]) == 'i' &&
+		    tolower(cStr[x - 3]) == 'r' && cStr[x - 4] == '.') {
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+RING_API int ring_general_isobjectfile(const char *cStr) {
+	int x;
+	x = strlen(cStr) - 1;
+	if (x > 6) {
+		if (tolower(cStr[x]) == 'o' && tolower(cStr[x - 1]) == 'g' && tolower(cStr[x - 2]) == 'n' &&
+		    tolower(cStr[x - 3]) == 'i' && tolower(cStr[x - 4]) == 'r' && cStr[x - 5] == '.') {
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+RING_API int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName) {
+	int x;
+	if (strlen(cFolderName) < strlen(cFileName)) {
+#ifdef _WIN32
+		for (x = 0; (unsigned)x < strlen(cFolderName); x++) {
+			if ((tolower(cFolderName[x]) != tolower(cFileName[x]))) {
+				return RING_FALSE;
+			}
+		}
+#else
+		for (x = 0; (unsigned)x < strlen(cFolderName); x++) {
+			if (cFolderName[x] != cFileName[x]) {
+				return RING_FALSE;
+			}
+		}
+#endif
+		return RING_TRUE;
+	}
+	return RING_FALSE;
+}
+
 RING_API void ring_general_exefolder(char *cDirPath) {
 	char cDir[RING_PATHSIZE];
 	char cDir2[RING_PATHSIZE];
@@ -169,18 +195,6 @@ RING_API void ring_general_switchtofilefolder(char *cFileName) {
 	}
 }
 
-RING_API int ring_general_justfilepath(char *cFileName) {
-	int x, nSize;
-	nSize = strlen(cFileName);
-	for (x = nSize - 1; x >= 0; x--) {
-		if ((cFileName[x] == '\\') || (cFileName[x] == '/')) {
-			cFileName[x + 1] = '\0';
-			return RING_TRUE;
-		}
-	}
-	return RING_FALSE;
-}
-
 RING_API void ring_general_justfilename(char *cFileName) {
 	int x, nSize, r;
 	nSize = strlen(cFileName);
@@ -196,28 +210,24 @@ RING_API void ring_general_justfilename(char *cFileName) {
 	}
 }
 
-RING_API int ring_general_issourcefile(const char *cStr) {
-	int x;
-	x = strlen(cStr) - 1;
-	if (x >= 5) {
-		if (tolower(cStr[x]) == 'g' && tolower(cStr[x - 1]) == 'n' && tolower(cStr[x - 2]) == 'i' &&
-		    tolower(cStr[x - 3]) == 'r' && cStr[x - 4] == '.') {
-			return RING_TRUE;
-		}
-	}
-	return RING_FALSE;
+RING_API void ring_general_addosfileseparator(char *cFileName) {
+#ifdef _WIN32
+	strcat(cFileName, "\\");
+#else
+	strcat(cFileName, "/");
+#endif
 }
 
-RING_API int ring_general_isobjectfile(const char *cStr) {
+RING_API void ring_general_readline(char *cLine, unsigned int nSize) {
 	int x;
-	x = strlen(cStr) - 1;
-	if (x > 6) {
-		if (tolower(cStr[x]) == 'o' && tolower(cStr[x - 1]) == 'g' && tolower(cStr[x - 2]) == 'n' &&
-		    tolower(cStr[x - 3]) == 'i' && tolower(cStr[x - 4]) == 'r' && cStr[x - 5] == '.') {
-			return RING_TRUE;
+	fgets(cLine, nSize, stdin);
+	/* Remove New Line */
+	for (x = 0; x < nSize; x++) {
+		if (cLine[x] == '\n') {
+			cLine[x] = '\0';
+			break;
 		}
 	}
-	return RING_FALSE;
 }
 
 RING_API void ring_general_showtime(void) {
@@ -236,57 +246,8 @@ RING_API void ring_general_showtime(void) {
 	ring_general_printline();
 }
 
-RING_API void ring_general_addosfileseparator(char *cFileName) {
-#ifdef _WIN32
-	strcat(cFileName, "\\");
-#else
-	strcat(cFileName, "/");
-#endif
-}
-
-RING_API int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName) {
-	int x;
-	if (strlen(cFolderName) < strlen(cFileName)) {
-#ifdef _WIN32
-		for (x = 0; (unsigned)x < strlen(cFolderName); x++) {
-			if ((tolower(cFolderName[x]) != tolower(cFileName[x]))) {
-				return RING_FALSE;
-			}
-		}
-#else
-		for (x = 0; (unsigned)x < strlen(cFolderName); x++) {
-			if (cFolderName[x] != cFileName[x]) {
-				return RING_FALSE;
-			}
-		}
-#endif
-		return RING_TRUE;
-	}
-	return RING_FALSE;
-}
-
-RING_API void ring_general_readline(char *cLine, unsigned int nSize) {
-	int x;
-	fgets(cLine, nSize, stdin);
-	/* Remove New Line */
-	for (x = 0; x < nSize; x++) {
-		if (cLine[x] == '\n') {
-			cLine[x] = '\0';
-			break;
-		}
-	}
-}
-
-RING_API int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
-	int nNum1;
-	while (1) {
-		nNum1 = tolower(*cStr1) - tolower(*cStr2);
-		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
-			return nNum1;
-		}
-		cStr1++;
-		cStr2++;
-	}
+RING_API void ring_general_printline(void) {
+	puts("===========================================================================");
 }
 
 RING_API char *ring_general_lower(char *cStr) {
@@ -331,46 +292,6 @@ RING_API char *ring_general_upper2(char *cStr, unsigned int nStrSize) {
 	return cStr;
 }
 
-RING_API int ring_general_looksempty(const char *cStr, unsigned int nSize) {
-	unsigned int x;
-	if (nSize == RING_ZERO) {
-		return RING_TRUE;
-	}
-	for (x = RING_ZERO; x < nSize; x++) {
-		if (!((cStr[x] == ' ') || (cStr[x] == '\r') || (cStr[x] == '\n') || (cStr[x] == '\t'))) {
-			return RING_FALSE;
-		}
-	}
-	return RING_TRUE;
-}
-
-RING_API void ring_general_word(const char *cStr, unsigned int nIndex, char *cOutput) {
-	char *cString;
-	unsigned int x, nStart, nEnd, nSize, nWord, nOutIndex;
-	/* This function will return a specific word from a string using the word index */
-	nSize = strlen(cStr);
-	/* Determine the start of the word */
-	nStart = 0;
-	if (nIndex != 1) {
-		nWord = 1;
-		while (nWord != nIndex) {
-			if (cStr[++nStart] == ' ') {
-				nStart++;
-				nWord++;
-			}
-		}
-	}
-	/* Determine the End of the word */
-	nEnd = nStart;
-	nOutIndex = 0;
-	while ((cStr[nEnd] != ' ') && (nEnd != nSize)) {
-		cOutput[nOutIndex] = cStr[nEnd];
-		nEnd++;
-		nOutIndex++;
-	}
-	cOutput[nOutIndex] = '\0';
-}
-
 RING_API char *ring_general_find(char *cStr1, char *cStr2) {
 	return ring_general_find2(cStr1, strlen(cStr1), cStr2, strlen(cStr2));
 }
@@ -409,4 +330,83 @@ RING_API char *ring_general_findsubstr(char *cStr1, unsigned int nStrSize1, char
 		nPos++;
 	}
 	return NULL;
+}
+
+RING_API char *ring_general_numtostring(double nNum1, char *cStr, int nDecimals) {
+	char cOptions[RING_SMALLBUF];
+	int nNum2;
+	RING_LONGLONG nVal;
+	nVal = (RING_LONGLONG)nNum1;
+	if ((nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE)) {
+		sprintf(cStr, RING_LONGLONG_FORMAT, nVal);
+	} else {
+		sprintf(cOptions, "%s%df", "%.", nDecimals);
+#if RING_NOSNPRINTF
+		sprintf(cStr, cOptions, nNum1);
+#else
+		/* Avoid buffer overrun by using snprint() function */
+		nNum2 = snprintf(cStr, RING_MEDIUMBUF, cOptions, nNum1);
+		if (nNum2 >= RING_MEDIUMBUF) {
+			/* Result truncated so print in compact format with a precision of 90 */
+			nNum2 = snprintf(cStr, RING_MEDIUMBUF, "%.90e", nNum1);
+		}
+		if (nNum2 < 0) {
+			/* Error */
+			cStr[0] = 0;
+		}
+#endif
+	}
+	return cStr;
+}
+
+RING_API void ring_general_word(const char *cStr, unsigned int nIndex, char *cOutput) {
+	char *cString;
+	unsigned int x, nStart, nEnd, nSize, nWord, nOutIndex;
+	/* This function will return a specific word from a string using the word index */
+	nSize = strlen(cStr);
+	/* Determine the start of the word */
+	nStart = 0;
+	if (nIndex != 1) {
+		nWord = 1;
+		while (nWord != nIndex) {
+			if (cStr[++nStart] == ' ') {
+				nStart++;
+				nWord++;
+			}
+		}
+	}
+	/* Determine the End of the word */
+	nEnd = nStart;
+	nOutIndex = 0;
+	while ((cStr[nEnd] != ' ') && (nEnd != nSize)) {
+		cOutput[nOutIndex] = cStr[nEnd];
+		nEnd++;
+		nOutIndex++;
+	}
+	cOutput[nOutIndex] = '\0';
+}
+
+RING_API int ring_general_looksempty(const char *cStr, unsigned int nSize) {
+	unsigned int x;
+	if (nSize == RING_ZERO) {
+		return RING_TRUE;
+	}
+	for (x = RING_ZERO; x < nSize; x++) {
+		if (!((cStr[x] == ' ') || (cStr[x] == '\r') || (cStr[x] == '\n') || (cStr[x] == '\t'))) {
+			return RING_FALSE;
+		}
+	}
+	return RING_TRUE;
+}
+
+RING_API int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
+	int nNum1;
+	while (1) {
+		nNum1 = tolower(*cStr1) - tolower(*cStr2);
+		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
+			return nNum1;
+		}
+		cStr1++;
+		cStr2++;
+	}
 }
