@@ -60,9 +60,9 @@ RING_API int ring_list_containssublist_gc(void *pState, List *pList, List *pChec
 
 RING_API int ring_list_iscircular_gc(void *pState, List *pList);
 
-RING_API int ring_list_checkrefinleftside(void *pState, List *pList);
+RING_API int ring_list_checkrefinleftside_gc(void *pState, List *pList);
 
-RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar);
+RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar);
 
 RING_API int ring_list_isref(List *pList);
 

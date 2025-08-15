@@ -233,6 +233,11 @@ newstr
 Type: char
 cStr[RING_CHARBUF]
 ring_vm_gc_deletetemplists
+ring_vm_gc_isrefparameter
+Type: int
+lRef
+Type: List *
+pRef, *pVar, *pList
 ring_list_acceptlistbyref_gc
 Type: List *
 pRealList
@@ -267,13 +272,8 @@ aProcess, *pActiveList, *pSubList
 Type: int
 x,y,lFound
 ring_list_iscircular_gc
-ring_list_checkrefinleftside
-ring_list_checkrefvarinleftside
-ring_list_isrefparameter
-Type: int
-lRef
-Type: List *
-pRef, *pVar, *pList
+ring_list_checkrefinleftside_gc
+ring_list_checkrefvarinleftside_gc_gc
 ring_list_isref
 ring_list_isrefcontainer
 ring_list_clearrefdata

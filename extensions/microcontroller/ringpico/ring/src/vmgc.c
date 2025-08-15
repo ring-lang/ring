@@ -503,7 +503,7 @@ RING_API int ring_list_iscircular_gc(void *pState, List *pList) {
 	return ring_list_containssublist_gc(pState, pList, pList);
 }
 
-RING_API int ring_list_checkrefinleftside(void *pState, List *pList) {
+RING_API int ring_list_checkrefinleftside_gc(void *pState, List *pList) {
 	/* If we have Ref()/Reference() at the Left-Side then Delete the reference */
 	if (pList->vGC.lNewRef) {
 		pList->vGC.lNewRef = 0;
@@ -512,7 +512,7 @@ RING_API int ring_list_checkrefinleftside(void *pState, List *pList) {
 	return RING_FALSE;
 }
 
-RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar) {
+RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar) {
 	/*
 	**  Check Temp. Reference variable
 	**  Because of this function, we have RING_TEMP_VAR & RING_TEMP_REF
@@ -524,7 +524,7 @@ RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar) {
 	}
 	if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_LIST) {
 		if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-			return ring_list_checkrefinleftside(pState, ring_list_getlist(pVar, RING_VAR_VALUE));
+			return ring_list_checkrefinleftside_gc(pState, ring_list_getlist(pVar, RING_VAR_VALUE));
 		}
 	}
 	return RING_FALSE;
@@ -648,7 +648,7 @@ int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {
 	**  Check if the content is protected (List during definition)
 	**  Also, Check Ref()/Reference() usage in the Left-Side
 	*/
-	if (ring_list_checkrefvarinleftside(pVM->pRingState, pVar) || ring_vm_checkvarerroronassignment(pVM, pVar)) {
+	if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, pVar) || ring_vm_checkvarerroronassignment(pVM, pVar)) {
 		/*
 		**  Take in mind using Ref()/Reference() in Right-Side too
 		**  I.e. Ref(tmp) = Ref(tmp)

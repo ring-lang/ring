@@ -493,7 +493,7 @@ int ring_vm_notusingvarduringdef(VM *pVM) {
 			ring_vm_cleansetpropertylist(pVM);
 			/* Check using Ref(aList) at the Left-Side */
 			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
-				if (ring_list_checkrefvarinleftside(pVM->pRingState, (List *)RING_VM_STACK_READP)) {
+				if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, (List *)RING_VM_STACK_READP)) {
 					nCont = RING_TRUE;
 				}
 			}
