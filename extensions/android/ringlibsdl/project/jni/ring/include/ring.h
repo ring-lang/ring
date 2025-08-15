@@ -228,6 +228,7 @@
 #include "parser.h"
 #include "codegen.h"
 #include "vm.h"
+#include "vmoop.h"
 #include "vmgc.h"
 #include "ringapi.h"
 #include "genlib_e.h"
