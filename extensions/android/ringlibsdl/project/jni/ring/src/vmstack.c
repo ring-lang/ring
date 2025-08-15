@@ -103,7 +103,7 @@ void ring_vm_loadaddress(VM *pVM) {
 	if (lFound == 0) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 		/* Support for private attributes */
-		ring_vm_var_setprivateflag(pVM, (List *)RING_VM_STACK_READP, pVM->lPrivateFlag);
+		ring_vm_setvarprivateflag(pVM, (List *)RING_VM_STACK_READP, pVM->lPrivateFlag);
 	}
 	/* Don't change instruction if it's LoadAFirst */
 	if ((pVM->lFirstAddress == 1) || (lFound == 0)) {
@@ -302,7 +302,7 @@ void ring_vm_loadapushv(VM *pVM) {
 	if (ring_vm_findvar(pVM, RING_VM_IR_READC) == 0) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 		/* Support for private attributes */
-		ring_vm_var_setprivateflag(pVM, (List *)RING_VM_STACK_READP, pVM->lPrivateFlag);
+		ring_vm_setvarprivateflag(pVM, (List *)RING_VM_STACK_READP, pVM->lPrivateFlag);
 	}
 	if (pVM->nVarScope == RING_VARSCOPE_GLOBAL) {
 		/* Replace LoadAPushV with PUSHPV for better performance */

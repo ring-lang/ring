@@ -40,13 +40,6 @@ Type: int
 nType
 Type: void *
 pPointer
-ring_vm_list_copy
-Type: int
-x,nMax
-Type: List *
-pNewList2, *pSourceList
-Type: Item *
-pItem
 ring_vm_beforeequallist
 Type: String *
 pString

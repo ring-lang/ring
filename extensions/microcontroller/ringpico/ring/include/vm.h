@@ -789,9 +789,9 @@ void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, unsi
 
 void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const char *cStr2);
 
-void ring_vm_var_setprivateflag(VM *pVM, List *pVar, int nFlag);
+void ring_vm_setvarprivateflag(VM *pVM, List *pVar, int nFlag);
 
-int ring_vm_var_getprivateflag(VM *pVM, List *pVar);
+int ring_vm_getvarprivateflag(VM *pVM, List *pVar);
 
 void ring_vm_copyscopestolist(VM *pVM, List *pList);
 

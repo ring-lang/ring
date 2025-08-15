@@ -514,7 +514,7 @@ void ring_vm_refmeta_isprivateattribute(void *pPointer) {
 			for (x = 3; x <= ring_list_getsize(pList); x++) {
 				if (strcmp(cStr, ring_list_getstring(ring_list_getlist(pList, x), RING_VAR_NAME)) ==
 				    0) {
-					if (ring_vm_var_getprivateflag(pVM, ring_list_getlist(pList, x)) == 1) {
+					if (ring_vm_getvarprivateflag(pVM, ring_list_getlist(pList, x)) == 1) {
 						RING_API_RETNUMBER(1);
 					} else {
 						RING_API_RETNUMBER(0);

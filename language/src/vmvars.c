@@ -170,7 +170,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 		}
 	} else {
 		/* Check Private Attributes */
-		if (ring_vm_var_getprivateflag(pVM, pList2) == 1) {
+		if (ring_vm_getvarprivateflag(pVM, pList2) == 1) {
 			/* We check that we are not in the class region too (defining the private attribute then reusing
 			 * it) */
 			if (!((pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE) && (pVM->nInClassRegion == 1))) {
@@ -406,7 +406,7 @@ void ring_vm_deletescope(VM *pVM) {
 	pVM->pActiveMem = RING_VM_GETLASTSCOPE;
 }
 
-void ring_vm_var_setprivateflag(VM *pVM, List *pVar, int nFlag) {
+void ring_vm_setvarprivateflag(VM *pVM, List *pVar, int nFlag) {
 	if (ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1) {
 		ring_list_addint_gc(pVM->pRingState, pVar, nFlag);
 	} else if (ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG) {
@@ -414,7 +414,7 @@ void ring_vm_var_setprivateflag(VM *pVM, List *pVar, int nFlag) {
 	}
 }
 
-int ring_vm_var_getprivateflag(VM *pVM, List *pVar) {
+int ring_vm_getvarprivateflag(VM *pVM, List *pVar) {
 	if (ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG) {
 		return ring_list_getint(pVar, RING_VAR_PRIVATEFLAG);
 	}
