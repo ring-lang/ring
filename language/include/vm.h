@@ -1174,15 +1174,4 @@ void ring_vm_divn(VM *pVM);
 void ring_vm_modn(VM *pVM);
 
 void ring_vm_pown(VM *pVM);
-/* Protecting Lists */
-
-int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar);
-
-int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem);
-
-int ring_vm_checkbeforeassignment(VM *pVM, List *pVar);
-
-void ring_vm_removelistprotection(VM *pVM, List *pNestedLists, int nStart);
-
-void ring_vm_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos);
 #endif

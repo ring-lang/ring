@@ -222,8 +222,73 @@ void ring_vm_gc_deletetemplists(VM *pVM) {
 }
 /*
 **  List GC Functions
-**  References
+**  Protecting lists
 */
+
+int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar) {
+	List *pList;
+	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
+		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
+		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
+			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem) {
+	List *pList;
+	if (ring_item_gettype(pItem) == ITEMTYPE_LIST) {
+		pList = ring_item_getlist(pItem);
+		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
+			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {
+	if (pVar->vGC.lCheckBeforeAssignmentDone) {
+		return RING_FALSE;
+	}
+	/*
+	**  Check if the content is protected (List during definition)
+	**  Also, Check Ref()/Reference() usage in the Left-Side
+	*/
+	if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, pVar) || ring_vm_checkvarerroronassignment(pVM, pVar)) {
+		/*
+		**  Take in mind using Ref()/Reference() in Right-Side too
+		**  I.e. Ref(tmp) = Ref(tmp)
+		**  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) )
+		*/
+		return RING_TRUE;
+	}
+	pVar->vGC.lCheckBeforeAssignmentDone = RING_TRUE;
+	return RING_FALSE;
+}
+
+void ring_vm_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
+	int x;
+	List *pList;
+	for (x = nStart; x <= ring_list_getsize(pNestedLists); x++) {
+		ring_vm_removelistprotectionat(pVM, pNestedLists, x);
+	}
+}
+
+void ring_vm_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
+	List *pList;
+	/* Disable Error on Assignment */
+	pList = (List *)ring_list_getpointer(pNestedLists, nPos);
+	ring_list_disableerroronassignment(pList);
+	/* Check if list is deleted by Parent */
+	if (pList->vGC.lDeletedByParent) {
+		pList->vGC.lDeletedByParent = 0;
+		ring_list_delete_gc(pVM->pRingState, pList);
+	}
+}
+/* References */
 
 RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
 	int lRef;
@@ -614,71 +679,6 @@ void ring_list_enableargcache(List *pList) { pList->vGC.lArgCache = RING_TRUE; }
 RING_API void ring_list_enabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
 
 RING_API void ring_list_disabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_FALSE; }
-/* Protecting lists */
-
-int ring_vm_checkvarerroronassignment(VM *pVM, List *pVar) {
-	List *pList;
-	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
-		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
-			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
-			return RING_TRUE;
-		}
-	}
-	return RING_FALSE;
-}
-
-int ring_vm_checkitemerroronassignment(VM *pVM, Item *pItem) {
-	List *pList;
-	if (ring_item_gettype(pItem) == ITEMTYPE_LIST) {
-		pList = ring_item_getlist(pItem);
-		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
-			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
-			return RING_TRUE;
-		}
-	}
-	return RING_FALSE;
-}
-
-int ring_vm_checkbeforeassignment(VM *pVM, List *pVar) {
-	if (pVar->vGC.lCheckBeforeAssignmentDone) {
-		return RING_FALSE;
-	}
-	/*
-	**  Check if the content is protected (List during definition)
-	**  Also, Check Ref()/Reference() usage in the Left-Side
-	*/
-	if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, pVar) || ring_vm_checkvarerroronassignment(pVM, pVar)) {
-		/*
-		**  Take in mind using Ref()/Reference() in Right-Side too
-		**  I.e. Ref(tmp) = Ref(tmp)
-		**  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) )
-		*/
-		return RING_TRUE;
-	}
-	pVar->vGC.lCheckBeforeAssignmentDone = RING_TRUE;
-	return RING_FALSE;
-}
-
-void ring_vm_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
-	int x;
-	List *pList;
-	for (x = nStart; x <= ring_list_getsize(pNestedLists); x++) {
-		ring_vm_removelistprotectionat(pVM, pNestedLists, x);
-	}
-}
-
-void ring_vm_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
-	List *pList;
-	/* Disable Error on Assignment */
-	pList = (List *)ring_list_getpointer(pNestedLists, nPos);
-	ring_list_disableerroronassignment(pList);
-	/* Check if list is deleted by Parent */
-	if (pList->vGC.lDeletedByParent) {
-		pList->vGC.lDeletedByParent = 0;
-		ring_list_delete_gc(pVM->pRingState, pList);
-	}
-}
 /* Memory Functions (General) */
 
 RING_API void *ring_malloc(size_t nSize) {
