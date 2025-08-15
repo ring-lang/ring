@@ -39,7 +39,7 @@ void ring_vm_sum(VM *pVM) {
 				RING_VM_STACK_SETNVALUE(nNum1 + nNum2);
 			}
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "+", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "+", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISNUMBER) {
@@ -53,11 +53,11 @@ void ring_vm_sum(VM *pVM) {
 			ring_vm_numtostring(pVM, nNum1, cStr3);
 			ring_string_add_gc(pVM->pRingState, pStr2, cStr3);
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "+", nNum1);
+			ring_vm_exprnpoo(pVM, "+", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "+");
+		ring_vm_exprppoo(pVM, "+");
 		return;
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
@@ -78,7 +78,7 @@ void ring_vm_sub(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "-", nNum1);
+			ring_vm_exprnpoo(pVM, "-", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -94,11 +94,11 @@ void ring_vm_sub(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "-", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "-", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "-");
+		ring_vm_exprppoo(pVM, "-");
 		return;
 	}
 	RING_VM_STACK_SETNVALUE(nNum2 - nNum1);
@@ -117,7 +117,7 @@ void ring_vm_mul(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "*", nNum1);
+			ring_vm_exprnpoo(pVM, "*", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -133,11 +133,11 @@ void ring_vm_mul(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "*", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "*", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "*");
+		ring_vm_exprppoo(pVM, "*");
 		return;
 	}
 	/* Check Overflow */
@@ -158,7 +158,7 @@ void ring_vm_div(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "/", nNum1);
+			ring_vm_exprnpoo(pVM, "/", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -174,11 +174,11 @@ void ring_vm_div(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "/", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "/", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "/");
+		ring_vm_exprppoo(pVM, "/");
 		return;
 	}
 	/* Check Divide by Zero */
@@ -208,7 +208,7 @@ void ring_vm_mod(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "%", nNum1);
+			ring_vm_exprnpoo(pVM, "%", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -224,11 +224,11 @@ void ring_vm_mod(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "%", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "%", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "%");
+		ring_vm_exprppoo(pVM, "%");
 		return;
 	}
 	/* Check Overflow */
@@ -246,7 +246,7 @@ void ring_vm_neg(VM *pVM) {
 		RING_VM_RETURNIFACTIVECATCH;
 		RING_VM_STACK_SETNVALUE((nNum1) * (-1));
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_npoo(pVM, "neg", RING_NOVALUE);
+		ring_vm_exprnpoo(pVM, "neg", RING_NOVALUE);
 	}
 }
 
@@ -263,7 +263,7 @@ void ring_vm_pow(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "**", nNum1);
+			ring_vm_exprnpoo(pVM, "**", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -279,11 +279,11 @@ void ring_vm_pow(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "**", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "**", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "**");
+		ring_vm_exprppoo(pVM, "**");
 		return;
 	}
 	/* Check Overflow */
@@ -322,7 +322,7 @@ void ring_vm_equal(VM *pVM) {
 				RING_VM_STACK_FALSE;
 			}
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "=", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "=", ring_string_get(pStr1), ring_string_size(pStr1));
 		}
 	} else if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;
@@ -347,10 +347,10 @@ void ring_vm_equal(VM *pVM) {
 				RING_VM_STACK_FALSE;
 			}
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "=", nNum1);
+			ring_vm_exprnpoo(pVM, "=", nNum1);
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "=");
+		ring_vm_exprppoo(pVM, "=");
 	}
 	pVM->lSubStringToNumError = 1;
 }
@@ -368,7 +368,7 @@ void ring_vm_lessequal(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "<=", nNum1);
+			ring_vm_exprnpoo(pVM, "<=", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -384,11 +384,11 @@ void ring_vm_lessequal(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "<=", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "<=", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "<=");
+		ring_vm_exprppoo(pVM, "<=");
 		return;
 	}
 	/* Compare */
@@ -412,7 +412,7 @@ void ring_vm_less(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "<", nNum1);
+			ring_vm_exprnpoo(pVM, "<", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -428,11 +428,11 @@ void ring_vm_less(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "<", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "<", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "<");
+		ring_vm_exprppoo(pVM, "<");
 		return;
 	}
 	/* Compare */
@@ -456,7 +456,7 @@ void ring_vm_greater(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, ">", nNum1);
+			ring_vm_exprnpoo(pVM, ">", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -472,11 +472,11 @@ void ring_vm_greater(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, ">", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, ">", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, ">");
+		ring_vm_exprppoo(pVM, ">");
 		return;
 	}
 	/* Compare */
@@ -500,7 +500,7 @@ void ring_vm_greaterequal(VM *pVM) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, ">=", nNum1);
+			ring_vm_exprnpoo(pVM, ">=", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -516,11 +516,11 @@ void ring_vm_greaterequal(VM *pVM) {
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, ">=", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, ">=", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, ">=");
+		ring_vm_exprppoo(pVM, ">=");
 		return;
 	}
 	/* Compare */
@@ -565,7 +565,7 @@ void ring_vm_notequal(VM *pVM) {
 				RING_VM_STACK_TRUE;
 			}
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "!=", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "!=", ring_string_get(pStr1), ring_string_size(pStr1));
 		}
 	} else if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;
@@ -593,10 +593,10 @@ void ring_vm_notequal(VM *pVM) {
 				RING_VM_STACK_TRUE;
 			}
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "!=", nNum1);
+			ring_vm_exprnpoo(pVM, "!=", nNum1);
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "!=");
+		ring_vm_exprppoo(pVM, "!=");
 	}
 	pVM->lSubStringToNumError = 1;
 }
@@ -614,7 +614,7 @@ void ring_vm_and(VM *pVM) {
 			nNum2 = (double)ring_vm_stringtologicvalue(pVM, RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 && nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "and", nNum1);
+			ring_vm_exprnpoo(pVM, "and", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -629,11 +629,11 @@ void ring_vm_and(VM *pVM) {
 			nNum2 = (double)ring_vm_stringtologicvalue(pVM, RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 && nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "and", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "and", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "and");
+		ring_vm_exprppoo(pVM, "and");
 	}
 }
 
@@ -650,7 +650,7 @@ void ring_vm_or(VM *pVM) {
 			nNum2 = (double)ring_vm_stringtologicvalue(pVM, RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 || nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "or", nNum1);
+			ring_vm_exprnpoo(pVM, "or", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -665,11 +665,11 @@ void ring_vm_or(VM *pVM) {
 			nNum2 = (double)ring_vm_stringtologicvalue(pVM, RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 || nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "or", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "or", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "or");
+		ring_vm_exprppoo(pVM, "or");
 	}
 }
 
@@ -690,7 +690,7 @@ void ring_vm_not(VM *pVM) {
 			RING_VM_STACK_SETNVALUE(1.0);
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_npoo(pVM, "not", RING_NOVALUE);
+		ring_vm_exprnpoo(pVM, "not", RING_NOVALUE);
 		return;
 	}
 }
@@ -709,7 +709,7 @@ void ring_vm_bitand(VM *pVM) {
 			RING_VM_RETURNIFACTIVECATCH;
 			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum1 & (RING_LONGLONG)nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "&", nNum1);
+			ring_vm_exprnpoo(pVM, "&", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -726,11 +726,11 @@ void ring_vm_bitand(VM *pVM) {
 			RING_VM_RETURNIFACTIVECATCH;
 			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum1 & (RING_LONGLONG)nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "&", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "&", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "&");
+		ring_vm_exprppoo(pVM, "&");
 	}
 }
 
@@ -748,7 +748,7 @@ void ring_vm_bitor(VM *pVM) {
 			RING_VM_RETURNIFACTIVECATCH;
 			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum1 | (RING_LONGLONG)nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "|", nNum1);
+			ring_vm_exprnpoo(pVM, "|", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -765,11 +765,11 @@ void ring_vm_bitor(VM *pVM) {
 			RING_VM_RETURNIFACTIVECATCH;
 			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum1 | (RING_LONGLONG)nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "|", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "|", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "|");
+		ring_vm_exprppoo(pVM, "|");
 	}
 }
 
@@ -794,7 +794,7 @@ void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 			RING_VM_RETURNIFACTIVECATCH;
 			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, cOperator, nNum1);
+			ring_vm_exprnpoo(pVM, cOperator, nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -812,11 +812,11 @@ void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 			RING_VM_RETURNIFACTIVECATCH;
 			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, cOperator, ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, cOperator, ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, cOperator);
+		ring_vm_exprppoo(pVM, cOperator);
 	}
 	if (lShift) {
 		if (nNum1 < 0) {
@@ -849,7 +849,7 @@ void ring_vm_bitxor(VM *pVM) {
 			RING_VM_RETURNIFACTIVECATCH;
 			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum1 ^ (RING_LONGLONG)nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_npoo(pVM, "^", nNum1);
+			ring_vm_exprnpoo(pVM, "^", nNum1);
 			return;
 		}
 	} else if (RING_VM_STACK_ISSTRING) {
@@ -866,11 +866,11 @@ void ring_vm_bitxor(VM *pVM) {
 			RING_VM_RETURNIFACTIVECATCH;
 			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum1 ^ (RING_LONGLONG)nNum2));
 		} else if (RING_VM_STACK_ISPOINTER) {
-			ring_vm_expr_spoo(pVM, "^", ring_string_get(pStr1), ring_string_size(pStr1));
+			ring_vm_exprspoo(pVM, "^", ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_ppoo(pVM, "^");
+		ring_vm_exprppoo(pVM, "^");
 	}
 }
 
@@ -884,7 +884,7 @@ void ring_vm_bitnot(VM *pVM) {
 		RING_VM_RETURNIFACTIVECATCH;
 		RING_VM_STACK_SETNVALUE(~(RING_LONGLONG)nNum1);
 	} else if (RING_VM_STACK_ISPOINTER) {
-		ring_vm_expr_npoo(pVM, "~", RING_NOVALUE);
+		ring_vm_exprnpoo(pVM, "~", RING_NOVALUE);
 		return;
 	}
 }
@@ -946,7 +946,7 @@ int ring_vm_listtologicvalue(VM *pVM, List *pList) {
 	return RING_TRUE;
 }
 
-void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
+void ring_vm_exprppoo(VM *pVM, const char *cStr) {
 	List *pList, *pList2;
 	Item *pItem;
 	void *pPointer;
@@ -1037,7 +1037,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 				ring_vm_stackswap(pVM, pVM->nSP, pVM->nSP + 1);
 				RING_VM_SP_INC;
 				sprintf(cNewOp, "r%s", cStr);
-				ring_vm_expr_ppoo(pVM, cNewOp);
+				ring_vm_exprppoo(pVM, cNewOp);
 			} else {
 				ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 			}
@@ -1076,7 +1076,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 		nNum1 = RING_VM_STACK_READN;
 		ring_vm_stackswap(pVM, pVM->nSP, pVM->nSP + 1);
 		sprintf(cNewOp, "r%s", cStr);
-		ring_vm_expr_npoo(pVM, cNewOp, nNum1);
+		ring_vm_exprnpoo(pVM, cNewOp, nNum1);
 	} else if (RING_VM_STACK_ISSTRING) {
 		if (strcmp(cStr, "=") == 0) {
 			RING_VM_STACK_SETNVALUE(0.0);
@@ -1114,11 +1114,11 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr) {
 		pStr1 = RING_VM_STACK_GETSTRINGRAW;
 		ring_vm_stackswap(pVM, pVM->nSP, pVM->nSP + 1);
 		sprintf(cNewOp, "r%s", cStr);
-		ring_vm_expr_spoo(pVM, cNewOp, ring_string_get(pStr1), ring_string_size(pStr1));
+		ring_vm_exprspoo(pVM, cNewOp, ring_string_get(pStr1), ring_string_size(pStr1));
 	}
 }
 
-void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1) {
+void ring_vm_exprnpoo(VM *pVM, const char *cStr, double nNum1) {
 	List *pList;
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
@@ -1178,7 +1178,7 @@ void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1) {
 	}
 }
 
-void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *pStr2, unsigned int nStrSize) {
+void ring_vm_exprspoo(VM *pVM, const char *cStr, const char *pStr2, unsigned int nStrSize) {
 	List *pList;
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {

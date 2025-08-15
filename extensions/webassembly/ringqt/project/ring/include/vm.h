@@ -729,11 +729,11 @@ void ring_vm_mod(VM *pVM);
 
 void ring_vm_neg(VM *pVM);
 
-void ring_vm_expr_ppoo(VM *pVM, const char *cStr);
+void ring_vm_exprppoo(VM *pVM, const char *cStr);
 
-void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1);
+void ring_vm_exprnpoo(VM *pVM, const char *cStr, double nNum1);
 
-void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *cStr2, unsigned int nStrSize);
+void ring_vm_exprspoo(VM *pVM, const char *cStr, const char *cStr2, unsigned int nStrSize);
 
 void ring_vm_plusplus(VM *pVM);
 

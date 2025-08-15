@@ -171,7 +171,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 					pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
-						ring_vm_expr_npoo(pVM, "[]", nNum1);
+						ring_vm_exprnpoo(pVM, "[]", nNum1);
 						return;
 					}
 					RING_VM_STACK_POP;
@@ -201,7 +201,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 					pVar = ring_item_getlist(pItem);
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
-						ring_vm_expr_npoo(pVM, "[]", nNum1);
+						ring_vm_exprnpoo(pVM, "[]", nNum1);
 						return;
 					}
 					RING_VM_STACK_POP;
@@ -253,8 +253,8 @@ void ring_vm_loadindexaddress(VM *pVM) {
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						RING_VM_SP_INC;
-						ring_vm_expr_spoo(pVM, "[]", ring_string_get(pString),
-								  ring_string_size(pString));
+						ring_vm_exprspoo(pVM, "[]", ring_string_get(pString),
+								 ring_string_size(pString));
 					} else {
 						ring_vm_listgetvalue(pVM, pVar, ring_string_get(pString));
 					}
@@ -269,8 +269,8 @@ void ring_vm_loadindexaddress(VM *pVM) {
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						RING_VM_SP_INC;
-						ring_vm_expr_spoo(pVM, "[]", ring_string_get(pString),
-								  ring_string_size(pString));
+						ring_vm_exprspoo(pVM, "[]", ring_string_get(pString),
+								 ring_string_size(pString));
 					} else {
 						ring_vm_listgetvalue(pVM, pVar, ring_string_get(pString));
 					}

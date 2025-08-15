@@ -1024,7 +1024,7 @@ void ring_vm_generallib_len(void *pPointer) {
 		} else {
 			RING_VM_STACK_PUSHPVALUE(RING_API_GETPOINTER(1));
 			RING_VM_STACK_OBJTYPE = RING_API_GETPOINTERTYPE(1);
-			ring_vm_expr_npoo(pVM, "len", RING_NOVALUE);
+			ring_vm_exprnpoo(pVM, "len", RING_NOVALUE);
 			pVM->lIgnoreNULL = 1;
 		}
 	} else {

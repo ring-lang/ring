@@ -667,7 +667,7 @@ void ring_vm_len(VM *pVM) {
 					RING_VM_STACK_POP;
 					RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
 				} else {
-					ring_vm_expr_npoo(pVM, RING_CSTR_LEN, RING_NOVALUE);
+					ring_vm_exprnpoo(pVM, RING_CSTR_LEN, RING_NOVALUE);
 					pVM->lIgnoreNULL = 1;
 				}
 			} else if (ring_list_isstring(pVar, RING_VAR_VALUE)) {
@@ -691,7 +691,7 @@ void ring_vm_len(VM *pVM) {
 					RING_VM_STACK_POP;
 					RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
 				} else {
-					ring_vm_expr_npoo(pVM, RING_CSTR_LEN, RING_NOVALUE);
+					ring_vm_exprnpoo(pVM, RING_CSTR_LEN, RING_NOVALUE);
 					pVM->lIgnoreNULL = 1;
 				}
 				break;
