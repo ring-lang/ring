@@ -1201,8 +1201,8 @@ int ring_parser_paralist(Parser *pParser) {
 				cArguments = ring_parser_icg_getlaststring(pParser);
 				lDuplication = (strcmp(cToken, cArguments) == 0);
 				if (!lDuplication) {
-					cPos = ring_string_find3_gc(pParser->pRingState, (char *)cArguments,
-								    strlen(cArguments), (char *)cToken, strlen(cToken));
+					cPos = ring_string_find3((char *)cArguments, strlen(cArguments), (char *)cToken,
+								 strlen(cToken));
 					if (cPos != NULL) {
 						cChar = cPos[strlen(cToken)];
 						/* We must get space after the argument or \0 character */

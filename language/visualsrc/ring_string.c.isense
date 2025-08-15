@@ -58,9 +58,6 @@ Type: char *
 cString
 Type: unsigned int
 x,nSize
-ring_string_find_gc
-ring_string_find2_gc
-ring_string_find3_gc
 ring_string_new
 ring_string_new2
 ring_string_delete
@@ -72,29 +69,3 @@ ring_string_setfromint
 ring_string_size
 ring_string_print
 ring_string_strdup
-ring_string_find
-ring_string_find2
-ring_string_find3
-ring_string_lower
-Type: unsigned int
-x, nLen
-ring_string_lower2
-Type: unsigned int
-x
-ring_string_upper
-Type: unsigned int
-x, nLen
-ring_string_upper2
-Type: unsigned int
-x
-ring_string_looksempty
-Type: unsigned int
-x
-ring_string_word
-Type: char *
-cString
-Type: unsigned int
-x,nStart,nEnd,nSize,nWord,nOutIndex
-ring_string_findsubstr
-Type: unsigned int
-x, nPos
