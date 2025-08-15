@@ -38,6 +38,8 @@ void ring_vm_gc_deletetemplists(VM *pVM);
 **  References
 */
 
+RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable);
+
 RING_API void ring_list_acceptlistbyref_gc(void *pState, List *pList, unsigned int index, List *pRef);
 
 RING_API void ring_list_setlistbyref_gc(void *pState, List *pList, unsigned int index, List *pRef);
@@ -61,8 +63,6 @@ RING_API int ring_list_iscircular_gc(void *pState, List *pList);
 RING_API int ring_list_checkrefinleftside(void *pState, List *pList);
 
 RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar);
-
-RING_API int ring_list_isrefparameter(VM *pVM, const char *cVariable);
 
 RING_API int ring_list_isref(List *pList);
 

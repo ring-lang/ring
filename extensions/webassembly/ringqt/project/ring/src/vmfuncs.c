@@ -493,7 +493,7 @@ void ring_vm_newfunc(VM *pVM) {
 				} else if (RING_VM_STACK_ISNUMBER) {
 					ring_vm_addnumberarg(pVM, pParameter, RING_VM_STACK_READN);
 				} else if (RING_VM_STACK_ISPOINTER) {
-					if (!ring_list_isrefparameter(pVM, pParameter)) {
+					if (!ring_vm_gc_isrefparameter(pVM, pParameter)) {
 						ring_vm_addpointerarg(pVM, pParameter, RING_VM_STACK_READP,
 								      RING_VM_STACK_OBJTYPE);
 						if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {

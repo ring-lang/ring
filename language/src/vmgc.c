@@ -225,6 +225,28 @@ void ring_vm_gc_deletetemplists(VM *pVM) {
 **  References
 */
 
+RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
+	int lRef;
+	List *pRef, *pVar, *pList;
+	lRef = 0;
+	/* Check Reference */
+	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
+		pList = (List *)RING_VM_STACK_READP;
+		if (ring_list_isrefcontainer(pList)) {
+			pRef = ring_list_getlist(pList, RING_VAR_VALUE);
+			if (pRef->vGC.lNewRef) {
+				lRef = 1;
+				pVar = ring_vm_addlistarg(pVM, cVariable);
+				ring_list_assignreftovar_gc(pVM->pRingState, pRef, pVar, RING_VAR_VALUE);
+				/* If the same reference is passed as parameter multiple times then keep treating it as
+				 * new reference */
+				pRef->vGC.lNewRef = 1;
+			}
+		}
+	}
+	return lRef;
+}
+
 RING_API void ring_list_acceptlistbyref_gc(void *pState, List *pList, unsigned int index, List *pRef) {
 	List *pRealList;
 	Item *pItem;
@@ -506,28 +528,6 @@ RING_API int ring_list_checkrefvarinleftside(void *pState, List *pVar) {
 		}
 	}
 	return RING_FALSE;
-}
-
-RING_API int ring_list_isrefparameter(VM *pVM, const char *cVariable) {
-	int lRef;
-	List *pRef, *pVar, *pList;
-	lRef = 0;
-	/* Check Reference */
-	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
-		pList = (List *)RING_VM_STACK_READP;
-		if (ring_list_isrefcontainer(pList)) {
-			pRef = ring_list_getlist(pList, RING_VAR_VALUE);
-			if (pRef->vGC.lNewRef) {
-				lRef = 1;
-				pVar = ring_vm_addlistarg(pVM, cVariable);
-				ring_list_assignreftovar_gc(pVM->pRingState, pRef, pVar, RING_VAR_VALUE);
-				/* If the same reference is passed as parameter multiple times then keep treating it as
-				 * new reference */
-				pRef->vGC.lNewRef = 1;
-			}
-		}
-	}
-	return lRef;
 }
 
 RING_API int ring_list_isref(List *pList) { return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1); }
