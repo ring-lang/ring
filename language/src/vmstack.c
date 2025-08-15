@@ -719,3 +719,8 @@ int ring_vm_isinsideloop(VM *pVM) {
 	}
 	return ring_list_getsize(pVM->pForStep);
 }
+
+int ring_vm_isstackpointertoobjstate(VM *pVM) {
+	/* This check also take in mind RING_VARSCOPE_GLOBAL and RING_VARSCOPE_DEFINEDGLOBALS */
+	return (pVM->nLoadAddressScope >= RING_VARSCOPE_OBJSTATE);
+}

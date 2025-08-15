@@ -709,11 +709,6 @@ void ring_vm_anonymous(VM *pVM) {
 	}
 }
 
-int ring_vm_isstackpointertoobjstate(VM *pVM) {
-	/* This check also take in mind RING_VARSCOPE_GLOBAL and RING_VARSCOPE_DEFINEDGLOBALS */
-	return (pVM->nLoadAddressScope >= RING_VARSCOPE_OBJSTATE);
-}
-
 List *ring_vm_prevtempmem(VM *pVM) {
 	List *pList, *pTemp;
 	FuncCall *pFuncCall;
