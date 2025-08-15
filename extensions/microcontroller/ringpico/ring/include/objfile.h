@@ -21,34 +21,34 @@
 #define RING_OBJFILE_FILETYPESTRCOUNT 18
 /* Functions */
 
-void ring_objfile_writefile(RingState *pRingState);
+RING_API void ring_objfile_writefile(RingState *pRingState);
 
-void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pList);
+RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pList);
 
-int ring_objfile_readfile(RingState *pRingState, char *cFileName);
+RING_API int ring_objfile_readfile(RingState *pRingState, char *cFileName);
 
-int ring_objfile_readstring(RingState *pRingState, char *cString);
+RING_API int ring_objfile_readstring(RingState *pRingState, char *cString);
 
-int ring_objfile_readfromsource(RingState *pRingState, char *cSource, int nSourceType);
+RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, int nSourceType);
 
-int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
-			     List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
+RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
+				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
 
-int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
-			       List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
+RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
+					List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
 
-void ring_objfile_xorstring(RingState *pRingState, char *cString, int nStringSize, char *cKey, int nKeySize);
+RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, int nStringSize, char *cKey, int nKeySize);
 
-void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, int nCount);
+RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, int nCount);
 
-char ring_objfile_getc(RingState *pRingState, char **cSource);
+RING_API char ring_objfile_getc(RingState *pRingState, char **cSource);
 
-void ring_objfile_writeCfile(RingState *pRingState);
+RING_API void ring_objfile_writeCfile(RingState *pRingState);
 
-int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List *pList, int nList, int lSeparate, int nFunction,
-			       int nItemsPerFunction);
+RING_API int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List *pList, int nList, int lSeparate,
+					int nFunction, int nItemsPerFunction);
 
-void ring_objfile_writebytecode(RingState *pRingState, FILE *fCode, List *pList);
+RING_API void ring_objfile_writebytecode(RingState *pRingState, FILE *fCode, List *pList);
 
 RING_API void ring_objfile_updateclassespointers(RingState *pRingState);
 #endif
