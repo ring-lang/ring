@@ -50,8 +50,8 @@ Type: ListBlocks *
 pArg
 Type: int
 x
-ring_vm_var_setprivateflag
-ring_vm_var_getprivateflag
+ring_vm_setvarprivateflag
+ring_vm_getvarprivateflag
 ring_vm_copyscopestolist
 Type: List *
 pNewList

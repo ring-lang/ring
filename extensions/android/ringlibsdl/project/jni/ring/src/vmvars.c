@@ -430,6 +430,26 @@ void ring_vm_copyscopestolist(VM *pVM, List *pList) {
 	}
 }
 
+int ring_vm_notusingvarduringdef(VM *pVM) {
+	int nCont;
+	nCont = RING_TRUE;
+	if ((pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER) {
+		if (RING_VM_STACK_ISASSIGNMENTDEST) {
+			nCont = RING_FALSE;
+			/* Clear the Assignment Pointer */
+			pVM->pAssignment = NULL;
+			ring_vm_cleansetpropertylist(pVM);
+			/* Check using Ref(aList) at the Left-Side */
+			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
+				if (ring_list_checkrefvarinleftside_gc(pVM->pRingState, (List *)RING_VM_STACK_READP)) {
+					nCont = RING_TRUE;
+				}
+			}
+		}
+	}
+	return nCont;
+}
+
 void ring_vm_newargcache(VM *pVM) {
 	int x;
 	List *pList;

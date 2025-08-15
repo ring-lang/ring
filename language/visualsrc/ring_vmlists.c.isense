@@ -73,6 +73,3 @@ pParent, *pSub, *pVar
 ring_vm_notusingvarduringdef
 Type: int
 nCont
-ring_vm_strcmpnotcasesensitive
-Type: int
-nNum1
