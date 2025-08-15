@@ -129,7 +129,7 @@ void ring_vm_loadaddress(VM *pVM) {
 		} else if (!RING_VM_IR_GETFLAGREG) {
 			RING_VM_IR_SETFLAGREG(RING_TRUE);
 			/* Check if we can use ICO_PUSHARG */
-			for (x = 1; x <= ring_vm_funccall_paracount(pVM); x++) {
+			for (x = 1; x <= ring_vm_funccallparacount(pVM); x++) {
 				if (x <= ring_list_getsize(pVM->pActiveMem) && ring_list_islist(pVM->pActiveMem, x)) {
 					if (ring_list_getlist(pVM->pActiveMem, x) == RING_VM_STACK_READP) {
 						RING_VM_IR_OPCODE = ICO_PUSHARG;

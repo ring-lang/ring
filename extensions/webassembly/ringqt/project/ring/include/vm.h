@@ -354,7 +354,7 @@ typedef struct VM {
 #define RING_VM_GETFUNCCALL(x) &(pVM->aFuncCall[x])
 #define RING_VM_FUNCCALLSCOUNT pVM->nCurrentFuncCall
 #define RING_VM_DELETELASTFUNCCALL                                                                                     \
-	ring_vm_funccall_delete(pVM->pRingState, RING_VM_LASTFUNCCALL);                                                \
+	ring_vm_funccalldelete(pVM->pRingState, RING_VM_LASTFUNCCALL);                                                 \
 	pVM->nCurrentFuncCall--
 #define RING_VM_BACKTOFUNCCALL(x)                                                                                      \
 	while (RING_VM_FUNCCALLSCOUNT > x) {                                                                           \
@@ -893,15 +893,15 @@ List *ring_vm_prevtempmem(VM *pVM);
 
 void ring_vm_cleanevalcode(VM *pVM, int nCodeSize);
 
-FuncCall *ring_vm_funccall_new(VM *pVM);
+FuncCall *ring_vm_funccallnew(VM *pVM);
 
-void ring_vm_funccall_delete(void *pState, void *pMemory);
+void ring_vm_funccalldelete(void *pState, void *pMemory);
 
-void ring_vm_funccall_useloadfuncp(VM *pVM, FuncCall *pFuncCall, int nPerformance);
+void ring_vm_funccalluseloadfuncp(VM *pVM, FuncCall *pFuncCall, int nPerformance);
 
-int ring_vm_funccall_beforecall(VM *pVM);
+int ring_vm_funccallbeforecall(VM *pVM);
 
-int ring_vm_funccall_paracount(VM *pVM);
+int ring_vm_funccallparacount(VM *pVM);
 
 void ring_vm_newscopeid(VM *pVM);
 
