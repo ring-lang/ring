@@ -908,11 +908,11 @@ void ring_vm_newscopeid(VM *pVM);
 void ring_vm_optionalfunc(void *pPointer);
 /* String As Array */
 
-void ring_vm_string_pushv(VM *pVM);
+void ring_vm_stringpushv(VM *pVM);
 
-void ring_vm_string_assignment(VM *pVM);
+void ring_vm_stringassignment(VM *pVM);
 
-void ring_vm_string_index(VM *pVM, String *pString, double x);
+void ring_vm_stringindex(VM *pVM, String *pString, double x);
 /* Try Catch Done */
 
 void ring_vm_try(VM *pVM);

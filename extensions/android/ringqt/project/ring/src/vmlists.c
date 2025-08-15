@@ -188,7 +188,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 						return;
 					}
 					pString = ring_list_getstringobject(pVar, RING_VAR_VALUE);
-					ring_vm_string_index(pVM, pString, nNum1);
+					ring_vm_stringindex(pVM, pString, nNum1);
 					return;
 				} else {
 					RING_VM_STACK_POP;
@@ -214,7 +214,7 @@ void ring_vm_loadindexaddress(VM *pVM) {
 				} else if (ring_item_isstring(pItem)) {
 					RING_VM_STACK_POP;
 					pString = ring_item_getstring(pItem);
-					ring_vm_string_index(pVM, pString, nNum1);
+					ring_vm_stringindex(pVM, pString, nNum1);
 					return;
 				} else {
 					RING_VM_STACK_POP;

@@ -25,7 +25,7 @@ void ring_vm_pushv(VM *pVM) {
 		ring_vm_listpushv(pVM);
 		break;
 	case RING_OBJTYPE_SUBSTRING:
-		ring_vm_string_pushv(pVM);
+		ring_vm_stringpushv(pVM);
 		break;
 	}
 }
@@ -162,7 +162,7 @@ void ring_vm_assignment(VM *pVM) {
 	switch (RING_VM_STACK_PREVOBJTYPE) {
 	case RING_OBJTYPE_SUBSTRING:
 		if (nBeforeEqual == OP_EQUAL) {
-			ring_vm_string_assignment(pVM);
+			ring_vm_stringassignment(pVM);
 		} else {
 			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 		}

@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-void ring_vm_string_pushv(VM *pVM) {
+void ring_vm_stringpushv(VM *pVM) {
 	char *cNewStr;
 	char cStr[RING_CHARBUF];
 	if (pVM->nRetItemRef) {
@@ -16,7 +16,7 @@ void ring_vm_string_pushv(VM *pVM) {
 	RING_VM_STACK_PUSHCVALUE2(cStr, RING_ONE);
 }
 
-void ring_vm_string_assignment(VM *pVM) {
+void ring_vm_stringassignment(VM *pVM) {
 	char *cNewStr;
 	char cChar;
 	int nSize;
@@ -47,7 +47,7 @@ void ring_vm_string_assignment(VM *pVM) {
 	}
 }
 
-void ring_vm_string_index(VM *pVM, String *pString, double nNum1) {
+void ring_vm_stringindex(VM *pVM, String *pString, double nNum1) {
 	char *cNewStr;
 	/* We will push a pointer of the sub char to the stack */
 	if (nNum1 < 1 || nNum1 > ring_string_size(pString)) {
