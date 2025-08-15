@@ -118,6 +118,7 @@ More Improvements
 * Ring PM: Tests are revised and improved
 * Ring PM: Better format for output messages
 * Ring PM: Error message when the package contains a file that doesn't exist 
+* Ring PM: Disable colors usage in output when the CUILIB_COLORS environment variable is 0
 * Ring VM: ring_objfile_readfromsource() - Better implementation
 * Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)
 * Ring VM: Better functions for threads support
