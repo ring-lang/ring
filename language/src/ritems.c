@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-Items *ring_items_new_gc(void *pState) {
+RING_API Items *ring_items_new_gc(void *pState) {
 	Items *pItems;
 	char *pMem;
 	Item *pItem;
@@ -25,7 +25,7 @@ Items *ring_items_new_gc(void *pState) {
 	return pItems;
 }
 
-Items *ring_items_delete_gc(void *pState, Items *pItems) {
+RING_API Items *ring_items_delete_gc(void *pState, Items *pItems) {
 	char *pMem;
 	Item *pItem;
 	pItems->pValue = ring_item_delete_gc(pState, pItems->pValue);
@@ -39,10 +39,10 @@ Items *ring_items_delete_gc(void *pState, Items *pItems) {
 	return NULL;
 }
 
-void ring_items_print_gc(void *pState, Items *pItems) { ring_item_print_gc(pState, pItems->pValue); }
+RING_API void ring_items_print_gc(void *pState, Items *pItems) { ring_item_print_gc(pState, pItems->pValue); }
 
-Items *ring_items_new(void) { return ring_items_new_gc(NULL); }
+RING_API Items *ring_items_new(void) { return ring_items_new_gc(NULL); }
 
-Items *ring_items_delete(Items *pItems) { return ring_items_delete_gc(NULL, pItems); }
+RING_API Items *ring_items_delete(Items *pItems) { return ring_items_delete_gc(NULL, pItems); }
 
-void ring_items_print(Items *pItems) { ring_items_print_gc(NULL, pItems); }
+RING_API void ring_items_print(Items *pItems) { ring_items_print_gc(NULL, pItems); }
