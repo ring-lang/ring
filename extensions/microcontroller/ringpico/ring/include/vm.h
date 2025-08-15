@@ -683,8 +683,6 @@ void ring_vm_freestack(VM *pVM);
 
 void ring_vm_setreference(VM *pVM);
 
-void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList);
-
 void ring_vm_beforeequallist(VM *pVM, List *pVar, double nNum1, int nBeforeEqual);
 
 void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqual);
@@ -851,6 +849,8 @@ void ring_vm_cleansetpropertylist(VM *pVM);
 int ring_vm_isoperationaftersublist(VM *pVM);
 
 int ring_vm_notusingvarduringdef(VM *pVM);
+
+void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList);
 /* Functions */
 
 int ring_vm_loadfunc(VM *pVM);
@@ -922,11 +922,11 @@ void ring_vm_catch(VM *pVM, const char *cError);
 void ring_vm_done(VM *pVM);
 /* Duplicate and Range */
 
-void ring_vm_stack_dup(VM *pVM);
+void ring_vm_stackdup(VM *pVM);
 
 void ring_vm_range(VM *pVM);
 
-List *ring_vm_range_newlist(VM *pVM);
+List *ring_vm_rangenewlist(VM *pVM);
 /* OOP */
 
 void ring_vm_oop_newobj(VM *pVM);

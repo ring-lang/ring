@@ -156,6 +156,8 @@ pItem
 ring_vm_api_iscpointerlist
 ring_vm_api_iscpointer
 ring_vm_api_isobject
+Type: VM *
+pVM
 ring_vm_api_cpointercmp
 ring_vm_api_getcpointer2pointer
 Type: List *

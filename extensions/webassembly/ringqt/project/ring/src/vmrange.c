@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-void ring_vm_stack_dup(VM *pVM) {
+void ring_vm_stackdup(VM *pVM) {
 	String *pString;
 	double nNum1;
 	void *pPointer;
@@ -34,7 +34,7 @@ void ring_vm_range(VM *pVM) {
 			nNum2 = RING_VM_STACK_READN;
 			RING_VM_STACK_POP;
 			/* Create List Variable */
-			pVar = ring_vm_range_newlist(pVM);
+			pVar = ring_vm_rangenewlist(pVM);
 			ring_list_enablecopybyref(pVar);
 			/* Create List */
 			if (nNum2 <= nNum1) {
@@ -63,7 +63,7 @@ void ring_vm_range(VM *pVM) {
 				if (nSize2 == 1) {
 					cStr[1] = '\0';
 					/* Create List Variable */
-					pVar = ring_vm_range_newlist(pVM);
+					pVar = ring_vm_rangenewlist(pVM);
 					ring_list_enablecopybyref(pVar);
 					/* Create List */
 					if (nNum2 <= nNum1) {
@@ -83,7 +83,7 @@ void ring_vm_range(VM *pVM) {
 	}
 }
 
-List *ring_vm_range_newlist(VM *pVM) {
+List *ring_vm_rangenewlist(VM *pVM) {
 	List *pVar;
 	/* Create List Variable */
 	ring_vm_createtemplist(pVM);
