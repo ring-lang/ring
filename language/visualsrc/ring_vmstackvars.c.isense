@@ -91,3 +91,4 @@ vTempItem
 ring_vm_isinsideloop
 Type: FuncCall *
 pFuncCall
+ring_vm_isstackpointertoobjstate

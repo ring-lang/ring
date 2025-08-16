@@ -125,13 +125,13 @@ RING_API void ring_list_disableerroronassignment2(List *pList);
 RING_API int ring_list_iserroronassignment2(List *pList);
 /* Argument Type */
 
-RING_API void ring_list_setlisttype(List *pList, int nType);
+RING_API void ring_list_setlisttype_gc(void *pState, List *pList, int nType);
 
-RING_API int ring_list_getlisttype(List *pList);
+RING_API int ring_list_getlisttype_gc(void *pState, List *pList);
 
-RING_API int ring_list_isargcache(List *pList);
+RING_API int ring_list_isargcache_gc(void *pState, List *pList);
 
-RING_API void ring_list_enableargcache(List *pList);
+RING_API void ring_list_enableargcache_gc(void *pState, List *pList);
 /* Don't Delete */
 
 RING_API void ring_list_enabledontdelete_gc(void *pState, List *pList);

@@ -71,7 +71,7 @@ void ring_vm_deletescope(VM *pVM) {
 		if (ring_list_islist(pVM->pActiveMem, x)) {
 			pList = ring_list_getlist(pVM->pActiveMem, x);
 			/* Check adding numeric arguments to the cache */
-			if (ring_list_isargcache(pList)) {
+			if (ring_list_isargcache_gc(pVM->pRingState, pList)) {
 				/*
 				**  Reset flag that (For-In) could set when using var name similar to argument name
 				**  If we don't do that here, the tracking flag could be True
@@ -470,8 +470,8 @@ void ring_vm_newargcache(VM *pVM) {
 		ring_list_addint_gc(pVM->pRingState, pList, RING_VM_NUMBER);
 		ring_list_adddouble_gc(pVM->pRingState, pList, RING_ZEROF);
 		ring_list_addint_gc(pVM->pRingState, pList, RING_ZERO);
-		ring_list_enableargcache(pList);
-		ring_list_setlisttype(pList, RING_VM_NUMBER);
+		ring_list_enableargcache_gc(pVM->pRingState, pList);
+		ring_list_setlisttype_gc(pVM->pRingState, pList, RING_VM_NUMBER);
 		ring_list_enabledontdelete_gc(pVM->pRingState, pList);
 		pVM->aArgCache[pVM->nArgCacheCount++] = pList;
 	}
@@ -499,7 +499,7 @@ List *ring_vm_addstringarg(VM *pVM, const char *cVar, const char *cStr, unsigned
 		ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
 		ring_list_setstring2_gc(pVM->pRingState, pList, RING_VAR_VALUE, cStr, nStrSize);
 	}
-	ring_list_setlisttype(pList, RING_VM_STRING);
+	ring_list_setlisttype_gc(pVM->pRingState, pList, RING_VM_STRING);
 	/* Add Pointer to the HashTable */
 	ring_vm_addvarpointertoscopehash(pVM, pParent, cVar, pList);
 	return pList;
@@ -519,7 +519,7 @@ List *ring_vm_addnumberarg(VM *pVM, const char *cVar, double nNumber) {
 		ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_NUMBER);
 		ring_list_setdouble_gc(pVM->pRingState, pList, RING_VAR_VALUE, nNumber);
 	}
-	ring_list_setlisttype(pList, RING_VM_NUMBER);
+	ring_list_setlisttype_gc(pVM->pRingState, pList, RING_VM_NUMBER);
 	/* Add Pointer to the HashTable */
 	ring_vm_addvarpointertoscopehash(pVM, pParent, cVar, pList);
 	return pList;
@@ -541,7 +541,7 @@ List *ring_vm_addpointerarg(VM *pVM, const char *cVar, void *pPointer, int nType
 		ring_list_setpointer_gc(pVM->pRingState, pList, RING_VAR_VALUE, pPointer);
 		ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_PVALUETYPE, nType);
 	}
-	ring_list_setlisttype(pList, RING_VM_POINTER);
+	ring_list_setlisttype_gc(pVM->pRingState, pList, RING_VM_POINTER);
 	/* Reference Counting */
 	ring_vm_gc_checknewreference(pVM, pPointer, nType, pList, RING_VAR_VALUE);
 	/* Add Pointer to the HashTable */
@@ -569,7 +569,7 @@ List *ring_vm_addlistarg(VM *pVM, const char *cVar) {
 		ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_LIST);
 		ring_list_setlist_gc(pVM->pRingState, pList, RING_VAR_VALUE);
 	}
-	ring_list_setlisttype(pList, RING_VM_LIST);
+	ring_list_setlisttype_gc(pVM->pRingState, pList, RING_VM_LIST);
 	/* Add Pointer to the HashTable */
 	ring_vm_addvarpointertoscopehash(pVM, pParent, cVar, pList);
 	return pList;

@@ -668,13 +668,13 @@ RING_API int ring_list_iserroronassignment2(List *pList) { return pList->vGC.lEr
 RING_API void ring_list_disableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
 /* Argument Type */
 
-RING_API void ring_list_setlisttype(List *pList, int nType) { pList->vGC.nListType = nType; }
+RING_API void ring_list_setlisttype_gc(void *pState, List *pList, int nType) { pList->vGC.nListType = nType; }
 
-RING_API int ring_list_getlisttype(List *pList) { return pList->vGC.nListType; }
+RING_API int ring_list_getlisttype_gc(void *pState, List *pList) { return pList->vGC.nListType; }
 
-RING_API int ring_list_isargcache(List *pList) { return pList->vGC.lArgCache; }
+RING_API int ring_list_isargcache_gc(void *pState, List *pList) { return pList->vGC.lArgCache; }
 
-RING_API void ring_list_enableargcache(List *pList) { pList->vGC.lArgCache = RING_TRUE; }
+RING_API void ring_list_enableargcache_gc(void *pState, List *pList) { pList->vGC.lArgCache = RING_TRUE; }
 /* Don't delete */
 
 RING_API void ring_list_enabledontdelete_gc(void *pState, List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
