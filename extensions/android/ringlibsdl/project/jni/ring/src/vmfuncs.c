@@ -10,7 +10,7 @@ int ring_vm_loadfunc(VM *pVM) {
 	return ring_vm_loadfunc2(pVM, RING_VM_IR_READC, !pVM->nInsideEval);
 }
 
-int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
+RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 	List *pList, *pList2, *pOptionalFunctions;
 	int y, nPos;
 	FuncCall *pFuncCall;
@@ -195,7 +195,7 @@ void ring_vm_call(VM *pVM) {
 	ring_vm_call2(pVM);
 }
 
-void ring_vm_call2(VM *pVM) {
+RING_API void ring_vm_call2(VM *pVM) {
 	List *pList;
 	int x;
 	FuncCall *pFuncCall;

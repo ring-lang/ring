@@ -559,9 +559,9 @@ void ring_vm_start(RingState *pRingState, VM *pVM);
 
 void ring_vm_towardsmainloop(RingState *pRingState);
 
-void ring_vm_fetch(VM *pVM);
+RING_API void ring_vm_fetch(VM *pVM);
 
-void ring_vm_fetch2(VM *pVM);
+RING_API void ring_vm_fetch2(VM *pVM);
 
 void ring_vm_execute(VM *pVM);
 
@@ -796,11 +796,11 @@ void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);
 
 int ring_vm_loadfunc(VM *pVM);
 
-int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance);
+RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance);
 
 void ring_vm_call(VM *pVM);
 
-void ring_vm_call2(VM *pVM);
+RING_API void ring_vm_call2(VM *pVM);
 
 void ring_vm_preparecallmethod(VM *pVM);
 

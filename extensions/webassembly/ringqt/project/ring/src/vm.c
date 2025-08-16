@@ -728,7 +728,7 @@ void ring_vm_mainloop(VM *pVM) {
 	}
 }
 
-void ring_vm_fetch(VM *pVM) {
+RING_API void ring_vm_fetch(VM *pVM) {
 	pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1;
 	pVM->nOPCode = RING_VM_IR_OPCODE;
 	pVM->nPC++;
@@ -738,7 +738,7 @@ void ring_vm_fetch(VM *pVM) {
 	}
 }
 
-void ring_vm_fetch2(VM *pVM) {
+RING_API void ring_vm_fetch2(VM *pVM) {
 	pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1;
 	pVM->nOPCode = RING_VM_IR_OPCODE;
 	if (pVM->pRingState->lPrintInstruction) {
