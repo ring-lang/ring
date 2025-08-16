@@ -358,8 +358,8 @@ RING_FUNC(ring_updatelist)
     cOperation = (char *) RING_API_GETSTRING(2) ;
     cSelection = (char *) RING_API_GETSTRING(3) ;
 
-    cOperation = ring_string_lower(cOperation);
-    cSelection = ring_string_lower(cSelection);
+    cOperation = ring_general_lower(cOperation);
+    cSelection = ring_general_lower(cSelection);
 
     if ( ring_list_getsize(pList) == 0 ) {
         /* For empty lists, we does nothing! */
