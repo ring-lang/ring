@@ -219,8 +219,6 @@ RING_API int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pIt
 
 RING_API void ring_list_swaptwolists_gc(void *pState, List *pList1, List *pList2);
 
-RING_API void ring_list_swaptwolists(List *pList1, List *pList2);
-
 RING_API void ring_list_copy_tohighlevel_gc(void *pState, List *pNewList, List *pList);
 /* Define functions without RingState * */
 
@@ -310,6 +308,9 @@ RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColum
 RING_API int ring_list_findpointer(List *pList, void *pPointer);
 
 RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y);
+/* Swap two lists */
+
+RING_API void ring_list_swaptwolists(List *pList1, List *pList2);
 /* Functions that know about using Lists for Ring Objects & C Pointers */
 
 RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1, const char *cStr,
