@@ -4,6 +4,14 @@ pList
 Type: int
 x
 ring_vm_newscope
+ring_vm_newscopeid
+ring_vm_deletescope
+Type: List *
+pList
+Type: ListBlocks *
+pArg
+Type: int
+x
 ring_vm_findvar
 Type: int
 x,nPos,nMax1
@@ -43,13 +51,6 @@ pList
 ring_vm_addnewcpointervar
 Type: List *
 pList, *pList2
-ring_vm_deletescope
-Type: List *
-pList
-Type: ListBlocks *
-pArg
-Type: int
-x
 ring_vm_setvarprivateflag
 ring_vm_getvarprivateflag
 ring_vm_copyscopestolist

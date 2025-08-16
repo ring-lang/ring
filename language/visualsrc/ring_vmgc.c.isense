@@ -318,8 +318,8 @@ ring_list_setlisttype
 ring_list_getlisttype
 ring_list_isargcache
 ring_list_enableargcache
-ring_list_enabledontdelete
-ring_list_disabledontdelete
+ring_list_enabledontdelete_gc
+ring_list_disabledontdelete_gc
 ring_malloc
 Type: void *
 pMemory

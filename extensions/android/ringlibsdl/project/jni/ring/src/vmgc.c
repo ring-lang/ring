@@ -677,9 +677,9 @@ RING_API int ring_list_isargcache(List *pList) { return pList->vGC.lArgCache; }
 RING_API void ring_list_enableargcache(List *pList) { pList->vGC.lArgCache = RING_TRUE; }
 /* Don't delete */
 
-RING_API void ring_list_enabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
+RING_API void ring_list_enabledontdelete_gc(void *pState, List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
 
-RING_API void ring_list_disabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_FALSE; }
+RING_API void ring_list_disabledontdelete_gc(void *pState, List *pList) { pList->vGC.lDontDelete = RING_FALSE; }
 /* Memory Functions (General) */
 
 RING_API void *ring_malloc(size_t nSize) {
