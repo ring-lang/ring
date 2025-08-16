@@ -504,7 +504,7 @@ RING_API void ring_list_addfuncpointer_gc(void *pState, List *pList, void (*pFun
 	ring_list_setfuncpointer_gc(pState, pList, ring_list_getsize(pList), pFunc);
 }
 
-RING_API int ring_list_isfuncpointer(List *pList, unsigned int nIndex) {
+RING_API int ring_list_isfuncpointer_gc(void *pState, List *pList, unsigned int nIndex) {
 	return (ring_list_gettype(pList, nIndex) == ITEMTYPE_FUNCPOINTER);
 }
 /*
@@ -991,6 +991,10 @@ RING_API void ring_list_setfuncpointer(List *pList, unsigned int nIndex, void (*
 
 RING_API void ring_list_addfuncpointer(List *pList, void (*pFunc)(void *)) {
 	ring_list_addfuncpointer_gc(NULL, pList, pFunc);
+}
+
+RING_API int ring_list_isfuncpointer(List *pList, unsigned int nIndex) {
+	return ring_list_isfuncpointer_gc(NULL, pList, nIndex);
 }
 /* double */
 

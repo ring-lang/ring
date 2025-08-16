@@ -183,7 +183,7 @@ ring_list_setfuncpointer_gc
 Type: Item *
 pItem
 ring_list_addfuncpointer_gc
-ring_list_isfuncpointer
+ring_list_isfuncpointer_gc
 ring_list_insertitem_gc
 Type: Items *
 pItems, *pPos
@@ -289,6 +289,7 @@ ring_list_setpointer
 ring_list_addpointer
 ring_list_setfuncpointer
 ring_list_addfuncpointer
+ring_list_isfuncpointer
 ring_list_setdouble
 ring_list_adddouble
 ring_list_setstring
@@ -333,12 +334,12 @@ Type: unsigned int
 nPos
 Type: static char
 nullstring[]
-ring_list_addringpointer_gc
 ring_list_addcustomringpointer_gc
 Type: List *
 pPointerList
 Type: Item *
 pItem
+ring_list_addringpointer_gc
 ring_list_addcpointer_gc
 Type: List *
 pList2
@@ -366,11 +367,11 @@ cStr[RING_MEDIUMBUF]
 ring_list_isobject_gc
 ring_list_iscpointerlist_gc
 ring_list_cpointercmp_gc
+ring_list_addringpointer
+ring_list_addcpointer
 ring_list_print
 ring_list_print2
 ring_list_printobj
-ring_list_addringpointer
-ring_list_addcpointer
 ring_list_isobject
 ring_list_iscpointerlist
 ring_list_cpointercmp

@@ -119,7 +119,7 @@ RING_API void ring_list_setfuncpointer_gc(void *pState, List *pList, unsigned in
 
 RING_API void ring_list_addfuncpointer_gc(void *pState, List *pList, void (*pFunc)(void *));
 
-RING_API int ring_list_isfuncpointer(List *pList, unsigned int nIndex);
+RING_API int ring_list_isfuncpointer_gc(void *pState, List *pList, unsigned int nIndex);
 /* double */
 
 RING_API void ring_list_setdouble_gc(void *pState, List *pList, unsigned int nIndex, double nNumber);
@@ -250,6 +250,8 @@ RING_API void ring_list_addpointer(List *pList, void *pValue);
 RING_API void ring_list_setfuncpointer(List *pList, unsigned int nIndex, void (*pFunc)(void *));
 
 RING_API void ring_list_addfuncpointer(List *pList, void (*pFunc)(void *));
+
+RING_API int ring_list_isfuncpointer(List *pList, unsigned int nIndex);
 /* double */
 
 RING_API void ring_list_setdouble(List *pList, unsigned int nIndex, double nNumber);
