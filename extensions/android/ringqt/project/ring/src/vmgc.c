@@ -3,9 +3,9 @@
 #include "ring.h"
 /* Item GC Functions */
 
-void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *)) { pItem->pGCFreeFunc = pFreeFunc; }
+RING_API void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *)) { pItem->pGCFreeFunc = pFreeFunc; }
 
-void ring_vm_gc_removetrack(RingState *pState, List *pList) {
+RING_API void ring_vm_gc_removetrack(RingState *pState, List *pList) {
 	int nPos;
 	if (pList->vGC.lTrackedList) {
 		nPos = ring_list_findpointer_gc(pState, pState->pVM->pTrackedVariables, pList);
@@ -16,7 +16,7 @@ void ring_vm_gc_removetrack(RingState *pState, List *pList) {
 	}
 }
 
-void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
+RING_API void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
 	if (pItem->pGCFreeFunc != NULL) {
 		if (pItem->data.pPointer != NULL) {
 			pItem->pGCFreeFunc(pState, pItem->data.pPointer);
@@ -24,9 +24,9 @@ void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
 	}
 }
 
-void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_gc(pState, (List *)pList); }
+RING_API void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_gc(pState, (List *)pList); }
 
-void ring_vm_gc_finishitemdelete(void *pState, Item *pItem) {
+RING_API void ring_vm_gc_finishitemdelete(void *pState, Item *pItem) {
 	/* Call Free Function */
 	if (pItem->nType == ITEMTYPE_POINTER) {
 		ring_vm_gc_freefunc((RingState *)pState, pItem);
@@ -35,7 +35,7 @@ void ring_vm_gc_finishitemdelete(void *pState, Item *pItem) {
 	ring_state_free(pState, pItem);
 }
 
-void ring_vm_gc_deleteitem(void *pState, Item *pItem) {
+RING_API void ring_vm_gc_deleteitem(void *pState, Item *pItem) {
 	VM *pVM;
 	int nRefCount;
 	/* Single Thread */
@@ -66,7 +66,7 @@ void ring_vm_gc_deleteitem(void *pState, Item *pItem) {
 	}
 }
 
-void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pContainer, int nIndex) {
+RING_API void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pContainer, int nIndex) {
 	Item *pItem;
 	/*
 	**  Called when we create new pointer (new reference)
@@ -89,7 +89,7 @@ void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pCon
 	}
 }
 
-void ring_vm_gc_checkupdatereference(VM *pVM, List *pList) {
+RING_API void ring_vm_gc_checkupdatereference(VM *pVM, List *pList) {
 	Item *pItem;
 	/* Reference Counting to Destination before copy from Source */
 	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_POINTER) {
@@ -100,7 +100,7 @@ void ring_vm_gc_checkupdatereference(VM *pVM, List *pList) {
 	}
 }
 
-void ring_vm_gc_killreference(VM *pVM) {
+RING_API void ring_vm_gc_killreference(VM *pVM) {
 	List *pList, *pList2;
 	Item *pItem;
 	char *newstr;
@@ -200,7 +200,7 @@ void ring_vm_gc_killreference(VM *pVM) {
 	}
 }
 
-void ring_vm_gc_deletetemplists(VM *pVM) {
+RING_API void ring_vm_gc_deletetemplists(VM *pVM) {
 	/*
 	**  This function is called from Ring code by callgc()
 	**  Function Goal
@@ -225,7 +225,7 @@ void ring_vm_gc_deletetemplists(VM *pVM) {
 **  Protecting lists
 */
 
-int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar) {
+RING_API int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar) {
 	List *pList;
 	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
@@ -237,7 +237,7 @@ int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar) {
 	return RING_FALSE;
 }
 
-int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem) {
+RING_API int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem) {
 	List *pList;
 	if (ring_item_gettype(pItem) == ITEMTYPE_LIST) {
 		pList = ring_item_getlist(pItem);
@@ -249,7 +249,7 @@ int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem) {
 	return RING_FALSE;
 }
 
-int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar) {
+RING_API int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar) {
 	if (pVar->vGC.lCheckBeforeAssignmentDone) {
 		return RING_FALSE;
 	}
@@ -270,7 +270,7 @@ int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar) {
 	return RING_FALSE;
 }
 
-void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
+RING_API void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
 	int x;
 	List *pList;
 	for (x = nStart; x <= ring_list_getsize(pNestedLists); x++) {
@@ -278,7 +278,7 @@ void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
 	}
 }
 
-void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
+RING_API void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos) {
 	List *pList;
 	/* Disable Error on Assignment */
 	pList = (List *)ring_list_getpointer(pNestedLists, nPos);
@@ -668,13 +668,13 @@ RING_API int ring_list_iserroronassignment2(List *pList) { return pList->vGC.lEr
 RING_API void ring_list_disableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
 /* Argument Type */
 
-void ring_list_setlisttype(List *pList, int nType) { pList->vGC.nListType = nType; }
+RING_API void ring_list_setlisttype(List *pList, int nType) { pList->vGC.nListType = nType; }
 
-int ring_list_getlisttype(List *pList) { return pList->vGC.nListType; }
+RING_API int ring_list_getlisttype(List *pList) { return pList->vGC.nListType; }
 
-int ring_list_isargcache(List *pList) { return pList->vGC.lArgCache; }
+RING_API int ring_list_isargcache(List *pList) { return pList->vGC.lArgCache; }
 
-void ring_list_enableargcache(List *pList) { pList->vGC.lArgCache = RING_TRUE; }
+RING_API void ring_list_enableargcache(List *pList) { pList->vGC.lArgCache = RING_TRUE; }
 /* Don't delete */
 
 RING_API void ring_list_enabledontdelete(List *pList) { pList->vGC.lDontDelete = RING_TRUE; }
@@ -952,7 +952,7 @@ RING_API void ring_state_willunregisterblock(void *pState, void *pStart) {
 }
 /* Pool Manager Functions */
 
-void ring_poolmanager_new(RingState *pRingState) {
+RING_API void ring_poolmanager_new(RingState *pRingState) {
 	/* Level 1 */
 	pRingState->vPoolManager.pCurrentItem = NULL;
 	pRingState->vPoolManager.pBlockStart = NULL;
@@ -978,7 +978,7 @@ void ring_poolmanager_new(RingState *pRingState) {
 	pRingState->vPoolManager.pMutex = NULL;
 }
 
-void ring_poolmanager_newblock(RingState *pRingState) {
+RING_API void ring_poolmanager_newblock(RingState *pRingState) {
 	PoolData *pMemory;
 	PoolDataL2 *pMemoryL2;
 	PoolDataL3 *pMemoryL3;
@@ -1060,7 +1060,7 @@ void ring_poolmanager_newblock(RingState *pRingState) {
 	    (void *)(pMemoryStateLevel + pRingState->vPoolManager.nItemsInBlockStateLevel - 1);
 }
 
-void *ring_poolmanager_allocate(RingState *pRingState, size_t nSize) {
+RING_API void *ring_poolmanager_allocate(RingState *pRingState, size_t nSize) {
 	void *pMemory;
 	pMemory = NULL;
 	/* If No memory - Create new block */
@@ -1092,7 +1092,7 @@ void *ring_poolmanager_allocate(RingState *pRingState, size_t nSize) {
 	return pMemory;
 }
 
-int ring_poolmanager_find(RingState *pRingState, void *pMemory) {
+RING_API int ring_poolmanager_find(RingState *pRingState, void *pMemory) {
 	if (pRingState != NULL) {
 		/* Level 1 */
 		if (pRingState->vPoolManager.pBlockStart != NULL) {
@@ -1120,7 +1120,7 @@ int ring_poolmanager_find(RingState *pRingState, void *pMemory) {
 	return RING_POOLMANAGER_NOTFOUND;
 }
 
-int ring_poolmanager_free(RingState *pRingState, void *pMemory) {
+RING_API int ring_poolmanager_free(RingState *pRingState, void *pMemory) {
 	PoolData *pPoolData;
 	PoolDataL2 *pPoolDataL2;
 	PoolDataL3 *pPoolDataL3;
@@ -1147,7 +1147,7 @@ int ring_poolmanager_free(RingState *pRingState, void *pMemory) {
 	return lRet;
 }
 
-void ring_poolmanager_delete(RingState *pRingState) {
+RING_API void ring_poolmanager_delete(RingState *pRingState) {
 	if (pRingState != NULL) {
 		if (pRingState->vPoolManager.lDeleteMemory) {
 			pRingState->vPoolManager.pBlocks = ring_list_delete(pRingState->vPoolManager.pBlocks);
@@ -1183,7 +1183,7 @@ void ring_poolmanager_delete(RingState *pRingState) {
 	}
 }
 
-void ring_poolmanager_newblockfromsubthread(RingState *pSubRingState, int nCount, RingState *pMainRingState) {
+RING_API void ring_poolmanager_newblockfromsubthread(RingState *pSubRingState, int nCount, RingState *pMainRingState) {
 	int x;
 	PoolData *pMemory;
 	/*
@@ -1218,7 +1218,7 @@ void ring_poolmanager_newblockfromsubthread(RingState *pSubRingState, int nCount
 	pSubRingState->vPoolManager.nItemsInBlock = nCount;
 }
 
-void ring_poolmanager_deleteblockfromsubthread(RingState *pSubRingState, RingState *pMainRingState) {
+RING_API void ring_poolmanager_deleteblockfromsubthread(RingState *pSubRingState, RingState *pMainRingState) {
 	PoolData *pMemory;
 	pMemory = pSubRingState->vPoolManager.pCurrentItem;
 	while (pMemory != NULL) {
@@ -1236,7 +1236,7 @@ void ring_poolmanager_deleteblockfromsubthread(RingState *pSubRingState, RingSta
 }
 /* VMState Memory Functions */
 
-VMState *ring_vmstate_new(RingState *pRingState) {
+RING_API VMState *ring_vmstate_new(RingState *pRingState) {
 	VMState *pVMState;
 #if RING_USEPOOLMANAGER
 	if (pRingState != NULL) {
@@ -1253,7 +1253,7 @@ VMState *ring_vmstate_new(RingState *pRingState) {
 	return pVMState;
 }
 
-void ring_vmstate_delete(void *pState, void *pMemory) {
+RING_API void ring_vmstate_delete(void *pState, void *pMemory) {
 	RingState *pRingState;
 	PoolDataStateLevel *pPoolDataStateLevel;
 #if RING_USEPOOLMANAGER

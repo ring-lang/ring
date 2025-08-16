@@ -14,39 +14,39 @@
 	pItem->pGCFreeFunc = NULL
 #define ring_vm_gc_newitemreference(pItem) pItem->nGCReferenceCount++
 
-void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *));
+RING_API void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *));
 
-void ring_vm_gc_removetrack(RingState *pState, List *pList);
+RING_API void ring_vm_gc_removetrack(RingState *pState, List *pList);
 
-void ring_vm_gc_freefunc(RingState *pState, Item *pItem);
+RING_API void ring_vm_gc_freefunc(RingState *pState, Item *pItem);
 
-void ring_vm_gc_deletelistinitem(void *pState, void *pList);
+RING_API void ring_vm_gc_deletelistinitem(void *pState, void *pList);
 
-void ring_vm_gc_finishitemdelete(void *pState, Item *pItem);
+RING_API void ring_vm_gc_finishitemdelete(void *pState, Item *pItem);
 
-void ring_vm_gc_deleteitem(void *pState, Item *pItem);
+RING_API void ring_vm_gc_deleteitem(void *pState, Item *pItem);
 
-void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pContainer, int nIndex);
+RING_API void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pContainer, int nIndex);
 
-void ring_vm_gc_checkupdatereference(VM *pVM, List *pList);
+RING_API void ring_vm_gc_checkupdatereference(VM *pVM, List *pList);
 
-void ring_vm_gc_killreference(VM *pVM);
+RING_API void ring_vm_gc_killreference(VM *pVM);
 
-void ring_vm_gc_deletetemplists(VM *pVM);
+RING_API void ring_vm_gc_deletetemplists(VM *pVM);
 /*
 **  List GC Functions
 **  Protecting Lists
 */
 
-int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar);
+RING_API int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar);
 
-int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem);
+RING_API int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem);
 
-int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar);
+RING_API int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar);
 
-void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart);
+RING_API void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart);
 
-void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos);
+RING_API void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int nPos);
 /* References */
 
 RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable);
@@ -125,13 +125,13 @@ RING_API void ring_list_disableerroronassignment2(List *pList);
 RING_API int ring_list_iserroronassignment2(List *pList);
 /* Argument Type */
 
-void ring_list_setlisttype(List *pList, int nType);
+RING_API void ring_list_setlisttype(List *pList, int nType);
 
-int ring_list_getlisttype(List *pList);
+RING_API int ring_list_getlisttype(List *pList);
 
-int ring_list_isargcache(List *pList);
+RING_API int ring_list_isargcache(List *pList);
 
-void ring_list_enableargcache(List *pList);
+RING_API void ring_list_enableargcache(List *pList);
 /* Don't Delete */
 
 RING_API void ring_list_enabledontdelete(List *pList);
@@ -163,24 +163,24 @@ RING_API void ring_state_unregisterblock(void *pState, void *pStart);
 RING_API void ring_state_willunregisterblock(void *pState, void *pStart);
 /* Pool Manager Functions */
 
-void ring_poolmanager_new(RingState *pRingState);
+RING_API void ring_poolmanager_new(RingState *pRingState);
 
-void ring_poolmanager_newblock(RingState *pRingState);
+RING_API void ring_poolmanager_newblock(RingState *pRingState);
 
-void *ring_poolmanager_allocate(RingState *pRingState, size_t nSize);
+RING_API void *ring_poolmanager_allocate(RingState *pRingState, size_t nSize);
 
-int ring_poolmanager_find(RingState *pRingState, void *pMemory);
+RING_API int ring_poolmanager_find(RingState *pRingState, void *pMemory);
 
-int ring_poolmanager_free(RingState *pRingState, void *pMemory);
+RING_API int ring_poolmanager_free(RingState *pRingState, void *pMemory);
 
-void ring_poolmanager_delete(RingState *pRingState);
+RING_API void ring_poolmanager_delete(RingState *pRingState);
 
-void ring_poolmanager_newblockfromsubthread(RingState *pSubRingState, int nCount, RingState *pMainRingState);
+RING_API void ring_poolmanager_newblockfromsubthread(RingState *pSubRingState, int nCount, RingState *pMainRingState);
 
-void ring_poolmanager_deleteblockfromsubthread(RingState *pSubRingState, RingState *pMainRingState);
+RING_API void ring_poolmanager_deleteblockfromsubthread(RingState *pSubRingState, RingState *pMainRingState);
 /* VMState Memory Functions */
 
-VMState *ring_vmstate_new(RingState *pRingState);
+RING_API VMState *ring_vmstate_new(RingState *pRingState);
 
-void ring_vmstate_delete(void *pState, void *pMemory);
+RING_API void ring_vmstate_delete(void *pState, void *pMemory);
 #endif
