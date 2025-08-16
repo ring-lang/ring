@@ -458,64 +458,64 @@ have better performance when we create large lists.
 	// Add Items 
 
 	void ring_list_adddouble_gc ( void *pState,List *pList,double x ) ;
-	void ring_list_addstring_gc ( void *pState,List *pList,const char *str ) ;
-	void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize ) ;
+	void ring_list_addstring_gc ( void *pState,List *pList,const char *cStr ) ;
+	void ring_list_addstring2_gc ( void *pState,List *pList,const char *cStr,unsigned int nStrSize ) ;
 	List * ring_list_newlist_gc ( void *pState,List *pList ) ;
 
 	void ring_list_adddouble ( List *pList,double x ) ;
-	void ring_list_addstring ( List *pList,const char *str ) ;
-	void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+	void ring_list_addstring ( List *pList,const char *cStr ) ;
+	void ring_list_addstring2 ( List *pList,const char *cStr,unsigned int nStrSize ) ;
 	List * ring_list_newlist ( List *pList ) ;
 	
 	// Get List Size
 
-	int ring_list_getsize( List *pList );
+	unsigned int ring_list_getsize( List *pList );
 
 	// Check Item Type
 
-	int ring_list_isdouble ( List *pList, unsigned int index ) ;
-	int ring_list_isstring ( List *pList, unsigned int index ) ;
-	int ring_list_islist ( List *pList, unsigned int index ) ;
+	int ring_list_isdouble ( List *pList, unsigned int nIndex ) ;
+	int ring_list_isstring ( List *pList, unsigned int nIndex ) ;
+	int ring_list_islist ( List *pList, unsigned int nIndex ) ;
 	int ring_list_isobject ( List *pList ) ;
 
 	// Get Items
 
-	double ring_list_getdouble ( List *pList, unsigned int index ) ;
-	char * ring_list_getstring ( List *pList, unsigned int index ) ;
-	int ring_list_getstringsize ( List *pList, unsigned int index ) ;
-	String * ring_list_getstringobject ( List *pList, unsigned int index ) ;
-	List * ring_list_getlist ( List *pList, unsigned int index ) ;
+	double ring_list_getdouble ( List *pList, unsigned int nIndex ) ;
+	char * ring_list_getstring ( List *pList, unsigned int nIndex ) ;
+	unsigned int ring_list_getstringsize ( List *pList, unsigned int nIndex ) ;
+	String * ring_list_getstringobject ( List *pList, unsigned int nIndex ) ;
+	List * ring_list_getlist ( List *pList, unsigned int nIndex ) ;
 
 	// Insert Items 
 
 	void ring_list_insertdouble_gc ( void *pState,List *pList,unsigned int nPos,double x ) ;
-	void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *str ) ;
-	void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *str,int nStrSize ) ;
+	void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *cStr ) ;
+	void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *cStr,unsigned int nStrSize ) ;
 	List * ring_list_insertlist_gc ( void *pState,List *pList,unsigned int nPos ) ;
 
 	void ring_list_insertdouble ( List *pList,unsigned int nPos,double x ) ;
-	void ring_list_insertstring ( List *pList,unsigned int nPos,const char *str ) ;
-	void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *str,int nStrSize ) ;
+	void ring_list_insertstring ( List *pList,unsigned int nPos,const char *cStr ) ;
+	void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *cStr,unsigned int nStrSize ) ;
 	List * ring_list_insertlist ( List *pList,unsigned int nPos ) ;
 
 	// Set Items
 	
-	void ring_list_setdouble_gc ( void *pState,List *pList, unsigned int index ,double number ) ;
-	void ring_list_setstring_gc ( void *pState,List *pList, unsigned int index ,const char *str ) ;
-	void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int index ,const char *str,int nStrSize ) ;
-	void ring_list_setlist_gc ( void *pState,List *pList, unsigned int index ) ;
+	void ring_list_setdouble_gc ( void *pState,List *pList, unsigned int nIndex ,double nNumber ) ;
+	void ring_list_setstring_gc ( void *pState,List *pList, unsigned int nIndex ,const char *cStr ) ;
+	void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int nIndex ,const char *cStr,unsigned int nStrSize ) ;
+	void ring_list_setlist_gc ( void *pState,List *pList, unsigned int nIndex ) ;
 	
-	void ring_list_setdouble ( List *pList, unsigned int index ,double number ) ;
-	void ring_list_setstring ( List *pList, unsigned int index ,const char *str ) ;
-	void ring_list_setstring2 ( List *pList, unsigned int index ,const char *str,int nStrSize ) ;
-	void ring_list_setlist ( List *pList, unsigned int index ) ;
+	void ring_list_setdouble ( List *pList, unsigned int nIndex ,double nNumber ) ;
+	void ring_list_setstring ( List *pList, unsigned int nIndex ,const char *cStr ) ;
+	void ring_list_setstring2 ( List *pList, unsigned int nIndex ,const char *cStr,unsigned int nStrSize ) ;
+	void ring_list_setlist ( List *pList, unsigned int nIndex ) ;
 	
 	// Delete Items 
 	
-	void ring_list_deleteitem_gc ( void *pState,List *pList,unsigned int index ) ;
+	void ring_list_deleteitem_gc ( void *pState,List *pList,unsigned int nIndex ) ;
 	void ring_list_deleteallitems_gc ( void *pState,List *pList ) ;
 
-	void ring_list_deleteitem ( List *pList,unsigned int index ) ;
+	void ring_list_deleteitem ( List *pList,unsigned int nIndex ) ;
 	void ring_list_deleteallitems ( List *pList ) ;
 	
 	// Copy Lists 
@@ -525,7 +525,7 @@ have better performance when we create large lists.
 	
 	// Find Items 
 	
-	int ring_list_findstring ( List *pList,const char *str,unsigned int nColumn ) ;
+	int ring_list_findstring ( List *pList,const char *cStr,unsigned int nColumn ) ;
 	int ring_list_finddouble ( List *pList,double nNum1,unsigned int nColumn ) ;  
 	
 	// Swap 
@@ -555,7 +555,7 @@ Some of these functions are
 
 .. code-block:: none
 
-	void ring_list_setdouble_gc ( void *pState, List *pList, int index , double number ) ;
+	void ring_list_setdouble_gc ( void *pState, List *pList, int index , double nNumber ) ;
 	void ring_list_adddouble_gc ( void *pState, List *pList, double x ) ;
 	void ring_list_deleteitem_gc ( void *pState, List *pList, int index ) ;
 
@@ -623,24 +623,24 @@ For a complete list of function, including functions that uses the GC, see this 
 
 	// Create and delete strings
 
-	String * ring_string_new ( const char *str ) ;
-	String * ring_string_new2 ( const char *str,int nStrSize ) ;
+	String * ring_string_new ( const char *cStr ) ;
+	String * ring_string_new2 ( const char *cStr,unsigned int nStrSize ) ;
 	String * ring_string_delete ( String *pString ) ;
 
 	// Get string 
 
 	char * ring_string_get ( String *pString ) ;
-	int ring_string_size ( String *pString ) ;
+	unsigned int ring_string_size ( String *pString ) ;
 
 	// Add text to the string
 
-	void ring_string_add ( String *pString,const char *str ) ;
-	void ring_string_add2 ( String *pString,const char *str,int nStrSize ) ;
+	void ring_string_add ( String *pString,const char *cStr ) ;
+	void ring_string_add2 ( String *pString,const char *cStr,unsigned int nStrSize ) ;
 
 	// Change the string 
 
-	void ring_string_set ( String *pString,const char *str ) ;
-	void ring_string_set2 ( String *pString,const char *str,int nStrSize ) ;
+	void ring_string_set ( String *pString,const char *cStr ) ;
+	void ring_string_set2 ( String *pString,const char *cStr,unsigned int nStrSize ) ;
 	void ring_string_setfromint ( String *pString,int x ) ;
 
 	// Print the string 
@@ -651,15 +651,6 @@ For a complete list of function, including functions that uses the GC, see this 
 
 	void ring_string_tolower(String *pString)
 	void ring_string_toupper(String *pString)
-	char * ring_string_lower ( char *cStr ) ;
-	char * ring_string_upper ( char *cStr ) ;
-	char * ring_string_lower2 ( char *cStr,int nStrSize ) ;
-	char * ring_string_upper2 ( char *cStr,int nStrSize ) ;
-
-	// Find
-
-	char * ring_string_find ( char *cStr1,char *cStr2 ) ;
-	char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
 
 
 .. index:: 
