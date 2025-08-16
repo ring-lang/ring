@@ -75,6 +75,9 @@ typedef struct RingState {
 	/* Pool Manager */
 	PoolManager vPoolManager;
 } RingState;
+#define RING_VERSION_MAJOR 1
+#define RING_VERSION_MINOR 24
+#define RING_VERSION_PATCH 0
 #define RING_STATE_VERSION "1.24"
 #define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".0")
 #define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
