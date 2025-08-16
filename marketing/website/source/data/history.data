@@ -1,4 +1,5 @@
 aNews = [
+  ["August 17, 2025",'<a href="https://github.com/azzeddine2017/ringpmgui"> RingPM GUI</a>'],
   ["August 14, 2025",'<a href="https://github.com/ysdragon/deploy-ring"> Ring Cloud Deployment Guides</a>'],
   ["August 8, 2025",'<a href="https://github.com/ysdragon/ring-docker"> Ring Docker Images</a>'],
   ["August 7, 2025",'<a href="https://github.com/ring-lang/ring/blob/master/language/README_macOS.md"> Ring for macOS (Apple silicon)</a>'],
