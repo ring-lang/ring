@@ -323,10 +323,10 @@ RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned
 RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
 					    const char *cAttribute);
 
-RING_API void ring_list_addringpointer_gc(void *pState, List *pList, void *pValue);
-
 RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void *pValue,
 						void (*pFreeFunc)(void *, void *));
+
+RING_API void ring_list_addringpointer_gc(void *pState, List *pList, void *pValue);
 
 RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType);
 
@@ -335,6 +335,16 @@ RING_API void ring_list_print_gc(void *pState, List *pList);
 RING_API void ring_list_print2_gc(void *pState, List *pList, unsigned int nDecimals);
 
 RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDecimals);
+
+RING_API int ring_list_isobject_gc(void *pState, List *pList);
+
+RING_API int ring_list_iscpointerlist_gc(void *pState, List *pList);
+
+RING_API int ring_list_cpointercmp_gc(void *pState, List *pList, List *pList2);
+
+RING_API void ring_list_addringpointer(List *pList, void *pValue);
+
+RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType);
 
 RING_API void ring_list_print(List *pList);
 
@@ -347,8 +357,4 @@ RING_API int ring_list_isobject(List *pList);
 RING_API int ring_list_iscpointerlist(List *pList);
 
 RING_API int ring_list_cpointercmp(List *pList, List *pList2);
-
-RING_API void ring_list_addringpointer(List *pList, void *pValue);
-
-RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType);
 #endif

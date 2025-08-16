@@ -363,11 +363,14 @@ Type: unsigned int
 x
 Type: char
 cStr[RING_MEDIUMBUF]
+ring_list_isobject_gc
+ring_list_iscpointerlist_gc
+ring_list_cpointercmp_gc
 ring_list_print
 ring_list_print2
 ring_list_printobj
+ring_list_addringpointer
+ring_list_addcpointer
 ring_list_isobject
 ring_list_iscpointerlist
 ring_list_cpointercmp
-ring_list_addringpointer
-ring_list_addcpointer

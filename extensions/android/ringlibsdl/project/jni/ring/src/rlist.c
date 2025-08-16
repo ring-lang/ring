@@ -1236,10 +1236,6 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 	return nullstring;
 }
 
-RING_API void ring_list_addringpointer_gc(void *pState, List *pList, void *pValue) {
-	ring_list_addcustomringpointer_gc(pState, pList, pValue, ring_state_free);
-}
-
 RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void *pValue,
 						void (*pFreeFunc)(void *, void *)) {
 	List *pPointerList;
@@ -1247,6 +1243,10 @@ RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void 
 	ring_list_addpointer_gc(pState, pList, pValue);
 	pItem = ring_list_getitem_gc(pState, pList, ring_list_getsize(pList));
 	ring_vm_gc_setfreefunc(pItem, pFreeFunc);
+}
+
+RING_API void ring_list_addringpointer_gc(void *pState, List *pList, void *pValue) {
+	ring_list_addcustomringpointer_gc(pState, pList, pValue, ring_state_free);
 }
 
 RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType) {
@@ -1339,25 +1339,19 @@ RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDec
 	}
 }
 
-RING_API void ring_list_print(List *pList) { ring_list_print_gc(NULL, pList); }
-
-RING_API void ring_list_print2(List *pList, unsigned int nDecimals) { ring_list_print2_gc(NULL, pList, nDecimals); }
-
-RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) { ring_list_printobj_gc(NULL, pList, nDecimals); }
-
-RING_API int ring_list_isobject(List *pList) {
+RING_API int ring_list_isobject_gc(void *pState, List *pList) {
 	return ((pList != NULL) && (ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&
 		ring_list_ispointer(pList, RING_OBJECT_CLASSPOINTER) &&
 		ring_list_islist(pList, RING_OBJECT_OBJECTDATA));
 }
 
-RING_API int ring_list_iscpointerlist(List *pList) {
+RING_API int ring_list_iscpointerlist_gc(void *pState, List *pList) {
 	return ((ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE) &&
 		ring_list_ispointer(pList, RING_CPOINTER_POINTER) && ring_list_isstring(pList, RING_CPOINTER_TYPE) &&
 		ring_list_isnumber(pList, RING_CPOINTER_STATUS));
 }
 
-RING_API int ring_list_cpointercmp(List *pList, List *pList2) {
+RING_API int ring_list_cpointercmp_gc(void *pState, List *pList, List *pList2) {
 	return ring_list_getpointer(pList, RING_CPOINTER_POINTER) ==
 	       ring_list_getpointer(pList2, RING_CPOINTER_POINTER);
 }
@@ -1367,3 +1361,15 @@ RING_API void ring_list_addringpointer(List *pList, void *pValue) { ring_list_ad
 RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType) {
 	ring_list_addcpointer_gc(NULL, pList, pGeneral, cType);
 }
+
+RING_API void ring_list_print(List *pList) { ring_list_print_gc(NULL, pList); }
+
+RING_API void ring_list_print2(List *pList, unsigned int nDecimals) { ring_list_print2_gc(NULL, pList, nDecimals); }
+
+RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) { ring_list_printobj_gc(NULL, pList, nDecimals); }
+
+RING_API int ring_list_isobject(List *pList) { return ring_list_isobject_gc(NULL, pList); }
+
+RING_API int ring_list_iscpointerlist(List *pList) { return ring_list_iscpointerlist_gc(NULL, pList); }
+
+RING_API int ring_list_cpointercmp(List *pList, List *pList2) { return ring_list_cpointercmp_gc(NULL, pList, pList2); }
