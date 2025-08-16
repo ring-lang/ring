@@ -330,6 +330,12 @@ RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void 
 
 RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType);
 
+RING_API void ring_list_print_gc(void *pState, List *pList);
+
+RING_API void ring_list_print2_gc(void *pState, List *pList, unsigned int nDecimals);
+
+RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDecimals);
+
 RING_API void ring_list_print(List *pList);
 
 RING_API void ring_list_print2(List *pList, unsigned int nDecimals);

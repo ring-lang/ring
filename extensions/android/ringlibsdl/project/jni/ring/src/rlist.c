@@ -1261,9 +1261,9 @@ RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral
 	ring_list_addint_gc(pState, pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
 }
 
-RING_API void ring_list_print(List *pList) { ring_list_print2(pList, RING_DECIMALS); }
+RING_API void ring_list_print_gc(void *pState, List *pList) { ring_list_print2_gc(pState, pList, RING_DECIMALS); }
 
-RING_API void ring_list_print2(List *pList, unsigned int nDecimals) {
+RING_API void ring_list_print2_gc(void *pState, List *pList, unsigned int nDecimals) {
 	unsigned int x, t, nSize;
 	double y;
 	const char *cStr;
@@ -1315,7 +1315,7 @@ RING_API void ring_list_print2(List *pList, unsigned int nDecimals) {
 	}
 }
 
-RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) {
+RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDecimals) {
 	List *pList2, *pList3;
 	unsigned int x;
 	char cStr[RING_MEDIUMBUF];
@@ -1338,6 +1338,12 @@ RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) {
 		}
 	}
 }
+
+RING_API void ring_list_print(List *pList) { ring_list_print_gc(NULL, pList); }
+
+RING_API void ring_list_print2(List *pList, unsigned int nDecimals) { ring_list_print2_gc(NULL, pList, nDecimals); }
+
+RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) { ring_list_printobj_gc(NULL, pList, nDecimals); }
 
 RING_API int ring_list_isobject(List *pList) {
 	return ((pList != NULL) && (ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&

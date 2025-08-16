@@ -342,8 +342,8 @@ pItem
 ring_list_addcpointer_gc
 Type: List *
 pList2
-ring_list_print
-ring_list_print2
+ring_list_print_gc
+ring_list_print2_gc
 Type: unsigned int
 x,t,nSize
 Type: double
@@ -356,13 +356,16 @@ Type: char
 cOptions[RING_SMALLBUF]
 Type: char
 cString[RING_MEDIUMBUF]
-ring_list_printobj
+ring_list_printobj_gc
 Type: List *
 pList2,*pList3
 Type: unsigned int
 x
 Type: char
 cStr[RING_MEDIUMBUF]
+ring_list_print
+ring_list_print2
+ring_list_printobj
 ring_list_isobject
 ring_list_iscpointerlist
 ring_list_cpointercmp
