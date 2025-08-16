@@ -555,7 +555,7 @@ void ring_vm_oop_newsuperobj(VM *pVM, List *pState, List *pClass) {
 		}
 	}
 	/* Disable deleting the Super list through Ring code */
-	ring_list_enableerroronassignment2(pSuper2);
+	ring_list_enableerroronassignment2_gc(pVM->pRingState, pSuper2);
 }
 
 List *ring_vm_oop_getsuperobj(VM *pVM) {

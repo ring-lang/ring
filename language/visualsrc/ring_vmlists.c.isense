@@ -64,7 +64,6 @@ Type: List *
 pNewList2, *pSourceList
 Type: Item *
 pItem
-ring_vm_cleansetpropertylist
 ring_vm_isoperationaftersublist
 Type: int
 nOPCode

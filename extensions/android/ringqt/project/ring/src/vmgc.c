@@ -229,7 +229,8 @@ RING_API int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar) {
 	List *pList;
 	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
-		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
+		if (ring_list_iserroronassignment_gc(pVM->pRingState, pList) ||
+		    ring_list_iserroronassignment2_gc(pVM->pRingState, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
 			return RING_TRUE;
 		}
@@ -241,7 +242,8 @@ RING_API int ring_vm_gc_checkitemerroronassignment(VM *pVM, Item *pItem) {
 	List *pList;
 	if (ring_item_gettype(pItem) == ITEMTYPE_LIST) {
 		pList = ring_item_getlist(pItem);
-		if (ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList)) {
+		if (ring_list_iserroronassignment_gc(pVM->pRingState, pList) ||
+		    ring_list_iserroronassignment2_gc(pVM->pRingState, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
 			return RING_TRUE;
 		}
@@ -282,7 +284,7 @@ RING_API void ring_vm_gc_removelistprotectionat(VM *pVM, List *pNestedLists, int
 	List *pList;
 	/* Disable Error on Assignment */
 	pList = (List *)ring_list_getpointer(pNestedLists, nPos);
-	ring_list_disableerroronassignment(pList);
+	ring_list_disableerroronassignment_gc(pVM->pRingState, pList);
 	/* Check if list is deleted by Parent */
 	if (pList->vGC.lDeletedByParent) {
 		pList->vGC.lDeletedByParent = 0;
@@ -397,7 +399,7 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 		return pList;
 	}
 	/* Check lErrorOnAssignment used by lists during definition */
-	if (ring_list_iserroronassignment(pList)) {
+	if (ring_list_iserroronassignment_gc(pState, pList)) {
 		/* We are trying to delete a sub list which is protected */
 		nOPCode = pRingState->pVM->nOPCode;
 		if ((nOPCode == ICO_ASSIGNMENT) || (nOPCode == ICO_LISTSTART) || (nOPCode == ICO_NEWOBJ)) {
@@ -654,18 +656,18 @@ RING_API void ring_list_enablecopybyref(List *pList) { pList->vGC.lCopyByRef = 1
 RING_API void ring_list_disablecopybyref(List *pList) { pList->vGC.lCopyByRef = 0; }
 /* Error on assignment */
 
-RING_API void ring_list_enableerroronassignment(List *pList) { pList->vGC.lErrorOnAssignment = 1; }
+RING_API void ring_list_enableerroronassignment_gc(void *pState, List *pList) { pList->vGC.lErrorOnAssignment = 1; }
 
-RING_API void ring_list_disableerroronassignment(List *pList) { pList->vGC.lErrorOnAssignment = 0; }
+RING_API void ring_list_disableerroronassignment_gc(void *pState, List *pList) { pList->vGC.lErrorOnAssignment = 0; }
 
-RING_API int ring_list_iserroronassignment(List *pList) { return pList->vGC.lErrorOnAssignment; }
+RING_API int ring_list_iserroronassignment_gc(void *pState, List *pList) { return pList->vGC.lErrorOnAssignment; }
 /* Error on assignment2 */
 
-RING_API void ring_list_enableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 1; }
+RING_API void ring_list_enableerroronassignment2_gc(void *pState, List *pList) { pList->vGC.lErrorOnAssignment2 = 1; }
 
-RING_API int ring_list_iserroronassignment2(List *pList) { return pList->vGC.lErrorOnAssignment2; }
+RING_API int ring_list_iserroronassignment2_gc(void *pState, List *pList) { return pList->vGC.lErrorOnAssignment2; }
 
-RING_API void ring_list_disableerroronassignment2(List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
+RING_API void ring_list_disableerroronassignment2_gc(void *pState, List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
 /* Argument Type */
 
 RING_API void ring_list_setlisttype_gc(void *pState, List *pList, int nType) { pList->vGC.nListType = nType; }

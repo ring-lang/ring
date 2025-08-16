@@ -111,18 +111,18 @@ RING_API void ring_list_enablecopybyref(List *pList);
 RING_API void ring_list_disablecopybyref(List *pList);
 /* Error on assignment */
 
-RING_API void ring_list_enableerroronassignment(List *pList);
+RING_API void ring_list_enableerroronassignment_gc(void *pState, List *pList);
 
-RING_API void ring_list_disableerroronassignment(List *pList);
+RING_API void ring_list_disableerroronassignment_gc(void *pState, List *pList);
 
-RING_API int ring_list_iserroronassignment(List *pList);
+RING_API int ring_list_iserroronassignment_gc(void *pState, List *pList);
 /* Error on assignment2 */
 
-RING_API void ring_list_enableerroronassignment2(List *pList);
+RING_API void ring_list_enableerroronassignment2_gc(void *pState, List *pList);
 
-RING_API void ring_list_disableerroronassignment2(List *pList);
+RING_API void ring_list_disableerroronassignment2_gc(void *pState, List *pList);
 
-RING_API int ring_list_iserroronassignment2(List *pList);
+RING_API int ring_list_iserroronassignment2_gc(void *pState, List *pList);
 /* Argument Type */
 
 RING_API void ring_list_setlisttype_gc(void *pState, List *pList, int nType);
