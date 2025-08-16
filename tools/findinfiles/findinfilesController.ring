@@ -32,6 +32,7 @@ class findinfilesController from WindowsControllerParent
 	oSearchFilter.setKeyPressEvent(Method(:SearchKeyPress))
 	oView.win.installeventfilter(oSearchFilter)
 
+	oView.TableOutput.setSelectionMode(QAbstractItemView_SingleSelection)
 
 
 	func setFolder cFolder 
