@@ -272,6 +272,9 @@ Type: unsigned int
 x
 Type: List *
 pList2
+ring_list_swaptwolists_gc
+Type: List
+pTempList
 ring_list_new
 ring_list_genarray
 ring_list_delete
@@ -312,8 +315,6 @@ ring_list_finddouble
 ring_list_findpointer
 ring_list_swap
 ring_list_swaptwolists
-Type: List
-pTempList
 ring_list_findinlistofobjs_gc
 Type: unsigned int
 x,nCount,nPos

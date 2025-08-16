@@ -941,6 +941,17 @@ RING_API void ring_list_genhashtable2_gc(void *pState, List *pList) {
 		}
 	}
 }
+/* Swap two lists */
+
+RING_API void ring_list_swaptwolists_gc(void *pState, List *pList1, List *pList2) {
+	List pTempList;
+	/* Get data from pList1 to pTempList */
+	memcpy(&pTempList, pList1, sizeof(List));
+	/* Get data from pList2 to pList1 */
+	memcpy(pList1, pList2, sizeof(List));
+	/* Get data from pTempList to pList2 */
+	memcpy(pList2, &pTempList, sizeof(List));
+}
 /* Define functions without State Pointer */
 
 RING_API List *ring_list_new(unsigned int nSize) { return ring_list_new_gc(NULL, nSize); }
@@ -1069,15 +1080,7 @@ RING_API int ring_list_findpointer(List *pList, void *pPointer) {
 RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y) { ring_list_swap_gc(NULL, pList, x, y); }
 /* Swap two lists */
 
-RING_API void ring_list_swaptwolists(List *pList1, List *pList2) {
-	List pTempList;
-	/* Get data from pList1 to pTempList */
-	memcpy(&pTempList, pList1, sizeof(List));
-	/* Get data from pList2 to pList1 */
-	memcpy(pList1, pList2, sizeof(List));
-	/* Get data from pTempList to pList2 */
-	memcpy(pList2, &pTempList, sizeof(List));
-}
+RING_API void ring_list_swaptwolists(List *pList1, List *pList2) { ring_list_swaptwolists_gc(NULL, pList1, pList2); }
 /* List Functions that know about using Lists for Ring Objects & C Pointers */
 
 RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1, const char *cStr,

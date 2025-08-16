@@ -217,6 +217,8 @@ RING_API void ring_list_genhashtable2_gc(void *pState, List *pList);
 
 RING_API int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pItem);
 
+RING_API void ring_list_swaptwolists_gc(void *pState, List *pList1, List *pList2);
+
 RING_API void ring_list_swaptwolists(List *pList1, List *pList2);
 
 RING_API void ring_list_copy_tohighlevel_gc(void *pState, List *pNewList, List *pList);
