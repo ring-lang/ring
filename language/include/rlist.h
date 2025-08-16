@@ -141,23 +141,24 @@ RING_API List *ring_list_newlist_gc(void *pState, List *pList);
 
 RING_API void ring_list_setlist_gc(void *pState, List *pList, unsigned int nIndex);
 
-RING_API List *ring_list_getlist(List *pList, unsigned int nIndex);
+RING_API List *ring_list_getlist_gc(void *pState, List *pList, unsigned int nIndex);
 
 RING_API List *ring_list_newlistbyptr_gc(void *pState, List *pList, List *pNewList);
 
 RING_API void ring_list_copy_gc(void *pState, List *pNewList, List *pList);
 
-RING_API int ring_list_isnumber(List *pList, unsigned int nIndex);
-
-RING_API int ring_list_isstring(List *pList, unsigned int nIndex);
-
-RING_API int ring_list_islist(List *pList, unsigned int nIndex);
-
-RING_API int ring_list_ispointer(List *pList, unsigned int nIndex);
-
 RING_API void ring_list_deleteallitems_gc(void *pState, List *pList);
 
 RING_API void ring_list_finishdelete_gc(void *pState, List *pList);
+/* Check Items */
+
+RING_API int ring_list_isnumber_gc(void *pState, List *pList, unsigned int nIndex);
+
+RING_API int ring_list_isstring_gc(void *pState, List *pList, unsigned int nIndex);
+
+RING_API int ring_list_islist_gc(void *pState, List *pList, unsigned int nIndex);
+
+RING_API int ring_list_ispointer_gc(void *pState, List *pList, unsigned int nIndex);
 /* Insert Items */
 
 RING_API void ring_list_insertitem_gc(void *pState, List *pList, unsigned int x);
@@ -275,6 +276,17 @@ RING_API void ring_list_setlist(List *pList, unsigned int nIndex);
 RING_API void ring_list_copy(List *pNewList, List *pList);
 
 RING_API void ring_list_deleteallitems(List *pList);
+
+RING_API List *ring_list_getlist(List *pList, unsigned int nIndex);
+/* Check Items */
+
+RING_API int ring_list_isnumber(List *pList, unsigned int nIndex);
+
+RING_API int ring_list_isstring(List *pList, unsigned int nIndex);
+
+RING_API int ring_list_islist(List *pList, unsigned int nIndex);
+
+RING_API int ring_list_ispointer(List *pList, unsigned int nIndex);
 /* Insert Items */
 
 RING_API void ring_list_insertitem(List *pList, unsigned int x);

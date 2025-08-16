@@ -131,10 +131,6 @@ pItems,*pItemsPrev
 ring_list_gettype_gc
 Type: Item *
 pItem
-ring_list_isstring
-ring_list_isnumber
-ring_list_islist
-ring_list_ispointer
 ring_list_setint_gc
 Type: Item *
 pItem
@@ -171,14 +167,14 @@ pItem
 ring_list_setlist_gc
 Type: Item *
 pItem
-ring_list_getlist
+ring_list_newlistbyptr_gc
+Type: Item *
+pItem
+ring_list_getlist_gc
 Type: Item *
 pItem
 Type: List *
 pList2
-ring_list_newlistbyptr_gc
-Type: Item *
-pItem
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem
@@ -217,6 +213,10 @@ Type: Items *
 pItems
 Type: unsigned int
 x
+ring_list_isstring_gc
+ring_list_isnumber_gc
+ring_list_islist_gc
+ring_list_ispointer_gc
 ring_list_findstring_gc
 Type: unsigned int
 x,nCount
@@ -300,6 +300,11 @@ ring_list_newlist
 ring_list_setlist
 ring_list_copy
 ring_list_deleteallitems
+ring_list_getlist
+ring_list_isstring
+ring_list_isnumber
+ring_list_islist
+ring_list_ispointer
 ring_list_insertitem
 ring_list_insertint
 ring_list_insertdouble
