@@ -66,7 +66,7 @@ void ring_vm_liststart(VM *pVM) {
 			ring_list_addpointer_gc(pVM->pRingState, pVM->pNestedLists, pNewList);
 		}
 		if (nCont) {
-			ring_list_enablecopybyref(pNewList);
+			ring_list_enablecopybyref_gc(pVM->pRingState, pNewList);
 		}
 	} else {
 		pList = (List *)ring_list_getpointer(pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
@@ -387,9 +387,9 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 			ring_list_assignreftoitem_gc(pVM->pRingState, pVar, pItem);
 		} else {
 			ring_list_deleteallitems_gc(pVM->pRingState, pList);
-			if (ring_list_iscopybyref(pVar)) {
-				ring_list_disablecopybyref(pVar);
-				ring_list_swaptwolists(pList, pVar);
+			if (ring_list_iscopybyref_gc(pVM->pRingState, pVar)) {
+				ring_list_disablecopybyref_gc(pVM->pRingState, pVar);
+				ring_list_swaptwolists_gc(pVM->pRingState, pList, pVar);
 			} else {
 				pTempList = ring_list_new_gc(pVM->pRingState, RING_ZERO);
 				ring_vm_listcopy(pVM, pTempList, pVar);

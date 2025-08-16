@@ -1,4 +1,4 @@
-ring_vm_stack_dup
+ring_vm_stackdup
 Type: String *
 pString
 Type: double
@@ -14,6 +14,6 @@ x,nSize1,nSize2
 cStr
 Type: List *
 pVar
-ring_vm_range_newlist
+ring_vm_rangenewlist
 Type: List *
 pVar

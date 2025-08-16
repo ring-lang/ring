@@ -237,7 +237,7 @@ void ring_vm_assignment(VM *pVM) {
 				if (ring_list_getlist((List *)RING_VM_STACK_READP, RING_VAR_VALUE) == pVar) {
 					return;
 				}
-				if (ring_list_isref(pVar) || ring_list_iscopybyref(pVar)) {
+				if (ring_list_isref(pVar) || ring_list_iscopybyref_gc(pVM->pRingState, pVar)) {
 					pList = pVar;
 				} else {
 					/* We use (Temp) List - to avoid problems when coping from parent list to child
@@ -257,9 +257,10 @@ void ring_vm_assignment(VM *pVM) {
 					ring_list_assignreftovar_gc(pVM->pRingState, pList, pVar, RING_VAR_VALUE);
 				} else {
 					ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
-					if (ring_list_iscopybyref(pList)) {
-						ring_list_disablecopybyref(pList);
-						ring_list_swaptwolists(ring_list_getlist(pVar, RING_VAR_VALUE), pList);
+					if (ring_list_iscopybyref_gc(pVM->pRingState, pList)) {
+						ring_list_disablecopybyref_gc(pVM->pRingState, pList);
+						ring_list_swaptwolists_gc(
+						    pVM->pRingState, ring_list_getlist(pVar, RING_VAR_VALUE), pList);
 					} else {
 						ring_vm_listcopy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pList);
 						ring_list_delete_gc(pVM->pRingState, pList);

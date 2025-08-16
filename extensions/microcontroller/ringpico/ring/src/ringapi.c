@@ -374,7 +374,7 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 	/* Check Output Mode */
 	if (nRef == RING_OUTPUT_RETNEWREF) {
 		/* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
-		if (ring_list_iscopybyref(pList) || ring_list_isdontrefagain(pList)) {
+		if (ring_list_iscopybyref_gc(pVM->pRingState, pList) || ring_list_isdontrefagain(pList)) {
 			nRef = RING_OUTPUT_RETLISTBYREF;
 		}
 		/* Check lDontRef Flag */
@@ -404,8 +404,8 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 		ring_vm_listcopy((VM *)pPointer, pRealList, pList);
 	} else if (nRef == RING_OUTPUT_RETLISTBYREF) {
 		/* Used by RING_API_RETLISTBYREF  (i.e. List() function implementation) */
-		ring_list_enablecopybyref(pList);
-		ring_list_swaptwolists(pRealList, pList);
+		ring_list_enablecopybyref_gc(pVM->pRingState, pList);
+		ring_list_swaptwolists_gc(pVM->pRingState, pRealList, pList);
 	} else {
 		/* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
 		pVariableList = ring_list_newref_gc(((VM *)pPointer)->pRingState, pVariableList, pList);

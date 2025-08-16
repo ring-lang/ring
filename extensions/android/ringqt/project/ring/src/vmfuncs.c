@@ -500,7 +500,7 @@ void ring_vm_newfunc(VM *pVM) {
 							pVar = (List *)RING_VM_STACK_READP;
 							if (ring_list_islist(pVar, RING_VAR_VALUE)) {
 								pRef = ring_list_getlist(pVar, RING_VAR_VALUE);
-								ring_list_disablecopybyref(pRef);
+								ring_list_disablecopybyref_gc(pVM->pRingState, pRef);
 							}
 						}
 					} else {
@@ -618,7 +618,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 	if (ring_list_isref(pList)) {
 		ring_list_setlistbyref_gc(pVM->pRingState, pList3, RING_VAR_VALUE, pList);
 	} else {
-		if (ring_list_iscopybyref(pList)) {
+		if (ring_list_iscopybyref_gc(pVM->pRingState, pList)) {
 			ring_list_swaptwolists(pList2, pList);
 		} else {
 			ring_vm_listcopy(pVM, pList2, pList);

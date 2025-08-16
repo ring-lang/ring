@@ -104,11 +104,11 @@ RING_API void ring_list_enabledontrefagain(List *pList);
 RING_API void ring_list_disabledontrefagain(List *pList);
 /* Copy list by Reference */
 
-RING_API int ring_list_iscopybyref(List *pList);
+RING_API int ring_list_iscopybyref_gc(void *pState, List *pList);
 
-RING_API void ring_list_enablecopybyref(List *pList);
+RING_API void ring_list_enablecopybyref_gc(void *pState, List *pList);
 
-RING_API void ring_list_disablecopybyref(List *pList);
+RING_API void ring_list_disablecopybyref_gc(void *pState, List *pList);
 /* Error on assignment */
 
 RING_API void ring_list_enableerroronassignment_gc(void *pState, List *pList);

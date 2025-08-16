@@ -649,11 +649,11 @@ RING_API void ring_list_enabledontrefagain(List *pList) { pList->vGC.lDontRefAga
 RING_API void ring_list_disabledontrefagain(List *pList) { pList->vGC.lDontRefAgain = 0; }
 /* Copy list by Reference */
 
-RING_API int ring_list_iscopybyref(List *pList) { return pList->vGC.lCopyByRef; }
+RING_API int ring_list_iscopybyref_gc(void *pState, List *pList) { return pList->vGC.lCopyByRef; }
 
-RING_API void ring_list_enablecopybyref(List *pList) { pList->vGC.lCopyByRef = 1; }
+RING_API void ring_list_enablecopybyref_gc(void *pState, List *pList) { pList->vGC.lCopyByRef = 1; }
 
-RING_API void ring_list_disablecopybyref(List *pList) { pList->vGC.lCopyByRef = 0; }
+RING_API void ring_list_disablecopybyref_gc(void *pState, List *pList) { pList->vGC.lCopyByRef = 0; }
 /* Error on assignment */
 
 RING_API void ring_list_enableerroronassignment_gc(void *pState, List *pList) { pList->vGC.lErrorOnAssignment = 1; }

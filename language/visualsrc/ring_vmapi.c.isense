@@ -74,12 +74,12 @@ RING_API_NEWLISTUSINGBLOCKS1D(nSize)
 RING_API_NEWLISTUSINGBLOCKS2D(nRows,nCols)
 RING_API_CALLERSCOPE
 RING_API_SCOPESCOUNT
+ring_vm_loadcfunctions
 ring_vm_funcregister2
 Type: List *
 pList
 Type: CFunction *
 pCFunc
-ring_vm_loadcfunctions
 ring_vm_api_isstring
 Type: VM *
 pVM
@@ -107,6 +107,13 @@ pVM
 ring_vm_api_getpointertype
 Type: VM *
 pVM
+ring_vm_api_getlist
+Type: int
+nType
+Type: Item *
+pItem
+Type: List *
+pList
 ring_vm_api_islist
 Type: int
 nType
@@ -120,13 +127,6 @@ Type: List *
 pList, *pList2
 Type: VM *
 pVM
-ring_vm_api_getlist
-Type: int
-nType
-Type: Item *
-pItem
-Type: List *
-pList
 ring_vm_api_retlist
 ring_vm_api_retcpointer2
 Type: List *
