@@ -469,6 +469,8 @@ have better performance when we create large lists.
 	
 	// Get List Size
 
+	unsigned int ring_list_getsize_gc( void *pState,List *pList );
+
 	unsigned int ring_list_getsize( List *pList );
 
 	// Check Item Type
@@ -524,16 +526,26 @@ have better performance when we create large lists.
 	void ring_list_copy ( List *pNewList, List *pList ) ;
 	
 	// Find Items 
+
+	int ring_list_findstring_gc ( void *pState,List *pList,const char *cStr,unsigned int nColumn ) ;
+	int ring_list_finddouble_gc ( void *pState,List *pList,double nNum1,unsigned int nColumn ) ;  
 	
 	int ring_list_findstring ( List *pList,const char *cStr,unsigned int nColumn ) ;
 	int ring_list_finddouble ( List *pList,double nNum1,unsigned int nColumn ) ;  
 	
 	// Swap 
+
+	void ring_list_swap_gc ( void *pState,List *pList,unsigned int x,unsigned int y ) ;
+	void ring_list_swaptwolists_gc ( void *pState,List *pList1, List *pList2 ) ;
 	
 	void ring_list_swap ( List *pList,unsigned int x,unsigned int y ) ;
 	void ring_list_swaptwolists ( List *pList1, List *pList2 ) ;
 	
 	// Print 
+
+	void ring_list_print_gc ( void *pState,List *pList ) ;
+	void ring_list_print2_gc ( void *pState,List *pList,unsigned int nDecimals ) ;
+	void ring_list_printobj_gc ( void *pState,List *pList, unsigned int nDecimals ) ;
 	
 	void ring_list_print ( List *pList ) ;
 	void ring_list_print2 ( List *pList,unsigned int nDecimals ) ;
