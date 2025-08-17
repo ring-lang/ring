@@ -1228,7 +1228,7 @@ void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 	**  So we can add the Self object for example to an attribute in this object
 	**  Check if we have a Reference
 	*/
-	if (ring_list_isref(pList)) {
+	if (ring_list_isref_gc(pVM->pRingState, pList)) {
 		ring_list_insertlist(pList2, ring_list_getsize(pList2));
 		pItem = ring_list_getitem_gc(pVM->pRingState, pList2, ring_list_getsize(pList2));
 		ring_list_assignreftoitem_gc(pVM->pRingState, pList, pItem);

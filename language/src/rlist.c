@@ -1319,7 +1319,7 @@ RING_API void ring_list_print2_gc(void *pState, List *pList, unsigned int nDecim
 			if (ring_list_isobject(pList2)) {
 				ring_list_printobj(pList2, nDecimals);
 			} else {
-				if (ring_list_isref(pList2)) {
+				if (ring_list_isref_gc(pState, pList2)) {
 					printf("[...] (RC:%d)\n", ring_list_getrefcount_gc(pState, pList2));
 				} else {
 					ring_list_print2(pList2, nDecimals);

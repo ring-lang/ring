@@ -615,7 +615,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 		ring_list_disabledontref_gc(pVM->pRingState, pList);
 	}
 	/* Copy the list */
-	if (ring_list_isref(pList)) {
+	if (ring_list_isref_gc(pVM->pRingState, pList)) {
 		ring_list_setlistbyref_gc(pVM->pRingState, pList3, RING_VAR_VALUE, pList);
 	} else {
 		if (ring_list_iscopybyref_gc(pVM->pRingState, pList)) {

@@ -75,7 +75,7 @@ RING_API int ring_list_checkrefinleftside_gc(void *pState, List *pList);
 
 RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar);
 
-RING_API int ring_list_isref(List *pList);
+RING_API int ring_list_isref_gc(void *pState, List *pList);
 
 RING_API int ring_list_isrefcontainer_gc(void *pState, List *pList);
 

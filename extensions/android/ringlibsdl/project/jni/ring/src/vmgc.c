@@ -408,7 +408,7 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 		}
 	}
 	/* Avoid deleting objects when the list is just a reference */
-	if (ring_list_isref(pList)) {
+	if (ring_list_isref_gc(pState, pList)) {
 		/* We don't delete the list because there are other references */
 		pList->vGC.lNewRef = 0;
 		if (ring_list_getrefcount_gc(pState, pList) > 1) {
@@ -598,7 +598,9 @@ RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar) {
 	return RING_FALSE;
 }
 
-RING_API int ring_list_isref(List *pList) { return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1); }
+RING_API int ring_list_isref_gc(void *pState, List *pList) {
+	return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1);
+}
 
 RING_API int ring_list_isrefcontainer_gc(void *pState, List *pList) { return pList->vGC.lDontDelete; }
 

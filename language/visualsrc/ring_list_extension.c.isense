@@ -111,3 +111,5 @@ pList
 ring_vm_listfuncs_refcount
 Type: List *
 pList
+Type: VM *
+pVM
