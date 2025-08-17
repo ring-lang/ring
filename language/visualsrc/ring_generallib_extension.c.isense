@@ -204,6 +204,8 @@ pList
 ring_vm_generallib_pointer2object
 Type: List *
 pList
+Type: VM *
+pVM
 ring_vm_generallib_nullpointer
 ring_vm_generallib_space
 Type: char *

@@ -1262,10 +1262,9 @@ void ring_vm_generallib_space(void *pPointer) {
 			return;
 		}
 		nStrSize = (unsigned int)RING_API_GETNUMBER(1);
-		cString = (char *)RING_API_MALLOC(nStrSize);
+		RING_API_RETSTRINGSIZE(nStrSize);
+		cString = ring_string_get(RING_API_GETSTRINGRAW);
 		memset(cString, ' ', nStrSize);
-		RING_API_RETSTRING2(cString, nStrSize);
-		RING_API_FREE(cString);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
