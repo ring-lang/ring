@@ -229,7 +229,7 @@ void ring_scanner_readchar(Scanner *pScanner, char c) {
 
 void ring_scanner_keywords(Scanner *pScanner) {
 	char cKeyword[RING_SMALLBUF];
-	int x;
+	unsigned int x;
 	pScanner->pKeywords = ring_list_new_gc(pScanner->pRingState, RING_ZERO);
 	for (x = 0; x < RING_SCANNER_KEYWORDSCOUNT; x++) {
 		sprintf(cKeyword, "%s", RING_KEYWORDS[x]);
@@ -239,7 +239,7 @@ void ring_scanner_keywords(Scanner *pScanner) {
 	ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pKeywords);
 }
 
-void ring_scanner_addtoken(Scanner *pScanner, int nType) {
+void ring_scanner_addtoken(Scanner *pScanner, unsigned int nType) {
 	List *pList;
 	pList = ring_list_newlist_gc(pScanner->pRingState, pScanner->pTokens);
 	/* Add Token Type */
@@ -254,7 +254,7 @@ void ring_scanner_addtoken(Scanner *pScanner, int nType) {
 }
 
 void ring_scanner_checktoken(Scanner *pScanner) {
-	int nResult;
+	unsigned int nResult;
 	char cStr[RING_SMALLBUF];
 	char *cActiveStr;
 	/*
@@ -307,7 +307,7 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 	}
 }
 
-int ring_scanner_isnumber(String *pStr) {
+unsigned int ring_scanner_isnumber(String *pStr) {
 	unsigned int x, x2, lHex;
 	char *cStr;
 	unsigned int nLen;
@@ -353,7 +353,7 @@ int ring_scanner_isnumber(String *pStr) {
 }
 
 void ring_scanner_processnumber(String *pTokenString) {
-	int nLen, nWriteIndex, nReadIndex, lHex, lHexDetection, lLeadingZeros;
+	unsigned int nLen, nWriteIndex, nReadIndex, lHex, lHexDetection, lLeadingZeros;
 	char *cStr;
 	char c;
 	cStr = ring_string_get(pTokenString);
@@ -386,7 +386,7 @@ void ring_scanner_processnumber(String *pTokenString) {
 	cStr[nWriteIndex] = '\0';
 }
 
-int ring_scanner_checklasttoken(Scanner *pScanner) {
+unsigned int ring_scanner_checklasttoken(Scanner *pScanner) {
 	if (ring_list_getsize(pScanner->pTokens) == 0) {
 		if (pScanner->cState == SCANNER_STATE_COMMENT) {
 			if (pScanner->pRingState->lCommentsAsTokens) {
@@ -423,8 +423,8 @@ int ring_scanner_checklasttoken(Scanner *pScanner) {
 	return RING_TRUE;
 }
 
-int ring_scanner_isoperator(Scanner *pScanner, const char *cStr) {
-	int nPos;
+unsigned int ring_scanner_isoperator(Scanner *pScanner, const char *cStr) {
+	unsigned int nPos;
 	nPos = ring_hashtable_findnumber_gc(pScanner->pRingState, ring_list_gethashtable(pScanner->pOperators), cStr);
 	if (nPos > 0) {
 		pScanner->nTokenIndex = nPos;
@@ -434,7 +434,7 @@ int ring_scanner_isoperator(Scanner *pScanner, const char *cStr) {
 }
 
 void ring_scanner_operators(Scanner *pScanner) {
-	int x;
+	unsigned int x;
 	pScanner->pOperators = ring_list_new_gc(pScanner->pRingState, RING_ZERO);
 	for (x = 0; x < RING_SCANNER_OPERATORSCOUNT; x++) {
 		ring_list_addstring_gc(pScanner->pRingState, pScanner->pOperators, RING_OPERATORS[x]);
@@ -442,8 +442,8 @@ void ring_scanner_operators(Scanner *pScanner) {
 	ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pOperators);
 }
 
-int ring_scanner_lasttokentype(Scanner *pScanner) {
-	int x;
+unsigned int ring_scanner_lasttokentype(Scanner *pScanner) {
+	unsigned int x;
 	List *pList;
 	x = ring_list_getsize(pScanner->pTokens);
 	if (x > 0) {
@@ -454,7 +454,7 @@ int ring_scanner_lasttokentype(Scanner *pScanner) {
 }
 
 const char *ring_scanner_lasttokenvalue(Scanner *pScanner) {
-	int x;
+	unsigned int x;
 	List *pList;
 	x = ring_list_getsize(pScanner->pTokens);
 	if (x > 0) {
@@ -464,7 +464,7 @@ const char *ring_scanner_lasttokenvalue(Scanner *pScanner) {
 	return RING_CSTR_EMPTY;
 }
 
-void ring_scanner_floatmark(Scanner *pScanner, int nType) {
+void ring_scanner_floatmark(Scanner *pScanner, unsigned int nType) {
 	List *pList;
 	String *pString;
 	switch (pScanner->nFloatMark) {
@@ -514,7 +514,7 @@ void ring_scanner_endofline(Scanner *pScanner) {
 }
 
 void ring_scanner_printtokens(Scanner *pScanner) {
-	int x, nType, nPos;
+	unsigned int x, nType, nPos;
 	List *pList;
 	char *cString;
 	ring_general_printline();
@@ -553,7 +553,7 @@ void ring_scanner_printtokens(Scanner *pScanner) {
 
 void ring_scanner_changekeyword(Scanner *pScanner) {
 	char *cStr;
-	int x, nResult;
+	unsigned int x, nResult;
 	String *word1, *word2, *activeword;
 	char cStr2[RING_CHARBUF];
 	cStr2[1] = '\0';
@@ -598,7 +598,7 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 
 void ring_scanner_changeoperator(Scanner *pScanner) {
 	char *cStr;
-	int x, nResult;
+	unsigned int x, nResult;
 	String *word1, *word2, *activeword;
 	char cStr2[RING_CHARBUF];
 	cStr2[1] = '\0';
@@ -646,9 +646,8 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	RING_FILE fp;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c;
-	int nSize, nLine;
+	unsigned int x, nSize, nLine;
 	char cFileName2[RING_PATHSIZE];
-	unsigned int x;
 	cFileName = ring_string_get(pScanner->pActiveToken);
 	/* Remove Spaces and " " from file name */
 	x = 0;
@@ -700,14 +699,14 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	ring_scanner_setandgenendofline(pScanner, nLine);
 }
 
-void ring_scanner_setandgenendofline(Scanner *pScanner, int nLine) {
+void ring_scanner_setandgenendofline(Scanner *pScanner, unsigned int nLine) {
 	pScanner->nLinesCount = nLine;
 	ring_string_setfromint_gc(pScanner->pRingState, pScanner->pActiveToken, pScanner->nLinesCount);
 	ring_scanner_addtoken(pScanner, SCANNER_TOKEN_ENDLINE);
 }
 
 void ring_scanner_readtwoparameters(Scanner *pScanner, const char *cStr) {
-	int x, nSize, nSpaces;
+	unsigned int x, nSize, nSpaces;
 	char *cString;
 	/* Set Variables */
 	x = 0;
@@ -743,9 +742,9 @@ void ring_scanner_readtwoparameters(Scanner *pScanner, const char *cStr) {
 	}
 }
 
-const char *ring_scanner_processtoken(Scanner *pScanner, int nType) {
+const char *ring_scanner_processtoken(Scanner *pScanner, unsigned int nType) {
 	char *pStart, *pChar;
-	int t, nPos, nSize, lXExist;
+	unsigned int t, nPos, nSize, lXExist;
 	pStart = ring_string_get(pScanner->pActiveToken);
 	if (nType == SCANNER_TOKEN_NUMBER) {
 		/* Remove Many Zeros in the Start */
@@ -773,8 +772,8 @@ const char *ring_scanner_processtoken(Scanner *pScanner, int nType) {
 	return pStart;
 }
 
-int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, int nTokenIndex) {
-	int x, lOperatorFound;
+unsigned int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, unsigned int nTokenIndex) {
+	unsigned int x, lOperatorFound;
 	const char *cLastToken;
 	/* Operators (Compound and Multi-character) */
 	static const OperatorInfo OP_COMPOUND[] = {

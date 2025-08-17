@@ -11,17 +11,17 @@ typedef struct Scanner {
 	unsigned int nTokenIndex;
 	unsigned int nLiteralLine;
 	unsigned int nLinesCount;
-	char cState;
+	unsigned char cState;
 	/* Float Identification (0 = Start 1 = Number  2 = Number Dot  3 = Number Dot Number ) */
-	char nFloatMark;
+	unsigned char nFloatMark;
 	/* Literal Type "  or ' */
-	char cLiteral;
+	unsigned char cLiteral;
 	/* Multiline comment end ( 0 = start  1 = * ) */
-	char nMLComment;
+	unsigned char nMLComment;
 	/* Support comments that starts with hash */
-	char lHashComments;
+	unsigned char lHashComments;
 	/* Multi-Character Operators */
-	char lMultiCharOperators;
+	unsigned char lMultiCharOperators;
 } Scanner;
 typedef enum SCANNER_KEYWORD {
 	K_IF = 1,
@@ -206,7 +206,7 @@ static const char *RING_OPERATORS[] = {"+", "-", "*", "/", "%", ".", "(", ")", "
 typedef struct OperatorInfo {
 	const char *cOperator;
 	const char *cSecond;
-	int nToken;
+	unsigned int nToken;
 } OperatorInfo;
 #define RING_SCANNER_TOKENTYPE 1
 #define RING_SCANNER_TOKENVALUE 2
@@ -245,25 +245,25 @@ void ring_scanner_readchar(Scanner *pScanner, char c);
 
 void ring_scanner_keywords(Scanner *pScanner);
 
-void ring_scanner_addtoken(Scanner *pScanner, int nType);
+void ring_scanner_addtoken(Scanner *pScanner, unsigned int nType);
 
 void ring_scanner_checktoken(Scanner *pScanner);
 
-int ring_scanner_isnumber(String *pStr);
+unsigned int ring_scanner_isnumber(String *pStr);
 
 void ring_scanner_processnumber(String *pTokenString);
 
-int ring_scanner_checklasttoken(Scanner *pScanner);
+unsigned int ring_scanner_checklasttoken(Scanner *pScanner);
 
-int ring_scanner_isoperator(Scanner *pScanner, const char *cStr);
+unsigned int ring_scanner_isoperator(Scanner *pScanner, const char *cStr);
 
 void ring_scanner_operators(Scanner *pScanner);
 
-int ring_scanner_lasttokentype(Scanner *pScanner);
+unsigned int ring_scanner_lasttokentype(Scanner *pScanner);
 
 const char *ring_scanner_lasttokenvalue(Scanner *pScanner);
 
-void ring_scanner_floatmark(Scanner *pScanner, int nType);
+void ring_scanner_floatmark(Scanner *pScanner, unsigned int nType);
 
 void ring_scanner_endofline(Scanner *pScanner);
 
@@ -275,13 +275,13 @@ void ring_scanner_changeoperator(Scanner *pScanner);
 
 void ring_scanner_loadsyntax(Scanner *pScanner);
 
-void ring_scanner_setandgenendofline(Scanner *pScanner, int nLine);
+void ring_scanner_setandgenendofline(Scanner *pScanner, unsigned int nLine);
 
 void ring_scanner_readtwoparameters(Scanner *pScanner, const char *cStr);
 
-const char *ring_scanner_processtoken(Scanner *pScanner, int nType);
+const char *ring_scanner_processtoken(Scanner *pScanner, unsigned int nType);
 
-int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, int nTokenIndex);
+unsigned int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, unsigned int nTokenIndex);
 
 const char *ring_scanner_getkeywordtext(RingState *pRingState, const char *cStr);
 
