@@ -49,7 +49,8 @@ RING_API HashItem *ring_hashtable_newitem_gc(void *pRingState, HashTable *pHashT
 	return pItem;
 }
 
-RING_API void ring_hashtable_newnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey, int nNumber) {
+RING_API void ring_hashtable_newnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey,
+					  unsigned int nNumber) {
 	HashItem *pItem;
 	pItem = ring_hashtable_newitem_gc(pRingState, pHashTable, cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_NUMBER;
@@ -82,7 +83,7 @@ RING_API HashItem *ring_hashtable_finditem_gc(void *pRingState, HashTable *pHash
 	return NULL;
 }
 
-RING_API int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
+RING_API unsigned int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	HashItem *pItem;
 	pItem = ring_hashtable_finditem_gc(pRingState, pHashTable, cKey);
 	if (pItem != NULL) {
@@ -101,7 +102,7 @@ RING_API void *ring_hashtable_findpointer_gc(void *pRingState, HashTable *pHashT
 }
 
 RING_API void ring_hashtable_deleteitem_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
-	int nIndex;
+	unsigned int nIndex;
 	HashItem *pItem, *pPrevItem;
 	nIndex = ring_hashtable_hashkey_gc(pRingState, pHashTable, cKey);
 	pItem = pHashTable->pArray[nIndex];
@@ -125,7 +126,7 @@ RING_API void ring_hashtable_deleteitem_gc(void *pRingState, HashTable *pHashTab
 }
 
 RING_API HashTable *ring_hashtable_delete_gc(void *pRingState, HashTable *pHashTable) {
-	int x;
+	unsigned int x;
 	HashItem *pItem, *pItem2;
 	if (pHashTable == NULL) {
 		return NULL;
@@ -146,7 +147,7 @@ RING_API HashTable *ring_hashtable_delete_gc(void *pRingState, HashTable *pHashT
 
 RING_API void ring_hashtable_rebuild_gc(void *pRingState, HashTable *pHashTable) {
 	HashItem **pOldArray;
-	int nOldLinkedLists, x, nNewIndex;
+	unsigned int nOldLinkedLists, x, nNewIndex;
 	HashItem *pItem, *pNextItem, *pItemIterator;
 	/* If the number of items doesn't meet the rebuild threshoud, do nothing */
 	if (pHashTable->nItems != pHashTable->nRebuildSize) {
@@ -182,7 +183,7 @@ RING_API void ring_hashtable_rebuild_gc(void *pRingState, HashTable *pHashTable)
 }
 
 RING_API void ring_hashtable_print_gc(void *pRingState, HashTable *pHashTable) {
-	int x;
+	unsigned int x;
 	HashItem *pItem;
 	for (x = 0; x < pHashTable->nLinkedLists; x++) {
 		pItem = pHashTable->pArray[x];
@@ -204,7 +205,7 @@ RING_API HashItem *ring_hashtable_newitem(HashTable *pHashTable, const char *cKe
 	return ring_hashtable_newitem_gc(NULL, pHashTable, cKey);
 }
 
-RING_API void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, int nNumber) {
+RING_API void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, unsigned int nNumber) {
 	ring_hashtable_newnumber_gc(NULL, pHashTable, cKey, nNumber);
 }
 
@@ -216,7 +217,7 @@ RING_API HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cK
 	return ring_hashtable_finditem_gc(NULL, pHashTable, cKey);
 }
 
-RING_API int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey) {
+RING_API unsigned int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey) {
 	return ring_hashtable_findnumber_gc(NULL, pHashTable, cKey);
 }
 

@@ -6,17 +6,17 @@
 typedef struct HashItem {
 	char *cKey;
 	union HashValue {
-		int nIndex;
+		unsigned int nIndex;
 		void *pValue;
 	} HashValue;
 	struct HashItem *pNext;
-	char nItemType;
+	unsigned char nItemType;
 } HashItem;
 typedef struct HashTable {
 	HashItem **pArray;
-	int nItems;
-	int nLinkedLists;
-	int nRebuildSize;
+	unsigned int nItems;
+	unsigned int nLinkedLists;
+	unsigned int nRebuildSize;
 } HashTable;
 /* Constants */
 #define RING_HASHITEMTYPE_NOTYPE 0
@@ -33,13 +33,14 @@ RING_API unsigned int ring_hashtable_hashkey_gc(void *pRingState, HashTable *pHa
 
 RING_API HashItem *ring_hashtable_newitem_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
-RING_API void ring_hashtable_newnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey, int nNumber);
+RING_API void ring_hashtable_newnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey,
+					  unsigned int nNumber);
 
 RING_API void ring_hashtable_newpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey, void *pPointer);
 
 RING_API HashItem *ring_hashtable_finditem_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
-RING_API int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
+RING_API unsigned int ring_hashtable_findnumber_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
 RING_API void *ring_hashtable_findpointer_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 
@@ -58,13 +59,13 @@ RING_API unsigned int ring_hashtable_hashkey(HashTable *pHashTable, const char *
 
 RING_API HashItem *ring_hashtable_newitem(HashTable *pHashTable, const char *cKey);
 
-RING_API void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, int nNumber);
+RING_API void ring_hashtable_newnumber(HashTable *pHashTable, const char *cKey, unsigned int nNumber);
 
 RING_API void ring_hashtable_newpointer(HashTable *pHashTable, const char *cKey, void *pPointer);
 
 RING_API HashItem *ring_hashtable_finditem(HashTable *pHashTable, const char *cKey);
 
-RING_API int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey);
+RING_API unsigned int ring_hashtable_findnumber(HashTable *pHashTable, const char *cKey);
 
 RING_API void *ring_hashtable_findpointer(HashTable *pHashTable, const char *cKey);
 

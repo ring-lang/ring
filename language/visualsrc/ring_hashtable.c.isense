@@ -3,14 +3,14 @@ Parent: HashItem
 Type: char  *
 cKey
 Parent: HashValue
-Type: int
+Type: unsigned int
 nIndex
 Type: void *
 pValue
 END:
 Type: struct HashItem *
 pNext
-Type: char
+Type: unsigned char
 nItemType
 END:
 Type: HashItem
@@ -24,11 +24,11 @@ HashItem *
 Parent: HashTable
 Type: HashItem **
 pArray
-Type: int
+Type: unsigned int
 nItems
-Type: int
+Type: unsigned int
 nLinkedLists
-Type: int
+Type: unsigned int
 nRebuildSize
 END:
 Type: HashTable
@@ -74,24 +74,24 @@ ring_hashtable_findpointer_gc
 Type: HashItem *
 pItem
 ring_hashtable_deleteitem_gc
-Type: int
+Type: unsigned int
 nIndex
 Type: HashItem *
 pItem, *pPrevItem
 ring_hashtable_delete_gc
-Type: int
+Type: unsigned int
 x
 Type: HashItem *
 pItem,*pItem2
 ring_hashtable_rebuild_gc
 Type: HashItem **
 pOldArray
-Type: int
+Type: unsigned int
 nOldLinkedLists, x, nNewIndex
 Type: HashItem *
 pItem, *pNextItem, *pItemIterator
 ring_hashtable_print_gc
-Type: int
+Type: unsigned int
 x
 Type: HashItem *
 pItem
