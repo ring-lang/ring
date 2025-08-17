@@ -54,8 +54,8 @@ RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cSt
 		/* Setting the string by itself - Do nothing! */
 		return;
 	}
-	/* Check if we need to reallocate */
-	if ((nRequiredSize + 1) > pString->nCapacity) {
+	/* Check if we need to reallocate or delete large buffers when the string is empty */
+	if (((nRequiredSize + 1) > pString->nCapacity) || (nRequiredSize == 0)) {
 		/* Free the old heap buffer if it exists */
 		if (pString->cStr != pString->cStrArray) {
 			ring_state_free(pState, pString->cStr);
