@@ -640,8 +640,6 @@ RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar) {
 	}
 }
 
-RING_API int ring_list_isnewref_gc(void *pState, List *pList) { return pList->vGC.lNewRef; }
-
 RING_API int ring_list_isdontrefagain_gc(void *pState, List *pList) { return pList->vGC.lDontRefAgain; }
 
 RING_API void ring_list_enabledontrefagain_gc(void *pState, List *pList) { pList->vGC.lDontRefAgain = 1; }

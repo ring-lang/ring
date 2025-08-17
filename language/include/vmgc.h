@@ -95,8 +95,6 @@ RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef);
 
 RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar);
 
-RING_API int ring_list_isnewref_gc(void *pState, List *pList);
-
 RING_API int ring_list_isdontrefagain_gc(void *pState, List *pList);
 
 RING_API void ring_list_enabledontrefagain_gc(void *pState, List *pList);
