@@ -5,16 +5,16 @@
 /* Include Custom Configuration File */
 #include "rconfig.h"
 /* Include C Headers */
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <ctype.h>
 #include <time.h>
 #include <assert.h>
-#include <string.h>
-#include <ctype.h>
-#include <math.h>
+#include <limits.h>
 #include <signal.h>
 #include <errno.h>
-#include <limits.h>
 #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
 	#define RING_MSDOS 1
 	#define RING_LIMITEDENV 1
@@ -231,8 +231,8 @@
 #include "vmoop.h"
 #include "vmgc.h"
 #include "ringapi.h"
-#include "genlib_e.h"
 #include "objfile.h"
+#include "genlib_e.h"
 /* Extensions Headers */
 #ifndef RING_EXTENSION
 	#define RING_EXTENSION
