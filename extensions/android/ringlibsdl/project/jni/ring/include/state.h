@@ -129,7 +129,7 @@ RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, c
 
 RING_API void ring_state_runprogram(RingState *pRingState);
 
-RING_API void ring_state_newbytecode(RingState *pRingState, int nSize, int lLiteral);
+RING_API void ring_state_newbytecode(RingState *pRingState, unsigned int nSize, unsigned int lLiteral);
 
 RING_API void ring_state_runbytecode(RingState *pRingState);
 

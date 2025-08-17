@@ -309,9 +309,9 @@ RING_API void ring_state_runprogram(RingState *pRingState) {
 	}
 }
 
-RING_API void ring_state_newbytecode(RingState *pRingState, int nSize, int lLiteral) {
+RING_API void ring_state_newbytecode(RingState *pRingState, unsigned int nSize, unsigned int lLiteral) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	pVM = ring_vm_new(pRingState);
 	pVM->pByteCode = (ByteCode *)ring_calloc(nSize, sizeof(ByteCode));
 	pVM->nEvalReallocationSize = nSize;
