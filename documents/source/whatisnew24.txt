@@ -129,3 +129,4 @@ More Improvements
 * Ring VM: Clean memory after runtime errors before returning to the operating system
 * Ring VM: ring_list_setcache() is renamed to ring_list_setcache_gc()
 * Ring VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()
+* Ring VM: ring_string_set2_gc() implementation - Delete large buffers when the string is empty
