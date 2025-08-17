@@ -6,7 +6,7 @@ void ring_vm_sum(VM *pVM) {
 	String *pStr1, *pStr2;
 	double nNum1, nNum2;
 	char cStr3[RING_MEDIUMBUF];
-	int nSize, x;
+	unsigned int x, nSize;
 	char *cValue;
 	/*
 	**  Description

@@ -55,13 +55,13 @@ RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cSt
 		return;
 	}
 	/* Check if we need to reallocate or delete large buffers when the string is empty */
-	if (((nRequiredSize + 1) > pString->nCapacity) || (nRequiredSize == 0)) {
+	nNewCapacity = nRequiredSize + 1;
+	if ((nNewCapacity > pString->nCapacity) || (nRequiredSize == 0)) {
 		/* Free the old heap buffer if it exists */
 		if (pString->cStr != pString->cStrArray) {
 			ring_state_free(pState, pString->cStr);
 		}
 		/* Allocate a new buffer. No growth strategy needed for 'set', just allocate enough */
-		nNewCapacity = nRequiredSize + 1;
 		if (nNewCapacity <= RING_STRING_ARRAYSIZE) {
 			pString->cStr = pString->cStrArray;
 			pString->nCapacity = RING_STRING_ARRAYSIZE;

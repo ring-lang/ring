@@ -402,7 +402,7 @@ RING_API int ring_general_looksempty(const char *cStr, unsigned int nSize) {
 
 RING_API int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
 	int nNum1;
-	while (1) {
+	while (RING_TRUE) {
 		nNum1 = tolower(*cStr1) - tolower(*cStr2);
 		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
 			return nNum1;

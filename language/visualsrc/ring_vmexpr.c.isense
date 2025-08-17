@@ -5,8 +5,8 @@ Type: double
 nNum1,nNum2
 Type: char
 cStr3[RING_MEDIUMBUF]
-Type: int
-nSize,x
+Type: unsigned int
+nSize
 Type: char *
 cValue
 ring_vm_sub
