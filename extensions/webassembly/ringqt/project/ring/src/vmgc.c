@@ -411,7 +411,7 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 	if (ring_list_isref(pList)) {
 		/* We don't delete the list because there are other references */
 		pList->vGC.lNewRef = 0;
-		if (ring_list_getrefcount(pList) > 1) {
+		if (ring_list_getrefcount_gc(pState, pList) > 1) {
 			ring_list_updaterefcount_gc(pState, pList, RING_LISTREF_DEC);
 			pList = ring_list_collectcycles_gc(pState, pList);
 		} else {
@@ -622,7 +622,7 @@ RING_API void ring_list_clearrefdata(List *pList) {
 
 RING_API List *ring_list_getrefcontainer(List *pList) { return (List *)pList->vGC.pContainer; }
 
-RING_API int ring_list_getrefcount(List *pList) { return pList->vGC.nReferenceCount + 1; }
+RING_API int ring_list_getrefcount_gc(void *pState, List *pList) { return pList->vGC.nReferenceCount + 1; }
 
 RING_API int ring_list_isdontref_gc(void *pState, List *pList) { return pList->vGC.lDontRef; }
 

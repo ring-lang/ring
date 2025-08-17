@@ -596,7 +596,8 @@ void ring_vm_assignmentpointer(VM *pVM) {
 				pList2 = ring_list_getlist(pVM->pObjState, x);
 				if (ring_list_getpointer(pList, RING_OBJECT_OBJECTDATA) ==
 				    ring_list_getpointer(pList2, RING_OBJSTATE_SCOPE)) {
-					if ((ring_list_getrefcount(pList) == 1) || pVM->lSelfLoadA) {
+					if ((ring_list_getrefcount_gc(pVM->pRingState, pList) == 1) ||
+					    pVM->lSelfLoadA) {
 						pVM->lSelfLoadA = 0;
 						ring_vm_error(pVM, RING_VM_ERROR_TRYINGTOMODIFYTHESELFPOINTER);
 						return;
