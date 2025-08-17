@@ -149,7 +149,7 @@ RING_API void ring_list_copy_tohighlevel_gc(void *pState, List *pNewList, List *
 	}
 }
 
-RING_API void ring_list_addblock_gc(void *pState, List *pList, void *pMemory, int nType) {
+RING_API void ring_list_addblock_gc(void *pState, List *pList, void *pMemory, unsigned int nType) {
 	ListBlocks *pBlocks;
 	/* Check if we will add the first block */
 	if (pList->pBlocks == NULL) {
@@ -351,7 +351,7 @@ RING_API void ring_list_deleteitem_gc(void *pState, List *pList, unsigned int nI
 	ring_list_clearcache_gc(pState, pList);
 }
 
-RING_API int ring_list_gettype_gc(void *pState, List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_gettype_gc(void *pState, List *pList, unsigned int nIndex) {
 	Item *pItem;
 	pItem = ring_list_getitem_gc(pState, pList, nIndex);
 	if (pItem != NULL) {
@@ -488,7 +488,7 @@ RING_API void ring_list_addfuncpointer_gc(void *pState, List *pList, void (*pFun
 	ring_list_setfuncpointer_gc(pState, pList, ring_list_getsize(pList), pFunc);
 }
 
-RING_API int ring_list_isfuncpointer_gc(void *pState, List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_isfuncpointer_gc(void *pState, List *pList, unsigned int nIndex) {
 	return (ring_list_gettype(pList, nIndex) == ITEMTYPE_FUNCPOINTER);
 }
 /*
@@ -577,7 +577,7 @@ RING_API List *ring_list_insertlist_gc(void *pState, List *pList, unsigned int n
 }
 /* Is item inside list, support nested Lists */
 
-RING_API int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pItem) {
+RING_API unsigned int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pItem) {
 	unsigned int x;
 	Item *pItem2;
 	List *pList2;
@@ -597,7 +597,7 @@ RING_API int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pIte
 }
 /* Delete item from list using the item pointer */
 
-RING_API int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pItem) {
+RING_API unsigned int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pItem) {
 	unsigned int x;
 	Item *pItem2;
 	List *pList2;
@@ -638,24 +638,24 @@ RING_API Items *ring_list_getitemcontainer_gc(void *pState, List *pList, unsigne
 }
 /* Check Items */
 
-RING_API int ring_list_isstring_gc(void *pState, List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_isstring_gc(void *pState, List *pList, unsigned int nIndex) {
 	return (ring_list_gettype(pList, nIndex) == ITEMTYPE_STRING);
 }
 
-RING_API int ring_list_isnumber_gc(void *pState, List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_isnumber_gc(void *pState, List *pList, unsigned int nIndex) {
 	return (ring_list_gettype(pList, nIndex) == ITEMTYPE_NUMBER);
 }
 
-RING_API int ring_list_islist_gc(void *pState, List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_islist_gc(void *pState, List *pList, unsigned int nIndex) {
 	return (ring_list_gettype(pList, nIndex) == ITEMTYPE_LIST);
 }
 
-RING_API int ring_list_ispointer_gc(void *pState, List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_ispointer_gc(void *pState, List *pList, unsigned int nIndex) {
 	return (ring_list_gettype(pList, nIndex) == ITEMTYPE_POINTER);
 }
 /* Linear Search */
 
-RING_API int ring_list_findstring_gc(void *pState, List *pList, const char *cStr, unsigned int nColumn) {
+RING_API unsigned int ring_list_findstring_gc(void *pState, List *pList, const char *cStr, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
@@ -689,7 +689,7 @@ RING_API int ring_list_findstring_gc(void *pState, List *pList, const char *cStr
 	return RING_FALSE;
 }
 
-RING_API int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, unsigned int nColumn) {
+RING_API unsigned int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
@@ -723,7 +723,7 @@ RING_API int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, un
 	return RING_FALSE;
 }
 
-RING_API int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer) {
+RING_API unsigned int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer) {
 	unsigned int x;
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
 		if (ring_list_ispointer(pList, x)) {
@@ -735,7 +735,7 @@ RING_API int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer)
 	return RING_FALSE;
 }
 
-RING_API int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
+RING_API unsigned int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2, *pList3;
 	nCount = ring_list_getsize(pList);
@@ -830,9 +830,9 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 	}
 }
 
-RING_API int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
-					  const char *cAttribute) {
-	int nFirst, nMid, nLast;
+RING_API unsigned int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
+						   const char *cAttribute) {
+	unsigned int nFirst, nMid, nLast;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);
 	while (nFirst <= nLast) {
@@ -848,8 +848,8 @@ RING_API int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum
 	return RING_FALSE;
 }
 
-RING_API int ring_list_binarysearchstr_gc(void *pState, List *pList, const char *cFind, unsigned int nColumn,
-					  const char *cAttribute) {
+RING_API unsigned int ring_list_binarysearchstr_gc(void *pState, List *pList, const char *cFind, unsigned int nColumn,
+						   const char *cAttribute) {
 	unsigned int nFirst, nMid, nLast, nRes;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);
@@ -969,7 +969,9 @@ RING_API void ring_list_deleteitem(List *pList, unsigned int nIndex) { ring_list
 
 RING_API Item *ring_list_getitem(List *pList, unsigned int nIndex) { return ring_list_getitem_gc(NULL, pList, nIndex); }
 
-RING_API int ring_list_gettype(List *pList, unsigned int nIndex) { return ring_list_gettype_gc(NULL, pList, nIndex); }
+RING_API unsigned int ring_list_gettype(List *pList, unsigned int nIndex) {
+	return ring_list_gettype_gc(NULL, pList, nIndex);
+}
 /* int */
 
 RING_API void ring_list_setint(List *pList, unsigned int nIndex, int nNumber) {
@@ -994,7 +996,7 @@ RING_API void ring_list_addfuncpointer(List *pList, void (*pFunc)(void *)) {
 	ring_list_addfuncpointer_gc(NULL, pList, pFunc);
 }
 
-RING_API int ring_list_isfuncpointer(List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_isfuncpointer(List *pList, unsigned int nIndex) {
 	return ring_list_isfuncpointer_gc(NULL, pList, nIndex);
 }
 /* double */
@@ -1032,13 +1034,19 @@ RING_API void ring_list_deleteallitems(List *pList) { ring_list_deleteallitems_g
 RING_API List *ring_list_getlist(List *pList, unsigned int nIndex) { return ring_list_getlist_gc(NULL, pList, nIndex); }
 /* Check Items */
 
-RING_API int ring_list_isstring(List *pList, unsigned int nIndex) { return ring_list_isstring_gc(NULL, pList, nIndex); }
+RING_API unsigned int ring_list_isstring(List *pList, unsigned int nIndex) {
+	return ring_list_isstring_gc(NULL, pList, nIndex);
+}
 
-RING_API int ring_list_isnumber(List *pList, unsigned int nIndex) { return ring_list_isnumber_gc(NULL, pList, nIndex); }
+RING_API unsigned int ring_list_isnumber(List *pList, unsigned int nIndex) {
+	return ring_list_isnumber_gc(NULL, pList, nIndex);
+}
 
-RING_API int ring_list_islist(List *pList, unsigned int nIndex) { return ring_list_islist_gc(NULL, pList, nIndex); }
+RING_API unsigned int ring_list_islist(List *pList, unsigned int nIndex) {
+	return ring_list_islist_gc(NULL, pList, nIndex);
+}
 
-RING_API int ring_list_ispointer(List *pList, unsigned int nIndex) {
+RING_API unsigned int ring_list_ispointer(List *pList, unsigned int nIndex) {
 	return ring_list_ispointer_gc(NULL, pList, nIndex);
 }
 /* Insert Items */
@@ -1083,15 +1091,15 @@ RING_API void ring_list_genhashtable(List *pList) { ring_list_genhashtable_gc(NU
 
 RING_API void ring_list_genhashtable2(List *pList) { ring_list_genhashtable2_gc(NULL, pList); }
 
-RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn) {
+RING_API unsigned int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn) {
 	return ring_list_findstring_gc(NULL, pList, cStr, nColumn);
 }
 
-RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn) {
+RING_API unsigned int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn) {
 	return ring_list_finddouble_gc(NULL, pList, nNum1, nColumn);
 }
 
-RING_API int ring_list_findpointer(List *pList, void *pPointer) {
+RING_API unsigned int ring_list_findpointer(List *pList, void *pPointer) {
 	return ring_list_findpointer_gc(NULL, pList, pPointer);
 }
 
@@ -1101,8 +1109,9 @@ RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y) { ring
 RING_API void ring_list_swaptwolists(List *pList1, List *pList2) { ring_list_swaptwolists_gc(NULL, pList1, pList2); }
 /* List Functions that know about using Lists for Ring Objects & C Pointers */
 
-RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1, const char *cStr,
-					   List *pValue, unsigned int nColumn, char *cAttribute) {
+RING_API unsigned int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1,
+						    const char *cStr, List *pValue, unsigned int nColumn,
+						    char *cAttribute) {
 	unsigned int x, nCount, nPos;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
@@ -1164,7 +1173,7 @@ RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType,
 	return RING_FALSE;
 }
 
-RING_API int ring_list_findcpointer_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
+RING_API unsigned int ring_list_findcpointer_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2, *pList3;
 	nCount = ring_list_getsize(pList);
@@ -1357,19 +1366,19 @@ RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDec
 	}
 }
 
-RING_API int ring_list_isobject_gc(void *pState, List *pList) {
+RING_API unsigned int ring_list_isobject_gc(void *pState, List *pList) {
 	return ((pList != NULL) && (ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&
 		ring_list_ispointer(pList, RING_OBJECT_CLASSPOINTER) &&
 		ring_list_islist(pList, RING_OBJECT_OBJECTDATA));
 }
 
-RING_API int ring_list_iscpointerlist_gc(void *pState, List *pList) {
+RING_API unsigned int ring_list_iscpointerlist_gc(void *pState, List *pList) {
 	return ((ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE) &&
 		ring_list_ispointer(pList, RING_CPOINTER_POINTER) && ring_list_isstring(pList, RING_CPOINTER_TYPE) &&
 		ring_list_isnumber(pList, RING_CPOINTER_STATUS));
 }
 
-RING_API int ring_list_cpointercmp_gc(void *pState, List *pList, List *pList2) {
+RING_API unsigned int ring_list_cpointercmp_gc(void *pState, List *pList, List *pList2) {
 	return ring_list_getpointer(pList, RING_CPOINTER_POINTER) ==
 	       ring_list_getpointer(pList2, RING_CPOINTER_POINTER);
 }
@@ -1386,8 +1395,10 @@ RING_API void ring_list_print2(List *pList, unsigned int nDecimals) { ring_list_
 
 RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) { ring_list_printobj_gc(NULL, pList, nDecimals); }
 
-RING_API int ring_list_isobject(List *pList) { return ring_list_isobject_gc(NULL, pList); }
+RING_API unsigned int ring_list_isobject(List *pList) { return ring_list_isobject_gc(NULL, pList); }
 
-RING_API int ring_list_iscpointerlist(List *pList) { return ring_list_iscpointerlist_gc(NULL, pList); }
+RING_API unsigned int ring_list_iscpointerlist(List *pList) { return ring_list_iscpointerlist_gc(NULL, pList); }
 
-RING_API int ring_list_cpointercmp(List *pList, List *pList2) { return ring_list_cpointercmp_gc(NULL, pList, pList2); }
+RING_API unsigned int ring_list_cpointercmp(List *pList, List *pList2) {
+	return ring_list_cpointercmp_gc(NULL, pList, pList2);
+}

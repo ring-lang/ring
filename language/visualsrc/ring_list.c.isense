@@ -4,7 +4,7 @@ Type: void *
 pValue
 Type: struct ListBlocks *
 pNext
-Type: int
+Type: unsigned int
 nType
 END:
 Type: ListBlocks
