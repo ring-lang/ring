@@ -214,15 +214,15 @@
 #define RING_EXIT_FAIL 1
 /* Include Ring Headers */
 #include "ext.h"
-#include "rstring.h"
+#include "general.h"
 #include "vmgcdata.h"
+#include "rstring.h"
 #include "ritem.h"
 #include "ritems.h"
 #include "rlist.h"
 #include "hashlib.h"
 #include "rhtable.h"
 #include "pooldata.h"
-#include "general.h"
 #include "state.h"
 #include "scanner.h"
 #include "parser.h"
