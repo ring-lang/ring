@@ -492,8 +492,8 @@ void ring_vm_savestateforbraces(VM *pVM, List *pObjState) {
 	/* Store nNoSetterMethod */
 	ring_list_addint_gc(pVM->pRingState, pList, pVM->nNoSetterMethod);
 	/* Store DontRef Info */
-	ring_list_addint_gc(pVM->pRingState, pList, ring_list_isdontref(pVM->pBraceObject));
-	ring_list_addint_gc(pVM->pRingState, pList, ring_list_isdontrefagain(pVM->pBraceObject));
+	ring_list_addint_gc(pVM->pRingState, pList, ring_list_isdontref_gc(pVM->pRingState, pVM->pBraceObject));
+	ring_list_addint_gc(pVM->pRingState, pList, ring_list_isdontrefagain_gc(pVM->pRingState, pVM->pBraceObject));
 	pVM->pBraceObject = NULL;
 	pVM->lInsideBraceFlag = 1;
 }
@@ -519,10 +519,10 @@ void ring_vm_restorestateforbraces(VM *pVM, List *pList) {
 	lDontRef = ring_list_getint(pList, RING_BRACEOBJECTS_ISDONTREF);
 	lDontRefAgain = ring_list_getint(pList, RING_BRACEOBJECTS_ISDONTREFAGAIN);
 	if (lDontRef) {
-		ring_list_enabledontref(pObject);
+		ring_list_enabledontref_gc(pVM->pRingState, pObject);
 	}
 	if (lDontRefAgain) {
-		ring_list_enabledontrefagain(pObject);
+		ring_list_enabledontrefagain_gc(pVM->pRingState, pObject);
 	}
 	ring_list_deleteitem_gc(pVM->pRingState, pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
 	ring_list_deleteitem_gc(pVM->pRingState, pVM->pObjState, ring_list_getsize(pVM->pObjState));

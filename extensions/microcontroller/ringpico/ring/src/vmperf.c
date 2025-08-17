@@ -45,7 +45,7 @@ void ring_vm_updatescopeinfo(VM *pVM, int nScope) {
 	}
 	pVM->nVarScope = nScope;
 	/* Check lNewRef Flag */
-	ring_list_resetlnewref((List *)RING_VM_STACK_READP);
+	ring_list_resetlnewref_gc(pVM->pRingState, (List *)RING_VM_STACK_READP);
 	/* Check if we have ICO_PUSHV */
 	if (RING_VM_IR_GETFLAGREG2) {
 		pVM->nPC++;

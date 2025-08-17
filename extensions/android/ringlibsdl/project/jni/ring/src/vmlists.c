@@ -78,7 +78,7 @@ void ring_vm_liststart(VM *pVM) {
 	ring_list_enableerroronassignment_gc(pVM->pRingState, pList);
 	/* When using something like Ref([1,2,3]) - Don't create new reference */
 	if ((pNewList != NULL) && (ring_vm_funccallbeforecall(pVM))) {
-		ring_list_enabledontref(pNewList);
+		ring_list_enabledontref_gc(pVM->pRingState, pNewList);
 	}
 }
 

@@ -374,15 +374,16 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 	/* Check Output Mode */
 	if (nRef == RING_OUTPUT_RETNEWREF) {
 		/* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
-		if (ring_list_iscopybyref_gc(pVM->pRingState, pList) || ring_list_isdontrefagain(pList)) {
+		if (ring_list_iscopybyref_gc(pVM->pRingState, pList) ||
+		    ring_list_isdontrefagain_gc(pVM->pRingState, pList)) {
 			nRef = RING_OUTPUT_RETLISTBYREF;
 		}
 		/* Check lDontRef Flag */
-		if (ring_list_isdontref(pList)) {
+		if (ring_list_isdontref_gc(pVM->pRingState, pList)) {
 			/* Reset the DontRef Flag to avoid reusage in wrong scope */
-			ring_list_disabledontref(pList);
+			ring_list_disabledontref_gc(pVM->pRingState, pList);
 			/* Take in mind ref(ref(ref(new obj))) */
-			ring_list_enabledontrefagain(pList);
+			ring_list_enabledontrefagain_gc(pVM->pRingState, pList);
 			/* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
 			ring_vm_stackdup(pVM);
 			return;

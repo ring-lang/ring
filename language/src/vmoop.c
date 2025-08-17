@@ -71,7 +71,7 @@ void ring_vm_oop_newobj(VM *pVM) {
 					/* When using something like Ref(new myclass) don't create new reference */
 					if (ring_vm_funccallbeforecall(pVM)) {
 						ring_vm_oop_cleansetpropertylist(pVM);
-						ring_list_enabledontref(pList2);
+						ring_list_enabledontref_gc(pVM->pRingState, pList2);
 					}
 				} else {
 					/* Prepare Object List */
@@ -502,8 +502,8 @@ void ring_vm_oop_bracestart(VM *pVM) {
 	pStateList = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
 	ring_vm_savestateforbraces(pVM, pStateList);
 	/* Check Don't Ref. and Don't Ref Again */
-	ring_list_disabledontref(pList);
-	ring_list_disabledontrefagain(pList);
+	ring_list_disabledontref_gc(pVM->pRingState, pList);
+	ring_list_disabledontrefagain_gc(pVM->pRingState, pList);
 }
 
 void ring_vm_oop_braceend(VM *pVM) {

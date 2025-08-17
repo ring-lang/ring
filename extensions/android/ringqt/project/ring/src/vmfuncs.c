@@ -527,7 +527,7 @@ void ring_vm_newfunc(VM *pVM) {
 		if (aRefList != NULL) {
 			for (x = 1; x <= ring_list_getsize(aRefList); x++) {
 				pRef = (List *)ring_list_getpointer(aRefList, x);
-				ring_list_disablelnewref(pRef);
+				ring_list_disablelnewref_gc(pVM->pRingState, pRef);
 			}
 			ring_list_delete_gc(pVM->pRingState, aRefList);
 		}
@@ -604,7 +604,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 	ring_list_setlist_gc(pVM->pRingState, pList3, RING_VAR_VALUE);
 	pList2 = ring_list_getlist(pList3, RING_VAR_VALUE);
 	/* Check Dont Ref flag to avoid reusage in wrong scope */
-	if (ring_list_isdontref(pList)) {
+	if (ring_list_isdontref_gc(pVM->pRingState, pList)) {
 		/*
 		**  We don't care about this flag here
 		**  It's important when we pass (new obj) to ref() function
@@ -612,7 +612,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 		**  Ref() In this case will not lead us here because it uses lMoveToPrevScope
 		**  Which is checked in the start of this function
 		*/
-		ring_list_disabledontref(pList);
+		ring_list_disabledontref_gc(pVM->pRingState, pList);
 	}
 	/* Copy the list */
 	if (ring_list_isref(pList)) {
@@ -622,7 +622,7 @@ void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
 			ring_list_swaptwolists(pList2, pList);
 		} else {
 			ring_vm_listcopy(pVM, pList2, pList);
-			ring_list_enabledontref(pList2);
+			ring_list_enabledontref_gc(pVM->pRingState, pList2);
 			/*
 			**  When we return a local object - Swap Container Lists
 			**  The idea is to return the same object (Keep the Object ID without change)

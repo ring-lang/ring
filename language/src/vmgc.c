@@ -624,29 +624,29 @@ RING_API List *ring_list_getrefcontainer(List *pList) { return (List *)pList->vG
 
 RING_API int ring_list_getrefcount(List *pList) { return pList->vGC.nReferenceCount + 1; }
 
-RING_API int ring_list_isdontref(List *pList) { return pList->vGC.lDontRef; }
+RING_API int ring_list_isdontref_gc(void *pState, List *pList) { return pList->vGC.lDontRef; }
 
-RING_API void ring_list_enabledontref(List *pList) { pList->vGC.lDontRef = 1; }
+RING_API void ring_list_enabledontref_gc(void *pState, List *pList) { pList->vGC.lDontRef = 1; }
 
-RING_API void ring_list_disabledontref(List *pList) { pList->vGC.lDontRef = 0; }
+RING_API void ring_list_disabledontref_gc(void *pState, List *pList) { pList->vGC.lDontRef = 0; }
 
-RING_API void ring_list_disablelnewref(List *pRef) { pRef->vGC.lNewRef = 0; }
+RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 0; }
 
-RING_API void ring_list_resetlnewref(List *pVar) {
+RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar) {
 	List *pList;
 	if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_LIST) {
 		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
-		ring_list_disablelnewref(pList);
+		ring_list_disablelnewref_gc(pState, pList);
 	}
 }
 
-RING_API int ring_list_isnewref(List *pList) { return pList->vGC.lNewRef; }
+RING_API int ring_list_isnewref_gc(void *pState, List *pList) { return pList->vGC.lNewRef; }
 
-RING_API int ring_list_isdontrefagain(List *pList) { return pList->vGC.lDontRefAgain; }
+RING_API int ring_list_isdontrefagain_gc(void *pState, List *pList) { return pList->vGC.lDontRefAgain; }
 
-RING_API void ring_list_enabledontrefagain(List *pList) { pList->vGC.lDontRefAgain = 1; }
+RING_API void ring_list_enabledontrefagain_gc(void *pState, List *pList) { pList->vGC.lDontRefAgain = 1; }
 
-RING_API void ring_list_disabledontrefagain(List *pList) { pList->vGC.lDontRefAgain = 0; }
+RING_API void ring_list_disabledontrefagain_gc(void *pState, List *pList) { pList->vGC.lDontRefAgain = 0; }
 /* Copy list by Reference */
 
 RING_API int ring_list_iscopybyref_gc(void *pState, List *pList) { return pList->vGC.lCopyByRef; }

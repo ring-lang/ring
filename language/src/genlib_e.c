@@ -1229,6 +1229,8 @@ void ring_vm_generallib_object2pointer(void *pPointer) {
 
 void ring_vm_generallib_pointer2object(void *pPointer) {
 	List *pList;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
@@ -1241,7 +1243,7 @@ void ring_vm_generallib_pointer2object(void *pPointer) {
 		RING_API_ERROR(RING_API_NULLPOINTER);
 		return;
 	}
-	ring_list_disabledontref(pList);
+	ring_list_disabledontref_gc(pVM->pRingState, pList);
 	RING_API_RETNEWREF(pList);
 }
 

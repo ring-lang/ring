@@ -85,23 +85,23 @@ RING_API List *ring_list_getrefcontainer(List *pList);
 
 RING_API int ring_list_getrefcount(List *pList);
 
-RING_API int ring_list_isdontref(List *pList);
+RING_API int ring_list_isdontref_gc(void *pState, List *pList);
 
-RING_API void ring_list_enabledontref(List *pList);
+RING_API void ring_list_enabledontref_gc(void *pState, List *pList);
 
-RING_API void ring_list_disabledontref(List *pList);
+RING_API void ring_list_disabledontref_gc(void *pState, List *pList);
 
-RING_API void ring_list_disablelnewref(List *pRef);
+RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef);
 
-RING_API void ring_list_resetlnewref(List *pVar);
+RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar);
 
-RING_API int ring_list_isnewref(List *pList);
+RING_API int ring_list_isnewref_gc(void *pState, List *pList);
 
-RING_API int ring_list_isdontrefagain(List *pList);
+RING_API int ring_list_isdontrefagain_gc(void *pState, List *pList);
 
-RING_API void ring_list_enabledontrefagain(List *pList);
+RING_API void ring_list_enabledontrefagain_gc(void *pState, List *pList);
 
-RING_API void ring_list_disabledontrefagain(List *pList);
+RING_API void ring_list_disabledontrefagain_gc(void *pState, List *pList);
 /* Copy list by Reference */
 
 RING_API int ring_list_iscopybyref_gc(void *pState, List *pList);

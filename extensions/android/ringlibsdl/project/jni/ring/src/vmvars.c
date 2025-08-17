@@ -301,7 +301,7 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 			}
 		}
 		/* Check lNewRef Flag */
-		ring_list_resetlnewref(pList2);
+		ring_list_resetlnewref_gc(pVM->pRingState, pList2);
 	}
 	return RING_TRUE;
 }
