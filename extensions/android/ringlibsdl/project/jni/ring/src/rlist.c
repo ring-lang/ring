@@ -35,7 +35,7 @@ RING_API List *ring_list_new2_gc(void *pState, List *pList, unsigned int nSize) 
 	pList->pHashTable = NULL;
 	pList->pBlocks = NULL;
 	ring_list_clearcache_gc(pState, pList);
-	ring_list_clearrefdata(pList);
+	ring_list_clearrefdata_gc(pState, pList);
 	return pList;
 }
 

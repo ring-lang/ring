@@ -300,7 +300,7 @@ RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
 	/* Check Reference */
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		if (ring_list_isrefcontainer(pList)) {
+		if (ring_list_isrefcontainer_gc(pVM->pRingState, pList)) {
 			pRef = ring_list_getlist(pList, RING_VAR_VALUE);
 			if (pRef->vGC.lNewRef) {
 				lRef = 1;
@@ -600,9 +600,9 @@ RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar) {
 
 RING_API int ring_list_isref(List *pList) { return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1); }
 
-RING_API int ring_list_isrefcontainer(List *pList) { return pList->vGC.lDontDelete; }
+RING_API int ring_list_isrefcontainer_gc(void *pState, List *pList) { return pList->vGC.lDontDelete; }
 
-RING_API void ring_list_clearrefdata(List *pList) {
+RING_API void ring_list_clearrefdata_gc(void *pState, List *pList) {
 	pList->vGC.pContainer = NULL;
 	pList->vGC.lCopyByRef = 0;
 	pList->vGC.lNewRef = 0;
@@ -620,7 +620,7 @@ RING_API void ring_list_clearrefdata(List *pList) {
 	pList->vGC.nListType = 0;
 }
 
-RING_API List *ring_list_getrefcontainer(List *pList) { return (List *)pList->vGC.pContainer; }
+RING_API List *ring_list_getrefcontainer_gc(void *pState, List *pList) { return (List *)pList->vGC.pContainer; }
 
 RING_API int ring_list_getrefcount_gc(void *pState, List *pList) { return pList->vGC.nReferenceCount + 1; }
 
