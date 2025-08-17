@@ -127,7 +127,7 @@ RING_API void ring_string_setfromint_gc(void *pState, String *pString, int x) {
 	ring_string_set_gc(pState, pString, cStr);
 }
 
-RING_API int ring_string_size_gc(void *pState, String *pString) { return pString->nSize; }
+RING_API unsigned int ring_string_size_gc(void *pState, String *pString) { return pString->nSize; }
 
 RING_API void ring_string_print_gc(void *pState, String *pString) { printf("%s \n", pString->cStr); }
 
@@ -163,7 +163,7 @@ RING_API void ring_string_add2(String *pString, const char *cStr, unsigned int n
 
 RING_API void ring_string_setfromint(String *pString, int x) { ring_string_setfromint_gc(NULL, pString, x); }
 
-RING_API int ring_string_size(String *pString) { return ring_string_size_gc(NULL, pString); }
+RING_API unsigned int ring_string_size(String *pString) { return ring_string_size_gc(NULL, pString); }
 
 RING_API void ring_string_print(String *pString) { ring_string_print_gc(NULL, pString); }
 

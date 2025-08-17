@@ -51,7 +51,7 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 
 RING_API void ring_string_setfromint_gc(void *pState, String *pString, int x);
 
-RING_API int ring_string_size_gc(void *pState, String *pString);
+RING_API unsigned int ring_string_size_gc(void *pState, String *pString);
 
 RING_API void ring_string_print_gc(void *pState, String *pString);
 
@@ -73,7 +73,7 @@ RING_API void ring_string_add2(String *pString, const char *cStr, unsigned int n
 
 RING_API void ring_string_setfromint(String *pString, int x);
 
-RING_API int ring_string_size(String *pString);
+RING_API unsigned int ring_string_size(String *pString);
 
 RING_API void ring_string_print(String *pString);
 
