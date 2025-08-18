@@ -105,6 +105,7 @@ The next samples are improved
 More Improvements
 =================
 
+* Better scripts for building Ring (32bit) and Ring (64bit) on Windows
 * FindInFiles: Using setSelectionMode() to enable single-row selection
 * GameEngine: Clear error message if image/font/sound file doesn't exist
 * JSONLib: Handle a case when the input is an array only
@@ -112,6 +113,7 @@ More Improvements
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
+* RingLibSDL: Enable building the extension using recent MSVC compiler
 * Space() function: Don't accept values over UINT_MAX
 * List() function: Don't accept values over UINT_MAX and don't use blocks for small 1D lists
 * Shutdown() function: Don't terminate Ring VM (Main State) when used from Ring VM (Sub State)
