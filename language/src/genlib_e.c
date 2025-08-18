@@ -880,12 +880,11 @@ void ring_vm_generallib_substr(void *pPointer) {
 			nNum2 = RING_API_GETNUMBER(3);
 			if ((nNum1 > 0) && (nNum1 <= nSize)) {
 				if ((nNum2 > 0) && ((nNum1 + nNum2 - 1) <= nSize)) {
-					cString = (char *)RING_API_MALLOC(nNum2);
+					RING_API_RETSTRINGSIZE(nNum2);
+					cString = ring_string_get(RING_API_GETSTRINGRAW);
 					for (x = 0; x < nNum2; x++) {
 						cString[x] = cStr[((unsigned int)nNum1) + x - 1];
 					}
-					RING_API_RETSTRING2(cString, nNum2);
-					RING_API_FREE(cString);
 				}
 			}
 		} else if (RING_API_ISSTRING(2) && RING_API_ISSTRING(3)) {
