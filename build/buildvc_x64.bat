@@ -74,6 +74,7 @@ del /q release\*.* >nul
 @call buildvc_nobluetooth_x64 >nul
 cd binupdate
 @call installqt515_x64 >nul
+..\..\..\bin\ring removedebugdlls.ring
 cd ..\..
 
 echo Building RingLibuv...
