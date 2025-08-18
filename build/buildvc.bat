@@ -16,7 +16,7 @@ cd extensions
 
 echo Building Ring Allegro...
 cd ringallegro
-@call buildvc_allegro5.2.8.bat >nul
+@call buildvc.bat >nul
 cd ..
 
 echo Building Ring OpenGL...
@@ -54,18 +54,20 @@ cd ringraylib5\src
 @call buildvc >nul
 cd ..\..
 
-echo Building Ring Qt...
+echo Building Ring Qt (Core)...
 cd ringqt
 del /q debug\*.* >nul
 del /q release\*.* >nul
 @call gencode_core >nul
 @call buildvc_core >nul
 
+echo Building Ring Qt (LightGUILib)...
 del /q debug\*.* >nul
 del /q release\*.* >nul
 @call gencode_light >nul
 @call buildvc_light >nul
 
+echo Building Ring Qt (GUILib)...
 del /q debug\*.* >nul
 del /q release\*.* >nul
 @call gencode_nobluetooth >nul
@@ -191,26 +193,31 @@ cd ringfastpro
 cd ..\..
 
 echo Building Tools...
+echo Building Ring2EXE...
 cd tools\ring2exe
 @call build >nul
+echo Building RingPM...
 cd ..\ringpm
 @call build >nul
+echo Building RingREPL...
 cd ..\ringrepl
 @call build >nul
+echo Building Folder2Qrc...
 cd ..\folder2qrc
 @call build >nul
+echo Building Tests...
 cd ..\..\language\tests
 @call build >nul
 cd ..\..
 
-echo Building Sudoku...
+echo Building Applications\Sudoku...
 cd applications\sudoku\v2
 @call buildvc >nul
 cd ..\v3
 @call buildvc >nul
 cd ..\..\..
 
-echo Building Tutorial Extensions...
+echo Building Extensions\Tutorial...
 cd extensions/tutorial/createtable
 @call buildvc >nul
 cd ../displaylist
@@ -243,7 +250,7 @@ cd ../updatetable
 @call buildvc >nul
 cd ..\..\..
 
-echo Building Mandelbrot Sample...
+echo Building samples\Drawing\Mandelbrot Sample...
 cd samples\Drawing\Mandelbrot
 @call buildvc >nul
 cd ..\..\..
