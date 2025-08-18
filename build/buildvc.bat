@@ -278,4 +278,7 @@ copy ..\extensions\libdepwin\libuv\*.dll . >nul
 
 @call cleartemp >nul
 
+cd ..\build
+call checkdllfiles.bat
+
 endlocal

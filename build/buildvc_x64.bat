@@ -276,4 +276,7 @@ copy ..\extensions\libdepwin\pgsql_x64\lib\*.dll . >nul
 
 @call cleartemp >nul
 
+cd ..\build
+call checkdllfiles.bat
+
 endlocal
