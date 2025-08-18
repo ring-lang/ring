@@ -699,14 +699,12 @@ void ring_vm_listfuncs_reverse(void *pPointer) {
 			RING_API_RETSTRING(cStr);
 			return;
 		}
-		cNewStr = (char *)RING_API_MALLOC(nSize + 1);
-		cNewStr[nSize] = '\0';
+		RING_API_RETSTRINGSIZE(nSize);
+		cNewStr = ring_string_get(RING_API_GETSTRINGRAW);
 		nPos = 0;
 		for (x = nSize; x >= 1; x--) {
 			cNewStr[nPos++] = cStr[x - 1];
 		}
-		RING_API_RETSTRING2(cNewStr, nSize);
-		RING_API_FREE(cNewStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
