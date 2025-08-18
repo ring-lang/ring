@@ -6,7 +6,8 @@ cd ..
 
 setlocal
 
-echo Building Ring Compiler/VM...
+echo Building Ring (64bit) for Windows...
+echo Building Compiler/VM...
 cd language\build
 @call buildvc_x64 >nul
 @call buildvcw_x64 >nul
@@ -14,7 +15,7 @@ cd ..\..
 
 cd extensions
 
-echo Building Ring Extensions...
+echo Building Extensions...
 echo Building RingAllegro...
 cd ringallegro
 @call buildvc_x64.bat >nul
@@ -211,13 +212,6 @@ cd ..\..\language\tests
 @call build >nul
 cd ..\..
 
-echo Building Applications\Sudoku...
-cd applications\sudoku\v2
-@call buildvc_x64 >nul
-cd ..\v3
-@call buildvc_x64 >nul
-cd ..\..\..
-
 echo Building Extensions\Tutorial...
 cd extensions/tutorial/createtable
 @call buildvc_x64 >nul
@@ -251,15 +245,18 @@ cd ../updatetable
 @call buildvc_x64 >nul
 cd ..\..\..
 
-echo Building samples\Drawing\Mandelbrot Sample...
+cd applications\sudoku\v2
+@call buildvc_x64 >nul
+cd ..\v3
+@call buildvc_x64 >nul
+cd ..\..\..
+
 cd samples\Drawing\Mandelbrot
 @call buildvc_x64 >nul
 cd ..\..\..
 
-echo Copying RingNotepad.exe...
+echo Prepare Runtime files...
 copy tools\ringnotepad\rnoteexe\RingNotepad.exe . >nul
-
-echo Copying DLL files...
 cd bin
 copy ..\extensions\libdepwin\extra\*.dll . >nul
 copy ..\extensions\libdepwin\cruntime_x64\*.dll . >nul

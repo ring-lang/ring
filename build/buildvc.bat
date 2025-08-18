@@ -5,8 +5,8 @@ IF "%RING_QT_VERSION%"=="" SET RING_QT_VERSION=5.15.19
 cd ..
 
 setlocal
-
-echo Building Ring Compiler/VM...
+echo Building Ring (32bit) for Windows...
+echo Building Compiler/VM...
 cd language\build
 @call buildvc >nul
 @call buildvcw >nul
@@ -14,7 +14,7 @@ cd ..\..
 
 cd extensions
 
-echo Building Ring Extensions...
+echo Building Extensions...
 echo Building RingAllegro...
 cd ringallegro
 @call buildvc.bat >nul
@@ -211,13 +211,6 @@ cd ..\..\language\tests
 @call build >nul
 cd ..\..
 
-echo Building Applications\Sudoku...
-cd applications\sudoku\v2
-@call buildvc >nul
-cd ..\v3
-@call buildvc >nul
-cd ..\..\..
-
 echo Building Extensions\Tutorial...
 cd extensions/tutorial/createtable
 @call buildvc >nul
@@ -251,15 +244,18 @@ cd ../updatetable
 @call buildvc >nul
 cd ..\..\..
 
-echo Building samples\Drawing\Mandelbrot Sample...
+cd applications\sudoku\v2
+@call buildvc >nul
+cd ..\v3
+@call buildvc >nul
+cd ..\..\..
+
 cd samples\Drawing\Mandelbrot
 @call buildvc >nul
 cd ..\..\..
 
-echo Copying RingNotepad.exe...
+echo Prepare Runtime files...
 copy tools\ringnotepad\rnoteexe\RingNotepad.exe . >nul
-
-echo Copying DLL files...
 cd bin
 copy ..\extensions\libdepwin\extra\*.dll . >nul
 copy ..\extensions\libdepwin\cruntime\*.dll . >nul
