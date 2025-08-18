@@ -2,9 +2,9 @@ echo off
 setlocal enableextensions enabledelayedexpansion
 call ../../language/build/locatevc.bat x64
 
-cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\language\include"
+cl /c %ringcflags% /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\language\include"
 
-link /DEBUG creg_registry.obj advapi32.lib shlwapi.lib ring_wincreg.obj  ..\..\lib\ring.lib  /DLL /OUT:ring_wincreg.dll
+link %ringldflags% creg_registry.obj advapi32.lib shlwapi.lib ring_wincreg.obj  ..\..\lib\ring.lib  /DLL /OUT:ring_wincreg.dll
 
 mt.exe -manifest ring_wincreg.dll.manifest -outputresource:ring_wincreg.dll;2
 
