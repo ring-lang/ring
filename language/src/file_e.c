@@ -485,11 +485,10 @@ void ring_vm_file_read(void *pPointer) {
 		fseek(pFile, 0, SEEK_END);
 		nSize = ftell(pFile);
 		fseek(pFile, 0, SEEK_SET);
-		cBuffer = (char *)RING_API_MALLOC(nSize);
+		RING_API_RETSTRINGSIZE(nSize);
+		cBuffer = ring_string_get(RING_API_GETSTRINGRAW);
 		fread(cBuffer, 1, nSize, pFile);
 		fclose(pFile);
-		RING_API_RETSTRING2(cBuffer, nSize);
-		RING_API_FREE(cBuffer);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
