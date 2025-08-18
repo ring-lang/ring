@@ -339,14 +339,12 @@ void ring_vm_file_fgets(void *pPointer) {
 				return;
 			}
 			nSize++;
-			cStr = (char *)RING_API_MALLOC(nSize);
+			RING_API_RETSTRINGSIZE(nSize);
+			cStr = ring_string_get(RING_API_GETSTRINGRAW);
 			cResult = fgets(cStr, nSize, pFile);
-			if (cResult != NULL) {
-				RING_API_RETSTRING(cStr);
-			} else {
+			if (cResult == NULL) {
 				RING_API_RETNUMBER(0);
 			}
-			RING_API_FREE(cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
