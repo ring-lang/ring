@@ -2010,13 +2010,11 @@ void ring_vm_generallib_input(void *pPointer) {
 		return;
 	}
 	if (nSize > 0) {
-		cLine = (char *)RING_API_MALLOC(nSize);
+		RING_API_RETSTRINGSIZE(nSize);
+		cLine = ring_string_get(RING_API_GETSTRINGRAW);
 		/* Get Input From the User and save it in the variable */
 		nOutput = RING_SETBINARY;
 		fread(cLine, sizeof(char), nSize, stdin);
-		/* Return String */
-		RING_API_RETSTRING2(cLine, nSize);
-		RING_API_FREE(cLine);
 	} else {
 		RING_API_ERROR(RING_API_BADPARARANGE);
 	}
