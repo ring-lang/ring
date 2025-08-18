@@ -1,3 +1,4 @@
+@echo off
 IF "%RING_QT_DIR%"=="" SET RING_QT_DIR=C:\Qt
 IF "%RING_QT_VERSION%"=="" SET RING_QT_VERSION=5.15.19
 
@@ -5,270 +6,269 @@ cd ..
 
 setlocal
 
-rem build Ring Compiler/VM
+echo Building Ring Compiler/VM...
 cd language\build
-call buildvc
-call buildvcw
+@call buildvc >nul
+@call buildvcw >nul
 cd ..\..
 
-rem open extensions folder
 cd extensions
 
-rem build Ring allegro
+echo Building Ring Allegro...
 cd ringallegro
-call buildvc_allegro5.2.8.bat
+@call buildvc_allegro5.2.8.bat >nul
+cd ..
 
-rem build Ring OpenGL
-cd ..\ringopengl\opengl21
-call buildvc.bat
+echo Building Ring OpenGL...
+cd ringopengl\opengl21
+@call buildvc.bat >nul
 cd ..\..
 
-rem build Ring CJSON
+echo Building Ring CJSON...
 cd ringcjson
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build Ring Console Colors
+echo Building Ring Console Colors...
 cd ringconsolecolors
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build Ring FreeGLUT
+echo Building Ring FreeGLUT...
 cd ringfreeglut
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build Ring stbImage
+echo Building Ring stbImage...
 cd ringstbimage
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build Ring Threads
+echo Building Ring Threads...
 cd ringthreads
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build Ring RayLib
+echo Building Ring RayLib...
 cd ringraylib5\src
-call buildvc
+@call buildvc >nul
 cd ..\..
 
-rem build Ring Qt
+echo Building Ring Qt...
 cd ringqt
-del /q debug\*.*
-del /q release\*.*
-call gencode_core
-call buildvc_core
+del /q debug\*.* >nul
+del /q release\*.* >nul
+@call gencode_core >nul
+@call buildvc_core >nul
 
-del /q debug\*.*
-del /q release\*.*
-call gencode_light
-call buildvc_light
+del /q debug\*.* >nul
+del /q release\*.* >nul
+@call gencode_light >nul
+@call buildvc_light >nul
 
-del /q debug\*.*
-del /q release\*.*
-call gencode_nobluetooth
-call buildvc_nobluetooth
+del /q debug\*.* >nul
+del /q release\*.* >nul
+@call gencode_nobluetooth >nul
+@call buildvc_nobluetooth >nul
 cd binupdate
-call installqt515
+@call installqt515 >nul
 cd ..\..
 
-rem build RingLibuv
+echo Building RingLibuv...
 cd ringlibuv
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingInternet
+echo Building RingInternet...
 cd ringinternet
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingCurl
+echo Building RingCurl...
 cd ringcurl
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingOpenSSL
+echo Building RingOpenSSL...
 cd ringopenssl
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingLibui
+echo Building RingLibui...
 cd ringlibui
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingBeep
+echo Building RingBeep...
 cd ringbeep
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingODBC
+echo Building RingODBC...
 cd ringodbc
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingHTTPLib
+echo Building RingHTTPLib...
 cd ringhttplib32
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingMouseEvent
+echo Building RingMouseEvent...
 cd ringmouseevent
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingMurmurHash
+echo Building RingMurmurHash...
 cd ringmurmurhash
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingSockets
+echo Building RingSockets...
 cd ringsockets
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingSQLite
+echo Building RingSQLite...
 cd ringsqlite
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingZip
+echo Building RingZip...
 cd ringzip
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingWinAPI
+echo Building RingWinAPI...
 cd ringwinapi
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingWinCREG
+echo Building RingWinCREG...
 cd ringwincreg
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingWinLib
+echo Building RingWinLib...
 cd ringwinlib
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingTilengine
+echo Building RingTilengine...
 cd ringtilengine
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingLibSDL
+echo Building RingLibSDL...
 cd ringsdl
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingMySQL
+echo Building RingMySQL...
 cd ringmysql
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingPostgreSQL
+echo Building RingPostgreSQL...
 cd ringpostgresql
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingRogueUtil
+echo Building RingRogueUtil...
 cd ringrogueutil
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingPDFGen
+echo Building RingPDFGen...
 cd ringpdfgen
-call buildvc
+@call buildvc >nul
 cd ..
 
-rem build RingFastPro
+echo Building RingFastPro...
 cd ringfastpro
-call buildvc
-cd ..\..\
-
-rem build Tools
-cd tools\ring2exe
-call build
-cd ..\ringpm
-call build
-cd ..\ringrepl
-call build
-cd ..\folder2qrc
-call build
-cd ..\..\language\tests
-call build
+@call buildvc >nul
 cd ..\..
 
-rem build Sudoku
+echo Building Tools...
+cd tools\ring2exe
+@call build >nul
+cd ..\ringpm
+@call build >nul
+cd ..\ringrepl
+@call build >nul
+cd ..\folder2qrc
+@call build >nul
+cd ..\..\language\tests
+@call build >nul
+cd ..\..
+
+echo Building Sudoku...
 cd applications\sudoku\v2
-call buildvc
+@call buildvc >nul
 cd ..\v3
-call buildvc
-cd ..\..\..\
+@call buildvc >nul
+cd ..\..\..
 
-rem build extensions/tutorial 
+echo Building Tutorial Extensions...
 cd extensions/tutorial/createtable
-call buildvc
+@call buildvc >nul
 cd ../displaylist
-call buildvc
+@call buildvc >nul
 cd ../filterlist
-call buildvc
+@call buildvc >nul
 cd ../generatelist
-call buildvc
+@call buildvc >nul
 cd ../helloworld
-call buildvc
+@call buildvc >nul
 cd ../helloworld2
-call buildvc
+@call buildvc >nul
 cd ../incrementlist
-call buildvc
+@call buildvc >nul
 cd ../integerpointer
-call buildvc
+@call buildvc >nul
 cd ../mandelbrot
-call buildvc
+@call buildvc >nul
 cd ../replicatelist
-call buildvc
+@call buildvc >nul
 cd ../sayhello
-call buildvc
+@call buildvc >nul
 cd ../stringpointer
-call buildvc
+@call buildvc >nul
 cd ../sumlist
-call buildvc
+@call buildvc >nul
 cd ../sumtwonumbers
-call buildvc
+@call buildvc >nul
 cd ../updatetable
-call buildvc
-cd ..\..\..\
+@call buildvc >nul
+cd ..\..\..
 
+echo Building Mandelbrot Sample...
 cd samples\Drawing\Mandelbrot
-call buildvc
-cd ..\..\..\
+@call buildvc >nul
+cd ..\..\..
 
-copy tools\ringnotepad\rnoteexe\RingNotepad.exe .
+echo Copying RingNotepad.exe...
+copy tools\ringnotepad\rnoteexe\RingNotepad.exe . >nul
 
+echo Copying DLL files...
 cd bin
-
-rem copy dll files
-copy ..\extensions\libdepwin\extra\*.dll .
-copy ..\extensions\libdepwin\cruntime\*.dll .
-copy ..\extensions\libdepwin\libcurl\bin\*.dll .
-copy ..\extensions\libdepwin\openssl\bin\*.dll .
-copy ..\extensions\libdepwin\Allegro5.2.8\bin\*.dll .
-copy ..\extensions\libdepwin\freeglut\bin\*.dll .
-copy ..\extensions\libdepwin\glew\bin\Release\win32\*.dll .
-copy ..\extensions\libdepwin\raylib5\lib\*.dll .
-copy ..\extensions\libdepwin\libuishared\*.dll .
-copy ..\extensions\libdepwin\tilengine\lib\*.dll .
-copy ..\extensions\libdepwin\libsdl\SDL2_vc\lib\x86\*.dll .
-copy ..\extensions\libdepwin\libsdl\SDL2_image\lib\x86\*.dll .
-copy ..\extensions\libdepwin\libsdl\SDL2_mixer\lib\x86\*.dll .
-copy ..\extensions\libdepwin\libsdl\SDL2_net\lib\x86\*.dll .
-copy ..\extensions\libdepwin\libsdl\SDL2_ttf\lib\x86\*.dll .
-copy ..\extensions\libdepwin\mysql\lib\*.dll .
-copy ..\extensions\libdepwin\pgsql\lib\*.dll .
-copy ..\extensions\libdepwin\libuv\*.dll .
-
-
+copy ..\extensions\libdepwin\extra\*.dll . >nul
+copy ..\extensions\libdepwin\cruntime\*.dll . >nul
+copy ..\extensions\libdepwin\libcurl\bin\*.dll . >nul
+copy ..\extensions\libdepwin\openssl\bin\*.dll . >nul
+copy ..\extensions\libdepwin\Allegro5.2.8\bin\*.dll . >nul
+copy ..\extensions\libdepwin\freeglut\bin\*.dll . >nul
+copy ..\extensions\libdepwin\glew\bin\Release\win32\*.dll . >nul
+copy ..\extensions\libdepwin\raylib5\lib\*.dll . >nul
+copy ..\extensions\libdepwin\libuishared\*.dll . >nul
+copy ..\extensions\libdepwin\tilengine\lib\*.dll . >nul
+copy ..\extensions\libdepwin\libsdl\SDL2_vc\lib\x86\*.dll . >nul
+copy ..\extensions\libdepwin\libsdl\SDL2_image\lib\x86\*.dll . >nul
+copy ..\extensions\libdepwin\libsdl\SDL2_mixer\lib\x86\*.dll . >nul
+copy ..\extensions\libdepwin\libsdl\SDL2_net\lib\x86\*.dll . >nul
+copy ..\extensions\libdepwin\libsdl\SDL2_ttf\lib\x86\*.dll . >nul
+copy ..\extensions\libdepwin\mysql\lib\*.dll . >nul
+copy ..\extensions\libdepwin\pgsql\lib\*.dll . >nul
+copy ..\extensions\libdepwin\libuv\*.dll . >nul
 
 endlocal
