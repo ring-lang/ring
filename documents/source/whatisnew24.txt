@@ -115,6 +115,7 @@ More Improvements
 * Space() function: Don't accept values over UINT_MAX
 * List() function: Don't accept values over UINT_MAX and don't use blocks for small 1D lists
 * Shutdown() function: Don't terminate Ring VM (Main State) when used from Ring VM (Sub State)
+* Read() function: Reduce memory usage (improve the performance)
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
 * Ring PM: Better format for output messages
