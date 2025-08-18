@@ -9,11 +9,11 @@ cd ..\..\..\bin
 copy %RING_QT_DIR%\%RING_QT_VERSION%\msvc2019\bin\*.dll .
 copy %RING_QT_DIR%\%RING_QT_VERSION%\msvc2019\bin\QtWebEngineProcess.exe .
 xcopy %RING_QT_DIR%\%RING_QT_VERSION%\msvc2019\plugins . /E /H /C /R /Q /Y
-md qml
+if not exist qml md qml
 xcopy %RING_QT_DIR%\%RING_QT_VERSION%\msvc2019\qml qml /E /H /C /R /Q /Y
-md translations
+if not exist translations md translations
 xcopy %RING_QT_DIR%\%RING_QT_VERSION%\msvc2019\translations translations /E /H /C /R /Q /Y
-md resources
+if not exist resources md resources
 xcopy %RING_QT_DIR%\%RING_QT_VERSION%\msvc2019\resources resources /E /H /C /R /Q /Y
 
 cd ..\extensions\ringqt\binupdate
