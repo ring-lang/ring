@@ -272,4 +272,6 @@ copy ..\extensions\libdepwin\mysql\lib\*.dll . >nul
 copy ..\extensions\libdepwin\pgsql\lib\*.dll . >nul
 copy ..\extensions\libdepwin\libuv\*.dll . >nul
 
+@call cleartemp >nul
+
 endlocal

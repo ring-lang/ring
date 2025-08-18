@@ -276,4 +276,6 @@ copy ..\extensions\libdepwin\libsdl\SDL2_ttf\lib\x64\*.dll . >nul
 copy ..\extensions\libdepwin\mysql_x64\lib\*.dll . >nul
 copy ..\extensions\libdepwin\pgsql_x64\lib\*.dll . >nul
 
+@call cleartemp >nul
+
 endlocal
