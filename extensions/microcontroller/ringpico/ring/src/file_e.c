@@ -436,14 +436,12 @@ void ring_vm_file_fread(void *pPointer) {
 				RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
 				return;
 			}
-			cStr = (char *)RING_API_MALLOC(nSize);
+			RING_API_RETSTRINGSIZE(nSize);
+			cStr = ring_string_get(RING_API_GETSTRINGRAW);
 			nResult = fread(cStr, RING_ONE, nSize, pFile);
 			if (nResult == 0) {
 				RING_API_RETNUMBER(nResult);
-			} else {
-				RING_API_RETSTRING2(cStr, nResult);
 			}
-			RING_API_FREE(cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
