@@ -54,18 +54,20 @@ cd ringraylib5\src
 @call buildvc_x64 >nul
 cd ..\..
 
-echo Building Ring Qt...
+echo Building Ring Qt (Core)...
 cd ringqt
 del /q debug\*.* >nul
 del /q release\*.* >nul
 @call gencode_core >nul
 @call buildvc_core_x64 >nul
 
+echo Building Ring Qt (LightGUILib)...
 del /q debug\*.* >nul
 del /q release\*.* >nul
 @call gencode_light >nul
 @call buildvc_light_x64 >nul
 
+echo Building Ring Qt (GUILib)...
 del /q debug\*.* >nul
 del /q release\*.* >nul
 @call gencode_nobluetooth >nul
@@ -190,26 +192,31 @@ cd ringfastpro
 cd ..\..
 
 echo Building Tools...
+echo Building Ring2EXE...
 cd tools\ring2exe
 @call build >nul
+echo Building RingPM...
 cd ..\ringpm
 @call build >nul
+echo Building RingREPL...
 cd ..\ringrepl
 @call build >nul
+echo Building Folder2Qrc...
 cd ..\folder2qrc
 @call build >nul
+echo Building Tests...
 cd ..\..\language\tests
 @call build >nul
 cd ..\..
 
-echo Building Sudoku...
+echo Building Applications\Sudoku...
 cd applications\sudoku\v2
 @call buildvc_x64 >nul
 cd ..\v3
 @call buildvc_x64 >nul
 cd ..\..\..
 
-echo Building Tutorial Extensions...
+echo Building Extensions\Tutorial...
 cd extensions/tutorial/createtable
 @call buildvc_x64 >nul
 cd ../displaylist
@@ -242,7 +249,7 @@ cd ../updatetable
 @call buildvc_x64 >nul
 cd ..\..\..
 
-echo Building Mandelbrot Sample...
+echo Building samples\Drawing\Mandelbrot Sample...
 cd samples\Drawing\Mandelbrot
 @call buildvc_x64 >nul
 cd ..\..\..
