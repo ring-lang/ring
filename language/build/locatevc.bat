@@ -6,7 +6,7 @@ set RINGARCHPATH="%RINGSCRIPTPATH%..\..\bin\buildarch.ring"
 
 rem default values for build flags
 set ringbuildtarget=x86
-set ringcflags=/O2
+set ringcflags=/O2 /nologo
 set ringldflags=
 set ringdebug=0
 set ringsubsystem=5.01
