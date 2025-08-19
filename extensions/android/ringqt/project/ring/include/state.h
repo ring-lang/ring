@@ -26,11 +26,11 @@ typedef struct RingState {
 	/* Scanner Error Code */
 	unsigned int nScannerError;
 	/* Counter to know if we are using (Load Again) command */
-	int nLoadAgain;
+	unsigned int nLoadAgain;
 	/* Custom global scope counter */
-	int nCustomGlobalScopeCounter;
+	unsigned int nCustomGlobalScopeCounter;
 	/* VM Instructions Count */
-	int nInstructionsCount;
+	unsigned int nInstructionsCount;
 	/* set to 0 if we need to compile only */
 	unsigned int lRun : 1;
 	/* set to 1 if we need to print byte code before execution */

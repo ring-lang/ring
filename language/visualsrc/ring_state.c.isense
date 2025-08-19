@@ -25,9 +25,9 @@ Type: int
 nArgc
 Type: unsigned int
 nScannerError
-Type: int
+Type: unsigned int
 nLoadAgain
-Type: int
+Type: unsigned int
 nCustomGlobalScopeCounter
 Type: int
 nInstructionsCount
@@ -158,7 +158,7 @@ pVM
 ring_state_newbytecode
 Type: VM *
 pVM
-Type: int
+Type: unsigned int
 x
 ring_state_log
 ring_state_runbytecode
