@@ -676,7 +676,7 @@ RING_API unsigned int ring_list_findstring_gc(void *pState, List *pList, const c
 				}
 				pList2 = ring_list_getlist(pList, x);
 				if (ring_list_getsize(pList2) < nColumn) {
-					return -1;
+					return RING_LISTERROR_COLUMNNOTFOUND;
 				}
 				if (ring_list_isstring(pList2, nColumn)) {
 					if (strcmp(cStr, ring_list_getstring(pList2, nColumn)) == 0) {
@@ -710,7 +710,7 @@ RING_API unsigned int ring_list_finddouble_gc(void *pState, List *pList, double 
 				}
 				pList2 = ring_list_getlist(pList, x);
 				if (ring_list_getsize(pList2) < nColumn) {
-					return -1;
+					return RING_LISTERROR_COLUMNNOTFOUND;
 				}
 				if (ring_list_isdouble(pList2, nColumn)) {
 					if (ring_list_getdouble(pList2, nColumn) == nNum1) {
@@ -1136,7 +1136,7 @@ RING_API unsigned int ring_list_findinlistofobjs_gc(void *pState, List *pList, i
 			nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA),
 						       cAttribute, RING_VAR_NAME);
 			if (nPos == 0) {
-				return -1;
+				return RING_LISTERROR_PROPERTYNOTFOUND;
 			}
 			pList2 = ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA);
 			pList2 = ring_list_getlist(pList2, nPos);

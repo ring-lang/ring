@@ -43,6 +43,8 @@ struct List *
 Type: List
 Mark: ->
 List *
+RING_LISTERROR_COLUMNNOTFOUND
+RING_LISTERROR_PROPERTYNOTFOUND
 RING_LISTOFOBJS_FINDNUMBER
 RING_LISTOFOBJS_FINDSTRING
 RING_LISTOFOBJS_FINDCPOINTER
@@ -246,7 +248,7 @@ x,y,nMid
 Type: String *
 pMidvalue
 ring_list_binarysearchnum_gc
-Type: int
+Type: unsigned int
 nFirst,nMid,nLast
 ring_list_binarysearchstr_gc
 Type: unsigned int

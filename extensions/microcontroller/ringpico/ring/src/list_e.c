@@ -264,7 +264,7 @@ void ring_vm_listfuncs_find(void *pPointer) {
 					} else {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 					}
-					if (nNum1 == -1) {
+					if (nNum1 == RING_LISTERROR_PROPERTYNOTFOUND) {
 						RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 					}
 				} else {
@@ -286,7 +286,7 @@ void ring_vm_listfuncs_find(void *pPointer) {
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}
-				if (nNum1 == -1) {
+				if (nNum1 == RING_LISTERROR_COLUMNNOTFOUND) {
 					RING_API_ERROR(RING_VM_ERROR_BADCOLUMNNUMBER);
 				}
 			}
