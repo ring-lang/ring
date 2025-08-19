@@ -3,7 +3,7 @@ set -e
 cd ..
 
 echo "Building Ring for macOS..."
-echo "Building Ring Compiler/VM..."
+echo "Building Compiler/VM..."
 cd language/build
 sudo ./buildclang.sh > /dev/null 2>&1
 cd ../..
@@ -136,6 +136,7 @@ echo "Building RingSQLite..."
 cd ../ringsqlite
 ./buildclang.sh > /dev/null 2>&1 || true
 
+echo "Building Tools..."
 echo "Building Ring2EXE..."
 cd ../../tools/ring2exe
 ./build.sh > /dev/null 2>&1 || true
