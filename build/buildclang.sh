@@ -160,3 +160,54 @@ cd ../../bin
 echo "Building Ring Tests..."
 cd ../language/tests
 ./build.sh > /dev/null 2>&1 || true
+
+cd ../../bin
+
+echo "Check for required Ring dylibs in ../lib"
+LIB_DIR="../lib"
+MISSING=0
+
+FILES=(
+  libring.dylib
+  libringallegro.dylib
+  libringqt.dylib
+  libringqt_core.dylib
+  libringqt_light.dylib
+  libringraylib.dylib
+  libringstatic.a
+  libring_cjson.dylib
+  libring_consolecolors.dylib
+  libring_fastpro.dylib
+  libring_freeglut.dylib
+  libring_httplib.dylib
+  libring_internet.dylib
+  libring_libcurl.dylib
+  libring_libzip.dylib
+  libring_murmurhash.dylib
+  libring_mysql.dylib
+  libring_odbc.dylib
+  libring_opengl21.dylib
+  libring_openssl.dylib
+  libring_pdfgen.dylib
+  libring_pgsql.dylib
+  libring_rogueutil.dylib
+  libring_sockets.dylib
+  libring_sqlite.dylib
+  libring_stbimage.dylib
+  libring_threads.dylib
+  libring_uv.dylib
+  libring_libui.dylib
+)
+
+for file in "${FILES[@]}"; do
+  if [ ! -f "$LIB_DIR/$file" ]; then
+    echo "Missing: $file"
+    MISSING=1
+  fi
+done
+
+if [ $MISSING -eq 0 ]; then
+  echo "All required files are present."
+else
+  echo "One or more files are missing."
+fi
