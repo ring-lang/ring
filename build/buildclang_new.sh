@@ -34,7 +34,7 @@ echo "Building RingQt (LightGUILib)..."
 ./gencode_light.sh > /dev/null
 ./buildclang_light.sh > /dev/null
 
-"echo Building RingQt (GUILib)..."
+echo "Building RingQt (GUILib)..."
 ./gencode.sh > /dev/null
 ./buildclang.sh > /dev/null
 
