@@ -453,10 +453,10 @@ RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize
 	**  Prepare the condition
 	*/
 	lUseBlocks = pVM->pRingState->lCreateListsUsingBlocks &&
-		     (!((nSize < RING_API_MINLISTSIZEFORUSINGBLOCKS) && (nSize2 == -1)) ||
+		     (!((nSize < RING_API_MINLISTSIZEFORUSINGBLOCKS) && (nSize2 == RING_API_IGNORETHISDIMENSION)) ||
 		      !((nSize * nSize2) < RING_API_MINLISTSIZEFORUSINGBLOCKS));
 	if (lUseBlocks) {
-		if ((nSize > 0) && (nSize2 == -1)) {
+		if ((nSize > 0) && (nSize2 == RING_API_IGNORETHISDIMENSION)) {
 			/*
 			**  Allocate Memory
 			**  We allocate an extra item (nSize+1) to avoid using the block address as the first item
@@ -572,7 +572,7 @@ RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize
 		return pList;
 	}
 #endif
-	if ((nSize > 0) && (nSize2 == -1)) {
+	if ((nSize > 0) && (nSize2 == RING_API_IGNORETHISDIMENSION)) {
 		pList2 = ring_list_new_gc(pVM->pRingState, nSize);
 		ring_list_swaptwolists(pList, pList2);
 		ring_list_delete_gc(pVM->pRingState, pList2);

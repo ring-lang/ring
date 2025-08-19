@@ -77,7 +77,9 @@
 #define RING_LIBINIT RING_API void ringlib_init(RingState *pRingState)
 #define RING_API_GETCHARPOINTER(nPara) RING_API_VARPOINTER(RING_API_GETSTRING(nPara), "char")
 #define RING_API_ISLISTORNULL(nPara) (ring_vm_api_islistornull(pPointer, nPara))
-#define RING_API_NEWLISTUSINGBLOCKS1D(nSize) ring_vm_api_newlistusingblocks(pPointer, nSize, -1)
+#define RING_API_IGNORETHISDIMENSION UINT_MAX
+#define RING_API_NEWLISTUSINGBLOCKS1D(nSize)                                                                           \
+	ring_vm_api_newlistusingblocks(pPointer, nSize, RING_API_IGNORETHISDIMENSION)
 #define RING_API_NEWLISTUSINGBLOCKS2D(nRows, nCols) ring_vm_api_newlistusingblocks(pPointer, nRows, nCols)
 #define RING_API_CALLERSCOPE ring_vm_api_callerscope(pPointer)
 #define RING_API_SCOPESCOUNT ring_vm_api_scopescount(pPointer)
