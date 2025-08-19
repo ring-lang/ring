@@ -21,6 +21,8 @@ typedef struct List {
 	ListGCData vGC;
 } List;
 /* Constants */
+#define RING_LIST_KEYINDEX 1
+#define RING_LIST_MAXSIZE (UINT_MAX - 1)
 #define RING_LISTERROR_COLUMNNOTFOUND UINT_MAX
 #define RING_LISTERROR_PROPERTYNOTFOUND UINT_MAX
 #define RING_LISTOFOBJS_FINDNUMBER 0
@@ -30,7 +32,6 @@ typedef struct List {
 #define RING_LISTBLOCKTYPE_ITEM 1
 #define RING_LISTBLOCKTYPE_ITEMS 2
 #define RING_LISTBLOCKTYPE_LIST 3
-#define RING_LIST_KEYINDEX 1
 /* Macro */
 #define ring_list_isdouble_gc(pState, pList, nIndex)                                                                   \
 	(ring_list_gettype_gc(pState, pList, nIndex) == ITEMTYPE_NUMBER) &&                                            \

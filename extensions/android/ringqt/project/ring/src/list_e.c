@@ -40,7 +40,7 @@ void ring_vm_listfuncs_add(void *pPointer) {
 			return;
 		}
 		/* Check the Range */
-		if (ring_list_getsize(pList) == UINT_MAX) {
+		if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
 			RING_API_ERROR(RING_API_RANGEEXCEEDED);
 			return;
 		}
@@ -172,7 +172,7 @@ void ring_vm_listfuncs_list(void *pPointer) {
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > UINT_MAX)) {
+			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > RING_LIST_MAXSIZE)) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
@@ -191,8 +191,8 @@ void ring_vm_listfuncs_list(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	} else if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2)) {
-			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > UINT_MAX) ||
-			    (RING_API_GETNUMBER(2) < 1.0) || (RING_API_GETNUMBER(2) > UINT_MAX)) {
+			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > RING_LIST_MAXSIZE) ||
+			    (RING_API_GETNUMBER(2) < 1.0) || (RING_API_GETNUMBER(2) > RING_LIST_MAXSIZE)) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
@@ -428,7 +428,7 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 			return;
 		}
 		/* Check the Range */
-		if (ring_list_getsize(pList) == UINT_MAX) {
+		if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
 			RING_API_ERROR(RING_API_RANGEEXCEEDED);
 			return;
 		}
