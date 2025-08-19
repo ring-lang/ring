@@ -447,6 +447,11 @@ RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	pList = ring_vm_api_newlist(pVM);
+	if (nSize > RING_LIST_MAXSIZE) {
+		/* We don't check nSize2 because a higher value means RING_API_IGNORETHISDIMENSION */
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return pList;
+	}
 #if RING_USEPOOLMANAGER
 	/*
 	**  Check if we can use blocks
