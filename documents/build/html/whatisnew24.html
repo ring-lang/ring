@@ -305,24 +305,29 @@
 <li><p>RingHTTPLib: The file httplib.h is updated (Using 0.23.1)</p></li>
 <li><p>RingLibSDL: Enable building the extension using recent MSVC compiler</p></li>
 <li><p>Space() function: Don’t accept values over UINT_MAX</p></li>
-<li><p>List() function: Don’t accept values over UINT_MAX and don’t use blocks for small 1D lists</p></li>
-<li><p>Shutdown() function: Don’t terminate Ring VM (Main State) when used from Ring VM (Sub State)</p></li>
+<li><p>List() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>List() function: Don’t use blocks for small 1D lists</p></li>
 <li><p>Read() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>FRead() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>FGets() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>SubStr() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>Shutdown() function: Don’t terminate Ring Main State when used from Ring Sub State</p></li>
 <li><p>Ring Tests: Add/Use: nIgnoreCount</p></li>
 <li><p>Ring PM: Tests are revised and improved</p></li>
 <li><p>Ring PM: Better format for output messages</p></li>
 <li><p>Ring PM: Error message when the package contains a file that doesn’t exist</p></li>
 <li><p>Ring PM: Disable colors usage in output when the CUILIB_COLORS environment variable is 0</p></li>
 <li><p>Ring VM: ring_objfile_readfromsource() - Better implementation</p></li>
-<li><p>Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)</p></li>
 <li><p>Ring VM: Better functions for threads support</p></li>
-<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
 <li><p>Ring VM: Support handling stack overflow error using Try/Catch</p></li>
-<li><p>Ring VM: String functions - get index as (unsigned int) instead of (int)</p></li>
+<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
 <li><p>Ring VM: Clean memory after runtime errors before returning to the operating system</p></li>
-<li><p>Ring VM: ring_list_setcache() is renamed to ring_list_setcache_gc()</p></li>
-<li><p>Ring VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()</p></li>
-<li><p>Ring VM: ring_string_set2_gc() implementation - Delete large buffers when the string is empty</p></li>
+<li><p>Ring Compiler/VM: ring_list_setcache() is renamed to ring_list_setcache_gc()</p></li>
+<li><p>Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()</p></li>
+<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)</p></li>
+<li><p>Ring Compiler/VM: Check size overflow for Ring Strings, Lists and HashTables</p></li>
+<li><p>Ring Compiler/VM: String functions - Get index as (unsigned int) instead of (int)</p></li>
+<li><p>Ring Compiler/VM: ring_string_set2_gc() implementation - Delete large buffers for empty strings</p></li>
 </ul>
 </section>
 </section>
