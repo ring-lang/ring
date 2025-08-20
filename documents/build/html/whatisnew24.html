@@ -311,6 +311,7 @@
 <li><p>FRead() function: Reduce memory usage (improve the performance)</p></li>
 <li><p>FGets() function: Reduce memory usage (improve the performance)</p></li>
 <li><p>SubStr() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>Reverse() function: Reduce memory usage (improve the performance)</p></li>
 <li><p>Shutdown() function: Don’t terminate Ring Main State when used from Ring Sub State</p></li>
 <li><p>Ring Tests: Add/Use: nIgnoreCount</p></li>
 <li><p>Ring PM: Tests are revised and improved</p></li>
@@ -326,6 +327,7 @@
 <li><p>Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()</p></li>
 <li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)</p></li>
 <li><p>Ring Compiler/VM: Check size overflow for Ring Strings, Lists and HashTables</p></li>
+<li><p>Ring Compiler/VM: Check reference count overflow for Ring Lists</p></li>
 <li><p>Ring Compiler/VM: String functions - Get index as (unsigned int) instead of (int)</p></li>
 <li><p>Ring Compiler/VM: ring_string_set2_gc() implementation - Delete large buffers for empty strings</p></li>
 </ul>
