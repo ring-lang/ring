@@ -185,6 +185,11 @@ RING_API void ring_list_setcache_gc(void *pState, List *pList, struct Items *pIt
 
 RING_API Item *ring_list_newitem_gc(void *pState, List *pList) {
 	Items *pItems;
+	/* Check for overflow before adding new item */
+	if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
+		printf(RING_LISTSIZEOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
 	pItems = ring_items_new_gc(pState);
 	ring_list_newitembyitemsptr_gc(pState, pList, pItems);
 	return pItems->pValue;
@@ -498,6 +503,11 @@ RING_API unsigned int ring_list_isfuncpointer_gc(void *pState, List *pList, unsi
 
 RING_API void ring_list_insertitem_gc(void *pState, List *pList, unsigned int x) {
 	Items *pItems, *pPos;
+	/* Check for overflow before inserting new item */
+	if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
+		printf(RING_LISTSIZEOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
 	if (x > ring_list_getsize(pList)) {
 		return;
 	} else if (x == ring_list_getsize(pList)) {
