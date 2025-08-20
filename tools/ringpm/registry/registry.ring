@@ -826,5 +826,9 @@ aPackagesRegistry = [
 	[ :name = "tictactoeplus",
 	  :description = "An implementation for the TicTacToe game (large board) using RingQt",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring-jwt",
+	  :description = "JWT library for the Ring programming language",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
