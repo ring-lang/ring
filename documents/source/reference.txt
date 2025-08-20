@@ -515,6 +515,7 @@ Environment Errors
 * Error (E7) : Internal error in using sscanf() function!
 * Error (E8) : Internal error in using fscanf() function!
 * Error (E9) : Can't open file
+* Error (E10): String size overflow!
 
 .. index:: 
 	pair: Language Specification; Language Grammar
