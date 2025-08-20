@@ -830,5 +830,9 @@ aPackagesRegistry = [
 	[ :name = "ring-jwt",
 	  :description = "JWT library for the Ring programming language",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "ringpmgui",
+          :description = "Ring Package Manager GUI using RingQt",
+          :ProviderUserName = "azzeddine2017"
 	]
 ]
