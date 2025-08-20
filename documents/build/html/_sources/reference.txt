@@ -506,16 +506,17 @@ Runtime Errors
 Environment Errors
 ==================
 
-* Error (E1) : Caught SegFault
-* Error (E2) : Out of Memory
-* Error (E3) : Deleting scope while no scope!
-* Error (E4) : Long VM Instruction!
-* Error (E5) : The file type is not correct - the VM expect a ring object file
-* Error (E6) : The Ring Object File version is not correct!
-* Error (E7) : Internal error in using sscanf() function!
-* Error (E8) : Internal error in using fscanf() function!
-* Error (E9) : Can't open file
-* Error (E10): String size overflow!
+* Error (E1)  : Caught SegFault
+* Error (E2)  : Out of Memory
+* Error (E3)  : Deleting scope while no scope!
+* Error (E4)  : Long VM Instruction!
+* Error (E5)  : The file type is not correct - the VM expect a ring object file
+* Error (E6)  : The Ring Object File version is not correct!
+* Error (E7)  : Internal error in using sscanf() function!
+* Error (E8)  : Internal error in using fscanf() function!
+* Error (E9)  : Can't open file
+* Error (E10) : String size overflow!
+* Error (E11) : List size overflow!
 
 .. index:: 
 	pair: Language Specification; Language Grammar
