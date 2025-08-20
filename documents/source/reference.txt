@@ -517,6 +517,7 @@ Environment Errors
 * Error (E9)  : Can't open file
 * Error (E10) : String size overflow!
 * Error (E11) : List size overflow!
+* Error (E12) : HashTable size overflow!
 
 .. index:: 
 	pair: Language Specification; Language Grammar
