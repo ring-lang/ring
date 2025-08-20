@@ -24,7 +24,13 @@ RING_API void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
 	}
 }
 
-RING_API void ring_vm_gc_newitemreference(void *pState, Item *pItem) { pItem->nGCReferenceCount++; }
+RING_API void ring_vm_gc_newitemreference(void *pState, Item *pItem) {
+	if (pItem->nGCReferenceCount == RING_VM_REFCOUNTMAX) {
+		printf(RING_REFCOUNTOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
+	pItem->nGCReferenceCount++;
+}
 
 RING_API void ring_vm_gc_cleardata(void *pState, Item *pItem) {
 	pItem->nGCReferenceCount = 0;
