@@ -46,7 +46,7 @@ Type: unsigned int
 x
 ring_string_add2_gc
 Type: unsigned int
-x, nAddSize, nOriginalSize, nRequiredSize, nNewCapacity
+x, nOriginalSize, nRequiredSize, nNewCapacity
 Type: char *
 pNewStr
 ring_string_setfromint_gc

@@ -145,6 +145,7 @@
 #define RING_SSCANFERROR "\nError (E7) : Internal error in using sscanf() function!\n"
 #define RING_FSCANFERROR "\nError (E8) : Internal error in using fscanf() function!\n"
 #define RING_CANTOPENFILE "\nError (E9) : Can't open file"
+#define RING_STRINGSIZEOVERFLOW "\nError (E10) : String size overflow!\n"
 /* Buffer Size */
 #define RING_CHARBUF 2
 #define RING_HEXCHARBUF 3

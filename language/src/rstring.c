@@ -85,15 +85,19 @@ RING_API void ring_string_add_gc(void *pState, String *pString, const char *cStr
 }
 
 RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cStr, unsigned int nStrSize) {
-	unsigned int x, nAddSize, nOriginalSize, nRequiredSize, nNewCapacity;
+	unsigned int x, nOriginalSize, nRequiredSize, nNewCapacity;
 	char *pNewStr;
 	if (nStrSize == 0) {
 		/* Adding empty string ---> Do Nothing! */
 		return;
 	}
-	nAddSize = (unsigned int)nStrSize;
 	nOriginalSize = pString->nSize;
-	nRequiredSize = nOriginalSize + nAddSize;
+	/* Check for overflow before addition */
+	if (nOriginalSize > UINT_MAX - nStrSize) {
+		printf(RING_STRINGSIZEOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
+	nRequiredSize = nOriginalSize + nStrSize;
 	/* Check if there is enough capacity */
 	if ((nRequiredSize + 1) > pString->nCapacity) {
 		/* Not enough space, so reallocate with a growth strategy */
@@ -116,7 +120,7 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 		pString->nCapacity = nNewCapacity;
 	}
 	/* We have enough capacity. Just copy the new data. */
-	RING_MEMCPY(pString->cStr + nOriginalSize, cStr, nAddSize);
+	RING_MEMCPY(pString->cStr + nOriginalSize, cStr, nStrSize);
 	pString->nSize = nRequiredSize;
 	pString->cStr[nRequiredSize] = '\0';
 }
