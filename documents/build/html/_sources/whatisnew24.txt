@@ -64,6 +64,9 @@ The following packages have been added to the RingPM registry.
 * WebView: Create beautiful, cross-platform desktop apps using Ring and web technologies
 * Dialog: Ring bindings for osdialog, a cross-platform library for native OS dialogs
 * Worm: Simple example about Map generation in Ring Game Engine for 2D Games
+* TicTacToePlus: An implementation for the TicTacToe game (large board) using RingQt
+* Ring-JWT: JWT library for the Ring programming language
+* RingPMGUI: Ring Package Manager GUI using RingQt
 
 Example:
 
