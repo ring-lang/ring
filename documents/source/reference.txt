@@ -518,6 +518,7 @@ Environment Errors
 * Error (E10) : String size overflow!
 * Error (E11) : List size overflow!
 * Error (E12) : HashTable size overflow!
+* Error (E13) : Reference count overflow!
 
 .. index:: 
 	pair: Language Specification; Language Grammar
