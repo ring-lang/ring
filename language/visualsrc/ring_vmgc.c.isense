@@ -1,5 +1,6 @@
 ring_vmgcdata
 RING_VM_BITSFORREFCOUNT
+RING_VM_REFCOUNTMAX
 Parent: ListGCData
 Type: void *
 pContainer

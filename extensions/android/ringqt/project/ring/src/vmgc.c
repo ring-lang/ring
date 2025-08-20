@@ -335,6 +335,10 @@ RING_API void ring_list_setlistbyref_gc(void *pState, List *pList, unsigned int 
 }
 
 RING_API void ring_list_updaterefcount_gc(void *pState, List *pList, int nChange) {
+	if ((pList->vGC.nReferenceCount == RING_VM_REFCOUNTMAX) && (nChange > 0)) {
+		printf(RING_REFCOUNTOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
 	pList->vGC.nReferenceCount += nChange;
 }
 

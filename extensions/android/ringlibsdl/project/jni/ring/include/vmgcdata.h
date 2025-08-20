@@ -3,6 +3,7 @@
 #ifndef ring_vmgcdata
 #define ring_vmgcdata
 #define RING_VM_BITSFORREFCOUNT 24
+#define RING_VM_REFCOUNTMAX 8388607
 typedef struct ListGCData {
 	void *pContainer;
 	int nReferenceCount : RING_VM_BITSFORREFCOUNT;
