@@ -24,6 +24,13 @@ RING_API void ring_vm_gc_freefunc(RingState *pState, Item *pItem) {
 	}
 }
 
+RING_API void ring_vm_gc_newitemreference(void *pState, Item *pItem) { pItem->nGCReferenceCount++; }
+
+RING_API void ring_vm_gc_cleardata(void *pState, Item *pItem) {
+	pItem->nGCReferenceCount = 0;
+	pItem->pGCFreeFunc = NULL;
+}
+
 RING_API void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_gc(pState, (List *)pList); }
 
 RING_API void ring_vm_gc_finishitemdelete(void *pState, Item *pItem) {
@@ -76,7 +83,7 @@ RING_API void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, L
 	if (nType == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)pPointer;
 		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-		ring_vm_gc_newitemreference(pItem);
+		ring_vm_gc_newitemreference(pVM->pRingState, pItem);
 		/* Set the Free Function */
 		pItem = ring_list_getitem_gc(pVM->pRingState, pContainer, nIndex);
 		ring_vm_gc_setfreefunc(pItem, (void (*)(void *, void *))ring_vm_gc_deleteitem);

@@ -486,7 +486,7 @@ void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
 		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_CPOINTER_POINTER);
 		pNewList->pFirst->pValue = pItem;
 		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-		ring_vm_gc_newitemreference(pItem);
+		ring_vm_gc_newitemreference(pVM->pRingState, pItem);
 		/* Mark the C Pointer List as Not Copied */
 		ring_list_setint_gc(pVM->pRingState, pList, RING_CPOINTER_STATUS, RING_CPOINTERSTATUS_NOTCOPIED);
 		ring_list_setint_gc(pVM->pRingState, pNewList, RING_CPOINTER_STATUS, RING_CPOINTERSTATUS_NOTCOPIED);

@@ -9,16 +9,16 @@
 **  Functions
 **  Item GC Functions
 */
-#define ring_vm_gc_cleardata(pItem)                                                                                    \
-	pItem->nGCReferenceCount = 0;                                                                                  \
-	pItem->pGCFreeFunc = NULL
-#define ring_vm_gc_newitemreference(pItem) pItem->nGCReferenceCount++
 
 RING_API void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *));
 
 RING_API void ring_vm_gc_removetrack(RingState *pState, List *pList);
 
 RING_API void ring_vm_gc_freefunc(RingState *pState, Item *pItem);
+
+RING_API void ring_vm_gc_newitemreference(void *pState, Item *pItem);
+
+RING_API void ring_vm_gc_cleardata(void *pState, Item *pItem);
 
 RING_API void ring_vm_gc_deletelistinitem(void *pState, void *pList);
 
