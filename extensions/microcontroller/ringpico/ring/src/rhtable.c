@@ -26,6 +26,11 @@ RING_API unsigned int ring_hashtable_hashkey_gc(void *pRingState, HashTable *pHa
 RING_API HashItem *ring_hashtable_newitem_gc(void *pRingState, HashTable *pHashTable, const char *cKey) {
 	unsigned int nIndex;
 	HashItem *pItem;
+	/* Check for overflow before adding new item */
+	if (pHashTable->nItems == UINT_MAX) {
+		printf(RING_HASHTABLESIZEOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
 	nIndex = ring_hashtable_hashkey_gc(pRingState, pHashTable, cKey);
 	if (pHashTable->pArray[nIndex] == NULL) {
 		pHashTable->pArray[nIndex] = (HashItem *)ring_state_malloc(pRingState, sizeof(HashItem));

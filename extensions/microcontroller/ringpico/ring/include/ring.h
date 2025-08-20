@@ -147,6 +147,7 @@
 #define RING_CANTOPENFILE "\nError (E9) : Can't open file"
 #define RING_STRINGSIZEOVERFLOW "\nError (E10) : String size overflow!\n"
 #define RING_LISTSIZEOVERFLOW "\nError (E11) : List size overflow!\n"
+#define RING_HASHTABLESIZEOVERFLOW "\nError (E12) : HashTable size overflow!\n"
 /* Buffer Size */
 #define RING_CHARBUF 2
 #define RING_HEXCHARBUF 3
