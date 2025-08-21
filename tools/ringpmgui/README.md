@@ -9,11 +9,17 @@ A graphical user interface for the Ring Package Manager (RingPM) built with Ring
 - **Package Operations**: Run, update, and remove installed packages
 - **Real-time Output**: View command output and progress in real-time
 - **User-friendly Interface**: Clean and intuitive GUI design
+  
+
+<img width="896" height="720" alt="Capture" src="https://github.com/user-attachments/assets/6e666347-54ce-47b8-b9d0-8db28ac4f18a" />
+
+
 
 ## Interface Components
 
 ### Package Installation
 - **Package Name Textbox**: Enter the name of the package to install
+- **User Name Textbox**: Enter developer Github user name 
 - **Install Button**: Click to install the specified package
 
 ### Installed Packages Table
@@ -42,7 +48,6 @@ Displays installed packages with the following columns:
 
 - `ringpmguiController.ring` - Main application controller with business logic
 - `ringpmguiView.ring` - GUI layout and visual components
-- `ringpmgui.rform` - Form designer file for the GUI layout
 - `README.md` - This documentation file
 
 ## Requirements
@@ -51,16 +56,20 @@ Displays installed packages with the following columns:
 - RingQt (for GUI components)
 - RingPM (Ring Package Manager)
 
+## install
+   ```
+   ringpm install ringpmgui from azzeddine2017
+   ```
+
 ## Usage
 
 1. Run the application:
    ```
-   ring ringpmguiController.ring
+   ringpm run ringpmgui
    ```
 
 2. **To install a package**:
    - Enter the package name in the textbox
-   - Click "Install" or press Enter
 
 3. **To manage installed packages**:
    - Select a package from the table
