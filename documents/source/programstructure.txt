@@ -151,7 +151,9 @@ Because the (Load) command load the same source file only for the first time and
 
 So we have to use the (Load Again) command.
 
-Where we can use these files again during the runtime as in the next code
+Where we can use these files again to execute their code multiple times during the runtime as in the next code
+
+.. note:: The Load again command is executed directly by the compiler in the parsing stage
 
 .. code-block:: ring
 
@@ -167,3 +169,5 @@ Where we can use these files again during the runtime as in the next code
 				on C_TRANSLATION_ARABIC 
 					load again "translation/arabic.ring"
 			off
+
+
