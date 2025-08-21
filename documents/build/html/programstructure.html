@@ -331,10 +331,7 @@ Hello from testloadpackage.ring
 <p>Because the (Load) command load the same source file only for the first time and ignore next times.</p>
 <p>So we have to use the (Load Again) command.</p>
 <p>Where we can use these files again to execute their code multiple times during the runtime as in the next code</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Load again command is executed directly by the compiler in the parsing stage</p>
-</div>
+<p>Similar to all of the Load commands, The Load Again command is executed directly by the Ring compiler in the parsing stage.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">setLang</span> <span class="n">nLanguage</span>
         <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
                 <span class="k">return</span>

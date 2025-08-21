@@ -153,7 +153,7 @@ So we have to use the (Load Again) command.
 
 Where we can use these files again to execute their code multiple times during the runtime as in the next code
 
-.. note:: The Load again command is executed directly by the compiler in the parsing stage
+Similar to all of the Load commands, The Load Again command is executed directly by the Ring compiler in the parsing stage.
 
 .. code-block:: ring
 
