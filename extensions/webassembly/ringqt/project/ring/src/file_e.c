@@ -439,6 +439,9 @@ void ring_vm_file_fread(void *pPointer) {
 			nResult = fread(cStr, RING_ONE, nSize, pFile);
 			if (nResult == 0) {
 				RING_API_RETNUMBER(nResult);
+			} else if (nResult < nSize) {
+				(RING_API_GETSTRINGRAW)->nSize = nResult;
+				cStr[nResult] = '\0';
 			}
 		}
 	} else {
