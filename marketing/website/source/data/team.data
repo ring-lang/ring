@@ -38,6 +38,10 @@ aTopContributors = [
                     'Qt/3D/AI Master'                    
 		  ],
 		  [
+		    'Mohannad Al-Ayash',
+		    'Web/GUI Apps'				
+		  ],
+		  [
                     'Ahmad Zakaria',
                     'RayLib Master'                    
 		  ]
@@ -138,10 +142,6 @@ aSuccessPartners = [
 aTeam2 = [
 				  [
 					'Magdy Ragab',
-					'Tester'				
-				  ],
-				  [
-					'Mohannad Al-Ayash',
 					'Tester'				
 				  ],				
 				  [
