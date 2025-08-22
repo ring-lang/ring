@@ -16,6 +16,10 @@
 			'<img src="images/mansour.jpg" width="150" height="170">'
 		],
 		[
+			'Youssef Saeed<br/>Software Developer (Packages Master)',
+			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
+		],
+		[
 			'Majdi Sobain<br/>Software Developer (Extensions Master)',
 			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
@@ -28,10 +32,6 @@ aTopContributors = [
 		  [
                     'Mounir IDRASSI (Creator of VeraCrypt)',
                     'C/C++ Expert'                    
-		  ],
-		  [
-                    'Youssef Saeed',
-                    'Full Stack Developer'                    
 		  ],
 		  [
                     'Azzeddine Remmal',
