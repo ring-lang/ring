@@ -44,6 +44,10 @@ aTopContributors = [
 		  [
                     'Ahmad Zakaria',
                     'RayLib Master'                    
+		  ],
+		  [
+		    'Khaled ABID',
+		    'PWCT2 Testing'					
 		  ]
 ]
 aManyThanks = [
@@ -236,11 +240,6 @@ aTeam2 = [
 				  ],
 				  [
 					'Ahmed Ramzy',
-					'Tester'
-					
-				  ],
-				  [
-					'Khaled ABID',
 					'Tester'
 					
 				  ],
