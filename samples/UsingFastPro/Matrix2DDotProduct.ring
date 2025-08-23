@@ -100,7 +100,7 @@ Func MultDot (MatrixA,MatrixB) {
 		
 		MulMatrix = list(vertA,horzB)
 		#Make array bigV and bigH
-		if horzA! = vertB { 
+		if horzA != vertB { 
 			? "Error: Cant Multiply the Matrix dimension: Horz-A:"+horzA+" MUST EQUAL vert-B:"+vertB
 			? "dimension-A:"+vertA+"X"+horzA+"-----"+"dimension-B:"+vertB+"X"+horzB
 			return 

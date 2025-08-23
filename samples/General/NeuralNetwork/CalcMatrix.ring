@@ -118,7 +118,7 @@ class MatrixCalc
 		horzC = len(MatrixB)
 		MulMatrix = list(vertA,horzB)
 		#Make array bigV and bigH
-		if horzA! = vertB { 
+		if horzA != vertB { 
 			? "Error: Cant Multiply the Matrix dimension: Horz-A:"+horzA+" MUST EQUAL vert-B:"+vertB
 			? "dimension-A:"+vertA+"X"+horzA+"-----"+"dimension-B:"+vertB+"X"+horzB
 			return 
@@ -141,7 +141,7 @@ class MatrixCalc
 		vertB = len(MatrixB)
 		horzB = len(MatrixB[1])
 		aMultiply = list(vertA,horzA)
-		if vertA! = vertB OR horzA! = horzB { 
+		if vertA != vertB OR horzA != horzB { 
 			see "Error: Cant Multiply the Matrix dimension: Horz-A:"+horzA+" MUST EQUAL Horz-B:"+horzB+nl
 			"vert-A:"+vertA+" MUST EQUAL vert-B:"+vertB
 			return 1 
@@ -160,7 +160,7 @@ class MatrixCalc
 		vertB = len(MatrixB)
 		horzB = len(MatrixB[1])
 		aSum = list(vertA,horzA)
-		if vertA! = vertB OR horzA! = horzB { 
+		if vertA != vertB OR horzA != horzB { 
 			see "Error: Cant Add the Matrix dimension: Horz-A:"+horzA+" MUST EQUAL Horz-B:"+horzB+nl
 			"vert-A:"+vertA+" MUST EQUAL vert-B:"+vertB
 			return 1 
@@ -179,7 +179,7 @@ class MatrixCalc
 		vertB = len(MatrixB)
 		horzB = len(MatrixB[1])
 		aSubtract = list(vertA,horzA)
-		if vertA! = vertB OR horzA! = horzB { 
+		if vertA != vertB OR horzA != horzB { 
 			see "Error: Cant Subtract the Matrix dimension: Horz-A:"+horzA+" MUST EQUAL Horz-B:"+horzB+nl
 			"vert-A:"+vertA+" MUST EQUAL vert-B:"+vertB
 			return 1 
