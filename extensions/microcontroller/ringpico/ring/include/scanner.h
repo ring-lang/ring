@@ -196,7 +196,10 @@ typedef enum SCANNER_OPERATOR {
 	OP_BITXOREQUAL,
 	OP_SHLEQUAL,
 	OP_SHREQUAL,
-	OP_POWEQUAL
+	OP_POWEQUAL,
+	OP_LESSEQUAL,
+	OP_GREATEREQUAL,
+	OP_NOTEQUAL
 } SCANNER_OPERATOR;
 /* Operators Array */
 static const char *RING_OPERATORS[] = {"+", "-", "*", "/", "%", ".", "(", ")", "=", ",", "!", ">",

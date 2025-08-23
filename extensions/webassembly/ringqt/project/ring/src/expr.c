@@ -85,24 +85,17 @@ int ring_parser_equalornot(Parser *pParser) {
 	if (ring_parser_compare(pParser)) {
 		x = 1;
 		RING_STATE_PRINTRULE(RING_RULE_EQUALORNOTISCOMPARE);
-		while (ring_parser_isoperator2(pParser, OP_EQUAL) || ring_parser_isoperator2(pParser, OP_NOT)) {
-			if (ring_parser_isoperator2(pParser, OP_NOT)) {
+		while (ring_parser_isoperator2(pParser, OP_EQUAL) || ring_parser_isoperator2(pParser, OP_NOTEQUAL)) {
+			if (ring_parser_isoperator2(pParser, OP_NOTEQUAL)) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE;
-				if (ring_parser_isoperator2(pParser, OP_EQUAL)) {
-					ring_parser_nexttoken(pParser);
-					RING_PARSER_IGNORENEWLINE;
-					x = ring_parser_compare(pParser);
-					if (x == RING_PARSER_FAIL) {
-						return RING_PARSER_FAIL;
-					}
-					/* Generate Code */
-					ring_parser_icg_newoperation(pParser, ICO_NOTEQUAL);
-					RING_STATE_PRINTTWORULES(RING_RULE_EQUALORNOTISCOMPARE, RING_RULE_NOTEQUAL);
-				} else {
-					ring_parser_error(pParser, RING_PARSER_ERROR_EXPROPERATOR);
+				x = ring_parser_compare(pParser);
+				if (x == RING_PARSER_FAIL) {
 					return RING_PARSER_FAIL;
 				}
+				/* Generate Code */
+				ring_parser_icg_newoperation(pParser, ICO_NOTEQUAL);
+				RING_STATE_PRINTTWORULES(RING_RULE_EQUALORNOTISCOMPARE, RING_RULE_NOTEQUAL);
 			} else {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE;
@@ -126,15 +119,17 @@ int ring_parser_compare(Parser *pParser) {
 	if (ring_parser_bitorxor(pParser)) {
 		x = 1;
 		RING_STATE_PRINTRULE(RING_RULE_COMPAREISBITORXOR);
-		while (ring_parser_isoperator2(pParser, OP_LESS) || ring_parser_isoperator2(pParser, OP_GREATER)) {
+		while (ring_parser_isoperator2(pParser, OP_LESS) || ring_parser_isoperator2(pParser, OP_LESSEQUAL) ||
+		       ring_parser_isoperator2(pParser, OP_GREATER) ||
+		       ring_parser_isoperator2(pParser, OP_GREATEREQUAL)) {
 			nEqual = 0;
-			if (ring_parser_isoperator2(pParser, OP_LESS)) {
+			if (ring_parser_isoperator2(pParser, OP_LESS) ||
+			    ring_parser_isoperator2(pParser, OP_LESSEQUAL)) {
+				if (ring_parser_isoperator2(pParser, OP_LESSEQUAL)) {
+					nEqual = 1;
+				}
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE;
-				if (ring_parser_isoperator2(pParser, OP_EQUAL)) {
-					nEqual = 1;
-					ring_parser_nexttoken(pParser);
-				}
 				x = ring_parser_bitorxor(pParser);
 				if (x == RING_PARSER_FAIL) {
 					return RING_PARSER_FAIL;
@@ -150,13 +145,11 @@ int ring_parser_compare(Parser *pParser) {
 								 RING_RULE_LESSTHANOREQUAL);
 				}
 			} else {
+				if (ring_parser_isoperator2(pParser, OP_GREATEREQUAL)) {
+					nEqual = 1;
+				}
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE;
-				if (ring_parser_isoperator2(pParser, OP_EQUAL)) {
-					nEqual = 1;
-					ring_parser_nexttoken(pParser);
-					RING_PARSER_IGNORENEWLINE;
-				}
 				x = ring_parser_bitorxor(pParser);
 				if (x == RING_PARSER_FAIL) {
 					return RING_PARSER_FAIL;

@@ -777,10 +777,11 @@ unsigned int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *
 	const char *cLastToken;
 	/* Operators (Compound and Multi-character) */
 	static const OperatorInfo OP_COMPOUND[] = {
-	    {"+", "+=", OP_PLUSEQUAL},	{"-", "-=", OP_MINUSEQUAL},  {"*", "*=", OP_MULEQUAL},
-	    {"/", "/=", OP_DIVEQUAL},	{"%", "%=", OP_MODEQUAL},    {"&", "&=", OP_BITANDEQUAL},
-	    {"|", "|=", OP_BITOREQUAL}, {"^", "^=", OP_BITXOREQUAL}, {"<<", "<<=", OP_SHLEQUAL},
-	    {">>", ">>=", OP_SHREQUAL}, {"**", "**=", OP_POWEQUAL},  {NULL, NULL, 0}};
+	    {"+", "+=", OP_PLUSEQUAL},	  {"-", "-=", OP_MINUSEQUAL},  {"*", "*=", OP_MULEQUAL},
+	    {"/", "/=", OP_DIVEQUAL},	  {"%", "%=", OP_MODEQUAL},    {"&", "&=", OP_BITANDEQUAL},
+	    {"|", "|=", OP_BITOREQUAL},	  {"^", "^=", OP_BITXOREQUAL}, {"<<", "<<=", OP_SHLEQUAL},
+	    {">>", ">>=", OP_SHREQUAL},	  {"**", "**=", OP_POWEQUAL},  {"<", "<=", OP_LESSEQUAL},
+	    {">", ">=", OP_GREATEREQUAL}, {"!", "!=", OP_NOTEQUAL},    {NULL, NULL, 0}};
 	static const OperatorInfo OP_MULTI[] = {{"<", "<<", OP_SHL},	{">", ">>", OP_SHR},   {"*", "**", OP_POW},
 						{"^", "**", OP_POW},	{"+", "++", OP_INC},   {"-", "--", OP_DEC},
 						{"&", "&&", OP_LOGAND}, {"|", "||", OP_LOGOR}, {NULL, NULL, 0}};
