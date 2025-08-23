@@ -123,8 +123,8 @@ func scramble  {
 		current_button = random(button_size*button_size-1)+1
 		up = (empty = (current_button-button_size))
 		down = (empty = (current_button+button_size))
-		left = ((empty = (current_button-1)) AND ((current_button%button_size)! = 1))
-		right = ((empty = (current_button+1)) AND ((current_button%button_size)! = 0))
+		left = ((empty = (current_button-1)) AND ((current_button%button_size) != 1))
+		right = ((empty = (current_button+1)) AND ((current_button%button_size) != 0))
 		move = up OR down OR left OR right
 		if move = 1 { 
 			button[current_button] {
@@ -189,8 +189,8 @@ func movetile current_button2 {
 			see char(7)
 			up = (empty = (current_button2-button_size))
 			down = (empty = (current_button2+button_size))
-			left = ((empty = (current_button2-1)) AND ((current_button2%button_size)! = 1))
-			right = ((empty = (current_button2+1)) AND ((current_button2%button_size)! = 0))
+			left = ((empty = (current_button2-1)) AND ((current_button2%button_size) != 1))
+			right = ((empty = (current_button2+1)) AND ((current_button2%button_size) != 0))
 			move = up OR down OR left OR right
 			if move = 1 { 
 				temp2 = button[current_button2].text()
@@ -266,7 +266,7 @@ func resettiles  {
 } 
 
 func pHere  { 
-	if button[button_size*button_size-1].text()! = "" AND button[button_size*button_size+2].text() = "Here" { 
+	if button[button_size*button_size-1].text() != "" AND button[button_size*button_size+2].text() = "Here" { 
 		button[button_size*button_size-1] {
 			temp = text()
 		}
@@ -331,7 +331,7 @@ func pBack  {
 } 
 
 func rotateleft  { 
-	if button[button_size*button_size+2].text()! = "Here" { 
+	if button[button_size*button_size+2].text() != "Here" { 
 		button[button_size*button_size+2].close()
 		button[button_size*button_size+2] = new ButtonWithRotatedText(win1)
 		button[button_size*button_size+2] {
@@ -352,7 +352,7 @@ func rotateleft  {
 } 
 
 func rotateright  { 
-	if button[button_size*button_size+2].text()! = "Here" { 
+	if button[button_size*button_size+2].text() != "Here" { 
 		button[button_size*button_size+2].close()
 		button[button_size*button_size+2] = new ButtonWithRotatedText(win1)
 		button[button_size*button_size+2] {
@@ -376,7 +376,7 @@ func newsize current_button {
 	win1 {
 		sizenew = current_button%4
 		win1.resize(360+sizenew*40,640+sizenew*40)
-		if flag_init! = 0 { 
+		if flag_init != 0 { 
 			for nb = 1 to button_size*button_size+3 step 1 { 
 				button[nb] {
 					close()
@@ -628,7 +628,7 @@ func sleep (x) {
 func isGameOver  { 
 	flagend = 1
 	for n = 1 to button_size*button_size-1 step 1 { 
-		if button[n].text()! = n OR btn_degree[n][2]! = 0 { 
+		if button[n].text() != n OR btn_degree[n][2] != 0 { 
 			flagend = 0
 			exit 1
 		} 

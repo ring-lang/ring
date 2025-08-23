@@ -56,7 +56,7 @@ func colorWheel()
 		for j = 1 to y
 			h = (atan2(i-radius,j-radius)+pi)/(2*pi)
 			s = sqrt(p+pow(j-radius,2))/radius
-			if s < = 1 and  h < = 1
+			if s <= 1 and  h <= 1
 				color.setHsvF(h,s,1,1)
 				pen1.setcolor(color)
 				daVinci.setPen(pen1)
