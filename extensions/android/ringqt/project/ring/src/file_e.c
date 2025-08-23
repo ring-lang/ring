@@ -344,7 +344,9 @@ void ring_vm_file_fgets(void *pPointer) {
 			cResult = fgets(cStr, nSize, pFile);
 			if (cResult == NULL) {
 				RING_API_RETNUMBER(0);
+				return;
 			}
+			(RING_API_GETSTRINGRAW)->nSize = strlen(cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

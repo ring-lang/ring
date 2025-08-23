@@ -323,7 +323,7 @@ void ring_vm_file_fgetc(void *pPointer) {
 
 void ring_vm_file_fgets(void *pPointer) {
 	char *cStr;
-	int nSize, nResult;
+	int nSize;
 	FILE *pFile;
 	char *cResult;
 	if (RING_API_PARACOUNT != 2) {
@@ -344,10 +344,9 @@ void ring_vm_file_fgets(void *pPointer) {
 			cResult = fgets(cStr, nSize, pFile);
 			if (cResult == NULL) {
 				RING_API_RETNUMBER(0);
-			} else {
-				nResult = strlen(cStr);
-				(RING_API_GETSTRINGRAW)->nSize = nResult;
+				return;
 			}
+			(RING_API_GETSTRINGRAW)->nSize = strlen(cStr);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
