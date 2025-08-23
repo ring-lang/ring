@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "fifteenpuzzle",
 		:branch = "master",
-		:version = "1.0.2",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.37",
+		:version = "1.0.38",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -30,14 +30,14 @@ aLockInfo = [
 	[
 		:name = "ringqtruntime",
 		:branch = "master",
-		:version = "1.0.25",
+		:version = "1.0.28",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "guilib",
 		:branch = "master",
-		:version = "1.0.23",
+		:version = "1.0.24",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -79,26 +79,19 @@ aLockInfo = [
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.19",
+		:version = "1.0.21",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringopenssl",
 		:branch = "master",
-		:version = "1.0.6",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "ringcurl",
-		:branch = "master",
 		:version = "1.0.9",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
-		:name = "codegen",
+		:name = "ringcurl",
 		:branch = "master",
 		:version = "1.0.12",
 		:providerusername = "ringpackages",
@@ -107,35 +100,35 @@ aLockInfo = [
 	[
 		:name = "internetlib",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.8",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringodbc",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.8",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringsqlite",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.8",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringmysql",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.11",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringpostgresql",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.8",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
