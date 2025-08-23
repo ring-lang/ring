@@ -17,7 +17,7 @@ Or using SSH
 
 ### Complete Build (Compiler/VM, Extensions, Tools, etc.)
 
-Install Qt 5.15.17  (in C:\Qt) so we have the folder (C:\Qt\5.15.17)
+Install Qt 5.15.19  (in C:\Qt) so we have the folder (C:\Qt\5.15.19)
 
 If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
 
