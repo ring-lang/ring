@@ -52,6 +52,10 @@ void stop(void)
 <register>
 void wget(const char *pattern, const char *cCode)
 void wpost(const char *pattern, const char *cCode)
+void wput(const char *pattern, const char *cCode)
+void wpatch(const char *pattern, const char *cCode)
+void wdelete(const char *pattern, const char *cCode)
+void woptions(const char *pattern, const char *cCode)
 const HTTPLib_Response *response(void)
 const HTTPLib_Request *request(void)
 </register>
@@ -136,6 +140,97 @@ RING_FUNC(ring_HTTPLib_Server_wpost)
 	});
 }
 
+RING_FUNC(ring_HTTPLib_Server_wput)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Put(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
+
+RING_FUNC(ring_HTTPLib_Server_wpatch)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Patch(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
+
+RING_FUNC(ring_HTTPLib_Server_wdelete)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Delete(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
+
+RING_FUNC(ring_HTTPLib_Server_woptions)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Options(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
 
 RING_FUNC(ring_HTTPLib_Server_response)
 {
