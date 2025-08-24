@@ -1,0 +1,168 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  785 , :height = 516 , 
+		 :title =  "Vertical ProgressBar" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "ProgressBar1" , :id = 2 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 142 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "10",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar2" , :id = 3 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 192 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "20",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar3" , :id = 4 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 242 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "30",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar4" , :id = 5 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 292 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "40",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar5" , :id = 6 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 342 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "50",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar6" , :id = 7 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 392 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "60",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar7" , :id = 8 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 442 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "70",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar8" , :id = 9 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 492 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "80",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar9" , :id = 10 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 542 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "90",
+		 :setvalueChangedEvent =  ""
+		]
+	],
+	[ :name = "ProgressBar10" , :id = 11 , :classname = "formdesigner_qprogressbar" , :data = [
+		 :x = 592 , : y = 40  , 
+		 :width =  40 , :height = 400 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :orientation =  1,
+		 :minimum =  "",
+		 :maximum =  "",
+		 :range =  "",
+		 :value =  "100",
+		 :setvalueChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File
