@@ -446,6 +446,153 @@ Example: Receiving JSON Data
 		oServer.setContent("Hello, " + cName + "!", "text/plain")
 
 .. index:: 
+	pair: Using HTTPLib; Using HTTP PUT
+	
+Using HTTP PUT
+==============
+
+Example(1):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? "Try localhost:8080/update"
+	? `Try: curl -X PUT -d "test data" http://localhost:8080/update`
+	oServer.route(:Put,"/update",:puttest)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func puttest
+		cBody = oServer.request().body()
+		oServer.setContent("PUT Data received: " + cBody, "text/plain")
+
+Example(2):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "jsonlib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? "Try localhost:8080/items"
+	? `Try: curl -X PUT -H "Content-Type: application/json" -d '{"name": "Item 1"}' http://localhost:8080/items`
+	oServer.route(:Put,"/items",:updateitem)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func updateitem
+		cBody = oServer.request().body()
+		aJson = json2list(cBody)
+		cName = aJson[:name]
+		oServer.setContent("Updated item: " + cName, "text/plain")
+
+.. index::
+	pair: Using HTTPLib; Using HTTP PATCH
+
+Using HTTP PATCH
+================
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? "Try localhost:8080/patch"
+	? `Try: curl -X PATCH -H "Content-Type: application/json" -d '{"name": "Partially Updated"}' http://localhost:8080/patch`
+	oServer.route(:Patch,"/patch",:patchtest)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func patchtest
+		cBody = oServer.request().body()
+		oServer.setContent("PATCH Data received: " + cBody, "text/plain")
+
+.. index::
+	pair: Using HTTPLib; Using HTTP DELETE
+
+Using HTTP DELETE
+=================
+
+Example(1):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? "Try localhost:8080/delete"
+	? `Try: curl -X DELETE http://localhost:8080/delete`
+	oServer.route(:Delete,"/delete",:deletetest)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func deletetest
+		oServer.setContent("Item deleted", "text/plain")
+
+Example(2):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? "Try localhost:8080/items/5"
+	? "Example: localhost:8080/items/123"
+	? `Try: curl -X DELETE http://localhost:8080/items/5`
+	oServer.route(:Delete,"/items/(\d+)",:deleteitem)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func deleteitem
+		cItemId = oServer.Match(1)
+		oServer.setContent("Deleted item: " + cItemId, "text/plain")
+
+.. index::
+	pair: Using HTTPLib; Using HTTP OPTIONS
+
+Using HTTP OPTIONS
+==================
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? "Try localhost:8080/options"
+	? `Try: curl -v -X OPTIONS http://localhost:8080/options`
+	oServer.route(:Options,"/options",:optionstest)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func optionstest
+		oServer.setContent("Allowed: GET, POST, PUT, PATCH, DELETE", "text/plain")
+		oServer.response().set_header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS")
+
+.. index:: 
 	pair: Using HTTPLib; REST API Authentication
 		
 REST API Authentication
