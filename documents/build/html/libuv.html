@@ -104,7 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -323,7 +323,7 @@
         <span class="k">ok</span>
         <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
         <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
-        <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+        <span class="n">destroy_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
 <span class="k">func</span> <span class="n">newconnection</span>
         <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
@@ -468,7 +468,7 @@ message from the server to the client
                 <span class="k">ok</span>
                 <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
                 <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
-                <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+                <span class="n">destroy_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
         <span class="k">func</span> <span class="n">newconnection</span>
                 <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
