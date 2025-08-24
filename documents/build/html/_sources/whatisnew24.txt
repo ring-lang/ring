@@ -96,6 +96,7 @@ The next samples are added:
 * samples/Language/ClassMethods/genfunctopassmethod2.ring
 * samples/Language/ChangeSyntax/newkeywordsinsideclasses.ring
 * samples/General/SmallExamples/TicTacToePlus/tictactoeplus.ring
+* samples/UsingFormDesigner/verticalprogressbar
 
 
 The next samples are improved
