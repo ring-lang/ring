@@ -117,6 +117,7 @@ More Improvements
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
+* RingHTTPLib: Support more server http methods: PUT, PATCH, DELETE and OPTIONS
 * RingLibSDL: Enable building the extension using recent MSVC compiler
 * Space() function: Don't accept values over UINT_MAX
 * List() function: Don't accept values over UINT_MAX 
