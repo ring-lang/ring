@@ -58,20 +58,20 @@ cd ..\..
 
 echo Building RingQt (Core)...
 cd ringqt
-del /q debug\*.* >nul
-del /q release\*.* >nul
+if exist debug\*.* del /q debug\*.* >nul
+if exist release\*.* del /q release\*.* >nul
 @call gencode_core >nul
 @call buildvc_core_x64 >nul
 
 echo Building RingQt (LightGUILib)...
-del /q debug\*.* >nul
-del /q release\*.* >nul
+if exist debug\*.* del /q debug\*.* >nul
+if exist release\*.* del /q release\*.* >nul
 @call gencode_light >nul
 @call buildvc_light_x64 >nul
 
 echo Building RingQt (GUILib)...
-del /q debug\*.* >nul
-del /q release\*.* >nul
+if exist debug\*.* del /q debug\*.* >nul
+if exist release\*.* del /q release\*.* >nul
 @call gencode_nobluetooth >nul
 @call buildvc_nobluetooth_x64 >nul
 cd binupdate
