@@ -16,7 +16,15 @@ class Server from HTTPLib_Server
 				return wGet(cURL,cCode)
 			on :Post 
 				return wPost(cURL,cCode)
-			other 
+			on :Put
+				return wPut(cURL,cCode)
+			on :Patch
+				return wPatch(cURL,cCode)
+			on :Delete
+				return wDelete(cURL,cCode)
+			on :Options
+				return wOptions(cURL,cCode)
+			other
 				raise("Undefined type!")
 		off
 

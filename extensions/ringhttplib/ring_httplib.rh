@@ -117,6 +117,18 @@ Class HTTPLib_Server
 	Func wpost P1,P2
 		return HTTPLib_Server_wpost(pObject,P1,P2)
 
+	Func wput P1,P2
+		return HTTPLib_Server_wput(pObject,P1,P2)
+
+	Func wpatch P1,P2
+		return HTTPLib_Server_wpatch(pObject,P1,P2)
+
+	Func wdelete P1,P2
+		return HTTPLib_Server_wdelete(pObject,P1,P2)
+
+	Func woptions P1,P2
+		return HTTPLib_Server_woptions(pObject,P1,P2)
+
 	Func response 
 		pTempObj = new HTTPLib_Response
 		pTempObj.pObject = HTTPLib_Server_response(pObject)
