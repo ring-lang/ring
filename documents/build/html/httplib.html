@@ -104,7 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -135,6 +135,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-weblib">Using WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-http-post">Using HTTP Post</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-the-request-body">Getting the Request Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-http-put">Using HTTP PUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-http-patch">Using HTTP PATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-http-delete">Using HTTP DELETE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-http-options">Using HTTP OPTIONS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rest-api-authentication">REST API Authentication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-cookies">Using Cookies</a></li>
@@ -619,8 +623,131 @@
 </pre></div>
 </div>
 </section>
+<section id="using-http-put">
+<span id="index-10"></span><h2>Using HTTP PUT<a class="headerlink" href="#using-http-put" title="Permalink to this heading"></a></h2>
+<p>Example(1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/update&quot;</span>
+<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="k">PUT</span> <span class="o">-</span><span class="n">d</span> <span class="s">&quot;test data&quot;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">update</span><span class="p">`</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Put</span><span class="p">,</span><span class="s">&quot;/update&quot;</span><span class="p">,:</span><span class="n">puttest</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">puttest</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">().</span><span class="n">body</span><span class="p">()</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;PUT Data received: &quot;</span> <span class="o">+</span> <span class="n">cBody</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/items&quot;</span>
+<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="k">PUT</span> <span class="o">-</span><span class="n">H</span> <span class="s">&quot;Content-Type: application/json&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="sc">&#39;{&quot;name&quot;: &quot;Item 1&quot;}&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">items</span><span class="p">`</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Put</span><span class="p">,</span><span class="s">&quot;/items&quot;</span><span class="p">,:</span><span class="n">updateitem</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">updateitem</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">().</span><span class="n">body</span><span class="p">()</span>
+        <span class="n">aJson</span> <span class="o">=</span> <span class="n">json2list</span><span class="p">(</span><span class="n">cBody</span><span class="p">)</span>
+        <span class="n">cName</span> <span class="o">=</span> <span class="n">aJson</span><span class="o">[</span><span class="p">:</span><span class="n">name</span><span class="o">]</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Updated item: &quot;</span> <span class="o">+</span> <span class="n">cName</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-http-patch">
+<span id="index-11"></span><h2>Using HTTP PATCH<a class="headerlink" href="#using-http-patch" title="Permalink to this heading"></a></h2>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/patch&quot;</span>
+<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">PATCH</span> <span class="o">-</span><span class="n">H</span> <span class="s">&quot;Content-Type: application/json&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="sc">&#39;{&quot;name&quot;: &quot;Partially Updated&quot;}&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">patch</span><span class="p">`</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Patch</span><span class="p">,</span><span class="s">&quot;/patch&quot;</span><span class="p">,:</span><span class="n">patchtest</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">patchtest</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">().</span><span class="n">body</span><span class="p">()</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;PATCH Data received: &quot;</span> <span class="o">+</span> <span class="n">cBody</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-http-delete">
+<span id="index-12"></span><h2>Using HTTP DELETE<a class="headerlink" href="#using-http-delete" title="Permalink to this heading"></a></h2>
+<p>Example(1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/delete&quot;</span>
+<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">DELETE</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">delete</span><span class="p">`</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Delete</span><span class="p">,</span><span class="s">&quot;/delete&quot;</span><span class="p">,:</span><span class="n">deletetest</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">deletetest</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Item deleted&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/items/5&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Example: localhost:8080/items/123&quot;</span>
+<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">DELETE</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">items</span><span class="o">/</span><span class="mi">5</span><span class="p">`</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Delete</span><span class="p">,</span><span class="s">&quot;/items/(\d+)&quot;</span><span class="p">,:</span><span class="n">deleteitem</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">deleteitem</span>
+        <span class="n">cItemId</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Deleted item: &quot;</span> <span class="o">+</span> <span class="n">cItemId</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="using-http-options">
+<span id="index-13"></span><h2>Using HTTP OPTIONS<a class="headerlink" href="#using-http-options" title="Permalink to this heading"></a></h2>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/options&quot;</span>
+<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">X</span> <span class="n">OPTIONS</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">options</span><span class="p">`</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Options</span><span class="p">,</span><span class="s">&quot;/options&quot;</span><span class="p">,:</span><span class="n">optionstest</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">optionstest</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Allowed: GET, POST, PUT, PATCH, DELETE&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">response</span><span class="p">().</span><span class="n">set_header</span><span class="p">(</span><span class="s">&quot;Access-Control-Allow-Methods&quot;</span><span class="p">,</span> <span class="s">&quot;GET, POST, PUT, PATCH, DELETE, OPTIONS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="rest-api-authentication">
-<span id="index-10"></span><h2>REST API Authentication<a class="headerlink" href="#rest-api-authentication" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>REST API Authentication<a class="headerlink" href="#rest-api-authentication" title="Permalink to this heading"></a></h2>
 <p>A common way to secure a REST API is by requiring an API key sent in an HTTP header. The <cite>setStatus()</cite> method is useful here to send the correct HTTP status codes, like <cite>401 Unauthorized</cite> for failed authentication or <cite>200 OK</cite> for success.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
@@ -705,7 +832,7 @@
 </div>
 </section>
 <section id="more-samples">
-<span id="index-11"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>Using Gradients:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -863,7 +990,7 @@
 </div>
 </section>
 <section id="using-cookies">
-<span id="index-12"></span><h2>Using Cookies<a class="headerlink" href="#using-cookies" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Using Cookies<a class="headerlink" href="#using-cookies" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -919,7 +1046,7 @@
 </div>
 </section>
 <section id="uploading-files">
-<span id="index-13"></span><h2>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -1006,7 +1133,7 @@
 </div>
 </section>
 <section id="using-templates">
-<span id="index-14"></span><h2>Using Templates<a class="headerlink" href="#using-templates" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>Using Templates<a class="headerlink" href="#using-templates" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -1061,7 +1188,7 @@
 </div>
 </section>
 <section id="regular-expressions">
-<span id="index-15"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 
@@ -1083,7 +1210,7 @@
 </div>
 </section>
 <section id="stop-the-server">
-<span id="index-16"></span><h2>Stop the Server<a class="headerlink" href="#stop-the-server" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>Stop the Server<a class="headerlink" href="#stop-the-server" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 
