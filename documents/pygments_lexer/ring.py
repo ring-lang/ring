@@ -19,7 +19,7 @@ __all__ = ['RingLexer']
 
 class RingLexer(RegexLexer):
     """
-    For `Ring <http://Ring-code.org/>`_ source code.
+    For `Ring <https://ring-lang.net/>`_ source code.
 
     .. versionadded:: 1.5
     """
@@ -44,7 +44,7 @@ class RingLexer(RegexLexer):
     keywords = [
 		'again','and','but','bye','call','case','catch','class','def','do','done',
 		'else','elseif','end','exit','for','foreach','from','func','get','give','if','import',
-		'in','load','loop','new','next','not','off','ok','on','or','other','package'
+		'in','load','loop','new','next','not','off','ok','on','or','other','package',
 		'private','put','return','see','step','switch','to','try','while','changeringkeyword',
 		'changeringoperator','loadsyntax','endfunc','endclass','endpackage',
 		'endif','endfor','endwhile','endswitch','endtry','function','endfunction',
