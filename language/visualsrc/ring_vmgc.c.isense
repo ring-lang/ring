@@ -419,7 +419,7 @@ Type: PoolData *
 pMemory
 ring_poolmanager_deleteblockfromsubthread
 Type: PoolData *
-pMemory
+pMemory, *pNextMemory
 ring_vmstate_new
 Type: VMState *
 pVMState

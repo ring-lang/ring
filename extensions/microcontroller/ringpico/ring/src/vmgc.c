@@ -1236,20 +1236,24 @@ RING_API void ring_poolmanager_newblockfromsubthread(RingState *pSubRingState, i
 }
 
 RING_API void ring_poolmanager_deleteblockfromsubthread(RingState *pSubRingState, RingState *pMainRingState) {
-	PoolData *pMemory;
+	PoolData *pMemory, *pNextMemory;
 	pMemory = pSubRingState->vPoolManager.pCurrentItem;
 	while (pMemory != NULL) {
-		pSubRingState->vPoolManager.pCurrentItem = pMemory->pNext;
+		pNextMemory = pMemory->pNext;
 		/*
 		**  Free Memory that doesn't belong to the memory pool
-		**  if the memory belong to the memory pool (created in main thread, deleted by sub thread)
+		**  (1) if the memory belong to the memory pool (created in main thread, deleted by sub thread)
 		**  Then it will not be deleted and will not return to main thread (To avoid lock/unlock & slow
 		*performance)
 		**  So, In Ring it's not a good practice to delete global/shared memory from sub threads
+		**  (2) Remember that using ring_state_free() could update vPoolManager.pCurrentItem if item is inside
+		*Block
+		**  So, we use pNextMemory instead of vPoolManager.pCurrentItem
 		*/
 		ring_state_free(pSubRingState, pMemory);
-		pMemory = pSubRingState->vPoolManager.pCurrentItem;
+		pMemory = pNextMemory;
 	}
+	pSubRingState->vPoolManager.pCurrentItem = NULL;
 }
 /* VMState Memory Functions */
 
