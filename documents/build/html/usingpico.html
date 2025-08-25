@@ -277,12 +277,12 @@
 <span class="n">gpio_init</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)</span>
 <span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">GPIO_OUT</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="kp">True</span>
-        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="bp">True</span>
+        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
         <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
-        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="kp">False</span><span class="p">)</span>
+        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
         <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 </pre></div>
 </div>
 </section>
@@ -293,108 +293,108 @@
 <span class="n">LED1</span>    <span class="o">=</span> <span class="mi">14</span>
 <span class="n">LED2</span>    <span class="o">=</span> <span class="mi">15</span>
 
-<span class="n">aPins</span> <span class="o">=</span> <span class="o">[</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">LED1</span><span class="p">,</span> <span class="n">LED2</span><span class="o">]</span>
+<span class="n">aPins</span> <span class="o">=</span> <span class="p">[</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">LED1</span><span class="p">,</span> <span class="n">LED2</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">nPin</span> <span class="k">in</span> <span class="n">aPins</span>
+<span class="k k-Control">for</span> <span class="n">nPin</span> <span class="k k-Control">in</span> <span class="n">aPins</span>
         <span class="n">gpio_init</span><span class="p">(</span><span class="n">nPin</span><span class="p">)</span>
         <span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">nPin</span><span class="p">,</span> <span class="n">GPIO_OUT</span><span class="p">)</span>
-<span class="k">next</span>
+<span class="k k-Control">next</span>
 
-<span class="k">while</span> <span class="kp">True</span>
-        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>                                 <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
-        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED1</span>   <span class="p">,</span> <span class="kp">True</span><span class="p">)</span>         <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span> <span class="kp">False</span><span class="p">)</span>   <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
-        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED1</span>   <span class="p">,</span> <span class="kp">False</span><span class="p">)</span>        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>    <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
-        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="kp">False</span><span class="p">)</span>                                <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k k-Control">while</span> <span class="bp">True</span>
+        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>                                 <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED1</span>   <span class="p">,</span> <span class="bp">True</span><span class="p">)</span>         <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>   <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED1</span>   <span class="p">,</span> <span class="bp">False</span><span class="p">)</span>        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED2</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>    <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+        <span class="n">gpio_put</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>                                <span class="n">sleep_ms</span><span class="p">(</span><span class="n">DELAY</span><span class="p">)</span>
+<span class="k k-Control">end</span>
 </pre></div>
 </div>
 </section>
 <section id="led-and-switch-sample">
 <span id="index-7"></span><h2>LED and Switch sample<a class="headerlink" href="#led-and-switch-sample" title="Permalink to this heading"></a></h2>
 <p>File: main.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;mylib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylib.ring&quot;</span>
 
 <span class="n">SWITCH_PIN</span> <span class="o">=</span> <span class="mi">14</span>
 <span class="n">LED_PIN</span>    <span class="o">=</span> <span class="mi">15</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">oSwitch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LEDSwitch</span> <span class="p">{</span>
+        <span class="n">oSwitch</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">LEDSwitch</span> <span class="p">{</span>
                 <span class="n">setPin</span><span class="p">(</span><span class="n">SWITCH_PIN</span><span class="p">)</span>
                 <span class="n">LED</span> <span class="p">{</span> <span class="n">setPin</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">)</span> <span class="p">}</span>
         <span class="p">}</span>
 
-        <span class="k">while</span> <span class="kp">True</span>
-                 <span class="n">oSwitch</span><span class="p">.</span><span class="n">process</span><span class="p">()</span>
-        <span class="k">end</span>
+        <span class="k k-Control">while</span> <span class="bp">True</span>
+                 <span class="n">oSwitch</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+        <span class="k k-Control">end</span>
 </pre></div>
 </div>
 <p>File: mylib.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">LED</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">LED</span>
 
         <span class="n">Pin</span>
 
-        <span class="k">func</span> <span class="n">setPin</span> <span class="n">nPin</span>
+        <span class="kd">func</span> <span class="nf">setPin</span> <span class="n">nPin</span>
                 <span class="n">Pin</span> <span class="o">=</span> <span class="n">nPin</span>
                 <span class="n">gpio_init</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
                 <span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="n">GPIO_OUT</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">Enable</span>
-                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">Enable</span>
+                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">Disable</span>
-                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="kp">False</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">Disable</span>
+                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="n">LEDSwitch</span>
+<span class="kd">class</span> <span class="nc">LEDSwitch</span>
 
         <span class="n">Pin</span>
-        <span class="n">Status</span> <span class="o">=</span> <span class="kp">False</span>
-        <span class="n">LED</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LED</span>
+        <span class="n">Status</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">LED</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">LED</span>
 
-        <span class="k">func</span> <span class="n">setPin</span> <span class="n">nPin</span>
+        <span class="kd">func</span> <span class="nf">setPin</span> <span class="n">nPin</span>
                 <span class="n">Pin</span> <span class="o">=</span> <span class="n">nPin</span>
                 <span class="n">gpio_init</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
                 <span class="n">gpio_pull_up</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">getStatus</span>
-                <span class="k">return</span> <span class="n">gpio_get</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">getStatus</span>
+                <span class="k k-Control">return</span> <span class="n">gpio_get</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">Process</span>
-                <span class="k">if</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span>
+        <span class="kd">func</span> <span class="nf">Process</span>
+                <span class="k k-Control">if</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span>
                         <span class="n">Status</span> <span class="o">=</span> <span class="o">!</span> <span class="n">Status</span>
-                        <span class="k">if</span> <span class="n">Status</span>
-                                <span class="n">LED</span><span class="p">.</span><span class="n">enable</span><span class="p">()</span>
-                        <span class="k">else</span>
-                                <span class="n">LED</span><span class="p">.</span><span class="n">disable</span><span class="p">()</span>
-                        <span class="k">ok</span>
+                        <span class="k k-Control">if</span> <span class="n">Status</span>
+                                <span class="n">LED</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+                        <span class="k k-Control">else</span>
+                                <span class="n">LED</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+                        <span class="k k-Control">ok</span>
                         <span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-                        <span class="k">while</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span> <span class="k">end</span>
+                        <span class="k k-Control">while</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span> <span class="k k-Control">end</span>
                         <span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-                <span class="k">ok</span>
+                <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 </section>
 <section id="declarative-programming-sample">
 <span id="index-8"></span><h2>Declarative Programming sample<a class="headerlink" href="#declarative-programming-sample" title="Permalink to this heading"></a></h2>
 <p>File: main.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;circuit.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;circuit.ring&quot;</span>
 
 <span class="n">SWITCH_PIN</span> <span class="o">=</span> <span class="mi">14</span>
 <span class="n">LED_PIN</span>    <span class="o">=</span> <span class="mi">15</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
         <span class="n">Circuit</span> <span class="p">{</span>
                 <span class="n">LED</span> <span class="p">{</span>
                         <span class="n">Pin</span>     <span class="o">=</span> <span class="n">PICO_DEFAULT_LED_PIN</span>
-                        <span class="n">Blink</span>   <span class="o">=</span> <span class="kp">True</span>
+                        <span class="n">Blink</span>   <span class="o">=</span> <span class="bp">True</span>
                         <span class="n">Delay</span>   <span class="o">=</span> <span class="mf">0.1</span>
                 <span class="p">}</span>
                 <span class="n">LEDSwitch</span> <span class="p">{</span>
                         <span class="n">Pin</span> <span class="o">=</span> <span class="n">SWITCH_PIN</span>
                         <span class="n">LED</span> <span class="p">{</span>
                                 <span class="n">Pin</span>     <span class="o">=</span> <span class="n">LED_PIN</span>
-                                <span class="n">Blink</span>   <span class="o">=</span> <span class="kp">True</span>
+                                <span class="n">Blink</span>   <span class="o">=</span> <span class="bp">True</span>
                                 <span class="n">Delay</span>   <span class="o">=</span> <span class="mi">3</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
@@ -402,105 +402,105 @@
 </pre></div>
 </div>
 <p>File: Circuit.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circuit</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">circuit</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Circuit</span>
 
-<span class="k">class</span> <span class="n">Circuit</span>
+<span class="kd">class</span> <span class="nc">Circuit</span>
 
         <span class="n">LED</span>
         <span class="n">LEDSwitch</span>
 
-        <span class="n">aObjects</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aObjects</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="n">lCallBraceEnd</span> <span class="o">=</span> <span class="kp">True</span>
+        <span class="n">lCallBraceEnd</span> <span class="o">=</span> <span class="bp">True</span>
 
-        <span class="k">func</span> <span class="n">getLED</span>
-                <span class="n">aObjects</span> <span class="o">+</span> <span class="k">new</span> <span class="n">LED</span>
-                <span class="k">return</span> <span class="n">aObjects</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aObjects</span><span class="p">)</span><span class="o">]</span>
+        <span class="kd">func</span> <span class="nf">getLED</span>
+                <span class="n">aObjects</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">LED</span>
+                <span class="k k-Control">return</span> <span class="n">aObjects</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aObjects</span><span class="p">)]</span>
 
-        <span class="k">func</span> <span class="n">getLEDSwitch</span>
-                <span class="n">aObjects</span> <span class="o">+</span> <span class="k">new</span> <span class="n">LEDSwitch</span>
-                <span class="k">return</span> <span class="n">aObjects</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aObjects</span><span class="p">)</span><span class="o">]</span>
+        <span class="kd">func</span> <span class="nf">getLEDSwitch</span>
+                <span class="n">aObjects</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">LEDSwitch</span>
+                <span class="k k-Control">return</span> <span class="n">aObjects</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aObjects</span><span class="p">)]</span>
 
-        <span class="k">func</span> <span class="n">braceEnd</span>
-                <span class="k">if</span> <span class="o">!</span> <span class="n">lCallBraceEnd</span> <span class="k">return</span> <span class="k">ok</span>
-                <span class="n">lCallBraceEnd</span> <span class="o">=</span> <span class="kp">False</span>
-                <span class="k">while</span> <span class="kp">True</span>
-                        <span class="k">for</span> <span class="n">oObj</span> <span class="k">in</span> <span class="n">aObjects</span>
-                                <span class="n">oObj</span><span class="p">.</span><span class="n">process</span><span class="p">()</span>
-                        <span class="k">next</span>
-                <span class="k">end</span>
+        <span class="kd">func</span> <span class="nf">braceEnd</span>
+                <span class="k k-Control">if</span> <span class="o">!</span> <span class="n">lCallBraceEnd</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+                <span class="n">lCallBraceEnd</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k k-Control">while</span> <span class="bp">True</span>
+                        <span class="k k-Control">for</span> <span class="n">oObj</span> <span class="k k-Control">in</span> <span class="n">aObjects</span>
+                                <span class="n">oObj</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+                        <span class="k k-Control">next</span>
+                <span class="k k-Control">end</span>
 
-<span class="k">class</span> <span class="n">CircuitComponent</span>
+<span class="kd">class</span> <span class="nc">CircuitComponent</span>
 
-        <span class="k">func</span> <span class="n">process</span>
+        <span class="kd">func</span> <span class="nf">process</span>
 
-<span class="k">class</span> <span class="n">LED</span> <span class="k">from</span> <span class="n">CircuitComponent</span>
+<span class="kd">class</span> <span class="nc">LED</span> <span class="kd">from</span> <span class="nc">CircuitComponent</span>
 
         <span class="n">Pin</span>
 
         <span class="n">Delay</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">Blink</span> <span class="o">=</span> <span class="kp">False</span>
-        <span class="n">t1</span>    <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+        <span class="n">Blink</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">t1</span>    <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 
-        <span class="n">lStatus</span>         <span class="o">=</span> <span class="kp">False</span>
-        <span class="n">lCallBraceEnd</span>   <span class="o">=</span> <span class="kp">True</span>
-        <span class="n">lEnableProcess</span>  <span class="o">=</span> <span class="kp">True</span>
+        <span class="n">lStatus</span>         <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">lCallBraceEnd</span>   <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">lEnableProcess</span>  <span class="o">=</span> <span class="bp">True</span>
 
-        <span class="k">func</span> <span class="n">setPin</span> <span class="n">nPin</span>
+        <span class="kd">func</span> <span class="nf">setPin</span> <span class="n">nPin</span>
                 <span class="n">Pin</span> <span class="o">=</span> <span class="n">nPin</span>
                 <span class="n">gpio_init</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
                 <span class="n">gpio_set_dir</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="n">GPIO_OUT</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">Enable</span>
-                <span class="n">lStatus</span> <span class="o">=</span> <span class="kp">True</span>
-                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">Enable</span>
+                <span class="n">lStatus</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">Disable</span>
-                <span class="n">lStatus</span> <span class="o">=</span> <span class="kp">False</span>
-                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="kp">False</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">Disable</span>
+                <span class="n">lStatus</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">braceEnd</span>
-                <span class="k">if</span> <span class="o">!</span> <span class="n">lCallBraceEnd</span> <span class="k">return</span> <span class="k">ok</span>
+        <span class="kd">func</span> <span class="nf">braceEnd</span>
+                <span class="k k-Control">if</span> <span class="o">!</span> <span class="n">lCallBraceEnd</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
                 <span class="n">enable</span><span class="p">()</span>
 
-        <span class="k">func</span> <span class="n">process</span>
-                <span class="k">if</span> <span class="o">!</span> <span class="n">lEnableProcess</span> <span class="k">return</span> <span class="k">ok</span>
-                <span class="k">if</span> <span class="n">Blink</span> <span class="ow">and</span> <span class="p">(</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">&gt;</span> <span class="n">Delay</span> <span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">process</span>
+                <span class="k k-Control">if</span> <span class="o">!</span> <span class="n">lEnableProcess</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">Blink</span> <span class="ow">and</span> <span class="p">(</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">&gt;</span> <span class="n">Delay</span> <span class="p">)</span>
                         <span class="n">lStatus</span> <span class="o">=</span> <span class="o">!</span> <span class="n">lStatus</span>
                         <span class="n">gpio_put</span><span class="p">(</span><span class="n">Pin</span><span class="p">,</span><span class="n">lStatus</span><span class="p">)</span>
-                        <span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-                <span class="k">ok</span>
+                        <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+                <span class="k k-Control">ok</span>
 
-<span class="k">class</span> <span class="n">LEDSwitch</span> <span class="k">from</span> <span class="n">CircuitComponent</span>
+<span class="kd">class</span> <span class="nc">LEDSwitch</span> <span class="kd">from</span> <span class="nc">CircuitComponent</span>
 
         <span class="n">Pin</span>
-        <span class="n">Status</span>  <span class="o">=</span> <span class="kp">False</span>
+        <span class="n">Status</span>  <span class="o">=</span> <span class="bp">False</span>
 
-        <span class="n">LED</span>     <span class="o">=</span> <span class="k">new</span> <span class="n">LED</span> <span class="p">{</span> <span class="n">lCallBraceEnd</span> <span class="o">=</span> <span class="kp">False</span> <span class="n">lEnableProcess</span> <span class="o">=</span> <span class="kp">False</span> <span class="p">}</span>
+        <span class="n">LED</span>     <span class="o">=</span> <span class="kp">new</span> <span class="nc">LED</span> <span class="p">{</span> <span class="n">lCallBraceEnd</span> <span class="o">=</span> <span class="bp">False</span> <span class="n">lEnableProcess</span> <span class="o">=</span> <span class="bp">False</span> <span class="p">}</span>
 
-        <span class="k">func</span> <span class="n">setPin</span> <span class="n">nPin</span>
+        <span class="kd">func</span> <span class="nf">setPin</span> <span class="n">nPin</span>
                 <span class="n">Pin</span> <span class="o">=</span> <span class="n">nPin</span>
                 <span class="n">gpio_init</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
                 <span class="n">gpio_pull_up</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">getStatus</span>
-                <span class="k">return</span> <span class="n">gpio_get</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">getStatus</span>
+                <span class="k k-Control">return</span> <span class="n">gpio_get</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">Process</span>
-                <span class="n">LED</span><span class="p">.</span><span class="n">process</span><span class="p">()</span>
-                <span class="k">if</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span>
+        <span class="kd">func</span> <span class="nf">Process</span>
+                <span class="n">LED</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+                <span class="k k-Control">if</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span>
                         <span class="n">Status</span> <span class="o">=</span> <span class="o">!</span> <span class="n">Status</span>
-                        <span class="k">if</span> <span class="n">Status</span>
-                                <span class="n">LED</span><span class="p">.</span><span class="n">enable</span><span class="p">()</span>
-                        <span class="k">else</span>
-                                <span class="n">LED</span><span class="p">.</span><span class="n">disable</span><span class="p">()</span>
-                        <span class="k">ok</span>
-                        <span class="n">LED</span><span class="p">.</span><span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-                        <span class="n">LED</span><span class="p">.</span><span class="n">lEnableProcess</span> <span class="o">=</span> <span class="n">Status</span>
+                        <span class="k k-Control">if</span> <span class="n">Status</span>
+                                <span class="n">LED</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+                        <span class="k k-Control">else</span>
+                                <span class="n">LED</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+                        <span class="k k-Control">ok</span>
+                        <span class="n">LED</span><span class="o">.</span><span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+                        <span class="n">LED</span><span class="o">.</span><span class="n">lEnableProcess</span> <span class="o">=</span> <span class="n">Status</span>
                         <span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-                        <span class="k">while</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span> <span class="k">end</span>
+                        <span class="k k-Control">while</span> <span class="o">!</span> <span class="n">getStatus</span><span class="p">()</span> <span class="k k-Control">end</span>
                         <span class="n">sleep_ms</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-                <span class="k">ok</span>
+                <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -513,7 +513,7 @@
 <ul class="simple">
 <li><p>Update main.ring to use the LEDs project</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;projects/leds/main.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;projects/leds/main.ring&quot;</span>
 </pre></div>
 </div>
 <ul class="simple">

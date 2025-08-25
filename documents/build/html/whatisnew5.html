@@ -321,17 +321,17 @@ preparing the functions/classes lists in the background.</p>
 <li><p>The Print2Str() is a new function added to the StdLib</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">world</span> <span class="o">=</span> <span class="s">&quot;World!&quot;</span>
-<span class="n">mystring</span> <span class="o">=</span> <span class="n">print2str</span><span class="p">(</span><span class="s">&quot;Hello, #{world} </span><span class="se">\n</span><span class="s">In Year </span><span class="se">\n</span><span class="s">#{2000+17} </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">world</span> <span class="o">=</span> <span class="s2">&quot;World!&quot;</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="nb">print2str</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">#{</span><span class="n">world</span><span class="si">}</span><span class="s2"> \nIn Year \n</span><span class="si">#{</span><span class="mi">2000</span><span class="o">+</span><span class="mi">17</span><span class="si">}</span><span class="s2"> \n&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="n">mystring</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">mystring</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
-<span class="k">In</span> <span class="n">Year</span>
+<span class="k k-Control">In</span> <span class="n">Year</span>
 <span class="mi">2017</span>
 </pre></div>
 </div>
@@ -340,15 +340,15 @@ preparing the functions/classes lists in the background.</p>
 </ol>
 <p>Using this function we can quickly do a process on a group of files in a folder and it’s sub folders.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">ListAllFiles</span><span class="p">(</span><span class="s">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s">&quot;ring&quot;</span><span class="p">)</span> <span class="c"># *.ring only</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">ListAllFiles</span><span class="p">(</span><span class="s2">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s2">&quot;ring&quot;</span><span class="p">)</span> <span class="c1"># *.ring only</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 <span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">see</span> <span class="n">listallfiles</span><span class="p">(</span><span class="s">&quot;b:/ring/ringlibs/weblib&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="c"># All Files</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="k">see</span> <span class="n">listallfiles</span><span class="p">(</span><span class="s2">&quot;b:/ring/ringlibs/weblib&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># All Files</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -357,13 +357,13 @@ preparing the functions/classes lists in the background.</p>
 <p>The function will execute a system command like the System() function but
 will return the output in a string.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span> <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s">&quot;whoami&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;SystemCmd: whoami =====&quot;</span><span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">cYou</span> <span class="o">+</span><span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span> <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;SystemCmd: whoami =====&quot;</span><span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">cYou</span> <span class="o">+</span><span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SystemCmd</span><span class="p">:</span> <span class="n">whoami</span> <span class="o">=====</span>
-<span class="n">desktop</span><span class="o">-</span><span class="n">umberto</span><span class="o">\</span><span class="n">umberto</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SystemCmd: whoami =====
+desktop-umberto\umberto
 </pre></div>
 </div>
 </section>
@@ -374,140 +374,140 @@ will return the output in a string.</p>
 <p>So instead of using the WebLib in Web Applications only</p>
 <p>We can use it in Console/GUI/Mobile Applications too</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
 
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">mypage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlPage</span> <span class="p">{</span>
-                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+        <span class="n">mypage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
                 <span class="n">Table</span>
                 <span class="p">{</span>
-                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
                           <span class="n">TR</span>
                           <span class="p">{</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
                           <span class="p">}</span>
                 <span class="p">}</span>
 
                 <span class="n">Table</span>
                 <span class="p">{</span>
-                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
                           <span class="n">TR</span>
                           <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                           <span class="p">}</span>
-                          <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                          <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
-                          <span class="k">next</span>
+                          <span class="k k-Control">next</span>
                 <span class="p">}</span>
 
         <span class="p">}</span>
 
-        <span class="n">write</span><span class="p">(</span><span class="s">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="p">.</span><span class="n">output</span><span class="p">())</span>
+        <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="n">output</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Using this feature we can create reports quickly using WebLib &amp; GUILib together</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">GUI</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
+<span class="kn">import</span> <span class="nn">System.GUI</span>
 
-<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
-        <span class="n">open_window</span><span class="p">(:</span><span class="n">CustomersReportController</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
+        <span class="n">open_window</span><span class="p">(</span><span class="ss">:CustomersReportController</span><span class="p">)</span>
         <span class="n">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">CustomersReportController</span>
+<span class="kd">class</span> <span class="nc">CustomersReportController</span>
 
-        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CustomersReportView</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">CustomersReportView</span>
 
-        <span class="k">func</span> <span class="n">Start</span>
+        <span class="kd">func</span> <span class="nf">Start</span>
                 <span class="n">CreateReport</span><span class="p">()</span>
 
-        <span class="k">func</span> <span class="n">CreateReport</span>
-                <span class="n">mypage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlPage</span> <span class="p">{</span>
-                        <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+        <span class="kd">func</span> <span class="nf">CreateReport</span>
+                <span class="n">mypage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
+                        <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
                         <span class="n">Table</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span>
-                                                <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
+                                                <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
                         <span class="p">}</span>
                         <span class="n">Table</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
                                                 <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
-                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                         <span class="p">}</span>
-                                <span class="k">next</span>
+                                <span class="k k-Control">next</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
-                <span class="n">write</span><span class="p">(</span><span class="s">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="p">.</span><span class="n">output</span><span class="p">())</span>
+                <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="n">output</span><span class="p">())</span>
 
-        <span class="k">func</span> <span class="n">PrintEvent</span>
-                <span class="n">printer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">func</span> <span class="nf">PrintEvent</span>
+                <span class="n">printer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setoutputformat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">setoutputfilename</span><span class="p">(</span><span class="s">&quot;report.pdf&quot;</span><span class="p">)</span>
+                        <span class="n">setoutputfilename</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">oView</span> <span class="p">{</span>
-                        <span class="n">web</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
-                        <span class="n">web</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+                        <span class="n">web</span><span class="o">.</span><span class="nb">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
+                        <span class="n">web</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
                 <span class="p">}</span>
-                <span class="n">system</span> <span class="p">(</span><span class="s">&quot;report.pdf&quot;</span><span class="p">)</span>
+                <span class="nb">system</span> <span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="n">CustomersReportView</span>
+<span class="kd">class</span> <span class="nc">CustomersReportView</span>
 
-                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">window</span><span class="p">()</span> <span class="p">{</span>
-                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Report Window&quot;</span><span class="p">)</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">window</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Report Window&quot;</span><span class="p">)</span>
                                 <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                                <span class="n">web</span> <span class="o">=</span> <span class="k">new</span> <span class="n">webview</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">web</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">webview</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                                         <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                                        <span class="n">loadpage</span><span class="p">(</span><span class="k">new</span> <span class="n">qurl</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span>
-                                        <span class="n">currentdir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/report.html&quot;</span><span class="p">))</span>
+                                        <span class="n">loadpage</span><span class="p">(</span><span class="kp">new</span> <span class="nc">qurl</span><span class="p">(</span><span class="s2">&quot;file:///&quot;</span><span class="o">+</span>
+                                        <span class="nb">currentdir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/report.html&quot;</span><span class="p">))</span>
                                 <span class="p">}</span>
-                                <span class="k">new</span> <span class="n">pushbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="kp">new</span> <span class="nc">pushbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                                                 <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-                                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;Print&quot;</span><span class="p">)</span>
-                                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(:</span><span class="n">PrintEvent</span><span class="p">))</span>
+                                                <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;Print&quot;</span><span class="p">)</span>
+                                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:PrintEvent</span><span class="p">))</span>
                                 <span class="p">}</span>
                                 <span class="n">showMaximized</span><span class="p">()</span>
                         <span class="p">}</span>
@@ -539,87 +539,87 @@ will return the output in a string.</p>
 <li><p>QBluetoothUuid</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="sd">### Submits your car VIN - Vehicle Id Number - to the Web Site - vpic.nhtsa.dot.gov -</span>
-<span class="sd">### Parses XML data returned</span>
-<span class="sd">### Prints out the car info result</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1">### Submits your car VIN - Vehicle Id Number - to the Web Site - vpic.nhtsa.dot.gov -</span>
+<span class="c1">### Parses XML data returned</span>
+<span class="c1">### Prints out the car info result</span>
 
-<span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-<span class="c"># request = &quot;3G1JC5248YS251015?format=xml&quot;  ### VIN - Chevrolet</span>
-  <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;3GYFK62847G247323?format=xml&quot;</span>  <span class="sd">### VIN - Cadillac</span>
+<span class="c1"># request = &quot;3G1JC5248YS251015?format=xml&quot;  ### VIN - Chevrolet</span>
+  <span class="n">request</span> <span class="o">=</span> <span class="s2">&quot;3GYFK62847G247323?format=xml&quot;</span>  <span class="c1">### VIN - Cadillac</span>
 
-<span class="n">call_type</span>   <span class="o">=</span> <span class="s">&quot;decodevinvalues/&quot;</span>
-<span class="n">url</span>         <span class="o">=</span> <span class="s">&quot;https://vpic.nhtsa.dot.gov/api/vehicles/&quot;</span>
+<span class="n">call_type</span>   <span class="o">=</span> <span class="s2">&quot;decodevinvalues/&quot;</span>
+<span class="n">url</span>         <span class="o">=</span> <span class="s2">&quot;https://vpic.nhtsa.dot.gov/api/vehicles/&quot;</span>
 <span class="n">url_request</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">call_type</span> <span class="o">+</span> <span class="n">request</span>
 
-        <span class="k">See</span> <span class="s">&quot;URL Request: &quot;</span><span class="o">+</span> <span class="n">url_request</span> <span class="o">+</span><span class="n">nl</span>
+        <span class="k">See</span> <span class="s2">&quot;URL Request: &quot;</span><span class="o">+</span> <span class="n">url_request</span> <span class="o">+</span><span class="bp">nl</span>
 
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">curlopt_url</span><span class="p">,</span> <span class="n">url_request</span><span class="p">)</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">);</span>
 
-        <span class="k">See</span> <span class="n">nl</span> <span class="o">+</span><span class="s">&quot;Response Raw: &quot;</span><span class="o">+</span> <span class="n">response</span> <span class="o">+</span><span class="n">nl</span> <span class="o">+</span><span class="n">nl</span>
+        <span class="k">See</span> <span class="bp">nl</span> <span class="o">+</span><span class="s2">&quot;Response Raw: &quot;</span><span class="o">+</span> <span class="n">response</span> <span class="o">+</span><span class="bp">nl</span> <span class="o">+</span><span class="bp">nl</span>
 
 <span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-<span class="n">xml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qxmlstreamreader</span><span class="p">()</span>
-<span class="n">xml</span><span class="p">.</span><span class="n">adddata_2</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="n">xml</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qxmlstreamreader</span><span class="p">()</span>
+<span class="n">xml</span><span class="o">.</span><span class="n">adddata_2</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qstringref</span><span class="p">()</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">xml</span><span class="p">.</span><span class="n">atend</span><span class="p">()</span>
-           <span class="k">if</span> <span class="n">xml</span><span class="p">.</span><span class="n">error</span><span class="p">()</span>
-                           <span class="k">see</span> <span class="n">xml</span><span class="p">.</span><span class="n">errorstring</span><span class="p">()</span> <span class="k">see</span> <span class="n">nl</span>
-                           <span class="k">exit</span> <span class="k">loop</span>
-           <span class="k">ok</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qstringref</span><span class="p">()</span>
+<span class="k k-Control">while</span> <span class="ow">not</span> <span class="n">xml</span><span class="o">.</span><span class="n">atend</span><span class="p">()</span>
+           <span class="k k-Control">if</span> <span class="n">xml</span><span class="o">.</span><span class="n">error</span><span class="p">()</span>
+                           <span class="k">see</span> <span class="n">xml</span><span class="o">.</span><span class="n">errorstring</span><span class="p">()</span> <span class="k">see</span> <span class="bp">nl</span>
+                           <span class="k k-Control">exit</span> <span class="k k-Control">loop</span>
+           <span class="k k-Control">ok</span>
 
-           <span class="n">x</span> <span class="o">=</span> <span class="n">xml</span><span class="p">.</span><span class="n">text</span><span class="p">()</span>
-           <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span>
-                           <span class="k">see</span> <span class="s">&quot;Length: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span><span class="s">&quot; --- &quot;</span>
-                           <span class="k">see</span> <span class="s">&quot;Value: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="p">.</span><span class="n">tostring</span><span class="p">()</span> <span class="k">see</span> <span class="n">nl</span>
-           <span class="k">ok</span>
+           <span class="n">x</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+           <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span>
+                           <span class="k">see</span> <span class="s2">&quot;Length: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; --- &quot;</span>
+                           <span class="k">see</span> <span class="s2">&quot;Value: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span> <span class="k">see</span> <span class="bp">nl</span>
+           <span class="k k-Control">ok</span>
 
-           <span class="n">xml</span><span class="p">.</span><span class="n">readnext</span><span class="p">()</span>
-<span class="k">end</span>
+           <span class="n">xml</span><span class="o">.</span><span class="n">readnext</span><span class="p">()</span>
+<span class="k k-Control">end</span>
 
 <span class="k">get</span> <span class="n">x</span>
 
-<span class="sd">###------------------------------------------</span>
-<span class="sd">### Results</span>
-<span class="c">#</span>
-<span class="c"># ==&gt;Value: 115</span>
-<span class="c"># ==&gt;Value: Results returned successfully</span>
-<span class="c"># ==&gt;Value: VIN(s): 3G1JC5248YS251015</span>
-<span class="c"># ==&gt;Value: 3G1JC5248YS251015</span>
-<span class="c"># ==&gt;Value: Sedan/Saloon</span>
-<span class="c"># ==&gt;Value: 4</span>
-<span class="c"># ==&gt;Value: 2200.0</span>
-<span class="c"># ==&gt;Value: 134.25223700841</span>
-<span class="c"># ==&gt;Value: 2.2</span>
-<span class="c"># ==&gt;Value: 4</span>
-<span class="c"># ==&gt;Value: LN2</span>
-<span class="c"># ==&gt;Value: CHEVROLET</span>
-<span class="c"># ==&gt;Value: GENERAL MOTORS LLC</span>
-<span class="c"># ==&gt;Value: Cavalier</span>
-<span class="c"># ==&gt;Value: 2000</span>
-<span class="c"># ==&gt;Value: Ramos Arzipe</span>
-<span class="c"># ==&gt;Value: PASSENGER CAR</span>
-<span class="c"># ==&gt;Value: 4</span>
-<span class="c"># ==&gt;Value: In-Line</span>
-<span class="c"># ==&gt;Value: 1st Row (Driver &amp; Passenger)</span>
-<span class="c"># ==&gt;Value: Sequential Fuel Injection (SFI)</span>
-<span class="c"># ==&gt;Value: Mexico</span>
-<span class="c"># ==&gt;Value: NA</span>
-<span class="c"># ==&gt;Value: Manual</span>
-<span class="c"># ==&gt;Value: Body Type: Sedan, 4-6 Window, Notchback (GM codes: 19, 69)</span>
-<span class="c"># ==&gt;Value:  Name Plate: Chevrolet, Pontiac</span>
-<span class="c"># ==&gt;Value: 0 - VIN decoded clean. Check Digit (9th position) is correct</span>
-<span class="c"># ==&gt;Value: LAN</span>
-<span class="c"># ==&gt;Value: 984</span>
-<span class="c">#</span>
-<span class="sd">###-----------------------------------------</span>
+<span class="c1">###------------------------------------------</span>
+<span class="c1">### Results</span>
+<span class="c1">#</span>
+<span class="c1"># ==&gt;Value: 115</span>
+<span class="c1"># ==&gt;Value: Results returned successfully</span>
+<span class="c1"># ==&gt;Value: VIN(s): 3G1JC5248YS251015</span>
+<span class="c1"># ==&gt;Value: 3G1JC5248YS251015</span>
+<span class="c1"># ==&gt;Value: Sedan/Saloon</span>
+<span class="c1"># ==&gt;Value: 4</span>
+<span class="c1"># ==&gt;Value: 2200.0</span>
+<span class="c1"># ==&gt;Value: 134.25223700841</span>
+<span class="c1"># ==&gt;Value: 2.2</span>
+<span class="c1"># ==&gt;Value: 4</span>
+<span class="c1"># ==&gt;Value: LN2</span>
+<span class="c1"># ==&gt;Value: CHEVROLET</span>
+<span class="c1"># ==&gt;Value: GENERAL MOTORS LLC</span>
+<span class="c1"># ==&gt;Value: Cavalier</span>
+<span class="c1"># ==&gt;Value: 2000</span>
+<span class="c1"># ==&gt;Value: Ramos Arzipe</span>
+<span class="c1"># ==&gt;Value: PASSENGER CAR</span>
+<span class="c1"># ==&gt;Value: 4</span>
+<span class="c1"># ==&gt;Value: In-Line</span>
+<span class="c1"># ==&gt;Value: 1st Row (Driver &amp; Passenger)</span>
+<span class="c1"># ==&gt;Value: Sequential Fuel Injection (SFI)</span>
+<span class="c1"># ==&gt;Value: Mexico</span>
+<span class="c1"># ==&gt;Value: NA</span>
+<span class="c1"># ==&gt;Value: Manual</span>
+<span class="c1"># ==&gt;Value: Body Type: Sedan, 4-6 Window, Notchback (GM codes: 19, 69)</span>
+<span class="c1"># ==&gt;Value:  Name Plate: Chevrolet, Pontiac</span>
+<span class="c1"># ==&gt;Value: 0 - VIN decoded clean. Check Digit (9th position) is correct</span>
+<span class="c1"># ==&gt;Value: LAN</span>
+<span class="c1"># ==&gt;Value: 984</span>
+<span class="c1">#</span>
+<span class="c1">###-----------------------------------------</span>
 </pre></div>
 </div>
 </section>
@@ -638,10 +638,10 @@ to import before opening the window.</p>
 using the open_windowInPackages() function.</p>
 <p>We determine the class name “WindowFlagsController” and the packages name.</p>
 <p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(:</span><span class="n">WindowFlagsController</span><span class="p">,</span><span class="o">[</span>
-        <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
-        <span class="s">&quot;System.GUI&quot;</span>
-<span class="o">]</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(</span><span class="ss">:WindowFlagsController</span><span class="p">,[</span>
+        <span class="s2">&quot;formdesigner&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;System.GUI&quot;</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 </section>
@@ -649,482 +649,482 @@ using the open_windowInPackages() function.</p>
 <span id="index-10"></span><h2>RingFreeGLUT Extension<a class="headerlink" href="#ringfreeglut-extension" title="Permalink to this heading"></a></h2>
 <p>Ring 1.5 comes with RingFreeGLUT extension to support the FreeGLUT library</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/*
-        This sample is based on C Tutorials
-        from : http://www.lighthouse3d.com/tutorials/glut-tutorial/
-*/
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">        This sample is based on C Tutorials</span>
+<span class="cm">        from : http://www.lighthouse3d.com/tutorials/glut-tutorial/</span>
+<span class="cm">*/</span>
 
-load &quot;freeglut.ring&quot;
-load &quot;opengl21lib.ring&quot;
+<span class="kn">load</span> <span class="s2">&quot;freeglut.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;opengl21lib.ring&quot;</span>
 
 
-// angle of rotation for the camera direction
-angle = 0.0
+<span class="c1">// angle of rotation for the camera direction</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-// actual vector representing the camera&#39;s direction
-lx=0.0 lz=-1.0
+<span class="c1">// actual vector representing the camera&#39;s direction</span>
+<span class="n">lx</span><span class="o">=</span><span class="mf">0.0</span> <span class="n">lz</span><span class="o">=-</span><span class="mf">1.0</span>
 
-// XZ position of the camera
-x=0.0  z=5.0
-
-// the key states. These variables will be zero
-//when no key is being presses
-deltaAngle = 0.0
-deltaMove = 0
-xOrigin = -1
-
-// Constant definitions for Menus
-C_RED  = 1
-C_GREEN = 2
-C_BLUE = 3
-C_ORANGE = 4
-
-C_FILL = 5
-C_LINE = 6
-
-// Pop up menu identifiers
-fillMenu=NULL
-fontMenu=NULL
-mainMenu=NULL
-colorMenu=NULL
-
-// color for the nose
-red = 1.0
-blue=0.5
-green=0.5
-
-// scale of snowman
-scale = 1.0
-
-// menu status
-menuFlag = 0
-
-// default font
-font = GLUT_BITMAP_TIMES_ROMAN_24
+<span class="c1">// XZ position of the camera</span>
+<span class="n">x</span><span class="o">=</span><span class="mf">0.0</span>  <span class="n">z</span><span class="o">=</span><span class="mf">5.0</span>
+
+<span class="c1">// the key states. These variables will be zero</span>
+<span class="c1">//when no key is being presses</span>
+<span class="n">deltaAngle</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">xOrigin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1">// Constant definitions for Menus</span>
+<span class="n">C_RED</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">C_GREEN</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">C_BLUE</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">C_ORANGE</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">C_FILL</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">C_LINE</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1">// Pop up menu identifiers</span>
+<span class="n">fillMenu</span><span class="o">=</span><span class="bp">NULL</span>
+<span class="n">fontMenu</span><span class="o">=</span><span class="bp">NULL</span>
+<span class="n">mainMenu</span><span class="o">=</span><span class="bp">NULL</span>
+<span class="n">colorMenu</span><span class="o">=</span><span class="bp">NULL</span>
+
+<span class="c1">// color for the nose</span>
+<span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">blue</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">green</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="c1">// scale of snowman</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1">// menu status</span>
+<span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">// default font</span>
+<span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_24</span>
 
-C_INT_GLUT_BITMAP_8_BY_13 = 7
-C_INT_GLUT_BITMAP_9_BY_15 = 8
-C_INT_GLUT_BITMAP_TIMES_ROMAN_10  = 9
-C_INT_GLUT_BITMAP_TIMES_ROMAN_24  = 10
-C_INT_GLUT_BITMAP_HELVETICA_10  = 11
-C_INT_GLUT_BITMAP_HELVETICA_12  = 12
-C_INT_GLUT_BITMAP_HELVETICA_18  = 13
+<span class="n">C_INT_GLUT_BITMAP_8_BY_13</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">C_INT_GLUT_BITMAP_9_BY_15</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>  <span class="o">=</span> <span class="mi">9</span>
+<span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>  <span class="o">=</span> <span class="mi">10</span>
+<span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>  <span class="o">=</span> <span class="mi">11</span>
+<span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>  <span class="o">=</span> <span class="mi">12</span>
+<span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>  <span class="o">=</span> <span class="mi">13</span>
 
-// width and height of the window
-h = 0
-w = 0
+<span class="c1">// width and height of the window</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">0</span>
 
-// variables to compute frames per second
-frame=0
-time=0
-timebase=0
-s = &quot;&quot;
+<span class="c1">// variables to compute frames per second</span>
+<span class="n">frame</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">time</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">timebase</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-func changeSize
-        w = glutEventWidth()
-        h = glutEventHeight()
+<span class="kd">func</span> <span class="nf">changeSize</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">glutEventWidth</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">glutEventHeight</span><span class="p">()</span>
 
-        // Prevent a divide by zero, when window is too short
-        // (you cant make a window of zero width).
-        if h = 0
-                h = 1
-        ok
+        <span class="c1">// Prevent a divide by zero, when window is too short</span>
+        <span class="c1">// (you cant make a window of zero width).</span>
+        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k k-Control">ok</span>
 
-        ratio =  w * 1.0 / h
+        <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
-        // Use the Projection Matrix
-        glMatrixMode(GL_PROJECTION)
+        <span class="c1">// Use the Projection Matrix</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
 
-        // Reset Matrix
-        glLoadIdentity()
+        <span class="c1">// Reset Matrix</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
 
-        // Set the viewport to be the entire window
-        glViewport(0, 0, w, h)
+        <span class="c1">// Set the viewport to be the entire window</span>
+        <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 
-        // Set the correct perspective.
-        gluPerspective(45.0, ratio, 0.1, 100.0)
+        <span class="c1">// Set the correct perspective.</span>
+        <span class="n">gluPerspective</span><span class="p">(</span><span class="mf">45.0</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
 
-        // Get Back to the Modelview
-        glMatrixMode(GL_MODELVIEW)
+        <span class="c1">// Get Back to the Modelview</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
 
-func drawSnowMan
+<span class="kd">func</span> <span class="nf">drawSnowMan</span>
 
-        glScalef(scale, scale, scale)
-        glColor3f(1.0, 1.0, 1.0)
+        <span class="n">glScalef</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
-// Draw Body
-        glTranslatef(0.0 ,0.75, 0.0)
-        glutSolidSphere(0.75,20,20)
+<span class="c1">// Draw Body</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span> <span class="p">,</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
-// Draw Head
-        glTranslatef(0.0, 1.0, 0.0)
-        glutSolidSphere(0.25,20,20)
+<span class="c1">// Draw Head</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
-// Draw Eyes
-        glPushMatrix()
-        glColor3f(0.0,0.0,0.0)
-        glTranslatef(0.05, 0.10, 0.18)
-        glutSolidSphere(0.05,10,10)
-        glTranslatef(-0.1, 0.0, 0.0)
-        glutSolidSphere(0.05,10,10)
-        glPopMatrix()
+<span class="c1">// Draw Eyes</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">)</span>
+        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
 
-// Draw Nose
-        glColor3f(red, green, blue)
-        glRotatef(0.0,1.0, 0.0, 0.0)
-        glutSolidCone(0.08,0.5,10,2)
+<span class="c1">// Draw Nose</span>
+        <span class="n">glColor3f</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+        <span class="n">glRotatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">glutSolidCone</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-        glColor3f(1.0, 1.0, 1.0)
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
-func renderBitmapString x,y,z,font,string
-        glRasterPos3f(x, y,z)
-        for c in string
-                glutBitmapCharacter(font,ascii(c))
-        next
+<span class="kd">func</span> <span class="nf">renderBitmapString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
+        <span class="n">glRasterPos3f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="k k-Control">for</span> <span class="n">c</span> <span class="k k-Control">in</span> <span class="n">string</span>
+                <span class="n">glutBitmapCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+        <span class="k k-Control">next</span>
 
-func renderStrokeFontString x,y,z,font,string
-        glPushMatrix()
-        glTranslatef(x, y,z)
-        glScalef(0.002, 0.002, 0.002)
-        for c in string
-                glutStrokeCharacter(font, Ascii(c));
-        next
-        glPopMatrix()
+<span class="kd">func</span> <span class="nf">renderStrokeFontString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">glScalef</span><span class="p">(</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
+        <span class="k k-Control">for</span> <span class="n">c</span> <span class="k k-Control">in</span> <span class="n">string</span>
+                <span class="n">glutStrokeCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="nb">Ascii</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+        <span class="k k-Control">next</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
 
 
-func restorePerspectiveProjection
+<span class="kd">func</span> <span class="nf">restorePerspectiveProjection</span>
 
-        glMatrixMode(GL_PROJECTION)
-        // restore previous projection matrix
-        glPopMatrix()
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+        <span class="c1">// restore previous projection matrix</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
 
-        // get back to modelview mode
-        glMatrixMode(GL_MODELVIEW)
+        <span class="c1">// get back to modelview mode</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
 
 
-func setOrthographicProjection
+<span class="kd">func</span> <span class="nf">setOrthographicProjection</span>
 
-        // switch to projection mode
-        glMatrixMode(GL_PROJECTION)
+        <span class="c1">// switch to projection mode</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
 
-        // save previous matrix which contains the
-        //settings for the perspective projection
-        glPushMatrix()
+        <span class="c1">// save previous matrix which contains the</span>
+        <span class="c1">//settings for the perspective projection</span>
+        <span class="n">glPushMatrix</span><span class="p">()</span>
 
-        // reset matrix
-        glLoadIdentity()
+        <span class="c1">// reset matrix</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
 
-        // set a 2D orthographic projection
-        gluOrtho2D(0, w, h, 0)
+        <span class="c1">// set a 2D orthographic projection</span>
+        <span class="n">gluOrtho2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        // switch back to modelview mode
-        glMatrixMode(GL_MODELVIEW)
+        <span class="c1">// switch back to modelview mode</span>
+        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
 
 
 
-func computePos deltaMove
+<span class="kd">func</span> <span class="nf">computePos</span> <span class="n">deltaMove</span>
 
-        x += deltaMove * lx * 0.1
-        z += deltaMove * lz * 0.1
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">deltaMove</span> <span class="o">*</span> <span class="n">lx</span> <span class="o">*</span> <span class="mf">0.1</span>
+        <span class="n">z</span> <span class="o">+=</span> <span class="n">deltaMove</span> <span class="o">*</span> <span class="n">lz</span> <span class="o">*</span> <span class="mf">0.1</span>
 
 
-func renderScene
+<span class="kd">func</span> <span class="nf">renderScene</span>
 
-        if  deltaMove
-                computePos(deltaMove)
-        ok
+        <span class="k k-Control">if</span>  <span class="n">deltaMove</span>
+                <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
 
-        // Clear Color and Depth Buffers
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        <span class="c1">// Clear Color and Depth Buffers</span>
+        <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
 
-        // Reset transformations
-        glLoadIdentity()
+        <span class="c1">// Reset transformations</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
 
-        // Set the camera
-        gluLookAt(      x, 1.0, z,
-                        x+lx, 1.0,  z+lz,
-                        0.0, 1.0,  0.0)
+        <span class="c1">// Set the camera</span>
+        <span class="n">gluLookAt</span><span class="p">(</span>      <span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span>
+                        <span class="n">x</span><span class="o">+</span><span class="n">lx</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="n">z</span><span class="o">+</span><span class="n">lz</span><span class="p">,</span>
+                        <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">)</span>
 
-        // Draw ground
+        <span class="c1">// Draw ground</span>
 
-        glColor3f(0.9, 0.9, 0.9)
-        glBegin(GL_QUADS)
-                glVertex3f(-100.0, 0.0, -100.0)
-                glVertex3f(-100.0, 0.0,  100.0)
-                glVertex3f( 100.0, 0.0,  100.0)
-                glVertex3f( 100.0, 0.0, -100.0)
-        glEnd()
+        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
+                <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">100.0</span><span class="p">)</span>
+                <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">100.0</span><span class="p">)</span>
+                <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
+        <span class="n">glEnd</span><span class="p">()</span>
 
-// Draw 9 SnowMen
-        for i = -3 to -1
-                for j = -3 to -1
-                        glPushMatrix()
-                        glTranslatef(i*10.0, 0.0, j * 10.0)
-                        drawSnowMan()
-                        number = (i+3)*3+(j+3)
-                        renderBitmapString(0.0, 0.5, 0.0,font ,&quot;&quot;+number)
-                        glPopMatrix()
-                next
-        next
+<span class="c1">// Draw 9 SnowMen</span>
+        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k k-Control">for</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="n">glPushMatrix</span><span class="p">()</span>
+                        <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
+                        <span class="n">drawSnowMan</span><span class="p">()</span>
+                        <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+                        <span class="n">renderBitmapString</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="n">font</span> <span class="p">,</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">number</span><span class="p">)</span>
+                        <span class="n">glPopMatrix</span><span class="p">()</span>
+                <span class="k k-Control">next</span>
+        <span class="k k-Control">next</span>
 
-        // Code to compute frames per second
-        frame++
+        <span class="c1">// Code to compute frames per second</span>
+        <span class="n">frame</span><span class="o">++</span>
 
-        time=glutGet(GLUT_ELAPSED_TIME)
-        if time - timebase &gt; 1000
-                s = &quot;RingFreeGLUT - FPS: &quot; + (frame*1000.0/(time-timebase))
-                timebase = time
-                frame = 0
-        ok
+        <span class="n">time</span><span class="o">=</span><span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_ELAPSED_TIME</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="n">time</span> <span class="o">-</span> <span class="n">timebase</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;RingFreeGLUT - FPS: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">frame</span><span class="o">*</span><span class="mf">1000.0</span><span class="o">/</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">timebase</span><span class="p">))</span>
+                <span class="n">timebase</span> <span class="o">=</span> <span class="n">time</span>
+                <span class="n">frame</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k k-Control">ok</span>
 
-        // Code to display a string (fps) with bitmap fonts
-        setOrthographicProjection()
+        <span class="c1">// Code to display a string (fps) with bitmap fonts</span>
+        <span class="n">setOrthographicProjection</span><span class="p">()</span>
 
-        glPushMatrix()
-        glLoadIdentity()
-        renderBitmapString(5,30,0,GLUT_BITMAP_HELVETICA_18,s)
-        glPopMatrix()
+        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">renderBitmapString</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">GLUT_BITMAP_HELVETICA_18</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">glPopMatrix</span><span class="p">()</span>
 
-        restorePerspectiveProjection()
+        <span class="n">restorePerspectiveProjection</span><span class="p">()</span>
 
-        glutSwapBuffers()
+        <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
 
-// -----------------------------------
-//             KEYBOARD
-// -----------------------------------
+<span class="c1">// -----------------------------------</span>
+<span class="c1">//             KEYBOARD</span>
+<span class="c1">// -----------------------------------</span>
 
-func processNormalKeys
-        key = glutEventKey()
-        xx = glutEventX()
-        yy = glutEventY()
+<span class="kd">func</span> <span class="nf">processNormalKeys</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        switch key
-                on 27
-                        glutDestroyMenu(mainMenu)
-                        glutDestroyMenu(fillMenu)
-                        glutDestroyMenu(colorMenu)
-                        glutDestroyMenu(fontMenu)
-                        Shutdown()
-        off
+        <span class="k k-Control">switch</span> <span class="n">key</span>
+                <span class="k k-Control">on</span> <span class="mi">27</span>
+                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
+                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fillMenu</span><span class="p">)</span>
+                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">colorMenu</span><span class="p">)</span>
+                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fontMenu</span><span class="p">)</span>
+                        <span class="nb">Shutdown</span><span class="p">()</span>
+        <span class="k k-Control">off</span>
 
 
-func pressKey
+<span class="kd">func</span> <span class="nf">pressKey</span>
 
-        key = glutEventKey()
-        xx = glutEventX()
-        yy = glutEventY()
+        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        switch key
-                on GLUT_KEY_UP
-                         deltaMove = 0.5
-                on GLUT_KEY_DOWN
-                        deltaMove = -0.5
-        off
+        <span class="k k-Control">switch</span> <span class="n">key</span>
+                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mf">0.5</span>
+                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                        <span class="n">deltaMove</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+        <span class="k k-Control">off</span>
 
 
-func releaseKey
+<span class="kd">func</span> <span class="nf">releaseKey</span>
 
-        key = glutEventKey()
+        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-        switch key
-                on GLUT_KEY_UP
-                        deltaMove = 0
-                on GLUT_KEY_DOWN
-                        deltaMove = 0
-        off
+        <span class="k k-Control">switch</span> <span class="n">key</span>
+                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+                        <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                        <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k k-Control">off</span>
 
 
-// -----------------------------------
-//             MOUSE
-// -----------------------------------
+<span class="c1">// -----------------------------------</span>
+<span class="c1">//             MOUSE</span>
+<span class="c1">// -----------------------------------</span>
 
-func mouseMove
-        xx = glutEventX()
-        yy = glutEventY()
+<span class="kd">func</span> <span class="nf">mouseMove</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        // this will only be true when the left button is down
-        if xOrigin &gt;= 0
+        <span class="c1">// this will only be true when the left button is down</span>
+        <span class="k k-Control">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 
-                // update deltaAngle
-                deltaAngle = (xx - xOrigin) * 0.001
+                <span class="c1">// update deltaAngle</span>
+                <span class="n">deltaAngle</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">-</span> <span class="n">xOrigin</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
 
-                // update camera&#39;s direction
-                lx = sin(angle + deltaAngle)
-                lz = -cos(angle + deltaAngle)
-        ok
+                <span class="c1">// update camera&#39;s direction</span>
+                <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
+                <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
 
 
-func mouseButton
+<span class="kd">func</span> <span class="nf">mouseButton</span>
 
-        button = glutEventButton()
-        state = glutEventState()
-        xx = glutEventX()
-        yy = glutEventY()
+        <span class="n">button</span> <span class="o">=</span> <span class="n">glutEventButton</span><span class="p">()</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">glutEventState</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        // only start motion if the left button is pressed
-        if button = GLUT_LEFT_BUTTON
-                // when the button is released
-                if state = GLUT_UP
-                        angle += deltaAngle
-                        xOrigin = -1
-                else
-                        // state = GLUT_DOWN
-                        xOrigin = xx
-                ok
-        ok
+        <span class="c1">// only start motion if the left button is pressed</span>
+        <span class="k k-Control">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
+                <span class="c1">// when the button is released</span>
+                <span class="k k-Control">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
+                        <span class="n">angle</span> <span class="o">+=</span> <span class="n">deltaAngle</span>
+                        <span class="n">xOrigin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k k-Control">else</span>
+                        <span class="c1">// state = GLUT_DOWN</span>
+                        <span class="n">xOrigin</span> <span class="o">=</span> <span class="n">xx</span>
+                <span class="k k-Control">ok</span>
+        <span class="k k-Control">ok</span>
 
 
-// -----------------------------------
-//             MENUS
-// -----------------------------------
+<span class="c1">// -----------------------------------</span>
+<span class="c1">//             MENUS</span>
+<span class="c1">// -----------------------------------</span>
 
-func processMenuStatus
+<span class="kd">func</span> <span class="nf">processMenuStatus</span>
 
-        status = glutEventStatus()
+        <span class="n">status</span> <span class="o">=</span> <span class="n">glutEventStatus</span><span class="p">()</span>
 
-        if status = GLUT_MENU_IN_USE
-                menuFlag = 1
-        else
-                menuFlag = 0
-        ok
+        <span class="k k-Control">if</span> <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
+                <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k k-Control">else</span>
+                <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k k-Control">ok</span>
 
 
-func processMainMenu
+<span class="kd">func</span> <span class="nf">processMainMenu</span>
 
-        // nothing to do in here
-        // all actions are for submenus
+        <span class="c1">// nothing to do in here</span>
+        <span class="c1">// all actions are for submenus</span>
 
 
-func processFillMenu
+<span class="kd">func</span> <span class="nf">processFillMenu</span>
 
-        option = glutEventValue()
+        <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        switch option
+        <span class="k k-Control">switch</span> <span class="n">option</span>
 
-                on C_FILL
-                        glPolygonMode(GL_FRONT, GL_FILL)
-                on C_LINE
-                         glPolygonMode(GL_FRONT, GL_LINE)
-        off
+                <span class="k k-Control">on</span> <span class="n">C_FILL</span>
+                        <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_FILL</span><span class="p">)</span>
+                <span class="k k-Control">on</span> <span class="n">C_LINE</span>
+                         <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_LINE</span><span class="p">)</span>
+        <span class="k k-Control">off</span>
 
 
-func processFontMenu
+<span class="kd">func</span> <span class="nf">processFontMenu</span>
 
-        option = glutEventValue()
+        <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        switch (option) {
-                on C_INT_GLUT_BITMAP_8_BY_13
-                        font = GLUT_BITMAP_8_BY_13
-                on C_INT_GLUT_BITMAP_9_BY_15
-                        font = GLUT_BITMAP_9_BY_15
-                on C_INT_GLUT_BITMAP_TIMES_ROMAN_10
-                        font = GLUT_BITMAP_TIMES_ROMAN_10
-                on C_INT_GLUT_BITMAP_TIMES_ROMAN_24
-                        font = GLUT_BITMAP_TIMES_ROMAN_24
-                on C_INT_GLUT_BITMAP_HELVETICA_10
-                        font = GLUT_BITMAP_HELVETICA_10
-                on C_INT_GLUT_BITMAP_HELVETICA_12
-                        font = GLUT_BITMAP_HELVETICA_12
-                on C_INT_GLUT_BITMAP_HELVETICA_18
-                        font = GLUT_BITMAP_HELVETICA_18
-        off
+        <span class="k k-Control">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_8_BY_13</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_8_BY_13</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_9_BY_15</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_9_BY_15</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_10</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_24</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_10</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_12</span>
+                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>
+                        <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_18</span>
+        <span class="k k-Control">off</span>
 
-func processColorMenu
+<span class="kd">func</span> <span class="nf">processColorMenu</span>
 
-        option = glutEventValue()
+        <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        switch option
-                on C_RED
-                        red = 1.0
-                        green = 0.0
-                        blue = 0.0
-                on C_GREEN
-                        red = 0.0
-                        green = 1.0
-                        blue = 0.0
-                on C_BLUE
-                        red = 0.0
-                        green = 0.0
-                        blue = 1.0
-                on C_ORANGE
-                        red = 1.0
-                        green = 0.5
-                        blue = 0.5
-        off
+        <span class="k k-Control">switch</span> <span class="n">option</span>
+                <span class="k k-Control">on</span> <span class="n">C_RED</span>
+                        <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
+                        <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
+                        <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="k k-Control">on</span> <span class="n">C_GREEN</span>
+                        <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
+                        <span class="n">green</span> <span class="o">=</span> <span class="mf">1.0</span>
+                        <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="k k-Control">on</span> <span class="n">C_BLUE</span>
+                        <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
+                        <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
+                        <span class="n">blue</span> <span class="o">=</span> <span class="mf">1.0</span>
+                <span class="k k-Control">on</span> <span class="n">C_ORANGE</span>
+                        <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
+                        <span class="n">green</span> <span class="o">=</span> <span class="mf">0.5</span>
+                        <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="k k-Control">off</span>
 
 
-func createPopupMenus
+<span class="kd">func</span> <span class="nf">createPopupMenus</span>
 
-        fontMenu = glutCreateMenu(:processFontMenu)
+        <span class="n">fontMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processFontMenu</span><span class="p">)</span>
 
-        glutAddMenuEntry(&quot;BITMAP_8_BY_13 &quot;,C_INT_GLUT_BITMAP_8_BY_13 )
-        glutAddMenuEntry(&quot;BITMAP_9_BY_15&quot;,C_INT_GLUT_BITMAP_9_BY_15 )
-        glutAddMenuEntry(&quot;BITMAP_TIMES_ROMAN_10 &quot;,C_INT_GLUT_BITMAP_TIMES_ROMAN_10  )
-        glutAddMenuEntry(&quot;BITMAP_TIMES_ROMAN_24&quot;,C_INT_GLUT_BITMAP_TIMES_ROMAN_24  )
-        glutAddMenuEntry(&quot;BITMAP_HELVETICA_10 &quot;,C_INT_GLUT_BITMAP_HELVETICA_10  )
-        glutAddMenuEntry(&quot;BITMAP_HELVETICA_12&quot;,C_INT_GLUT_BITMAP_HELVETICA_12  )
-        glutAddMenuEntry(&quot;BITMAP_HELVETICA_18&quot;,C_INT_GLUT_BITMAP_HELVETICA_18  )
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_8_BY_13 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_8_BY_13</span> <span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_9_BY_15&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_9_BY_15</span> <span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_TIMES_ROMAN_10 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>  <span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_TIMES_ROMAN_24&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>  <span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_10 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>  <span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_12&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>  <span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_18&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>  <span class="p">)</span>
 
-        fillMenu = glutCreateMenu(:processFillMenu)
+        <span class="n">fillMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processFillMenu</span><span class="p">)</span>
 
-        glutAddMenuEntry(&quot;Fill&quot;,C_FILL)
-        glutAddMenuEntry(&quot;Line&quot;,C_LINE)
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Fill&quot;</span><span class="p">,</span><span class="n">C_FILL</span><span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Line&quot;</span><span class="p">,</span><span class="n">C_LINE</span><span class="p">)</span>
 
-        colorMenu = glutCreateMenu(:processColorMenu)
-        glutAddMenuEntry(&quot;Red&quot;,C_RED);
-        glutAddMenuEntry(&quot;Blue&quot;,C_BLUE);
-        glutAddMenuEntry(&quot;Green&quot;,C_GREEN);
-        glutAddMenuEntry(&quot;Orange&quot;,C_ORANGE);
+        <span class="n">colorMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processColorMenu</span><span class="p">)</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span><span class="n">C_RED</span><span class="p">);</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span><span class="n">C_BLUE</span><span class="p">);</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Green&quot;</span><span class="p">,</span><span class="n">C_GREEN</span><span class="p">);</span>
+        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">,</span><span class="n">C_ORANGE</span><span class="p">);</span>
 
-        mainMenu = glutCreateMenu(:processMainMenu)
+        <span class="n">mainMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processMainMenu</span><span class="p">)</span>
 
-        glutAddSubMenu(&quot;Polygon Mode&quot;, fillMenu)
-        glutAddSubMenu(&quot;Color&quot;, colorMenu)
-        glutAddSubMenu(&quot;Font&quot;,fontMenu)
-        // attach the menu to the right button
-        glutAttachMenu(GLUT_RIGHT_BUTTON)
+        <span class="n">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Polygon Mode&quot;</span><span class="p">,</span> <span class="n">fillMenu</span><span class="p">)</span>
+        <span class="n">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Color&quot;</span><span class="p">,</span> <span class="n">colorMenu</span><span class="p">)</span>
+        <span class="n">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Font&quot;</span><span class="p">,</span><span class="n">fontMenu</span><span class="p">)</span>
+        <span class="c1">// attach the menu to the right button</span>
+        <span class="n">glutAttachMenu</span><span class="p">(</span><span class="n">GLUT_RIGHT_BUTTON</span><span class="p">)</span>
 
-        // this will allow us to know if the menu is active
-        glutMenuStatusFunc(:processMenuStatus)
+        <span class="c1">// this will allow us to know if the menu is active</span>
+        <span class="n">glutMenuStatusFunc</span><span class="p">(</span><span class="ss">:processMenuStatus</span><span class="p">)</span>
 
 
-// -----------------------------------
-//             MAIN
-// -----------------------------------
+<span class="c1">// -----------------------------------</span>
+<span class="c1">//             MAIN</span>
+<span class="c1">// -----------------------------------</span>
 
-func main
+<span class="kd">func</span> <span class="nf">main</span>
 
-        // init GLUT and create window
-        glutInit()
-        glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
-        glutInitWindowPosition(100,100)
-        glutInitWindowSize(320,320)
-        glutCreateWindow(&quot;RingFreeGLUT - Test - 9 SnowMan&quot;)
+        <span class="c1">// init GLUT and create window</span>
+        <span class="n">glutInit</span><span class="p">()</span>
+        <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DEPTH</span> <span class="o">|</span> <span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGBA</span><span class="p">)</span>
+        <span class="n">glutInitWindowPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">glutInitWindowSize</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+        <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;RingFreeGLUT - Test - 9 SnowMan&quot;</span><span class="p">)</span>
 
-        // register callbacks
-        glutDisplayFunc(:renderScene)
-        glutReshapeFunc(:changeSize)
-        glutIdleFunc(:renderScene)
+        <span class="c1">// register callbacks</span>
+        <span class="n">glutDisplayFunc</span><span class="p">(</span><span class="ss">:renderScene</span><span class="p">)</span>
+        <span class="n">glutReshapeFunc</span><span class="p">(</span><span class="ss">:changeSize</span><span class="p">)</span>
+        <span class="n">glutIdleFunc</span><span class="p">(</span><span class="ss">:renderScene</span><span class="p">)</span>
 
-        glutIgnoreKeyRepeat(1)
-        glutKeyboardFunc(:processNormalKeys)
-        glutSpecialFunc(:pressKey)
-        glutSpecialUpFunc(:releaseKey)
+        <span class="n">glutIgnoreKeyRepeat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">glutKeyboardFunc</span><span class="p">(</span><span class="ss">:processNormalKeys</span><span class="p">)</span>
+        <span class="n">glutSpecialFunc</span><span class="p">(</span><span class="ss">:pressKey</span><span class="p">)</span>
+        <span class="n">glutSpecialUpFunc</span><span class="p">(</span><span class="ss">:releaseKey</span><span class="p">)</span>
 
-        // here are the two new functions
-        glutMouseFunc(:mouseButton)
-        glutMotionFunc(:mouseMove)
+        <span class="c1">// here are the two new functions</span>
+        <span class="n">glutMouseFunc</span><span class="p">(</span><span class="ss">:mouseButton</span><span class="p">)</span>
+        <span class="n">glutMotionFunc</span><span class="p">(</span><span class="ss">:mouseMove</span><span class="p">)</span>
 
-        // OpenGL init
-        glEnable(GL_DEPTH_TEST)
-        glEnable(GL_CULL_FACE)
+        <span class="c1">// OpenGL init</span>
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
 
-        // init Menus
-        createPopupMenus()
+        <span class="c1">// init Menus</span>
+        <span class="n">createPopupMenus</span><span class="p">()</span>
 
-        // enter GLUT event processing cycle
-        glutMainLoop()
+        <span class="c1">// enter GLUT event processing cycle</span>
+        <span class="n">glutMainLoop</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shots:</p>
@@ -1154,47 +1154,47 @@ func main
 <li><p>OpenGL 4.6</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
-        <span class="n">This</span> <span class="n">sample</span> <span class="n">is</span> <span class="n">based</span> <span class="k">on</span> <span class="n">C</span> <span class="n">Tutorials</span>
-        <span class="k">from</span> <span class="p">:</span>
-                <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">wikihow</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Make</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">Cube</span><span class="o">-</span><span class="k">in</span><span class="o">-</span><span class="n">OpenGL</span>
-<span class="o">*/</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">        This sample is based on C Tutorials</span>
+<span class="cm">        from :</span>
+<span class="cm">                http://www.wikihow.com/Make-a-Cube-in-OpenGL</span>
+<span class="cm">*/</span>
 
-<span class="k">load</span> <span class="s">&quot;freeglut.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;opengl21lib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;freeglut.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;opengl21lib.ring&quot;</span>
 
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">Global</span> <span class="n">Variables</span>
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// Global Variables</span>
+<span class="c1">// ----------------------------------------------------------</span>
 <span class="n">rotate_y</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">rotate_x</span><span class="o">=</span><span class="mi">0</span>
 
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">display</span><span class="p">()</span> <span class="n">Callback</span> <span class="k">function</span>
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="k">func</span> <span class="n">display</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// display() Callback function</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="kd">func</span> <span class="nf">display</span>
 
-  <span class="o">//</span>  <span class="n">Clear</span> <span class="n">screen</span> <span class="ow">and</span> <span class="n">Z</span><span class="o">-</span><span class="n">buffer</span>
+  <span class="c1">//  Clear screen and Z-buffer</span>
   <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="o">|</span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
 
-  <span class="o">//</span> <span class="n">Reset</span> <span class="n">transformations</span>
+  <span class="c1">// Reset transformations</span>
   <span class="n">glLoadIdentity</span><span class="p">()</span>
 
-  <span class="o">//</span> <span class="n">Rotate</span> <span class="n">when</span> <span class="n">user</span> <span class="n">changes</span> <span class="n">rotate_x</span> <span class="ow">and</span> <span class="n">rotate_y</span>
+  <span class="c1">// Rotate when user changes rotate_x and rotate_y</span>
   <span class="n">glRotatef</span><span class="p">(</span> <span class="n">rotate_x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
   <span class="n">glRotatef</span><span class="p">(</span> <span class="n">rotate_y</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
 
-  <span class="o">//</span><span class="n">Multi</span><span class="o">-</span><span class="n">colored</span> <span class="n">side</span> <span class="o">-</span> <span class="n">FRONT</span>
+  <span class="c1">//Multi-colored side - FRONT</span>
   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
 
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P1 is red</span>
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P2 is green</span>
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P3 is blue</span>
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P4 is purple</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P1 is red</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P2 is green</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P3 is blue</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P4 is purple</span>
 
   <span class="n">glEnd</span><span class="p">()</span>
 
-  <span class="o">//</span> <span class="n">White</span> <span class="n">side</span> <span class="o">-</span> <span class="n">BACK</span>
+  <span class="c1">// White side - BACK</span>
   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
   <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>
   <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
@@ -1203,7 +1203,7 @@ func main
   <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
   <span class="n">glEnd</span><span class="p">()</span>
 
-  <span class="o">//</span> <span class="n">Purple</span> <span class="n">side</span> <span class="o">-</span> <span class="n">RIGHT</span>
+  <span class="c1">// Purple side - RIGHT</span>
   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
   <span class="n">glColor3f</span><span class="p">(</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
   <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
@@ -1212,7 +1212,7 @@ func main
   <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
   <span class="n">glEnd</span><span class="p">()</span>
 
-  <span class="o">//</span> <span class="n">Green</span> <span class="n">side</span> <span class="o">-</span> <span class="n">LEFT</span>
+  <span class="c1">// Green side - LEFT</span>
   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
   <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
   <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
@@ -1221,7 +1221,7 @@ func main
   <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
   <span class="n">glEnd</span><span class="p">()</span>
 
-  <span class="o">//</span> <span class="n">Blue</span> <span class="n">side</span> <span class="o">-</span> <span class="n">TOP</span>
+  <span class="c1">// Blue side - TOP</span>
   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
   <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
   <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
@@ -1230,7 +1230,7 @@ func main
   <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
   <span class="n">glEnd</span><span class="p">()</span>
 
-  <span class="o">//</span> <span class="n">Red</span> <span class="n">side</span> <span class="o">-</span> <span class="n">BOTTOM</span>
+  <span class="c1">// Red side - BOTTOM</span>
   <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
   <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
   <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
@@ -1243,61 +1243,61 @@ func main
   <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
 
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">specialKeys</span><span class="p">()</span> <span class="n">Callback</span> <span class="k">Function</span>
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="k">func</span> <span class="n">specialKeys</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// specialKeys() Callback Function</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="kd">func</span> <span class="nf">specialKeys</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-  <span class="o">//</span>  <span class="n">Right</span> <span class="n">arrow</span> <span class="o">-</span> <span class="n">increase</span> <span class="n">rotation</span> <span class="n">by</span> <span class="mi">5</span> <span class="n">degree</span>
-        <span class="k">switch</span> <span class="n">Key</span>
+  <span class="c1">//  Right arrow - increase rotation by 5 degree</span>
+        <span class="k k-Control">switch</span> <span class="n">Key</span>
 
-        <span class="k">on</span> <span class="n">GLUT_KEY_RIGHT</span>
+        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_RIGHT</span>
                 <span class="n">rotate_y</span> <span class="o">+=</span> <span class="mi">5</span>
 
-        <span class="o">//</span>  <span class="n">Left</span> <span class="n">arrow</span> <span class="o">-</span> <span class="n">decrease</span> <span class="n">rotation</span> <span class="n">by</span> <span class="mi">5</span> <span class="n">degree</span>
-        <span class="k">on</span> <span class="n">GLUT_KEY_LEFT</span>
+        <span class="c1">//  Left arrow - decrease rotation by 5 degree</span>
+        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_LEFT</span>
                 <span class="n">rotate_y</span> <span class="o">-=</span> <span class="mi">5</span>
 
-        <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
                 <span class="n">rotate_x</span> <span class="o">+=</span> <span class="mi">5</span>
 
-        <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
+        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
                 <span class="n">rotate_x</span> <span class="o">-=</span> <span class="mi">5</span>
 
-        <span class="k">off</span>
+        <span class="k k-Control">off</span>
 
-  <span class="o">//</span>  <span class="n">Request</span> <span class="n">display</span> <span class="n">update</span>
+  <span class="c1">//  Request display update</span>
   <span class="n">glutPostRedisplay</span><span class="p">()</span>
 
 
 
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">main</span><span class="p">()</span> <span class="k">function</span>
-<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="k">func</span> <span class="n">main</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="c1">// main() function</span>
+<span class="c1">// ----------------------------------------------------------</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-  <span class="o">//</span>  <span class="n">Initialize</span> <span class="n">GLUT</span> <span class="ow">and</span> <span class="n">process</span> <span class="n">user</span> <span class="n">parameters</span>
+  <span class="c1">//  Initialize GLUT and process user parameters</span>
   <span class="n">glutInit</span><span class="p">()</span>
 
-  <span class="o">//</span>  <span class="n">Request</span> <span class="n">double</span> <span class="n">buffered</span> <span class="kp">true</span> <span class="n">color</span> <span class="n">window</span> <span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">buffer</span>
+  <span class="c1">//  Request double buffered true color window with Z-buffer</span>
   <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGB</span> <span class="o">|</span> <span class="n">GLUT_DEPTH</span><span class="p">)</span>
 
-  <span class="o">//</span> <span class="n">Create</span> <span class="n">window</span>
-  <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s">&quot;Awesome Cube&quot;</span><span class="p">)</span>
+  <span class="c1">// Create window</span>
+  <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;Awesome Cube&quot;</span><span class="p">)</span>
 
-  <span class="o">//</span>  <span class="n">Enable</span> <span class="n">Z</span><span class="o">-</span><span class="n">buffer</span> <span class="n">depth</span> <span class="n">test</span>
+  <span class="c1">//  Enable Z-buffer depth test</span>
   <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
 
-  <span class="o">//</span> <span class="n">Callback</span> <span class="n">functions</span>
-  <span class="n">glutDisplayFunc</span><span class="p">(:</span><span class="n">display</span><span class="p">)</span>
-  <span class="n">glutSpecialFunc</span><span class="p">(:</span><span class="n">specialKeys</span><span class="p">)</span>
+  <span class="c1">// Callback functions</span>
+  <span class="n">glutDisplayFunc</span><span class="p">(</span><span class="ss">:display</span><span class="p">)</span>
+  <span class="n">glutSpecialFunc</span><span class="p">(</span><span class="ss">:specialKeys</span><span class="p">)</span>
 
-  <span class="o">//</span>  <span class="n">Pass</span> <span class="n">control</span> <span class="k">to</span> <span class="n">GLUT</span> <span class="k">for</span> <span class="n">events</span>
+  <span class="c1">//  Pass control to GLUT for events</span>
   <span class="n">glutMainLoop</span><span class="p">()</span>
 
-  <span class="o">//</span>  <span class="k">Return</span> <span class="k">to</span> <span class="n">OS</span>
+  <span class="c1">//  Return to OS</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1309,14 +1309,14 @@ func main
 constants other than numbers, for example : Strings and Pointers.</p>
 <p>When we have pointers we can determine the pointer type.
 To use this feature, before &lt;constant&gt; and &lt;/constant&gt; we can use</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
-<span class="o">$</span><span class="n">cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s">&quot;void *&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">$nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
+<span class="n">$cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s2">&quot;void *&quot;</span>
 </pre></div>
 </div>
 <p>The next example from the RingFreeGLUT extension</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
-        <span class="o">$</span><span class="n">nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
-        <span class="o">$</span><span class="n">cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s">&quot;void&quot;</span>
+        <span class="n">$nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
+        <span class="n">$cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s2">&quot;void&quot;</span>
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span>
         <span class="n">GLUT_STROKE_ROMAN</span>
@@ -1354,51 +1354,51 @@ constants too.</p>
 <li><p>RingVM_CallFunc(cFuncName)</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tracelib.ring&quot;</span>
 
-<span class="n">ringvm_settrace</span><span class="p">(</span><span class="s">&quot;mytrace()&quot;</span><span class="p">)</span>
+<span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;mytrace()&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;How are you?&quot;</span> <span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;How are you?&quot;</span> <span class="o">+</span><span class="bp">nl</span>
 <span class="n">mytest</span><span class="p">()</span>
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="k">see</span> <span class="s">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="k">see</span> <span class="s2">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">func</span> <span class="n">mytrace</span>
-        <span class="k">see</span> <span class="s">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Trace Event : &quot;</span>
-        <span class="k">switch</span> <span class="n">ringvm_TraceEvent</span><span class="p">()</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s">&quot;New Line&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s">&quot;New Function&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s">&quot;Return&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s">&quot;Error&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s">&quot;Before C Function&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s">&quot;After C Function&quot;</span>
-        <span class="k">off</span>
-        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FILENAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Method or Function : &quot;</span>
-                <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="o">]</span> <span class="o">=</span>
+<span class="kd">func</span> <span class="nf">mytrace</span>
+        <span class="k">see</span> <span class="s2">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Trace Event : &quot;</span>
+        <span class="k k-Control">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s2">&quot;New Line&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s2">&quot;New Function&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s2">&quot;Return&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s2">&quot;Error&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s2">&quot;Before C Function&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s2">&quot;After C Function&quot;</span>
+        <span class="k k-Control">off</span>
+        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Method or Function : &quot;</span>
+                <span class="k k-Control">if</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="p">]</span> <span class="o">=</span>
                                  <span class="n">TRACEDATA_METHODORFUNC_METHOD</span>
-                        <span class="k">see</span> <span class="s">&quot;Method&quot;</span>
-                <span class="k">else</span>
-                        <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">=</span> <span class="kp">NULL</span>
-                                <span class="k">see</span> <span class="s">&quot;Command&quot;</span>
-                        <span class="k">else</span>
-                                <span class="k">see</span> <span class="s">&quot;Function&quot;</span>
-                        <span class="k">ok</span>
-                <span class="k">ok</span>
-                <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">Copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="s2">&quot;Method&quot;</span>
+                <span class="k k-Control">else</span>
+                        <span class="k k-Control">if</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
+                                <span class="k">see</span> <span class="s2">&quot;Command&quot;</span>
+                        <span class="k k-Control">else</span>
+                                <span class="k">see</span> <span class="s2">&quot;Function&quot;</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">ok</span>
+                <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">class</span> <span class="n">myclass</span>
-        <span class="k">func</span> <span class="n">mymethod</span>
-                <span class="k">see</span> <span class="s">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kd">class</span> <span class="nc">myclass</span>
+        <span class="kd">func</span> <span class="nf">mymethod</span>
+                <span class="k">see</span> <span class="s2">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1585,18 +1585,18 @@ Method or Function : Command
 Interactive Debugger when an error happens or at breakpoints.</p>
 <p>Example:</p>
 <p>The next example uses a Breakpoint to open the Interactive Debugger!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tracelib.ring&quot;</span>
 
 <span class="n">test1</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">test1</span>
+<span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="k">see</span> <span class="p">:</span><span class="n">test1</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
         <span class="n">BreakPoint</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="n">nl</span>
-        <span class="k">see</span> <span class="s">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="s">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="s2">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
+        <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="s2">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Screen Shots:</p>
@@ -1615,21 +1615,21 @@ Interactive Debugger when an error happens or at breakpoints.</p>
 <li><p>Using braces { } in Packages/Classes/Functions</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="k">import</span> <span class="n">mypackage</span>
+<span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
         <span class="n">myfunc</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">package</span> <span class="n">mypackage</span>
+<span class="kn">package</span> <span class="nn">mypackage</span>
 <span class="p">{</span>
-        <span class="k">class</span> <span class="n">myclass</span>
+        <span class="kd">class</span> <span class="nc">myclass</span>
         <span class="p">{</span>
-                <span class="k">func</span> <span class="n">myfunc</span>
+                <span class="kd">func</span> <span class="nf">myfunc</span>
                 <span class="p">{</span>
-                        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!\n&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
         <span class="p">}</span>
 <span class="p">}</span>
@@ -1639,36 +1639,36 @@ Interactive Debugger when an error happens or at breakpoints.</p>
 <li><p>Using ‘end’ keyword after Packages/Classes/Functions</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
         <span class="n">myfunc</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">package</span> <span class="n">mypackage</span>
-        <span class="k">class</span> <span class="n">myclass</span>
-                <span class="k">def</span> <span class="n">myfunc</span>
-                        <span class="k">put</span> <span class="s">&quot;Hello, World!&quot;</span>
-                <span class="k">end</span>
-        <span class="k">end</span>
-<span class="k">end</span>
+<span class="kn">package</span> <span class="nn">mypackage</span>
+        <span class="kd">class</span> <span class="nc">myclass</span>
+                <span class="kd">def</span> <span class="nf">myfunc</span>
+                        <span class="k">put</span> <span class="s2">&quot;Hello, World!&quot;</span>
+                <span class="k k-Control">end</span>
+        <span class="k k-Control">end</span>
+<span class="k k-Control">end</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">myfunc</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">myfunc</span><span class="p">()</span> <span class="p">}</span>
 
-<span class="k">package</span> <span class="n">mypackage</span>
-        <span class="k">class</span> <span class="n">myclass</span>
-                <span class="k">func</span> <span class="n">myfunc</span>
-                        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span>  <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">endfunc</span>
-        <span class="k">endclass</span>
-<span class="k">endpackage</span>
+<span class="kn">package</span> <span class="nn">mypackage</span>
+        <span class="kd">class</span> <span class="nc">myclass</span>
+                <span class="kd">func</span> <span class="nf">myfunc</span>
+                        <span class="k">see</span> <span class="s2">&quot;welcome&quot;</span>  <span class="o">+</span> <span class="bp">nl</span>
+                <span class="kd">endfunc</span>
+        <span class="kd">endclass</span>
+<span class="kd">endpackage</span>
 </pre></div>
 </div>
 </section>
@@ -1682,37 +1682,37 @@ very useful for tools like</p>
 <li><p>Static-Analysis</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
-<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">);</span>
+<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
+<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">);</span>
 
-<span class="n">int</span> <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
+<span class="n">int</span> <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">string</span> <span class="k">func</span> <span class="n">sayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
+<span class="n">string</span> <span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>The library is very powerful and support the User types (Classes) automatically!</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="k">import</span> <span class="n">mypackage</span>
+<span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">([</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:three</span><span class="p">])</span> <span class="p">}</span>
 
-<span class="n">myclass</span> <span class="k">func</span> <span class="n">test</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">see</span> <span class="s">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">myclass</span>
+<span class="n">myclass</span> <span class="kd">func</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="s2">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">return</span> <span class="kp">new</span> <span class="nc">myclass</span>
 <span class="p">}</span>
 
-<span class="k">package</span> <span class="n">mypackage</span> <span class="p">{</span>
-        <span class="n">public</span> <span class="k">class</span> <span class="n">myclass</span> <span class="p">{</span>
-                <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="k">func</span> <span class="n">main</span><span class="p">(</span><span class="kt">list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kn">package</span> <span class="nn">mypackage</span> <span class="p">{</span>
+        <span class="n">public</span> <span class="kd">class</span> <span class="nc">myclass</span> <span class="p">{</span>
+                <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="n">list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="s2">&quot;welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
                         <span class="k">see</span> <span class="n">args</span>
                 <span class="p">}</span>
         <span class="p">}</span>
@@ -1721,20 +1721,20 @@ very useful for tools like</p>
 </div>
 <p>Also You can use the types inside the code (not only the function prototype)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
 <span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="kt">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+<span class="n">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="bp">nl</span>
 
 
-<span class="n">int</span> <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
+<span class="n">int</span> <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">string</span> <span class="k">func</span> <span class="n">sayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
+<span class="n">string</span> <span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1764,19 +1764,19 @@ very useful for tools like</p>
 <li><p>Sample : 3D Cube (OpenGL) + Texture Image using GameLib (RingAllegro)</p></li>
 </ul>
 <p>Source Code:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;gamelib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;opengl21lib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;gamelib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;opengl21lib.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="k">new</span> <span class="n">GraphicsApp</span> <span class="p">{</span>
+        <span class="kp">new</span> <span class="nc">GraphicsApp</span> <span class="p">{</span>
                 <span class="n">start</span><span class="p">()</span>
         <span class="p">}</span>
 
 
-<span class="k">class</span> <span class="n">GraphicsApp</span> <span class="k">from</span> <span class="n">GraphicsAppBase</span>
+<span class="kd">class</span> <span class="nc">GraphicsApp</span> <span class="kd">from</span> <span class="nc">GraphicsAppBase</span>
 
-        <span class="n">TITLE</span> <span class="o">=</span> <span class="s">&quot;Ring Cube&quot;</span>
+        <span class="n">TITLE</span> <span class="o">=</span> <span class="s2">&quot;Ring Cube&quot;</span>
 
         <span class="n">bitmap</span> <span class="n">texture</span>
 
@@ -1784,16 +1784,16 @@ very useful for tools like</p>
         <span class="n">yrot</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">zrot</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-        <span class="k">func</span> <span class="n">loadresources</span>
+        <span class="kd">func</span> <span class="nf">loadresources</span>
 
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s">&quot;ring.bmp&quot;</span><span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;ring.bmp&quot;</span><span class="p">)</span>
                 <span class="n">texture</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">destroyResources</span>
+        <span class="kd">func</span> <span class="nf">destroyResources</span>
 
                 <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">drawScene</span>
+        <span class="kd">func</span> <span class="nf">drawScene</span>
 
                 <span class="n">w</span> <span class="o">=</span> <span class="mi">800</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">600</span>
                 <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
@@ -1826,32 +1826,32 @@ very useful for tools like</p>
                 <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
 
                 <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
-                        <span class="o">//</span> <span class="n">Front</span> <span class="n">Face</span>
+                        <span class="c1">// Front Face</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="o">//</span> <span class="n">Back</span> <span class="n">Face</span>
+                        <span class="c1">// Back Face</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="o">//</span> <span class="n">Top</span> <span class="n">Face</span>
+                        <span class="c1">// Top Face</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="o">//</span> <span class="n">Bottom</span> <span class="n">Face</span>
+                        <span class="c1">// Bottom Face</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="o">//</span> <span class="n">Right</span> <span class="n">face</span>
+                        <span class="c1">// Right face</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="o">//</span> <span class="n">Left</span> <span class="n">Face</span>
+                        <span class="c1">// Left Face</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
@@ -1863,10 +1863,10 @@ very useful for tools like</p>
                 <span class="n">zrot</span> <span class="o">+=</span> <span class="mf">0.4</span>
 
 
-<span class="k">class</span> <span class="n">GraphicsAppBase</span>
+<span class="kd">class</span> <span class="nc">GraphicsAppBase</span>
 
         <span class="n">display</span> <span class="n">event_queue</span> <span class="n">ev</span> <span class="n">timeout</span>
-        <span class="n">timer</span>  <span class="n">redraw</span>   <span class="o">=</span> <span class="kp">true</span>
+        <span class="n">timer</span>  <span class="n">redraw</span>   <span class="o">=</span> <span class="bp">true</span>
 
         <span class="n">FPS</span>             <span class="o">=</span> <span class="mi">60</span>
 
@@ -1878,18 +1878,18 @@ very useful for tools like</p>
         <span class="n">KEY_LEFT</span>        <span class="o">=</span> <span class="mi">3</span>
         <span class="n">KEY_RIGHT</span>       <span class="o">=</span> <span class="mi">4</span>
 
-        <span class="n">Key</span> <span class="o">=</span> <span class="o">[</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="o">]</span>
+        <span class="n">Key</span> <span class="o">=</span> <span class="p">[</span><span class="bp">false</span><span class="p">,</span><span class="bp">false</span><span class="p">,</span><span class="bp">false</span><span class="p">,</span><span class="bp">false</span><span class="p">]</span>
 
-        <span class="n">TITLE</span> <span class="o">=</span> <span class="s">&quot;Graphics Application&quot;</span>
+        <span class="n">TITLE</span> <span class="o">=</span> <span class="s2">&quot;Graphics Application&quot;</span>
 
-        <span class="k">func</span> <span class="n">start</span>
+        <span class="kd">func</span> <span class="nf">start</span>
 
                 <span class="n">SetUp</span><span class="p">()</span>
                 <span class="n">loadResources</span><span class="p">()</span>
                 <span class="n">eventsLoop</span><span class="p">()</span>
                 <span class="n">destroy</span><span class="p">()</span>
 
-        <span class="k">func</span> <span class="n">setup</span>
+        <span class="kd">func</span> <span class="nf">setup</span>
 
                 <span class="n">al_init</span><span class="p">()</span>
                 <span class="n">al_init_image_addon</span><span class="p">()</span>
@@ -1914,57 +1914,57 @@ very useful for tools like</p>
                 <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
                         <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
 
-        <span class="k">func</span> <span class="n">eventsLoop</span>
+        <span class="kd">func</span> <span class="nf">eventsLoop</span>
 
-                <span class="k">while</span> <span class="kp">true</span>
+                <span class="k k-Control">while</span> <span class="bp">true</span>
                         <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-                        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
-                                <span class="k">exit</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
-                                <span class="n">redraw</span> <span class="o">=</span> <span class="kp">true</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
+                        <span class="k k-Control">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
+                                <span class="k k-Control">exit</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
+                                <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
                                 <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                 <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
                                 <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                 <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
-                                <span class="k">exit</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_UP</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_DOWN</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_LEFT</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_LEFT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_RIGHT</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_RIGHT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
-                                <span class="k">off</span>
-                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_UP</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_DOWN</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_LEFT</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_LEFT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_RIGHT</span>
-                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_RIGHT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
-                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_ESCAPE</span>
-                                                <span class="k">exit</span>
-                                <span class="k">off</span>
-                        <span class="k">off</span>
-                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
-                                <span class="n">redraw</span> <span class="o">=</span> <span class="kp">false</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
+                                <span class="k k-Control">exit</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
+                                <span class="k k-Control">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_UP</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_DOWN</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_LEFT</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_LEFT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_RIGHT</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
+                                <span class="k k-Control">off</span>
+                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
+                                <span class="k k-Control">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_UP</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_DOWN</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_LEFT</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_LEFT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_RIGHT</span>
+                                                <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
+                                        <span class="k k-Control">on</span> <span class="n">ALLEGRO_KEY_ESCAPE</span>
+                                                <span class="k k-Control">exit</span>
+                                <span class="k k-Control">off</span>
+                        <span class="k k-Control">off</span>
+                        <span class="k k-Control">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                                <span class="n">redraw</span> <span class="o">=</span> <span class="bp">false</span>
                                 <span class="n">drawScene</span><span class="p">()</span>
                                 <span class="n">al_flip_display</span><span class="p">()</span>
-                        <span class="k">ok</span>
-                        <span class="n">callgc</span><span class="p">()</span>
-                <span class="k">end</span>
+                        <span class="k k-Control">ok</span>
+                        <span class="nb">callgc</span><span class="p">()</span>
+                <span class="k k-Control">end</span>
 
-        <span class="k">func</span> <span class="n">destroy</span>
+        <span class="kd">func</span> <span class="nf">destroy</span>
 
                 <span class="n">destroyResources</span><span class="p">()</span>
                 <span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
@@ -1973,11 +1973,11 @@ very useful for tools like</p>
                 <span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
                 <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 
-        <span class="k">func</span> <span class="n">loadresources</span>
+        <span class="kd">func</span> <span class="nf">loadresources</span>
 
-        <span class="k">func</span> <span class="n">drawScene</span>
+        <span class="kd">func</span> <span class="nf">drawScene</span>
 
-        <span class="k">func</span> <span class="n">destroyResources</span>
+        <span class="kd">func</span> <span class="nf">destroyResources</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -2021,14 +2021,14 @@ very useful for tools like</p>
 <li><p>RingQt : New methods added to QMenu and QCursor Classes</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
-<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
-        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Context Menu&quot;</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qwidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Context Menu&quot;</span><span class="p">)</span>
                 <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-                <span class="n">myfilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setContextmenuEvent</span><span class="p">(</span><span class="s">&quot;mymenu()&quot;</span><span class="p">)</span>
+                <span class="n">myfilter</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setContextmenuEvent</span><span class="p">(</span><span class="s2">&quot;mymenu()&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">installeventfilter</span><span class="p">(</span><span class="n">myfilter</span><span class="p">)</span>
                 <span class="n">show</span><span class="p">()</span>
@@ -2037,31 +2037,31 @@ very useful for tools like</p>
 <span class="p">}</span>
 
 
-<span class="k">func</span> <span class="n">mymenu</span>
+<span class="kd">func</span> <span class="nf">mymenu</span>
 
-        <span class="k">new</span> <span class="n">qMenu</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;new&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :New&quot;</span><span class="p">)</span>
+        <span class="kp">new</span> <span class="nc">qMenu</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;new&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :New&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
-                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :Open&quot;</span><span class="p">)</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Open&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
-                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;save&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :Save&quot;</span><span class="p">)</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;save&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Save&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
-                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;close&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :Close&quot;</span><span class="p">)</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Close&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
-                <span class="n">oCursor</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">qCursor</span><span class="p">()</span>
-                <span class="n">exec</span><span class="p">(</span><span class="n">oCursor</span><span class="p">.</span><span class="n">pos</span><span class="p">())</span>
+                <span class="n">oCursor</span>  <span class="o">=</span> <span class="kp">new</span> <span class="nc">qCursor</span><span class="p">()</span>
+                <span class="n">exec</span><span class="p">(</span><span class="n">oCursor</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -2070,8 +2070,8 @@ very useful for tools like</p>
 </ul>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
-<span class="k">see</span> <span class="n">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">nl</span>
-<span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="bp">nl</span>
+<span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -2083,8 +2083,8 @@ very useful for tools like</p>
 <li><p>Compiler : Support using f after numbers</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 19.99f
-see type(x) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">19.99</span><span class="n">f</span>
+<span class="k">see</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>

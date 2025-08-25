@@ -228,13 +228,13 @@
 <section id="get-request">
 <span id="index-1"></span><h2>Get Request<a class="headerlink" href="#get-request" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
 <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
 
 <span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
@@ -245,14 +245,14 @@
 <section id="post-request">
 <span id="index-2"></span><h2>Post Request<a class="headerlink" href="#post-request" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
 <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
 
-<span class="n">cPostThis</span> <span class="o">=</span> <span class="s">&quot;page=4&amp;Number1=4&amp;Number2=5&quot;</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;http://localhost/ringapp/index.ring?page=3&quot;</span><span class="p">)</span>
+<span class="n">cPostThis</span> <span class="o">=</span> <span class="s2">&quot;page=4&amp;Number1=4&amp;Number2=5&quot;</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;http://localhost/ringapp/index.ring?page=3&quot;</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="n">cPostThis</span><span class="p">)</span>
 
 <span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
@@ -264,71 +264,71 @@
 <section id="facebook-login">
 <span id="index-3"></span><h2>Facebook Login<a class="headerlink" href="#facebook-login" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
-<span class="k">see</span> <span class="s">&quot;Enter Email : &quot;</span> <span class="k">give</span> <span class="o">$</span><span class="n">login_email</span>
-<span class="k">See</span> <span class="s">&quot;Enter Password : &quot;</span> <span class="k">give</span> <span class="o">$</span><span class="n">login_pass</span>
+<span class="k">see</span> <span class="s2">&quot;Enter Email : &quot;</span> <span class="k">give</span> <span class="n">$login_email</span>
+<span class="k">See</span> <span class="s2">&quot;Enter Password : &quot;</span> <span class="k">give</span> <span class="n">$login_pass</span>
 
 <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="sc">&#39;https://www.facebook.com/login.php&#39;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="sc">&#39;charset_test=j u s t a t e s t&#39;</span><span class="o">+</span>
-<span class="sc">&#39; &amp;email=&#39;</span><span class="o">+</span><span class="n">urlencode</span><span class="p">(</span><span class="o">$</span><span class="n">login_email</span><span class="p">)</span><span class="o">+</span><span class="sc">&#39;&amp;pass=&#39;</span><span class="o">+</span>
-<span class="n">urlencode</span><span class="p">(</span><span class="o">$</span><span class="n">login_pass</span><span class="p">)</span><span class="o">+</span><span class="sc">&#39;&amp;login=Login&#39;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s1">&#39;https://www.facebook.com/login.php&#39;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="s1">&#39;charset_test=j u s t a t e s t&#39;</span><span class="o">+</span>
+<span class="s1">&#39; &amp;email=&#39;</span><span class="o">+</span><span class="n">urlencode</span><span class="p">(</span><span class="n">$login_email</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&amp;pass=&#39;</span><span class="o">+</span>
+<span class="n">urlencode</span><span class="p">(</span><span class="n">$login_pass</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&amp;login=Login&#39;</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POST</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HEADER</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEJAR</span><span class="p">,</span> <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;Mozilla/5.0 (Windows; U;&quot;</span><span class="o">+</span>
-<span class="s">&quot; Windows NT 5.1; en-US; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3&quot;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_REFERER</span><span class="p">,</span> <span class="s">&quot;http://www.facebook.com&quot;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="kp">FALSE</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEJAR</span><span class="p">,</span> <span class="s2">&quot;cookies.txt&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s2">&quot;cookies.txt&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;Mozilla/5.0 (Windows; U;&quot;</span><span class="o">+</span>
+<span class="s2">&quot; Windows NT 5.1; en-US; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_REFERER</span><span class="p">,</span> <span class="s2">&quot;http://www.facebook.com&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="bp">FALSE</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_SSL_VERIFYHOST</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span><span class="sc">&#39;Accept-Charset: utf-8&#39;</span><span class="p">)</span>
-<span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;Accept-Language: en-us,en;q=0.7,bn-bd;q=0.3&#39;</span><span class="p">)</span>
-<span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;Accept: text/xml,application/xml,&#39;</span><span class="o">+</span>
-<span class="sc">&#39;application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5&#39;</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span><span class="s1">&#39;Accept-Charset: utf-8&#39;</span><span class="p">)</span>
+<span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;Accept-Language: en-us,en;q=0.7,bn-bd;q=0.3&#39;</span><span class="p">)</span>
+<span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;Accept: text/xml,application/xml,&#39;</span><span class="o">+</span>
+<span class="s1">&#39;application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5&#39;</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIESESSION</span><span class="p">,</span> <span class="kp">false</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIESESSION</span><span class="p">,</span> <span class="bp">false</span><span class="p">)</span>
 
 <span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
 <span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-<span class="k">Func</span> <span class="n">URLEncode</span> <span class="n">cStr</span>
-        <span class="n">cOut</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cStr</span>
-                <span class="k">if</span> <span class="n">isalnum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="kd">Func</span> <span class="nf">URLEncode</span> <span class="n">cStr</span>
+        <span class="n">cOut</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">cStr</span>
+                <span class="k k-Control">if</span> <span class="nb">isalnum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                         <span class="n">cOut</span> <span class="o">+=</span> <span class="n">x</span>
-                <span class="k">but</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>
-                        <span class="n">cOut</span> <span class="o">+=</span> <span class="s">&quot;+&quot;</span>
-                <span class="k">else</span>
-                        <span class="n">cOut</span> <span class="o">+=</span> <span class="s">&quot;%&quot;</span><span class="o">+</span><span class="n">str2hex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-                <span class="k">ok</span>
-        <span class="k">next</span>
-        <span class="k">return</span> <span class="n">cOut</span>
+                <span class="k k-Control">but</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+                        <span class="n">cOut</span> <span class="o">+=</span> <span class="s2">&quot;+&quot;</span>
+                <span class="k k-Control">else</span>
+                        <span class="n">cOut</span> <span class="o">+=</span> <span class="s2">&quot;%&quot;</span><span class="o">+</span><span class="nb">str2hex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="k k-Control">ok</span>
+        <span class="k k-Control">next</span>
+        <span class="k k-Control">return</span> <span class="n">cOut</span>
 </pre></div>
 </div>
 </section>
 <section id="save-output-to-string">
 <span id="index-4"></span><h2>Save Output to String<a class="headerlink" href="#save-output-to-string" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
 <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
 <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
 
 <span class="n">cOutput</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-<span class="k">See</span> <span class="s">&quot;Output:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Output:&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="n">cOutput</span>
 
 <span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
@@ -338,65 +338,65 @@
 <section id="get-stock-data-from-yahoo">
 <span id="index-5"></span><h2>Get Stock Data From Yahoo<a class="headerlink" href="#get-stock-data-from-yahoo" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
-<span class="sd">### Part 1 --- Get Crumb and Cookie -----------------------------------------</span>
+<span class="c1">### Part 1 --- Get Crumb and Cookie -----------------------------------------</span>
 
-<span class="k">See</span> <span class="s">&quot;Start curl_easy_init(): &quot;</span><span class="o">+</span> <span class="n">nl</span>
-<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>                     <span class="sd">### &gt;&gt;&gt; HANDLE &gt;&gt;&gt; 01006BD0  CURL  0</span>
+<span class="k">See</span> <span class="s2">&quot;Start curl_easy_init(): &quot;</span><span class="o">+</span> <span class="bp">nl</span>
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>                     <span class="c1">### &gt;&gt;&gt; HANDLE &gt;&gt;&gt; 01006BD0  CURL  0</span>
 
-        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;curl/7.54.1&quot;</span><span class="p">)</span>
         <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEJAR</span><span class="p">,</span>  <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
-        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s">&quot;cookies.txt&quot;</span><span class="p">)</span>
-        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;https://finance.yahoo.com/quote/AMZN/history&quot;</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEJAR</span><span class="p">,</span>  <span class="s2">&quot;cookies.txt&quot;</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_COOKIEFILE</span><span class="p">,</span> <span class="s2">&quot;cookies.txt&quot;</span><span class="p">)</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://finance.yahoo.com/quote/AMZN/history&quot;</span><span class="p">)</span>
 
-        <span class="sd">###  HTML Data &gt;&gt;&gt; STDOUT Window,  Use curl_easy_perform_silent &gt;&gt;&gt; String</span>
+        <span class="c1">###  HTML Data &gt;&gt;&gt; STDOUT Window,  Use curl_easy_perform_silent &gt;&gt;&gt; String</span>
 
-<span class="n">cOutput</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>    <span class="sd">### GO Get Data &gt;&gt;&gt; String</span>
-
-
-<span class="sd">###   Extract Crumb from data</span>
-<span class="sd">###  &quot;CrumbStore&quot;:{&quot;crumb&quot;:&quot;abcdefghijk&quot;},</span>
-
-<span class="k">if</span> <span class="n">cOutput</span> <span class="o">!=</span> <span class="kp">NULL</span>
-
-        <span class="n">newStr1</span>     <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="n">substr</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="sc">&#39;&quot;CrumbStore&quot;:{&quot;crumb&quot;:&quot;&#39;</span> <span class="p">),</span> <span class="mi">48</span> <span class="p">)</span>
-                <span class="n">nPosS</span>   <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="sc">&#39;:&quot;&#39;</span> <span class="p">)</span> <span class="p">;</span>  <span class="sd">### Start of crumb -2</span>
-                <span class="n">nPosE</span>   <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="sc">&#39;&quot;}&#39;</span> <span class="p">)</span> <span class="p">;</span>  <span class="sd">### End   of crumb</span>
-                <span class="n">nCount</span>  <span class="o">=</span> <span class="n">nPosE</span> <span class="o">-</span> <span class="n">nPosS</span> <span class="o">-</span><span class="mi">2</span>          <span class="sd">### size  of crumb</span>
-        <span class="n">myCrumb</span>     <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="n">nPosS</span> <span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">nCount</span><span class="p">)</span>
-
-        <span class="k">See</span> <span class="s">&quot;myCrumb.: |&quot;</span><span class="o">+</span> <span class="n">myCrumb</span> <span class="o">+</span><span class="s">&quot;|&quot;</span> <span class="o">+</span><span class="n">nl</span>
-
-        <span class="sd">### UniCode &quot;\u002F&quot; replace it with &quot;/&quot;</span>
-                <span class="k">if</span> <span class="n">substr</span><span class="p">(</span> <span class="n">myCrumb</span><span class="p">,</span> <span class="s">&quot;\u002F&quot;</span><span class="p">)</span>
-                   <span class="n">myCrumb</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span> <span class="n">myCrumb</span><span class="p">,</span> <span class="s">&quot;\u002F&quot;</span><span class="p">,</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
-                   <span class="k">See</span> <span class="s">&quot;myCrumb2: |&quot;</span><span class="o">+</span> <span class="n">myCrumb</span> <span class="o">+</span><span class="s">&quot;|&quot;</span><span class="o">+</span> <span class="n">nl</span>
-                <span class="k">ok</span>
-
-<span class="k">else</span>
-        <span class="k">See</span> <span class="s">&quot;No Connectivity to Yahoo. Looking for Cookie and Crumb.&quot;</span> <span class="o">+</span><span class="n">nl</span> <span class="o">+</span><span class="n">nl</span>
-<span class="k">ok</span>
+<span class="n">cOutput</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>    <span class="c1">### GO Get Data &gt;&gt;&gt; String</span>
 
 
-<span class="sd">### Part 2 --- Send URL with Crumb, and Cookie -----------------------------------------</span>
+<span class="c1">###   Extract Crumb from data</span>
+<span class="c1">###  &quot;CrumbStore&quot;:{&quot;crumb&quot;:&quot;abcdefghijk&quot;},</span>
 
-        <span class="sd">### Send URL+Crumb to Yahoo to fetch 1st stock history data,</span>
+<span class="k k-Control">if</span> <span class="n">cOutput</span> <span class="o">!=</span> <span class="bp">NULL</span>
 
-        <span class="o">$</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://query1.finance.yahoo.com/v7/finance/download/AMZN&quot;</span><span class="o">+</span>
-                <span class="s">&quot;?period1=1277856000&amp;period2=1498777545&amp;interval=1wk&quot;</span> <span class="o">+</span>
-                <span class="s">&quot;&amp;events=history&amp;crumb=&quot;</span> <span class="o">+</span> <span class="n">myCrumb</span>
+        <span class="n">newStr1</span>     <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="s1">&#39;&quot;CrumbStore&quot;:{&quot;crumb&quot;:&quot;&#39;</span> <span class="p">),</span> <span class="mi">48</span> <span class="p">)</span>
+                <span class="n">nPosS</span>   <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="s1">&#39;:&quot;&#39;</span> <span class="p">)</span> <span class="p">;</span>  <span class="c1">### Start of crumb -2</span>
+                <span class="n">nPosE</span>   <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="s1">&#39;&quot;}&#39;</span> <span class="p">)</span> <span class="p">;</span>  <span class="c1">### End   of crumb</span>
+                <span class="n">nCount</span>  <span class="o">=</span> <span class="n">nPosE</span> <span class="o">-</span> <span class="n">nPosS</span> <span class="o">-</span><span class="mi">2</span>          <span class="c1">### size  of crumb</span>
+        <span class="n">myCrumb</span>     <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">newStr1</span><span class="p">,</span> <span class="n">nPosS</span> <span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">nCount</span><span class="p">)</span>
 
-        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="o">$</span><span class="n">url</span><span class="p">);</span>
+        <span class="k">See</span> <span class="s2">&quot;myCrumb.: |&quot;</span><span class="o">+</span> <span class="n">myCrumb</span> <span class="o">+</span><span class="s2">&quot;|&quot;</span> <span class="o">+</span><span class="bp">nl</span>
+
+        <span class="c1">### UniCode &quot;\u002F&quot; replace it with &quot;/&quot;</span>
+                <span class="k k-Control">if</span> <span class="nb">substr</span><span class="p">(</span> <span class="n">myCrumb</span><span class="p">,</span> <span class="s2">&quot;\u002F&quot;</span><span class="p">)</span>
+                   <span class="n">myCrumb</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span> <span class="n">myCrumb</span><span class="p">,</span> <span class="s2">&quot;\u002F&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+                   <span class="k">See</span> <span class="s2">&quot;myCrumb2: |&quot;</span><span class="o">+</span> <span class="n">myCrumb</span> <span class="o">+</span><span class="s2">&quot;|&quot;</span><span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">ok</span>
+
+<span class="k k-Control">else</span>
+        <span class="k">See</span> <span class="s2">&quot;No Connectivity to Yahoo. Looking for Cookie and Crumb.&quot;</span> <span class="o">+</span><span class="bp">nl</span> <span class="o">+</span><span class="bp">nl</span>
+<span class="k k-Control">ok</span>
+
+
+<span class="c1">### Part 2 --- Send URL with Crumb, and Cookie -----------------------------------------</span>
+
+        <span class="c1">### Send URL+Crumb to Yahoo to fetch 1st stock history data,</span>
+
+        <span class="n">$url</span> <span class="o">=</span> <span class="s2">&quot;https://query1.finance.yahoo.com/v7/finance/download/AMZN&quot;</span><span class="o">+</span>
+                <span class="s2">&quot;?period1=1277856000&amp;period2=1498777545&amp;interval=1wk&quot;</span> <span class="o">+</span>
+                <span class="s2">&quot;&amp;events=history&amp;crumb=&quot;</span> <span class="o">+</span> <span class="n">myCrumb</span>
+
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="n">$url</span><span class="p">);</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
         <span class="k">See</span> <span class="n">cStr</span>
 
-<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>  <span class="sd">### REMEMBER to CLOSE  CURL</span>
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>  <span class="c1">### REMEMBER to CLOSE  CURL</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myCrumb</span><span class="p">.:</span> <span class="o">|</span><span class="n">sEEeW97mxvN</span><span class="o">|</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myCrumb</span><span class="o">.:</span> <span class="o">|</span><span class="n">sEEeW97mxvN</span><span class="o">|</span>
 <span class="n">Date</span><span class="p">,</span><span class="n">Open</span><span class="p">,</span><span class="n">High</span><span class="p">,</span><span class="n">Low</span><span class="p">,</span><span class="n">Close</span><span class="p">,</span><span class="n">Adj</span> <span class="n">Close</span><span class="p">,</span><span class="n">Volume</span>
 <span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="mf">110.650002</span><span class="p">,</span><span class="mf">117.480003</span><span class="p">,</span><span class="mf">109.000000</span><span class="p">,</span><span class="mf">117.260002</span><span class="p">,</span><span class="mf">117.260002</span><span class="p">,</span><span class="mi">21000400</span>
 <span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mf">117.809998</span><span class="p">,</span><span class="mf">124.879997</span><span class="p">,</span><span class="mf">117.320000</span><span class="p">,</span><span class="mf">118.489998</span><span class="p">,</span><span class="mf">118.489998</span><span class="p">,</span><span class="mi">29407300</span>
@@ -411,42 +411,42 @@
 <section id="get-response-information">
 <span id="index-7"></span><h2>Get Response Information<a class="headerlink" href="#get-response-information" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
 <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-<span class="n">curl_easy_setopt_2</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt_2</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;RingLibCurl&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt_2</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt_2</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s2">&quot;RingLibCurl&quot;</span><span class="p">)</span>
 <span class="n">curl_easy_setopt_1</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Response Code: &quot;</span> <span class="o">+</span> <span class="n">curl_getResponseCode</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Content Type: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentType</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Content Length: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLength</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Effective URL: &quot;</span> <span class="o">+</span> <span class="n">curl_getEffectiveUrl</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Redirect URL: &quot;</span> <span class="o">+</span> <span class="n">curl_getRedirectUrl</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Redirect Count: &quot;</span> <span class="o">+</span> <span class="n">curl_getRedirectCount</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Total Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getTotalTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Name Lookup Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getNameLookupTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Connect Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getConnectTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Request Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getRequestSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Header Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getHeaderSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Speed Download: &quot;</span> <span class="o">+</span> <span class="n">curl_getSpeedDownload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Speed Upload: &quot;</span> <span class="o">+</span> <span class="n">curl_getSpeedUpload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;SSL Verify Result: &quot;</span> <span class="o">+</span> <span class="n">curl_getSSLVerifyResult</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Primary IP: &quot;</span> <span class="o">+</span> <span class="n">curl_getPrimaryIP</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Primary Port: &quot;</span> <span class="o">+</span> <span class="n">curl_getPrimaryPort</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Local IP: &quot;</span> <span class="o">+</span> <span class="n">curl_getLocalIP</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Local Port: &quot;</span> <span class="o">+</span> <span class="n">curl_getLocalPort</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Content Length Upload: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLengthUpload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Download Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getDownloadSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Upload Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getUploadSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;File Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getFiletime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;App Connect Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getAppConnectTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Content Length Header: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLengthHeader</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Start Transfer Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getStartTransferTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Pre Transfer Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getPreTransferTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Response Code: &quot;</span> <span class="o">+</span> <span class="n">curl_getResponseCode</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Content Type: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentType</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Content Length: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLength</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Effective URL: &quot;</span> <span class="o">+</span> <span class="n">curl_getEffectiveUrl</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Redirect URL: &quot;</span> <span class="o">+</span> <span class="n">curl_getRedirectUrl</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Redirect Count: &quot;</span> <span class="o">+</span> <span class="n">curl_getRedirectCount</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Total Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getTotalTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Name Lookup Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getNameLookupTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Connect Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getConnectTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Request Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getRequestSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Header Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getHeaderSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Speed Download: &quot;</span> <span class="o">+</span> <span class="n">curl_getSpeedDownload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Speed Upload: &quot;</span> <span class="o">+</span> <span class="n">curl_getSpeedUpload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;SSL Verify Result: &quot;</span> <span class="o">+</span> <span class="n">curl_getSSLVerifyResult</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Primary IP: &quot;</span> <span class="o">+</span> <span class="n">curl_getPrimaryIP</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Primary Port: &quot;</span> <span class="o">+</span> <span class="n">curl_getPrimaryPort</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Local IP: &quot;</span> <span class="o">+</span> <span class="n">curl_getLocalIP</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Local Port: &quot;</span> <span class="o">+</span> <span class="n">curl_getLocalPort</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Content Length Upload: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLengthUpload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Download Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getDownloadSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Upload Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getUploadSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;File Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getFiletime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;App Connect Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getAppConnectTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Content Length Header: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLengthHeader</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Start Transfer Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getStartTransferTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Pre Transfer Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getPreTransferTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
 <span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 </pre></div>
@@ -455,47 +455,47 @@
 <section id="download-and-check-status">
 <span id="index-8"></span><h2>Download and Check Status<a class="headerlink" href="#download-and-check-status" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
 
-<span class="c"># Download a file from URL and save it to a local file</span>
-<span class="n">downloadFile</span><span class="p">(</span><span class="s">&quot;https://ring-lang.github.io/&quot;</span><span class="p">,</span> <span class="s">&quot;test_download.txt&quot;</span><span class="p">)</span>
+<span class="c1"># Download a file from URL and save it to a local file</span>
+<span class="n">downloadFile</span><span class="p">(</span><span class="s2">&quot;https://ring-lang.github.io/&quot;</span><span class="p">,</span> <span class="s2">&quot;test_download.txt&quot;</span><span class="p">)</span>
 
-<span class="c"># Function to download file from URL and save to specified local path</span>
-<span class="k">func</span> <span class="n">downloadFile</span> <span class="n">URL</span><span class="p">,</span> <span class="n">cFile</span>
-        <span class="c"># Initialize a new curl session</span>
+<span class="c1"># Function to download file from URL and save to specified local path</span>
+<span class="kd">func</span> <span class="nf">downloadFile</span> <span class="n">URL</span><span class="p">,</span> <span class="n">cFile</span>
+        <span class="c1"># Initialize a new curl session</span>
         <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
 
-        <span class="c"># Open file in binary write mode</span>
-        <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">cFile</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+        <span class="c1"># Open file in binary write mode</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="n">cFile</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span>
 
-        <span class="c"># Set curl options:</span>
-        <span class="c"># Specify where to write the downloaded data</span>
+        <span class="c1"># Set curl options:</span>
+        <span class="c1"># Specify where to write the downloaded data</span>
         <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_WRITEDATA</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
-        <span class="c"># Set the URL to download from</span>
+        <span class="c1"># Set the URL to download from</span>
         <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="n">URL</span><span class="p">)</span>
-        <span class="c"># Follow redirects if any</span>
+        <span class="c1"># Follow redirects if any</span>
         <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-        <span class="c"># Perform the download</span>
+        <span class="c1"># Perform the download</span>
         <span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-        <span class="c"># Get response information</span>
+        <span class="c1"># Get response information</span>
         <span class="n">nResponseCode</span> <span class="o">=</span> <span class="n">curl_getResponseCode</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
         <span class="n">cContentType</span> <span class="o">=</span> <span class="n">curl_getContentType</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-        <span class="c"># Clean up: close file and curl session</span>
-        <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+        <span class="c1"># Clean up: close file and curl session</span>
+        <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
         <span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
-        <span class="c"># Check if download was successful (HTTP 200 OK)</span>
-        <span class="k">if</span> <span class="n">nResponseCode</span> <span class="o">=</span> <span class="mi">200</span>
-                <span class="o">?</span> <span class="s">&quot;File downloaded successfully!&quot;</span>
-                <span class="k">return</span> <span class="kp">true</span>
-        <span class="k">else</span>
-                <span class="o">?</span> <span class="s">&quot;Failed to download file.&quot;</span>
-                <span class="o">?</span> <span class="s">&quot;HTTP Response Code: &quot;</span> <span class="o">+</span> <span class="n">nResponseCode</span>
-                <span class="k">return</span> <span class="kp">false</span>
-        <span class="k">ok</span>
+        <span class="c1"># Check if download was successful (HTTP 200 OK)</span>
+        <span class="k k-Control">if</span> <span class="n">nResponseCode</span> <span class="o">=</span> <span class="mi">200</span>
+                <span class="o">?</span> <span class="s2">&quot;File downloaded successfully!&quot;</span>
+                <span class="k k-Control">return</span> <span class="bp">true</span>
+        <span class="k k-Control">else</span>
+                <span class="o">?</span> <span class="s2">&quot;Failed to download file.&quot;</span>
+                <span class="o">?</span> <span class="s2">&quot;HTTP Response Code: &quot;</span> <span class="o">+</span> <span class="n">nResponseCode</span>
+                <span class="k k-Control">return</span> <span class="bp">false</span>
+        <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 </section>

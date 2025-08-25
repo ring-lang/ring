@@ -246,11 +246,11 @@
 <span id="index-2"></span><h2>Light GUILib<a class="headerlink" href="#light-guilib" title="Permalink to this heading"></a></h2>
 <p>A lot of RingQt applications uses only QtCore, QtGui &amp; QtWidget modules</p>
 <p>These applications could use</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;lightguilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;lightguilib.ring&quot;</span>
 </pre></div>
 </div>
 <p>Instead of</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 </pre></div>
 </div>
 <p>Also Ring Notepad, Distribute menu comes with a new option : Distribute light RingQt application</p>
@@ -283,31 +283,31 @@ fopen()
 <span id="index-4"></span><h2>Nested Methods Call in Separate Lines<a class="headerlink" href="#nested-methods-call-in-separate-lines" title="Permalink to this heading"></a></h2>
 <p>In Ring 1.16, the Compiler support adding new lines after the method call and before the dot operator</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Start</span>
-<span class="n">myobj</span><span class="p">.</span><span class="n">one</span><span class="p">()</span>
-     <span class="p">.</span><span class="n">two</span><span class="p">()</span>
-     <span class="p">.</span><span class="n">three</span><span class="p">()</span>
-     <span class="p">.</span><span class="n">go</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myobj</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Start</span>
+<span class="n">myobj</span><span class="o">.</span><span class="n">one</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">two</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">three</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">go</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="n">start</span>
-        <span class="k">func</span> <span class="n">one</span>
-                <span class="o">?</span> <span class="s">&quot;One&quot;</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="n">one</span>
+<span class="kd">class</span> <span class="nc">start</span>
+        <span class="kd">func</span> <span class="nf">one</span>
+                <span class="o">?</span> <span class="s2">&quot;One&quot;</span>
+                <span class="k k-Control">return</span> <span class="kp">new</span> <span class="nc">one</span>
 
 
-<span class="k">class</span> <span class="n">one</span>
-        <span class="k">func</span> <span class="n">two</span>
-                <span class="o">?</span> <span class="s">&quot;Two&quot;</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="n">two</span>
+<span class="kd">class</span> <span class="nc">one</span>
+        <span class="kd">func</span> <span class="nf">two</span>
+                <span class="o">?</span> <span class="s2">&quot;Two&quot;</span>
+                <span class="k k-Control">return</span> <span class="kp">new</span> <span class="nc">two</span>
 
-<span class="k">class</span> <span class="n">two</span>
-        <span class="k">func</span> <span class="n">three</span>
-                <span class="o">?</span> <span class="s">&quot;Three&quot;</span>
-                <span class="k">return</span> <span class="k">new</span> <span class="n">three</span>
+<span class="kd">class</span> <span class="nc">two</span>
+        <span class="kd">func</span> <span class="nf">three</span>
+                <span class="o">?</span> <span class="s2">&quot;Three&quot;</span>
+                <span class="k k-Control">return</span> <span class="kp">new</span> <span class="nc">three</span>
 
-<span class="k">class</span> <span class="n">three</span>
-        <span class="k">func</span> <span class="n">go</span>
-                <span class="o">?</span> <span class="s">&quot;Go!&quot;</span>
+<span class="kd">class</span> <span class="nc">three</span>
+        <span class="kd">func</span> <span class="nf">go</span>
+                <span class="o">?</span> <span class="s2">&quot;Go!&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -346,40 +346,40 @@ fopen()
 <span id="index-6"></span><h2>Zero and Strings<a class="headerlink" href="#zero-and-strings" title="Permalink to this heading"></a></h2>
 <p>From Ring 1.0, the language do implicit conversion between numbers and strings</p>
 <p>This is useful when we mix them in some situations like printing something on the screen</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c"># Number</span>
-<span class="o">?</span> <span class="s">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span>    <span class="c"># x converted from Number to String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c1"># Number</span>
+<span class="o">?</span> <span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span>    <span class="c1"># x converted from Number to String</span>
 </pre></div>
 </div>
 <p>Also we can do arithmetic operations</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>        <span class="c"># String</span>
-<span class="o">?</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">x</span>         <span class="c"># x converted from String to Number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;10&quot;</span>        <span class="c1"># String</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">x</span>         <span class="c1"># x converted from String to Number</span>
 </pre></div>
 </div>
 <p>The question is What happens if x content is not a number?</p>
 <p>The answer : The result of the conversion will be (Zero)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>      <span class="c"># String - The content is not a number</span>
-<span class="o">?</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">x</span>         <span class="c"># print (5) - x converted from String to Number (Zero)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Test&quot;</span>      <span class="c1"># String - The content is not a number</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">x</span>         <span class="c1"># print (5) - x converted from String to Number (Zero)</span>
 </pre></div>
 </div>
 <p>The other operators like “=” and “!=” do the conversion too</p>
 <p>Starting from Ring 1.16, They will be careful when we compare things to Zero</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>
-<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="n">x</span>         <span class="c"># The result will be FALSE</span>
-<span class="o">?</span> <span class="mi">0</span> <span class="o">!=</span> <span class="n">x</span>        <span class="c"># The result will be TRUE</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Test&quot;</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="n">x</span>         <span class="c1"># The result will be FALSE</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">!=</span> <span class="n">x</span>        <span class="c1"># The result will be TRUE</span>
 </pre></div>
 </div>
 <p>This is useful when we compare between values inside Empty Lists and Strings</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        <span class="c"># 10 items - Each item is Zero</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="mi">5</span>          <span class="c"># print (5)</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>     <span class="c"># False</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c"># True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        <span class="c1"># 10 items - Each item is Zero</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span>          <span class="c1"># print (5)</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Test&quot;</span>     <span class="c1"># False</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1"># True</span>
 </pre></div>
 </div>
 <p>The other values (Not Zero) will follow the normal conversion rules</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span>
-<span class="o">?</span> <span class="mi">5</span>  <span class="o">=</span> <span class="n">x</span>        <span class="c"># True</span>
-<span class="o">?</span> <span class="mi">6</span> <span class="o">!=</span> <span class="n">x</span>        <span class="c"># True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;5&quot;</span>
+<span class="o">?</span> <span class="mi">5</span>  <span class="o">=</span> <span class="n">x</span>        <span class="c1"># True</span>
+<span class="o">?</span> <span class="mi">6</span> <span class="o">!=</span> <span class="n">x</span>        <span class="c1"># True</span>
 </pre></div>
 </div>
 </section>

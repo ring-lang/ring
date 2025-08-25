@@ -311,29 +311,29 @@
 curly braces. The braceExprEval() method evaluates each value, updating the sum for the current
 row and printing the sum when the row changes.
 The braceEnd() method prints the sum of the last row.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">SumRows</span> <span class="p">{</span>
-        <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>                <span class="c"># 60</span>
-        <span class="mi">10</span>                      <span class="c"># 10</span>
-        <span class="mi">400</span> <span class="mi">100</span>                 <span class="c"># 500</span>
-        <span class="mi">30</span> <span class="mi">40</span>                   <span class="c"># 70</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">SumRows</span> <span class="p">{</span>
+        <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>                <span class="c1"># 60</span>
+        <span class="mi">10</span>                      <span class="c1"># 10</span>
+        <span class="mi">400</span> <span class="mi">100</span>                 <span class="c1"># 500</span>
+        <span class="mi">30</span> <span class="mi">40</span>                   <span class="c1"># 70</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">SumRows</span>
+<span class="kd">class</span> <span class="nc">SumRows</span>
 
         <span class="n">nSum</span>     <span class="o">=</span> <span class="mi">0</span>
         <span class="n">nLastRow</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="k">func</span> <span class="n">braceExprEval</span>  <span class="n">value</span>
+        <span class="kd">func</span> <span class="nf">braceExprEval</span>  <span class="n">value</span>
 
-                <span class="n">aCallList</span> <span class="o">=</span> <span class="n">ringvm_calllist</span><span class="p">()</span>
-                <span class="n">nLine</span>     <span class="o">=</span> <span class="n">aCallList</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aCallList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">7</span><span class="o">]</span>
+                <span class="n">aCallList</span> <span class="o">=</span> <span class="nb">ringvm_calllist</span><span class="p">()</span>
+                <span class="n">nLine</span>     <span class="o">=</span> <span class="n">aCallList</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aCallList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">7</span><span class="p">]</span>
 
-                <span class="k">if</span> <span class="n">nLastRow</span>  <span class="o">=</span> <span class="mi">0</span>      <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>            <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k">return</span> <span class="k">ok</span>
-                <span class="k">if</span> <span class="n">nLastRow</span> <span class="o">!=</span> <span class="n">nLine</span>  <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>   <span class="o">?</span> <span class="n">nSum</span>   <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k">return</span> <span class="k">ok</span>
+                <span class="k k-Control">if</span> <span class="n">nLastRow</span>  <span class="o">=</span> <span class="mi">0</span>      <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>            <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">nLastRow</span> <span class="o">!=</span> <span class="n">nLine</span>  <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>   <span class="o">?</span> <span class="n">nSum</span>   <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
 
                 <span class="n">nSum</span> <span class="o">+=</span> <span class="n">value</span>
 
-        <span class="k">func</span> <span class="n">braceEnd</span>
+        <span class="kd">func</span> <span class="nf">braceEnd</span>
 
                 <span class="o">?</span> <span class="n">nSum</span>
 </pre></div>
@@ -350,31 +350,31 @@ The braceEnd() method prints the sum of the last row.</p>
 It then updates this list with values incremented by 5 in each column.
 After printing a row of 20 asterisks, the code iterates through the list, printing each element
 with hyphens between them, except for the last element in each row.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;fastpro.ring&quot;</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
-        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="nb">list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">]</span>
 
-<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="ss">:serial</span><span class="p">,</span><span class="ss">:col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="ss">:serial</span><span class="p">,</span><span class="ss">:col</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="ss">:serial</span><span class="p">,</span><span class="ss">:col</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="ss">:serial</span><span class="p">,</span><span class="ss">:col</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="ss">:serial</span><span class="p">,</span><span class="ss">:col</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
-        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
-                <span class="n">print</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="n">print</span> <span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span> <span class="k">ok</span>
-        <span class="k">next</span>
-        <span class="o">?</span> <span class="s">&quot;&quot;</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
+        <span class="k k-Control">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span>
+                <span class="k k-Control">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="k k-Control">ok</span>
+        <span class="k k-Control">next</span>
+        <span class="o">?</span> <span class="s2">&quot;&quot;</span>
+<span class="k k-Control">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -400,30 +400,30 @@ in a structured format.</p>
 <p>For advanced usage of references with full customization, refer to the ‘Using References’ chapter, which explains the Ref()/Reference() function.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">myclass</span>
 
-<span class="n">o</span><span class="p">.</span><span class="n">getObject</span><span class="p">().</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">o</span><span class="p">.</span><span class="n">getObject</span><span class="p">().</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2000</span>
-<span class="n">o</span><span class="p">.</span><span class="n">getObject</span><span class="p">().</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">o</span><span class="o">.</span><span class="n">getObject</span><span class="p">()</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">o</span><span class="o">.</span><span class="n">getObject</span><span class="p">()</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">o</span><span class="o">.</span><span class="n">getObject</span><span class="p">()</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3000</span>
 
-<span class="o">?</span> <span class="n">o</span><span class="p">.</span><span class="n">aList</span>
+<span class="o">?</span> <span class="n">o</span><span class="o">.</span><span class="n">aList</span>
 
 
-<span class="k">class</span> <span class="n">myclass</span>
+<span class="kd">class</span> <span class="nc">myclass</span>
 
-        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">20</span>  <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">},</span>
-                  <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span><span class="p">}</span>  <span class="o">]</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">20</span>  <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">},</span>
+                  <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span><span class="p">}</span>  <span class="p">]</span>
 
-        <span class="k">func</span> <span class="n">getObject</span>
-                <span class="k">return</span> <span class="n">myMethod</span><span class="p">()</span>
+        <span class="kd">func</span> <span class="nf">getObject</span>
+                <span class="k k-Control">return</span> <span class="n">myMethod</span><span class="p">()</span>
 
-        <span class="k">func</span> <span class="n">myMethod</span>
-                <span class="k">return</span> <span class="n">aList</span><span class="o">[</span><span class="n">myIndex</span><span class="p">()</span><span class="o">]</span>
+        <span class="kd">func</span> <span class="nf">myMethod</span>
+                <span class="k k-Control">return</span> <span class="n">aList</span><span class="p">[</span><span class="n">myIndex</span><span class="p">()]</span>
 
-        <span class="k">func</span> <span class="n">myIndex</span>
-                <span class="k">return</span> <span class="mi">2</span>
+        <span class="kd">func</span> <span class="nf">myIndex</span>
+                <span class="k k-Control">return</span> <span class="mi">2</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -444,16 +444,16 @@ z: 3000
 <li><p>Logical AND have higher precedence than Logical OR.</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span>
-         <span class="s">&quot;two&quot;</span><span class="p">,</span>
-         <span class="s">&quot;three&quot;</span><span class="p">,</span>
-        <span class="o">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;two&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;three&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
 
 <span class="n">nNum1</span> <span class="o">=</span> <span class="o">+</span><span class="mi">10</span>
 <span class="n">nNum2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
 
-<span class="n">lRes</span>  <span class="o">=</span> <span class="kp">True</span> <span class="ow">OR</span> <span class="kp">False</span> <span class="ow">AND</span> <span class="kp">False</span>
-<span class="n">lRes2</span> <span class="o">=</span> <span class="kp">True</span> <span class="o">||</span> <span class="kp">False</span> <span class="o">&amp;&amp;</span>  <span class="kp">False</span>
+<span class="n">lRes</span>  <span class="o">=</span> <span class="bp">True</span> <span class="ow">OR</span> <span class="bp">False</span> <span class="ow">AND</span> <span class="bp">False</span>
+<span class="n">lRes2</span> <span class="o">=</span> <span class="bp">True</span> <span class="o">||</span> <span class="bp">False</span> <span class="o">&amp;&amp;</span>  <span class="bp">False</span>
 
 <span class="o">?</span> <span class="n">aList</span>
 <span class="o">?</span> <span class="n">nNum1</span>

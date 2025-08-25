@@ -244,53 +244,53 @@ spirits.</p>
 <p>The first instruction is : I want window</p>
 <p>The second instruction is : Window title = &lt;expr&gt;</p>
 <p>Also keywords that can be ignored like the ‘the’ keyword</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">App</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">New</span> <span class="nc">App</span>
 <span class="p">{</span>
         <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
-        <span class="n">The</span> <span class="n">window</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;hello world&quot;</span>
+        <span class="n">The</span> <span class="n">window</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
 <span class="p">}</span>
 
-<span class="k">Class</span> <span class="n">App</span>
+<span class="kd">Class</span> <span class="nc">App</span>
 
-        <span class="c"># Attributes for the instruction I want window</span>
+        <span class="c1"># Attributes for the instruction I want window</span>
                 <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
                 <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="c"># Attributes for the instruction Window title</span>
-        <span class="c"># Here we don&#39;t define the window attribute again</span>
+        <span class="c1"># Attributes for the instruction Window title</span>
+        <span class="c1"># Here we don&#39;t define the window attribute again</span>
                 <span class="n">title</span>
                 <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="c"># Keywords to ignore</span>
+        <span class="c1"># Keywords to ignore</span>
                 <span class="n">the</span>
 
-        <span class="k">func</span> <span class="n">geti</span>
-                <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="kd">func</span> <span class="nf">geti</span>
+                <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
                         <span class="n">nIwantwindow</span><span class="o">++</span>
-                <span class="k">ok</span>
+                <span class="k k-Control">ok</span>
 
-        <span class="k">func</span> <span class="n">getwant</span>
-                <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="kd">func</span> <span class="nf">getwant</span>
+                <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
                         <span class="n">nIwantwindow</span><span class="o">++</span>
-                <span class="k">ok</span>
+                <span class="k k-Control">ok</span>
 
-        <span class="k">func</span> <span class="n">getwindow</span>
-                <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="kd">func</span> <span class="nf">getwindow</span>
+                <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
                         <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
-                        <span class="k">see</span> <span class="s">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">ok</span>
-                <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">see</span> <span class="s2">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
                         <span class="n">nWindowTitle</span><span class="o">++</span>
-                <span class="k">ok</span>
+                <span class="k k-Control">ok</span>
 
-        <span class="k">func</span> <span class="n">settitle</span> <span class="n">cValue</span>
-                <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="kd">func</span> <span class="nf">settitle</span> <span class="n">cValue</span>
+                <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
                         <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
-                        <span class="k">see</span> <span class="s">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">ok</span>
+                        <span class="k">see</span> <span class="s2">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Instruction</span> <span class="p">:</span> <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
-<span class="n">Instruction</span> <span class="p">:</span> <span class="n">Window</span> <span class="n">Title</span> <span class="o">=</span> <span class="n">hello</span> <span class="n">world</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Instruction</span> <span class="o">:</span> <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="n">Instruction</span> <span class="o">:</span> <span class="n">Window</span> <span class="n">Title</span> <span class="o">=</span> <span class="n">hello</span> <span class="n">world</span>
 </pre></div>
 </div>
 </section>
@@ -300,7 +300,7 @@ spirits.</p>
 <p>We have a problem because in Ring ‘and’ is a keyword</p>
 <p>We can change that using the ChangeRingKeyword command.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="o">&lt;</span><span class="n">oldkeyword</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newkeyword</span><span class="o">&gt;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>  <span class="o">&lt;</span><span class="n">oldkeyword</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newkeyword</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -312,60 +312,60 @@ spirits.</p>
 <p>The ChangeRingKeyword command is executed in the scanner stage by the compiler (before parsing).</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingKeyword       and  _and
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>       <span class="ow">and</span>  <span class="n">_and</span>
 
-New App
-{
-                I want window and the window title = &quot;hello world&quot;
-}
+<span class="kp">New</span> <span class="nc">App</span>
+<span class="p">{</span>
+                <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="p">}</span>
 
-Class App
+<span class="kd">Class</span> <span class="nc">App</span>
 
-                # Attributes for the instruction I want window
-                                i want window
-                                nIwantwindow = 0
-                # Attributes for the instruction Window title
-                # Here we don&#39;t define the window attribute again
-                                title
-                                nWindowTitle = 0
-                # Keywords to ignore
-                                the  and
+                <span class="c1"># Attributes for the instruction I want window</span>
+                                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+                                <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># Attributes for the instruction Window title</span>
+                <span class="c1"># Here we don&#39;t define the window attribute again</span>
+                                <span class="n">title</span>
+                                <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># Keywords to ignore</span>
+                                <span class="n">the</span>  <span class="ow">and</span>
 
-ChangeRingKeyword       _and  and
+<span class="cp">ChangeRingKeyword</span>       <span class="n">_and</span>  <span class="ow">and</span>
 
-                func geti
-                        if nIwantwindow = 0
-                                nIwantwindow++
-                        ok
+                <span class="kd">func</span> <span class="nf">geti</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func getwant
-                        if nIwantwindow = 1
-                                nIwantwindow++
-                        ok
+                <span class="kd">func</span> <span class="nf">getwant</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func getwindow
-                        if nIwantwindow = 2
-                                nIwantwindow= 0
-                                see &quot;Instruction : I want window&quot; + nl
-                        ok
-                        if nWindowTitle = 0
-                                nWindowTitle++
-                        ok
+                <span class="kd">func</span> <span class="nf">getwindow</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                                <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">see</span> <span class="s2">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="k k-Control">ok</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nWindowTitle</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func settitle cValue
-                        if nWindowTitle = 1
-                                nWindowTitle=0
-                                see &quot;Instruction : Window Title = &quot; + cValue + nl
-                        ok
+                <span class="kd">func</span> <span class="nf">settitle</span> <span class="n">cValue</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
+                                <span class="k">see</span> <span class="s2">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="k k-Control">ok</span>
 
-                func getand
-                        see &quot;Using : and&quot; + nl
+                <span class="kd">func</span> <span class="nf">getand</span>
+                        <span class="k">see</span> <span class="s2">&quot;Using : and&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Instruction</span> <span class="p">:</span> <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
-<span class="n">Using</span> <span class="p">:</span> <span class="ow">and</span>
-<span class="n">Instruction</span> <span class="p">:</span> <span class="n">Window</span> <span class="n">Title</span> <span class="o">=</span> <span class="n">hello</span> <span class="n">world</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Instruction</span> <span class="o">:</span> <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="n">Using</span> <span class="o">:</span> <span class="ow">and</span>
+<span class="n">Instruction</span> <span class="o">:</span> <span class="n">Window</span> <span class="n">Title</span> <span class="o">=</span> <span class="n">hello</span> <span class="n">world</span>
 </pre></div>
 </div>
 </section>
@@ -375,7 +375,7 @@ ChangeRingKeyword       _and  and
 <p>We can do this change using the ChangeRingOperator command to hide operator (change it’s name)</p>
 <p>Then we can use the operator as identifier that we can handle it’s behaviour</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingOperator</span>  <span class="o">&lt;</span><span class="n">oldoperator</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newoperator</span><span class="o">&gt;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingOperator</span>  <span class="o">&lt;</span><span class="n">oldoperator</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newoperator</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -387,18 +387,18 @@ ChangeRingKeyword       _and  and
 <p>The ChangeRingOperator command is executed in the scanner stage by the compiler (before parsing).</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingOperator + _+
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingOperator</span> <span class="o">+</span> <span class="n">_</span><span class="o">+</span>
 
-New App {
-        +
-}
+<span class="kp">New</span> <span class="nc">App</span> <span class="p">{</span>
+        <span class="o">+</span>
+<span class="p">}</span>
 
-Class App
-        +
-        func get+
-                see &quot;Plus operator&quot;
+<span class="kd">Class</span> <span class="nc">App</span>
+        <span class="o">+</span>
+        <span class="kd">func</span> <span class="nf">get</span><span class="o">+</span>
+                <span class="k">see</span> <span class="s2">&quot;Plus operator&quot;</span>
 
-ChangeRingOperator _+ +
+<span class="cp">ChangeRingOperator</span> <span class="n">_</span><span class="o">+</span> <span class="o">+</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -409,122 +409,122 @@ ChangeRingOperator _+ +
 <section id="change-the-operator-to-is">
 <span id="index-5"></span><h2>Change the ‘=’ operator to ‘is’<a class="headerlink" href="#change-the-operator-to-is" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingKeyword       and  _and
-ChangeRingOperator      =    is
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>       <span class="ow">and</span>  <span class="n">_and</span>
+<span class="cp">ChangeRingOperator</span>      <span class="o">=</span>    <span class="n">is</span>
 
-New App
-{
-                I want window and the window title is &quot;hello world&quot;
-}
+<span class="kp">New</span> <span class="nc">App</span>
+<span class="p">{</span>
+                <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="p">}</span>
 
-ChangeRingOperator      is    =
+<span class="cp">ChangeRingOperator</span>      <span class="n">is</span>    <span class="o">=</span>
 
-Class App
+<span class="kd">Class</span> <span class="nc">App</span>
 
-                # Attributes for the instruction I want window
-                                i want window
-                                nIwantwindow = 0
-                # Attributes for the instruction Window title
-                # Here we don&#39;t define the window attribute again
-                                title
-                                nWindowTitle = 0
-                # Keywords to ignore
-                                the  and
+                <span class="c1"># Attributes for the instruction I want window</span>
+                                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+                                <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># Attributes for the instruction Window title</span>
+                <span class="c1"># Here we don&#39;t define the window attribute again</span>
+                                <span class="n">title</span>
+                                <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># Keywords to ignore</span>
+                                <span class="n">the</span>  <span class="ow">and</span>
 
-ChangeRingKeyword       _and  and
+<span class="cp">ChangeRingKeyword</span>       <span class="n">_and</span>  <span class="ow">and</span>
 
-                func geti
-                        if nIwantwindow = 0
-                                nIwantwindow++
-                        ok
+                <span class="kd">func</span> <span class="nf">geti</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func getwant
-                        if nIwantwindow = 1
-                                nIwantwindow++
-                        ok
+                <span class="kd">func</span> <span class="nf">getwant</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func getwindow
-                        if nIwantwindow = 2
-                                nIwantwindow= 0
-                                see &quot;Instruction : I want window&quot; + nl
-                        ok
-                        if nWindowTitle = 0
-                                nWindowTitle++
-                        ok
+                <span class="kd">func</span> <span class="nf">getwindow</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                                <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">see</span> <span class="s2">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="k k-Control">ok</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nWindowTitle</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func settitle cValue
-                        if nWindowTitle = 1
-                                nWindowTitle=0
-                                see &quot;Instruction : Window Title = &quot; + cValue + nl
-                        ok
+                <span class="kd">func</span> <span class="nf">settitle</span> <span class="n">cValue</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
+                                <span class="k">see</span> <span class="s2">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 </section>
 <section id="using-eval-with-our-natural-code">
 <span id="index-6"></span><h2>Using Eval() with our Natural Code<a class="headerlink" href="#using-eval-with-our-natural-code" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func Main
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">Main</span>
 
-  cProgram = &#39; I want window and the window title is &quot;hello world&quot; &#39;
+  <span class="n">cProgram</span> <span class="o">=</span> <span class="s1">&#39; I want window and the window title is &quot;hello world&quot; &#39;</span>
 
-  MyLanguage(cProgram)
+  <span class="n">MyLanguage</span><span class="p">(</span><span class="n">cProgram</span><span class="p">)</span>
 
-Func MyLanguage cCode
+<span class="kd">Func</span> <span class="nf">MyLanguage</span> <span class="n">cCode</span>
 
-  # We add to the code the instructions that change keywords and operators
-  # Because Eval() uses a new Compiler Object (the original keywords and operators).
+  <span class="c1"># We add to the code the instructions that change keywords and operators</span>
+  <span class="c1"># Because Eval() uses a new Compiler Object (the original keywords and operators).</span>
 
-  cCode = &#39;
-        ChangeRingKeyword  and  _and
-        ChangeRingOperator  =    is
-  &#39; + cCode
+  <span class="n">cCode</span> <span class="o">=</span> <span class="s1">&#39;</span>
+<span class="s1">        ChangeRingKeyword  and  _and</span>
+<span class="s1">        ChangeRingOperator  =    is</span>
+<span class="s1">  &#39;</span> <span class="o">+</span> <span class="n">cCode</span>
 
-  New App
-  {
-          eval(cCode)
-  }
+  <span class="kp">New</span> <span class="nc">App</span>
+  <span class="p">{</span>
+          <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+  <span class="p">}</span>
 
 
-  Class App
+  <span class="kd">Class</span> <span class="nc">App</span>
 
-          # Attributes for the instruction I want window
-                  i want window
-                  nIwantwindow = 0
-          # Attributes for the instruction Window title
-          # Here we don&#39;t define the window attribute again
-                  title
-                  nWindowTitle = 0
-          # Keywords to ignore
-                  the
+          <span class="c1"># Attributes for the instruction I want window</span>
+                  <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+                  <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="c1"># Attributes for the instruction Window title</span>
+          <span class="c1"># Here we don&#39;t define the window attribute again</span>
+                  <span class="n">title</span>
+                  <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="c1"># Keywords to ignore</span>
+                  <span class="n">the</span>
 
-          ChangeRingKeyword  and  _and
-                  and=0
-          ChangeRingKeyword  _and  and
+          <span class="n">ChangeRingKeyword</span>  <span class="ow">and</span>  <span class="n">_and</span>
+                  <span class="ow">and</span><span class="o">=</span><span class="mi">0</span>
+          <span class="n">ChangeRingKeyword</span>  <span class="n">_and</span>  <span class="ow">and</span>
 
-          func geti
-                if nIwantwindow = 0
-                  nIwantwindow++
-                ok
+          <span class="kd">func</span> <span class="nf">geti</span>
+                <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="n">nIwantwindow</span><span class="o">++</span>
+                <span class="k k-Control">ok</span>
 
-          func getwant
-                if nIwantwindow = 1
-                  nIwantwindow++
-                ok
+          <span class="kd">func</span> <span class="nf">getwant</span>
+                <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                  <span class="n">nIwantwindow</span><span class="o">++</span>
+                <span class="k k-Control">ok</span>
 
-          func getwindow
-                if nIwantwindow = 2
-                  nIwantwindow= 0
-                  see &quot;Instruction : I want window&quot; + nl
-                ok
-                if nWindowTitle = 0
-                  nWindowTitle++
-                ok
+          <span class="kd">func</span> <span class="nf">getwindow</span>
+                <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                  <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
+                  <span class="k">see</span> <span class="s2">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="n">nWindowTitle</span><span class="o">++</span>
+                <span class="k k-Control">ok</span>
 
-          func settitle cValue
-                if nWindowTitle = 1
-                  nWindowTitle=0
-                  see &quot;Instruction : Window Title = &quot; + cValue + nl
-                ok
+          <span class="kd">func</span> <span class="nf">settitle</span> <span class="n">cValue</span>
+                <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                  <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
+                  <span class="k">see</span> <span class="s2">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 </section>
@@ -532,27 +532,27 @@ Func MyLanguage cCode
 <span id="index-7"></span><h2>BraceStart and BraceEnd Methods<a class="headerlink" href="#bracestart-and-braceend-methods" title="Permalink to this heading"></a></h2>
 <p>We can write code that will be executed before/after using { }</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span> <span class="p">{</span>
-        <span class="k">see</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">test</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="s2">&quot;Hello&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="p">}</span>
 
 <span class="n">o1</span> <span class="p">{}</span>
 
-<span class="k">class</span> <span class="n">test</span>
+<span class="kd">class</span> <span class="nc">test</span>
 
-        <span class="k">func</span> <span class="n">bracestart</span>
-                <span class="k">see</span> <span class="s">&quot;start&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="kd">func</span> <span class="nf">bracestart</span>
+                <span class="k">see</span> <span class="s2">&quot;start&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-        <span class="k">func</span> <span class="n">braceend</span>
-                <span class="k">see</span> <span class="s">&quot;end&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="kd">func</span> <span class="nf">braceend</span>
+                <span class="k">see</span> <span class="s2">&quot;end&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">start</span>
 <span class="n">Hello</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 <span class="n">start</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 </pre></div>
 </div>
 </section>
@@ -561,64 +561,64 @@ Func MyLanguage cCode
 <p>The next example demonstrates how to use the “BraceExprEval” method to get expressions in
 Natural code.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">natural</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">natural</span> <span class="p">{</span>
         <span class="n">create</span> <span class="mi">5</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">natural</span>
+<span class="kd">class</span> <span class="nc">natural</span>
         <span class="n">create</span><span class="o">=</span><span class="mi">0</span>
-        <span class="n">lkeyword</span> <span class="o">=</span> <span class="kp">false</span>
-        <span class="k">func</span> <span class="n">braceexpreval</span> <span class="n">r</span>
-                <span class="k">if</span> <span class="n">lkeyword</span> <span class="n">lkeyword</span><span class="o">=</span><span class="kp">false</span> <span class="k">return</span> <span class="k">ok</span>
-                <span class="k">see</span> <span class="s">&quot;expr eval&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">see</span> <span class="s">&quot;type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">see</span> <span class="n">nl</span>
-                <span class="k">see</span> <span class="s">&quot;value : &quot;</span> <span class="k">see</span> <span class="n">r</span> <span class="k">see</span> <span class="n">nl</span>
-        <span class="k">func</span> <span class="n">getcreate</span>
-                <span class="n">lkeyword</span> <span class="o">=</span> <span class="kp">true</span>
-                <span class="k">see</span> <span class="s">&quot;create&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">lkeyword</span> <span class="o">=</span> <span class="bp">false</span>
+        <span class="kd">func</span> <span class="nf">braceexpreval</span> <span class="n">r</span>
+                <span class="k k-Control">if</span> <span class="n">lkeyword</span> <span class="n">lkeyword</span><span class="o">=</span><span class="bp">false</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+                <span class="k">see</span> <span class="s2">&quot;expr eval&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k">see</span> <span class="s2">&quot;type: &quot;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">see</span> <span class="bp">nl</span>
+                <span class="k">see</span> <span class="s2">&quot;value : &quot;</span> <span class="k">see</span> <span class="n">r</span> <span class="k">see</span> <span class="bp">nl</span>
+        <span class="kd">func</span> <span class="nf">getcreate</span>
+                <span class="n">lkeyword</span> <span class="o">=</span> <span class="bp">true</span>
+                <span class="k">see</span> <span class="s2">&quot;create&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">create</span>
 <span class="n">expr</span> <span class="n">eval</span>
-<span class="n">type</span><span class="p">:</span> <span class="n">NUMBER</span>
-<span class="n">value</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="n">type</span><span class="o">:</span> <span class="n">NUMBER</span>
+<span class="n">value</span> <span class="o">:</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </section>
 <section id="real-natural-code">
 <span id="index-9"></span><h2>Real Natural Code<a class="headerlink" href="#real-natural-code" title="Permalink to this heading"></a></h2>
 <p>The next example is a more advanced example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Natural Code</span>
-<span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Natural Code</span>
+<span class="kp">new</span> <span class="nc">program</span> <span class="p">{</span>
         <span class="n">Accept</span> <span class="mi">2</span> <span class="n">numbers</span> <span class="n">then</span> <span class="n">print</span> <span class="n">the</span> <span class="n">sum</span>
 <span class="p">}</span>
 
-<span class="c"># Natural Code Implementation</span>
-<span class="k">class</span> <span class="n">program</span>
-        <span class="c"># Keywords</span>
+<span class="c1"># Natural Code Implementation</span>
+<span class="kd">class</span> <span class="nc">program</span>
+        <span class="c1"># Keywords</span>
                 <span class="n">Accept</span><span class="o">=</span><span class="mi">0</span> <span class="n">numbers</span><span class="o">=</span><span class="mi">0</span> <span class="n">then</span><span class="o">=</span><span class="mi">0</span> <span class="n">print</span><span class="o">=</span><span class="mi">0</span> <span class="n">the</span><span class="o">=</span><span class="mi">0</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span>
 
-        <span class="c"># Execution</span>
-        <span class="k">func</span> <span class="n">braceexpreval</span> <span class="n">x</span>
+        <span class="c1"># Execution</span>
+        <span class="kd">func</span> <span class="nf">braceexpreval</span> <span class="n">x</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="k">func</span> <span class="n">getnumbers</span>
-                <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">value</span>
-                        <span class="k">see</span> <span class="s">&quot;Enter Number (&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) :&quot;</span> <span class="k">give</span> <span class="n">nNumber</span>
+        <span class="kd">func</span> <span class="nf">getnumbers</span>
+                <span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">value</span>
+                        <span class="k">see</span> <span class="s2">&quot;Enter Number (&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;) :&quot;</span> <span class="k">give</span> <span class="n">nNumber</span>
                         <span class="n">aNumbers</span> <span class="o">+</span> <span class="n">nNumber</span>
-                <span class="k">next</span>
-        <span class="k">func</span> <span class="n">getsum</span>
+                <span class="k k-Control">next</span>
+        <span class="kd">func</span> <span class="nf">getsum</span>
                 <span class="n">nSUm</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k">next</span>
-                <span class="k">see</span> <span class="s">&quot;The Sum : &quot;</span> <span class="o">+</span> <span class="n">nSum</span>
-        <span class="k">private</span>
-                <span class="n">value</span><span class="o">=</span><span class="mi">0</span> <span class="n">aNumbers</span><span class="o">=[]</span>
+                <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k k-Control">next</span>
+                <span class="k">see</span> <span class="s2">&quot;The Sum : &quot;</span> <span class="o">+</span> <span class="n">nSum</span>
+        <span class="kd">private</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">0</span> <span class="n">aNumbers</span><span class="o">=</span><span class="p">[]</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span><span class="mi">3</span>
-<span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span><span class="mi">4</span>
-<span class="n">The</span> <span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="nb">Number</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span><span class="mi">3</span>
+<span class="n">Enter</span> <span class="nb">Number</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span><span class="mi">4</span>
+<span class="n">The</span> <span class="n">Sum</span> <span class="o">:</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </section>
@@ -627,57 +627,57 @@ Natural code.</p>
 <p>The next examples demonstrates how to use the “BraceError” method to handle errors when accessing
 the object using braces {}.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">main</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span>
                 <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
                 <span class="n">TEST</span>
                 <span class="k">SEE</span> <span class="n">test</span>
         <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-        <span class="k">func</span> <span class="n">braceerror</span>
-                <span class="k">see</span> <span class="s">&quot;Handle Error!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">SEE</span> <span class="s">&quot;Message :&quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">if</span> <span class="p">(</span> <span class="n">left</span><span class="p">(</span><span class="n">cCatchError</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;Error (R24)&quot;</span> <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
-                        <span class="k">see</span> <span class="s">&quot;add attribute&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                        <span class="n">addattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="kd">func</span> <span class="nf">braceerror</span>
+                <span class="k">see</span> <span class="s2">&quot;Handle Error!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k">SEE</span> <span class="s2">&quot;Message :&quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">if</span> <span class="p">(</span> <span class="nb">left</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;Error (R24)&quot;</span> <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+                        <span class="k">see</span> <span class="s2">&quot;add attribute&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="nb">addattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
                         <span class="n">test</span> <span class="o">=</span> <span class="mi">10</span>
-                <span class="k">ok</span>
-                <span class="k">see</span> <span class="s">&quot;done&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">return</span>
+                <span class="k k-Control">ok</span>
+                <span class="k">see</span> <span class="s2">&quot;done&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">return</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Handle</span> <span class="n">Error</span><span class="o">!</span>
-<span class="n">Message</span> <span class="p">:</span><span class="n">Error</span> <span class="p">(</span><span class="n">R24</span><span class="p">)</span> <span class="p">:</span> <span class="n">Using</span> <span class="n">uninitialized</span> <span class="n">variable</span> <span class="p">:</span> <span class="n">test</span>
+<span class="n">Message</span> <span class="ss">:Error</span> <span class="p">(</span><span class="n">R24</span><span class="p">)</span> <span class="o">:</span> <span class="n">Using</span> <span class="n">uninitialized</span> <span class="n">variable</span> <span class="o">:</span> <span class="n">test</span>
 <span class="n">add</span> <span class="n">attribute</span>
-<span class="k">done</span>
+<span class="k k-Control">done</span>
 <span class="mi">10</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
         <span class="n">test</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;mmm...&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+        <span class="k">see</span> <span class="s2">&quot;mmm...&quot;</span> <span class="o">+</span> <span class="bp">NL</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-        <span class="k">func</span> <span class="n">braceerror</span>
-                <span class="k">see</span> <span class="s">&quot;Handle Error!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">see</span> <span class="s">&quot;Message :&quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">see</span> <span class="n">self</span>
-                <span class="k">see</span> <span class="s">&quot;Done&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="kd">func</span> <span class="nf">braceerror</span>
+                <span class="k">see</span> <span class="s2">&quot;Handle Error!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k">see</span> <span class="s2">&quot;Message :&quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k">see</span> <span class="kp">self</span>
+                <span class="k">see</span> <span class="s2">&quot;Done&quot;</span> <span class="o">+</span> <span class="bp">NL</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Handle</span> <span class="n">Error</span><span class="o">!</span>
-<span class="n">Message</span> <span class="p">:</span><span class="n">Error</span> <span class="p">(</span><span class="n">R3</span><span class="p">)</span> <span class="p">:</span> <span class="n">Calling</span> <span class="k">Function</span> <span class="n">without</span> <span class="n">definition</span> <span class="o">!</span><span class="p">:</span> <span class="n">test</span>
-<span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
-<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
-<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
-<span class="k">Done</span>
-<span class="n">mmm</span><span class="p">...</span>
+<span class="n">Message</span> <span class="ss">:Error</span> <span class="p">(</span><span class="n">R3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Calling</span> <span class="kd">Function</span> <span class="nf">without</span> <span class="n">definition</span> <span class="o">!:</span> <span class="n">test</span>
+<span class="n">x</span><span class="o">:</span> <span class="mf">10.000000</span>
+<span class="n">y</span><span class="o">:</span> <span class="mf">20.000000</span>
+<span class="n">z</span><span class="o">:</span> <span class="mf">30.000000</span>
+<span class="k k-Control">Done</span>
+<span class="n">mmm</span><span class="o">...</span>
 </pre></div>
 </div>
 </section>
@@ -688,71 +688,71 @@ the object using braces {}.</p>
 <p>The next example accept hello world instead of “hello world”</p>
 <p>But this example uses braceend() to check the end of the instruction</p>
 <p>This means that this class process only one natural statement that end with literal.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingKeyword       and  _and
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>       <span class="ow">and</span>  <span class="n">_and</span>
 
-New App
-{
-                I want window and the window title is hello world
-}
+<span class="kp">New</span> <span class="nc">App</span>
+<span class="p">{</span>
+                <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="n">hello</span> <span class="n">world</span>
+<span class="p">}</span>
 
-Class App
+<span class="kd">Class</span> <span class="nc">App</span>
 
-                # Attributes for the instruction I want window
-                                i want window
-                                nIwantwindow = 0
-                # Attributes for the instruction Window title
-                # Here we don&#39;t define the window attribute again
-                                title is
-                                nWindowTitle = 0
-                # Keywords to ignore
-                                the  and
-                # Data
-                                literal = &quot;&quot;
+                <span class="c1"># Attributes for the instruction I want window</span>
+                                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+                                <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># Attributes for the instruction Window title</span>
+                <span class="c1"># Here we don&#39;t define the window attribute again</span>
+                                <span class="n">title</span> <span class="n">is</span>
+                                <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="c1"># Keywords to ignore</span>
+                                <span class="n">the</span>  <span class="ow">and</span>
+                <span class="c1"># Data</span>
+                                <span class="n">literal</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
-ChangeRingKeyword       _and  and
+<span class="cp">ChangeRingKeyword</span>       <span class="n">_and</span>  <span class="ow">and</span>
 
-                func geti
-                        if nIwantwindow = 0
-                                nIwantwindow++
-                        ok
+                <span class="kd">func</span> <span class="nf">geti</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func getwant
-                        if nIwantwindow = 1
-                                nIwantwindow++
-                        ok
+                <span class="kd">func</span> <span class="nf">getwant</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func getwindow
-                        if nIwantwindow = 2
-                                nIwantwindow= 0
-                                see &quot;Instruction : I want window&quot; + nl
-                        ok
-                        if nWindowTitle = 0
-                                nWindowTitle++
-                        ok
+                <span class="kd">func</span> <span class="nf">getwindow</span>
+                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                                <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">see</span> <span class="s2">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="k k-Control">ok</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nWindowTitle</span><span class="o">++</span>
+                        <span class="k k-Control">ok</span>
 
-                func gettitle
-                        if nWindowTitle = 1
-                                nWindowTitle=2
-                        ok
+                <span class="kd">func</span> <span class="nf">gettitle</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">2</span>
+                        <span class="k k-Control">ok</span>
 
-                func getis
-                        if nWindowTitle = 2
-                                nWindowTitle=3
-                        ok
+                <span class="kd">func</span> <span class="nf">getis</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">2</span>
+                                <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">3</span>
+                        <span class="k k-Control">ok</span>
 
-                func braceend
-                        if nWindowTitle = 3
-                                see &quot;Instruction : Window Title = &quot; + literal + nl
-                                nWindowTitle = 0
-                        ok
+                <span class="kd">func</span> <span class="nf">braceend</span>
+                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">3</span>
+                                <span class="k">see</span> <span class="s2">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">literal</span> <span class="o">+</span> <span class="bp">nl</span>
+                                <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k k-Control">ok</span>
 
-                func braceerror
-                        c= substr(cCatchError,&quot;:&quot;)
-                        while c &gt; 0
-                                c= substr(cCatchError,&quot;:&quot;)
-                                cCatchError=substr(cCatchError,c+1)
-                        end
-                        literal += substr(cCatchError,1)
+                <span class="kd">func</span> <span class="nf">braceerror</span>
+                        <span class="n">c</span><span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                        <span class="k k-Control">while</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                                <span class="n">c</span><span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                                <span class="bp">cCatchError</span><span class="o">=</span><span class="nb">substr</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">,</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="k k-Control">end</span>
+                        <span class="n">literal</span> <span class="o">+=</span> <span class="nb">substr</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

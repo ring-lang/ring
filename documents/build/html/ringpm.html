@@ -425,98 +425,98 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <li><p>lib.ring : library file for the package</p></li>
 </ul>
 <p>File  : main.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Main File</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># The Main File</span>
 
-<span class="k">load</span> <span class="s">&quot;lib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;lib.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 <p>File : lib.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Library File</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># The Library File</span>
 </pre></div>
 </div>
 <p>File : package.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;The myapp Package&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Our myapp package using the Ring programming language&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">folder</span> <span class="o">=</span> <span class="s">&quot;myapp&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">developer</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">license</span> <span class="o">=</span> <span class="s">&quot;MIT License&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ringversion</span> <span class="o">=</span> <span class="s">&quot;1.10&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">versions</span> <span class="o">=</span>     <span class="o">[</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">branch</span> <span class="o">=</span> <span class="s">&quot;master&quot;</span>
-                <span class="o">]</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">libs</span> <span class="o">=</span>         <span class="o">[</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-                <span class="o">]</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">files</span> <span class="o">=</span>        <span class="o">[</span>
-                <span class="s">&quot;lib.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;main.ring&quot;</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ringfolderfiles</span> <span class="o">=</span>      <span class="o">[</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;The myapp Package&quot;</span><span class="p">,</span>
+        <span class="ss">:description</span> <span class="o">=</span> <span class="s2">&quot;Our myapp package using the Ring programming language&quot;</span><span class="p">,</span>
+        <span class="ss">:folder</span> <span class="o">=</span> <span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="ss">:developer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:email</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:license</span> <span class="o">=</span> <span class="s2">&quot;MIT License&quot;</span><span class="p">,</span>
+        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="ss">:ringversion</span> <span class="o">=</span> <span class="s2">&quot;1.10&quot;</span><span class="p">,</span>
+        <span class="ss">:versions</span> <span class="o">=</span>     <span class="p">[</span>
+                <span class="p">[</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:branch</span> <span class="o">=</span> <span class="s2">&quot;master&quot;</span>
+                <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="ss">:libs</span> <span class="o">=</span>         <span class="p">[</span>
+                <span class="p">[</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="ss">:providerusername</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="ss">:files</span> <span class="o">=</span>        <span class="p">[</span>
+                <span class="s2">&quot;lib.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;main.ring&quot;</span>
+        <span class="p">],</span>
+        <span class="ss">:ringfolderfiles</span> <span class="o">=</span>      <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowsfiles</span> <span class="o">=</span>         <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:windowsfiles</span> <span class="o">=</span>         <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxfiles</span> <span class="o">=</span>   <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:linuxfiles</span> <span class="o">=</span>   <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ubuntufiles</span> <span class="o">=</span>  <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:ubuntufiles</span> <span class="o">=</span>  <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">fedorafiles</span> <span class="o">=</span>  <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:fedorafiles</span> <span class="o">=</span>  <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macosfiles</span> <span class="o">=</span>   <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:macosfiles</span> <span class="o">=</span>   <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowsringfolderfiles</span> <span class="o">=</span>       <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:windowsringfolderfiles</span> <span class="o">=</span>       <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:linuxringfolderfiles</span> <span class="o">=</span>         <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ubunturingfolderfiles</span> <span class="o">=</span>        <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:ubunturingfolderfiles</span> <span class="o">=</span>        <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">fedoraringfolderfiles</span> <span class="o">=</span>        <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:fedoraringfolderfiles</span> <span class="o">=</span>        <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macosringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
+        <span class="p">],</span>
+        <span class="ss">:macosringfolderfiles</span> <span class="o">=</span>         <span class="p">[</span>
 
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowsrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macosrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ubunturun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">fedorarun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">setup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowssetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxsetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macossetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ubuntusetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">fedorasetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">remove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">windowsremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">linuxremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">macosremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ubunturemove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">fedoraremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-<span class="o">]</span>
+        <span class="p">],</span>
+        <span class="ss">:run</span> <span class="o">=</span> <span class="s2">&quot;ring main.ring&quot;</span><span class="p">,</span>
+        <span class="ss">:windowsrun</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:linuxrun</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:macosrun</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:ubunturun</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:fedorarun</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:setup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:windowssetup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:linuxsetup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:macossetup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:ubuntusetup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:fedorasetup</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:remove</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:windowsremove</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:linuxremove</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:macosremove</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:ubunturemove</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="ss">:fedoraremove</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -664,128 +664,128 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <p>The package definition file is a list that describe the package information and files.</p>
 <p>Example :</p>
 <p>The package definition file for the Ring Notepad package</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;The RingNotepad Package&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Our RingNotepad package using the Ring programming language&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">folder</span> <span class="o">=</span> <span class="s">&quot;ringnotepad&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">developer</span> <span class="o">=</span> <span class="s">&quot;Mahmoud Fayed&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;msfclipper@yahoo.com&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">license</span> <span class="o">=</span> <span class="s">&quot;MIT License&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ringversion</span> <span class="o">=</span> <span class="s">&quot;1.10&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">versions</span> <span class="o">=</span>     <span class="o">[</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">branch</span> <span class="o">=</span> <span class="s">&quot;master&quot;</span>
-                <span class="o">]</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">libs</span> <span class="o">=</span>         <span class="o">[</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;stdlib&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-                <span class="o">]</span><span class="p">,</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ringqt&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-                <span class="o">]</span><span class="p">,</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;findinfiles&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-                <span class="o">]</span><span class="p">,</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-                <span class="o">]</span><span class="p">,</span>
-                <span class="o">[</span>
-                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;libdepwin_apache&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
-                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-                <span class="o">]</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">files</span> <span class="o">=</span>        <span class="o">[</span>
-                <span class="s">&quot;main.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;README.md&quot;</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">ringfolderfiles</span> <span class="o">=</span>      <span class="o">[</span>
-                <span class="s">&quot;applications/rnote/batch/killwebserver.bat&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/batch/run.bat&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/batch/run2.bat&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/back.jpg&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/back2.jpg&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/close.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/colors.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/copy.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/cut.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/debug.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/font.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/formdesigner.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/new.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/notepad.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/open.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/paste.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/print.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/project.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/richtext.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/run.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/rungui.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/save.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/saveas.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/search.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/source.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/undo.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/image/web.png&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/README.md&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnote.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteactivefile.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteactivefolder.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteautocomplete.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotebase.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotecontroller.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotedistribute.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteeditmenu.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteeditorevents.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotefilemenu.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotefiles.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotefilestabs.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotefind.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotefindinfiles.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteformdesigner.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotegoto.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotehelp.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotelists.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotemainfiletoolbar.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotemainwindow.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotemode.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteoutputwindow.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteprogrammenu.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoterun.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotesettings.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotestyle.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotetabwidth.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotetools.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotetreeviewevents.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnoteviewmenu.ring&quot;</span><span class="p">,</span>
-                <span class="s">&quot;applications/rnote/rnotewebbrowser.ring&quot;</span>
-        <span class="o">]</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span>
-<span class="o">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;The RingNotepad Package&quot;</span><span class="p">,</span>
+        <span class="ss">:description</span> <span class="o">=</span> <span class="s2">&quot;Our RingNotepad package using the Ring programming language&quot;</span><span class="p">,</span>
+        <span class="ss">:folder</span> <span class="o">=</span> <span class="s2">&quot;ringnotepad&quot;</span><span class="p">,</span>
+        <span class="ss">:developer</span> <span class="o">=</span> <span class="s2">&quot;Mahmoud Fayed&quot;</span><span class="p">,</span>
+        <span class="ss">:email</span> <span class="o">=</span> <span class="s2">&quot;msfclipper@yahoo.com&quot;</span><span class="p">,</span>
+        <span class="ss">:license</span> <span class="o">=</span> <span class="s2">&quot;MIT License&quot;</span><span class="p">,</span>
+        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="ss">:ringversion</span> <span class="o">=</span> <span class="s2">&quot;1.10&quot;</span><span class="p">,</span>
+        <span class="ss">:versions</span> <span class="o">=</span>     <span class="p">[</span>
+                <span class="p">[</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:branch</span> <span class="o">=</span> <span class="s2">&quot;master&quot;</span>
+                <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="ss">:libs</span> <span class="o">=</span>         <span class="p">[</span>
+                <span class="p">[</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;stdlib&quot;</span><span class="p">,</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:providerusername</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">],</span>
+                <span class="p">[</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;ringqt&quot;</span><span class="p">,</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:providerusername</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">],</span>
+                <span class="p">[</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;findinfiles&quot;</span><span class="p">,</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:providerusername</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">],</span>
+                <span class="p">[</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;formdesigner&quot;</span><span class="p">,</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:providerusername</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">],</span>
+                <span class="p">[</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;libdepwin_apache&quot;</span><span class="p">,</span>
+                        <span class="ss">:version</span> <span class="o">=</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="ss">:providerusername</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="ss">:files</span> <span class="o">=</span>        <span class="p">[</span>
+                <span class="s2">&quot;main.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;README.md&quot;</span>
+        <span class="p">],</span>
+        <span class="ss">:ringfolderfiles</span> <span class="o">=</span>      <span class="p">[</span>
+                <span class="s2">&quot;applications/rnote/batch/killwebserver.bat&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/batch/run.bat&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/batch/run2.bat&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/back.jpg&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/back2.jpg&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/close.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/colors.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/copy.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/cut.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/debug.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/font.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/formdesigner.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/new.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/notepad.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/open.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/paste.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/print.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/project.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/richtext.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/run.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/rungui.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/save.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/saveas.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/search.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/source.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/undo.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/image/web.png&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/README.md&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnote.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteactivefile.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteactivefolder.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteautocomplete.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotebase.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotecontroller.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotedistribute.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteeditmenu.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteeditorevents.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotefilemenu.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotefiles.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotefilestabs.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotefind.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotefindinfiles.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteformdesigner.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotegoto.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotehelp.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotelists.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotemainfiletoolbar.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotemainwindow.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotemode.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteoutputwindow.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteprogrammenu.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoterun.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotesettings.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotestyle.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotetabwidth.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotetools.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotetreeviewevents.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnoteviewmenu.ring&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;applications/rnote/rnotewebbrowser.ring&quot;</span>
+        <span class="p">],</span>
+        <span class="ss">:run</span> <span class="o">=</span> <span class="s2">&quot;ring main.ring&quot;</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="the-ringpm-registry-file">
 <span id="index-13"></span><h2>The RingPM Registry File<a class="headerlink" href="#the-ringpm-registry-file" title="Permalink to this heading"></a></h2>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackagesRegistry</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ringpresentation&quot;</span><span class="p">,</span>
-          <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Powerpoint presentation for the Ring programming language&quot;</span><span class="p">,</span>
-          <span class="p">:</span><span class="n">ProviderUserName</span> <span class="o">=</span> <span class="s">&quot;ringpackages&quot;</span>
-        <span class="o">]</span>
-        <span class="c"># ...</span>
-<span class="o">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackagesRegistry</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;ringpresentation&quot;</span><span class="p">,</span>
+          <span class="ss">:description</span> <span class="o">=</span> <span class="s2">&quot;Powerpoint presentation for the Ring programming language&quot;</span><span class="p">,</span>
+          <span class="ss">:ProviderUserName</span> <span class="o">=</span> <span class="s2">&quot;ringpackages&quot;</span>
+        <span class="p">]</span>
+        <span class="c1"># ...</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <p>Each package is defined using a list that determine</p>

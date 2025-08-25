@@ -255,7 +255,7 @@
 <span id="index-2"></span><h2>Using Many Source Code Files<a class="headerlink" href="#using-many-source-code-files" title="Permalink to this heading"></a></h2>
 <p>To include another source file in the project, just use the load command.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span>  <span class="s">&quot;filename.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span>  <span class="s2">&quot;filename.ring&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -267,17 +267,17 @@
 <p>if you don’t know the file name until the runtime, or you need to use functions to get the file path, just use eval().</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># File : Start.ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># File : Start.ring</span>
 
-<span class="k">Load</span> <span class="s">&quot;sub.ring&quot;</span>
+<span class="kn">Load</span> <span class="s2">&quot;sub.ring&quot;</span>
 
-<span class="n">sayhello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+<span class="n">sayhello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># File : sub.ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># File : sub.ring</span>
 
-<span class="k">func</span> <span class="n">sayhello</span> <span class="n">cName</span>
-        <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kd">func</span> <span class="nf">sayhello</span> <span class="n">cName</span>
+        <span class="k">see</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -291,21 +291,21 @@
 <p>Example:</p>
 <p>File: loadpackage.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
-<span class="k">load</span> <span class="k">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="kn">load</span> <span class="kd">package</span> <span class="s2">&quot;testloadpackage.ring&quot;</span>
 
 <span class="o">?</span> <span class="n">x</span>
 <span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>File: testloadpackage.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;Hello from testloadpackage.ring&quot;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="n">test</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">test</span>
+<span class="kd">func</span> <span class="nf">test</span>
         <span class="o">?</span> <span class="n">x</span>
 </pre></div>
 </div>
@@ -332,18 +332,18 @@ Hello from testloadpackage.ring
 <p>So we have to use the (Load Again) command.</p>
 <p>Where we can use these files again to execute their code multiple times during the runtime as in the next code</p>
 <p>Similar to all of the Load commands, The Load Again command is executed directly by the Ring compiler in the parsing stage.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">setLang</span> <span class="n">nLanguage</span>
-        <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
-                <span class="k">return</span>
-        <span class="k">ok</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">setLang</span> <span class="n">nLanguage</span>
+        <span class="k k-Control">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
         <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
-        <span class="c"># Change the language</span>
-                <span class="k">switch</span> <span class="n">nLanguage</span>
-                        <span class="k">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
-                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/english.ring&quot;</span>
-                        <span class="k">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
-                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/arabic.ring&quot;</span>
-                <span class="k">off</span>
+        <span class="c1"># Change the language</span>
+                <span class="k k-Control">switch</span> <span class="n">nLanguage</span>
+                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
+                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/english.ring&quot;</span>
+                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
+                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/arabic.ring&quot;</span>
+                <span class="k k-Control">off</span>
 </pre></div>
 </div>
 </section>

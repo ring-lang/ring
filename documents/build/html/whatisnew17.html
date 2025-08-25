@@ -280,14 +280,14 @@
 <span id="index-5"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this heading"></a></h2>
 <p>Using this library we can get Ring tokens from source code files or strings.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tokenslib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tokenslib.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
-        <span class="n">oTokens</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RingTokens</span> <span class="p">{</span>
-                <span class="n">fromFile</span><span class="p">(</span><span class="s">&quot;hello.ring&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span>
+        <span class="n">oTokens</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">RingTokens</span> <span class="p">{</span>
+                <span class="n">fromFile</span><span class="p">(</span><span class="s2">&quot;hello.ring&quot;</span><span class="p">)</span>
                 <span class="n">PrintTokens</span><span class="p">()</span>
-                <span class="o">?</span> <span class="n">Copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-                <span class="n">fromString</span><span class="p">(</span><span class="s">&quot;? 1+1&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+                <span class="n">fromString</span><span class="p">(</span><span class="s2">&quot;? 1+1&quot;</span><span class="p">)</span>
                 <span class="n">PrintTokens</span><span class="p">()</span>
         <span class="p">}</span>
 </pre></div>
@@ -314,32 +314,32 @@ CSV2List(cCSVString) --&gt; aList
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;csvlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;csvlib.ring&quot;</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="s">&quot;number&quot;</span><span class="p">,</span> <span class="s">&quot;square&quot;</span> <span class="o">]</span> <span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;square&quot;</span> <span class="p">]</span> <span class="p">]</span>
 
-<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-        <span class="n">aList</span> <span class="o">+</span> <span class="o">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="o">]</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
+<span class="k k-Control">next</span>
 
-<span class="n">write</span><span class="p">(</span> <span class="s">&quot;squares.csv&quot;</span><span class="p">,</span> <span class="n">list2CSV</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">write</span><span class="p">(</span> <span class="s2">&quot;squares.csv&quot;</span><span class="p">,</span> <span class="n">list2CSV</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <img alt="squarestable" src="_images/squarestable.png" />
 <p>Example (2)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;csvlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;csvlib.ring&quot;</span>
 
-<span class="k">if</span> <span class="o">!</span> <span class="n">fexists</span><span class="p">(</span><span class="s">&quot;squares.csv&quot;</span><span class="p">)</span>
-        <span class="o">?</span> <span class="s">&quot;The file squares.csv doesn&#39;t exist! - Run writeSquaresTable.ring to create it&quot;</span>
-        <span class="k">return</span>
-<span class="k">ok</span>
+<span class="k k-Control">if</span> <span class="o">!</span> <span class="nb">fexists</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;The file squares.csv doesn&#39;t exist! - Run writeSquaresTable.ring to create it&quot;</span>
+        <span class="k k-Control">return</span>
+<span class="k k-Control">ok</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="n">CSV2List</span><span class="p">(</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;squares.csv&quot;</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">CSV2List</span><span class="p">(</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span> <span class="p">)</span>
 
-<span class="k">for</span> <span class="n">subList</span> <span class="k">in</span> <span class="n">aList</span>
-        <span class="o">?</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">subList</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+        <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k k-Control">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -413,14 +413,14 @@ fax
 </pre></div>
 </div>
 <p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;jsonlib.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
-                <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Ring&quot;</span><span class="p">,</span>
-                <span class="p">:</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
-        <span class="o">]</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Ring&quot;</span><span class="p">,</span>
+                <span class="ss">:year</span> <span class="o">=</span> <span class="mi">2016</span>
+        <span class="p">]</span>
 
         <span class="o">?</span> <span class="n">List2JSON</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
@@ -441,20 +441,20 @@ fax
 <p>This library provides support for HTTP based on cpp-httplib</p>
 <p>URL: <a class="reference external" href="https://github.com/yhirose/cpp-httplib">https://github.com/yhirose/cpp-httplib</a></p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
 
-        <span class="o">?</span> <span class="s">&quot;Try localhost:8080/hi&quot;</span>
-        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hi&quot;</span><span class="p">,:</span><span class="n">mytest</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hi&quot;</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
 
-        <span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
 <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The other examples exist in this folder: ring/samples/UsingHTTPLib</p>
@@ -476,24 +476,24 @@ fax
 </div>
 <p>Example:</p>
 <p>Source code: <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList">https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList</a></p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">addRingListController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">addRingListController</span> <span class="kd">from</span> <span class="nc">windowsControllerParent</span>
 
-        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">addRingListView</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">addRingListView</span>
 
-        <span class="n">aList</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="o">]</span><span class="p">,</span>
-                 <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="o">]</span><span class="p">,</span>
-                 <span class="o">[</span><span class="s">&quot;five&quot;</span><span class="p">,</span><span class="s">&quot;six&quot;</span><span class="o">]</span><span class="p">,</span>
-                 <span class="o">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="o">]</span><span class="p">,</span>
-                 <span class="o">[</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;Love&quot;</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="s">&quot;Programming&quot;</span><span class="o">]]</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">],</span>
+                 <span class="p">[</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">],</span>
+                 <span class="p">[</span><span class="s2">&quot;five&quot;</span><span class="p">,</span><span class="s2">&quot;six&quot;</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+                 <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;Love&quot;</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">,</span><span class="s2">&quot;Programming&quot;</span><span class="p">]]</span>
 
-        <span class="n">oView</span><span class="p">.</span><span class="n">tablewidget1</span><span class="p">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
-        <span class="n">aList</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="s">&quot;Square&quot;</span><span class="o">]]</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                <span class="n">aList</span> <span class="o">+</span> <span class="o">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="o">]</span>
-        <span class="k">next</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="s2">&quot;Square&quot;</span><span class="p">]]</span>
+        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">]</span>
+        <span class="k k-Control">next</span>
 
-        <span class="n">oView</span><span class="p">.</span><span class="n">tablewidget1</span><span class="p">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -502,7 +502,7 @@ fax
 <li><p>Added: toList() method to the tableWidget class</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">tablewidget1</span><span class="p">.</span><span class="n">toList</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">toList</span><span class="p">()</span>
 <span class="o">?</span> <span class="n">aList</span>
 </pre></div>
 </div>
@@ -518,15 +518,15 @@ fax
 <p>To use ListWidget class, import system.gui after loading guilib.ring or lightguilib.ring</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="o">]</span>
-<span class="n">oView</span><span class="p">.</span><span class="n">listWidget1</span><span class="p">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">]</span>
+<span class="n">oView</span><span class="o">.</span><span class="n">listWidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
 <li><p>Added: toList() method to the ListWidget class</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">listwidget1</span><span class="p">.</span><span class="n">toList</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">oView</span><span class="o">.</span><span class="n">listwidget1</span><span class="o">.</span><span class="n">toList</span><span class="p">()</span>
 <span class="o">?</span> <span class="n">aList</span>
 </pre></div>
 </div>
@@ -589,12 +589,12 @@ rwaReadBinaryResource(modulePath, resourceName, resourceType) ---&gt; String (By
 <li><p>continue</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
         <span class="o">?</span> <span class="n">t</span>
-        <span class="k">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
-                <span class="o">?</span> <span class="p">:</span><span class="n">three</span>
-        <span class="k">endif</span>
-<span class="k">endfor</span>
+        <span class="k k-Control">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
+                <span class="o">?</span> <span class="ss">:three</span>
+        <span class="k k-Control">endif</span>
+<span class="k k-Control">endfor</span>
 </pre></div>
 </div>
 </section>
@@ -610,25 +610,25 @@ rwaReadBinaryResource(modulePath, resourceName, resourceType) ---&gt; String (By
 </ul>
 <p>They are written in the C language to provide better performance</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">puts</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
-<span class="n">puts</span><span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
-<span class="n">puts</span><span class="p">(</span><span class="s">&quot;one</span><span class="se">\n</span><span class="s">two</span><span class="se">\n</span><span class="s">three&quot;</span><span class="p">)</span>
-<span class="n">puts</span><span class="p">(</span><span class="s">&quot;one</span><span class="se">\n\t</span><span class="s">two</span><span class="se">\n\t\t</span><span class="s">three&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="nb">puts</span><span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;one\ntwo\nthree&quot;</span><span class="p">)</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;one\n\ttwo\n\t\tthree&quot;</span><span class="p">)</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">puts</span><span class="p">(</span><span class="s">&quot;Ring is #{age} years old!&quot;</span><span class="p">)</span>
-<span class="n">puts</span><span class="p">(</span><span class="s">&quot;I know that 2+2=#{2+2} and 3+3=#{3+3}&quot;</span><span class="p">)</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;Ring is </span><span class="si">#{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old!&quot;</span><span class="p">)</span>
+<span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;I know that 2+2=</span><span class="si">#{</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="si">}</span><span class="s2"> and 3+3=</span><span class="si">#{</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">happy</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">happy</span>
-        <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="n">test</span><span class="p">()}</span>
-        <span class="o">?</span> <span class="p">:</span><span class="k">done</span>
+<span class="kd">func</span> <span class="nf">happy</span>
+        <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="n">test</span><span class="p">()}</span>
+        <span class="o">?</span> <span class="ss">:done</span>
 
-<span class="k">class</span> <span class="n">myclass</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Ring&quot;</span>
+<span class="kd">class</span> <span class="nc">myclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Ring&quot;</span>
         <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-        <span class="k">func</span> <span class="n">test</span>
-                <span class="n">puts</span><span class="p">(</span><span class="s">&quot;Language Name = #{name}&quot;</span><span class="p">)</span>
-                <span class="n">puts</span><span class="p">(</span><span class="s">&quot;x=#{x}</span><span class="se">\n</span><span class="s">y=#{y}</span><span class="se">\n</span><span class="s">z=#{z}&quot;</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">test</span>
+                <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;Language Name = </span><span class="si">#{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;x=</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">\ny=</span><span class="si">#{</span><span class="n">y</span><span class="si">}</span><span class="s2">\nz=</span><span class="si">#{</span><span class="n">z</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>

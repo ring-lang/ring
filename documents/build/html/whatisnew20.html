@@ -306,57 +306,57 @@
 <li><p>updateList() function (from fastpro.ring) - support dest. column as six parameter</p></li>
 </ul>
 <p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to Ring&quot;</span>
-<span class="o">?</span> <span class="n">reverse</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>                 <span class="c"># gniR ot emocleW</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Welcome to Ring&quot;</span>
+<span class="o">?</span> <span class="nb">reverse</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>                 <span class="c1"># gniR ot emocleW</span>
 </pre></div>
 </div>
 <p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
-<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span>                  <span class="c"># Add the list as one item</span>
-<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                    <span class="c"># 4</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span>
+<span class="nb">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="o">:</span><span class="mi">6</span><span class="p">)</span>                  <span class="c1"># Add the list as one item</span>
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                    <span class="c1"># 4</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
-<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>             <span class="c"># Add each item alone</span>
-<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                    <span class="c"># 6</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span>
+<span class="nb">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="o">:</span><span class="mi">6</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>             <span class="c1"># Add each item alone</span>
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                    <span class="c1"># 6</span>
 <span class="o">?</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Example (3):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
-<span class="n">cStr</span>  <span class="o">=</span> <span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">cStr</span>                          <span class="c"># 6 7 8 9 10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
+<span class="n">cStr</span>  <span class="o">=</span> <span class="nb">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">cStr</span>                          <span class="c1"># 6 7 8 9 10</span>
 </pre></div>
 </div>
 <p>Example (4):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span>
-<span class="n">aList2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
-<span class="n">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">aList1</span>                        <span class="c"># 1 2 3</span>
-<span class="o">?</span> <span class="n">aList2</span>                        <span class="c"># 4 5 6</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList1</span>                        <span class="c1"># 1 2 3</span>
+<span class="o">?</span> <span class="n">aList2</span>                        <span class="c1"># 4 5 6</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span> <span class="o">]</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 4 5 6 1 2 3</span>
-<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 4 5 6 1 2 3</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">aList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 1 2 3 4 5 6</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span> <span class="o">]</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 4 5 6 1 2 3</span>
-<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 4 5 6 1 2 3</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 1 2 3 4 5 6</span>
 </pre></div>
 </div>
 <p>Example (6):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;fastpro.ring&quot;</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span>
-<span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
 
-<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="ss">:mul</span><span class="p">,</span><span class="ss">:col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="n">aList</span>         <span class="c"># 10 20 100 30 40 300 50 60 500</span>
+<span class="o">?</span> <span class="n">aList</span>         <span class="c1"># 10 20 100 30 40 300 50 60 500</span>
 </pre></div>
 </div>
 </section>
@@ -368,14 +368,14 @@
 <li><p>DisableHashComments</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DisableHashComments</span>
-<span class="c">#define = 10</span>
-<span class="n">EnableHashComments</span>
-<span class="c"># Just a comment</span>
-<span class="n">DisableHashComments</span>
-<span class="o">?</span> <span class="c">#define</span>
-<span class="n">EnableHashComments</span>
-<span class="c"># End of program</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">DisableHashComments</span>
+<span class="c1">#define = 10</span>
+<span class="cp">EnableHashComments</span>
+<span class="c1"># Just a comment</span>
+<span class="cp">DisableHashComments</span>
+<span class="o">?</span> <span class="c1">#define</span>
+<span class="cp">EnableHashComments</span>
+<span class="c1"># End of program</span>
 </pre></div>
 </div>
 </section>
@@ -385,17 +385,17 @@
 <p>Using stdlibcore.ring we can only load stdlib functions.</p>
 <p>In this release we provide stdlibclasses.ring that can only load stdlib classes without loading stdlib functions or extensions.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibclasses.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibclasses.ring&quot;</span>
 
-<span class="n">oStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Stack</span> <span class="p">{</span>
-        <span class="n">push</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
-        <span class="n">push</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span>
-        <span class="n">push</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
-        <span class="n">push</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">)</span>
-        <span class="n">push</span><span class="p">(</span><span class="s">&quot;E&quot;</span><span class="p">)</span>
+<span class="n">oStack</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Stack</span> <span class="p">{</span>
+        <span class="n">push</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">)</span>
         <span class="n">pop</span><span class="p">()</span>
         <span class="n">pop</span><span class="p">()</span>
-        <span class="n">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -421,17 +421,17 @@ A
 <p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
 <p>Using normal functions or using the dot operator still faster than using braces, but this update is a step forward towards reducing the gap.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPoint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPoint</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Point</span>
 
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100000</span>
         <span class="n">oPoint</span> <span class="p">{</span>
-                <span class="c"># Access object attributes|methods</span>
+                <span class="c1"># Access object attributes|methods</span>
         <span class="p">}</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+<span class="k k-Control">next</span>
+<span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clocksPerSecond</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -444,17 +444,17 @@ A
 <p>We have written this example in this slow way to do the test</p>
 </div>
 <p>A very fast version of the sample will could be written by using braces before the loop</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPoint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPoint</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Point</span>
 
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">oPoint</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-                <span class="c"># Access object attributes|methods</span>
-        <span class="k">next</span>
+        <span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100000</span>
+                <span class="c1"># Access object attributes|methods</span>
+        <span class="k k-Control">next</span>
 <span class="p">}</span>
-<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clocksPerSecond</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 </section>
@@ -480,20 +480,20 @@ A
 <p>The extension support Windows, Linux and macOS</p>
 <p>Also, we added support for Mouse events (Mouse move, Click, and Scroll)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;rogueutil.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;rogueutil.ring&quot;</span>
 
-<span class="n">setConsoleTitle</span><span class="p">(</span><span class="s">&quot;Using PrintXY()&quot;</span><span class="p">)</span>
+<span class="n">setConsoleTitle</span><span class="p">(</span><span class="s2">&quot;Using PrintXY()&quot;</span><span class="p">)</span>
 
 <span class="n">setColor</span><span class="p">(</span><span class="n">Black</span><span class="p">)</span>
 <span class="n">setBackgroundColor</span><span class="p">(</span><span class="n">Cyan</span><span class="p">)</span>
 
 <span class="n">cls</span><span class="p">()</span>
 
-<span class="n">printXY</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="sc">&#39;In Mathematics, we call multiplying a number by itself &quot;squaring&quot; the number.&#39;</span><span class="p">)</span>
+<span class="n">printXY</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;In Mathematics, we call multiplying a number by itself &quot;squaring&quot; the number.&#39;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">12</span>
-        <span class="n">printXY</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="o">+</span><span class="n">t</span><span class="p">,</span> <span class="s">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="s">&quot; x &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="p">)</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">12</span>
+        <span class="n">printXY</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="o">+</span><span class="n">t</span><span class="p">,</span> <span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="s2">&quot; x &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="p">)</span>
+<span class="k k-Control">next</span>
 
 <span class="n">getch</span><span class="p">()</span>
 </pre></div>
@@ -508,7 +508,7 @@ A
 <p>To pause the VM, just use the (Bye) command which as expected will end the execution but will store
 the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring_state_resume</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="o">[</span><span class="n">cPara</span><span class="o">|</span><span class="n">nPara</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="n">lUseReturn</span><span class="o">]</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ring_state_resume</span><span class="p">(</span><span class="n">oState</span><span class="p">,[</span><span class="n">cPara</span><span class="o">|</span><span class="n">nPara</span><span class="p">],[</span><span class="n">lUseReturn</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>To learn more about this feature check the chapter: Embedding Ring in Ring</p>

@@ -273,23 +273,23 @@ also the language provide other options like</p>
 <section id="printing-tokens">
 <span id="index-1"></span><h2>Printing Tokens<a class="headerlink" href="#printing-tokens" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
-        <span class="k">See</span> <span class="s">&quot;Hello World&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">next</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">Func</span> <span class="nf">Main</span>
+        <span class="k">See</span> <span class="s2">&quot;Hello World&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">next</span>
         <span class="n">test</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="nf">test</span>
+        <span class="k">see</span> <span class="s2">&quot;welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
         <span class="k">see</span> <span class="n">o1</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">tokens</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">tokens</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -297,64 +297,64 @@ also the language provide other options like</p>
 <span class="n">Tokens</span> <span class="o">-</span> <span class="n">Generated</span> <span class="n">by</span> <span class="n">the</span> <span class="n">Scanner</span>
 <span class="o">===================================================</span>
 
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">FUNC</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">main</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="kd">FUNC</span>
+<span class="nf">Identifier</span> <span class="o">:</span> <span class="n">main</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-   <span class="n">Literal</span> <span class="p">:</span> <span class="n">Hello</span> <span class="n">World</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">+</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">nl</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k">SEE</span>
+   <span class="n">Literal</span> <span class="o">:</span> <span class="n">Hello</span> <span class="n">World</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">+</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="bp">nl</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">FOR</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">1</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">TO</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">10</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k k-Control">FOR</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">x</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">=</span>
+    <span class="n">Number</span> <span class="o">:</span> <span class="mi">1</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k k-Control">TO</span>
+    <span class="n">Number</span> <span class="o">:</span> <span class="mi">10</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">+</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">nl</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k">SEE</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">x</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">+</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="bp">nl</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">NEXT</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k k-Control">NEXT</span>
    <span class="n">EndLine</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">test</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">(</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">)</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">test</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="p">(</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="p">)</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">FUNC</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">test</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="kd">FUNC</span>
+<span class="nf">Identifier</span> <span class="o">:</span> <span class="n">test</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-   <span class="n">Literal</span> <span class="p">:</span> <span class="n">welcome</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">+</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">nl</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k">SEE</span>
+   <span class="n">Literal</span> <span class="o">:</span> <span class="n">welcome</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">+</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="bp">nl</span>
    <span class="n">EndLine</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">o1</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">NEW</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">point</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">{</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">10</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">y</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">20</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">z</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">30</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">}</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">o1</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">=</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="kp">NEW</span>
+<span class="nc">Identifier</span> <span class="o">:</span> <span class="n">point</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="p">{</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">x</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">=</span>
+    <span class="n">Number</span> <span class="o">:</span> <span class="mi">10</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">y</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">=</span>
+    <span class="n">Number</span> <span class="o">:</span> <span class="mi">20</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">z</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="o">=</span>
+    <span class="n">Number</span> <span class="o">:</span> <span class="mi">30</span>
+  <span class="n">Operator</span> <span class="o">:</span> <span class="p">}</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">o1</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="k">SEE</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">o1</span>
    <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">CLASS</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">point</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">y</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">z</span>
+   <span class="n">Keyword</span> <span class="o">:</span> <span class="kd">CLASS</span>
+<span class="nc">Identifier</span> <span class="o">:</span> <span class="n">point</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">x</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">y</span>
+<span class="n">Identifier</span> <span class="o">:</span> <span class="n">z</span>
    <span class="n">EndLine</span>
 
 <span class="o">===================================================</span>
@@ -364,7 +364,7 @@ also the language provide other options like</p>
 <section id="printing-rules">
 <span id="index-2"></span><h2>Printing Rules<a class="headerlink" href="#printing-rules" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">rules</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">rules</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -372,266 +372,266 @@ also the language provide other options like</p>
 <span class="n">Grammar</span> <span class="n">Rules</span> <span class="n">Used</span> <span class="n">by</span> <span class="n">The</span> <span class="n">Parser</span>
 <span class="o">===================================================</span>
 
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Program</span> <span class="o">--&gt;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Program</span> <span class="o">--&gt;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span>
 
 <span class="n">Line</span> <span class="mi">1</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;Func&#39;</span> <span class="n">Identifier</span> <span class="o">[</span><span class="n">ParaList</span><span class="o">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;Func&#39;</span> <span class="n">Identifier</span> <span class="p">[</span><span class="n">ParaList</span><span class="p">]</span>
 
 <span class="n">Line</span> <span class="mi">2</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;See&#39;</span> <span class="n">Expr</span>
 
 <span class="n">Line</span> <span class="mi">3</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;For&#39;</span> <span class="n">Identifier</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span> <span class="k">to</span> <span class="n">Expr</span> <span class="o">[</span><span class="sc">&#39;step&#39;</span> <span class="n">Expr</span><span class="o">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;For&#39;</span> <span class="n">Identifier</span> <span class="s1">&#39;=&#39;</span> <span class="n">Expr</span> <span class="k k-Control">to</span> <span class="n">Expr</span> <span class="p">[</span><span class="s1">&#39;step&#39;</span> <span class="n">Expr</span><span class="p">]</span>
 
 <span class="n">Line</span> <span class="mi">4</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;See&#39;</span> <span class="n">Expr</span>
 
 <span class="n">Line</span> <span class="mi">5</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="k">Next</span> <span class="o">--&gt;</span> <span class="sc">&#39;Next&#39;</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="k k-Control">Next</span> <span class="o">--&gt;</span> <span class="s1">&#39;Next&#39;</span>
 
 <span class="n">Line</span> <span class="mi">6</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Mixer</span> <span class="o">-&gt;</span> <span class="sc">&#39;(&#39;</span> <span class="o">[</span><span class="n">Expr</span> <span class="p">{</span> <span class="sc">&#39;,&#39;</span> <span class="n">Expr</span><span class="p">}</span> <span class="o">]</span> <span class="sc">&#39;)&#39;</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Mixer</span> <span class="o">-&gt;</span> <span class="s1">&#39;(&#39;</span> <span class="p">[</span><span class="n">Expr</span> <span class="p">{</span> <span class="s1">&#39;,&#39;</span> <span class="n">Expr</span><span class="p">}</span> <span class="p">]</span> <span class="s1">&#39;)&#39;</span>
 
 <span class="n">Line</span> <span class="mi">8</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;Func&#39;</span> <span class="n">Identifier</span> <span class="o">[</span><span class="n">ParaList</span><span class="o">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;Func&#39;</span> <span class="n">Identifier</span> <span class="p">[</span><span class="n">ParaList</span><span class="p">]</span>
 
 <span class="n">Line</span> <span class="mi">9</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;See&#39;</span> <span class="n">Expr</span>
 
 <span class="n">Line</span> <span class="mi">10</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="k">New</span> <span class="n">Identifier</span> <span class="p">{</span><span class="sc">&#39;.&#39;</span> <span class="n">Identifier</span> <span class="p">}</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Mixer</span> <span class="o">--&gt;</span> <span class="sc">&#39;{&#39;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span> <span class="n">BraceEnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BraceEnd</span> <span class="o">--&gt;</span> <span class="sc">&#39;}&#39;</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="kp">New</span> <span class="nc">Identifier</span> <span class="p">{</span><span class="s1">&#39;.&#39;</span> <span class="n">Identifier</span> <span class="p">}</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Mixer</span> <span class="o">--&gt;</span> <span class="s1">&#39;{&#39;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span> <span class="n">BraceEnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="s1">&#39;=&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="s1">&#39;=&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="s1">&#39;=&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BraceEnd</span> <span class="o">--&gt;</span> <span class="s1">&#39;}&#39;</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="s1">&#39;=&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
 
 <span class="n">Line</span> <span class="mi">11</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;See&#39;</span> <span class="n">Expr</span>
 
 <span class="n">Line</span> <span class="mi">13</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;Class&#39;</span> <span class="n">Identifier</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="s1">&#39;Class&#39;</span> <span class="n">Identifier</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="p">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="p">]</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="o">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
 
 <span class="o">===================================================</span>
 </pre></div>
@@ -640,362 +640,362 @@ also the language provide other options like</p>
 <section id="printing-intermediate-code">
 <span id="index-3"></span><h2>Printing Intermediate Code<a class="headerlink" href="#printing-intermediate-code" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ic</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ic</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===========================================================================
- Byte Code - Before Execution by the VM
-===========================================================================
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================================</span>
+ <span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">Before</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
+<span class="o">===========================================================================</span>
 
-     PC              OPCode                 Data
+     <span class="n">PC</span>              <span class="n">OPCode</span>                 <span class="n">Data</span>
 
-      1          ReturnNull
-      2                Func
-      3             NewLine                    2
-      4            LoadFunc           ringvm_see
-      5               PushC          Hello World
-      6               LoadA                   nl
-      7               PushV
-      8                 Sum
-      9                Call                    0
-     10         NoOperation
-     11           FreeStack
-     12             NewLine                    3
-     13           SetOPCode                   72                  34
-     14         NoOperation
-     15          LoadAFirst                    x
-     16               PushN             1.000000
-     17          Assignment
-     18             NewLine                    3
-     19         StepFromReg             1.000000
-     20          LoadAPushV                    x
-     21               PushN            10.000000
-     22             JumpFor                   35
-     23             NewLine                    4
-     24            LoadFunc           ringvm_see
-     25               LoadA                    x
-     26               PushV
-     27               LoadA                   nl
-     28               PushV
-     29                 Sum
-     30                Call                    0
-     31         NoOperation
-     32           FreeStack
-     33             NewLine                    5
-     34             IncJump                    x                  21
-     35         NoOperation                    3
-     36             PopStep
-     37             NewLine                    6
-     38            LoadFunc                 test
-     39                Call                    0
-     40         NoOperation
-     41             NewLine                    8
-     42               PushV
-     43           FreeStack
-     44          ReturnNull
-     45                Func
-     46             NewLine                    9
-     47            LoadFunc           ringvm_see
-     48               PushC              welcome
-     49               LoadA                   nl
-     50               PushV
-     51                 Sum
-     52                Call                    0
-     53         NoOperation
-     54           FreeStack
-     55             NewLine                   10
-     56               LoadA                   o1
-     57   AssignmentPointer                    0                 111
-     58                 New                point                   0
-     59            SetScope
-     60               PushV
-     61          BraceStart
-     62    CheckBraceMethod           bracestart
-     63               JumpZ                   68
-     64            LoadFunc           bracestart
-     65                Call
-     66         NoOperation
-     67               PushV
-     68               LoadA                    x
-     69   AssignmentPointer                    0                  71
-     70               PushN            10.000000
-     71          Assignment
-     72    CheckBraceMethod        braceexpreval
-     73               JumpZ                   79
-     74            LoadFunc        braceexpreval
-     75                 Dup
-     76                Call
-     77         NoOperation
-     78               PushV
-     79           FreeStack
-     80               LoadA                    y
-     81   AssignmentPointer                    0                  83
-     82               PushN            20.000000
-     83          Assignment
-     84    CheckBraceMethod        braceexpreval
-     85               JumpZ                   91
-     86            LoadFunc        braceexpreval
-     87                 Dup
-     88                Call
-     89         NoOperation
-     90               PushV
-     91           FreeStack
-     92               LoadA                    z
-     93   AssignmentPointer                    0                  95
-     94               PushN            30.000000
-     95          Assignment
-     96    CheckBraceMethod        braceexpreval
-     97               JumpZ                  103
-     98            LoadFunc        braceexpreval
-     99                 Dup
-    100                Call
-    101         NoOperation
-    102               PushV
-    103           FreeStack
-    104    CheckBraceMethod             braceend
-    105               JumpZ                  110
-    106            LoadFunc             braceend
-    107                Call
-    108         NoOperation
-    109               PushV
-    110            BraceEnd
-    111          Assignment
-    112           FreeStack
-    113             NewLine                   11
-    114            LoadFunc           ringvm_see
-    115               LoadA                   o1
-    116               PushV
-    117                Call                    0
-    118         NoOperation
-    119           FreeStack
-    120             NewLine                   13
-    121          ReturnNull
-    122               Class                point    000001934ECD9560
-    123            NewLabel
-    124            FileName            test.ring
-    125               LoadA                    x
-    126               PushV
-    127           FreeStack
-    128               LoadA                    y
-    129               PushV
-    130           FreeStack
-    131               LoadA                    z
-    132               PushV
-    133           FreeStack
-    134          ReturnNull
+      <span class="mi">1</span>          <span class="n">ReturnNull</span>
+      <span class="mi">2</span>                <span class="kd">Func</span>
+      <span class="nf">3</span>             <span class="n">NewLine</span>                    <span class="mi">2</span>
+      <span class="mi">4</span>            <span class="n">LoadFunc</span>           <span class="n">ringvm_see</span>
+      <span class="mi">5</span>               <span class="n">PushC</span>          <span class="n">Hello</span> <span class="n">World</span>
+      <span class="mi">6</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>
+      <span class="mi">7</span>               <span class="n">PushV</span>
+      <span class="mi">8</span>                 <span class="n">Sum</span>
+      <span class="mi">9</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>
+     <span class="mi">10</span>         <span class="n">NoOperation</span>
+     <span class="mi">11</span>           <span class="n">FreeStack</span>
+     <span class="mi">12</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>
+     <span class="mi">13</span>           <span class="n">SetOPCode</span>                   <span class="mi">72</span>                  <span class="mi">34</span>
+     <span class="mi">14</span>         <span class="n">NoOperation</span>
+     <span class="mi">15</span>          <span class="n">LoadAFirst</span>                    <span class="n">x</span>
+     <span class="mi">16</span>               <span class="n">PushN</span>             <span class="mf">1.000000</span>
+     <span class="mi">17</span>          <span class="n">Assignment</span>
+     <span class="mi">18</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>
+     <span class="mi">19</span>         <span class="n">StepFromReg</span>             <span class="mf">1.000000</span>
+     <span class="mi">20</span>          <span class="n">LoadAPushV</span>                    <span class="n">x</span>
+     <span class="mi">21</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>
+     <span class="mi">22</span>             <span class="n">JumpFor</span>                   <span class="mi">35</span>
+     <span class="mi">23</span>             <span class="n">NewLine</span>                    <span class="mi">4</span>
+     <span class="mi">24</span>            <span class="n">LoadFunc</span>           <span class="n">ringvm_see</span>
+     <span class="mi">25</span>               <span class="n">LoadA</span>                    <span class="n">x</span>
+     <span class="mi">26</span>               <span class="n">PushV</span>
+     <span class="mi">27</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>
+     <span class="mi">28</span>               <span class="n">PushV</span>
+     <span class="mi">29</span>                 <span class="n">Sum</span>
+     <span class="mi">30</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>
+     <span class="mi">31</span>         <span class="n">NoOperation</span>
+     <span class="mi">32</span>           <span class="n">FreeStack</span>
+     <span class="mi">33</span>             <span class="n">NewLine</span>                    <span class="mi">5</span>
+     <span class="mi">34</span>             <span class="n">IncJump</span>                    <span class="n">x</span>                  <span class="mi">21</span>
+     <span class="mi">35</span>         <span class="n">NoOperation</span>                    <span class="mi">3</span>
+     <span class="mi">36</span>             <span class="n">PopStep</span>
+     <span class="mi">37</span>             <span class="n">NewLine</span>                    <span class="mi">6</span>
+     <span class="mi">38</span>            <span class="n">LoadFunc</span>                 <span class="n">test</span>
+     <span class="mi">39</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>
+     <span class="mi">40</span>         <span class="n">NoOperation</span>
+     <span class="mi">41</span>             <span class="n">NewLine</span>                    <span class="mi">8</span>
+     <span class="mi">42</span>               <span class="n">PushV</span>
+     <span class="mi">43</span>           <span class="n">FreeStack</span>
+     <span class="mi">44</span>          <span class="n">ReturnNull</span>
+     <span class="mi">45</span>                <span class="kd">Func</span>
+     <span class="nf">46</span>             <span class="n">NewLine</span>                    <span class="mi">9</span>
+     <span class="mi">47</span>            <span class="n">LoadFunc</span>           <span class="n">ringvm_see</span>
+     <span class="mi">48</span>               <span class="n">PushC</span>              <span class="n">welcome</span>
+     <span class="mi">49</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>
+     <span class="mi">50</span>               <span class="n">PushV</span>
+     <span class="mi">51</span>                 <span class="n">Sum</span>
+     <span class="mi">52</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>
+     <span class="mi">53</span>         <span class="n">NoOperation</span>
+     <span class="mi">54</span>           <span class="n">FreeStack</span>
+     <span class="mi">55</span>             <span class="n">NewLine</span>                   <span class="mi">10</span>
+     <span class="mi">56</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>
+     <span class="mi">57</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">111</span>
+     <span class="mi">58</span>                 <span class="kp">New</span>                <span class="nc">point</span>                   <span class="mi">0</span>
+     <span class="mi">59</span>            <span class="n">SetScope</span>
+     <span class="mi">60</span>               <span class="n">PushV</span>
+     <span class="mi">61</span>          <span class="n">BraceStart</span>
+     <span class="mi">62</span>    <span class="n">CheckBraceMethod</span>           <span class="n">bracestart</span>
+     <span class="mi">63</span>               <span class="n">JumpZ</span>                   <span class="mi">68</span>
+     <span class="mi">64</span>            <span class="n">LoadFunc</span>           <span class="n">bracestart</span>
+     <span class="mi">65</span>                <span class="k k-Control">Call</span>
+     <span class="mi">66</span>         <span class="n">NoOperation</span>
+     <span class="mi">67</span>               <span class="n">PushV</span>
+     <span class="mi">68</span>               <span class="n">LoadA</span>                    <span class="n">x</span>
+     <span class="mi">69</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                  <span class="mi">71</span>
+     <span class="mi">70</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>
+     <span class="mi">71</span>          <span class="n">Assignment</span>
+     <span class="mi">72</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>
+     <span class="mi">73</span>               <span class="n">JumpZ</span>                   <span class="mi">79</span>
+     <span class="mi">74</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>
+     <span class="mi">75</span>                 <span class="n">Dup</span>
+     <span class="mi">76</span>                <span class="k k-Control">Call</span>
+     <span class="mi">77</span>         <span class="n">NoOperation</span>
+     <span class="mi">78</span>               <span class="n">PushV</span>
+     <span class="mi">79</span>           <span class="n">FreeStack</span>
+     <span class="mi">80</span>               <span class="n">LoadA</span>                    <span class="n">y</span>
+     <span class="mi">81</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                  <span class="mi">83</span>
+     <span class="mi">82</span>               <span class="n">PushN</span>            <span class="mf">20.000000</span>
+     <span class="mi">83</span>          <span class="n">Assignment</span>
+     <span class="mi">84</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>
+     <span class="mi">85</span>               <span class="n">JumpZ</span>                   <span class="mi">91</span>
+     <span class="mi">86</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>
+     <span class="mi">87</span>                 <span class="n">Dup</span>
+     <span class="mi">88</span>                <span class="k k-Control">Call</span>
+     <span class="mi">89</span>         <span class="n">NoOperation</span>
+     <span class="mi">90</span>               <span class="n">PushV</span>
+     <span class="mi">91</span>           <span class="n">FreeStack</span>
+     <span class="mi">92</span>               <span class="n">LoadA</span>                    <span class="n">z</span>
+     <span class="mi">93</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                  <span class="mi">95</span>
+     <span class="mi">94</span>               <span class="n">PushN</span>            <span class="mf">30.000000</span>
+     <span class="mi">95</span>          <span class="n">Assignment</span>
+     <span class="mi">96</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>
+     <span class="mi">97</span>               <span class="n">JumpZ</span>                  <span class="mi">103</span>
+     <span class="mi">98</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>
+     <span class="mi">99</span>                 <span class="n">Dup</span>
+    <span class="mi">100</span>                <span class="k k-Control">Call</span>
+    <span class="mi">101</span>         <span class="n">NoOperation</span>
+    <span class="mi">102</span>               <span class="n">PushV</span>
+    <span class="mi">103</span>           <span class="n">FreeStack</span>
+    <span class="mi">104</span>    <span class="n">CheckBraceMethod</span>             <span class="n">braceend</span>
+    <span class="mi">105</span>               <span class="n">JumpZ</span>                  <span class="mi">110</span>
+    <span class="mi">106</span>            <span class="n">LoadFunc</span>             <span class="n">braceend</span>
+    <span class="mi">107</span>                <span class="k k-Control">Call</span>
+    <span class="mi">108</span>         <span class="n">NoOperation</span>
+    <span class="mi">109</span>               <span class="n">PushV</span>
+    <span class="mi">110</span>            <span class="n">BraceEnd</span>
+    <span class="mi">111</span>          <span class="n">Assignment</span>
+    <span class="mi">112</span>           <span class="n">FreeStack</span>
+    <span class="mi">113</span>             <span class="n">NewLine</span>                   <span class="mi">11</span>
+    <span class="mi">114</span>            <span class="n">LoadFunc</span>           <span class="n">ringvm_see</span>
+    <span class="mi">115</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>
+    <span class="mi">116</span>               <span class="n">PushV</span>
+    <span class="mi">117</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>
+    <span class="mi">118</span>         <span class="n">NoOperation</span>
+    <span class="mi">119</span>           <span class="n">FreeStack</span>
+    <span class="mi">120</span>             <span class="n">NewLine</span>                   <span class="mi">13</span>
+    <span class="mi">121</span>          <span class="n">ReturnNull</span>
+    <span class="mi">122</span>               <span class="kd">Class</span>                <span class="nc">point</span>    <span class="mi">000001934</span><span class="n">ECD9560</span>
+    <span class="mi">123</span>            <span class="n">NewLabel</span>
+    <span class="mi">124</span>            <span class="n">FileName</span>            <span class="n">test</span><span class="o">.</span><span class="n">ring</span>
+    <span class="mi">125</span>               <span class="n">LoadA</span>                    <span class="n">x</span>
+    <span class="mi">126</span>               <span class="n">PushV</span>
+    <span class="mi">127</span>           <span class="n">FreeStack</span>
+    <span class="mi">128</span>               <span class="n">LoadA</span>                    <span class="n">y</span>
+    <span class="mi">129</span>               <span class="n">PushV</span>
+    <span class="mi">130</span>           <span class="n">FreeStack</span>
+    <span class="mi">131</span>               <span class="n">LoadA</span>                    <span class="n">z</span>
+    <span class="mi">132</span>               <span class="n">PushV</span>
+    <span class="mi">133</span>           <span class="n">FreeStack</span>
+    <span class="mi">134</span>          <span class="n">ReturnNull</span>
 
-===========================================================================
+<span class="o">===========================================================================</span>
 </pre></div>
 </div>
 </section>
 <section id="printing-final-intermediate-code">
 <span id="index-4"></span><h2>Printing Final Intermediate Code<a class="headerlink" href="#printing-final-intermediate-code" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">icfinal</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">icfinal</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Hello World
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-welcome
-x: 10
-y: 20
-z: 30
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">World</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
+<span class="n">welcome</span>
+<span class="n">x</span><span class="o">:</span> <span class="mi">10</span>
+<span class="n">y</span><span class="o">:</span> <span class="mi">20</span>
+<span class="n">z</span><span class="o">:</span> <span class="mi">30</span>
 
 
-===========================================================================
- Byte Code - After Execution by the VM
-===========================================================================
+<span class="o">===========================================================================</span>
+ <span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">After</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
+<span class="o">===========================================================================</span>
 
-     PC              OPCode                 Data
+     <span class="n">PC</span>              <span class="n">OPCode</span>                 <span class="n">Data</span>
 
-      1          ReturnNull                    0                  0
-      2                Func                    0                  0
-      3             NewLine                    2                  0
-      4           LoadFuncP           ringvm_see   00007FFB57B8C640
-      5               PushC          Hello World                  0
-      6               LoadA                   nl                  0
-      7               PushV                    0                  0
-      8                 Sum                    0                  0
-      9                Call                    0                  0
-     10         NoOperation                    0                  0
-     11           FreeStack                    0                  0
-     12             NewLine                    3                  0
-     13           SetOPCode                   72                 34
-     14         NoOperation                    0                  0
-     15          LoadAFirst                    x                  0
-     16               PushN             1.000000                  0
-     17          Assignment                    0                  0
-     18             NewLine                    3                  0
-     19         StepFromReg             1.000000                  0
-     20          LoadAPushV                    x                  0
-     21               PushN            10.000000                  0
-     22             JumpFor                   35                  1
-     23             NewLine                    4                  0
-     24           LoadFuncP           ringvm_see   00007FFB57B8C640
-     25          PushPLocal                    x   0000024816180C48
-     26               PushV                    0                  0
-     27               LoadA                   nl                  0
-     28               PushV                    0                  0
-     29                 Sum                    0                  0
-     30                Call                    0                  0
-     31         NoOperation                    0                  0
-     32           FreeStack                    0                  0
-     33             NewLine                    5                  0
-     34      IncLPJumpStep1                    x                 21
-     35         NoOperation                    3   0000024816180DA8
-     36             PopStep                    0                  0
-     37             NewLine                    6                  0
-     38           LoadFuncP                 test   0000000000000000
-     39                Call                    0                  0
-     40         NoOperation                    0                  0
-     41             NewLine                    8                  0
-     42               PushV                    0                  0
-     43           FreeStack                    0                  0
-     44          ReturnNull                    0                  0
-     45                Func                    0                  0
-     46             NewLine                    9                  0
-     47           LoadFuncP           ringvm_see   00007FFB57B8C640
-     48               PushC              welcome                  0
-     49               LoadA                   nl                  0
-     50               PushV                    0                  0
-     51                 Sum                    0                  0
-     52                Call                    0                  0
-     53         NoOperation                    0                  0
-     54           FreeStack                    0                  0
-     55             NewLine                   10                  0
-     56               LoadA                   o1                  0
-     57   AssignmentPointer                    0                111
-     58                 New                point                  0
-     59            SetScope                    0                  0
-     60               PushV                    0                  0
-     61          BraceStart                    0                  0
-     62    CheckBraceMethod           bracestart                  0
-     63               JumpZ                   68                  0
-     64            LoadFunc           bracestart                  0
-     65                Call                    0                  0
-     66         NoOperation                    0                  0
-     67               PushV                    0                  0
-     68               LoadA                    x                  0
-     69   AssignmentPointer                    0                 71
-     70               PushN            10.000000                  0
-     71         SetProperty                    0                  0
-     72    CheckBraceMethod        braceexpreval                  0
-     73               JumpZ                   79                  0
-     74            LoadFunc        braceexpreval                  0
-     75                 Dup                    0                  0
-     76                Call                    0                  0
-     77         NoOperation                    0                  0
-     78               PushV                    0                  0
-     79           FreeStack                    0                  0
-     80               LoadA                    y                  0
-     81   AssignmentPointer                    0                 83
-     82               PushN            20.000000                  0
-     83         SetProperty                    0                  0
-     84    CheckBraceMethod        braceexpreval                  0
-     85               JumpZ                   91                  0
-     86            LoadFunc        braceexpreval                  0
-     87                 Dup                    0                  0
-     88                Call                    0                  0
-     89         NoOperation                    0                  0
-     90               PushV                    0                  0
-     91           FreeStack                    0                  0
-     92               LoadA                    z                  0
-     93   AssignmentPointer                    0                 95
-     94               PushN            30.000000                  0
-     95         SetProperty                    0                  0
-     96    CheckBraceMethod        braceexpreval                  0
-     97               JumpZ                  103                  0
-     98            LoadFunc        braceexpreval                  0
-     99                 Dup                    0                  0
-    100                Call                    0                  0
-    101         NoOperation                    0                  0
-    102               PushV                    0                  0
-    103           FreeStack                    0                  0
-    104    CheckBraceMethod             braceend                  0
-    105               JumpZ                  110                  0
-    106            LoadFunc             braceend                  0
-    107                Call                    0                  0
-    108         NoOperation                    0                  0
-    109               PushV                    0                  0
-    110            BraceEnd                    0                  0
-    111          Assignment                    0                  0
-    112           FreeStack                    0                  0
-    113             NewLine                   11                  0
-    114           LoadFuncP           ringvm_see   00007FFB57B8C640
-    115               LoadA                   o1                  0
-    116               PushV                    0                  0
-    117                Call                    0                  0
-    118         NoOperation                    0                  0
-    119           FreeStack                    0                  0
-    120             NewLine                   13                  0
-    121          ReturnNull                    0                  0
-    122               Class                point   0000024815FA1D50
-    123            NewLabel                    0                  0
-    124            FileName            test.ring                  0
-    125               LoadA                    x                  0
-    126               PushV                    0                  0
-    127           FreeStack                    0                  0
-    128               LoadA                    y                  0
-    129               PushV                    0                  0
-    130           FreeStack                    0                  0
-    131               LoadA                    z                  0
-    132               PushV                    0                  0
-    133           FreeStack                    0                  0
-    134          ReturnNull                    0                  0
+      <span class="mi">1</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+      <span class="mi">2</span>                <span class="kd">Func</span>                    <span class="nf">0</span>                  <span class="mi">0</span>
+      <span class="mi">3</span>             <span class="n">NewLine</span>                    <span class="mi">2</span>                  <span class="mi">0</span>
+      <span class="mi">4</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
+      <span class="mi">5</span>               <span class="n">PushC</span>          <span class="n">Hello</span> <span class="n">World</span>                  <span class="mi">0</span>
+      <span class="mi">6</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>
+      <span class="mi">7</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+      <span class="mi">8</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+      <span class="mi">9</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">10</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">11</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">12</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>                  <span class="mi">0</span>
+     <span class="mi">13</span>           <span class="n">SetOPCode</span>                   <span class="mi">72</span>                 <span class="mi">34</span>
+     <span class="mi">14</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">15</span>          <span class="n">LoadAFirst</span>                    <span class="n">x</span>                  <span class="mi">0</span>
+     <span class="mi">16</span>               <span class="n">PushN</span>             <span class="mf">1.000000</span>                  <span class="mi">0</span>
+     <span class="mi">17</span>          <span class="n">Assignment</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">18</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>                  <span class="mi">0</span>
+     <span class="mi">19</span>         <span class="n">StepFromReg</span>             <span class="mf">1.000000</span>                  <span class="mi">0</span>
+     <span class="mi">20</span>          <span class="n">LoadAPushV</span>                    <span class="n">x</span>                  <span class="mi">0</span>
+     <span class="mi">21</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>                  <span class="mi">0</span>
+     <span class="mi">22</span>             <span class="n">JumpFor</span>                   <span class="mi">35</span>                  <span class="mi">1</span>
+     <span class="mi">23</span>             <span class="n">NewLine</span>                    <span class="mi">4</span>                  <span class="mi">0</span>
+     <span class="mi">24</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
+     <span class="mi">25</span>          <span class="n">PushPLocal</span>                    <span class="n">x</span>   <span class="mi">0000024816180</span><span class="n">C48</span>
+     <span class="mi">26</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">27</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>
+     <span class="mi">28</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">29</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">30</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">31</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">32</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">33</span>             <span class="n">NewLine</span>                    <span class="mi">5</span>                  <span class="mi">0</span>
+     <span class="mi">34</span>      <span class="n">IncLPJumpStep1</span>                    <span class="n">x</span>                 <span class="mi">21</span>
+     <span class="mi">35</span>         <span class="n">NoOperation</span>                    <span class="mi">3</span>   <span class="mi">0000024816180</span><span class="n">DA8</span>
+     <span class="mi">36</span>             <span class="n">PopStep</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">37</span>             <span class="n">NewLine</span>                    <span class="mi">6</span>                  <span class="mi">0</span>
+     <span class="mi">38</span>           <span class="n">LoadFuncP</span>                 <span class="n">test</span>   <span class="mi">0000000000000000</span>
+     <span class="mi">39</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">40</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">41</span>             <span class="n">NewLine</span>                    <span class="mi">8</span>                  <span class="mi">0</span>
+     <span class="mi">42</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">43</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">44</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">45</span>                <span class="kd">Func</span>                    <span class="nf">0</span>                  <span class="mi">0</span>
+     <span class="mi">46</span>             <span class="n">NewLine</span>                    <span class="mi">9</span>                  <span class="mi">0</span>
+     <span class="mi">47</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
+     <span class="mi">48</span>               <span class="n">PushC</span>              <span class="n">welcome</span>                  <span class="mi">0</span>
+     <span class="mi">49</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>
+     <span class="mi">50</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">51</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">52</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">53</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">54</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">55</span>             <span class="n">NewLine</span>                   <span class="mi">10</span>                  <span class="mi">0</span>
+     <span class="mi">56</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>                  <span class="mi">0</span>
+     <span class="mi">57</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                <span class="mi">111</span>
+     <span class="mi">58</span>                 <span class="kp">New</span>                <span class="nc">point</span>                  <span class="mi">0</span>
+     <span class="mi">59</span>            <span class="n">SetScope</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">60</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">61</span>          <span class="n">BraceStart</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">62</span>    <span class="n">CheckBraceMethod</span>           <span class="n">bracestart</span>                  <span class="mi">0</span>
+     <span class="mi">63</span>               <span class="n">JumpZ</span>                   <span class="mi">68</span>                  <span class="mi">0</span>
+     <span class="mi">64</span>            <span class="n">LoadFunc</span>           <span class="n">bracestart</span>                  <span class="mi">0</span>
+     <span class="mi">65</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">66</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">67</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">68</span>               <span class="n">LoadA</span>                    <span class="n">x</span>                  <span class="mi">0</span>
+     <span class="mi">69</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">71</span>
+     <span class="mi">70</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>                  <span class="mi">0</span>
+     <span class="mi">71</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">72</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
+     <span class="mi">73</span>               <span class="n">JumpZ</span>                   <span class="mi">79</span>                  <span class="mi">0</span>
+     <span class="mi">74</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
+     <span class="mi">75</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">76</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">77</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">78</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">79</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">80</span>               <span class="n">LoadA</span>                    <span class="n">y</span>                  <span class="mi">0</span>
+     <span class="mi">81</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">83</span>
+     <span class="mi">82</span>               <span class="n">PushN</span>            <span class="mf">20.000000</span>                  <span class="mi">0</span>
+     <span class="mi">83</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">84</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
+     <span class="mi">85</span>               <span class="n">JumpZ</span>                   <span class="mi">91</span>                  <span class="mi">0</span>
+     <span class="mi">86</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
+     <span class="mi">87</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">88</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">89</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">90</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">91</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">92</span>               <span class="n">LoadA</span>                    <span class="n">z</span>                  <span class="mi">0</span>
+     <span class="mi">93</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">95</span>
+     <span class="mi">94</span>               <span class="n">PushN</span>            <span class="mf">30.000000</span>                  <span class="mi">0</span>
+     <span class="mi">95</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+     <span class="mi">96</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
+     <span class="mi">97</span>               <span class="n">JumpZ</span>                  <span class="mi">103</span>                  <span class="mi">0</span>
+     <span class="mi">98</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
+     <span class="mi">99</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">100</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">101</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">102</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">103</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">104</span>    <span class="n">CheckBraceMethod</span>             <span class="n">braceend</span>                  <span class="mi">0</span>
+    <span class="mi">105</span>               <span class="n">JumpZ</span>                  <span class="mi">110</span>                  <span class="mi">0</span>
+    <span class="mi">106</span>            <span class="n">LoadFunc</span>             <span class="n">braceend</span>                  <span class="mi">0</span>
+    <span class="mi">107</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">108</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">109</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">110</span>            <span class="n">BraceEnd</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">111</span>          <span class="n">Assignment</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">112</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">113</span>             <span class="n">NewLine</span>                   <span class="mi">11</span>                  <span class="mi">0</span>
+    <span class="mi">114</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
+    <span class="mi">115</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>                  <span class="mi">0</span>
+    <span class="mi">116</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">117</span>                <span class="k k-Control">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">118</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">119</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">120</span>             <span class="n">NewLine</span>                   <span class="mi">13</span>                  <span class="mi">0</span>
+    <span class="mi">121</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">122</span>               <span class="kd">Class</span>                <span class="nc">point</span>   <span class="mi">0000024815</span><span class="n">FA1D50</span>
+    <span class="mi">123</span>            <span class="n">NewLabel</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">124</span>            <span class="n">FileName</span>            <span class="n">test</span><span class="o">.</span><span class="n">ring</span>                  <span class="mi">0</span>
+    <span class="mi">125</span>               <span class="n">LoadA</span>                    <span class="n">x</span>                  <span class="mi">0</span>
+    <span class="mi">126</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">127</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">128</span>               <span class="n">LoadA</span>                    <span class="n">y</span>                  <span class="mi">0</span>
+    <span class="mi">129</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">130</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">131</span>               <span class="n">LoadA</span>                    <span class="n">z</span>                  <span class="mi">0</span>
+    <span class="mi">132</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">133</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+    <span class="mi">134</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
 
-===========================================================================
+<span class="o">===========================================================================</span>
 </pre></div>
 </div>
 </section>
 <section id="cgi-support">
 <span id="index-5"></span><h2>CGI Support<a class="headerlink" href="#cgi-support" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">cgi</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">cgi</span>
 </pre></div>
 </div>
 </section>
 <section id="no-run">
 <span id="index-6"></span><h2>No Run<a class="headerlink" href="#no-run" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
 </div>
 </section>
 <section id="printing-instruction-operation-code">
 <span id="index-7"></span><h2>Printing Instruction Operation Code<a class="headerlink" href="#printing-instruction-operation-code" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ins</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ins</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===========================================================================
-VM Pointer    : 00000273A5CAACE0
-VM IR Pointer : 00000273A5D543C0
-Operation     : ReturnNull
-PC            : 1
-Scopes Count  : 1
-Scope Pointer : 00000273A5CCA4E0
-File Name     : test.ring
-Line Number   : 1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">===========================================================================</span>
+<span class="n">VM</span> <span class="n">Pointer</span>    <span class="o">:</span> <span class="mi">00000273</span><span class="n">A5CAACE0</span>
+<span class="n">VM</span> <span class="n">IR</span> <span class="n">Pointer</span> <span class="o">:</span> <span class="mi">00000273</span><span class="n">A5D543C0</span>
+<span class="n">Operation</span>     <span class="o">:</span> <span class="n">ReturnNull</span>
+<span class="n">PC</span>            <span class="o">:</span> <span class="mi">1</span>
+<span class="n">Scopes</span> <span class="n">Count</span>  <span class="o">:</span> <span class="mi">1</span>
+<span class="n">Scope</span> <span class="n">Pointer</span> <span class="o">:</span> <span class="mi">00000273</span><span class="n">A5CCA4E0</span>
+<span class="n">File</span> <span class="n">Name</span>     <span class="o">:</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span>
+<span class="n">Line</span> <span class="n">Number</span>   <span class="o">:</span> <span class="mi">1</span>
 
-SP (After)    : 0
-FuncSP        : 0
-LineNumber    : 1
-===========================================================================
-.....
-.....
-.....
+<span class="n">SP</span> <span class="p">(</span><span class="n">After</span><span class="p">)</span>    <span class="o">:</span> <span class="mi">0</span>
+<span class="n">FuncSP</span>        <span class="o">:</span> <span class="mi">0</span>
+<span class="n">LineNumber</span>    <span class="o">:</span> <span class="mi">1</span>
+<span class="o">===========================================================================</span>
+<span class="o">.....</span>
+<span class="o">.....</span>
+<span class="o">.....</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -1006,13 +1006,13 @@ LineNumber    : 1
 <section id="clock">
 <span id="index-8"></span><h2>Clock<a class="headerlink" href="#clock" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">clock</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">clock</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
-<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2024</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">19</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">20</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">39</span>
-<span class="n">Clock</span> <span class="p">:</span> <span class="mi">0</span>
+<span class="n">Date</span>  <span class="o">:</span> <span class="mi">2024</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">19</span> <span class="n">Time</span> <span class="o">:</span> <span class="mi">20</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mi">39</span>
+<span class="n">Clock</span> <span class="o">:</span> <span class="mi">0</span>
 <span class="o">===================================================</span>
 <span class="n">Hello</span> <span class="n">World</span>
 <span class="mi">1</span>
@@ -1026,13 +1026,13 @@ LineNumber    : 1
 <span class="mi">9</span>
 <span class="mi">10</span>
 <span class="n">welcome</span>
-<span class="n">x</span><span class="p">:</span> <span class="mi">10</span>
-<span class="n">y</span><span class="p">:</span> <span class="mi">20</span>
-<span class="n">z</span><span class="p">:</span> <span class="mi">30</span>
+<span class="n">x</span><span class="o">:</span> <span class="mi">10</span>
+<span class="n">y</span><span class="o">:</span> <span class="mi">20</span>
+<span class="n">z</span><span class="o">:</span> <span class="mi">30</span>
 
 <span class="o">===================================================</span>
-<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2024</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">19</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">20</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">39</span>
-<span class="n">Clock</span> <span class="p">:</span> <span class="mi">0</span>
+<span class="n">Date</span>  <span class="o">:</span> <span class="mi">2024</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">19</span> <span class="n">Time</span> <span class="o">:</span> <span class="mi">20</span><span class="o">:</span><span class="mi">52</span><span class="o">:</span><span class="mi">39</span>
+<span class="n">Clock</span> <span class="o">:</span> <span class="mi">0</span>
 <span class="o">===================================================</span>
 </pre></div>
 </div>
@@ -1047,11 +1047,11 @@ using -go option</p>
 ring source files that you can keep or distribute based on the application (commercial or open source).</p>
 </div>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">go</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">go</span>
 </pre></div>
 </div>
 <p>To run the compiled object file</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ringo</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ringo</span>
 </pre></div>
 </div>
 </section>
@@ -1060,13 +1060,13 @@ ring source files that you can keep or distribute based on the application (comm
 <p>You can generate embedded object file (C source code) from your source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)
 using -geo option</p>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
 </pre></div>
 </div>
 <p>This command will generate at least three files</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">.</span><span class="n">c</span>
-<span class="n">ringappcode</span><span class="p">.</span><span class="n">c</span>
-<span class="n">ringappcode</span><span class="p">.</span><span class="n">h</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="o">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="o">.</span><span class="n">h</span>
 </pre></div>
 </div>
 <p>More files could be generated based on the project size</p>

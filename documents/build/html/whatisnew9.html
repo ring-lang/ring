@@ -293,15 +293,15 @@
 <p>This function convert a Ring list during the runtime to Ring source code that we can save to source files.</p>
 <p>The list may contains strings, numbers or sub lists.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
 <span class="o">?</span> <span class="n">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
         <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span>
-<span class="o">]</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -311,16 +311,16 @@
 the ASCII code of one byte in the string.</p>
 <p>So we may convert a string of bytes to ASCII List then do some operations on the list numbers (Like XOR)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;MmMm&quot;</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;MmMm&quot;</span>
 
 <span class="n">aList</span> <span class="o">=</span> <span class="n">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">aList</span>
 
 <span class="n">cStr2</span> <span class="o">=</span> <span class="n">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">cStr2</span>
-<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr2</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -338,43 +338,43 @@ MmMm
 <span id="index-6"></span><h2>BigNumber Library<a class="headerlink" href="#bignumber-library" title="Permalink to this heading"></a></h2>
 <p>Using the BigNumber library we can do arithmetic operations on huge numbers.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;bignumber.ring&quot;</span>
 
-<span class="n">num1</span> <span class="o">=</span> <span class="s">&quot;62345678901234567891678345123456789&quot;</span>    <span class="sd">### Big</span>
-<span class="n">num2</span> <span class="o">=</span>  <span class="s">&quot;1237894567890123419871236545&quot;</span>          <span class="sd">### Small</span>
-<span class="n">num3</span> <span class="o">=</span>     <span class="s">&quot;64&quot;</span>                                 <span class="sd">### Divide Small</span>
-<span class="n">num4</span> <span class="o">=</span> <span class="s">&quot;765432&quot;</span>
-<span class="n">num5</span> <span class="o">=</span>      <span class="s">&quot;3&quot;</span>                                 <span class="sd">### Power</span>
+<span class="n">num1</span> <span class="o">=</span> <span class="s2">&quot;62345678901234567891678345123456789&quot;</span>    <span class="c1">### Big</span>
+<span class="n">num2</span> <span class="o">=</span>  <span class="s2">&quot;1237894567890123419871236545&quot;</span>          <span class="c1">### Small</span>
+<span class="n">num3</span> <span class="o">=</span>     <span class="s2">&quot;64&quot;</span>                                 <span class="c1">### Divide Small</span>
+<span class="n">num4</span> <span class="o">=</span> <span class="s2">&quot;765432&quot;</span>
+<span class="n">num5</span> <span class="o">=</span>      <span class="s2">&quot;3&quot;</span>                                 <span class="c1">### Power</span>
 
-<span class="o">?</span> <span class="s">&quot;Add big numbers:&quot;</span>
-<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
-<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="s2">&quot;Add big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="o">.</span><span class="nb">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="o">.</span><span class="nb">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="o">.</span><span class="nb">Print</span><span class="p">()</span> <span class="o">?</span> <span class="bp">nl</span>
 
-<span class="o">?</span> <span class="s">&quot;Substract big numbers:&quot;</span>
-<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
-<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="s2">&quot;Substract big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="o">.</span><span class="nb">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="o">.</span><span class="nb">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="o">.</span><span class="nb">Print</span><span class="p">()</span> <span class="o">?</span> <span class="bp">nl</span>
 
-<span class="o">?</span> <span class="s">&quot;Multiply big numbers:&quot;</span>
-<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="s2">&quot;Multiply big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span> <span class="o">?</span> <span class="bp">nl</span>
 
-<span class="o">?</span> <span class="s">&quot;Divide big numbers:&quot;</span>
-<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="s2">&quot;Divide big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span> <span class="o">?</span> <span class="bp">nl</span>
 
-<span class="o">?</span> <span class="s">&quot;Divide big numbers: by very small number&quot;</span>
-<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="s2">&quot;Divide big numbers: by very small number&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>        <span class="n">a2</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span> <span class="o">?</span> <span class="bp">nl</span>
 
-<span class="o">?</span> <span class="s">&quot;Power of big number:&quot;</span>
-<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num5</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="p">^</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+<span class="o">?</span> <span class="s2">&quot;Power of big number:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">BigNumber</span><span class="p">(</span><span class="n">num5</span><span class="p">)</span>        <span class="n">a2</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">^</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span> <span class="o">?</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -422,89 +422,89 @@ Power of big number:
 <span id="index-7"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this heading"></a></h2>
 <p>Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;postgresqllib.ring&quot;</span>
 
-<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s2">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
 
-<span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
+<span class="n">exit_nicely</span> <span class="o">=</span> <span class="kd">func</span> <span class="nf">conn</span> <span class="p">{</span>
         <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-        <span class="n">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
-        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="k">ok</span>
+<span class="k k-Control">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k k-Control">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k k-Control">ok</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
-        <span class="n">DROP</span> <span class="n">DATABASE</span> <span class="n">mahdb</span><span class="p">;</span>
-<span class="s">&quot;)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="s2">        DROP DATABASE mahdb;</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k">ok</span>
+<span class="k k-Control">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
+<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k">ok</span>
+<span class="k k-Control">ok</span>
 
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
-<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">COMPANY</span> <span class="p">(</span>
-                 <span class="n">ID</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
-                 <span class="n">NAME</span>           <span class="n">TEXT</span>    <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
-                 <span class="n">AGE</span>            <span class="n">INT</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
-                 <span class="n">ADDRESS</span>        <span class="n">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
-                 <span class="n">SALARY</span>         <span class="n">REAL</span> <span class="p">);</span>
-<span class="s">&quot;)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="s2">CREATE TABLE COMPANY (</span>
+<span class="s2">                 ID INT PRIMARY KEY     NOT NULL,</span>
+<span class="s2">                 NAME           TEXT    NOT NULL,</span>
+<span class="s2">                 AGE            INT     NOT NULL,</span>
+<span class="s2">                 ADDRESS        CHAR(50),</span>
+<span class="s2">                 SALARY         REAL );</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k">ok</span>
+<span class="k k-Control">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
-                <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">COMPANY</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">AGE</span><span class="p">,</span><span class="n">ADDRESS</span><span class="p">,</span><span class="n">SALARY</span><span class="p">)</span>
-                <span class="n">VALUES</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;Mahmoud&#39;</span> <span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">10.00</span> <span class="p">),</span>
-                                <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;Ahmed&#39;</span>   <span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">20.00</span> <span class="p">),</span>
-                                <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;Mohammed&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="sc">&#39;Egypt&#39;</span> <span class="p">,</span> <span class="mf">30.00</span> <span class="p">),</span>
-                                <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sc">&#39;Ibrahim&#39;</span> <span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="sc">&#39;Egypt &#39;</span><span class="p">,</span> <span class="mf">40.00</span> <span class="p">);</span>
-<span class="s">&quot;)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="s2">                INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)</span>
+<span class="s2">                VALUES  (1, &#39;Mahmoud&#39; , 31, &#39;Jeddah&#39;, 10.00 ),</span>
+<span class="s2">                                (2, &#39;Ahmed&#39;   , 27, &#39;Jeddah&#39;, 20.00 ),</span>
+<span class="s2">                                (3, &#39;Mohammed&#39;, 33, &#39;Egypt&#39; , 30.00 ),</span>
+<span class="s2">                                (4, &#39;Ibrahim&#39; , 24, &#39;Egypt &#39;, 40.00 );</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k">ok</span>
+<span class="k k-Control">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
-           <span class="n">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">COMPANY</span>
-<span class="s">&quot;)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="s2">           select * from COMPANY</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="k">ok</span>
+        <span class="k k-Control">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k k-Control">ok</span>
 
 
 <span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nFields</span>
                 <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">next</span>
+<span class="k k-Control">next</span>
 
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
-                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
-        <span class="k">next</span>
-        <span class="k">see</span> <span class="n">nl</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k k-Control">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nFields</span>
+                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+        <span class="k k-Control">next</span>
+        <span class="k">see</span> <span class="bp">nl</span>
+<span class="k k-Control">next</span>
 
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
@@ -580,39 +580,39 @@ salary
 </ul>
 <p>The next example for using the QPrintPreviewDialog class</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
-<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
-        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Printer Preview Dialog&quot;</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qwidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Printer Preview Dialog&quot;</span><span class="p">)</span>
                 <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">880</span><span class="p">)</span>
-                <span class="n">printer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">printer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
                 <span class="n">show</span><span class="p">()</span>
-                <span class="n">oPreview</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPrintPreviewDialog</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">oPreview</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrintPreviewDialog</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setParent</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
                         <span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-                        <span class="n">setPaintrequestedevent</span><span class="p">(</span><span class="s">&quot;printPreview()&quot;</span><span class="p">)</span>
+                        <span class="n">setPaintrequestedevent</span><span class="p">(</span><span class="s2">&quot;printPreview()&quot;</span><span class="p">)</span>
                         <span class="n">exec</span><span class="p">()</span>
                 <span class="p">}</span>
         <span class="p">}</span>
         <span class="n">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">printPreview</span>
+<span class="kd">func</span> <span class="nf">printPreview</span>
         <span class="n">printer1</span>  <span class="p">{</span>
-                <span class="n">painter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qpainter</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">painter</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qpainter</span><span class="p">()</span> <span class="p">{</span>
                         <span class="n">begin</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
-                        <span class="n">myfont</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qfont</span><span class="p">(</span><span class="s">&quot;Times&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">myfont</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qfont</span><span class="p">(</span><span class="s2">&quot;Times&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
                         <span class="n">setfont</span><span class="p">(</span><span class="n">myfont</span><span class="p">)</span>
-                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;Test - Page (1)&quot;</span><span class="p">)</span>
-                        <span class="n">printer1</span><span class="p">.</span><span class="n">newpage</span><span class="p">()</span>
-                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;Test - Page (2)&quot;</span><span class="p">)</span>
-                        <span class="n">printer1</span><span class="p">.</span><span class="n">newpage</span><span class="p">()</span>
-                        <span class="n">myfont2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qfont</span><span class="p">(</span><span class="s">&quot;Times&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;Test - Page (1)&quot;</span><span class="p">)</span>
+                        <span class="n">printer1</span><span class="o">.</span><span class="n">newpage</span><span class="p">()</span>
+                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;Test - Page (2)&quot;</span><span class="p">)</span>
+                        <span class="n">printer1</span><span class="o">.</span><span class="n">newpage</span><span class="p">()</span>
+                        <span class="n">myfont2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qfont</span><span class="p">(</span><span class="s2">&quot;Times&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
                         <span class="n">setfont</span><span class="p">(</span><span class="n">myfont2</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
-                                <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="s">&quot;Number : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
-                        <span class="k">next</span>
+                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">30</span>
+                                <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;Number : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+                        <span class="k k-Control">next</span>
                         <span class="n">endpaint</span><span class="p">()</span>
                 <span class="p">}</span>
         <span class="p">}</span>
@@ -641,7 +641,7 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <ol class="arabic simple">
 <li><p>The code generator for extensions is updated to support the &lt;loadfile&gt; command</p></li>
 </ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">cf</span>
 </pre></div>
 </div>
 <p>This is useful to separate the extension configuration file to many files</p>
@@ -651,15 +651,15 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
                                 <span class="n">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
 <span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
 
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="o">.</span><span class="n">cf</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -668,11 +668,11 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
 <p>So the Garbage Collector will manage these C pointers.</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QFont</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QFont</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
 <span class="n">managed</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>

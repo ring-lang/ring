@@ -335,12 +335,12 @@ ringpm run Adhkar_Ring_App
 <li><p>Base64ToString(cBase64) —&gt; cString</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
 <span class="o">?</span> <span class="n">StringToBase64</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
 
-<span class="n">cBase64</span> <span class="o">=</span> <span class="s">&quot;SGVsbG8gV29ybGQ=&quot;</span>
+<span class="n">cBase64</span> <span class="o">=</span> <span class="s2">&quot;SGVsbG8gV29ybGQ=&quot;</span>
 <span class="o">?</span> <span class="n">Base64ToString</span><span class="p">(</span><span class="n">cBase64</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -353,40 +353,40 @@ Hello World
 <section id="better-ringfastpro">
 <span id="index-9"></span><h2>Better RingFastPro<a class="headerlink" href="#better-ringfastpro" title="Permalink to this heading"></a></h2>
 <p>The updateList() function is improved to support many new operations and features.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">add</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sub</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">transpose</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">scalar</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">valueA</span><span class="o">/</span><span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">dotproduct</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">fill</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">maximum</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aList</span>  <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">identity</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aList</span>  <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">random</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">mean</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sqrt</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">square</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sigmoid</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sigmoidprime</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">tanh</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">leakyrelu</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">leakyreluprime</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">relu</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">reluprime</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">exp</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sum</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">softmax</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">scalardiv</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">horstack</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">verstack</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">ravel</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">zerolike</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">atleast2d</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">argmax</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">derepeat</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">append</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">allsum</span><span class="p">,:</span><span class="n">matrix</span><span class="p">)</span>
-<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">mandelbrot</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aFlatB</span><span class="o">&gt;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:add</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:sub</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:mul</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:transpose</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:scalar</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">valueA</span><span class="o">/</span><span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:dotproduct</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:fill</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:maximum</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aList</span>  <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:identity</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aList</span>  <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:random</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:mean</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:sqrt</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:square</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:sigmoid</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:sigmoidprime</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:tanh</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:leakyrelu</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:leakyreluprime</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:relu</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:reluprime</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:exp</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:sum</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:softmax</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:scalardiv</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:horstack</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:verstack</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:ravel</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:zerolike</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:atleast2d</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:argmax</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:derepeat</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:append</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:allsum</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,</span><span class="ss">:mandelbrot</span><span class="p">,</span><span class="ss">:matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aFlatB</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The next samples are added to introduce these features:</p>
@@ -439,15 +439,15 @@ Hello World
 <span id="index-10"></span><h2>Faster String Operations<a class="headerlink" href="#faster-string-operations" title="Permalink to this heading"></a></h2>
 <p>This release brings optimized string operations for improved performance.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
 
-<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">200_000</span>
-        <span class="n">cStr</span> <span class="o">+=</span> <span class="s">&quot;Welcome&quot;</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">200_000</span>
+        <span class="n">cStr</span> <span class="o">+=</span> <span class="s2">&quot;Welcome&quot;</span>
+<span class="k k-Control">next</span>
 
-<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clocksPerSecond</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -456,15 +456,15 @@ Hello World
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to the Ring programming language&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Welcome to the Ring programming language&quot;</span>
 
-<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">200_000</span>
-        <span class="n">cStr2</span> <span class="o">=</span> <span class="n">subStr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="s">&quot;***Ring***&quot;</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">200_000</span>
+        <span class="n">cStr2</span> <span class="o">=</span> <span class="nb">subStr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">,</span><span class="s2">&quot;***Ring***&quot;</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+<span class="k k-Control">next</span>
 
-<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clocksPerSecond</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -481,15 +481,15 @@ Hello World
 <li><p>Support searching in lists/Attributes using list/object reference</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp1</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">fp2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp1</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="n">fp3</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp1</span><span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="n">fp3</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp1</span><span class="p">]</span>
 
-<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp1</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp1</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -507,62 +507,62 @@ Hello World
 <p>It is not necessary to call the fclose() function, as Ring automatically manages this.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">subject</span>   <span class="o">=</span> <span class="k">new</span> <span class="n">Subject</span>
-        <span class="n">observer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObserverA</span>
-        <span class="n">observer2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObserverB</span>
+        <span class="n">subject</span>   <span class="o">=</span> <span class="kp">new</span> <span class="nc">Subject</span>
+        <span class="n">observer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">ObserverA</span>
+        <span class="n">observer2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">ObserverB</span>
 
-        <span class="n">subject</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
-        <span class="n">subject</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
 
-        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
 
-        <span class="n">subject</span><span class="p">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
 
-        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="n">Subject</span>
+<span class="kd">class</span> <span class="nc">Subject</span>
 
-        <span class="n">aObservers</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aObservers</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">value</span>      <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="k">func</span> <span class="n">addObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
-                <span class="n">add</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span> <span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+        <span class="kd">func</span> <span class="nf">addObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+                <span class="nb">add</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span> <span class="nb">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
 
-        <span class="k">func</span> <span class="n">removeObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
-                <span class="n">nPos</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">observer</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">nPos</span>
-                        <span class="n">del</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
-                <span class="k">ok</span>
+        <span class="kd">func</span> <span class="nf">removeObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+                <span class="n">nPos</span> <span class="o">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">observer</span><span class="p">)</span>
+                <span class="k k-Control">if</span> <span class="n">nPos</span>
+                        <span class="nb">del</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
+                <span class="k k-Control">ok</span>
 
-        <span class="k">func</span> <span class="n">notify</span><span class="p">()</span>
-                <span class="k">for</span> <span class="n">oObj</span> <span class="k">in</span> <span class="n">aObservers</span>
-                        <span class="n">oObj</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                <span class="k">next</span>
+        <span class="kd">func</span> <span class="nf">notify</span><span class="p">()</span>
+                <span class="k k-Control">for</span> <span class="n">oObj</span> <span class="k k-Control">in</span> <span class="n">aObservers</span>
+                        <span class="n">oObj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k k-Control">next</span>
 
-        <span class="k">func</span> <span class="n">setValue</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">setValue</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span>
                 <span class="n">notify</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="n">Observer</span>
+<span class="kd">class</span> <span class="nc">Observer</span>
 
-        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-                <span class="o">?</span> <span class="s">&quot;Observer updated with value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+                <span class="o">?</span> <span class="s2">&quot;Observer updated with value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
 
-<span class="k">class</span> <span class="n">ObserverA</span> <span class="k">from</span> <span class="n">Observer</span>
+<span class="kd">class</span> <span class="nc">ObserverA</span> <span class="kd">from</span> <span class="nc">Observer</span>
 
-        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-                <span class="o">?</span> <span class="s">&quot;ObserverA received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+                <span class="o">?</span> <span class="s2">&quot;ObserverA received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
 
-<span class="k">class</span> <span class="n">ObserverB</span> <span class="k">from</span> <span class="n">Observer</span>
+<span class="kd">class</span> <span class="nc">ObserverB</span> <span class="kd">from</span> <span class="nc">Observer</span>
 
-        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-                <span class="o">?</span> <span class="s">&quot;ObserverB received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+                <span class="o">?</span> <span class="s2">&quot;ObserverB received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -579,25 +579,25 @@ ObserverB received value: 101
 <p>The OptionalFunc() function implementation is revised.</p>
 <p>The new optional function name will be added to the RingOptionalFunctions list.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Declare optional functions&quot;</span>
-<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">one</span><span class="p">)</span>
-<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">two</span><span class="p">)</span>
-<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">three</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;Declare optional functions&quot;</span>
+<span class="nb">optionalFunc</span><span class="p">(</span><span class="ss">:one</span><span class="p">)</span>
+<span class="nb">optionalFunc</span><span class="p">(</span><span class="ss">:two</span><span class="p">)</span>
+<span class="nb">optionalFunc</span><span class="p">(</span><span class="ss">:three</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Call optional functions&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Call optional functions&quot;</span>
 <span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
 
-<span class="o">?</span> <span class="s">&quot;Print list of optional functions&quot;</span>
-<span class="o">?</span> <span class="n">RingOptionalFunctions</span>
+<span class="o">?</span> <span class="s2">&quot;Print list of optional functions&quot;</span>
+<span class="o">?</span> <span class="bp">RingOptionalFunctions</span>
 
-<span class="o">?</span> <span class="s">&quot;Define optional functions&quot;</span>
-<span class="n">eval</span><span class="p">(`</span>
-<span class="k">func</span> <span class="n">one</span>   <span class="o">?</span> <span class="s">&quot;Message from one() function&quot;</span>
-<span class="k">func</span> <span class="n">two</span>   <span class="o">?</span> <span class="s">&quot;Message from two() function&quot;</span>
-<span class="k">func</span> <span class="n">three</span> <span class="o">?</span> <span class="s">&quot;Message from three() function&quot;</span>
-<span class="p">`)</span>
+<span class="o">?</span> <span class="s2">&quot;Define optional functions&quot;</span>
+<span class="nb">eval</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">func one   ? &quot;Message from one() function&quot;</span>
+<span class="sb">func two   ? &quot;Message from two() function&quot;</span>
+<span class="sb">func three ? &quot;Message from three() function&quot;</span>
+<span class="sb">`</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Call optional functions&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Call optional functions&quot;</span>
 <span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -617,27 +617,27 @@ Message from three() function
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="n">RingOptionalFunctions</span><span class="p">,</span> <span class="o">[</span>
-        <span class="p">:</span><span class="n">one</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">two</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">three</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">four</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">five</span>
-<span class="o">]</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Add</span><span class="p">(</span><span class="bp">RingOptionalFunctions</span><span class="p">,</span> <span class="p">[</span>
+        <span class="ss">:one</span><span class="p">,</span>
+        <span class="ss">:two</span><span class="p">,</span>
+        <span class="ss">:three</span><span class="p">,</span>
+        <span class="ss">:four</span><span class="p">,</span>
+        <span class="ss">:five</span>
+<span class="p">],</span> <span class="bp">True</span><span class="p">)</span>
 
-<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c"># No Error</span>
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c1"># No Error</span>
 
-<span class="n">eval</span><span class="p">(`</span>
-<span class="k">func</span> <span class="n">one</span>   <span class="o">?</span> <span class="mi">1</span>
-<span class="k">func</span> <span class="n">two</span>   <span class="o">?</span> <span class="mi">2</span>
-<span class="k">func</span> <span class="n">three</span> <span class="o">?</span> <span class="mi">3</span>
-<span class="k">func</span> <span class="n">four</span>  <span class="o">?</span> <span class="mi">4</span>
-<span class="k">func</span> <span class="n">five</span>  <span class="o">?</span> <span class="mi">5</span>
-<span class="p">`)</span>
+<span class="nb">eval</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">func one   ? 1</span>
+<span class="sb">func two   ? 2</span>
+<span class="sb">func three ? 3</span>
+<span class="sb">func four  ? 4</span>
+<span class="sb">func five  ? 5</span>
+<span class="sb">`</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="n">RingOptionalFunctions</span>                 <span class="c"># Print Names</span>
+<span class="o">?</span> <span class="bp">RingOptionalFunctions</span>                 <span class="c1"># Print Names</span>
 
-<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c"># Print Numbers</span>
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c1"># Print Numbers</span>
 </pre></div>
 </div>
 <p>Output:</p>

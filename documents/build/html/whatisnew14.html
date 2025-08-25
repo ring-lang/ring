@@ -314,17 +314,17 @@
 <span id="index-7"></span><h2>RingTilengine Extension<a class="headerlink" href="#ringtilengine-extension" title="Permalink to this heading"></a></h2>
 <p>This extension provides support for Tilengine - The 2D retro graphics engine with raster effects</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
 <span class="n">TLN_Init</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
-<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets\sonic&quot;</span><span class="p">)</span>
+<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
 
-<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="k">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
 <span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
 <span class="n">TLN_Deinit</span><span class="p">()</span>
@@ -349,21 +349,21 @@
 <li><p>After compressing the files (To ZIP file) - Total : 504 KB</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libui.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libui.ring&quot;</span>
 
-<span class="n">oWindow</span> <span class="o">=</span> <span class="n">uiNewWindow</span><span class="p">(</span> <span class="s">&quot;Say Hello&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>
-<span class="n">uiWindowOnClosing</span><span class="p">(</span><span class="n">oWindow</span><span class="p">,</span><span class="s">&quot;closeApp()&quot;</span><span class="p">)</span>
+<span class="n">oWindow</span> <span class="o">=</span> <span class="n">uiNewWindow</span><span class="p">(</span> <span class="s2">&quot;Say Hello&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">uiWindowOnClosing</span><span class="p">(</span><span class="n">oWindow</span><span class="p">,</span><span class="s2">&quot;closeApp()&quot;</span><span class="p">)</span>
 
-<span class="n">lbl1</span> <span class="o">=</span> <span class="n">uiNewLabel</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="p">)</span>
+<span class="n">lbl1</span> <span class="o">=</span> <span class="n">uiNewLabel</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
 <span class="n">text1</span> <span class="o">=</span> <span class="n">uiNewEntry</span><span class="p">()</span>
 
-<span class="n">btn1</span> <span class="o">=</span> <span class="n">uiNewButton</span><span class="p">(</span><span class="s">&quot;SayHello&quot;</span><span class="p">)</span>
-<span class="n">uiButtonOnClicked</span><span class="p">(</span><span class="n">btn1</span><span class="p">,</span><span class="s">&quot;sayHello()&quot;</span><span class="p">)</span>
+<span class="n">btn1</span> <span class="o">=</span> <span class="n">uiNewButton</span><span class="p">(</span><span class="s2">&quot;SayHello&quot;</span><span class="p">)</span>
+<span class="n">uiButtonOnClicked</span><span class="p">(</span><span class="n">btn1</span><span class="p">,</span><span class="s2">&quot;sayHello()&quot;</span><span class="p">)</span>
 
-<span class="n">btn2</span> <span class="o">=</span> <span class="n">uiNewButton</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
-<span class="n">uiButtonOnClicked</span><span class="p">(</span><span class="n">btn2</span><span class="p">,</span><span class="s">&quot;closeApp()&quot;</span><span class="p">)</span>
+<span class="n">btn2</span> <span class="o">=</span> <span class="n">uiNewButton</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
+<span class="n">uiButtonOnClicked</span><span class="p">(</span><span class="n">btn2</span><span class="p">,</span><span class="s2">&quot;closeApp()&quot;</span><span class="p">)</span>
 
-<span class="n">lbl2</span> <span class="o">=</span> <span class="n">uiNewLabel</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">lbl2</span> <span class="o">=</span> <span class="n">uiNewLabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">uiNewGrid</span><span class="p">()</span> <span class="n">uiGridSetPadded</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">uiWindowSetChild</span><span class="p">(</span><span class="n">oWindow</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
 <span class="n">uiGridAppend</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">lbl1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">uiAlignCenter</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignCenter</span><span class="p">)</span>
@@ -375,10 +375,10 @@
 <span class="n">uiControlShow</span><span class="p">(</span> <span class="n">oWindow</span> <span class="p">)</span>
 <span class="n">uiMain</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">sayHello</span>
-        <span class="n">uiLabelSetText</span><span class="p">(</span><span class="n">lbl2</span><span class="p">,</span><span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">uiEntryText</span><span class="p">(</span><span class="n">text1</span><span class="p">))</span>
+<span class="kd">func</span> <span class="nf">sayHello</span>
+        <span class="n">uiLabelSetText</span><span class="p">(</span><span class="n">lbl2</span><span class="p">,</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">uiEntryText</span><span class="p">(</span><span class="n">text1</span><span class="p">))</span>
 
-<span class="k">func</span> <span class="n">closeApp</span>
+<span class="kd">func</span> <span class="nf">closeApp</span>
         <span class="n">uiQuit</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -394,35 +394,35 @@
 <p>In this release we provide a special extension for sockets</p>
 <p>This will be useful if your application doesn’t use the previous libraries</p>
 <p>Example (Server Code)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># TCP SERVER</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># TCP SERVER</span>
 
-<span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
+<span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
 <span class="n">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ns</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
-<span class="n">send</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="s">&quot;Hello Client&quot;</span><span class="p">)</span>
+<span class="n">send</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="s2">&quot;Hello Client&quot;</span><span class="p">)</span>
 <span class="n">msg</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Client Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+<span class="o">?</span> <span class="s2">&quot;Client Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
 <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Socket connection closed&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Socket connection closed&quot;</span>
 </pre></div>
 </div>
 <p>Example (Client Code)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># TCP Client</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># TCP Client</span>
 
-<span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-<span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
 
-<span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;Hello Server&quot;</span><span class="p">)</span>
+<span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;Hello Server&quot;</span><span class="p">)</span>
 <span class="n">msg</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Server Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+<span class="o">?</span> <span class="s2">&quot;Server Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
 
 <span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Socket connection closed&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Socket connection closed&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -432,31 +432,31 @@
 <p>In this release we provide a special extension for threads</p>
 <p>This will be useful if your application doesn’t use the previous libraries</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;threads.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;threads.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
         <span class="n">nThreads</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">nThreads</span><span class="p">)</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nThreads</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
-                <span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
-                <span class="n">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="p">,</span><span class="s">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;)&quot;</span><span class="p">)</span>
-        <span class="k">next</span>
+        <span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nThreads</span>
+                <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
+                <span class="n">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s2">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+        <span class="k k-Control">next</span>
 
-        <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
+        <span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nThreads</span>
                 <span class="n">res</span><span class="o">=</span> <span class="mi">0</span>
-                <span class="n">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="p">,:</span><span class="n">res</span><span class="p">)</span>
-        <span class="k">next</span>
+                <span class="n">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="ss">:res</span><span class="p">)</span>
+        <span class="k k-Control">next</span>
 
-        <span class="o">?</span> <span class="p">:</span><span class="k">Done</span>
-        <span class="n">shutdown</span><span class="p">()</span>
+        <span class="o">?</span> <span class="ss">:Done</span>
+        <span class="nb">shutdown</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">Hello</span> <span class="n">x</span>
+<span class="kd">func</span> <span class="nf">Hello</span> <span class="n">x</span>
 
-        <span class="k">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
-                <span class="o">?</span> <span class="s">&quot;Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) function&quot;</span>
-        <span class="k">next</span>
+        <span class="k k-Control">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100</span>
+                <span class="o">?</span> <span class="s2">&quot;Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;) function&quot;</span>
+        <span class="k k-Control">next</span>
 </pre></div>
 </div>
 </section>
@@ -531,18 +531,18 @@ sha512final (SHA512_CTX) -&gt; string
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="n">getarch</span><span class="p">()</span>
-<span class="k">on</span> <span class="s">&quot;x86&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;x86 32bit architecture&quot;</span>
-<span class="k">on</span> <span class="s">&quot;x64&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;x64 64bit architecture&quot;</span>
-<span class="k">on</span> <span class="s">&quot;arm64&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;ARM64 64bit architecture&quot;</span>
-<span class="k">on</span> <span class="s">&quot;arm&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;ARM 32bit architecture&quot;</span>
-<span class="k">other</span>
-        <span class="o">?</span> <span class="s">&quot;Unknown architecture&quot;</span>
-<span class="k">off</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">switch</span> <span class="nb">getarch</span><span class="p">()</span>
+<span class="k k-Control">on</span> <span class="s2">&quot;x86&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;x86 32bit architecture&quot;</span>
+<span class="k k-Control">on</span> <span class="s2">&quot;x64&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;x64 64bit architecture&quot;</span>
+<span class="k k-Control">on</span> <span class="s2">&quot;arm64&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;ARM64 64bit architecture&quot;</span>
+<span class="k k-Control">on</span> <span class="s2">&quot;arm&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;ARM 32bit architecture&quot;</span>
+<span class="k k-Control">other</span>
+        <span class="o">?</span> <span class="s2">&quot;Unknown architecture&quot;</span>
+<span class="k k-Control">off</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -554,7 +554,7 @@ sha512final (SHA512_CTX) -&gt; string
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">NofProcessors</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="nb">NofProcessors</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -570,11 +570,11 @@ Log(nNumber,nBase) --&gt; logarithm of nNumber to the base of nBase
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>       <span class="c"># 2.30</span>
-<span class="o">?</span> <span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>        <span class="c"># 0.69</span>
-<span class="o">?</span> <span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>    <span class="c"># 1</span>
-<span class="o">?</span> <span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c"># 1</span>
-<span class="o">?</span> <span class="n">log</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>   <span class="c"># 2</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="nb">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>       <span class="c1"># 2.30</span>
+<span class="o">?</span> <span class="nb">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># 0.69</span>
+<span class="o">?</span> <span class="nb">log</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>    <span class="c1"># 1</span>
+<span class="o">?</span> <span class="nb">log</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>      <span class="c1"># 1</span>
+<span class="o">?</span> <span class="nb">log</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># 2</span>
 </pre></div>
 </div>
 </section>
@@ -584,19 +584,19 @@ Log(nNumber,nBase) --&gt; logarithm of nNumber to the base of nBase
 <li><p>Ring 1.14 is 3x Faster in programs that have strings with long and fixed size</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;openssllib.ring&quot;</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefilename</span><span class="p">(),</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;openssllib.ring&quot;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefilename</span><span class="p">(),</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">SHA256Init</span><span class="p">()</span>
-<span class="k">while</span> <span class="kp">true</span>
-  <span class="n">s</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
-  <span class="k">if</span> <span class="n">isstring</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="bp">true</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+  <span class="k k-Control">if</span> <span class="nb">isstring</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="n">SHA256Update</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-  <span class="k">else</span>
-    <span class="k">exit</span>
-  <span class="k">ok</span>
-<span class="k">end</span>
+  <span class="k k-Control">else</span>
+    <span class="k k-Control">exit</span>
+  <span class="k k-Control">ok</span>
+<span class="k k-Control">end</span>
 <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256Final</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">digest</span>
 </pre></div>
 </div>
@@ -608,12 +608,12 @@ Log(nNumber,nBase) --&gt; logarithm of nNumber to the base of nBase
 <li><p>Ring 1.14 is 60x Faster when adding strings to other strings</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">test</span> <span class="o">=</span> <span class="s">&quot;My Ring&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">20000</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="n">test</span> <span class="o">=</span> <span class="s2">&quot;My Ring&quot;</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">20000</span>
         <span class="n">test</span> <span class="o">+=</span> <span class="n">x</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+<span class="k k-Control">next</span>
+<span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -631,13 +631,13 @@ Log(nNumber,nBase) --&gt; logarithm of nNumber to the base of nBase
 </ol>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mh">0x10</span>
-<span class="o">?</span> <span class="n">x</span>             <span class="c"># 16</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c1"># 16</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mh">0xff</span>
-<span class="o">?</span> <span class="n">x</span>             <span class="c"># 255</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c1"># 255</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mh">0x0A</span>
-<span class="o">?</span> <span class="n">x</span>             <span class="c"># 10</span>
-<span class="o">?</span> <span class="mh">0xFFFF</span>        <span class="c"># 65535</span>
-<span class="o">?</span> <span class="mh">0x0A</span> <span class="o">+</span> <span class="mi">1</span>      <span class="c"># 10+1 = 11</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c1"># 10</span>
+<span class="o">?</span> <span class="mh">0xFFFF</span>        <span class="c1"># 65535</span>
+<span class="o">?</span> <span class="mh">0x0A</span> <span class="o">+</span> <span class="mi">1</span>      <span class="c1"># 10+1 = 11</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -645,10 +645,10 @@ Log(nNumber,nBase) --&gt; logarithm of nNumber to the base of nBase
 </ol>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">999999999999999</span>
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">13</span>
+<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">13</span>
         <span class="n">c</span> <span class="o">*=</span> <span class="mi">999999999999999</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;c = &quot;</span> <span class="o">+</span> <span class="n">c</span>
+<span class="k k-Control">next</span>
+<span class="o">?</span> <span class="s2">&quot;c = &quot;</span> <span class="o">+</span> <span class="n">c</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -660,24 +660,24 @@ Log(nNumber,nBase) --&gt; logarithm of nNumber to the base of nBase
 </ol>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="mi">999999999999999</span>
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">13</span>
+<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">13</span>
         <span class="n">c1</span> <span class="o">*=</span> <span class="mi">999999999999999</span>
-<span class="k">next</span>
+<span class="k k-Control">next</span>
 
-<span class="n">s</span> <span class="o">=</span> <span class="kt">string</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>  <span class="o">?</span> <span class="s">&quot;c1 = &quot;</span> <span class="o">+</span> <span class="n">s</span>
-<span class="n">c2</span> <span class="o">=</span> <span class="n">number</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="o">?</span> <span class="s">&quot;c2 = &quot;</span> <span class="o">+</span> <span class="n">c2</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">string</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>  <span class="o">?</span> <span class="s2">&quot;c1 = &quot;</span> <span class="o">+</span> <span class="n">s</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="nb">number</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="o">?</span> <span class="s2">&quot;c2 = &quot;</span> <span class="o">+</span> <span class="n">c2</span>
 
-<span class="o">?</span> <span class="s">&quot;c2 - c1 = &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;c2 - c1 = &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span><span class="p">)</span>
 
-<span class="n">str1</span>    <span class="o">=</span> <span class="s">&quot;-2222044646462&quot;</span>
-<span class="n">c</span>       <span class="o">=</span> <span class="n">Number</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
-<span class="n">str2</span>    <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">str1</span>    <span class="o">=</span> <span class="s2">&quot;-2222044646462&quot;</span>
+<span class="n">c</span>       <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span>
+<span class="n">str2</span>    <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">str1</span> <span class="o">=</span> <span class="n">str2</span>
-        <span class="o">?</span> <span class="s">&quot;Strings Identical&quot;</span>
-<span class="k">else</span>
-        <span class="o">?</span> <span class="s">&quot;Strings Mismatch!&quot;</span>
-<span class="k">ok</span>
+<span class="k k-Control">if</span> <span class="n">str1</span> <span class="o">=</span> <span class="n">str2</span>
+        <span class="o">?</span> <span class="s2">&quot;Strings Identical&quot;</span>
+<span class="k k-Control">else</span>
+        <span class="o">?</span> <span class="s2">&quot;Strings Mismatch!&quot;</span>
+<span class="k k-Control">ok</span>
 </pre></div>
 </div>
 <p>Output:</p>

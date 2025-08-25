@@ -227,7 +227,7 @@
 <section id="hello-world">
 <span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this heading"></a></h2>
 <p>The next program prints the Hello World message on the screen (std-out).</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">put</span> <span class="s">&quot;Hello World&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">put</span> <span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -235,14 +235,14 @@
 <span id="index-2"></span><h2>Run the program<a class="headerlink" href="#run-the-program" title="Permalink to this heading"></a></h2>
 <p>to run the program, save the code in a file, for example : hello.ring
 then from the command line or terminal, run it using Ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">hello</span><span class="o">.</span><span class="n">ring</span>
 </pre></div>
 </div>
 </section>
 <section id="create-executable-file">
 <span id="index-3"></span><h2>Create Executable File<a class="headerlink" href="#create-executable-file" title="Permalink to this heading"></a></h2>
 <p>Using Ring2EXE we can create executable file for our application</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">static</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">static</span>
 </pre></div>
 </div>
 </section>
@@ -254,22 +254,22 @@ be written in different styles</p>
 <p class="admonition-title">Tip</p>
 <p>It’s better to select one style and use it in all of the program source code</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">PUT</span> <span class="s">&quot;Hello World&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">PUT</span> <span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;Hello World&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="multi-line-literals">
 <span id="index-5"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this heading"></a></h2>
 <p>Using Ring we can write multi-line literal, see the next example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;</span>
-        <span class="n">Hello</span>
-        <span class="n">Welcome</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">programming</span> <span class="n">language</span>
-        <span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s2">&quot;</span>
+<span class="s2">        Hello</span>
+<span class="s2">        Welcome to the Ring programming language</span>
+<span class="s2">        How are you?</span>
 
-    <span class="s">&quot;</span>
+<span class="s2">    &quot;</span>
 </pre></div>
 </div>
 <p>Also you can use the nl variable to insert new line
@@ -280,17 +280,17 @@ and you can use the + operator to concatenate strings</p>
 <p>nl value means a new line and the actual codes that
 represent a newline is different between operating systems</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Welcome to the Ring programming language&quot;</span> <span class="o">+</span>
-    <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;How are you?&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s2">&quot;Hello&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;Welcome to the Ring programming language&quot;</span> <span class="o">+</span>
+    <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;How are you?&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="getting-input">
 <span id="index-6"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this heading"></a></h2>
 <p>You can get the input from the user using the get command</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;What is your name? &quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s2">&quot;What is your name? &quot;</span>
 <span class="k">Get</span> <span class="n">cName</span>
-<span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
+<span class="k">Put</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
 </pre></div>
 </div>
 </section>
@@ -298,7 +298,7 @@ represent a newline is different between operating systems</p>
 <span id="index-7"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this heading"></a></h2>
 <p>You don’t need to use ‘;’ or press ENTER to separate statements.
 The previous program can be written in one line.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;What is your name? &quot;</span> <span class="k">get</span> <span class="n">cName</span> <span class="k">put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s2">&quot;What is your name? &quot;</span> <span class="k">get</span> <span class="n">cName</span> <span class="k">put</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
 </pre></div>
 </div>
 </section>
@@ -307,17 +307,17 @@ The previous program can be written in one line.</p>
 <p>We can write one line comments and multi-line comments</p>
 <p>The comment starts with # or //</p>
 <p>Multi-lines comments are written between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
-        <span class="n">Program</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">My</span> <span class="n">first</span> <span class="n">program</span> <span class="n">using</span> <span class="n">Ring</span>
-        <span class="n">Date</span>         <span class="p">:</span> <span class="mf">2016.09.09</span>
-        <span class="n">Author</span>       <span class="p">:</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
-<span class="o">*/</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">        Program Name : My first program using Ring</span>
+<span class="cm">        Date         : 2016.09.09</span>
+<span class="cm">        Author       : Mahmoud Fayed</span>
+<span class="cm">*/</span>
 
-<span class="k">Put</span> <span class="s">&quot;What is your name? &quot;</span>       <span class="c"># print message on screen</span>
-<span class="k">get</span> <span class="n">cName</span>                       <span class="c"># get input from the user</span>
-<span class="k">put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>            <span class="c"># say hello!</span>
+<span class="k">Put</span> <span class="s2">&quot;What is your name? &quot;</span>       <span class="c1"># print message on screen</span>
+<span class="k">get</span> <span class="n">cName</span>                       <span class="c1"># get input from the user</span>
+<span class="k">put</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>            <span class="c1"># say hello!</span>
 
-<span class="o">//</span> <span class="k">Put</span> <span class="s">&quot;Bye!&quot;</span>
+<span class="c1">// Put &quot;Bye!&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">

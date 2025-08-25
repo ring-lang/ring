@@ -360,14 +360,14 @@
 <span id="index-8"></span><h2>The Power Operator<a class="headerlink" href="#the-power-operator" title="Permalink to this heading"></a></h2>
 <p>Ring 1.18 Support (**) and (^^) as the power operator</p>
 <p>Example:</p>
-<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">3</span><span class="o">**</span><span class="mi">4</span>                  <span class="c"># 81.00</span>
-<span class="o">?</span> <span class="mi">3</span><span class="p">^^</span><span class="mi">4</span>                  <span class="c"># 81.00</span>
-<span class="o">?</span> <span class="mi">256</span><span class="p">^^(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>            <span class="c"># 4</span>
-<span class="o">?</span> <span class="mf">3.4</span><span class="p">^^</span><span class="mf">4.5</span>              <span class="c"># 246.41</span>
-<span class="o">?</span> <span class="mi">256</span><span class="p">^^(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>            <span class="c"># 6.35</span>
-<span class="o">?</span> <span class="mf">129.6</span><span class="p">^^(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>          <span class="c"># 2.65</span>
-<span class="o">?</span> <span class="mf">5.9736</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="p">^^</span><span class="mi">6</span><span class="p">)</span>        <span class="c"># 5973600.00</span>
-<span class="o">?</span> <span class="mf">7.3476</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="p">^^(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>     <span class="c"># 0.0000734760</span>
+<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">3</span><span class="o">**</span><span class="mi">4</span>                  <span class="c1"># 81.00</span>
+<span class="o">?</span> <span class="mi">3</span><span class="o">^^</span><span class="mi">4</span>                  <span class="c1"># 81.00</span>
+<span class="o">?</span> <span class="mi">256</span><span class="o">^^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>            <span class="c1"># 4</span>
+<span class="o">?</span> <span class="mf">3.4</span><span class="o">^^</span><span class="mf">4.5</span>              <span class="c1"># 246.41</span>
+<span class="o">?</span> <span class="mi">256</span><span class="o">^^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>            <span class="c1"># 6.35</span>
+<span class="o">?</span> <span class="mf">129.6</span><span class="o">^^</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>          <span class="c1"># 2.65</span>
+<span class="o">?</span> <span class="mf">5.9736</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">^^</span><span class="mi">6</span><span class="p">)</span>        <span class="c1"># 5973600.00</span>
+<span class="o">?</span> <span class="mf">7.3476</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">^^</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>     <span class="c1"># 0.0000734760</span>
 </pre></div>
 </div>
 </section>
@@ -382,10 +382,10 @@ refcount(variable) ---&gt; Number (References Count)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span> <span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">]</span>        <span class="c"># Circular Reference</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>                           <span class="c"># Print 10</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>               <span class="c"># Print 20</span>
-<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                       <span class="c"># Print 2</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span> <span class="nb">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">]</span>        <span class="c1"># Circular Reference</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>                           <span class="c1"># Print 10</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>               <span class="c1"># Print 20</span>
+<span class="o">?</span> <span class="nb">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                       <span class="c1"># Print 2</span>
 </pre></div>
 </div>
 <p>We added this feature to use Ring in teaching Data Structures &amp; Design Patterns.</p>
@@ -416,12 +416,12 @@ refcount(variable) ---&gt; Number (References Count)
 <p>The (For-In) Loop implementation is revised in Ring 1.18</p>
 <p>It’s six times (6x) faster than Ring 1.17</p>
 <p>Example:</p>
-<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
-<span class="k">next</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">()</span>
+<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+<span class="k k-Control">next</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Time using Ring 1.18: 0.4 second</p>
@@ -431,13 +431,13 @@ refcount(variable) ---&gt; Number (References Count)
 <p>The normal (For Loop) is faster than (For-In Loop) by 25%</p>
 </div>
 <p>Example:</p>
-<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">aList</span><span class="o">[</span><span class="n">t</span><span class="o">]</span>
-<span class="k">next</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">()</span>
+<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">1_000_000</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">aList</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
+<span class="k k-Control">next</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Time using Ring 1.18: 0.28 second</p>
@@ -449,25 +449,25 @@ refcount(variable) ---&gt; Number (References Count)
 <p>In Ring 1.18 - Calling BraceError() is faster and we can
 return values from this method</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">points</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">points</span> <span class="p">{</span>
         <span class="n">first</span>  <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span>   <span class="n">y</span><span class="o">=</span><span class="mi">20</span>   <span class="n">z</span><span class="o">=</span><span class="mi">30</span>   <span class="p">}</span>
         <span class="n">second</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span>  <span class="n">y</span><span class="o">=</span><span class="mi">200</span>  <span class="n">z</span><span class="o">=</span><span class="mi">300</span>  <span class="p">}</span>
         <span class="n">third</span>  <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">1000</span> <span class="n">y</span><span class="o">=</span><span class="mi">2000</span> <span class="n">z</span><span class="o">=</span><span class="mi">3000</span> <span class="p">}</span>
-        <span class="n">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">points</span>
+<span class="kd">class</span> <span class="nc">points</span>
 
-        <span class="n">aPoints</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aPoints</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">func</span> <span class="n">braceerror</span>
-                <span class="n">aPoints</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
-                <span class="k">return</span> <span class="n">aPoints</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aPoints</span><span class="p">)</span><span class="o">]</span>
+        <span class="kd">func</span> <span class="nf">braceerror</span>
+                <span class="n">aPoints</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">point</span>
+                <span class="k k-Control">return</span> <span class="n">aPoints</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aPoints</span><span class="p">)]</span>
 
-        <span class="k">func</span> <span class="n">print</span>
+        <span class="kd">func</span> <span class="nf">print</span>
                 <span class="o">?</span> <span class="n">aPoints</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -530,17 +530,17 @@ z: 3000
 <p>In Ring 1.18 we have (new from) where we provide a variable which contains the class name</p>
 <p>Using this command we can avoid using Eval() for this common case</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cClassName</span> <span class="o">=</span> <span class="s">&quot;myclass2&quot;</span>
-<span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="k">from</span> <span class="n">cClassName</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cClassName</span> <span class="o">=</span> <span class="s2">&quot;myclass2&quot;</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">from</span> <span class="n">cClassName</span>
 
-<span class="n">cClassName</span> <span class="o">=</span> <span class="s">&quot;myclass&quot;</span>
-<span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="k">from</span> <span class="n">cClassName</span>
+<span class="n">cClassName</span> <span class="o">=</span> <span class="s2">&quot;myclass&quot;</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">from</span> <span class="n">cClassName</span>
 
-<span class="k">class</span> <span class="n">myclass</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">hello</span>
+<span class="kd">class</span> <span class="nc">myclass</span>
+        <span class="o">?</span> <span class="ss">:hello</span>
 
-<span class="k">class</span> <span class="n">myclass2</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">wow</span>
+<span class="kd">class</span> <span class="nc">myclass2</span>
+        <span class="o">?</span> <span class="ss">:wow</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -555,17 +555,17 @@ z: 3000
 <p>This function get the package name through a string or variable</p>
 <p>This is useful if the package name will be known only during the runtime</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">importpackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">importpackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">importpackage</span><span class="p">(:</span><span class="n">mypackage</span><span class="p">)</span>
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">myfunction</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">importpackage</span><span class="p">(</span><span class="ss">:mypackage</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">myfunction</span><span class="p">()</span> <span class="p">}</span>
 
-<span class="k">package</span> <span class="n">mypackage</span>
-        <span class="k">class</span> <span class="n">myclass</span>
-                <span class="k">function</span> <span class="n">myfunction</span>
-                        <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="kn">package</span> <span class="nn">mypackage</span>
+        <span class="kd">class</span> <span class="nc">myclass</span>
+                <span class="kd">function</span> <span class="nf">myfunction</span>
+                        <span class="o">?</span> <span class="s2">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -665,11 +665,11 @@ z: 3000
 </pre></div>
 </div>
 <p>Example (Ring Code):</p>
-<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Loading Library&quot;</span>
-<span class="n">loadlib</span><span class="p">(</span><span class="s">&quot;mylib.dll&quot;</span><span class="p">)</span>
+<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;Loading Library&quot;</span>
+<span class="nb">loadlib</span><span class="p">(</span><span class="s2">&quot;mylib.dll&quot;</span><span class="p">)</span>
 
-<span class="n">cString</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">changevalue</span><span class="p">(:</span><span class="n">cString</span><span class="p">)</span>
+<span class="n">cString</span> <span class="o">=</span> <span class="nb">space</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">changevalue</span><span class="p">(</span><span class="ss">:cString</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">cString</span>
 </pre></div>
 </div>

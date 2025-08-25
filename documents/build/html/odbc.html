@@ -256,8 +256,8 @@
 <li><p>odbc_rollback()</p></li>
 </ul>
 <p>Before using the next function load the odbclib.ring library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;odbclib.ring&quot;</span>
-<span class="c"># Use ODBC functions</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;odbclib.ring&quot;</span>
+<span class="c1"># Use ODBC functions</span>
 </pre></div>
 </div>
 <section id="odbc-init-function">
@@ -272,7 +272,7 @@
 <span id="index-2"></span><h2>odbc_drivers() Function<a class="headerlink" href="#odbc-drivers-function" title="Permalink to this heading"></a></h2>
 <p>We can get a list of ODBC drivers using the odbc_drivers() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_drivers</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Drivers</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_drivers</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">Drivers</span>
 </pre></div>
 </div>
 </section>
@@ -280,7 +280,7 @@
 <span id="index-3"></span><h2>odbc_datasources() Function<a class="headerlink" href="#odbc-datasources-function" title="Permalink to this heading"></a></h2>
 <p>We can get a list of ODBC data sources using the odbc_datasources() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_datasources</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Data</span> <span class="n">sources</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_datasources</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">Data</span> <span class="n">sources</span>
 </pre></div>
 </div>
 </section>
@@ -295,9 +295,9 @@
 <section id="print-list-of-odbc-drivers">
 <span id="index-5"></span><h2>Print List of ODBC Drivers<a class="headerlink" href="#print-list-of-odbc-drivers" title="Permalink to this heading"></a></h2>
 <p>The next example print a list of ODBC drivers.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test 1&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">oODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Drivers &quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Drivers &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="n">odbc_drivers</span><span class="p">(</span><span class="n">oODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">oODBC</span><span class="p">)</span>
 </pre></div>
@@ -305,47 +305,47 @@
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="mi">1</span>
 <span class="n">Drivers</span>
-<span class="n">Microsoft</span> <span class="n">Access</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">Paradox</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">Excel</span><span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Text</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="n">da</span> <span class="n">Microsoft</span> <span class="n">para</span> <span class="n">arquivos</span> <span class="n">texto</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">dBase</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Access</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Driver</span> <span class="k k-Control">do</span> <span class="n">Microsoft</span> <span class="n">Paradox</span> <span class="p">(</span><span class="o">*.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Driver</span> <span class="k k-Control">do</span> <span class="n">Microsoft</span> <span class="n">Excel</span><span class="p">(</span><span class="o">*.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Text</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Driver</span> <span class="n">da</span> <span class="n">Microsoft</span> <span class="n">para</span> <span class="n">arquivos</span> <span class="n">texto</span> <span class="p">(</span><span class="o">*.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">dBase</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">SQL</span> <span class="n">Server</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">60</span>
-<span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">dBase</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Paradox</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">ODBC</span> <span class="k">for</span> <span class="n">Oracle</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">120</span>
-<span class="n">Microsoft</span> <span class="n">Text</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Excel</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Paradox</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">dBase</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">accdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsm</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsb</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Text</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Driver</span> <span class="k k-Control">do</span> <span class="n">Microsoft</span> <span class="n">dBase</span> <span class="p">(</span><span class="o">*.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Paradox</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">ODBC</span> <span class="k k-Control">for</span> <span class="n">Oracle</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">120</span>
+<span class="n">Microsoft</span> <span class="n">Text</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Excel</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Driver</span> <span class="k k-Control">do</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Paradox</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">dBase</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*.</span><span class="n">accdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">xls</span><span class="p">,</span> <span class="o">*.</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">*.</span><span class="n">xlsm</span><span class="p">,</span> <span class="o">*.</span><span class="n">xlsb</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Text</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">txt</span><span class="p">,</span> <span class="o">*.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">SQL</span> <span class="n">Server</span> <span class="n">Native</span> <span class="n">Client</span> <span class="mf">10.0</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">SQL</span> <span class="n">Server</span> <span class="n">Native</span> <span class="n">Client</span> <span class="mf">11.0</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">dBASE</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">ndx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">mdx</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Paradox</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">dBASE</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">dbf</span><span class="p">,</span> <span class="o">*.</span><span class="n">ndx</span><span class="p">,</span> <span class="o">*.</span><span class="n">mdx</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Paradox</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">db</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">MySQL</span> <span class="n">ODBC</span> <span class="mf">5.3</span> <span class="n">ANSI</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">MySQL</span> <span class="n">ODBC</span> <span class="mf">5.3</span> <span class="n">Unicode</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">ODBC</span> <span class="n">Driver</span> <span class="mi">11</span> <span class="k">for</span> <span class="n">SQL</span> <span class="n">Server</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">ODBC</span> <span class="n">Driver</span> <span class="mi">11</span> <span class="k k-Control">for</span> <span class="n">SQL</span> <span class="n">Server</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">Lianja</span> <span class="n">ODBC</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">60</span>
 <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span><span class="o">-</span><span class="n">Treiber</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">Driver</span> <span class="n">para</span> <span class="n">o</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Microsoft</span> <span class="n">FoxPro</span> <span class="n">VFP</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Microsoft</span> <span class="n">FoxPro</span> <span class="n">VFP</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
 </section>
 <section id="print-list-of-odbc-data-sources">
 <span id="index-6"></span><h2>Print List of ODBC Data Sources<a class="headerlink" href="#print-list-of-odbc-data-sources" title="Permalink to this heading"></a></h2>
 <p>The next example print a list of ODBC data sources.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test 2&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Data Sources &quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Data Sources &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="n">odbc_datasources</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
@@ -353,24 +353,24 @@
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="mi">2</span>
 <span class="n">Data</span> <span class="n">Sources</span>
-<span class="n">Excel</span> <span class="n">Files</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsm</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsb</span><span class="p">)</span>
-<span class="n">MS</span> <span class="n">Access</span> <span class="n">Database</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">accdb</span><span class="p">)</span>
-<span class="n">Customer</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">IdCardData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MyProjectData2</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MyData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MonprojetData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">dBASE</span> <span class="n">Files</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">dBASE</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">ndx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">mdx</span><span class="p">)</span>
+<span class="n">Excel</span> <span class="n">Files</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">xls</span><span class="p">,</span> <span class="o">*.</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">*.</span><span class="n">xlsm</span><span class="p">,</span> <span class="o">*.</span><span class="n">xlsb</span><span class="p">)</span>
+<span class="n">MS</span> <span class="n">Access</span> <span class="n">Database</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*.</span><span class="n">accdb</span><span class="p">)</span>
+<span class="n">Customer</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">IdCardData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">MyProjectData2</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">MyData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">MonprojetData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">dBASE</span> <span class="n">Files</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">dBASE</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">dbf</span><span class="p">,</span> <span class="o">*.</span><span class="n">ndx</span><span class="p">,</span> <span class="o">*.</span><span class="n">mdx</span><span class="p">)</span>
 <span class="n">myvfpdata</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span>
-<span class="n">FACTORYDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">TRAININGSYSDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">FACTORYDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">TRAININGSYSDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
 <span class="n">RVCSYSDATASQLDB</span> <span class="o">-</span> <span class="n">SQL</span> <span class="n">Server</span> <span class="n">Native</span> <span class="n">Client</span> <span class="mf">11.0</span>
-<span class="n">PWCTRVCDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MyCompany</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">HCS</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">HCS2</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">accdb</span><span class="p">)</span>
-<span class="n">MyProjectData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">Xtreme</span> <span class="n">Sample</span> <span class="n">Database</span> <span class="mi">2008</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">PWCTRVCDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">MyCompany</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">HCS</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">HCS2</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*.</span><span class="n">accdb</span><span class="p">)</span>
+<span class="n">MyProjectData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
+<span class="n">Xtreme</span> <span class="n">Sample</span> <span class="n">Database</span> <span class="mi">2008</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*.</span><span class="n">mdb</span><span class="p">)</span>
 <span class="n">Lianja_Southwind</span> <span class="o">-</span> <span class="n">Lianja</span> <span class="n">ODBC</span> <span class="n">Driver</span>
 <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Database</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span>
 <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Tables</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span>
@@ -396,22 +396,22 @@
 <section id="open-and-close-connection">
 <span id="index-9"></span><h2>Open and Close Connection<a class="headerlink" href="#open-and-close-connection" title="Permalink to this heading"></a></h2>
 <p>The next example connect to the database then close the connection</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test 3&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;disconnect&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;disconnect&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="mi">3</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">Connect</span> <span class="k k-Control">to</span> <span class="n">database</span>
 <span class="mi">1</span>
 <span class="n">disconnect</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<span class="n">Close</span> <span class="n">database</span><span class="o">...</span>
 </pre></div>
 </div>
 </section>
@@ -450,21 +450,21 @@
 <section id="execute-query-and-print-result">
 <span id="index-14"></span><h2>Execute Query and Print Result<a class="headerlink" href="#execute-query-and-print-result" title="Permalink to this heading"></a></h2>
 <p>The next example execute query then print the query result.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 4&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test 4&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Select data&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;select * from person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">See</span> <span class="s">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
-                <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span>
-        <span class="k">next</span>
-<span class="k">end</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s2">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
+                <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span>
+        <span class="k k-Control">next</span>
+<span class="k k-Control">end</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
@@ -479,36 +479,36 @@
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Get Database Tables&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test - Get Database Tables&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_tables</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Select data&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">odbc_tables</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
+<span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
                 <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nMax</span> <span class="k">see</span> <span class="s">&quot; - &quot;</span> <span class="k">ok</span>
-        <span class="k">next</span>
-        <span class="k">See</span> <span class="n">nl</span>
-<span class="k">end</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span>
+                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nMax</span> <span class="k">see</span> <span class="s2">&quot; - &quot;</span> <span class="k k-Control">ok</span>
+        <span class="k k-Control">next</span>
+        <span class="k">See</span> <span class="bp">nl</span>
+<span class="k k-Control">end</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="o">-</span> <span class="k">Get</span> <span class="n">Database</span> <span class="n">Tables</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
-<span class="n">Select</span> <span class="n">data</span>
-<span class="n">Columns</span> <span class="n">Count</span> <span class="p">:</span> <span class="mi">5</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">Customer</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">employee</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">person</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">tel</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC test - Get Database Tables
+Connect to database
+Select data
+Columns Count : 5
+.\test - NULL - Customer - TABLE - NULL
+.\test - NULL - employee - TABLE - NULL
+.\test - NULL - person - TABLE - NULL
+.\test - NULL - tel - TABLE - NULL
+Close database...
 </pre></div>
 </div>
 </section>
@@ -520,23 +520,23 @@
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Get Table Columns&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test - Get Table Columns&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Get Columns inside the Person Table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_columns</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">end</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Get Columns inside the Person Table&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">odbc_columns</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">end</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="o">-</span> <span class="k">Get</span> <span class="n">Table</span> <span class="n">Columns</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">Connect</span> <span class="k k-Control">to</span> <span class="n">database</span>
 <span class="k">Get</span> <span class="n">Columns</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">Person</span> <span class="n">Table</span>
 <span class="n">FIRST</span>
 <span class="n">LAST</span>
@@ -549,7 +549,7 @@
 <span class="n">AGE</span>
 <span class="n">SALARY</span>
 <span class="n">NOTES</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<span class="n">Close</span> <span class="n">database</span><span class="o">...</span>
 </pre></div>
 </div>
 </section>
@@ -557,7 +557,7 @@
 <span id="index-17"></span><h2>odbc_autocommit() Function<a class="headerlink" href="#odbc-autocommit-function" title="Permalink to this heading"></a></h2>
 <p>We can enable or disable the auto commit feature using the odbc_autocommit() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_autocommit</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">lStatus</span><span class="p">)</span>   <span class="c"># lStatus can be True or False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_autocommit</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">lStatus</span><span class="p">)</span>   <span class="c1"># lStatus can be True or False</span>
 </pre></div>
 </div>
 </section>
@@ -580,74 +580,74 @@
 <section id="transactions-and-using-commit-and-rollback">
 <span id="index-20"></span><h2>Transactions and Using Commit and Rollback<a class="headerlink" href="#transactions-and-using-commit-and-rollback" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC Test - Transactions and using Commit and Rollback&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC Test - Transactions and using Commit and Rollback&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;insert data...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;insert data...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_autocommit</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10000</span>
-        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;mahmoud&#39;)&quot;</span><span class="p">)</span>
-<span class="k">next</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10001</span> <span class="k">to</span> <span class="mi">15000</span>
-        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;samir&#39;)&quot;</span><span class="p">)</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10000</span>
+        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;,&#39;mahmoud&#39;)&quot;</span><span class="p">)</span>
+<span class="k k-Control">next</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10001</span> <span class="k k-Control">to</span> <span class="mi">15000</span>
+        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;,&#39;samir&#39;)&quot;</span><span class="p">)</span>
+<span class="k k-Control">next</span>
 <span class="n">odbc_commit</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">15001</span> <span class="k">to</span> <span class="mi">20000</span>
-        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;fayed&#39;)&quot;</span><span class="p">)</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">15001</span> <span class="k k-Control">to</span> <span class="mi">20000</span>
+        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;,&#39;fayed&#39;)&quot;</span><span class="p">)</span>
+<span class="k k-Control">next</span>
 
 <span class="n">ODBC_ROLLBACK</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;fayed&#39;)&quot;</span><span class="p">)</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;,&#39;fayed&#39;)&quot;</span><span class="p">)</span>
 <span class="n">odbc_commit</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">Test</span> <span class="o">-</span> <span class="n">Transactions</span> <span class="ow">and</span> <span class="n">using</span> <span class="n">Commit</span> <span class="ow">and</span> <span class="n">Rollback</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">Connect</span> <span class="k k-Control">to</span> <span class="n">database</span>
 <span class="mi">1</span>
-<span class="n">insert</span> <span class="n">data</span><span class="p">...</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<span class="n">insert</span> <span class="n">data</span><span class="o">...</span>
+<span class="n">Close</span> <span class="n">database</span><span class="o">...</span>
 </pre></div>
 </div>
 </section>
 <section id="save-and-restore-images">
 <span id="index-21"></span><h2>Save and Restore images<a class="headerlink" href="#save-and-restore-images" title="Permalink to this heading"></a></h2>
 <p>The next example save an image inside the database</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Save image in the database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC test - Save image in the database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Read Image File...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">cFile</span> <span class="o">=</span> <span class="n">str2hex</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="s">&quot;tests\mahmoud.jpg&quot;</span><span class="p">))</span>
-<span class="k">see</span> <span class="s">&quot;size &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">CFile</span><span class="p">)</span><span class="o">+</span><span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Save image in the database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="s">&quot;insert into tel values (20000,&#39;mahmoud&#39;,&#39;&quot;</span> <span class="o">+</span> <span class="n">cFile</span> <span class="o">+</span> <span class="s">&quot;&#39;);&quot;</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Read Image File...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">cFile</span> <span class="o">=</span> <span class="nb">str2hex</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="s2">&quot;tests\mahmoud.jpg&quot;</span><span class="p">))</span>
+<span class="k">see</span> <span class="s2">&quot;size &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">CFile</span><span class="p">)</span><span class="o">+</span><span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Save image in the database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">stmt</span> <span class="o">=</span> <span class="s2">&quot;insert into tel values (20000,&#39;mahmoud&#39;,&#39;&quot;</span> <span class="o">+</span> <span class="n">cFile</span> <span class="o">+</span> <span class="s2">&quot;&#39;);&quot;</span>
 <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">stmt</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The next example restore the image from the database</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC Test - Restore image from the database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;ODBC Test - Restore image from the database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from tel where id = 20000&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Select data&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;select * from tel where id = 20000&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">if</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">See</span> <span class="s">&quot;Write image file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">write</span><span class="p">(</span><span class="s">&quot;tests\great.jpg&quot;</span><span class="p">,</span><span class="n">hex2str</span><span class="p">(</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-<span class="k">ok</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">if</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s2">&quot;Write image file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;tests\great.jpg&quot;</span><span class="p">,</span><span class="nb">hex2str</span><span class="p">(</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="k k-Control">ok</span>
+<span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>

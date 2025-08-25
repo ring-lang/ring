@@ -280,11 +280,11 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <img alt="Better Ring for Android" src="_images/cardsqt.png" />
 <p>To prepare Qt project to distribute RingQt application for Mobile use Ring2EXE</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">cards</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">cards</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
 </pre></div>
 </div>
 <p>Example (2)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">formdesigner</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">formdesigner</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
 </pre></div>
 </div>
 <img alt="Form Designer - Android" src="_images/formdesignerandroid.png" />
@@ -322,12 +322,12 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <p>Ring 1.6 comes with the RingMurmurHash extension!</p>
 <p>Developer: Hassan Ahmed</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;murmurhashlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;murmurhashlib.ring&quot;</span>
 
-key = &quot;Ring Language&quot;
+<span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;Ring Language&quot;</span>
 
-see murmurhash3_x86_32(key, 0, 0) + nl // Output: 1894444853
-see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
+<span class="k">see</span> <span class="n">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="c1">// Output: 1894444853</span>
+<span class="k">see</span> <span class="n">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="c1">// Output: 70eaef35</span>
 </pre></div>
 </div>
 <p>For more information check the RingMurmurHash chapter in the documentation.</p>
@@ -417,7 +417,7 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <span id="index-14"></span><h2>Using Tab instead of char(9)<a class="headerlink" href="#using-tab-instead-of-char-9" title="Permalink to this heading"></a></h2>
 <p>The variable Tab is defined to be used instead of char(9)</p>
 <p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="ss">:one</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">tab</span> <span class="o">+</span> <span class="ss">:two</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">tab</span> <span class="o">+</span> <span class="bp">tab</span> <span class="o">+</span> <span class="ss">:three</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -428,8 +428,8 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 </div>
 <p>You can change the variable to another value</p>
 <p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="s">&quot;  &quot;</span>
-<span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="bp">tab</span> <span class="o">=</span> <span class="s2">&quot;  &quot;</span>
+<span class="k">see</span> <span class="ss">:one</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">tab</span> <span class="o">+</span> <span class="ss">:two</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">tab</span> <span class="o">+</span> <span class="bp">tab</span> <span class="o">+</span> <span class="ss">:three</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -442,8 +442,8 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <section id="using-cr-as-carriage-return">
 <span id="index-15"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this heading"></a></h2>
 <p>The next example count from 1 to 10 in the same line during 10 seconds</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="n">cr</span> <span class="k">next</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="bp">cr</span> <span class="k k-Control">next</span>
 </pre></div>
 </div>
 </section>
@@ -453,9 +453,9 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <p>But for the logical operators we have and, or &amp; not</p>
 <p>Now we can use the ! operator as not</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">!</span> <span class="kp">false</span>
-        <span class="k">see</span> <span class="s">&quot;True!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="o">!</span> <span class="bp">false</span>
+        <span class="k">see</span> <span class="s2">&quot;True!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">ok</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -478,33 +478,33 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <li><p>!</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="ow">and</span> <span class="n">two</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test1 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test1 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">one</span><span class="p">()</span> <span class="ow">and</span> <span class="n">two</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s2">&quot;Test1 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">else</span>
+        <span class="k">see</span> <span class="s2">&quot;Test1 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">ok</span>
 
-<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="ow">or</span> <span class="n">one</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test2 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test2 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<span class="k k-Control">if</span> <span class="n">two</span><span class="p">()</span> <span class="ow">or</span> <span class="n">one</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s2">&quot;Test2 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">else</span>
+        <span class="k">see</span> <span class="s2">&quot;Test2 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">ok</span>
 
-<span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">two</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test3 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test3 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<span class="k k-Control">if</span> <span class="n">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">two</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s2">&quot;Test3 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">else</span>
+        <span class="k">see</span> <span class="s2">&quot;Test3 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">ok</span>
 
-<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="o">||</span> <span class="n">one</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test4 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test4 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<span class="k k-Control">if</span> <span class="n">two</span><span class="p">()</span> <span class="o">||</span> <span class="n">one</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s2">&quot;Test4 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">else</span>
+        <span class="k">see</span> <span class="s2">&quot;Test4 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">ok</span>
 
-<span class="k">func</span> <span class="n">one</span> <span class="k">return</span> <span class="kp">True</span>
+<span class="kd">func</span> <span class="nf">one</span> <span class="k k-Control">return</span> <span class="bp">True</span>
 
-<span class="k">func</span> <span class="n">two</span> <span class="k">return</span> <span class="kp">False</span>
+<span class="kd">func</span> <span class="nf">two</span> <span class="k k-Control">return</span> <span class="bp">False</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -519,10 +519,10 @@ Test4 - Pass
 <span id="index-18"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this heading"></a></h2>
 <p>It’s common to print new line after printing an expression, We can use the ? operator to do that!</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
         <span class="o">?</span> <span class="n">x</span>
-<span class="k">next</span>
+<span class="k k-Control">next</span>
 </pre></div>
 </div>
 <p>Output:</p>

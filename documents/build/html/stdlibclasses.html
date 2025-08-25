@@ -359,62 +359,62 @@
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="k">See</span> <span class="s">&quot;Testing the String Class&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">upper</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">lower</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Hello&quot;</span> <span class="p">)</span>
-<span class="k">See</span> <span class="n">oString</span><span class="p">.</span><span class="n">lines</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;    Welcome    &quot;</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;Hello! &quot;</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">oString</span><span class="p">.</span><span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;Hello! &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oString</span><span class="p">.</span><span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oString</span><span class="p">.</span><span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;Hello!! &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">oString</span><span class="p">.</span><span class="n">lines</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">String</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">String</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="o">+</span><span class="n">nl</span><span class="o">+</span><span class="s">&quot;two&quot;</span><span class="o">+</span><span class="n">nl</span><span class="o">+</span><span class="s">&quot;three&quot;</span><span class="p">)</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">oString</span><span class="p">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="k">see</span> <span class="s">&quot;List Items&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="k">See</span> <span class="n">aList</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">String</span><span class="p">(</span> <span class="s">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;the - position : &quot;</span> <span class="o">+</span> <span class="n">oString</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="s">&quot;the&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="n">oString</span><span class="p">.</span><span class="n">getfrom</span><span class="p">(</span><span class="n">oString</span><span class="p">.</span><span class="n">pos</span><span class="p">(</span><span class="s">&quot;Ring&quot;</span><span class="p">))</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">mid</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="n">oString</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="s">&quot;***Ring***&quot;</span><span class="p">,</span><span class="kp">true</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="n">oString</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;ring&quot;</span><span class="p">,</span><span class="s">&quot;***Ring***&quot;</span><span class="p">,</span><span class="kp">false</span><span class="p">)</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;First&quot;</span><span class="p">)</span>
-<span class="n">oString2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;Second&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;Testing the String Class&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">upper</span><span class="p">()</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">lower</span><span class="p">()</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">left</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;Hi&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;Hello&quot;</span> <span class="p">)</span>
+<span class="k">See</span> <span class="n">oString</span><span class="o">.</span><span class="nb">lines</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;    Welcome    &quot;</span><span class="p">)</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">trim</span><span class="p">()</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;Hello! &quot;</span><span class="p">)</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">copy</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">oString</span><span class="o">.</span><span class="nb">strcmp</span><span class="p">(</span><span class="s2">&quot;Hello! &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oString</span><span class="o">.</span><span class="nb">strcmp</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oString</span><span class="o">.</span><span class="nb">strcmp</span><span class="p">(</span><span class="s2">&quot;Hello!! &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">])</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">oString</span><span class="o">.</span><span class="nb">lines</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">String</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">String</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="o">+</span><span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;two&quot;</span><span class="o">+</span><span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;three&quot;</span><span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">oString</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="k">see</span> <span class="s2">&quot;List Items&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="k">See</span> <span class="n">aList</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">String</span><span class="p">(</span> <span class="s2">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;the - position : &quot;</span> <span class="o">+</span> <span class="n">oString</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="s2">&quot;the&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="n">oString</span><span class="o">.</span><span class="n">getfrom</span><span class="p">(</span><span class="n">oString</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="s2">&quot;Ring&quot;</span><span class="p">))</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">mid</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="n">oString</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Ring&quot;</span><span class="p">,</span><span class="s2">&quot;***Ring***&quot;</span><span class="p">,</span><span class="bp">true</span><span class="p">)</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="n">oString</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ring&quot;</span><span class="p">,</span><span class="s2">&quot;***Ring***&quot;</span><span class="p">,</span><span class="bp">false</span><span class="p">)</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;First&quot;</span><span class="p">)</span>
+<span class="n">oString2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;Second&quot;</span><span class="p">)</span>
 <span class="n">oString</span> <span class="o">=</span> <span class="n">oString1</span> <span class="o">+</span> <span class="n">oString2</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
 <span class="n">oString</span> <span class="o">=</span> <span class="n">oString1</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">ostring</span> <span class="k">see</span> <span class="n">t</span> <span class="k">next</span>
-<span class="n">oString</span><span class="p">.</span><span class="n">tofile</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)</span>
-<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;one two three&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">ostring</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">ostring</span> <span class="k">see</span> <span class="n">t</span> <span class="k k-Control">next</span>
+<span class="n">oString</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;one two three&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">ostring</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="n">oString</span> <span class="p">{</span>
-        <span class="n">set</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="n">println</span><span class="p">()</span>
-        <span class="n">set</span><span class="p">(</span><span class="s">&quot;How are you?&quot;</span><span class="p">)</span> <span class="n">println</span><span class="p">()</span>
+        <span class="n">set</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="n">println</span><span class="p">()</span>
+        <span class="n">set</span><span class="p">(</span><span class="s2">&quot;How are you?&quot;</span><span class="p">)</span> <span class="n">println</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Testing</span> <span class="n">the</span> <span class="kt">String</span> <span class="k">Class</span>
-<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Testing</span> <span class="n">the</span> <span class="n">String</span> <span class="kd">Class</span>
+<span class="nc">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
 <span class="n">HELLO</span><span class="p">,</span> <span class="n">WORLD</span><span class="o">!</span>
 <span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="o">!</span>
 <span class="n">Hello</span>
@@ -431,11 +431,11 @@
 <span class="n">three</span>
 <span class="mi">4</span>
 <span class="mi">1234</span>
-<span class="kt">List</span> <span class="n">Items</span>
+<span class="n">List</span> <span class="n">Items</span>
 <span class="n">one</span>
 <span class="n">two</span>
 <span class="n">three</span>
-<span class="n">the</span> <span class="o">-</span> <span class="n">position</span> <span class="p">:</span> <span class="mi">12</span>
+<span class="n">the</span> <span class="o">-</span> <span class="n">position</span> <span class="o">:</span> <span class="mi">12</span>
 <span class="n">Ring</span> <span class="n">programming</span> <span class="n">language</span>
 <span class="n">Ring</span>
 <span class="o">***</span><span class="n">Ring</span><span class="o">***</span> <span class="n">programming</span> <span class="n">language</span>
@@ -498,38 +498,38 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">)</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">oList</span><span class="p">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">oList</span><span class="p">.</span><span class="n">first</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oList</span><span class="p">.</span><span class="n">last</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oList</span> <span class="p">{</span> <span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">)</span> <span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">)</span> <span class="n">set</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">)</span> <span class="n">print</span><span class="p">()</span> <span class="p">}</span>
-<span class="k">see</span> <span class="n">oList</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">sort</span><span class="p">().</span><span class="n">print</span><span class="p">()</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">reverse</span><span class="p">().</span><span class="n">print</span><span class="p">()</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;nice&quot;</span><span class="p">)</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">oList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span> <span class="o">]</span> <span class="p">)</span>
-<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="k">see</span> <span class="s">&quot;Search two : &quot;</span> <span class="o">+</span> <span class="n">oList</span><span class="p">.</span><span class="n">findincolumn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Search 1 : &quot;</span> <span class="o">+</span> <span class="n">oList</span><span class="p">.</span><span class="n">findincolumn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span> <span class="s">&quot;Egypt&quot;</span> <span class="p">,</span> <span class="s">&quot;USA&quot;</span> <span class="p">,</span> <span class="s">&quot;KSA&quot;</span> <span class="o">]</span> <span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">oList</span>
-        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">next</span>
-<span class="n">oList</span> <span class="o">=</span>  <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span> <span class="p">)</span>
-<span class="n">oList</span> <span class="o">+</span> <span class="o">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="o">]</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">oList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="o">]</span> <span class="p">)</span>
-<span class="n">oList2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="o">]</span> <span class="p">)</span>
+<span class="n">oList</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">list</span> <span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">oList</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oList</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">oList</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oList</span><span class="o">.</span><span class="n">last</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oList</span> <span class="p">{</span> <span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;one&quot;</span><span class="p">)</span> <span class="n">set</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">)</span> <span class="n">set</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">)</span> <span class="nb">print</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">see</span> <span class="n">oList</span><span class="o">.</span><span class="nb">find</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">sort</span><span class="p">()</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">reverse</span><span class="p">()</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;nice&quot;</span><span class="p">)</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">oList</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">list</span> <span class="p">(</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;one&quot;</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+<span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="k">see</span> <span class="s2">&quot;Search two : &quot;</span> <span class="o">+</span> <span class="n">oList</span><span class="o">.</span><span class="n">findincolumn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Search 1 : &quot;</span> <span class="o">+</span> <span class="n">oList</span><span class="o">.</span><span class="n">findincolumn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oList</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">list</span> <span class="p">(</span> <span class="p">[</span> <span class="s2">&quot;Egypt&quot;</span> <span class="p">,</span> <span class="s2">&quot;USA&quot;</span> <span class="p">,</span> <span class="s2">&quot;KSA&quot;</span> <span class="p">]</span> <span class="p">)</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">oList</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">next</span>
+<span class="n">oList</span> <span class="o">=</span>  <span class="kp">new</span> <span class="nc">list</span> <span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">oList</span> <span class="o">+</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="n">oList</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">list</span> <span class="p">(</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">oList2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">list</span> <span class="p">(</span> <span class="p">[</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">]</span> <span class="p">)</span>
 <span class="n">oList</span> <span class="o">+</span> <span class="n">oList2</span>
-<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">oList</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>output:</p>
@@ -564,8 +564,8 @@
 <span class="n">two</span>
 <span class="mi">3</span>
 <span class="n">three</span>
-<span class="n">Search</span> <span class="n">two</span> <span class="p">:</span> <span class="mi">2</span>
-<span class="n">Search</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">Search</span> <span class="n">two</span> <span class="o">:</span> <span class="mi">2</span>
+<span class="n">Search</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span>
 <span class="n">Egypt</span>
 <span class="n">USA</span>
 <span class="n">KSA</span>
@@ -609,19 +609,19 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Stack</span>
-<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">oStack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oStack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oStack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">oStack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oStack</span> <span class="p">{</span> <span class="n">push</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">)</span> <span class="n">push</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span> <span class="n">push</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">)</span> <span class="p">}</span>
-<span class="n">oStack</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">oStack</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Stack</span>
+<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oStack</span> <span class="p">{</span> <span class="n">push</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span> <span class="n">push</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span> <span class="n">push</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">oStack</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>output:</p>
@@ -655,19 +655,19 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Queue</span>
-<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">oQueue</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oQueue</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oQueue</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">oQueue</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oQueue</span> <span class="p">{</span> <span class="n">add</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">)</span> <span class="n">add</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span> <span class="n">add</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">)</span> <span class="p">}</span>
-<span class="n">oQueue</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">oQueue</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Queue</span>
+<span class="n">oQueue</span><span class="o">.</span><span class="nb">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oQueue</span><span class="o">.</span><span class="nb">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oQueue</span><span class="o">.</span><span class="nb">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oQueue</span><span class="o">.</span><span class="nb">remove</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oQueue</span><span class="o">.</span><span class="nb">remove</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oQueue</span><span class="o">.</span><span class="nb">remove</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oQueue</span><span class="o">.</span><span class="nb">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oQueue</span><span class="o">.</span><span class="nb">remove</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oQueue</span> <span class="p">{</span> <span class="nb">add</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span> <span class="nb">add</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span> <span class="nb">add</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">oQueue</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>output:</p>
@@ -713,27 +713,27 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">ohashtable</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">hashtable</span>
-<span class="k">See</span> <span class="s">&quot;Test the hashtable Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">ohashtable</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">hashtable</span>
+<span class="k">See</span> <span class="s2">&quot;Test the hashtable Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">ohashtable</span> <span class="p">{</span>
-        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span><span class="p">,</span><span class="s">&quot;Cairo&quot;</span><span class="p">)</span>
-        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">,</span><span class="s">&quot;Riyadh&quot;</span><span class="p">)</span>
-        <span class="k">see</span> <span class="n">self</span><span class="o">[</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">self</span><span class="o">[</span><span class="s">&quot;KSA&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s">&quot;USA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">index</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="n">NL</span>
-        <span class="n">print</span><span class="p">()</span>
-        <span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">))</span>
-        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">print</span><span class="p">()</span>
+        <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">,</span><span class="s2">&quot;Cairo&quot;</span><span class="p">)</span>
+        <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">,</span><span class="s2">&quot;Riyadh&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="kp">self</span><span class="p">[</span><span class="s2">&quot;Egypt&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="kp">self</span><span class="p">[</span><span class="s2">&quot;KSA&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s2">&quot;USA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="n">index</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">NL</span>
+        <span class="nb">print</span><span class="p">()</span>
+        <span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">))</span>
+        <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="nb">print</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="kt">hashtable</span> <span class="k">Class</span> <span class="n">Methods</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">hashtable</span> <span class="kd">Class</span> <span class="nc">Methods</span>
 <span class="n">Cairo</span>
 <span class="n">Riyadh</span>
 <span class="mi">1</span>
@@ -793,63 +793,63 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">otree</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">tree</span>
-<span class="k">See</span> <span class="s">&quot;Test the tree Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">otree</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">tree</span>
+<span class="k">See</span> <span class="s2">&quot;Test the tree Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">otree</span> <span class="p">{</span>
-        <span class="n">set</span><span class="p">(</span><span class="s">&quot;The first step&quot;</span><span class="p">)</span>   <span class="c"># set the root node value</span>
-        <span class="k">see</span> <span class="n">value</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">)</span>
-        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span>
-        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.1&quot;</span><span class="p">)</span>
-                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.2&quot;</span><span class="p">)</span>
-                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.3&quot;</span><span class="p">)</span>
+        <span class="n">set</span><span class="p">(</span><span class="s2">&quot;The first step&quot;</span><span class="p">)</span>   <span class="c1"># set the root node value</span>
+        <span class="k">see</span> <span class="n">value</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+        <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span>
+        <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;3.1&quot;</span><span class="p">)</span>
+                <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;3.2&quot;</span><span class="p">)</span>
+                <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;3.3&quot;</span><span class="p">)</span>
                 <span class="k">see</span> <span class="n">children</span>
         <span class="p">}</span>
         <span class="k">see</span> <span class="n">children</span>
-        <span class="n">oTree</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">{</span>
-                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.1&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.2&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3&quot;</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3.1&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3.2&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+        <span class="n">oTree</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">{</span>
+                <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.1&quot;</span><span class="p">)</span> <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.2&quot;</span><span class="p">)</span> <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.3&quot;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.3.1&quot;</span><span class="p">)</span> <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.3.2&quot;</span><span class="p">)</span> <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">oTree</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;2.3.3&quot;</span><span class="p">)</span>
+        <span class="n">oTree</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;2.3.3&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oTree</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oTree</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="kt">tree</span> <span class="k">Class</span> <span class="n">Methods</span>
-<span class="n">The</span> <span class="n">first</span> <span class="k">step</span>
-<span class="n">data</span><span class="p">:</span> <span class="mf">3.1</span>
-<span class="n">parent</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">children</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">data</span><span class="p">:</span> <span class="mf">3.2</span>
-<span class="n">parent</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">children</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">data</span><span class="p">:</span> <span class="mf">3.3</span>
-<span class="n">parent</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">children</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">data</span><span class="p">:</span> <span class="n">one</span>
-<span class="n">parent</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">children</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">data</span><span class="p">:</span> <span class="n">two</span>
-<span class="n">parent</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">children</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">data</span><span class="p">:</span> <span class="n">three</span>
-<span class="n">parent</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">children</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">tree</span> <span class="kd">Class</span> <span class="nc">Methods</span>
+<span class="n">The</span> <span class="n">first</span> <span class="k k-Control">step</span>
+<span class="n">data</span><span class="o">:</span> <span class="mf">3.1</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">children</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">data</span><span class="o">:</span> <span class="mf">3.2</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">children</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">data</span><span class="o">:</span> <span class="mf">3.3</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">children</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">data</span><span class="o">:</span> <span class="n">one</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">children</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">data</span><span class="o">:</span> <span class="n">two</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">children</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">data</span><span class="o">:</span> <span class="n">three</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
+<span class="n">children</span><span class="o">:</span> <span class="n">List</span><span class="o">...</span>
 <span class="o">************************************************************</span>
 <span class="n">one</span>
 <span class="n">two</span>
 <span class="mf">2.1</span>
 <span class="mf">2.2</span>
 <span class="mf">2.3</span>
-<span class="mf">2.3.1</span>
-<span class="mf">2.3.2</span>
-<span class="mf">2.3.3</span>
+<span class="mf">2.3</span><span class="o">.</span><span class="mi">1</span>
+<span class="mf">2.3</span><span class="o">.</span><span class="mi">2</span>
+<span class="mf">2.3</span><span class="o">.</span><span class="mi">3</span>
 <span class="n">three</span>
 <span class="mf">3.1</span>
 <span class="mf">3.2</span>
@@ -933,138 +933,138 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oMath</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Math</span>
+<span class="n">oMath</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Math</span>
 
-<span class="k">See</span> <span class="s">&quot;Test the Math Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Sin(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Sin(90) radians = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Sin(90) degree = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Test the Math Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Sin(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Sin(90) radians = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Sin(90) degree = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">sin</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Cos(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Cos(90) radians = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Cos(90) degree = &quot;</span> <span class="o">+</span><span class="n">oMath</span><span class="p">.</span> <span class="n">cos</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Cos(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Cos(90) radians = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Cos(90) degree = &quot;</span> <span class="o">+</span><span class="n">oMath</span><span class="o">.</span> <span class="nb">cos</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Tan(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Tan(90) radians = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Tan(90) degree = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">tan</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Tan(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Tan(90) radians = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Tan(90) degree = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">tan</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;asin(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;acos(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;atan(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;atan2(1,1) = &quot;</span> <span class="o">+</span><span class="n">oMath</span><span class="p">.</span> <span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;asin(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;acos(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;atan(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;atan2(1,1) = &quot;</span> <span class="o">+</span><span class="n">oMath</span><span class="o">.</span> <span class="nb">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;sinh(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;sinh(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;cosh(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;cosh(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;tanh(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;tanh(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;sinh(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;sinh(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;cosh(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;cosh(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;tanh(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;tanh(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;exp(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;exp(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;log(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;log(2) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;log10(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;log10(2) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;log10(10) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;exp(0) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;exp(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;log(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;log(2) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;log10(1) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;log10(2) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;log10(10) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Ceil(1.12) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Ceil(1.72) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Ceil(1.12) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Ceil(1.72) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Floor(1.12) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Floor(1.72) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Floor(1.12) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Floor(1.72) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;fabs(1.12) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;fabs(1.72) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;fabs(1.12) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;fabs(1.72) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;pow(2,3) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;pow(2,3) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">see</span> <span class="s">&quot;sqrt(16) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s2">&quot;sqrt(16) = &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">20</span>
-                <span class="k">see</span> <span class="s">&quot;Random number Max (100) : &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">20</span>
+                <span class="k">see</span> <span class="s2">&quot;Random number Max (100) : &quot;</span> <span class="o">+</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">next</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mf">1.1234567890123</span>
-<span class="k">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">14</span>
-        <span class="n">oMath</span><span class="p">.</span><span class="n">decimals</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">next</span>
+<span class="k k-Control">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">14</span>
+        <span class="n">oMath</span><span class="o">.</span><span class="nb">decimals</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">next</span>
 
-<span class="n">cKey</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span>
+<span class="n">cKey</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
 
 <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cKey</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">ascii</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
-<span class="k">next</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="s">&quot;&gt;&gt;&quot;</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="p">.</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">cKey</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>
+<span class="k k-Control">next</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">),</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">oMath</span><span class="o">.</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;Hash : &quot;</span> <span class="o">+</span> <span class="n">h</span>
+<span class="k">see</span> <span class="s2">&quot;Hash : &quot;</span> <span class="o">+</span> <span class="n">h</span>
 </pre></div>
 </div>
 <p>output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">Math</span> <span class="k">Class</span> <span class="n">Methods</span>
-<span class="n">Sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="mf">0.89</span>
-<span class="n">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1.00</span>
-<span class="n">Cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.45</span>
-<span class="n">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">0.00</span>
-<span class="n">Tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.00</span>
-<span class="n">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1255.77</span>
-<span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.57</span>
-<span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.79</span>
-<span class="n">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.18</span>
-<span class="n">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.54</span>
-<span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.76</span>
-<span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.72</span>
-<span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.69</span>
-<span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.30</span>
-<span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">Floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.12</span>
-<span class="n">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.72</span>
-<span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">87</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">49</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">99</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">58</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">15</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">46</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">37</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">64</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">73</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">35</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">89</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">80</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">20</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">33</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">44</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">89</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">82</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">94</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">83</span>
-<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">68</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">Math</span> <span class="kd">Class</span> <span class="nc">Methods</span>
+<span class="nb">Sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="mf">0.89</span>
+<span class="nb">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="nb">Cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.45</span>
+<span class="nb">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">0.00</span>
+<span class="nb">Tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.00</span>
+<span class="nb">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1255.77</span>
+<span class="nb">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.57</span>
+<span class="nb">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.79</span>
+<span class="nb">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.18</span>
+<span class="nb">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.54</span>
+<span class="nb">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.76</span>
+<span class="nb">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.72</span>
+<span class="nb">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.69</span>
+<span class="nb">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="nb">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">Floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">Floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.12</span>
+<span class="nb">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.72</span>
+<span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="nb">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">87</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">49</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">99</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">58</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">15</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">46</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">37</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">64</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">73</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">35</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">89</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">80</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">20</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">33</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">44</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">89</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">82</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">94</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">83</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="nb">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">:</span> <span class="mi">68</span>
 <span class="mi">1</span>
 <span class="mf">1.1</span>
 <span class="mf">1.12</span>
@@ -1080,7 +1080,7 @@
 <span class="mf">1.123456789012</span>
 <span class="mf">1.1234567890123</span>
 <span class="mf">1.12345678901230</span>
-<span class="n">Hash</span> <span class="p">:</span> <span class="mf">3372029979.00000000000000</span>
+<span class="n">Hash</span> <span class="o">:</span> <span class="mf">3372029979.00000000000000</span>
 </pre></div>
 </div>
 </section>
@@ -1115,49 +1115,49 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oDateTime</span> <span class="o">=</span> <span class="k">new</span> <span class="n">datetime</span>
+<span class="n">oDateTime</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">datetime</span>
 
-<span class="k">See</span> <span class="s">&quot;Test the datetime Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Test the datetime Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Calculate performance&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span> <span class="k">next</span>
-<span class="k">see</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Calculate performance&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">clock</span><span class="p">()</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">1000000</span> <span class="k k-Control">next</span>
+<span class="k">see</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;Date : &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">date</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Date : &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">date</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">TimeList</span><span class="p">()</span>
+<span class="k">See</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">TimeList</span><span class="p">()</span>
 
-<span class="k">See</span> <span class="s">&quot;Month Name : &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">TimeList</span><span class="p">()</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="k">See</span> <span class="s2">&quot;Month Name : &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">TimeList</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="n">cDate</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">date</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">cDate</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">adddays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">cDate</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">date</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">cDate</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">adddays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="n">cDate1</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">date</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">cDate1</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">cDate2</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">adddays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cDate2</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="p">.</span><span class="n">diffdays</span><span class="p">(</span><span class="n">cDate2</span><span class="p">,</span><span class="n">cDate1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">cDate1</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">date</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">cDate1</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">cDate2</span> <span class="o">=</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">adddays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">cDate2</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">oDateTime</span><span class="o">.</span><span class="nb">diffdays</span><span class="p">(</span><span class="n">cDate2</span><span class="p">,</span><span class="n">cDate1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">datetime</span> <span class="k">Class</span> <span class="n">Methods</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">datetime</span> <span class="kd">Class</span> <span class="nc">Methods</span>
 <span class="n">Calculate</span> <span class="n">performance</span>
 <span class="mi">85</span>
-<span class="n">Time</span> <span class="p">:</span> <span class="mi">02</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">35</span>
-<span class="n">Date</span> <span class="p">:</span> <span class="mi">31</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">2016</span>
+<span class="n">Time</span> <span class="o">:</span> <span class="mi">02</span><span class="o">:</span><span class="mi">53</span><span class="o">:</span><span class="mi">35</span>
+<span class="n">Date</span> <span class="o">:</span> <span class="mi">31</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">2016</span>
 <span class="n">Wed</span>
 <span class="n">Wednesday</span>
 <span class="n">Aug</span>
 <span class="n">August</span>
-<span class="mi">08</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">16</span> <span class="mi">02</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">35</span>
+<span class="mi">08</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">16</span> <span class="mi">02</span><span class="o">:</span><span class="mi">53</span><span class="o">:</span><span class="mi">35</span>
 <span class="mi">31</span>
 <span class="mi">02</span>
 <span class="mi">02</span>
@@ -1169,12 +1169,12 @@
 <span class="mi">35</span>
 <span class="mi">3</span>
 <span class="mi">08</span><span class="o">/</span><span class="mi">31</span><span class="o">/</span><span class="mi">16</span>
-<span class="mi">02</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">35</span>
+<span class="mi">02</span><span class="o">:</span><span class="mi">53</span><span class="o">:</span><span class="mi">35</span>
 <span class="mi">16</span>
 <span class="mi">2016</span>
 <span class="n">Arab</span> <span class="n">Standard</span> <span class="n">Time</span>
 <span class="o">%</span>
-<span class="n">Month</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">August31</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">2016</span>
+<span class="n">Month</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">August31</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">2016</span>
 <span class="mi">10</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">2016</span>
 <span class="mi">31</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">2016</span>
 <span class="mi">10</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">2016</span>
@@ -1277,17 +1277,17 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">ofile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">file</span>
+<span class="n">ofile</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">file</span>
 
-<span class="k">See</span> <span class="s">&quot;Test the file Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">ofile</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">())</span>
+<span class="k">See</span> <span class="s2">&quot;Test the file Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">ofile</span><span class="o">.</span><span class="nb">read</span><span class="p">(</span><span class="nb">filename</span><span class="p">())</span>
 
-<span class="k">see</span> <span class="n">nl</span>
-<span class="n">ofile</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">ofile</span><span class="p">.</span><span class="n">gets</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">ofile</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">see</span> <span class="bp">nl</span>
+<span class="n">ofile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">ofile</span><span class="o">.</span><span class="n">gets</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">ofile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -1343,25 +1343,25 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oSystem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">System</span>
+<span class="n">oSystem</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">System</span>
 
-<span class="k">See</span> <span class="s">&quot;Test the System Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Test the System Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="n">oSystem</span><span class="p">.</span><span class="n">system</span><span class="p">(</span><span class="s">&quot;dir&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">sysget</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">ismsdos</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">iswindows</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">iswindows64</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">isunix</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">ismacosx</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">islinux</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">isfreebsd</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">isandroid</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">windowsnl</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">sysargv</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oSystem</span><span class="p">.</span><span class="n">filename</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oSystem</span><span class="o">.</span><span class="nb">system</span><span class="p">(</span><span class="s2">&quot;dir&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">sysget</span><span class="p">(</span><span class="s2">&quot;path&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">ismsdos</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">iswindows</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">iswindows64</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">isunix</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">ismacosx</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">islinux</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">isfreebsd</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">isandroid</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">windowsnl</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="bp">sysargv</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oSystem</span><span class="o">.</span><span class="nb">filename</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -1387,16 +1387,16 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oDebug</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Debug</span>
-<span class="k">See</span> <span class="s">&quot;Test the Debug Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oDebug</span><span class="p">.</span><span class="n">eval</span><span class="p">(</span><span class="s">&quot;see &#39;Hello&#39;+nl&quot;</span><span class="p">)</span>
-<span class="k">try</span>
+<span class="n">oDebug</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Debug</span>
+<span class="k">See</span> <span class="s2">&quot;Test the Debug Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oDebug</span><span class="o">.</span><span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;see &#39;Hello&#39;+nl&quot;</span><span class="p">)</span>
+<span class="k k-Control">try</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="n">oDebug</span><span class="p">.</span><span class="n">assert</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-<span class="k">catch</span> <span class="k">see</span> <span class="s">&quot;assert&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="k">done</span>
-<span class="n">raise</span><span class="p">(</span><span class="s">&quot;Error!&quot;</span><span class="p">)</span>
+        <span class="n">oDebug</span><span class="o">.</span><span class="nb">assert</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="k k-Control">catch</span> <span class="k">see</span> <span class="s2">&quot;assert&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="k k-Control">done</span>
+<span class="nb">raise</span><span class="p">(</span><span class="s2">&quot;Error!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1461,47 +1461,47 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oDataType</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DataType</span>
-<span class="k">See</span> <span class="s">&quot;Test the DataType Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isstring</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isnumber</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">islist</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">type</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isnull</span><span class="p">(</span><span class="kp">null</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;123456&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;ABCabc123&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;How are you&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>     <span class="c"># print 0 because of spaces</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;123456&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 0</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;ABCabc123&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="c"># print 0</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;How are you&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 0</span>
-<span class="k">See</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">iscntrl</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 0</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">iscntrl</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>                 <span class="c"># print 1</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isdigit</span><span class="p">(</span><span class="s">&quot;0123456789&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>        <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isdigit</span><span class="p">(</span><span class="s">&quot;0123a&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isgraph</span><span class="p">(</span><span class="s">&quot;abcdef&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isgraph</span><span class="p">(</span><span class="s">&quot;abc def&quot;</span><span class="p">)</span>   <span class="o">+</span> <span class="n">nl</span>        <span class="c"># print 0</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">islower</span><span class="p">(</span><span class="s">&quot;abcDEF&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 0</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">islower</span><span class="p">(</span><span class="s">&quot;ghi&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>          <span class="c"># print 1</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isprint</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>             <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isprint</span><span class="p">(</span><span class="s">&quot;Nice to see you&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>   <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isprint</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>    <span class="o">+</span> <span class="n">nl</span>                      <span class="c"># print 0</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isprint</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>              <span class="c"># print 1</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isupper</span><span class="p">(</span><span class="s">&quot;welcome&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 0</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isupper</span><span class="p">(</span><span class="s">&quot;WELCOME&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>         <span class="c"># print 1</span>
-<span class="k">see</span> <span class="n">oDataType</span><span class="p">.</span><span class="n">isxdigit</span><span class="p">(</span><span class="s">&quot;0123456789abcdef&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>  <span class="c"># print 1</span>
-<span class="n">oDataType</span><span class="p">.</span><span class="n">isxdigit</span><span class="p">(</span><span class="s">&quot;123z&quot;</span><span class="p">)</span>                     <span class="c"># print 0</span>
+<span class="n">oDataType</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">DataType</span>
+<span class="k">See</span> <span class="s2">&quot;Test the DataType Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isstring</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isnumber</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">islist</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isnull</span><span class="p">(</span><span class="bp">null</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isalnum</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>     <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isalnum</span><span class="p">(</span><span class="s2">&quot;123456&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>    <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isalnum</span><span class="p">(</span><span class="s2">&quot;ABCabc123&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isalnum</span><span class="p">(</span><span class="s2">&quot;How are you&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">nl</span>     <span class="c1"># print 0 because of spaces</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isalpha</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>     <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isalpha</span><span class="p">(</span><span class="s2">&quot;123456&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>    <span class="c1"># print 0</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isalpha</span><span class="p">(</span><span class="s2">&quot;ABCabc123&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="c1"># print 0</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isalpha</span><span class="p">(</span><span class="s2">&quot;How are you&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">nl</span>    <span class="c1"># print 0</span>
+<span class="k">See</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">iscntrl</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>     <span class="c1"># print 0</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">iscntrl</span><span class="p">(</span><span class="bp">nl</span><span class="p">)</span>                 <span class="c1"># print 1</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isdigit</span><span class="p">(</span><span class="s2">&quot;0123456789&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>        <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isdigit</span><span class="p">(</span><span class="s2">&quot;0123a&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isgraph</span><span class="p">(</span><span class="s2">&quot;abcdef&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>    <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isgraph</span><span class="p">(</span><span class="s2">&quot;abc def&quot;</span><span class="p">)</span>   <span class="o">+</span> <span class="bp">nl</span>        <span class="c1"># print 0</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">islower</span><span class="p">(</span><span class="s2">&quot;abcDEF&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>    <span class="c1"># print 0</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">islower</span><span class="p">(</span><span class="s2">&quot;ghi&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>          <span class="c1"># print 1</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isprint</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>             <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isprint</span><span class="p">(</span><span class="s2">&quot;Nice to see you&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>   <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isprint</span><span class="p">(</span><span class="bp">nl</span><span class="p">)</span>    <span class="o">+</span> <span class="bp">nl</span>                      <span class="c1"># print 0</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isprint</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>              <span class="c1"># print 1</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isupper</span><span class="p">(</span><span class="s2">&quot;welcome&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>    <span class="c1"># print 0</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isupper</span><span class="p">(</span><span class="s2">&quot;WELCOME&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">nl</span>         <span class="c1"># print 1</span>
+<span class="k">see</span> <span class="n">oDataType</span><span class="o">.</span><span class="nb">isxdigit</span><span class="p">(</span><span class="s2">&quot;0123456789abcdef&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>  <span class="c1"># print 1</span>
+<span class="n">oDataType</span><span class="o">.</span><span class="nb">isxdigit</span><span class="p">(</span><span class="s2">&quot;123z&quot;</span><span class="p">)</span>                     <span class="c1"># print 0</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">DataType</span> <span class="k">Class</span> <span class="n">Methods</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">DataType</span> <span class="kd">Class</span> <span class="nc">Methods</span>
 <span class="mi">1</span>
 <span class="mi">1</span>
 <span class="mi">1</span>
-<span class="kt">STRING</span>
+<span class="n">STRING</span>
 <span class="mi">1</span>
 <span class="mi">1</span>
 <span class="mi">1</span>
@@ -1566,31 +1566,31 @@
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oConversion</span> <span class="o">=</span> <span class="k">new</span> <span class="n">conversion</span>
-<span class="k">See</span> <span class="s">&quot;Test the conversion Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">number</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>  <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="n">oConversion</span><span class="p">.</span><span class="kt">string</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;5&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">Ascii</span><span class="p">(</span><span class="s">&quot;m&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">char</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">hex</span><span class="p">(</span><span class="mi">162</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">dec</span><span class="p">(</span><span class="s">&quot;a2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">cHex</span> <span class="o">=</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">str2hex</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cHex</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">oConversion</span><span class="p">.</span><span class="n">hex2str</span><span class="p">(</span><span class="n">cHex</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oConversion</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">conversion</span>
+<span class="k">See</span> <span class="s2">&quot;Test the conversion Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">number</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>  <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">string</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;5&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">Ascii</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">char</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">hex</span><span class="p">(</span><span class="mi">162</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">dec</span><span class="p">(</span><span class="s2">&quot;a2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">cHex</span> <span class="o">=</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">str2hex</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">cHex</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">oConversion</span><span class="o">.</span><span class="nb">hex2str</span><span class="p">(</span><span class="n">cHex</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Test the conversion Class Methods
-8
-35
-109
-M
-a2
-162
-48656c6c6f
-Hello
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">conversion</span> <span class="kd">Class</span> <span class="nc">Methods</span>
+<span class="mi">8</span>
+<span class="mi">35</span>
+<span class="mi">109</span>
+<span class="n">M</span>
+<span class="n">a2</span>
+<span class="mi">162</span>
+<span class="mi">48656</span><span class="n">c6c6f</span>
+<span class="n">Hello</span>
 </pre></div>
 </div>
 </section>
@@ -1649,26 +1649,26 @@ Hello
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oodbc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">odbc</span>
-<span class="k">See</span> <span class="s">&quot;Test the odbc Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oodbc</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">odbc</span>
+<span class="k">See</span> <span class="s2">&quot;Test the odbc Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">oODBC</span> <span class="p">{</span>
         <span class="k">see</span> <span class="n">drivers</span><span class="p">()</span>
         <span class="k">see</span> <span class="n">datasources</span><span class="p">()</span>
-        <span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">connect</span><span class="p">(</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">execute</span><span class="p">(</span><span class="s">&quot;select * from person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s2">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="n">connect</span><span class="p">(</span><span class="s2">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">See</span> <span class="s2">&quot;Select data&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">nMax</span> <span class="o">=</span> <span class="n">colcount</span><span class="p">()</span>
-        <span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">while</span> <span class="n">fetch</span><span class="p">()</span>
-                <span class="k">See</span> <span class="s">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
-                        <span class="k">see</span> <span class="n">getdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span>
-                <span class="k">next</span>
-        <span class="k">end</span>
-        <span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">while</span> <span class="n">fetch</span><span class="p">()</span>
+                <span class="k">See</span> <span class="s2">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
+                        <span class="k">see</span> <span class="n">getdata</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span>
+                <span class="k k-Control">next</span>
+        <span class="k k-Control">end</span>
+        <span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">disconnect</span><span class="p">()</span>
         <span class="n">close</span><span class="p">()</span>
 <span class="p">}</span>
@@ -1730,25 +1730,25 @@ Hello
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">omysql</span> <span class="o">=</span> <span class="k">new</span> <span class="n">mysql</span>
-<span class="k">See</span> <span class="s">&quot;Test the MySQL Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">omysql</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">mysql</span>
+<span class="k">See</span> <span class="s2">&quot;Test the MySQL Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">omysql</span> <span class="p">{</span>
-        <span class="k">see</span> <span class="n">info</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">connect</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
-        <span class="k">see</span> <span class="s">&quot;Execute Query&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">query</span><span class="p">(</span><span class="s">&quot;SELECT * FROM Employee&quot;</span><span class="p">)</span>
-        <span class="k">see</span> <span class="s">&quot;Print Result&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">info</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">connect</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span> <span class="s2">&quot;root&quot;</span><span class="p">,</span><span class="s2">&quot;mahdb&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="s2">&quot;Execute Query&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM Employee&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="s2">&quot;Print Result&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="n">result2</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Close database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="s2">&quot;Close database&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">MySQL</span> <span class="k">Class</span> <span class="n">Methods</span>
-<span class="mf">5.5.30</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">MySQL</span> <span class="kd">Class</span> <span class="nc">Methods</span>
+<span class="mf">5.5</span><span class="o">.</span><span class="mi">30</span>
 <span class="n">Execute</span> <span class="n">Query</span>
 <span class="n">Print</span> <span class="n">Result</span>
 <span class="n">Id</span>
@@ -1792,48 +1792,48 @@ Hello
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">osqlite</span> <span class="o">=</span> <span class="k">new</span> <span class="n">sqlite</span>
-<span class="k">See</span> <span class="s">&quot;Test the sqlite Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">osqlite</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">sqlite</span>
+<span class="k">See</span> <span class="s2">&quot;Test the sqlite Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">osqlite</span> <span class="p">{</span>
-        <span class="n">open</span><span class="p">(</span><span class="s">&quot;test.db&quot;</span><span class="p">)</span>
-        <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE COMPANY(&quot;</span>  <span class="o">+</span>
-                <span class="s">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;SALARY         REAL );&quot;</span>
+        <span class="n">open</span><span class="p">(</span><span class="s2">&quot;test.db&quot;</span><span class="p">)</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;CREATE TABLE COMPANY(&quot;</span>  <span class="o">+</span>
+                <span class="s2">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;SALARY         REAL );&quot;</span>
 
         <span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 
-        <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
-                 <span class="s">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
-                 <span class="s">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
-                 <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
+                 <span class="s2">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
 
         <span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 
-        <span class="n">aResult</span> <span class="o">=</span>  <span class="n">execute</span><span class="p">(</span><span class="s">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
-                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
-                        <span class="k">see</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">next</span>
-        <span class="k">next</span>
-        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
-                <span class="k">see</span> <span class="n">x</span><span class="o">[</span><span class="s">&quot;name&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">next</span>
+        <span class="n">aResult</span> <span class="o">=</span>  <span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
+        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aResult</span>
+                <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">x</span>
+                        <span class="k">see</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">next</span>
+        <span class="k k-Control">next</span>
+        <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aResult</span>
+                <span class="k">see</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">next</span>
         <span class="n">close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">sqlite</span> <span class="k">Class</span> <span class="n">Methods</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="n">the</span> <span class="n">sqlite</span> <span class="kd">Class</span> <span class="nc">Methods</span>
 <span class="mi">1</span>
 <span class="n">Mahmoud</span>
 <span class="mi">29</span>
@@ -1884,37 +1884,37 @@ Hello
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oPostgreSQL</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PostgreSQL</span><span class="p">(</span><span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span><span class="p">)</span>
+<span class="n">oPostgreSQL</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">PostgreSQL</span><span class="p">(</span><span class="s2">&quot;user=postgres password=sa dbname = mahdb&quot;</span><span class="p">)</span>
 
-<span class="k">See</span> <span class="s">&quot;Test the PostgreSQL Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Test the PostgreSQL Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
 <span class="n">oPostgreSQL</span> <span class="p">{</span>
 
-        <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE COMPANY_TEST(&quot;</span>  <span class="o">+</span>
-                <span class="s">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;SALARY         REAL );&quot;</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;CREATE TABLE COMPANY_TEST(&quot;</span>  <span class="o">+</span>
+                <span class="s2">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;SALARY         REAL );&quot;</span>
 
         <span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 
-        <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
-                 <span class="s">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
-                 <span class="s">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
-                 <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
-                 <span class="s">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
+        <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
+                 <span class="s2">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;INSERT INTO COMPANY_TEST (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+                 <span class="s2">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
 
         <span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 
-        <span class="o">?</span>  <span class="n">execute</span><span class="p">(</span><span class="s">&quot;select * from COMPANY_TEST&quot;</span><span class="p">)</span>
+        <span class="o">?</span>  <span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select * from COMPANY_TEST&quot;</span><span class="p">)</span>
 
-        <span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
         <span class="n">close</span><span class="p">()</span>
 <span class="p">}</span>
@@ -2001,19 +2001,19 @@ Egypt
 </tbody>
 </table>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">oSecurity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">security</span>
-<span class="k">See</span> <span class="s">&quot;Test the security Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oSecurity</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">security</span>
+<span class="k">See</span> <span class="s2">&quot;Test the security Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">oSecurity</span> <span class="p">{</span>
-        <span class="k">see</span> <span class="n">md5</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-        <span class="n">sha1</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-        <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-        <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="kt">list</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span>  <span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-        <span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span>   <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-        <span class="n">cCipher</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
-        <span class="k">see</span> <span class="n">cCipher</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">md5</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="n">sha1</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="n">sha512</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="n">sha256</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">list</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">15</span>  <span class="n">cKey</span><span class="o">=</span><span class="s2">&quot;&quot;</span>   <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">list</span> <span class="n">cKey</span> <span class="o">+=</span> <span class="nb">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k k-Control">next</span>
+        <span class="n">list</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">8</span>   <span class="n">cIV</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>   <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="nb">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k k-Control">next</span>
+        <span class="n">cCipher</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">cCipher</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2026,12 +2026,12 @@ Egypt
 <li><p>sendemail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)</p></li>
 </ul>
 <p>example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">ointernet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">internet</span>
-<span class="k">See</span> <span class="s">&quot;Test the internet Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">ointernet</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">internet</span>
+<span class="k">See</span> <span class="s2">&quot;Test the internet Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">ointernet</span> <span class="p">{</span>
-        <span class="k">see</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">download</span><span class="p">(</span><span class="s2">&quot;https://ring-lang.github.io/&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>

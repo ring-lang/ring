@@ -249,7 +249,7 @@ ring language.</p>
 <p>URL : <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/extensions/codegen">https://github.com/ring-lang/ring/tree/master/extensions/codegen</a></p>
 <p>for example to read a configuration file called test.cf to generate the source code file test.c
 run parsec.ring as in the next command</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">parsec</span><span class="p">.</span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">cf</span> <span class="n">test</span><span class="p">.</span><span class="n">c</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">parsec</span><span class="o">.</span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">cf</span> <span class="n">test</span><span class="o">.</span><span class="n">c</span>
 </pre></div>
 </div>
 </section>
@@ -278,42 +278,42 @@ and al_get_new_display_option() functions.</p>
 <p>The generated code will be as in the next example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_create_display</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="n">al_create_display</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-                                 <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="s">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">);</span>
+                                 <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="s2">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_destroy_display</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
         <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-        <span class="k">return</span> <span class="p">;</span>
+        <span class="k k-Control">return</span> <span class="p">;</span>
   <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
         <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-        <span class="k">return</span> <span class="p">;</span>
+        <span class="k k-Control">return</span> <span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">al_destroy_display</span><span class="p">((</span><span class="n">ALLEGRO_DISPLAY</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">));</span>
+  <span class="n">al_destroy_display</span><span class="p">((</span><span class="n">ALLEGRO_DISPLAY</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">));</span>
 <span class="p">}</span>
 
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_get_new_display_flags</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">al_get_new_display_flags</span><span class="p">());</span>
 <span class="p">}</span>
@@ -321,13 +321,13 @@ and al_get_new_display_option() functions.</p>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_set_new_display_flags</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">al_set_new_display_flags</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="p">}</span>
@@ -335,17 +335,17 @@ and al_get_new_display_option() functions.</p>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_get_new_display_option</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">al_get_new_display_option</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
                                 <span class="n">RING_API_GETINTPOINTER</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
@@ -362,7 +362,7 @@ and al_get_new_display_option() functions.</p>
 </ul>
 <p>Example :</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
-        <span class="o">/*</span> <span class="n">some</span> <span class="n">C</span> <span class="n">code</span> <span class="n">will</span> <span class="n">be</span> <span class="n">written</span> <span class="n">here</span> <span class="o">*/</span>
+        <span class="cm">/* some C code will be written here */</span>
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -395,7 +395,7 @@ you can type the structure members between { } separated by comma.</p>
 <p>Example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">struct</span><span class="o">&gt;</span>
 <span class="n">ALLEGRO_COLOR</span>
-<span class="n">ALLEGRO_EVENT</span> <span class="p">{</span> <span class="n">type</span> <span class="p">,</span> <span class="n">keyboard</span><span class="p">.</span><span class="n">keycode</span> <span class="p">,</span> <span class="n">mouse</span><span class="p">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">mouse</span><span class="p">.</span><span class="n">y</span> <span class="p">}</span>
+<span class="n">ALLEGRO_EVENT</span> <span class="p">{</span> <span class="n">type</span> <span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">keycode</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span> <span class="p">}</span>
 <span class="o">&lt;/</span><span class="n">struct</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -433,7 +433,7 @@ will be generated too.</p>
 <p>You will need to pass the <a href="#id5"><span class="problematic" id="id6">*</span></a>.rh file name to parsec.ring after the generated source file name.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="p">..</span><span class="o">\</span><span class="n">codegen</span><span class="o">\</span><span class="n">parsec</span><span class="p">.</span><span class="n">ring</span> <span class="n">libsdl</span><span class="p">.</span><span class="n">cf</span> <span class="n">ring_libsdl</span><span class="p">.</span><span class="n">c</span> <span class="n">ring_libsdl</span><span class="p">.</span><span class="n">rh</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring ..\codegen\parsec.ring libsdl.cf ring_libsdl.c ring_libsdl.rh
 </pre></div>
 </div>
 </section>
@@ -450,11 +450,11 @@ we need to write the code of this function.</p>
 <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_exit</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
 <span class="p">}</span>
-<span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k k-Control">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 </pre></div>
@@ -483,7 +483,7 @@ inside &lt;code&gt; and &lt;/code&gt;. This function call the exit() function fr
 <p>write the code between &lt;runcode&gt; and &lt;/runcode&gt;</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
-<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s">&quot;al_fixed&quot;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;al_fixed&quot;</span>
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -495,10 +495,10 @@ types that can be considered as numbers when the code generator find it in the f
 <p>We have the list aEnumTypes to use for adding each Enumeration we uses in the functions prototype.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
-<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s">&quot;qreal&quot;</span>
-<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s">&quot;qint64&quot;</span>
-<span class="n">aEnumTypes</span> <span class="o">+</span> <span class="s">&quot;Qt::GestureType&quot;</span>
-<span class="n">aEnumTypes</span> <span class="o">+</span> <span class="s">&quot;Qt::GestureFlag&quot;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;qreal&quot;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;qint64&quot;</span>
+<span class="n">aEnumTypes</span> <span class="o">+</span> <span class="s2">&quot;Qt::GestureType&quot;</span>
+<span class="n">aEnumTypes</span> <span class="o">+</span> <span class="s2">&quot;Qt::GestureFlag&quot;</span>
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -507,8 +507,8 @@ types that can be considered as numbers when the code generator find it in the f
 <span id="index-13"></span><h2>Filtering using Expressions<a class="headerlink" href="#filtering-using-expressions" title="Permalink to this heading"></a></h2>
 <p>using &lt;filter&gt; and &lt;/filter&gt; we can include/exclude parts of the configuration file
 based on a condition, for example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span> <span class="n">iswindows</span><span class="p">()</span>
-        <span class="p">...</span> <span class="n">functions</span> <span class="n">related</span> <span class="k">to</span> <span class="n">windows</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span> <span class="nb">iswindows</span><span class="p">()</span>
+        <span class="o">...</span> <span class="n">functions</span> <span class="n">related</span> <span class="k k-Control">to</span> <span class="n">windows</span>
 <span class="o">&lt;/</span><span class="n">filter</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -528,8 +528,8 @@ which is $cDefaultConstantPointerType to determine the pointer type.</p>
 <p>Example :</p>
 <p>The next example uses this feature to define constants in the FreeGLUT library</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
-<span class="o">$</span><span class="n">nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
-<span class="o">$</span><span class="n">cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s">&quot;void&quot;</span>
+<span class="n">$nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
+<span class="n">$cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s2">&quot;void&quot;</span>
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span>
         <span class="n">GLUT_STROKE_ROMAN</span>
@@ -554,21 +554,21 @@ the generated source code file in the C language will be 12000 lines of code!</p
 Also we can use it to know the functions that can be used from RingAllegro when you use it
 to create 2D games!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
-<span class="c">#define ALLEGRO_NO_MAGIC_MAIN</span>
+<span class="c1">#define ALLEGRO_NO_MAGIC_MAIN</span>
 
-<span class="c">#include &lt;allegro5/allegro.h&gt;</span>
-<span class="c">#include &quot;allegro5/allegro_image.h&quot;</span>
-<span class="c">#include &lt;allegro5/allegro_font.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_ttf.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_audio.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_acodec.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_opengl.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_direct3d.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_color.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_memfile.h&gt;</span>
-<span class="c">#include &quot;allegro5/allegro_native_dialog.h&quot;</span>
-<span class="c">#include &lt;allegro5/allegro_physfs.h&gt;</span>
-<span class="c">#include &lt;allegro5/allegro_primitives.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro.h&gt;</span>
+<span class="c1">#include &quot;allegro5/allegro_image.h&quot;</span>
+<span class="c1">#include &lt;allegro5/allegro_font.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_ttf.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_audio.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_acodec.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_opengl.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_direct3d.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_color.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_memfile.h&gt;</span>
+<span class="c1">#include &quot;allegro5/allegro_native_dialog.h&quot;</span>
+<span class="c1">#include &lt;allegro5/allegro_physfs.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_primitives.h&gt;</span>
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="n">funcstart</span><span class="o">&gt;</span>
@@ -576,7 +576,7 @@ to create 2D games!</p>
 <span class="o">&lt;/</span><span class="n">funcstart</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="n">struct</span><span class="o">&gt;</span>
-<span class="n">ALLEGRO_EVENT</span> <span class="p">{</span> <span class="n">type</span> <span class="p">,</span> <span class="n">keyboard</span><span class="p">.</span><span class="n">keycode</span> <span class="p">,</span> <span class="n">mouse</span><span class="p">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">mouse</span><span class="p">.</span><span class="n">y</span> <span class="p">}</span>
+<span class="n">ALLEGRO_EVENT</span> <span class="p">{</span> <span class="n">type</span> <span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">keycode</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span> <span class="p">}</span>
 <span class="n">ALLEGRO_TIMEOUT</span>
 <span class="n">ALLEGRO_SAMPLE_ID</span>
 <span class="n">ALLEGRO_COLOR</span>
@@ -589,11 +589,11 @@ to create 2D games!</p>
 <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_exit</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k k-Control">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 
@@ -604,7 +604,7 @@ to create 2D games!</p>
 <span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
-<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s">&quot;al_fixed&quot;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;al_fixed&quot;</span>
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 
 <span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="n">al_create_config</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -634,28 +634,28 @@ threads to our Ring applications by using a threads library.</p>
 <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
 <span class="n">void</span> <span class="o">*</span><span class="n">al_func_thread</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">pPointer</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="kt">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
         <span class="n">VM</span> <span class="o">*</span><span class="n">pVM</span><span class="p">;</span>
         <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cStr</span><span class="p">;</span>
-        <span class="n">pList</span> <span class="o">=</span> <span class="p">(</span><span class="kt">List</span> <span class="o">*</span><span class="p">)</span> <span class="n">pPointer</span> <span class="p">;</span>
+        <span class="n">pList</span> <span class="o">=</span> <span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="p">)</span> <span class="n">pPointer</span> <span class="p">;</span>
         <span class="n">pVM</span> <span class="o">=</span> <span class="p">(</span><span class="n">VM</span> <span class="o">*</span><span class="p">)</span> <span class="n">ring_list_getpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">ring_list_getstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
         <span class="n">ring_vm_runcodefromthread</span><span class="p">(</span><span class="n">pVM</span><span class="p">,</span><span class="n">cStr</span><span class="p">);</span>
         <span class="n">ring_list_delete</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
-        <span class="k">return</span> <span class="kp">NULL</span><span class="p">;</span>
+        <span class="k k-Control">return</span> <span class="bp">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_create_thread</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">pThread</span><span class="p">;</span>
-        <span class="kt">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">pList</span> <span class="o">=</span> <span class="n">ring_list_new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
         <span class="n">ring_list_addstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
@@ -664,19 +664,19 @@ threads to our Ring applications by using a threads library.</p>
                 <span class="n">al_lock_mutex</span><span class="p">,</span><span class="n">al_unlock_mutex</span><span class="p">,</span><span class="n">al_destroy_mutex</span><span class="p">);</span>
         <span class="n">pThread</span> <span class="o">=</span> <span class="n">al_create_thread</span><span class="p">(</span><span class="n">al_func_thread</span><span class="p">,</span> <span class="n">pList</span><span class="p">);</span>
         <span class="n">al_start_thread</span><span class="p">(</span><span class="n">pThread</span><span class="p">);</span>
-        <span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="n">pThread</span><span class="p">,</span><span class="s">&quot;ALLEGRO_THREAD&quot;</span><span class="p">);</span>
+        <span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="n">pThread</span><span class="p">,</span><span class="s2">&quot;ALLEGRO_THREAD&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_run_detached_thread</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="kt">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k">return</span> <span class="p">;</span>
+                <span class="k k-Control">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">pList</span> <span class="o">=</span> <span class="n">ring_list_new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
         <span class="n">ring_list_addstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
@@ -746,7 +746,7 @@ different parameters (As in C++)</p></li>
 that as we did with using C libraries but here we will generate <em>.cpp file instead of *.c file. Also
 we will determine another file to be generated (</em>.ring). This file will contains classes in Ring code
 that wraps C++ functions for using C++ classes and objects.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">parsec</span><span class="p">.</span><span class="n">ring</span> <span class="n">generator</span><span class="o">\</span><span class="n">qt</span><span class="p">.</span><span class="n">cf</span> <span class="n">ring_qt</span><span class="p">.</span><span class="n">cpp</span> <span class="n">ring_qt</span><span class="p">.</span><span class="n">ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring parsec.ring generator\qt.cf ring_qt.cpp ring_qt.ring
 </pre></div>
 </div>
 </section>
@@ -763,136 +763,136 @@ also Ring code around 9000 lines.</p>
 
 <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
 
-<span class="n">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
-        <span class="c">#include &quot;ring.h&quot;</span>
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="p">{</span>
+        <span class="c1">#include &quot;ring.h&quot;</span>
 <span class="p">}</span>
 
-<span class="c">#include &quot;ring_qt.h&quot;</span>
-<span class="c">#include &quot;gpushbutton.h&quot;</span>
-<span class="c">#include &quot;gaction.h&quot;</span>
-<span class="c">#include &quot;glineedit.h&quot;</span>
-<span class="c">#include &quot;gtextedit.h&quot;</span>
-<span class="c">#include &quot;glistwidget.h&quot;</span>
-<span class="c">#include &quot;gtreeview.h&quot;</span>
-<span class="c">#include &quot;gtreewidget.h&quot;</span>
-<span class="c">#include &quot;gcombobox.h&quot;</span>
-<span class="c">#include &quot;gtabwidget.h&quot;</span>
-<span class="c">#include &quot;gtablewidget.h&quot;</span>
-<span class="c">#include &quot;gprogressbar.h&quot;</span>
-<span class="c">#include &quot;gspinbox.h&quot;</span>
-<span class="c">#include &quot;gslider.h&quot;</span>
-<span class="c">#include &quot;gdial.h&quot;</span>
-<span class="c">#include &quot;gwebview.h&quot;</span>
-<span class="c">#include &quot;gcheckbox.h&quot;</span>
-<span class="c">#include &quot;gradiobutton.h&quot;</span>
-<span class="c">#include &quot;gbuttongroup.h&quot;</span>
-<span class="c">#include &quot;gvideowidget.h&quot;</span>
-<span class="c">#include &quot;gtimer.h&quot;</span>
-<span class="c">#include &quot;gtcpserver.h&quot;</span>
-<span class="c">#include &quot;giodevice.h&quot;</span>
-<span class="c">#include &quot;gabstractsocket.h&quot;</span>
-<span class="c">#include &quot;gtcpsocket.h&quot;</span>
-<span class="c">#include &quot;gcolordialog.h&quot;</span>
-<span class="c">#include &quot;gallevents.h&quot;</span>
-<span class="c">#include &lt;QApplication&gt;</span>
-<span class="c">#include &lt;QObject&gt;</span>
-<span class="c">#include &lt;QWidget&gt;</span>
-<span class="c">#include &lt;QLabel&gt;</span>
-<span class="c">#include &lt;QPixmap&gt;</span>
-<span class="c">#include &lt;QIcon&gt;</span>
-<span class="c">#include &lt;QSize&gt;</span>
-<span class="c">#include &lt;QPushButton&gt;</span>
-<span class="c">#include &lt;QMainWindow&gt;</span>
-<span class="c">#include &lt;QVBoxLayout&gt;</span>
-<span class="c">#include &lt;QHBoxLayout&gt;</span>
-<span class="c">#include &lt;QLineEdit&gt;</span>
-<span class="c">#include &lt;QTextEdit&gt;</span>
-<span class="c">#include &lt;QListWidget&gt;</span>
-<span class="c">#include &lt;QTreeView&gt;</span>
-<span class="c">#include &lt;QDir&gt;</span>
-<span class="c">#include &lt;QFileSystemModel&gt;</span>
-<span class="c">#include &lt;QTreeWidget&gt;</span>
-<span class="c">#include &lt;QTreeWidgetItem&gt;</span>
-<span class="c">#include &lt;QComboBox&gt;</span>
-<span class="c">#include &lt;QVariant&gt;</span>
-<span class="c">#include &lt;QMenuBar&gt;</span>
-<span class="c">#include &lt;QMenu&gt;</span>
-<span class="c">#include &lt;QToolBar&gt;</span>
-<span class="c">#include &lt;QMainWindow&gt;</span>
-<span class="c">#include &lt;QStatusBar&gt;</span>
-<span class="c">#include &lt;QDockWidget&gt;</span>
-<span class="c">#include &lt;QTabWidget&gt;</span>
-<span class="c">#include &lt;QTableWidget&gt;</span>
-<span class="c">#include &lt;QTableWidgetItem&gt;</span>
-<span class="c">#include &lt;QSizePolicy&gt;</span>
-<span class="c">#include &lt;QFrame&gt;</span>
-<span class="c">#include &lt;QAbstractScrollArea&gt;</span>
-<span class="c">#include &lt;QAbstractItemView&gt;</span>
-<span class="c">#include &lt;QProgressBar&gt;</span>
-<span class="c">#include &lt;QSpinBox&gt;</span>
-<span class="c">#include &lt;QSlider&gt;</span>
-<span class="c">#include &lt;QAbstractSlider&gt;</span>
-<span class="c">#include &lt;QDateEdit&gt;</span>
-<span class="c">#include &lt;QDateTimeEdit&gt;</span>
-<span class="c">#include &lt;QAbstractSpinBox&gt;</span>
-<span class="c">#include &lt;QDial&gt;</span>
-<span class="c">#include &lt;QWebView&gt;</span>
-<span class="c">#include &lt;QUrl&gt;</span>
-<span class="c">#include &lt;QCheckBox&gt;</span>
-<span class="c">#include &lt;QRadioButton&gt;</span>
-<span class="c">#include &lt;QButtonGroup&gt;</span>
-<span class="c">#include &lt;QMediaPlayer&gt;</span>
-<span class="c">#include &lt;QMediaPlaylist&gt;</span>
-<span class="c">#include &lt;QVideoWidget&gt;</span>
-<span class="c">#include &lt;QPrinter&gt;</span>
-<span class="c">#include &lt;QAction&gt;</span>
-<span class="c">#include &lt;QEvent&gt;</span>
-<span class="c">#include &lt;QMessageBox&gt;</span>
-<span class="c">#include &lt;QTimer&gt;</span>
-<span class="c">#include &lt;QFileDialog&gt;</span>
-<span class="c">#include &lt;QPainter&gt;</span>
-<span class="c">#include &lt;QPicture&gt;</span>
-<span class="c">#include &lt;QPen&gt;</span>
-<span class="c">#include &lt;QColor&gt;</span>
-<span class="c">#include &lt;QPrinter&gt;</span>
-<span class="c">#include &lt;QFont&gt;</span>
-<span class="c">#include &lt;QWebSettings&gt;</span>
-<span class="c">#include &lt;QBrush&gt;</span>
-<span class="c">#include &lt;QByteArray&gt;</span>
-<span class="c">#include &lt;QIODevice&gt;</span>
-<span class="c">#include &lt;QAbstractSocket&gt;</span>
-<span class="c">#include &lt;QTcpSocket&gt;</span>
-<span class="c">#include &lt;QTcpServer&gt;</span>
-<span class="c">#include &lt;QNetworkProxy&gt;</span>
-<span class="c">#include &lt;QHostAddress&gt;</span>
-<span class="c">#include &lt;QHostInfo&gt;</span>
-<span class="c">#include &lt;QList&gt;</span>
-<span class="c">#include &lt;QFileInfo&gt;</span>
-<span class="c">#include &lt;QDirModel&gt;</span>
-<span class="c">#include &lt;QModelIndex&gt;</span>
-<span class="c">#include &lt;QFontDialog&gt;</span>
-<span class="c">#include &lt;QDialog&gt;</span>
-<span class="c">#include &lt;QTextCursor&gt;</span>
-<span class="c">#include &lt;QTextBlock&gt;</span>
-<span class="c">#include &lt;QTextDocumentFragment&gt;</span>
-<span class="c">#include &lt;QColorDialog&gt;</span>
-<span class="c">#include &lt;QHeaderView&gt;</span>
-<span class="c">#include &lt;QStringList&gt;</span>
-<span class="c">#include &lt;QKeySequence&gt;</span>
-<span class="c">#include &lt;QLCDNumber&gt;</span>
-<span class="c">#include &lt;QInputDialog&gt;</span>
-<span class="c">#include &lt;QDesktopWidget&gt;</span>
-<span class="c">#include &lt;QRect&gt;</span>
-<span class="c">#include &lt;QTextDocument&gt;</span>
+<span class="c1">#include &quot;ring_qt.h&quot;</span>
+<span class="c1">#include &quot;gpushbutton.h&quot;</span>
+<span class="c1">#include &quot;gaction.h&quot;</span>
+<span class="c1">#include &quot;glineedit.h&quot;</span>
+<span class="c1">#include &quot;gtextedit.h&quot;</span>
+<span class="c1">#include &quot;glistwidget.h&quot;</span>
+<span class="c1">#include &quot;gtreeview.h&quot;</span>
+<span class="c1">#include &quot;gtreewidget.h&quot;</span>
+<span class="c1">#include &quot;gcombobox.h&quot;</span>
+<span class="c1">#include &quot;gtabwidget.h&quot;</span>
+<span class="c1">#include &quot;gtablewidget.h&quot;</span>
+<span class="c1">#include &quot;gprogressbar.h&quot;</span>
+<span class="c1">#include &quot;gspinbox.h&quot;</span>
+<span class="c1">#include &quot;gslider.h&quot;</span>
+<span class="c1">#include &quot;gdial.h&quot;</span>
+<span class="c1">#include &quot;gwebview.h&quot;</span>
+<span class="c1">#include &quot;gcheckbox.h&quot;</span>
+<span class="c1">#include &quot;gradiobutton.h&quot;</span>
+<span class="c1">#include &quot;gbuttongroup.h&quot;</span>
+<span class="c1">#include &quot;gvideowidget.h&quot;</span>
+<span class="c1">#include &quot;gtimer.h&quot;</span>
+<span class="c1">#include &quot;gtcpserver.h&quot;</span>
+<span class="c1">#include &quot;giodevice.h&quot;</span>
+<span class="c1">#include &quot;gabstractsocket.h&quot;</span>
+<span class="c1">#include &quot;gtcpsocket.h&quot;</span>
+<span class="c1">#include &quot;gcolordialog.h&quot;</span>
+<span class="c1">#include &quot;gallevents.h&quot;</span>
+<span class="c1">#include &lt;QApplication&gt;</span>
+<span class="c1">#include &lt;QObject&gt;</span>
+<span class="c1">#include &lt;QWidget&gt;</span>
+<span class="c1">#include &lt;QLabel&gt;</span>
+<span class="c1">#include &lt;QPixmap&gt;</span>
+<span class="c1">#include &lt;QIcon&gt;</span>
+<span class="c1">#include &lt;QSize&gt;</span>
+<span class="c1">#include &lt;QPushButton&gt;</span>
+<span class="c1">#include &lt;QMainWindow&gt;</span>
+<span class="c1">#include &lt;QVBoxLayout&gt;</span>
+<span class="c1">#include &lt;QHBoxLayout&gt;</span>
+<span class="c1">#include &lt;QLineEdit&gt;</span>
+<span class="c1">#include &lt;QTextEdit&gt;</span>
+<span class="c1">#include &lt;QListWidget&gt;</span>
+<span class="c1">#include &lt;QTreeView&gt;</span>
+<span class="c1">#include &lt;QDir&gt;</span>
+<span class="c1">#include &lt;QFileSystemModel&gt;</span>
+<span class="c1">#include &lt;QTreeWidget&gt;</span>
+<span class="c1">#include &lt;QTreeWidgetItem&gt;</span>
+<span class="c1">#include &lt;QComboBox&gt;</span>
+<span class="c1">#include &lt;QVariant&gt;</span>
+<span class="c1">#include &lt;QMenuBar&gt;</span>
+<span class="c1">#include &lt;QMenu&gt;</span>
+<span class="c1">#include &lt;QToolBar&gt;</span>
+<span class="c1">#include &lt;QMainWindow&gt;</span>
+<span class="c1">#include &lt;QStatusBar&gt;</span>
+<span class="c1">#include &lt;QDockWidget&gt;</span>
+<span class="c1">#include &lt;QTabWidget&gt;</span>
+<span class="c1">#include &lt;QTableWidget&gt;</span>
+<span class="c1">#include &lt;QTableWidgetItem&gt;</span>
+<span class="c1">#include &lt;QSizePolicy&gt;</span>
+<span class="c1">#include &lt;QFrame&gt;</span>
+<span class="c1">#include &lt;QAbstractScrollArea&gt;</span>
+<span class="c1">#include &lt;QAbstractItemView&gt;</span>
+<span class="c1">#include &lt;QProgressBar&gt;</span>
+<span class="c1">#include &lt;QSpinBox&gt;</span>
+<span class="c1">#include &lt;QSlider&gt;</span>
+<span class="c1">#include &lt;QAbstractSlider&gt;</span>
+<span class="c1">#include &lt;QDateEdit&gt;</span>
+<span class="c1">#include &lt;QDateTimeEdit&gt;</span>
+<span class="c1">#include &lt;QAbstractSpinBox&gt;</span>
+<span class="c1">#include &lt;QDial&gt;</span>
+<span class="c1">#include &lt;QWebView&gt;</span>
+<span class="c1">#include &lt;QUrl&gt;</span>
+<span class="c1">#include &lt;QCheckBox&gt;</span>
+<span class="c1">#include &lt;QRadioButton&gt;</span>
+<span class="c1">#include &lt;QButtonGroup&gt;</span>
+<span class="c1">#include &lt;QMediaPlayer&gt;</span>
+<span class="c1">#include &lt;QMediaPlaylist&gt;</span>
+<span class="c1">#include &lt;QVideoWidget&gt;</span>
+<span class="c1">#include &lt;QPrinter&gt;</span>
+<span class="c1">#include &lt;QAction&gt;</span>
+<span class="c1">#include &lt;QEvent&gt;</span>
+<span class="c1">#include &lt;QMessageBox&gt;</span>
+<span class="c1">#include &lt;QTimer&gt;</span>
+<span class="c1">#include &lt;QFileDialog&gt;</span>
+<span class="c1">#include &lt;QPainter&gt;</span>
+<span class="c1">#include &lt;QPicture&gt;</span>
+<span class="c1">#include &lt;QPen&gt;</span>
+<span class="c1">#include &lt;QColor&gt;</span>
+<span class="c1">#include &lt;QPrinter&gt;</span>
+<span class="c1">#include &lt;QFont&gt;</span>
+<span class="c1">#include &lt;QWebSettings&gt;</span>
+<span class="c1">#include &lt;QBrush&gt;</span>
+<span class="c1">#include &lt;QByteArray&gt;</span>
+<span class="c1">#include &lt;QIODevice&gt;</span>
+<span class="c1">#include &lt;QAbstractSocket&gt;</span>
+<span class="c1">#include &lt;QTcpSocket&gt;</span>
+<span class="c1">#include &lt;QTcpServer&gt;</span>
+<span class="c1">#include &lt;QNetworkProxy&gt;</span>
+<span class="c1">#include &lt;QHostAddress&gt;</span>
+<span class="c1">#include &lt;QHostInfo&gt;</span>
+<span class="c1">#include &lt;QList&gt;</span>
+<span class="c1">#include &lt;QFileInfo&gt;</span>
+<span class="c1">#include &lt;QDirModel&gt;</span>
+<span class="c1">#include &lt;QModelIndex&gt;</span>
+<span class="c1">#include &lt;QFontDialog&gt;</span>
+<span class="c1">#include &lt;QDialog&gt;</span>
+<span class="c1">#include &lt;QTextCursor&gt;</span>
+<span class="c1">#include &lt;QTextBlock&gt;</span>
+<span class="c1">#include &lt;QTextDocumentFragment&gt;</span>
+<span class="c1">#include &lt;QColorDialog&gt;</span>
+<span class="c1">#include &lt;QHeaderView&gt;</span>
+<span class="c1">#include &lt;QStringList&gt;</span>
+<span class="c1">#include &lt;QKeySequence&gt;</span>
+<span class="c1">#include &lt;QLCDNumber&gt;</span>
+<span class="c1">#include &lt;QInputDialog&gt;</span>
+<span class="c1">#include &lt;QDesktopWidget&gt;</span>
+<span class="c1">#include &lt;QRect&gt;</span>
+<span class="c1">#include &lt;QTextDocument&gt;</span>
 
-<span class="n">extern</span> <span class="s">&quot;C&quot;</span> <span class="p">{</span>
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="p">{</span>
 
-        <span class="c">#define RING_DLL __declspec(dllexport)</span>
+        <span class="c1">#define RING_DLL __declspec(dllexport)</span>
 
         <span class="n">RING_DLL</span> <span class="n">void</span> <span class="n">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
         <span class="p">{</span>
 
-                <span class="k">new</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">nArgc</span><span class="p">,</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">pArgv</span><span class="p">);</span>
+                <span class="kp">new</span> <span class="nc">QApplication</span><span class="p">(</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">nArgc</span><span class="p">,</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">pArgv</span><span class="p">);</span>
                 <span class="n">ring_qt_start</span><span class="p">(</span><span class="n">pRingState</span><span class="p">)</span> <span class="p">;</span>
         <span class="p">}</span>
 
@@ -901,23 +901,23 @@ also Ring code around 9000 lines.</p>
 
 
 <span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
-<span class="n">aStringTypes</span> <span class="o">+</span> <span class="s">&quot;QString&quot;</span>
-<span class="n">aBeforeReturn</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QString&quot;</span><span class="p">,</span><span class="s">&quot;.toStdString().c_str()&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QWebView&quot;</span><span class="p">,</span><span class="s">&quot;load&quot;</span><span class="p">,</span><span class="s">&quot;loadpage&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QMediaPlaylist&quot;</span><span class="p">,</span><span class="s">&quot;load&quot;</span><span class="p">,</span><span class="s">&quot;loadfile&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QMediaPlaylist&quot;</span><span class="p">,</span><span class="s">&quot;next&quot;</span><span class="p">,</span><span class="s">&quot;movenext&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QPainter&quot;</span><span class="p">,</span><span class="s">&quot;end&quot;</span><span class="p">,</span><span class="s">&quot;endpaint&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QPicture&quot;</span><span class="p">,</span><span class="s">&quot;load&quot;</span><span class="p">,</span><span class="s">&quot;loadfile&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QLineEdit&quot;</span><span class="p">,</span><span class="s">&quot;end&quot;</span><span class="p">,</span><span class="s">&quot;endtext&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QDialog&quot;</span><span class="p">,</span><span class="s">&quot;done&quot;</span><span class="p">,</span><span class="s">&quot;donedialog&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QTextDocument&quot;</span><span class="p">,</span><span class="s">&quot;end&quot;</span><span class="p">,</span><span class="s">&quot;enddoc&quot;</span><span class="o">]</span>
-<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="o">[</span><span class="s">&quot;QTextBlock&quot;</span><span class="p">,</span><span class="s">&quot;next&quot;</span><span class="p">,</span><span class="s">&quot;nextblock&quot;</span><span class="o">]</span>
+<span class="n">aStringTypes</span> <span class="o">+</span> <span class="s2">&quot;QString&quot;</span>
+<span class="n">aBeforeReturn</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QString&quot;</span><span class="p">,</span><span class="s2">&quot;.toStdString().c_str()&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QWebView&quot;</span><span class="p">,</span><span class="s2">&quot;load&quot;</span><span class="p">,</span><span class="s2">&quot;loadpage&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QMediaPlaylist&quot;</span><span class="p">,</span><span class="s2">&quot;load&quot;</span><span class="p">,</span><span class="s2">&quot;loadfile&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QMediaPlaylist&quot;</span><span class="p">,</span><span class="s2">&quot;next&quot;</span><span class="p">,</span><span class="s2">&quot;movenext&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QPainter&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="s2">&quot;endpaint&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QPicture&quot;</span><span class="p">,</span><span class="s2">&quot;load&quot;</span><span class="p">,</span><span class="s2">&quot;loadfile&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QLineEdit&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="s2">&quot;endtext&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QDialog&quot;</span><span class="p">,</span><span class="s2">&quot;done&quot;</span><span class="p">,</span><span class="s2">&quot;donedialog&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QTextDocument&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="s2">&quot;enddoc&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QTextBlock&quot;</span><span class="p">,</span><span class="s2">&quot;next&quot;</span><span class="p">,</span><span class="s2">&quot;nextblock&quot;</span><span class="p">]</span>
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 
-<span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">qApp</span>
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">qApp</span>
 <span class="n">nonew</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="n">register</span><span class="o">&gt;</span>
 <span class="n">void</span> <span class="n">exec</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -944,10 +944,10 @@ also Ring code around 9000 lines.</p>
 
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 
-<span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QObject</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">void</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QObject</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">void</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 
 <span class="n">bool</span> <span class="n">blockSignals</span><span class="p">(</span><span class="n">bool</span> <span class="n">block</span><span class="p">)</span>
 <span class="n">QObjectList</span> <span class="n">children</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -970,11 +970,11 @@ also Ring code around 9000 lines.</p>
 <span class="n">QThread</span> <span class="o">*</span><span class="n">thread</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">deleteLater</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QWidget</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">void</span>
-<span class="n">parent</span><span class="p">:</span> <span class="n">QObject</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">void</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QObject</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 
 <span class="n">bool</span> <span class="n">acceptDrops</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">QString</span> <span class="n">accessibleDescription</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1069,10 +1069,10 @@ also Ring code around 9000 lines.</p>
 <span class="n">bool</span> <span class="n">restoreGeometry</span><span class="p">(</span><span class="n">QByteArray</span><span class="p">)</span>
 <span class="n">QByteArray</span> <span class="n">saveGeometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">scroll</span><span class="p">(</span><span class="n">int</span> <span class="n">dx</span><span class="p">,</span> <span class="n">int</span> <span class="n">dy</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">setAcceptDrops</span><span class="p">(</span><span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">setAcceptDrops</span><span class="p">(</span><span class="n">bool</span> <span class="k k-Control">on</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setAccessibleDescription</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setAccessibleName</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">setAttribute</span><span class="p">(</span><span class="n">int</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">setAttribute</span><span class="p">(</span><span class="n">int</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">bool</span> <span class="k k-Control">on</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setAutoFillBackground</span><span class="p">(</span><span class="n">bool</span> <span class="n">enabled</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setBackgroundRole</span><span class="p">(</span><span class="n">int</span> <span class="n">role</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setBaseSize</span><span class="p">(</span><span class="n">int</span> <span class="n">basew</span><span class="p">,</span> <span class="n">int</span> <span class="n">baseh</span><span class="p">)</span>
@@ -1156,8 +1156,8 @@ also Ring code around 9000 lines.</p>
 <span class="n">int</span> <span class="n">y</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">close</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">hide</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">lower</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">raise</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">lower</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">raise</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setDisabled</span><span class="p">(</span><span class="n">bool</span> <span class="n">disable</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setEnabled</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setHidden</span><span class="p">(</span><span class="n">bool</span> <span class="n">hidden</span><span class="p">)</span>
@@ -1169,16 +1169,16 @@ also Ring code around 9000 lines.</p>
 <span class="n">void</span> <span class="n">showMaximized</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">showMinimized</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">showNormal</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">QWidget</span> <span class="o">*</span><span class="n">find</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nb">find</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">)</span>
 <span class="n">QWidget</span> <span class="o">*</span><span class="n">keyboardGrabber</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">QWidget</span> <span class="o">*</span><span class="n">mouseGrabber</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setTabOrder</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">first</span><span class="p">,</span> <span class="n">QWidget</span> <span class="o">*</span><span class="n">second</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QLabel</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">QWidget</span> <span class="o">*</span>
-<span class="n">parent</span><span class="p">:</span> <span class="n">QWidget</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QLabel</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QWidget</span> <span class="o">*</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 
 <span class="n">int</span> <span class="n">alignment</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">QWidget</span> <span class="o">*</span><span class="n">buddy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1201,7 +1201,7 @@ also Ring code around 9000 lines.</p>
 <span class="n">void</span> <span class="n">setSelection</span><span class="p">(</span><span class="n">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">int</span> <span class="n">length</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setTextFormat</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setTextInteractionFlags</span><span class="p">(</span><span class="n">int</span> <span class="n">flags</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">setWordWrap</span><span class="p">(</span><span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">setWordWrap</span><span class="p">(</span><span class="n">bool</span> <span class="k k-Control">on</span><span class="p">)</span>
 <span class="n">QString</span> <span class="n">text</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">int</span> <span class="n">textFormat</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">int</span> <span class="n">textInteractionFlags</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1213,26 +1213,26 @@ also Ring code around 9000 lines.</p>
 <span class="n">void</span> <span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setText</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QPushButton</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">QWidget</span> <span class="o">*</span>
-<span class="n">parent</span><span class="p">:</span> <span class="n">QWidget</span>
-<span class="n">codename</span><span class="p">:</span> <span class="n">GPushButton</span>
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QPushButton</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QWidget</span> <span class="o">*</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="n">codename</span><span class="o">:</span> <span class="n">GPushButton</span>
 <span class="n">passvmpointer</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 
 <span class="n">void</span> <span class="n">setText</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setClickEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QLineEdit</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">QWidget</span> <span class="o">*</span>
-<span class="n">parent</span><span class="p">:</span> <span class="n">QWidget</span>
-<span class="n">codename</span><span class="p">:</span> <span class="n">GLineEdit</span>
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QLineEdit</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QWidget</span> <span class="o">*</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="n">codename</span><span class="o">:</span> <span class="n">GLineEdit</span>
 <span class="n">passvmpointer</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 
 <span class="n">int</span> <span class="n">alignment</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">backspace</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1245,19 +1245,19 @@ also Ring code around 9000 lines.</p>
 <span class="n">int</span> <span class="n">cursorPositionAt</span><span class="p">(</span><span class="n">QPoint</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">cursorWordBackward</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">cursorWordForward</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">del</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">del</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">deselect</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">QString</span> <span class="n">displayText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">dragEnabled</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">int</span> <span class="n">echoMode</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">void</span> <span class="k">end</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
+<span class="n">void</span> <span class="k k-Control">end</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">getTextMargins</span><span class="p">(</span><span class="n">int</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">top</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">right</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">bottom</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">hasAcceptableInput</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">hasFrame</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">hasSelectedText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">home</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
 <span class="n">QString</span> <span class="n">inputMask</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">insert</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">isModified</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">isReadOnly</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">isRedoAvailable</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1286,7 +1286,7 @@ also Ring code around 9000 lines.</p>
 <span class="n">QValidator</span> <span class="o">*</span><span class="n">validator</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 
 <span class="n">void</span> <span class="n">clear</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">copy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">copy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">cut</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">paste</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">redo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1328,7 +1328,7 @@ QString findExecutable(QString executableName, QStringList paths))
 <section id="loading-files">
 <span id="index-21"></span><h2>Loading Files<a class="headerlink" href="#loading-files" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.9 the code generator support the &lt;loadfile&gt; command.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">cf</span>
 </pre></div>
 </div>
 <p>This is useful to separate the extension configuration file to many files</p>
@@ -1338,15 +1338,15 @@ QString findExecutable(QString executableName, QStringList paths))
                                 <span class="n">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
 <span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
 
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="p">.</span><span class="n">cf</span>
-<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="o">.</span><span class="n">cf</span>
 </pre></div>
 </div>
 </section>
@@ -1356,11 +1356,11 @@ QString findExecutable(QString executableName, QStringList paths))
 <p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
 <p>So the Garbage Collector will manage these C pointers.</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
-<span class="n">name</span><span class="p">:</span> <span class="n">QFont</span>
-<span class="n">para</span><span class="p">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QFont</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
 <span class="n">managed</span>
-<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </section>

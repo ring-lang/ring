@@ -247,17 +247,17 @@
 <section id="getting-started">
 <span id="index-1"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
 <p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
 <span class="n">TLN_Init</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
-<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets\sonic&quot;</span><span class="p">)</span>
+<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
 
-<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="k">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
 <span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
 <span class="n">TLN_Deinit</span><span class="p">()</span>
@@ -269,37 +269,37 @@
 <section id="more-samples">
 <span id="index-2"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
 <span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">400</span>
 <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
 
 <span class="n">frame</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="n">engine</span> <span class="o">*/</span>
+<span class="cm">/* setup engine */</span>
 <span class="n">TLN_Init</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="k">load</span> <span class="n">layer</span> <span class="o">*/</span>
-<span class="n">tilemap</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s">&quot;assets/sonic/Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="cm">/* load layer */</span>
+<span class="n">tilemap</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s2">&quot;assets/sonic/Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="n">the</span> <span class="n">layer</span> <span class="o">*/</span>
-<span class="n">TLN_SetLayer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="n">tilemap</span><span class="p">)</span>
+<span class="cm">/* setup the layer */</span>
+<span class="n">TLN_SetLayer</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">tilemap</span><span class="p">)</span>
 <span class="n">TLN_SetBGColor</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">128</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
-<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="k">while</span> <span class="n">TLN_ProcessWindow</span> <span class="p">()</span>
+<span class="cm">/* main loop */</span>
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span> <span class="p">()</span>
 
-        <span class="o">/*</span> <span class="n">scroll</span> <span class="n">the</span> <span class="n">layer</span><span class="p">,</span> <span class="n">one</span> <span class="n">pixel</span> <span class="n">per</span> <span class="n">frame</span> <span class="o">*/</span>
+        <span class="cm">/* scroll the layer, one pixel per frame */</span>
         <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="n">render</span> <span class="k">to</span> <span class="n">the</span> <span class="n">window</span> <span class="o">*/</span>
+        <span class="cm">/* render to the window */</span>
         <span class="n">TLN_DrawFrame</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="n">frame</span><span class="o">++</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
-<span class="o">/*</span> <span class="n">release</span> <span class="n">resources</span> <span class="o">*/</span>
+<span class="cm">/* release resources */</span>
 <span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">tilemap</span><span class="p">)</span>
 <span class="n">TLN_Deinit</span><span class="p">()</span>
 </pre></div>
@@ -307,28 +307,28 @@
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot2.png" />
 <p>Example (3):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
-<span class="o">/*</span> <span class="n">engine</span> <span class="n">init</span> <span class="o">*/</span>
+<span class="cm">/* engine init */</span>
 <span class="n">TLN_Init</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="k">load</span> <span class="n">resources</span> <span class="o">*/</span>
-<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets/color&quot;</span><span class="p">)</span>
-<span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadBitmap</span><span class="p">(</span><span class="s">&quot;beach.png&quot;</span><span class="p">)</span>
+<span class="cm">/* load resources */</span>
+<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets/color&quot;</span><span class="p">)</span>
+<span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadBitmap</span><span class="p">(</span><span class="s2">&quot;beach.png&quot;</span><span class="p">)</span>
 <span class="n">palette</span>    <span class="o">=</span> <span class="n">TLN_GetBitmapPalette</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
-<span class="n">sp</span>         <span class="o">=</span> <span class="n">TLN_LoadSequencePack</span><span class="p">(</span><span class="s">&quot;beach.sqx&quot;</span><span class="p">)</span>
-<span class="n">sequence</span>   <span class="o">=</span> <span class="n">TLN_FindSequence</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="s">&quot;beach&quot;</span><span class="p">)</span>
+<span class="n">sp</span>         <span class="o">=</span> <span class="n">TLN_LoadSequencePack</span><span class="p">(</span><span class="s2">&quot;beach.sqx&quot;</span><span class="p">)</span>
+<span class="n">sequence</span>   <span class="o">=</span> <span class="n">TLN_FindSequence</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="s2">&quot;beach&quot;</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="o">*/</span>
+<span class="cm">/* setup */</span>
 <span class="n">TLN_SetBGBitmap</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
-<span class="n">TLN_SetPaletteAnimation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">sequence</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
+<span class="n">TLN_SetPaletteAnimation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">palette</span><span class="p">,</span> <span class="n">sequence</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
-<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="cm">/* main loop */</span>
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
-<span class="k">while</span><span class="p">(</span><span class="n">TLN_ProcessWindow</span><span class="p">())</span>
+<span class="k k-Control">while</span><span class="p">(</span><span class="n">TLN_ProcessWindow</span><span class="p">())</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
 <span class="n">TLN_DeleteBitmap</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
 <span class="n">TLN_DeleteSequencePack</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
@@ -338,7 +338,7 @@
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot3.png" />
 <p>Example (4):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
 <span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">HEIGHT</span><span class="o">=</span> <span class="mi">240</span>
@@ -351,41 +351,41 @@
 <span class="n">player_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">16</span>
 <span class="n">player_y</span> <span class="o">=</span> <span class="mi">160</span>
 
-<span class="o">/*</span> <span class="n">basic</span> <span class="n">setup</span> <span class="o">*/</span>
+<span class="cm">/* basic setup */</span>
 <span class="n">TLN_Init</span><span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">MAX_LAYER</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">TLN_SetBGColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">184</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="k">load</span> <span class="n">resources</span> <span class="o">*/</span>
-<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets/smw&quot;</span><span class="p">)</span>
-<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s">&quot;smw_foreground.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
-<span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s">&quot;smw_background.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="cm">/* load resources */</span>
+<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets/smw&quot;</span><span class="p">)</span>
+<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s2">&quot;smw_foreground.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+<span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s2">&quot;smw_background.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
 <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
 <span class="n">TLN_SetLayerPosition</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">48</span><span class="p">)</span>
 <span class="n">TLN_SetLayerPosition</span><span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="n">sprite</span> <span class="o">*/</span>
-<span class="n">spriteset</span> <span class="o">=</span> <span class="n">TLN_LoadSpriteset</span><span class="p">(</span><span class="s">&quot;smw_sprite&quot;</span><span class="p">)</span>
+<span class="cm">/* setup sprite */</span>
+<span class="n">spriteset</span> <span class="o">=</span> <span class="n">TLN_LoadSpriteset</span><span class="p">(</span><span class="s2">&quot;smw_sprite&quot;</span><span class="p">)</span>
 <span class="n">TLN_SetSpriteSet</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">spriteset</span><span class="p">)</span>
 <span class="n">TLN_SetSpritePicture</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">TLN_SetSpritePosition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">player_x</span><span class="p">,</span> <span class="n">player_y</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="n">animations</span> <span class="o">*/</span>
-<span class="n">seq_walking</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="n">spriteset</span><span class="p">,</span> <span class="s">&quot;walking&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="cm">/* setup animations */</span>
+<span class="n">seq_walking</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="n">spriteset</span><span class="p">,</span> <span class="s2">&quot;walking&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="n">TLN_SetSpriteAnimation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">seq_walking</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
-<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="k">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
+<span class="cm">/* main loop */</span>
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
         <span class="n">player_x</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">player_x</span> <span class="o">&gt;=</span> <span class="n">WIDTH</span>
+        <span class="k k-Control">if</span> <span class="n">player_x</span> <span class="o">&gt;=</span> <span class="n">WIDTH</span>
                 <span class="n">player_x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">16</span>
-        <span class="k">ok</span>
+        <span class="k k-Control">ok</span>
         <span class="n">TLN_SetSpritePosition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">player_x</span><span class="p">,</span> <span class="n">player_y</span><span class="p">)</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
-<span class="o">/*</span> <span class="n">deinit</span> <span class="o">*/</span>
+<span class="cm">/* deinit */</span>
 <span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
 <span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
 <span class="n">TLN_Deinit</span><span class="p">()</span>
@@ -394,7 +394,7 @@
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot4.png" />
 <p>Example (5):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
 <span class="n">HRES</span> <span class="o">=</span> <span class="mi">424</span>
 <span class="n">VRES</span> <span class="o">=</span> <span class="mi">240</span>
@@ -411,63 +411,63 @@
 
 <span class="n">TLN_Init</span><span class="p">(</span><span class="n">HRES</span><span class="p">,</span> <span class="n">VRES</span><span class="p">,</span> <span class="n">NUM_LAYERS</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="k">load</span> <span class="n">assets</span> <span class="o">*/</span>
+<span class="cm">/* load assets */</span>
 <span class="n">TLN_SetLogLevel</span><span class="p">(</span><span class="n">TLN_LOG_ERRORS</span><span class="p">)</span>
-<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets/forest&quot;</span><span class="p">)</span>
-<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s">&quot;map.tmx&quot;</span><span class="p">,</span> <span class="s">&quot;Main Layer&quot;</span><span class="p">)</span>
-<span class="n">middleground</span> <span class="o">=</span> <span class="n">TLN_LoadBitmap</span><span class="p">(</span><span class="s">&quot;middleground.png&quot;</span><span class="p">)</span>
-<span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadBitmap</span><span class="p">(</span><span class="s">&quot;background.png&quot;</span><span class="p">)</span>
-<span class="n">atlas</span> <span class="o">=</span> <span class="n">TLN_LoadSpriteset</span><span class="p">(</span><span class="s">&quot;atlas.png&quot;</span><span class="p">)</span>
-<span class="n">props_list</span> <span class="o">=</span> <span class="n">TLN_LoadObjectList</span><span class="p">(</span><span class="s">&quot;map.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets/forest&quot;</span><span class="p">)</span>
+<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span><span class="p">(</span><span class="s2">&quot;map.tmx&quot;</span><span class="p">,</span> <span class="s2">&quot;Main Layer&quot;</span><span class="p">)</span>
+<span class="n">middleground</span> <span class="o">=</span> <span class="n">TLN_LoadBitmap</span><span class="p">(</span><span class="s2">&quot;middleground.png&quot;</span><span class="p">)</span>
+<span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadBitmap</span><span class="p">(</span><span class="s2">&quot;background.png&quot;</span><span class="p">)</span>
+<span class="n">atlas</span> <span class="o">=</span> <span class="n">TLN_LoadSpriteset</span><span class="p">(</span><span class="s2">&quot;atlas.png&quot;</span><span class="p">)</span>
+<span class="n">props_list</span> <span class="o">=</span> <span class="n">TLN_LoadObjectList</span><span class="p">(</span><span class="s2">&quot;map.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="n">layers</span> <span class="o">*/</span>
-<span class="n">TLN_SetLayer</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
+<span class="cm">/* setup layers */</span>
+<span class="n">TLN_SetLayer</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
 <span class="n">TLN_SetLayerBitmap</span><span class="p">(</span><span class="n">LAYER_MIDDLEGROUND</span><span class="p">,</span> <span class="n">middleground</span><span class="p">)</span>
 <span class="n">TLN_SetLayerBitmap</span><span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
 <span class="n">width</span> <span class="o">=</span> <span class="n">TLN_GetLayerWidth</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">)</span>
 <span class="n">height</span> <span class="o">=</span> <span class="n">TLN_GetLayerHeight</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">objects</span> <span class="n">layer</span><span class="p">:</span> <span class="n">add</span> <span class="n">back</span> <span class="n">objects</span> <span class="p">(</span><span class="n">behind</span> <span class="n">sprites</span><span class="p">)</span> <span class="o">*/</span>
-<span class="n">TLN_SetLayerObjects</span><span class="p">(</span><span class="n">LAYER_PROPS</span><span class="p">,</span> <span class="n">props_list</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="cm">/* objects layer: add back objects (behind sprites) */</span>
+<span class="n">TLN_SetLayerObjects</span><span class="p">(</span><span class="n">LAYER_PROPS</span><span class="p">,</span> <span class="n">props_list</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">sync</span> <span class="n">props</span> <span class="n">layer</span> <span class="n">positions</span> <span class="k">to</span> <span class="n">main</span> <span class="n">layer</span> <span class="o">*/</span>
+<span class="cm">/* sync props layer positions to main layer */</span>
 <span class="n">TLN_SetLayerParent</span><span class="p">(</span><span class="n">LAYER_PROPS_FRONT</span><span class="p">,</span> <span class="n">LAYER_FOREGROUND</span><span class="p">)</span>
 <span class="n">TLN_SetLayerParent</span><span class="p">(</span><span class="n">LAYER_PROPS</span><span class="p">,</span> <span class="n">LAYER_FOREGROUND</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">create</span> <span class="n">sprite</span> <span class="n">sequences</span> <span class="o">*/</span>
-<span class="n">idle</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="n">atlas</span><span class="p">,</span> <span class="s">&quot;player-idle/player-idle-&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">skip</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="n">atlas</span><span class="p">,</span> <span class="s">&quot;player-skip/player-skip-&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="cm">/* create sprite sequences */</span>
+<span class="n">idle</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="n">atlas</span><span class="p">,</span> <span class="s2">&quot;player-idle/player-idle-&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">skip</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="n">atlas</span><span class="p">,</span> <span class="s2">&quot;player-skip/player-skip-&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">setup</span> <span class="n">main</span> <span class="n">player</span> <span class="n">sprite</span> <span class="o">*/</span>
+<span class="cm">/* setup main player sprite */</span>
 <span class="n">xplayer</span> <span class="o">=</span> <span class="mi">48</span>
 <span class="n">yplayer</span> <span class="o">=</span> <span class="mi">144</span>
 <span class="n">TLN_ConfigSprite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">atlas</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">TLN_SetSpriteAnimation</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">idle</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">create</span> <span class="n">window</span> <span class="o">&amp;</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
-<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="cm">/* create window &amp; main loop */</span>
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
+<span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="n">move</span> <span class="mi">3</span> <span class="n">pixels</span> <span class="n">right</span><span class="o">/</span><span class="n">left</span> <span class="n">main</span> <span class="n">layer</span> <span class="o">*/</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span><span class="p">(</span><span class="n">INPUT_LEFT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">xworld</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="cm">/* move 3 pixels right/left main layer */</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span><span class="p">(</span><span class="n">INPUT_LEFT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">xworld</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">xworld</span> <span class="o">-=</span> <span class="mi">3</span>
-        <span class="k">elseif</span> <span class="p">(</span><span class="n">TLN_GetInput</span><span class="p">(</span><span class="n">INPUT_RIGHT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">xworld</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">-</span> <span class="n">HRES</span><span class="p">)</span>
+        <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">TLN_GetInput</span><span class="p">(</span><span class="n">INPUT_RIGHT</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">xworld</span> <span class="o">&lt;</span> <span class="n">width</span> <span class="o">-</span> <span class="n">HRES</span><span class="p">)</span>
                 <span class="n">xworld</span> <span class="o">+=</span> <span class="mi">3</span>
-        <span class="k">ok</span>
+        <span class="k k-Control">ok</span>
 
-        <span class="o">/*</span> <span class="n">update</span> <span class="k">on</span> <span class="n">change</span> <span class="o">*/</span>
-        <span class="k">if</span> <span class="n">xworld</span> <span class="o">!=</span> <span class="n">oldx</span>
+        <span class="cm">/* update on change */</span>
+        <span class="k k-Control">if</span> <span class="n">xworld</span> <span class="o">!=</span> <span class="n">oldx</span>
                 <span class="n">TLN_SetLayerPosition</span><span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">xworld</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerPosition</span><span class="p">(</span><span class="n">LAYER_MIDDLEGROUND</span><span class="p">,</span> <span class="n">xworld</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerPosition</span><span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">xworld</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">TLN_SetSpritePosition</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">xplayer</span> <span class="o">-</span> <span class="n">xworld</span><span class="p">,</span> <span class="n">yplayer</span><span class="p">)</span>
                 <span class="n">oldx</span> <span class="o">=</span> <span class="n">xworld</span>
-        <span class="k">ok</span>
-<span class="k">end</span>
+        <span class="k k-Control">ok</span>
+<span class="k k-Control">end</span>
 
-<span class="o">/*</span> <span class="n">release</span> <span class="n">resources</span> <span class="o">*/</span>
+<span class="cm">/* release resources */</span>
 <span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
 <span class="n">TLN_DeleteBitmap</span><span class="p">(</span><span class="n">middleground</span><span class="p">)</span>
 <span class="n">TLN_CloseResourcePack</span><span class="p">()</span>
@@ -481,8 +481,8 @@
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot5.png" />
 <p>Example (6):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;sin.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;sin.ring&quot;</span>
 
 <span class="n">WIDTH</span>            <span class="o">=</span> <span class="mi">400</span>
 <span class="n">HEIGHT</span>           <span class="o">=</span> <span class="mi">240</span>
@@ -494,28 +494,28 @@
 <span class="n">MAP_TRACK</span>        <span class="o">=</span> <span class="mi">1</span>
 <span class="n">MAX_MAP</span>          <span class="o">=</span> <span class="mi">2</span>
 
-<span class="n">road</span>             <span class="o">=</span> <span class="kp">NULL</span>
-<span class="n">x</span>                <span class="o">=</span> <span class="kp">NULL</span>
-<span class="n">y</span>                <span class="o">=</span> <span class="kp">NULL</span>
-<span class="n">angle</span>            <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">road</span>             <span class="o">=</span> <span class="bp">NULL</span>
+<span class="n">x</span>                <span class="o">=</span> <span class="bp">NULL</span>
+<span class="n">y</span>                <span class="o">=</span> <span class="bp">NULL</span>
+<span class="n">angle</span>            <span class="o">=</span> <span class="bp">NULL</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="o">/*</span> <span class="n">setup</span> <span class="n">engine</span> <span class="o">*/</span>
+        <span class="cm">/* setup engine */</span>
 
                 <span class="n">TLN_Init</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">MAX_LAYER</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s">&quot;raster_callback()&quot;</span><span class="p">)</span>
+                <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s2">&quot;raster_callback()&quot;</span><span class="p">)</span>
                 <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="k">load</span> <span class="n">resources</span><span class="o">*/</span>
+        <span class="cm">/* load resources*/</span>
 
-                <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s">&quot;assets/smk&quot;</span><span class="p">)</span>
-                <span class="n">road</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;track1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
-                <span class="n">horizon</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;track1_bg.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+                <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s2">&quot;assets/smk&quot;</span><span class="p">)</span>
+                <span class="n">road</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;track1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+                <span class="n">horizon</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;track1_bg.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="n">startup</span> <span class="n">display</span> <span class="o">*/</span>
+        <span class="cm">/* startup display */</span>
 
-                <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">x</span> <span class="o">=</span> <span class="n">int2fix</span><span class="p">(</span><span class="o">-</span><span class="mi">136</span><span class="p">)</span>
                 <span class="n">y</span> <span class="o">=</span> <span class="n">int2fix</span><span class="p">(</span><span class="mi">336</span><span class="p">)</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
@@ -523,57 +523,57 @@
                 <span class="n">angle</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">BuildSinTable</span> <span class="p">()</span>
 
-        <span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
+        <span class="cm">/* main loop */</span>
 
-                <span class="k">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
+                <span class="k k-Control">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
                         <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">horizon</span><span class="p">)</span>
                         <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">horizon</span><span class="p">)</span>
                         <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">lerp</span><span class="p">(</span><span class="n">angle</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">256</span><span class="p">),</span> <span class="mi">24</span><span class="p">)</span>
                         <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">lerp</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">256</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
                         <span class="n">TLN_ResetLayerMode</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">)</span>
 
-                        <span class="o">/*</span> <span class="n">input</span> <span class="o">*/</span>
+                        <span class="cm">/* input */</span>
 
-                                <span class="k">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_LEFT</span><span class="p">))</span>
+                                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_LEFT</span><span class="p">))</span>
                                         <span class="n">angle</span><span class="o">-=</span><span class="mi">2</span>
-                                <span class="k">elseif</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_RIGHT</span><span class="p">))</span>
+                                <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_RIGHT</span><span class="p">))</span>
                                         <span class="n">angle</span><span class="o">+=</span><span class="mi">2</span>
-                                <span class="k">ok</span>
+                                <span class="k k-Control">ok</span>
 
-                                <span class="k">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_UP</span><span class="p">))</span>
+                                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_UP</span><span class="p">))</span>
                                         <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span>
-                                        <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="n">int2fix</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+                                        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="n">int2fix</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
                                                 <span class="n">s</span> <span class="o">=</span> <span class="n">int2fix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-                                        <span class="k">ok</span>
-                                <span class="k">elseif</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="p">)</span>
+                                        <span class="k k-Control">ok</span>
+                                <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">s</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="p">)</span>
                                         <span class="n">s</span> <span class="o">-=</span> <span class="n">a</span>
-                                <span class="k">ok</span>
+                                <span class="k k-Control">ok</span>
 
-                                <span class="k">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_DOWN</span><span class="p">))</span>
+                                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_DOWN</span><span class="p">))</span>
                                         <span class="n">s</span> <span class="o">-=</span> <span class="n">a</span>
-                                        <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">int2fix</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+                                        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">int2fix</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
                                                 <span class="n">s</span> <span class="o">=</span> <span class="o">-</span><span class="n">int2fix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-                                        <span class="k">ok</span>
-                                <span class="k">elseif</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">a</span><span class="p">)</span>
+                                        <span class="k k-Control">ok</span>
+                                <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">s</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">a</span><span class="p">)</span>
                                         <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span>
-                                <span class="k">ok</span>
+                                <span class="k k-Control">ok</span>
 
-                                <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+                                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
                                         <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span><span class="o">%</span><span class="mi">360</span>
-                                        <span class="k">if</span> <span class="p">(</span><span class="n">angle</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+                                        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">angle</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
                                                 <span class="n">angle</span> <span class="o">+=</span> <span class="mi">360</span>
-                                        <span class="k">ok</span>
+                                        <span class="k k-Control">ok</span>
 
                                         <span class="n">x</span> <span class="o">+=</span> <span class="n">CalcSin</span> <span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
                                         <span class="n">y</span> <span class="o">-=</span> <span class="n">CalcCos</span> <span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-                                <span class="k">ok</span>
+                                <span class="k k-Control">ok</span>
 
-                        <span class="o">/*</span> <span class="n">render</span> <span class="k">to</span> <span class="n">window</span> <span class="o">*/</span>
+                        <span class="cm">/* render to window */</span>
 
                                 <span class="n">TLN_DrawFrame</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">end</span>
+        <span class="k k-Control">end</span>
 
-        <span class="o">/*</span> <span class="n">deinit</span> <span class="o">*/</span>
+        <span class="cm">/* deinit */</span>
 
                 <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">road</span><span class="p">)</span>
                 <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">horizon</span><span class="p">)</span>
@@ -581,133 +581,133 @@
                 <span class="n">TLN_Deinit</span> <span class="p">()</span>
 
 
-<span class="o">/*</span> <span class="n">raster</span> <span class="n">callback</span> <span class="p">(</span><span class="n">virtual</span> <span class="n">HBLANK</span><span class="p">)</span> <span class="o">*/</span>
+<span class="cm">/* raster callback (virtual HBLANK) */</span>
 
-<span class="k">func</span> <span class="n">raster_callback</span>
+<span class="kd">func</span> <span class="nf">raster_callback</span>
 
         <span class="n">line</span> <span class="o">=</span> <span class="n">TLN_GETSCANLINE</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">road</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">fix2int</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">fix2int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
                 <span class="n">TLN_DisableLayer</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">)</span>
-        <span class="k">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">&gt;=</span> <span class="mi">24</span><span class="p">)</span>
+        <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">&gt;=</span> <span class="mi">24</span><span class="p">)</span>
                 <span class="n">s0</span> <span class="o">=</span> <span class="n">float2fix</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
                 <span class="n">s1</span> <span class="o">=</span> <span class="n">float2fix</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">s0</span><span class="p">,</span><span class="n">s1</span><span class="p">)</span>
                 <span class="n">scale</span> <span class="o">=</span> <span class="n">fix2float</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTransform</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">WIDTH</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
-        <span class="k">ok</span>
+        <span class="k k-Control">ok</span>
 
-<span class="k">func</span> <span class="n">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
+<span class="kd">func</span> <span class="nf">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
+        <span class="k k-Control">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
 
-<span class="k">func</span> <span class="n">float2fix</span> <span class="n">f</span>        <span class="k">return</span> <span class="n">f</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FIXED_BITS</span><span class="p">)</span>
-<span class="k">func</span> <span class="n">int2fix</span> <span class="n">i</span>          <span class="k">return</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">FIXED_BITS</span>
-<span class="k">func</span> <span class="n">fix2int</span> <span class="n">f</span>          <span class="k">return</span> <span class="n">f</span> <span class="o">&gt;&gt;</span> <span class="n">FIXED_BITS</span>
-<span class="k">func</span> <span class="n">fix2float</span> <span class="n">f</span>        <span class="k">return</span> <span class="n">f</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FIXED_BITS</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">float2fix</span> <span class="n">f</span>        <span class="k k-Control">return</span> <span class="n">f</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FIXED_BITS</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">int2fix</span> <span class="n">i</span>          <span class="k k-Control">return</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">FIXED_BITS</span>
+<span class="kd">func</span> <span class="nf">fix2int</span> <span class="n">f</span>          <span class="k k-Control">return</span> <span class="n">f</span> <span class="o">&gt;&gt;</span> <span class="n">FIXED_BITS</span>
+<span class="kd">func</span> <span class="nf">fix2float</span> <span class="n">f</span>        <span class="k k-Control">return</span> <span class="n">f</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">FIXED_BITS</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot6.png" />
 <p>Example (7):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;sin.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;sin.ring&quot;</span>
 
 <span class="n">WIDTH</span>   <span class="o">=</span>       <span class="mi">320</span>
 <span class="n">HEIGHT</span>  <span class="o">=</span>       <span class="mi">192</span>
 <span class="n">COLUMNS</span> <span class="o">=</span> <span class="n">WIDTH</span><span class="o">/</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">2</span>
 
-<span class="o">/*</span> <span class="n">layers</span> <span class="o">*/</span>
+<span class="cm">/* layers */</span>
 <span class="n">LAYER_FOREGROUND</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">LAYER_BACKGROUND</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">MAX_LAYER</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="n">frame</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">column</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">COLUMNS</span><span class="p">)</span>
+<span class="n">column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">COLUMNS</span><span class="p">)</span>
 
-<span class="o">/*</span> <span class="n">entry</span> <span class="n">point</span> <span class="o">*/</span>
-<span class="k">func</span> <span class="n">main</span>
+<span class="cm">/* entry point */</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="o">/*</span> <span class="n">setup</span> <span class="n">engine</span> <span class="o">*/</span>
+        <span class="cm">/* setup engine */</span>
 
                 <span class="n">TLN_Init</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">MAX_LAYER</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-                <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s">&quot;raster_callback()&quot;</span><span class="p">)</span>
+                <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s2">&quot;raster_callback()&quot;</span><span class="p">)</span>
                 <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="k">load</span> <span class="n">resources</span><span class="o">*/</span>
+        <span class="cm">/* load resources*/</span>
 
-                <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s">&quot;assets/tf3&quot;</span><span class="p">)</span>
-                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;tf3_bg2.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
-                <span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;tf3_bg3.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+                <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s2">&quot;assets/tf3&quot;</span><span class="p">)</span>
+                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;tf3_bg2.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+                <span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;tf3_bg3.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
 
                 <span class="n">BuildSinTable</span> <span class="p">()</span>
 
-                <span class="c"># Convert the Column List to Array of Integers</span>
-                        <span class="n">intArray</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">column</span> <span class="n">intArray</span> <span class="o">+=</span> <span class="n">int2Bytes</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">next</span>
+                <span class="c1"># Convert the Column List to Array of Integers</span>
+                        <span class="n">intArray</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k k-Control">for</span> <span class="n">item</span> <span class="k k-Control">in</span> <span class="n">column</span> <span class="n">intArray</span> <span class="o">+=</span> <span class="nb">int2Bytes</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k k-Control">next</span>
 
-                <span class="n">TLN_SetLayerColumnOffset</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="p">:</span><span class="n">intArray</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerColumnOffset</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="ss">:intArray</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
+        <span class="cm">/* main loop */</span>
 
-                <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="k">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
+                <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="k k-Control">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
 
-                        <span class="o">/*</span> <span class="n">scroll</span> <span class="o">*/</span>
+                        <span class="cm">/* scroll */</span>
 
                                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">frame</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-                        <span class="o">/*</span> <span class="n">update</span> <span class="n">column</span> <span class="n">offset</span> <span class="n">table</span> <span class="o">*/</span>
+                        <span class="cm">/* update column offset table */</span>
 
-                                <span class="k">for</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">COLUMNS</span>
-                                        <span class="n">column</span><span class="o">[</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="n">CalcSin</span> <span class="p">(</span><span class="n">frame</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-                                <span class="k">next</span>
+                                <span class="k k-Control">for</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">COLUMNS</span>
+                                        <span class="n">column</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">CalcSin</span> <span class="p">(</span><span class="n">frame</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+                                <span class="k k-Control">next</span>
 
-                        <span class="o">/*</span> <span class="n">render</span> <span class="k">to</span> <span class="n">window</span> <span class="o">*/</span>
+                        <span class="cm">/* render to window */</span>
 
                                 <span class="n">TLN_DrawFrame</span> <span class="p">(</span><span class="n">frame</span><span class="p">)</span>
                                 <span class="n">frame</span><span class="o">++</span>
 
-                <span class="k">end</span>
+                <span class="k k-Control">end</span>
 
-                <span class="o">/*</span> <span class="n">deinit</span> <span class="o">*/</span>
+                <span class="cm">/* deinit */</span>
 
                         <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
                         <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">background</span><span class="p">)</span>
                         <span class="n">TLN_Deinit</span> <span class="p">()</span>
 
-<span class="k">func</span> <span class="n">raster_callback</span>
+<span class="kd">func</span> <span class="nf">raster_callback</span>
 
-        <span class="o">/*</span> <span class="n">raster</span> <span class="n">callback</span> <span class="p">(</span><span class="n">virtual</span> <span class="n">HBLANK</span><span class="p">)</span> <span class="o">*/</span>
+        <span class="cm">/* raster callback (virtual HBLANK) */</span>
 
                 <span class="n">line</span> <span class="o">=</span> <span class="n">TLN_GetScanLine</span><span class="p">()</span>
                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">frame</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">CalcSin</span><span class="p">((</span><span class="n">frame</span><span class="o">+</span><span class="n">line</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">frame</span> <span class="o">+</span> <span class="n">CalcSin</span><span class="p">((</span><span class="n">frame</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
+<span class="kd">func</span> <span class="nf">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
 
-        <span class="o">/*</span> <span class="n">linear</span> <span class="n">interpolation</span> <span class="o">*/</span>
+        <span class="cm">/* linear interpolation */</span>
 
-                <span class="k">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
+                <span class="k k-Control">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot7.png" />
 <p>Example (8):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
 <span class="n">WIDTH</span>  <span class="o">=</span> <span class="mi">400</span>
 <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
 
-<span class="n">sky</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="o">[</span><span class="mh">0x1D</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x7B</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0xA4</span><span class="p">,</span> <span class="mh">0xD9</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x4E</span><span class="o">]</span><span class="p">,</span>
-        <span class="o">[</span><span class="mh">0xEB</span><span class="p">,</span> <span class="mh">0x99</span><span class="p">,</span> <span class="mh">0x9D</span><span class="o">]</span>
-<span class="o">]</span>
+<span class="n">sky</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mh">0x1D</span><span class="p">,</span> <span class="mh">0x44</span><span class="p">,</span> <span class="mh">0x7B</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0xA4</span><span class="p">,</span> <span class="mh">0xD9</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x4E</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0xEB</span><span class="p">,</span> <span class="mh">0x99</span><span class="p">,</span> <span class="mh">0x9D</span><span class="p">]</span>
+<span class="p">]</span>
 
 <span class="n">sky_hi_r</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">sky_hi_g</span> <span class="o">=</span> <span class="mi">0</span>
@@ -721,29 +721,29 @@
 <span class="n">speed</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">max_xpos</span> <span class="o">=</span> <span class="mi">4720</span>
 
-<span class="o">/*</span> <span class="n">layers</span> <span class="o">*/</span>
+<span class="cm">/* layers */</span>
         <span class="n">LAYER_FOREGROUND</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">LAYER_BACKGROUND</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">MAX_LAYER</span> <span class="o">=</span> <span class="mi">2</span>
 
 
-<span class="o">/*</span> <span class="n">entry</span> <span class="n">point</span> <span class="o">*/</span>
-<span class="k">func</span> <span class="n">main</span>
+<span class="cm">/* entry point */</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="o">/*</span> <span class="n">setup</span> <span class="n">engine</span> <span class="o">*/</span>
+        <span class="cm">/* setup engine */</span>
                 <span class="n">TLN_Init</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
                 <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span>
-                <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s">&quot;raster_callback()&quot;</span><span class="p">)</span>
+                <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s2">&quot;raster_callback()&quot;</span><span class="p">)</span>
 
-        <span class="o">/*</span> <span class="k">load</span> <span class="n">resources</span> <span class="o">*/</span>
-                <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s">&quot;assets/sotb&quot;</span><span class="p">)</span>
-                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;SOTB_fg.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
-                <span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;SOTB_bg.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+        <span class="cm">/* load resources */</span>
+                <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s2">&quot;assets/sotb&quot;</span><span class="p">)</span>
+                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;SOTB_fg.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+                <span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;SOTB_bg.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
 
-        <span class="n">spriteset</span> <span class="o">=</span> <span class="n">TLN_LoadSpriteset</span> <span class="p">(</span><span class="s">&quot;SOTB&quot;</span><span class="p">)</span>
-        <span class="n">walk</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span> <span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="n">spriteset</span><span class="p">,</span> <span class="s">&quot;walk&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="n">spriteset</span> <span class="o">=</span> <span class="n">TLN_LoadSpriteset</span> <span class="p">(</span><span class="s2">&quot;SOTB&quot;</span><span class="p">)</span>
+        <span class="n">walk</span> <span class="o">=</span> <span class="n">TLN_CreateSpriteSequence</span> <span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="n">spriteset</span><span class="p">,</span> <span class="s2">&quot;walk&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 
         <span class="n">TLN_SetSpriteSet</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">spriteset</span><span class="p">)</span>
         <span class="n">TLN_SetSpritePosition</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span><span class="mi">160</span><span class="p">)</span>
@@ -751,349 +751,349 @@
 
         <span class="n">xpos</span> <span class="o">=</span> <span class="mi">2000</span>
 
-        <span class="n">sky_hi_r</span> <span class="o">=</span> <span class="n">sky</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>
-        <span class="n">sky_hi_g</span> <span class="o">=</span> <span class="n">sky</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
-        <span class="n">sky_hi_b</span> <span class="o">=</span> <span class="n">sky</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span>
-        <span class="n">sky_lo_r</span> <span class="o">=</span> <span class="n">sky</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>
-        <span class="n">sky_lo_g</span> <span class="o">=</span> <span class="n">sky</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
-        <span class="n">sky_lo_b</span> <span class="o">=</span> <span class="n">sky</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span>
+        <span class="n">sky_hi_r</span> <span class="o">=</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">sky_hi_g</span> <span class="o">=</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">sky_hi_b</span> <span class="o">=</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">sky_lo_r</span> <span class="o">=</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">sky_lo_g</span> <span class="o">=</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">sky_lo_b</span> <span class="o">=</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
 
-        <span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
-        <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="cm">/* main loop */</span>
+        <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
-        <span class="k">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
+        <span class="k k-Control">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
         <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">xpos</span> <span class="o">&lt;</span> <span class="n">max_xpos</span><span class="p">)</span>
+                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">xpos</span> <span class="o">&lt;</span> <span class="n">max_xpos</span><span class="p">)</span>
                 <span class="p">{</span>
                         <span class="n">xpos</span> <span class="o">+=</span> <span class="n">speed</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="n">xpos</span> <span class="o">&gt;=</span> <span class="n">max_xpos</span><span class="p">)</span>
+                        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">xpos</span> <span class="o">&gt;=</span> <span class="n">max_xpos</span><span class="p">)</span>
                         <span class="p">{</span>
                                 <span class="n">TLN_DisableSpriteAnimation</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
                                 <span class="n">TLN_SetSpritePicture</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
 
-                <span class="o">/*</span> <span class="n">sky</span> <span class="n">gradient</span> <span class="o">*/</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">frame</span><span class="o">&gt;=</span><span class="mi">300</span> <span class="o">&amp;&amp;</span> <span class="n">frame</span><span class="o">&lt;=</span><span class="mi">900</span><span class="p">)</span>
+                <span class="cm">/* sky gradient */</span>
+                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">frame</span><span class="o">&gt;=</span><span class="mi">300</span> <span class="o">&amp;&amp;</span> <span class="n">frame</span><span class="o">&lt;=</span><span class="mi">900</span><span class="p">)</span>
                 <span class="p">{</span>
-                        <span class="o">/*</span> <span class="n">interpolate</span> <span class="n">upper</span> <span class="n">color</span> <span class="o">*/</span>
-                        <span class="n">sky_hi_r</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
-                        <span class="n">sky_hi_g</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
-                        <span class="n">sky_hi_b</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span>
+                        <span class="cm">/* interpolate upper color */</span>
+                        <span class="n">sky_hi_r</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="n">sky_hi_g</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                        <span class="n">sky_hi_b</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
 
-                        <span class="o">/*</span> <span class="n">interpolate</span> <span class="n">lower</span> <span class="n">color</span> <span class="o">*/</span>
-                        <span class="n">sky_lo_r</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
-                        <span class="n">sky_lo_g</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
-                        <span class="n">sky_lo_b</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="n">sky</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span>
+                        <span class="cm">/* interpolate lower color */</span>
+                        <span class="n">sky_lo_r</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                        <span class="n">sky_lo_g</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                        <span class="n">sky_lo_b</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
                 <span class="p">}</span>
 
                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">xpos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-                <span class="o">/*</span> <span class="n">render</span> <span class="k">to</span> <span class="n">the</span> <span class="n">window</span> <span class="o">*/</span>
+                <span class="cm">/* render to the window */</span>
                 <span class="n">TLN_DrawFrame</span> <span class="p">(</span><span class="n">frame</span><span class="p">)</span>
                 <span class="n">frame</span><span class="o">++</span>
         <span class="p">}</span>
 
-        <span class="o">/*</span> <span class="n">release</span> <span class="n">resources</span> <span class="o">*/</span>
+        <span class="cm">/* release resources */</span>
         <span class="n">TLN_DeleteSequence</span><span class="p">(</span><span class="n">walk</span><span class="p">)</span>
         <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
         <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">background</span><span class="p">)</span>
         <span class="n">TLN_Deinit</span> <span class="p">()</span>
 
-<span class="k">func</span> <span class="n">raster_callback</span>
+<span class="kd">func</span> <span class="nf">raster_callback</span>
 
         <span class="n">line</span> <span class="o">=</span> <span class="n">TLN_GetScanLine</span><span class="p">()</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="o">/*</span> <span class="n">sky</span> <span class="n">color</span> <span class="o">*/</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">&lt;</span> <span class="mi">192</span><span class="p">)</span>
+        <span class="cm">/* sky color */</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">&lt;</span> <span class="mi">192</span><span class="p">)</span>
         <span class="p">{</span>
-                <span class="o">//</span><span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RGB</span>
-                <span class="o">/*</span> <span class="n">interpolate</span> <span class="n">between</span> <span class="n">upper</span> <span class="ow">and</span> <span class="n">lower</span> <span class="n">color</span> <span class="o">*/</span>
+                <span class="c1">//color = new RGB</span>
+                <span class="cm">/* interpolate between upper and lower color */</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">191</span><span class="p">,</span> <span class="n">sky_hi_r</span><span class="p">,</span> <span class="n">sky_lo_r</span><span class="p">)</span>
                 <span class="n">g</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">191</span><span class="p">,</span> <span class="n">sky_hi_g</span><span class="p">,</span> <span class="n">sky_lo_g</span><span class="p">)</span>
                 <span class="n">b</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">191</span><span class="p">,</span> <span class="n">sky_hi_b</span><span class="p">,</span> <span class="n">sky_lo_b</span><span class="p">)</span>
                 <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span> <span class="p">,</span><span class="n">b</span><span class="p">)</span>
         <span class="p">}</span>
 
-        <span class="o">/*</span> <span class="n">background</span> <span class="n">layer</span> <span class="o">*/</span>
+        <span class="cm">/* background layer */</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">64</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">88</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">96</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">64</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">88</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">96</span><span class="p">)</span>
                 <span class="n">pos</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span> <span class="n">xpos</span><span class="o">*</span><span class="mf">0.7</span> <span class="p">,</span> <span class="n">xpos</span><span class="o">*</span><span class="mf">0.2</span> <span class="p">)</span>
-        <span class="k">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">120</span><span class="p">)</span>
+        <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">120</span><span class="p">)</span>
                 <span class="n">pos</span> <span class="o">=</span> <span class="n">xpos</span><span class="o">/</span><span class="mi">2</span>
-        <span class="k">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">208</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">216</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">224</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">232</span><span class="p">)</span>
+        <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">208</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">216</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">224</span> <span class="o">||</span> <span class="n">line</span> <span class="o">=</span> <span class="mi">232</span><span class="p">)</span>
                 <span class="n">pos</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="mi">208</span><span class="p">,</span><span class="mi">232</span><span class="p">,</span><span class="n">xpos</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span><span class="n">xpos</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-        <span class="k">ok</span>
+        <span class="k k-Control">ok</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">ok</span>
+        <span class="k k-Control">ok</span>
 
-        <span class="o">/*</span> <span class="n">foreground</span> <span class="n">layer</span> <span class="o">*/</span>
+        <span class="cm">/* foreground layer */</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">pos</span> <span class="o">=</span> <span class="n">xpos</span>
-        <span class="k">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">216</span><span class="p">)</span>
+        <span class="k k-Control">elseif</span> <span class="p">(</span><span class="n">line</span> <span class="o">=</span> <span class="mi">216</span><span class="p">)</span>
                 <span class="n">pos</span> <span class="o">=</span> <span class="n">xpos</span><span class="o">*</span><span class="mi">3</span>
-        <span class="k">ok</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
+        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">ok</span>
+        <span class="k k-Control">ok</span>
 
-<span class="k">func</span> <span class="n">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
-        <span class="o">/*</span> <span class="n">linear</span> <span class="n">interpolation</span> <span class="o">*/</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">fx0</span> <span class="o">+</span> <span class="p">(</span><span class="n">fx1</span><span class="o">-</span><span class="n">fx0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x0</span><span class="p">))</span>
+<span class="kd">func</span> <span class="nf">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
+        <span class="cm">/* linear interpolation */</span>
+        <span class="k k-Control">return</span> <span class="p">(</span><span class="n">fx0</span> <span class="o">+</span> <span class="p">(</span><span class="n">fx1</span><span class="o">-</span><span class="n">fx0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x0</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot8.png" />
 <p>Example (9):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;tilengine.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
-WIDTH    = 400
-HEIGHT = 240
+<span class="n">WIDTH</span>    <span class="o">=</span> <span class="mi">400</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
 
-MIN_SCALE = 50
-MAX_SCALE       = 200
+<span class="n">MIN_SCALE</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">MAX_SCALE</span>       <span class="o">=</span> <span class="mi">200</span>
 
-/* RGB sky colors */
-sky = [
-        [0x19, 0x54, 0x75],
-        [0x2C, 0xB0, 0xDC]
-]
+<span class="cm">/* RGB sky colors */</span>
+<span class="n">sky</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mh">0x19</span><span class="p">,</span> <span class="mh">0x54</span><span class="p">,</span> <span class="mh">0x75</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0x2C</span><span class="p">,</span> <span class="mh">0xB0</span><span class="p">,</span> <span class="mh">0xDC</span><span class="p">]</span>
+<span class="p">]</span>
 
-/* layers */
-LAYER_FOREGROUND = 0
-LAYER_BACKGROUND = 1
-MAX_LAYER = 2
+<span class="cm">/* layers */</span>
+<span class="n">LAYER_FOREGROUND</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LAYER_BACKGROUND</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MAX_LAYER</span> <span class="o">=</span> <span class="mi">2</span>
 
-xpos=0 ypos=0 scale=0
+<span class="n">xpos</span><span class="o">=</span><span class="mi">0</span> <span class="n">ypos</span><span class="o">=</span><span class="mi">0</span> <span class="n">scale</span><span class="o">=</span><span class="mi">0</span>
 
-/* entry point */
-func main
+<span class="cm">/* entry point */</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        /* setup engine */
-        TLN_Init (WIDTH, HEIGHT, MAX_LAYER,0,0)
-        TLN_SetBGColor (34,136,170)
-        TLN_SetRasterCallback (&quot;raster_callback()&quot;)
+        <span class="cm">/* setup engine */</span>
+        <span class="n">TLN_Init</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">MAX_LAYER</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="mi">136</span><span class="p">,</span><span class="mi">170</span><span class="p">)</span>
+        <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s2">&quot;raster_callback()&quot;</span><span class="p">)</span>
 
-        /* load resources */
-        TLN_SetLoadPath (&quot;assets/fox&quot;)
-        foreground = TLN_LoadTilemap (&quot;psycho.tmx&quot;, NULL)
-        background = TLN_LoadTilemap (&quot;rolo.tmx&quot;, NULL)
-        TLN_SetLayerTilemap (LAYER_FOREGROUND, foreground)
-        TLN_SetLayerTilemap (LAYER_BACKGROUND, background)
+        <span class="cm">/* load resources */</span>
+        <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s2">&quot;assets/fox&quot;</span><span class="p">)</span>
+        <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;psycho.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;rolo.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
+        <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
 
-        /* initial values */
-        xpos = 0
-        ypos = 192
-        scale = 100
+        <span class="cm">/* initial values */</span>
+        <span class="n">xpos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">ypos</span> <span class="o">=</span> <span class="mi">192</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="mi">100</span>
 
-        /* main loop */
-        TLN_CreateWindow (NULL, 0)
-        TLN_DisableCRTEffect()
-        while TLN_ProcessWindow ()
-                /* user input */
-                if TLN_GetInput (INPUT_LEFT)
-                        xpos-- ok
-                if TLN_GetInput (INPUT_RIGHT)
-                        xpos++ ok
-                if TLN_GetInput (INPUT_UP) &amp;&amp; ypos &gt; 0
-                        ypos-- ok
-                if TLN_GetInput (INPUT_DOWN)
-                        ypos++ ok
-                if TLN_GetInput (INPUT_A) &amp;&amp; scale &lt; MAX_SCALE
-                        scale += 1 ok
-                if TLN_GetInput (INPUT_B) &amp;&amp; scale &gt; MIN_SCALE
-                        scale -= 1 ok
+        <span class="cm">/* main loop */</span>
+        <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
+        <span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span> <span class="p">()</span>
+                <span class="cm">/* user input */</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_LEFT</span><span class="p">)</span>
+                        <span class="n">xpos</span><span class="o">--</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_RIGHT</span><span class="p">)</span>
+                        <span class="n">xpos</span><span class="o">++</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_UP</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">ypos</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">ypos</span><span class="o">--</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_DOWN</span><span class="p">)</span>
+                        <span class="n">ypos</span><span class="o">++</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_A</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">scale</span> <span class="o">&lt;</span> <span class="n">MAX_SCALE</span>
+                        <span class="n">scale</span> <span class="o">+=</span> <span class="mi">1</span> <span class="k k-Control">ok</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_B</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">scale</span> <span class="o">&gt;</span> <span class="n">MIN_SCALE</span>
+                        <span class="n">scale</span> <span class="o">-=</span> <span class="mi">1</span> <span class="k k-Control">ok</span>
 
-                /* calculate scale factor from fixed point base */
-                fgscale = scale/100.0f
-                bgscale = lerp(scale, MIN_SCALE,MAX_SCALE, 0.75,1.5)
+                <span class="cm">/* calculate scale factor from fixed point base */</span>
+                <span class="n">fgscale</span> <span class="o">=</span> <span class="n">scale</span><span class="o">/</span><span class="mf">100.0</span><span class="n">f</span>
+                <span class="n">bgscale</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">MIN_SCALE</span><span class="p">,</span><span class="n">MAX_SCALE</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
 
-                /* scale dependant lower clipping */
-                maxy = 640 - (240*100/scale)
-                if ypos &gt; maxy
-                        ypos = maxy
-                ok
+                <span class="cm">/* scale dependant lower clipping */</span>
+                <span class="n">maxy</span> <span class="o">=</span> <span class="mi">640</span> <span class="o">-</span> <span class="p">(</span><span class="mi">240</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">scale</span><span class="p">)</span>
+                <span class="k k-Control">if</span> <span class="n">ypos</span> <span class="o">&gt;</span> <span class="n">maxy</span>
+                        <span class="n">ypos</span> <span class="o">=</span> <span class="n">maxy</span>
+                <span class="k k-Control">ok</span>
 
-                /* update position */
-                bgypos = lerp(scale,MIN_SCALE,MAX_SCALE, 0,80)
-                TLN_SetLayerPosition (LAYER_FOREGROUND, xpos*2, ypos)
-                TLN_SetLayerPosition (LAYER_BACKGROUND, xpos, bgypos)
-                TLN_SetLayerScaling (LAYER_FOREGROUND, fgscale, fgscale)
-                TLN_SetLayerScaling (LAYER_BACKGROUND, bgscale, bgscale)
+                <span class="cm">/* update position */</span>
+                <span class="n">bgypos</span> <span class="o">=</span> <span class="n">lerp</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span><span class="n">MIN_SCALE</span><span class="p">,</span><span class="n">MAX_SCALE</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">xpos</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">ypos</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">xpos</span><span class="p">,</span> <span class="n">bgypos</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerScaling</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">fgscale</span><span class="p">,</span> <span class="n">fgscale</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerScaling</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">bgscale</span><span class="p">,</span> <span class="n">bgscale</span><span class="p">)</span>
 
-                /* render to the window */
-                TLN_DrawFrame (0)
-        end
+                <span class="cm">/* render to the window */</span>
+                <span class="n">TLN_DrawFrame</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k k-Control">end</span>
 
-        /* release resources */
-        TLN_DeleteTilemap (foreground)
-        TLN_DeleteTilemap (background)
-        TLN_Deinit ()
+        <span class="cm">/* release resources */</span>
+        <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
+        <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">background</span><span class="p">)</span>
+        <span class="n">TLN_Deinit</span> <span class="p">()</span>
 
 
-/* sky color gradient with raster effect */
-func raster_callback
-        line = TLN_GetScanLine()
-        if line &lt;= 152
-                r = lerp (line, 0,152, sky[1][1], sky[2][1])
-                g = lerp (line, 0,152, sky[1][2], sky[2][2])
-                b = lerp (line, 0,152, sky[1][3], sky[2][3])
-                TLN_SetBGColor (r, g, b)
-        ok
+<span class="cm">/* sky color gradient with raster effect */</span>
+<span class="kd">func</span> <span class="nf">raster_callback</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">TLN_GetScanLine</span><span class="p">()</span>
+        <span class="k k-Control">if</span> <span class="n">line</span> <span class="o">&lt;=</span> <span class="mi">152</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">152</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">152</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">152</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
+                <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
 
-/* linear interpolation */
-func lerp x,x0,x1,fx0,fx1
-        return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
+<span class="cm">/* linear interpolation */</span>
+<span class="kd">func</span> <span class="nf">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
+        <span class="k k-Control">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot9.png" />
 <p>Example (10):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;tilengine.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
 
-WIDTH    = 400
-HEIGHT = 240
+<span class="n">WIDTH</span>    <span class="o">=</span> <span class="mi">400</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">240</span>
 
-sky = [
-        [0x1B, 0x00, 0x8B],
-        [0x00, 0x74, 0xD7],
-        [0x24, 0x92, 0xDB],
-        [0x1F, 0x7F, 0xBE]
-]
+<span class="n">sky</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mh">0x1B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x8B</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x74</span><span class="p">,</span> <span class="mh">0xD7</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0x24</span><span class="p">,</span> <span class="mh">0x92</span><span class="p">,</span> <span class="mh">0xDB</span><span class="p">],</span>
+        <span class="p">[</span><span class="mh">0x1F</span><span class="p">,</span> <span class="mh">0x7F</span><span class="p">,</span> <span class="mh">0xBE</span><span class="p">]</span>
+<span class="p">]</span>
 
-/* layers */
-LAYER_FOREGROUND = 0
-LAYER_BACKGROUND = 1
-MAX_LAYER = 2
+<span class="cm">/* layers */</span>
+<span class="n">LAYER_FOREGROUND</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LAYER_BACKGROUND</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MAX_LAYER</span> <span class="o">=</span> <span class="mi">2</span>
 
-pos_foreground = 0
-pos_background = list(6)
-inc_background = list(6)
-speed = 0
-ypos = 0
+<span class="n">pos_foreground</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">pos_background</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">inc_background</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ypos</span> <span class="o">=</span> <span class="mi">0</span>
 
-color = list(3)
+<span class="n">color</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-/* entry point */
-func main
+<span class="cm">/* entry point */</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        /* setup engine */
-        TLN_Init (WIDTH,HEIGHT, MAX_LAYER, 0, 1)
-        TLN_SetRasterCallback (&quot;raster_callback()&quot;)
-        TLN_SetBGColor (0,128,238)
+        <span class="cm">/* setup engine */</span>
+        <span class="n">TLN_Init</span> <span class="p">(</span><span class="n">WIDTH</span><span class="p">,</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">MAX_LAYER</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">TLN_SetRasterCallback</span> <span class="p">(</span><span class="s2">&quot;raster_callback()&quot;</span><span class="p">)</span>
+        <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="mi">238</span><span class="p">)</span>
 
-        /* load resources*/
-        TLN_SetLoadPath (&quot;assets/sonic&quot;)
-        foreground = TLN_LoadTilemap (&quot;Sonic_md_fg1.tmx&quot;, NULL)
-        background = TLN_LoadTilemap (&quot;Sonic_md_bg1.tmx&quot;, NULL)
-        TLN_SetLayerTilemap (LAYER_FOREGROUND, foreground)
-        TLN_SetLayerTilemap (LAYER_BACKGROUND, background)
-        sp = TLN_LoadSequencePack (&quot;Sonic_md_seq.sqx&quot;)
-        sequence = TLN_FindSequence (sp, &quot;seq_water&quot;)
+        <span class="cm">/* load resources*/</span>
+        <span class="n">TLN_SetLoadPath</span> <span class="p">(</span><span class="s2">&quot;assets/sonic&quot;</span><span class="p">)</span>
+        <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="n">background</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_bg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
+        <span class="n">TLN_SetLayerTilemap</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">background</span><span class="p">)</span>
+        <span class="n">sp</span> <span class="o">=</span> <span class="n">TLN_LoadSequencePack</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_seq.sqx&quot;</span><span class="p">)</span>
+        <span class="n">sequence</span> <span class="o">=</span> <span class="n">TLN_FindSequence</span> <span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="s2">&quot;seq_water&quot;</span><span class="p">)</span>
 
-        /* assign color sequence to various entries in palette */
-        palette = TLN_GetLayerPalette (LAYER_BACKGROUND)
-        TLN_SetPaletteAnimation (TLN_GetAvailableAnimation(), palette, sequence, true)
+        <span class="cm">/* assign color sequence to various entries in palette */</span>
+        <span class="n">palette</span> <span class="o">=</span> <span class="n">TLN_GetLayerPalette</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">)</span>
+        <span class="n">TLN_SetPaletteAnimation</span> <span class="p">(</span><span class="n">TLN_GetAvailableAnimation</span><span class="p">(),</span> <span class="n">palette</span><span class="p">,</span> <span class="n">sequence</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
 
-        /* compute increments for variable background scrolling speeds */
-        inc_background[1] = 0.562f
-        inc_background[2] = 0.437f
-        inc_background[3] = 0.375f
-        inc_background[4] = 0.625f
-        inc_background[5] = 1.0f
-        inc_background[6] = 2.0f
+        <span class="cm">/* compute increments for variable background scrolling speeds */</span>
+        <span class="n">inc_background</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.562</span><span class="n">f</span>
+        <span class="n">inc_background</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.437</span><span class="n">f</span>
+        <span class="n">inc_background</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.375</span><span class="n">f</span>
+        <span class="n">inc_background</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.625</span><span class="n">f</span>
+        <span class="n">inc_background</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="n">f</span>
+        <span class="n">inc_background</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span><span class="n">f</span>
 
-        /* startup display */
-        TLN_CreateWindow (NULL, 0)
+        <span class="cm">/* startup display */</span>
+        <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="bp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        /* main loop */
-        while TLN_ProcessWindow ()
-                if TLN_GetInput (INPUT_RIGHT)
-                        speed += 0.02
-                        if speed &gt; 1.0
-                                speed = 1.0f
-                        ok
-                elseif speed &gt; 0.0
-                        speed -= 0.02
-                        if speed &lt; 0.0
-                                speed = 0.0f
-                        ok
-                ok
+        <span class="cm">/* main loop */</span>
+        <span class="k k-Control">while</span> <span class="n">TLN_ProcessWindow</span> <span class="p">()</span>
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_RIGHT</span><span class="p">)</span>
+                        <span class="n">speed</span> <span class="o">+=</span> <span class="mf">0.02</span>
+                        <span class="k k-Control">if</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mf">1.0</span>
+                                <span class="n">speed</span> <span class="o">=</span> <span class="mf">1.0</span><span class="n">f</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">elseif</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+                        <span class="n">speed</span> <span class="o">-=</span> <span class="mf">0.02</span>
+                        <span class="k k-Control">if</span> <span class="n">speed</span> <span class="o">&lt;</span> <span class="mf">0.0</span>
+                                <span class="n">speed</span> <span class="o">=</span> <span class="mf">0.0</span><span class="n">f</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">ok</span>
 
-                if TLN_GetInput (INPUT_LEFT)
-                        speed -= 0.02
-                        if speed &lt; -1
-                                speed = -1
-                        ok
-                elseif speed &lt; 0
-                        speed += 0.02
-                        if speed &gt; 0
-                                speed = 0
-                        ok
-                ok
+                <span class="k k-Control">if</span> <span class="n">TLN_GetInput</span> <span class="p">(</span><span class="n">INPUT_LEFT</span><span class="p">)</span>
+                        <span class="n">speed</span> <span class="o">-=</span> <span class="mf">0.02</span>
+                        <span class="k k-Control">if</span> <span class="n">speed</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span>
+                                <span class="n">speed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">elseif</span> <span class="n">speed</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="n">speed</span> <span class="o">+=</span> <span class="mf">0.02</span>
+                        <span class="k k-Control">if</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                                <span class="n">speed</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">ok</span>
 
-                /* scroll */
-                pos_foreground += 3*speed
-                TLN_SetLayerPosition (LAYER_FOREGROUND, pos_foreground, ypos)
-                for c=1 to 6
-                        pos_background[c] += (inc_background[c] * speed)
-                next
+                <span class="cm">/* scroll */</span>
+                <span class="n">pos_foreground</span> <span class="o">+=</span> <span class="mi">3</span><span class="o">*</span><span class="n">speed</span>
+                <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_FOREGROUND</span><span class="p">,</span> <span class="n">pos_foreground</span><span class="p">,</span> <span class="n">ypos</span><span class="p">)</span>
+                <span class="k k-Control">for</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">6</span>
+                        <span class="n">pos_background</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">inc_background</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">*</span> <span class="n">speed</span><span class="p">)</span>
+                <span class="k k-Control">next</span>
 
-                /* render to window */
-                TLN_DrawFrame (0)
-        end
+                <span class="cm">/* render to window */</span>
+                <span class="n">TLN_DrawFrame</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k k-Control">end</span>
 
-        /* deinit */
-        TLN_DeleteTilemap (foreground)
-        TLN_DeleteTilemap (background)
-        TLN_DeleteSequencePack (sp)
-        TLN_Deinit ()
+        <span class="cm">/* deinit */</span>
+        <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
+        <span class="n">TLN_DeleteTilemap</span> <span class="p">(</span><span class="n">background</span><span class="p">)</span>
+        <span class="n">TLN_DeleteSequencePack</span> <span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+        <span class="n">TLN_Deinit</span> <span class="p">()</span>
 
-/* raster callback (virtual HBLANK) */
-func raster_callback
+<span class="cm">/* raster callback (virtual HBLANK) */</span>
+<span class="kd">func</span> <span class="nf">raster_callback</span>
 
-        line = TLN_GetScanLine()
-        pos =- 1
+        <span class="n">line</span> <span class="o">=</span> <span class="n">TLN_GetScanLine</span><span class="p">()</span>
+        <span class="n">pos</span> <span class="o">=-</span> <span class="mi">1</span>
 
-        if line=0
-                pos = pos_background[1]
-        elseif line=32
-                pos = pos_background[2]
-        elseif line=48
-                pos = pos_background[3]
-        elseif line=64
-                pos = pos_background[4]
-        elseif line=112
-                pos = pos_background[5]
-        elseif line &gt;= 152
-                pos = lerp (line, 152,224, pos_background[5], pos_background[6])
-        ok
+        <span class="k k-Control">if</span> <span class="n">line</span><span class="o">=</span><span class="mi">0</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k k-Control">elseif</span> <span class="n">line</span><span class="o">=</span><span class="mi">32</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k k-Control">elseif</span> <span class="n">line</span><span class="o">=</span><span class="mi">48</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k k-Control">elseif</span> <span class="n">line</span><span class="o">=</span><span class="mi">64</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k k-Control">elseif</span> <span class="n">line</span><span class="o">=</span><span class="mi">112</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+        <span class="k k-Control">elseif</span> <span class="n">line</span> <span class="o">&gt;=</span> <span class="mi">152</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">152</span><span class="p">,</span><span class="mi">224</span><span class="p">,</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">pos_background</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+        <span class="k k-Control">ok</span>
 
-        if pos != -1
-                TLN_SetLayerPosition (LAYER_BACKGROUND, pos, 0)
-        ok
+        <span class="k k-Control">if</span> <span class="n">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="n">TLN_SetLayerPosition</span> <span class="p">(</span><span class="n">LAYER_BACKGROUND</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
 
-        /* background color gradients */
-        if line &lt; 112
-                InterpolateColor (line, 0,112, sky[1], sky[2], color)
-                TLN_SetBGColor (color[1], color[2], color[3])
-        elseif line &gt;= 144
-                InterpolateColor (line, 144,HEIGHT, sky[3], sky[4], color)
-                TLN_SetBGColor (color[1], color[2], color[3])
-        ok
+        <span class="cm">/* background color gradients */</span>
+        <span class="k k-Control">if</span> <span class="n">line</span> <span class="o">&lt;</span> <span class="mi">112</span>
+                <span class="n">InterpolateColor</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">112</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="p">)</span>
+                <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="k k-Control">elseif</span> <span class="n">line</span> <span class="o">&gt;=</span> <span class="mi">144</span>
+                <span class="n">InterpolateColor</span> <span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span><span class="n">HEIGHT</span><span class="p">,</span> <span class="n">sky</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">sky</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">color</span><span class="p">)</span>
+                <span class="n">TLN_SetBGColor</span> <span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="k k-Control">ok</span>
 
-func InterpolateColor v,v1,v2,color1,color2,result
-        result[1] = lerp (v, v1,v2, color1[1], color2[1])
-        result[2] = lerp (v, v1,v2, color1[2], color2[2])
-        result[3] = lerp (v, v1,v2, color1[3], color2[3])
+<span class="kd">func</span> <span class="nf">InterpolateColor</span> <span class="n">v</span><span class="p">,</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="n">color1</span><span class="p">,</span><span class="n">color2</span><span class="p">,</span><span class="n">result</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span> <span class="n">color1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span> <span class="n">color1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">color2</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">result</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">lerp</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span> <span class="n">color1</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">color2</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 
-/* linear interpolation */
-func lerp x,x0,x1,fx0,fx1
-        return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
+<span class="cm">/* linear interpolation */</span>
+<span class="kd">func</span> <span class="nf">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
+        <span class="k k-Control">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1102,49 +1102,49 @@ func lerp x,x0,x1,fx0,fx1
 <section id="using-libsdl-and-tilengine">
 <span id="index-3"></span><h2>Using LibSDL and Tilengine<a class="headerlink" href="#using-libsdl-and-tilengine" title="Permalink to this heading"></a></h2>
 <p>Example (11):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;libsdl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
 <span class="n">width</span>  <span class="o">=</span> <span class="mi">640</span>
 <span class="n">height</span> <span class="o">=</span> <span class="mi">480</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="c"># Start Tilengine</span>
+        <span class="c1"># Start Tilengine</span>
                 <span class="n">TLN_Init</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="c"># Start LibSDL</span>
+        <span class="c1"># Start LibSDL</span>
                 <span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-                <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;Using LibSDL and Tilengine&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="o">|</span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">)</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Using LibSDL and Tilengine&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="o">|</span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">)</span>
                 <span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
 
-        <span class="c"># Create the Surface in LibSDL that will be used by Tilengine for Drawing</span>
+        <span class="c1"># Create the Surface in LibSDL that will be used by Tilengine for Drawing</span>
                 <span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-        <span class="c"># Get the Surface Pixels pointer from the Surface Structure</span>
+        <span class="c1"># Get the Surface Pixels pointer from the Surface Structure</span>
                 <span class="n">pixels</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Surface_Pixels</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
-        <span class="c"># Pass the Pixels pointer to Tilengine</span>
+        <span class="c1"># Pass the Pixels pointer to Tilengine</span>
                 <span class="n">TLN_SetRenderTarget</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 
-        <span class="c"># Using Tilengine</span>
-                <span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
-                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+        <span class="c1"># Using Tilengine</span>
+                <span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets\sonic&quot;</span><span class="p">)</span>
+                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
 
-        <span class="c"># Using LibSDL Events Loop</span>
+        <span class="c1"># Using LibSDL Events Loop</span>
                 <span class="n">oEvent</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Event</span><span class="p">()</span>
 
-                <span class="k">while</span> <span class="kp">true</span>
+                <span class="k k-Control">while</span> <span class="bp">true</span>
 
-                        <span class="c"># Using Tilengine to Update the Frame</span>
+                        <span class="c1"># Using Tilengine to Update the Frame</span>
                                         <span class="n">TLN_UpdateFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-                        <span class="c"># Draw Tilengine results using LibSDL</span>
-                        <span class="c"># ( Surface --&gt; Texture --&gt; Render)</span>
+                        <span class="c1"># Draw Tilengine results using LibSDL</span>
+                        <span class="c1"># ( Surface --&gt; Texture --&gt; Render)</span>
                                 <span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span> <span class="n">surface</span><span class="p">);</span>
                                 <span class="n">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">)</span>
                                 <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
 
-                        <span class="c"># Draw Rectangle using LibSDL</span>
+                        <span class="c1"># Draw Rectangle using LibSDL</span>
                                 <span class="n">rect</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
                                 <span class="n">SDL_Set_SDL_Rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
                                 <span class="n">SDL_Set_SDL_Rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -1154,25 +1154,25 @@ func lerp x,x0,x1,fx0,fx1
                                 <span class="n">SDL_RenderDrawRect</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
                                 <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
 
-                        <span class="c"># Display Results using LibSDL</span>
+                        <span class="c1"># Display Results using LibSDL</span>
                                 <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
 
-                        <span class="c"># Check Events</span>
+                        <span class="c1"># Check Events</span>
 
                                         <span class="n">SDL_PollEvent</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
-                                        <span class="k">switch</span> <span class="n">SDL_Get_SDL_Event_Type</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
-                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Quit</span><span class="p">()</span>
-                                                                        <span class="k">exit</span>
-                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Keydown</span><span class="p">()</span>
+                                        <span class="k k-Control">switch</span> <span class="n">SDL_Get_SDL_Event_Type</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                                        <span class="k k-Control">on</span> <span class="n">SDL_Get_SDL_Quit</span><span class="p">()</span>
+                                                                        <span class="k k-Control">exit</span>
+                                                        <span class="k k-Control">on</span> <span class="n">SDL_Get_SDL_Keydown</span><span class="p">()</span>
                                                                         <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Event_key_Keysym_Sym</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
-                                                                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
-                                        <span class="k">off</span>
-                <span class="k">end</span>
+                                                                        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k k-Control">exit</span> <span class="k k-Control">ok</span>
+                                        <span class="k k-Control">off</span>
+                <span class="k k-Control">end</span>
 
-        <span class="c"># End of Tilengine Usage</span>
+        <span class="c1"># End of Tilengine Usage</span>
                 <span class="n">TLN_Deinit</span><span class="p">()</span>
 
-        <span class="c"># End of LibSDL Usage</span>
+        <span class="c1"># End of LibSDL Usage</span>
                 <span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                 <span class="n">SDL_Quit</span><span class="p">()</span>
 </pre></div>
@@ -1180,45 +1180,45 @@ func lerp x,x0,x1,fx0,fx1
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot11.png" />
 <p>Example (12):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;libsdl.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tilengine.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
 <span class="n">factor</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">width</span>  <span class="o">=</span> <span class="mi">400</span><span class="o">*</span><span class="n">factor</span>
 <span class="n">height</span> <span class="o">=</span> <span class="mi">220</span><span class="o">*</span><span class="n">factor</span>
 
-<span class="k">func</span> <span class="n">main</span>
+<span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="c"># Start Tilengine</span>
+        <span class="c1"># Start Tilengine</span>
                 <span class="n">TLN_Init</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="c"># Start LibSDL</span>
+        <span class="c1"># Start LibSDL</span>
                 <span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-                <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;Using LibSDL and Tilengine&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="o">|</span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">)</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Using LibSDL and Tilengine&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="o">|</span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">)</span>
                 <span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
 
-        <span class="c"># Create the Surface in LibSDL that will be used by Tilengine for Drawing</span>
+        <span class="c1"># Create the Surface in LibSDL that will be used by Tilengine for Drawing</span>
                 <span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-        <span class="c"># Get the Surface Pixels pointer from the Surface Structure</span>
+        <span class="c1"># Get the Surface Pixels pointer from the Surface Structure</span>
                 <span class="n">pixels</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Surface_Pixels</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
-        <span class="c"># Pass the Pixels pointer to Tilengine</span>
+        <span class="c1"># Pass the Pixels pointer to Tilengine</span>
                 <span class="n">TLN_SetRenderTarget</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 
-        <span class="c"># Using Tilengine</span>
-                <span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
-                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+        <span class="c1"># Using Tilengine</span>
+                <span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s2">&quot;assets\sonic&quot;</span><span class="p">)</span>
+                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s2">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
                 <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
 
-        <span class="c"># Using LibSDL Events Loop</span>
+        <span class="c1"># Using LibSDL Events Loop</span>
                 <span class="n">oEvent</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Event</span><span class="p">()</span>
 
-                <span class="k">while</span> <span class="kp">true</span>
+                <span class="k k-Control">while</span> <span class="bp">true</span>
 
-                        <span class="c"># Using Tilengine to Update the Frame</span>
+                        <span class="c1"># Using Tilengine to Update the Frame</span>
                                         <span class="n">TLN_UpdateFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-                        <span class="c"># Draw Tilengine results using LibSDL</span>
-                        <span class="c"># ( Surface --&gt; Texture --&gt; Render)</span>
+                        <span class="c1"># Draw Tilengine results using LibSDL</span>
+                        <span class="c1"># ( Surface --&gt; Texture --&gt; Render)</span>
                                 <span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span> <span class="n">surface</span><span class="p">);</span>
 
                                 <span class="n">rectSource</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
@@ -1238,7 +1238,7 @@ func lerp x,x0,x1,fx0,fx1
                                 <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rectDest</span><span class="p">)</span>
                                 <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
 
-                        <span class="c"># Draw Rectangle using LibSDL</span>
+                        <span class="c1"># Draw Rectangle using LibSDL</span>
                                 <span class="n">rect</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
                                 <span class="n">SDL_Set_SDL_Rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
                                 <span class="n">SDL_Set_SDL_Rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -1248,25 +1248,25 @@ func lerp x,x0,x1,fx0,fx1
                                 <span class="n">SDL_RenderDrawRect</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
                                 <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
 
-                        <span class="c"># Display Results using LibSDL</span>
+                        <span class="c1"># Display Results using LibSDL</span>
                                 <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
 
-                        <span class="c"># Check Events</span>
+                        <span class="c1"># Check Events</span>
 
                                         <span class="n">SDL_PollEvent</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
-                                        <span class="k">switch</span> <span class="n">SDL_Get_SDL_Event_Type</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
-                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Quit</span><span class="p">()</span>
-                                                                        <span class="k">exit</span>
-                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Keydown</span><span class="p">()</span>
+                                        <span class="k k-Control">switch</span> <span class="n">SDL_Get_SDL_Event_Type</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                                        <span class="k k-Control">on</span> <span class="n">SDL_Get_SDL_Quit</span><span class="p">()</span>
+                                                                        <span class="k k-Control">exit</span>
+                                                        <span class="k k-Control">on</span> <span class="n">SDL_Get_SDL_Keydown</span><span class="p">()</span>
                                                                         <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Event_key_Keysym_Sym</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
-                                                                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
-                                        <span class="k">off</span>
-                <span class="k">end</span>
+                                                                        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k k-Control">exit</span> <span class="k k-Control">ok</span>
+                                        <span class="k k-Control">off</span>
+                <span class="k k-Control">end</span>
 
-        <span class="c"># End of Tilengine Usage</span>
+        <span class="c1"># End of Tilengine Usage</span>
                 <span class="n">TLN_Deinit</span><span class="p">()</span>
 
-        <span class="c"># End of LibSDL Usage</span>
+        <span class="c1"># End of LibSDL Usage</span>
                 <span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                 <span class="n">SDL_Quit</span><span class="p">()</span>
 </pre></div>

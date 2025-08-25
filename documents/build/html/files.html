@@ -290,16 +290,16 @@
 <span id="index-1"></span><h2>Read() Function<a class="headerlink" href="#read-function" title="Permalink to this heading"></a></h2>
 <p>We can read the file content using the Read() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Read</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">file</span> <span class="n">content</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Read</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">file</span> <span class="n">content</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myfile.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;myfile.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The read function can read binary files too</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;myapp.exe&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -308,13 +308,13 @@
 <p>We can write string to file using the Write() function</p>
 <p>The write function can write binary data to binary files.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>        <span class="c"># write string cString to file cFileName</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>        <span class="c1"># write string cString to file cFileName</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># copy file</span>
-<span class="n">cFile</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;ring.exe&quot;</span><span class="p">)</span>
-<span class="n">write</span><span class="p">(</span><span class="s">&quot;ring2.exe&quot;</span><span class="p">,</span><span class="n">cFile</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy file</span>
+<span class="n">cFile</span> <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;ring.exe&quot;</span><span class="p">)</span>
+<span class="nb">write</span><span class="p">(</span><span class="s2">&quot;ring2.exe&quot;</span><span class="p">,</span><span class="n">cFile</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -322,7 +322,7 @@
 <span id="index-3"></span><h2>Dir() Function<a class="headerlink" href="#dir-function" title="Permalink to this heading"></a></h2>
 <p>We can get the folder contents (files &amp; sub folders) using the Dir() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Dir</span><span class="p">(</span><span class="n">cFolderPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">files</span> <span class="o">&amp;</span> <span class="n">sub</span> <span class="n">folders</span><span class="p">.</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Dir</span><span class="p">(</span><span class="n">cFolderPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">contains</span> <span class="n">files</span> <span class="o">&amp;</span> <span class="n">sub</span> <span class="n">folders</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>This function returns a list and each list item is a list of two items</p>
@@ -331,16 +331,16 @@
 <li><p>Type (0 = File , 1 = Folder/Directory)</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Testing DIR() &quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">dir</span><span class="p">(</span><span class="s">&quot;C:\myfolder&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
-        <span class="k">if</span> <span class="n">x</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-                <span class="k">see</span> <span class="s">&quot;Directory : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">else</span>
-                <span class="k">see</span> <span class="s">&quot;File : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">ok</span>
-<span class="k">next</span>
-<span class="k">see</span> <span class="s">&quot;Files count : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Testing DIR() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="s2">&quot;C:\myfolder&quot;</span><span class="p">)</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">mylist</span>
+        <span class="k k-Control">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k">see</span> <span class="s2">&quot;Directory : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">else</span>
+                <span class="k">see</span> <span class="s2">&quot;File : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">ok</span>
+<span class="k k-Control">next</span>
+<span class="k">see</span> <span class="s2">&quot;Files count : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -348,11 +348,11 @@
 <span id="index-4"></span><h2>Rename() Function<a class="headerlink" href="#rename-function" title="Permalink to this heading"></a></h2>
 <p>We can rename files using the Rename() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Rename</span><span class="p">(</span><span class="n">cOldFileName</span><span class="p">,</span><span class="n">cNewFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="p">(</span> <span class="n">Status</span><span class="p">:</span> <span class="n">Success</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">,</span> <span class="n">Error</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Rename</span><span class="p">(</span><span class="n">cOldFileName</span><span class="p">,</span><span class="n">cNewFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">Number</span> <span class="p">(</span> <span class="n">Status</span><span class="o">:</span> <span class="n">Success</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">,</span> <span class="n">Error</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rename</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">,</span><span class="s">&quot;help.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">rename</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span><span class="s2">&quot;help.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -360,11 +360,11 @@
 <span id="index-5"></span><h2>Remove() Function<a class="headerlink" href="#remove-function" title="Permalink to this heading"></a></h2>
 <p>We can delete a file using the Remove() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Remove</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Remove</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">remove</span><span class="p">(</span><span class="s">&quot;test.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">remove</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -372,7 +372,7 @@
 <span id="index-6"></span><h2>Fopen() Function<a class="headerlink" href="#fopen-function" title="Permalink to this heading"></a></h2>
 <p>We can open a file using the Fopen() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cMode</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">File</span> <span class="n">Handle</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cMode</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">File</span> <span class="n">Handle</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -416,7 +416,7 @@
 <p>When we open a file using fopen() function, we can close it
 using the Fclose() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fclose</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fclose</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -424,7 +424,7 @@ using the Fclose() function</p>
 <span id="index-8"></span><h2>Fflush() Function<a class="headerlink" href="#fflush-function" title="Permalink to this heading"></a></h2>
 <p>We can flushes the output buffer of a stream using the Fflush() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fflush</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fflush</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -433,31 +433,31 @@ using the Fclose() function</p>
 <p>We can open another file using the same file handle and at the same time close
 the old file</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Freopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cMode</span><span class="p">,</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">handle</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Freopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cMode</span><span class="p">,</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">handle</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">freopen</span><span class="p">(</span><span class="s">&quot;myprogoutput.txt&quot;</span><span class="p">,</span><span class="s">&quot;w+&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">next</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">freopen</span><span class="p">(</span><span class="s2">&quot;myprogoutput.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">next</span>
 
-<span class="o">/*</span>
-<span class="o">**</span> <span class="n">Read</span> <span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Device_file</span><span class="c">#Device_files</span>
-<span class="o">**</span> <span class="n">The</span> <span class="k">next</span> <span class="n">code</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">portable</span><span class="p">,</span> <span class="n">we</span> <span class="n">can</span> <span class="n">use</span> <span class="n">iswindows</span><span class="p">()</span> <span class="n">before</span>
-<span class="o">**</span> <span class="n">using</span> <span class="n">it</span> <span class="ow">and</span> <span class="n">we</span> <span class="n">can</span> <span class="n">write</span> <span class="n">special</span> <span class="n">code</span> <span class="k">for</span> <span class="n">each</span> <span class="n">operating</span> <span class="n">system</span><span class="p">.</span>
-<span class="o">*/</span>
+<span class="cm">/*</span>
+<span class="cm">** Read : https://en.wikipedia.org/wiki/Device_file#Device_files</span>
+<span class="cm">** The next code is not portable, we can use iswindows() before</span>
+<span class="cm">** using it and we can write special code for each operating system.</span>
+<span class="cm">*/</span>
 
-<span class="n">freopen</span><span class="p">(</span><span class="s">&quot;CON&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">)</span>       <span class="c"># For Microsoft Windows</span>
-<span class="k">see</span> <span class="s">&quot;Done&quot;</span> <span class="o">+</span> <span class="n">nl</span>                 <span class="c"># print to stdout again</span>
+<span class="nb">freopen</span><span class="p">(</span><span class="s2">&quot;CON&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">)</span>       <span class="c1"># For Microsoft Windows</span>
+<span class="k">see</span> <span class="s2">&quot;Done&quot;</span> <span class="o">+</span> <span class="bp">nl</span>                 <span class="c1"># print to stdout again</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Output to stdout</span>
-<span class="k">Done</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output to stdout</span>
+<span class="k k-Control">Done</span>
 
-<span class="c"># Output to file : myprogoutput.txt</span>
+<span class="c1"># Output to file : myprogoutput.txt</span>
 <span class="n">welcome</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
@@ -477,7 +477,7 @@ the old file</p>
 <p>The function Tempfile() creates a temp. file (binary).</p>
 <p>The file will be deleted automatically when the stream is closed</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TempFile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">handle</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">TempFile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">handle</span>
 </pre></div>
 </div>
 </section>
@@ -486,7 +486,7 @@ the old file</p>
 <p>We can generate temp. file name using the Tempname() function</p>
 <p>The generated name will be different from the name of any existing file</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Tempname</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">generated</span> <span class="n">file</span> <span class="n">name</span> <span class="n">as</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Tempname</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">generated</span> <span class="n">file</span> <span class="n">name</span> <span class="n">as</span> <span class="n">string</span>
 </pre></div>
 </div>
 </section>
@@ -494,7 +494,7 @@ the old file</p>
 <span id="index-12"></span><h2>Fseek() Function<a class="headerlink" href="#fseek-function" title="Permalink to this heading"></a></h2>
 <p>We can set the file position of the stream using the Fseek() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fseek</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span> <span class="n">nOffset</span><span class="p">,</span> <span class="n">nWhence</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">zero</span> <span class="k">if</span> <span class="n">successful</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fseek</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span> <span class="n">nOffset</span><span class="p">,</span> <span class="n">nWhence</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">zero</span> <span class="k k-Control">if</span> <span class="n">successful</span>
 </pre></div>
 </div>
 <p>The next table presents the nWhence values</p>
@@ -521,7 +521,7 @@ the old file</p>
 <span id="index-13"></span><h2>Ftell() Function<a class="headerlink" href="#ftell-function" title="Permalink to this heading"></a></h2>
 <p>We can know the current file position of a stream using the Ftell() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Ftell</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">position</span> <span class="n">as</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Ftell</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">position</span> <span class="n">as</span> <span class="n">number</span>
 </pre></div>
 </div>
 </section>
@@ -529,7 +529,7 @@ the old file</p>
 <span id="index-14"></span><h2>Rewind() Function<a class="headerlink" href="#rewind-function" title="Permalink to this heading"></a></h2>
 <p>We can set the file position to the beginning of the file using the Rewind() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Rewind</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Rewind</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -537,7 +537,7 @@ the old file</p>
 <span id="index-15"></span><h2>Fgetpos() Function<a class="headerlink" href="#fgetpos-function" title="Permalink to this heading"></a></h2>
 <p>We can get handle to the current file position using the Fgetpos() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fgetpos</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">position</span> <span class="n">handle</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fgetpos</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">position</span> <span class="n">handle</span>
 </pre></div>
 </div>
 </section>
@@ -545,7 +545,7 @@ the old file</p>
 <span id="index-16"></span><h2>Fsetpos() Function<a class="headerlink" href="#fsetpos-function" title="Permalink to this heading"></a></h2>
 <p>We can set the current file position using the Fsetpos() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fsetpos</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">position</span> <span class="n">handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fsetpos</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">position</span> <span class="n">handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -554,7 +554,7 @@ the old file</p>
 <p>We can clear the EOF error and the error indicators of a stream using the clearerr()
 function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Clearerr</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Clearerr</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -562,7 +562,7 @@ function</p>
 <span id="index-18"></span><h2>Feof() Function<a class="headerlink" href="#feof-function" title="Permalink to this heading"></a></h2>
 <p>We can test the end-of-file indicator using the Feof() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Feof</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">EOF</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Feof</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">EOF</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="ow">not</span>
 </pre></div>
 </div>
 </section>
@@ -570,7 +570,7 @@ function</p>
 <span id="index-19"></span><h2>Ferror() Function<a class="headerlink" href="#ferror-function" title="Permalink to this heading"></a></h2>
 <p>We can test the error indicator of a given stream using the Ferror() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Ferror</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">error</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Ferror</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">error</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="ow">not</span>
 </pre></div>
 </div>
 </section>
@@ -578,7 +578,7 @@ function</p>
 <span id="index-20"></span><h2>Perror() Function<a class="headerlink" href="#perror-function" title="Permalink to this heading"></a></h2>
 <p>We can print error message to the stderr using the Perror() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Perror</span><span class="p">(</span><span class="n">cErrorMessage</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Perror</span><span class="p">(</span><span class="n">cErrorMessage</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -586,7 +586,7 @@ function</p>
 <span id="index-21"></span><h2>Fgetc() Function<a class="headerlink" href="#fgetc-function" title="Permalink to this heading"></a></h2>
 <p>We can get the next character from the stream using the Fgetc() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fgetc</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="n">character</span> <span class="ow">or</span> <span class="n">EOF</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fgetc</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="n">character</span> <span class="ow">or</span> <span class="n">EOF</span>
 </pre></div>
 </div>
 </section>
@@ -594,7 +594,7 @@ function</p>
 <span id="index-22"></span><h2>Fgets() Function<a class="headerlink" href="#fgets-function" title="Permalink to this heading"></a></h2>
 <p>We can read new line from the stream using the Fgets() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fgets</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fgets</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>The function stop when nSize characters are read, new line character is read or EOF.</p>
@@ -603,7 +603,7 @@ function</p>
 <span id="index-23"></span><h2>Fputc() Function<a class="headerlink" href="#fputc-function" title="Permalink to this heading"></a></h2>
 <p>We can write a character to the stream using the Fputc() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fputc</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">cChar</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fputc</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">cChar</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -611,7 +611,7 @@ function</p>
 <span id="index-24"></span><h2>Fputs() Function<a class="headerlink" href="#fputs-function" title="Permalink to this heading"></a></h2>
 <p>We can write a string to the stream using the Fputs() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fputs</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fputs</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -620,7 +620,7 @@ function</p>
 <p>We can push a character to the stream using the Ungetc() function</p>
 <p>The character will be available for the next read</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Ungetc</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">character</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Ungetc</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">character</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -628,7 +628,7 @@ function</p>
 <span id="index-26"></span><h2>Fread() Function<a class="headerlink" href="#fread-function" title="Permalink to this heading"></a></h2>
 <p>We can read data from a stream using the Fread() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fread</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fread</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -636,7 +636,7 @@ function</p>
 <span id="index-27"></span><h2>Fwrite() Function<a class="headerlink" href="#fwrite-function" title="Permalink to this heading"></a></h2>
 <p>We can write data to a stream using the Fwrite() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fwrite</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fwrite</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -644,12 +644,12 @@ function</p>
 <span id="index-28"></span><h2>Fexists() Function<a class="headerlink" href="#fexists-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a file exists using the Fexists() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fexists</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fexists</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">fexists</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;ring.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">fexists</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;nothing.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nb">fexists</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;ring.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+    <span class="nb">fexists</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;nothing.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -665,8 +665,8 @@ function</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">direxists</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-  <span class="n">direxists</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\b</span><span class="s">in2&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="nb">direxists</span><span class="p">(</span><span class="s2">&quot;b:\ring&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+  <span class="nb">direxists</span><span class="p">(</span><span class="s2">&quot;b:\ring\bin2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -687,9 +687,9 @@ function</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">Getpathtype</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\b</span><span class="s">in</span><span class="se">\r</span><span class="s">ing.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-  <span class="n">Getpathtype</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-  <span class="n">Getpathtype</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\b</span><span class="s">in2&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="nb">Getpathtype</span><span class="p">(</span><span class="s2">&quot;b:\ring\bin\ring.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+  <span class="nb">Getpathtype</span><span class="p">(</span><span class="s2">&quot;b:\ring&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+  <span class="nb">Getpathtype</span><span class="p">(</span><span class="s2">&quot;b:\ring\bin2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -709,9 +709,9 @@ function</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">Getfilesize</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\b</span><span class="s">in</span><span class="se">\r</span><span class="s">ing.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-  <span class="n">Getfilesize</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-  <span class="n">Getfilesize</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\r</span><span class="s">ing2.exe&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="nb">Getfilesize</span><span class="p">(</span><span class="s2">&quot;b:\ring\bin\ring.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+  <span class="nb">Getfilesize</span><span class="p">(</span><span class="s2">&quot;b:\ring&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+  <span class="nb">Getfilesize</span><span class="p">(</span><span class="s2">&quot;b:\ring\ring2.exe&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -724,91 +724,91 @@ function</p>
 <section id="example">
 <span id="index-32"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>The next program test some of the file functions</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;testing file functions&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;testing file functions&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">See</span> <span class="s">&quot;open file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/s65.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;open file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/s65.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<span class="k">See</span> <span class="s">&quot;reopen&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">freopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/s78.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="n">fp</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;close file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;reopen&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">freopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/s78.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;close file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;temp file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">tempfile</span><span class="p">()</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;temp file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">tempfile</span><span class="p">()</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;temp name&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">tempname</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s2">&quot;temp name&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">tempname</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="n">remove</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/mytest2.txt&quot;</span><span class="p">)</span>
-<span class="n">write</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/tests1.txt&quot;</span><span class="p">,</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
-<span class="n">rename</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/test1.txt&quot;</span><span class="p">,</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span>
-                                        <span class="s">&quot;../tests/scripts/mytests2.txt&quot;</span><span class="p">)</span>
+<span class="nb">remove</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/mytest2.txt&quot;</span><span class="p">)</span>
+<span class="nb">write</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/tests1.txt&quot;</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="nb">rename</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/test1.txt&quot;</span><span class="p">,</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span>
+                                        <span class="s2">&quot;../tests/scripts/mytests2.txt&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;print file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../samples/fromdoc/filefuncs.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="k">while</span> <span class="n">isstring</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;print file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../samples/fromdoc/filefuncs.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k k-Control">while</span> <span class="nb">isstring</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
                 <span class="k">see</span> <span class="n">r</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="nb">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k k-Control">end</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;print line from the file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../samples/fromdoc/filefuncs.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">fgets</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">33</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">,</span><span class="s">&quot;w+&quot;</span><span class="p">)</span>
-<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c"># goto end of file</span>
-<span class="n">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s">&quot;t&quot;</span><span class="p">)</span>
-<span class="n">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s">&quot;e&quot;</span><span class="p">)</span>
-<span class="n">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s">&quot;s&quot;</span><span class="p">)</span>
-<span class="n">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s">&quot;t&quot;</span><span class="p">)</span>
-<span class="n">fputs</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s">&quot;tests2&quot;</span><span class="p">)</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;print line from the file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../samples/fromdoc/filefuncs.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">fgets</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">33</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">)</span>
+<span class="nb">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># goto end of file</span>
+<span class="nb">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="nb">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+<span class="nb">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<span class="nb">fputc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="nb">fputs</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s2">&quot;tests2&quot;</span><span class="p">)</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;print file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">read</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;print file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">read</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">)</span>
 
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;testing ungetc() &quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-                <span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">ungetc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
-<span class="k">next</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;testing ungetc() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="nb">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+                <span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="nb">ungetc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="k k-Control">next</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;testing fread() &quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefilename</span><span class="p">(),</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;testing fread() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefilename</span><span class="p">(),</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;testing fwrite() &quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;../tests/scripts/test1.txt&quot;</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
-<span class="n">fwrite</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;testing fwrite() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/test1.txt&quot;</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+<span class="nb">fwrite</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The next example print part of the content of a binary file</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Testing: fread()&quot;</span> <span class="o">+</span><span class="s">&quot; FileName: &quot;</span><span class="o">+</span> <span class="n">exefilename</span><span class="p">()</span> <span class="o">+</span><span class="n">nl</span> <span class="o">+</span><span class="n">nl</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefilename</span><span class="p">(),</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">isprint</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-                <span class="k">see</span> <span class="n">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">else</span>
-                <span class="k">see</span> <span class="s">&quot;.&quot;</span>
-        <span class="k">ok</span>
-        <span class="sd">### 80 char per line</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">80</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">see</span> <span class="n">nl</span>
-        <span class="k">ok</span>
-<span class="k">next</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Testing: fread()&quot;</span> <span class="o">+</span><span class="s2">&quot; FileName: &quot;</span><span class="o">+</span> <span class="nb">exefilename</span><span class="p">()</span> <span class="o">+</span><span class="bp">nl</span> <span class="o">+</span><span class="bp">nl</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefilename</span><span class="p">(),</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span>
+<span class="k k-Control">for</span> <span class="n">n</span> <span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="nb">isprint</span><span class="p">(</span><span class="nb">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="k">see</span> <span class="nb">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k k-Control">else</span>
+                <span class="k">see</span> <span class="s2">&quot;.&quot;</span>
+        <span class="k k-Control">ok</span>
+        <span class="c1">### 80 char per line</span>
+        <span class="k k-Control">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">80</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">see</span> <span class="bp">nl</span>
+        <span class="k k-Control">ok</span>
+<span class="k k-Control">next</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -824,22 +824,22 @@ function</p>
 <li><p>Bytes2Double()</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Test Int2Bytes() and Bytes2Int() - Value : 77&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">Int2Bytes</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Int Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">Bytes2Int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Test Float2Bytes() and Bytes2Float() - Value 77.12&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">Float2Bytes</span><span class="p">(</span><span class="mf">77.12</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Float Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">Bytes2Float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Test Double2Bytes() and Bytes2Double() - Value 9999977.12345&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">Double2Bytes</span><span class="p">(</span><span class="mf">9999977.12345</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Double Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">decimals</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">Bytes2Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Test Int2Bytes() and Bytes2Int() - Value : 77&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">Int2Bytes</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Int Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">Bytes2Int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Test Float2Bytes() and Bytes2Float() - Value 77.12&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">Float2Bytes</span><span class="p">(</span><span class="mf">77.12</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Float Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">Bytes2Float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Test Double2Bytes() and Bytes2Double() - Value 9999977.12345&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">Double2Bytes</span><span class="p">(</span><span class="mf">9999977.12345</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Double Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="nb">decimals</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">see</span> <span class="nb">Bytes2Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -848,15 +848,15 @@ function</p>
 <p>The find() function supports searching through lists or attributes using C pointers.</p>
 <p>The fopen() function returns a file handle represented as a Ring list that wraps a C pointer.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp1</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">fp2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp1</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="n">fp3</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp1</span><span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="n">fp3</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp1</span><span class="p">]</span>
 
-<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp1</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp1</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>

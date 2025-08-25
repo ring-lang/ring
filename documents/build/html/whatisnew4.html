@@ -349,16 +349,16 @@ I will count Again!
 <p>To execute the natural code, We have start.ring</p>
 <p>In start.ring we define the language and the commands.</p>
 <p>File: start.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;naturallib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
-<span class="k">New</span> <span class="n">NaturalLanguage</span> <span class="p">{</span>
-        <span class="n">SetLanguageName</span><span class="p">(:</span><span class="n">MyLanguage</span><span class="p">)</span>
-        <span class="n">SetCommandsPath</span><span class="p">(</span><span class="n">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../command&quot;</span><span class="p">)</span>
-        <span class="n">SetPackageName</span><span class="p">(</span><span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(:</span><span class="n">Hello</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(:</span><span class="n">Count</span><span class="p">)</span>
-        <span class="n">RunFile</span><span class="p">(</span><span class="s">&quot;program.txt&quot;</span><span class="p">)</span>
+<span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="n">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="n">SetCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="n">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
+        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
+        <span class="n">RunFile</span><span class="p">(</span><span class="s2">&quot;program.txt&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -367,41 +367,41 @@ I will count Again!
 <p>We will define two commands, Hello and Count.</p>
 <p>So we must have two files for defining the commands in the CurrentDir()+”/../command” folder</p>
 <p>File: hello.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeyword</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">hello</span><span class="p">,</span>
-        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
-                <span class="k">See</span>  <span class="s">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeyword</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:hello</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k">See</span>  <span class="s2">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="p">}</span>
-<span class="o">]</span><span class="p">)</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 <p>File: count.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">count</span><span class="p">,</span>
-        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:count</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k k-Control">if</span> <span class="ow">not</span> <span class="nb">isattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
                         <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="p">}</span>
-                <span class="k">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k k-Control">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k">else</span>
+                <span class="k k-Control">else</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="p">}</span>
-                <span class="k">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
-                        <span class="k">see</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;The Numbers!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k k-Control">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;The Numbers!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
                         <span class="n">Count_Times</span><span class="o">++</span>
-                <span class="k">else</span>
-                        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="n">nl</span>
+                <span class="k k-Control">else</span>
+                        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
-                        <span class="k">see</span> <span class="n">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">nl</span>
+                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k k-Control">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k k-Control">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="n">CommandReturn</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">}</span>
-<span class="o">]</span><span class="p">)</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 </section>
@@ -430,22 +430,22 @@ I will count Again!
 <li><p>Bytes2Double()</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Test Int2Bytes() and Bytes2Int() - Value : 77&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">Int2Bytes</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Int Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">Bytes2Int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Test Float2Bytes() and Bytes2Float() - Value 77.12&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">Float2Bytes</span><span class="p">(</span><span class="mf">77.12</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Float Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">Bytes2Float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Test Double2Bytes() and Bytes2Double() - Value 9999977.12345&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">Double2Bytes</span><span class="p">(</span><span class="mf">9999977.12345</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Double Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">decimals</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">Bytes2Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Test Int2Bytes() and Bytes2Int() - Value : 77&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">Int2Bytes</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Int Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">Bytes2Int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Test Float2Bytes() and Bytes2Float() - Value 77.12&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">Float2Bytes</span><span class="p">(</span><span class="mf">77.12</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Float Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">Bytes2Float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Test Double2Bytes() and Bytes2Double() - Value 9999977.12345&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">Double2Bytes</span><span class="p">(</span><span class="mf">9999977.12345</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Double Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="nb">decimals</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">see</span> <span class="nb">Bytes2Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -456,13 +456,13 @@ I will count Again!
 <li><p>FSize()</p></li>
 </ul>
 <p>The print() function is updated to accept local variables.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
-        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>     <span class="p">;</span>
-        <span class="n">Name</span> <span class="o">=</span> <span class="n">getString</span><span class="p">()</span>              <span class="p">;</span>
-        <span class="n">print</span><span class="p">(</span> <span class="s">&quot;Hello : #{Name} &quot;</span><span class="p">)</span>      <span class="p">;</span>
-        <span class="k">return</span>                          <span class="p">;</span>
+<span class="kd">func</span> <span class="nf">main</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter your name : &quot;</span><span class="p">)</span>     <span class="p">;</span>
+        <span class="n">Name</span> <span class="o">=</span> <span class="nb">getString</span><span class="p">()</span>              <span class="p">;</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Hello : </span><span class="si">#{</span><span class="n">Name</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>      <span class="p">;</span>
+        <span class="k k-Control">return</span>                          <span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -479,7 +479,7 @@ I will count Again!
 <ul class="simple">
 <li><p>Better Template() function - can accept NULL instead of object as the second parameter.</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="kp">NULL</span><span class="p">))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -487,63 +487,63 @@ I will count Again!
 </ul>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">BootStrapWebPage</span><span class="p">()</span>
 <span class="p">{</span>
-        <span class="n">Title</span> <span class="o">=</span> <span class="s">&quot;The Ring Programming Language&quot;</span>
-        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="kp">NULL</span><span class="p">))</span>
+        <span class="n">Title</span> <span class="o">=</span> <span class="s2">&quot;The Ring Programming Language&quot;</span>
+        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
         <span class="n">div</span> <span class="p">{</span>
-                <span class="n">classname</span> <span class="o">=</span> <span class="p">:</span><span class="n">container</span>
+                <span class="n">classname</span> <span class="o">=</span> <span class="ss">:container</span>
                 <span class="n">div</span>
                 <span class="p">{</span>
-                        <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;div3&quot;</span>
-                        <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span>
-                        <span class="n">backgroundcolor</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span>
-                        <span class="n">width</span> <span class="o">=</span> <span class="s">&quot;100%&quot;</span>
+                        <span class="n">id</span> <span class="o">=</span> <span class="s2">&quot;div3&quot;</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span>
+                        <span class="n">backgroundcolor</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span>
+                        <span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;100%&quot;</span>
                         <span class="n">form</span>
                         <span class="p">{</span>
-                                <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;POST&quot;</span>
+                                <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;POST&quot;</span>
                                 <span class="n">Action</span> <span class="o">=</span> <span class="n">website</span>
-                                <span class="n">Target</span> <span class="o">=</span> <span class="s">&quot;codeoutput&quot;</span>
-                                <span class="n">input</span> <span class="p">{</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;page&quot;</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span> <span class="p">}</span>
+                                <span class="n">Target</span> <span class="o">=</span> <span class="s2">&quot;codeoutput&quot;</span>
+                                <span class="n">input</span> <span class="p">{</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;page&quot;</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span> <span class="p">}</span>
                                 <span class="n">Table</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
                                                 <span class="n">stylegradient</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
 
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span>
-                                                        <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span>
-                                                         <span class="n">text</span><span class="p">(</span><span class="s">&quot;Code :&quot;</span><span class="p">)</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span>
+                                                        <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
+                                                         <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Code :&quot;</span><span class="p">)</span>
                                                 <span class="p">}</span>
                                                 <span class="n">TD</span> <span class="p">{</span>
-                                                        <span class="n">html</span><span class="p">(`</span>
-                                                        <span class="o">&lt;</span><span class="n">textarea</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;cCode&quot;</span>
-                                                        <span class="n">rows</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
-                                                        <span class="n">style</span><span class="o">=</span><span class="s">&quot;width : 100%; &quot;</span><span class="o">&gt;</span>
-                                                        <span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                                                        <span class="o">&lt;/</span><span class="n">textarea</span><span class="o">&gt;</span><span class="p">`)</span>
+                                                        <span class="n">html</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">                                                        &lt;textarea name = &quot;cCode&quot;</span>
+<span class="sb">                                                        rows=&quot;5&quot;</span>
+<span class="sb">                                                        style=&quot;width : 100%; &quot;&gt;</span>
+<span class="sb">                                                        See &quot;Hello, World!&quot; + nl</span>
+<span class="sb">                                                        &lt;/textarea&gt;`</span><span class="p">)</span>
                                                 <span class="p">}</span>
                                         <span class="p">}</span>
                                 <span class="p">}</span>
-                                <span class="n">Input</span> <span class="p">{</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;submit&quot;</span>
-                                        <span class="n">classname</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-block&quot;</span>
-                                                <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Execute&quot;</span> <span class="p">}</span>
+                                <span class="n">Input</span> <span class="p">{</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;submit&quot;</span>
+                                        <span class="n">classname</span><span class="o">=</span><span class="s2">&quot;btn btn-primary btn-block&quot;</span>
+                                                <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Execute&quot;</span> <span class="p">}</span>
                                 <span class="n">Table</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
                                                 <span class="n">stylegradient</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
 
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span>
-                                                        <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span>
-                                                        <span class="n">text</span><span class="p">(</span><span class="s">&quot;Output :&quot;</span><span class="p">)</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span>
+                                                        <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
+                                                        <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Output :&quot;</span><span class="p">)</span>
                                                 <span class="p">}</span>
                                                 <span class="n">TD</span> <span class="p">{</span>
-                                                <span class="n">html</span><span class="p">(`</span>
-                                                <span class="o">&lt;</span><span class="n">iframe</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;codeoutput&quot;</span>
-                                                <span class="n">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
-                                                <span class="n">style</span><span class="o">=</span><span class="s">&quot;background-color:white;&quot;</span><span class="o">&gt;</span>
-                                                <span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span><span class="p">`)</span>
+                                                <span class="n">html</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">                                                &lt;iframe name=&quot;codeoutput&quot;</span>
+<span class="sb">                                                width=&quot;100%&quot;</span>
+<span class="sb">                                                style=&quot;background-color:white;&quot;&gt;</span>
+<span class="sb">                                                &lt;/iframe&gt;`</span><span class="p">)</span>
                                                 <span class="p">}</span>
                                         <span class="p">}</span>
                                 <span class="p">}</span>
@@ -552,7 +552,7 @@ I will count Again!
                 <span class="p">}</span>
 
         <span class="p">}</span>
-        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s">&quot;footer.rhtml&quot;</span><span class="p">,</span><span class="kp">NULL</span><span class="p">))</span>
+        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;footer.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 </div>

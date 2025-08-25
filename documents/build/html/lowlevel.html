@@ -294,8 +294,8 @@
 <section id="callgc-function">
 <span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">callgc</span><span class="p">()</span>                        <span class="c"># Short name</span>
-<span class="n">callgarbagecollector</span><span class="p">()</span>          <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">callgc</span><span class="p">()</span>                        <span class="c1"># Short name</span>
+<span class="nb">callgarbagecollector</span><span class="p">()</span>          <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <p>Use this function to force calling the garbage collector during function execution when you
@@ -303,14 +303,14 @@ use a loop that create temp. variables that you don’t free using the assignmen
 <p>It’s very rare to need this function but it’s useful when you create something like event-loop
 for your game engine and start creating lists on the fly when you call functions.</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">While</span> <span class="bp">True</span>
 
-        <span class="c"># process events</span>
-        <span class="c"># call functions using temp. lists like myfunc([&quot;temp list&quot;])</span>
+        <span class="c1"># process events</span>
+        <span class="c1"># call functions using temp. lists like myfunc([&quot;temp list&quot;])</span>
 
-        <span class="c"># call the garbage collector</span>
-        <span class="n">callgc</span><span class="p">()</span>
-<span class="k">End</span>
+        <span class="c1"># call the garbage collector</span>
+        <span class="nb">callgc</span><span class="p">()</span>
+<span class="k k-Control">End</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -323,26 +323,26 @@ when you use the assignment statement.</p>
 <span id="index-2"></span><h2>varptr() function<a class="headerlink" href="#varptr-function" title="Permalink to this heading"></a></h2>
 <p>Use the varptr() function when you need to pass a pointer to a C/C++ function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
-<span class="n">variablepointer</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+<span class="nb">variablepointer</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">z</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="s">&quot;int&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="s">&quot;int&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-00E3C740
-int
-2
-00E3BEC0
-int
-2
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">00</span><span class="n">E3C740</span>
+<span class="n">int</span>
+<span class="mi">2</span>
+<span class="mi">00</span><span class="n">E3BEC0</span>
+<span class="n">int</span>
+<span class="mi">2</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -354,23 +354,23 @@ int
 <span id="index-3"></span><h2>space() function<a class="headerlink" href="#space-function" title="Permalink to this heading"></a></h2>
 <p>Use the space function to allocate a specific number of bytes in Memory.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Space</span><span class="p">(</span><span class="n">nBytesCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Space</span><span class="p">(</span><span class="n">nBytesCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">String</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;String Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">mystring</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;String : &quot;</span> <span class="o">+</span> <span class="n">mystring</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;String Pointer : &quot;</span>
-<span class="k">See</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;mystring&quot;</span><span class="p">,:</span><span class="n">char</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="nb">space</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;String Size : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">mystring</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;String : &quot;</span> <span class="o">+</span> <span class="n">mystring</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;String Pointer : &quot;</span>
+<span class="k">See</span> <span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;mystring&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>String Size : 200
-String :
-String Pointer : 00FF8FE8
-char
-2
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">Size</span> <span class="o">:</span> <span class="mi">200</span>
+<span class="n">String</span> <span class="o">:</span>
+<span class="n">String</span> <span class="n">Pointer</span> <span class="o">:</span> <span class="mi">00</span><span class="n">FF8FE8</span>
+<span class="n">char</span>
+<span class="mi">2</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -381,8 +381,8 @@ char
 <p class="admonition-title">Tip</p>
 <p>To free the memory allocated using the space() function, use the Assignment operator</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c"># Allocate memory (1000 bytes)</span>
-<span class="n">mystring</span> <span class="o">=</span> <span class="kp">NULL</span>         <span class="c"># Free memory stored in mystring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="nb">space</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Allocate memory (1000 bytes)</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="bp">NULL</span>         <span class="c1"># Free memory stored in mystring</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -393,8 +393,8 @@ char
 <section id="nullpointer-function">
 <span id="index-4"></span><h2>nullpointer() function<a class="headerlink" href="#nullpointer-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nullptr</span><span class="p">()</span>               <span class="c"># Short name</span>
-<span class="n">nullpointer</span><span class="p">()</span>           <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">nullptr</span><span class="p">()</span>               <span class="c1"># Short name</span>
+<span class="nb">nullpointer</span><span class="p">()</span>           <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <p>You may need to pass the NULL pointer to a C function that may expect a pointer as parameter
@@ -403,7 +403,7 @@ and accept NULL pointers for optional parameters.</p>
 <p>The next example uses the SDL_BlitSurface() function from the LibSDL Library through RingSDL
 The function accept SDL_Rect pointers in the second and the last parameter.
 Also the function accept NULL pointers, so we can pass them using the NULLPointer() Function.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">())</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="nb">nullpointer</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -414,7 +414,7 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <p class="admonition-title">Tip</p>
 <p>We can pass NULL as parameter instead of using the NULLPointer() function</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -422,8 +422,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this heading"></a></h2>
 <p>Use this function to get a C pointer for Ring lists and objects</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">obj2ptr</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>         <span class="c"># Short name</span>
-<span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>  <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">obj2ptr</span><span class="p">(</span><span class="n">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>         <span class="c1"># Short name</span>
+<span class="nb">object2pointer</span><span class="p">(</span><span class="n">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>  <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -435,8 +435,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this heading"></a></h2>
 <p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>            <span class="c"># Short name</span>
-<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>     <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>            <span class="c1"># Short name</span>
+<span class="nb">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>     <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -448,35 +448,35 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <p>After using Pointer2Object() to create a reference, and if the original List/Object is deleted, Ring will uses reference counting and will keep the List/Object until the latest reference is removed</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Create the list</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the list</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
 
-<span class="c"># Create pointer to the list</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">object2pointer</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="c1"># Create pointer to the list</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">object2pointer</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="k">see</span> <span class="n">x</span>
 
-<span class="k">see</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="bp">nl</span>
 
-<span class="c"># Add items to the list</span>
-<span class="n">mylist</span> <span class="o">+</span> <span class="s">&quot;welcome&quot;</span>
+<span class="c1"># Add items to the list</span>
+<span class="n">mylist</span> <span class="o">+</span> <span class="s2">&quot;welcome&quot;</span>
 
-<span class="c"># Get a copy from the list</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">pointer2object</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c"># print the new list items</span>
+<span class="c1"># Get a copy from the list</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">pointer2object</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># print the new list items</span>
 <span class="k">see</span> <span class="n">y</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0069A5D8
-OBJECTPOINTER
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">0069</span><span class="n">A5D8</span>
+<span class="n">OBJECTPOINTER</span>
+<span class="mi">0</span>
 
-1
-2
-3
-4
-5
-welcome
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="n">welcome</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -503,11 +503,11 @@ Just use the object2pointer() and pointer2object() functions.</p>
 </pre></div>
 </div>
 <p>Example :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="n">type</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">type</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="n">ispointer</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">ispointer</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output :</p>
@@ -520,22 +520,22 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <span id="index-8"></span><h2>ptrcmp() function<a class="headerlink" href="#ptrcmp-function" title="Permalink to this heading"></a></h2>
 <p>We can compare between two pointers (C Objects) using the ptrcmp() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptrcmp</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
-                               <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
-<span class="n">pointercompare</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
-                                       <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ptrcmp</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
+                               <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
+<span class="nb">pointercompare</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
+                                       <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">fp2</span> <span class="o">=</span> <span class="n">fp</span>
-<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="nb">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nb">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp3</span><span class="p">)</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="nb">fclose</span><span class="p">(</span><span class="n">fp3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -548,8 +548,8 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <span id="index-9"></span><h2>setpointer() function<a class="headerlink" href="#setpointer-function" title="Permalink to this heading"></a></h2>
 <p>Set the pointer address to another address</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">setptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>             <span class="c"># Short name</span>
-<span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>         <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">setptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>             <span class="c1"># Short name</span>
+<span class="nb">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>         <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -561,49 +561,49 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <span id="index-10"></span><h2>getpointer() function<a class="headerlink" href="#getpointer-function" title="Permalink to this heading"></a></h2>
 <p>Get the pointer address</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">getptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>           <span class="c"># Short name</span>
-<span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>       <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">getptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>           <span class="c1"># Short name</span>
+<span class="nb">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>       <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Sample about using setPointer() and getPointer() functions&quot;</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">NULLPOINTER</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;Sample about using setPointer() and getPointer() functions&quot;</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="nb">NULLPOINTER</span><span class="p">()</span>
 <span class="o">?</span> <span class="n">pointer</span>
-<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ring&quot;</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">name</span><span class="p">,:</span><span class="n">char</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Type: &quot;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Address: &quot;</span> <span class="o">+</span> <span class="nb">Upper</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ring&quot;</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="nb">varptr</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span><span class="ss">:char</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">pointer</span>
-<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;After Update&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Type: &quot;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Address: &quot;</span> <span class="o">+</span> <span class="nb">Upper</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="nb">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;After Update&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Address: &quot;</span> <span class="o">+</span> <span class="nb">Upper</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>==================================================
-00000000
-NULLPOINTER
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">==================================================</span>
+<span class="mi">00000000</span>
+<span class="n">NULLPOINTER</span>
+<span class="mi">0</span>
 
-Type: NULLPOINTER
-Address: 0
-==================================================
-026E2BA8
-char
-0
+<span class="n">Type</span><span class="o">:</span> <span class="n">NULLPOINTER</span>
+<span class="n">Address</span><span class="o">:</span> <span class="mi">0</span>
+<span class="o">==================================================</span>
+<span class="mi">026</span><span class="n">E2BA8</span>
+<span class="n">char</span>
+<span class="mi">0</span>
 
-Type: char
-Address: 26E2BA8
-==================================================
-After Update
-Address: 26E2BA9
-==================================================
+<span class="n">Type</span><span class="o">:</span> <span class="n">char</span>
+<span class="n">Address</span><span class="o">:</span> <span class="mi">26</span><span class="n">E2BA8</span>
+<span class="o">==================================================</span>
+<span class="n">After</span> <span class="n">Update</span>
+<span class="n">Address</span><span class="o">:</span> <span class="mi">26</span><span class="n">E2BA9</span>
+<span class="o">==================================================</span>
 </pre></div>
 </div>
 </section>
@@ -612,8 +612,8 @@ Address: 26E2BA9
 <p>Convert a pointer to a string of binary data</p>
 <p>If you want to convert the string to a pointer again use VarPtr() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2str</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>             <span class="c"># Short name</span>
-<span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>      <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ptr2str</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>             <span class="c1"># Short name</span>
+<span class="nb">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>      <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -625,52 +625,52 @@ Address: 26E2BA9
 <p>if nStart is Zero, this means starting from the first character</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ring&quot;</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">name</span><span class="p">,:</span><span class="n">char</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ring&quot;</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="nb">varptr</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span><span class="ss">:char</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">pointer</span>
-<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+<span class="o">?</span> <span class="s2">&quot;Type: &quot;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Address: &quot;</span> <span class="o">+</span> <span class="nb">Upper</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
 
-<span class="o">?</span> <span class="s">&quot;Get 4 bytes starting from the pointer address&quot;</span>
-<span class="n">mystring</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Get 4 bytes starting from the pointer address&quot;</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="nb">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">mystring</span>
 
-<span class="o">?</span> <span class="s">&quot;Get 2 bytes starting from the pointer address + 1&quot;</span>
-<span class="n">mystring2</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Get 2 bytes starting from the pointer address + 1&quot;</span>
+<span class="n">mystring2</span> <span class="o">=</span> <span class="nb">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">mystring2</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mf">01E03380</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">01</span><span class="n">E03380</span>
 <span class="n">char</span>
 <span class="mi">0</span>
 
-<span class="n">Type</span><span class="p">:</span> <span class="n">char</span>
-<span class="n">Address</span><span class="p">:</span> <span class="mf">1E03380</span>
-<span class="k">Get</span> <span class="mi">4</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span>
+<span class="n">Type</span><span class="o">:</span> <span class="n">char</span>
+<span class="n">Address</span><span class="o">:</span> <span class="mi">1</span><span class="n">E03380</span>
+<span class="k">Get</span> <span class="mi">4</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="kd">from</span> <span class="nc">the</span> <span class="n">pointer</span> <span class="n">address</span>
 <span class="n">ring</span>
-<span class="k">Get</span> <span class="mi">2</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="k">in</span>
+<span class="k">Get</span> <span class="mi">2</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="kd">from</span> <span class="nc">the</span> <span class="n">pointer</span> <span class="n">address</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k k-Control">in</span>
 </pre></div>
 </div>
 </section>
 <section id="memcpy-function">
 <span id="index-12"></span><h2>memcpy() function<a class="headerlink" href="#memcpy-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">memcpy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>         <span class="c"># Short name</span>
-<span class="n">memorycopy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>     <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">memcpy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>         <span class="c1"># Short name</span>
+<span class="nb">memorycopy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>     <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">str</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">str</span><span class="p">,</span><span class="s">&quot;char&quot;</span><span class="p">)</span>
-<span class="n">memcpy</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">str</span> <span class="o">=</span> <span class="nb">space</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="nb">varptr</span><span class="p">(</span><span class="ss">:str</span><span class="p">,</span><span class="s2">&quot;char&quot;</span><span class="p">)</span>
+<span class="nb">memcpy</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">str</span>
-<span class="n">setPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">getPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">memcpy</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">setPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="nb">getPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">memcpy</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">str</span>
-<span class="n">setPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">getPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">memcpy</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">setPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="nb">getPointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">memcpy</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">str</span>
 </pre></div>
 </div>
@@ -685,11 +685,11 @@ Address: 26E2BA9
 <span id="index-13"></span><h2>ringvm_cfunctionslist() function<a class="headerlink" href="#ringvm-cfunctionslist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of functions written in C.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_CFunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_CFunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">RingVM_CFunctionsList</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="nb">RingVM_CFunctionsList</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -704,20 +704,20 @@ Address: 26E2BA9
 <li><p>Private Flag (For Private Methods in Classes)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_FunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_FunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="k">see</span> <span class="n">ringvm_functionslist</span><span class="p">()</span>
+<span class="kd">func</span> <span class="nf">test</span>
+        <span class="k">see</span> <span class="nb">ringvm_functionslist</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>
 <span class="mi">8</span>
-<span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">functionslist</span><span class="p">.</span><span class="n">ring</span>
+<span class="n">B</span><span class="o">:/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">functionslist</span><span class="o">.</span><span class="n">ring</span>
 <span class="mi">0</span>
 </pre></div>
 </div>
@@ -735,16 +735,16 @@ Address: 26E2BA9
 <li><p>Pointer to the package (or NULL if no package is used)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_ClassesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_ClassesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ringvm_classeslist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nb">ringvm_classeslist</span><span class="p">()</span>
 
-<span class="k">class</span> <span class="n">class1</span>
-        <span class="k">func</span> <span class="n">f1</span>
-<span class="k">class</span> <span class="n">class2</span> <span class="k">from</span> <span class="n">class1</span>
-<span class="k">class</span> <span class="n">class3</span> <span class="k">from</span> <span class="n">class1</span>
+<span class="kd">class</span> <span class="nc">class1</span>
+        <span class="kd">func</span> <span class="nf">f1</span>
+<span class="kd">class</span> <span class="nc">class2</span> <span class="kd">from</span> <span class="nc">class1</span>
+<span class="kd">class</span> <span class="nc">class3</span> <span class="kd">from</span> <span class="nc">class1</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -753,7 +753,7 @@ Address: 26E2BA9
 
 <span class="n">f1</span>
 <span class="mi">13</span>
-<span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">classeslist</span><span class="p">.</span><span class="n">ring</span>
+<span class="n">B</span><span class="o">:/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">classeslist</span><span class="o">.</span><span class="n">ring</span>
 <span class="mi">0</span>
 <span class="mi">0</span>
 <span class="mi">00000000</span>
@@ -779,41 +779,41 @@ Address: 26E2BA9
 <li><p>Classes List</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_PackagesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_PackagesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ringvm_packageslist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nb">ringvm_packageslist</span><span class="p">()</span>
 
-<span class="k">package</span> <span class="n">package1</span>
-        <span class="k">class</span> <span class="n">class1</span>
+<span class="kn">package</span> <span class="nn">package1</span>
+        <span class="kd">class</span> <span class="nc">class1</span>
 
-<span class="k">package</span> <span class="n">package2</span>
-        <span class="k">class</span> <span class="n">class1</span>
+<span class="kn">package</span> <span class="nn">package2</span>
+        <span class="kd">class</span> <span class="nc">class1</span>
 
-<span class="k">package</span> <span class="n">package3</span>
-        <span class="k">class</span> <span class="n">class1</span>
+<span class="kn">package</span> <span class="nn">package3</span>
+        <span class="kd">class</span> <span class="nc">class1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>package1
-class1
-11
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">package1</span>
+<span class="n">class1</span>
+<span class="mi">11</span>
 
-0
-00FEF838
-package2
-class1
-17
+<span class="mi">0</span>
+<span class="mi">00</span><span class="n">FEF838</span>
+<span class="n">package2</span>
+<span class="n">class1</span>
+<span class="mi">17</span>
 
-0
-00FEF978
-package3
-class1
-23
+<span class="mi">0</span>
+<span class="mi">00</span><span class="n">FEF978</span>
+<span class="n">package3</span>
+<span class="n">class1</span>
+<span class="mi">23</span>
 
-0
-00FEFF68
+<span class="mi">0</span>
+<span class="mi">00</span><span class="n">FEFF68</span>
 </pre></div>
 </div>
 </section>
@@ -830,15 +830,15 @@ class1
 <li><p>Private Flag (if the variable is an attribute in a Class)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_MemoryList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_MemoryList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">test</span><span class="p">()</span>
-<span class="k">func</span> <span class="n">test</span>
+<span class="kd">func</span> <span class="nf">test</span>
         <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
-        <span class="k">see</span> <span class="n">ringvm_memorylist</span><span class="p">()</span>
+        <span class="k">see</span> <span class="nb">ringvm_memorylist</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -943,17 +943,17 @@ y
 <li><p>Parameters Count</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_CallList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_CallList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
-<span class="k">func</span> <span class="n">hello</span>
+<span class="kd">func</span> <span class="nf">hello</span>
         <span class="n">test</span><span class="p">()</span>
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="n">mylist</span> <span class="o">=</span> <span class="n">ringvm_calllist</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">mylist</span> <span class="k">see</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="k">next</span>
+<span class="kd">func</span> <span class="nf">test</span>
+        <span class="n">mylist</span> <span class="o">=</span> <span class="nb">ringvm_calllist</span><span class="p">()</span>
+        <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">mylist</span> <span class="k">see</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="k k-Control">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -967,40 +967,40 @@ y
 <span id="index-19"></span><h2>ringvm_fileslist() function<a class="headerlink" href="#ringvm-fileslist-function" title="Permalink to this heading"></a></h2>
 <p>Function return a list of the Ring Files.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_FilesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_FilesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">see</span> <span class="n">ringvm_fileslist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="k">see</span> <span class="nb">ringvm_fileslist</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">fileslist</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">B</span><span class="p">:</span><span class="o">\</span><span class="n">ring</span><span class="o">\</span><span class="n">bin</span><span class="o">\</span><span class="n">stdlib</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">eval</span>
-<span class="n">stdlib</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdlib</span><span class="p">.</span><span class="n">rh</span>
-<span class="n">stdclasses</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdfunctions</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdbase</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdstring</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdlist</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdstack</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdqueue</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdmath</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stddatetime</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdfile</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdsystem</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stddebug</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stddatatype</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdconversion</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdodbc</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdmysql</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdsecurity</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdinternet</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdhashtable</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdtree</span><span class="p">.</span><span class="n">ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>B:/ring/tests/scripts/fileslist.ring
+B:\ring\bin\stdlib.ring
+eval
+stdlib.ring
+stdlib.rh
+stdclasses.ring
+stdfunctions.ring
+stdbase.ring
+stdstring.ring
+stdlist.ring
+stdstack.ring
+stdqueue.ring
+stdmath.ring
+stddatetime.ring
+stdfile.ring
+stdsystem.ring
+stddebug.ring
+stddatatype.ring
+stdconversion.ring
+stdodbc.ring
+stdmysql.ring
+stdsecurity.ring
+stdinternet.ring
+stdhashtable.ring
+stdtree.ring
 </pre></div>
 </div>
 </section>
@@ -1010,7 +1010,7 @@ y
 <p>The trace function is a Ring
 function that will be called for each event</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_SetTrace</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_SetTrace</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1027,7 +1027,7 @@ data.</p>
 <li><p>Method or Function (Bool : True=Method, False=Function/File)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceData</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">aDataList</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_TraceData</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">aDataList</span>
 </pre></div>
 </div>
 </section>
@@ -1044,7 +1044,7 @@ data.</p>
 <li><p>After C Function</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nTraceEvent</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nTraceEvent</span>
 </pre></div>
 </div>
 </section>
@@ -1053,7 +1053,7 @@ data.</p>
 <p>The function return the name of the function that we
 are using for tracing events.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">cCode</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">cCode</span>
 </pre></div>
 </div>
 </section>
@@ -1065,7 +1065,7 @@ the number of scopes used in the application.</p>
 <p>When we call a function, A new scope is created.</p>
 <p>When the function execution is done, the function scope is deleted.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_ScopesCount</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nScopes</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_ScopesCount</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nScopes</span>
 </pre></div>
 </div>
 </section>
@@ -1075,7 +1075,7 @@ the number of scopes used in the application.</p>
 <p>Unlike eval() which execute the code in the current scope</p>
 <p>Using RingVM_EvalInScope() we can execute the code in a specific scope.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1086,7 +1086,7 @@ will end the execution of the program.</p>
 <p>Using ringvm_passerror() we can avoid that, and continue the
 execution of our program.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_PassError</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_PassError</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -1095,7 +1095,7 @@ execution of our program.</p>
 <p>We can disable/enable displaying the runtime error messages using the
 RingVM_HideErrorMsg() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_HideErrorMsg</span><span class="p">(</span><span class="n">lStatus</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_HideErrorMsg</span><span class="p">(</span><span class="n">lStatus</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1104,7 +1104,7 @@ RingVM_HideErrorMsg() function.</p>
 <p>We can call a function from a string without using eval() using
 the ringvm_callfunc()</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_CallFunc</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_CallFunc</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1113,51 +1113,51 @@ the ringvm_callfunc()</p>
 <p>The next example use the Trace Functions to trace the program Events!</p>
 <p>In practical, We will use the Trace Library instead of
 these low level functions!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tracelib.ring&quot;</span>
 
-<span class="n">ringvm_settrace</span><span class="p">(</span><span class="s">&quot;mytrace()&quot;</span><span class="p">)</span>
+<span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;mytrace()&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;How are you?&quot;</span> <span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;How are you?&quot;</span> <span class="o">+</span><span class="bp">nl</span>
 <span class="n">mytest</span><span class="p">()</span>
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="k">see</span> <span class="s">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="k">see</span> <span class="s2">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">func</span> <span class="n">mytrace</span>
-        <span class="k">see</span> <span class="s">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Trace Event : &quot;</span>
-        <span class="k">switch</span> <span class="n">ringvm_TraceEvent</span><span class="p">()</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s">&quot;New Line&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s">&quot;New Function&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s">&quot;Return&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s">&quot;Error&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s">&quot;Before C Function&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s">&quot;After C Function&quot;</span>
-        <span class="k">off</span>
-        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FILENAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Method or Function : &quot;</span>
-                <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="o">]</span> <span class="o">=</span>
+<span class="kd">func</span> <span class="nf">mytrace</span>
+        <span class="k">see</span> <span class="s2">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Trace Event : &quot;</span>
+        <span class="k k-Control">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s2">&quot;New Line&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s2">&quot;New Function&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s2">&quot;Return&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s2">&quot;Error&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s2">&quot;Before C Function&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s2">&quot;After C Function&quot;</span>
+        <span class="k k-Control">off</span>
+        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Method or Function : &quot;</span>
+                <span class="k k-Control">if</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="p">]</span> <span class="o">=</span>
                                  <span class="n">TRACEDATA_METHODORFUNC_METHOD</span>
-                        <span class="k">see</span> <span class="s">&quot;Method&quot;</span>
-                <span class="k">else</span>
-                        <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">=</span> <span class="kp">NULL</span>
-                                <span class="k">see</span> <span class="s">&quot;Command&quot;</span>
-                        <span class="k">else</span>
-                                <span class="k">see</span> <span class="s">&quot;Function&quot;</span>
-                        <span class="k">ok</span>
-                <span class="k">ok</span>
-                <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">Copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="s2">&quot;Method&quot;</span>
+                <span class="k k-Control">else</span>
+                        <span class="k k-Control">if</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
+                                <span class="k">see</span> <span class="s2">&quot;Command&quot;</span>
+                        <span class="k k-Control">else</span>
+                                <span class="k">see</span> <span class="s2">&quot;Function&quot;</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">ok</span>
+                <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k">class</span> <span class="n">myclass</span>
-        <span class="k">func</span> <span class="n">mymethod</span>
-                <span class="k">see</span> <span class="s">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kd">class</span> <span class="nc">myclass</span>
+        <span class="kd">func</span> <span class="nf">mymethod</span>
+                <span class="k">see</span> <span class="s2">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1343,192 +1343,192 @@ Method or Function : Command
 to create the Trace library.</p>
 <p>Using the Trace library we have nice Tracing
 tools and Interaction debugger too.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Trace Events
-TRACEEVENT_NEWLINE      = 1
-TRACEEVENT_NEWFUNC      = 2
-TRACEEVENT_RETURN       = 3
-TRACEEVENT_ERROR        = 4
-TRACEEVENT_BEFORECFUNC  = 5
-TRACEEVENT_AFTERCFUNC   = 6
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trace Events</span>
+<span class="n">TRACEEVENT_NEWLINE</span>      <span class="o">=</span> <span class="mi">1</span>
+<span class="n">TRACEEVENT_NEWFUNC</span>      <span class="o">=</span> <span class="mi">2</span>
+<span class="n">TRACEEVENT_RETURN</span>       <span class="o">=</span> <span class="mi">3</span>
+<span class="n">TRACEEVENT_ERROR</span>        <span class="o">=</span> <span class="mi">4</span>
+<span class="n">TRACEEVENT_BEFORECFUNC</span>  <span class="o">=</span> <span class="mi">5</span>
+<span class="n">TRACEEVENT_AFTERCFUNC</span>   <span class="o">=</span> <span class="mi">6</span>
 
-# Trace Data
-TRACEDATA_LINENUMBER    = 1
-TRACEDATA_FILENAME      = 2
-TRACEDATA_FUNCNAME      = 3
-TRACEDATA_METHODORFUNC  = 4
+<span class="c1"># Trace Data</span>
+<span class="n">TRACEDATA_LINENUMBER</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">TRACEDATA_FILENAME</span>      <span class="o">=</span> <span class="mi">2</span>
+<span class="n">TRACEDATA_FUNCNAME</span>      <span class="o">=</span> <span class="mi">3</span>
+<span class="n">TRACEDATA_METHODORFUNC</span>  <span class="o">=</span> <span class="mi">4</span>
 
-# Method of Function
-TRACEDATA_METHODORFUNC_METHOD           = TRUE
-TRACEDATA_METHODORFUNC_NOTMETHOD        = FALSE
+<span class="c1"># Method of Function</span>
+<span class="n">TRACEDATA_METHODORFUNC_METHOD</span>           <span class="o">=</span> <span class="bp">TRUE</span>
+<span class="n">TRACEDATA_METHODORFUNC_NOTMETHOD</span>        <span class="o">=</span> <span class="bp">FALSE</span>
 
-TRACE_BREAKPOINTS = TRUE
+<span class="n">TRACE_BREAKPOINTS</span> <span class="o">=</span> <span class="bp">TRUE</span>
 
-TRACE_TEMPLIST = []
+<span class="n">TRACE_TEMPLIST</span> <span class="o">=</span> <span class="p">[]</span>
 
-func Trace cType
-        switch trim(lower(cType))
-        on :AllEvents
-                ringvm_settrace(&quot;TraceLib_AllEvents()&quot;)
-        on :Functions
-                ringvm_settrace(&quot;TraceLib_Functions()&quot;)
-        on :PassError
-                ringvm_settrace(&quot;TraceLib_PassError()&quot;)
-        on :Debugger
-                ringvm_settrace(&quot;TraceLib_Debugger()&quot;)
-        on :LineByLine
-                ringvm_settrace(&quot;TraceLib_LineByLine()&quot;)
-        off
+<span class="kd">func</span> <span class="nf">Trace</span> <span class="n">cType</span>
+        <span class="k k-Control">switch</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">lower</span><span class="p">(</span><span class="n">cType</span><span class="p">))</span>
+        <span class="k k-Control">on</span> <span class="ss">:AllEvents</span>
+                <span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;TraceLib_AllEvents()&quot;</span><span class="p">)</span>
+        <span class="k k-Control">on</span> <span class="ss">:Functions</span>
+                <span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;TraceLib_Functions()&quot;</span><span class="p">)</span>
+        <span class="k k-Control">on</span> <span class="ss">:PassError</span>
+                <span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;TraceLib_PassError()&quot;</span><span class="p">)</span>
+        <span class="k k-Control">on</span> <span class="ss">:Debugger</span>
+                <span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;TraceLib_Debugger()&quot;</span><span class="p">)</span>
+        <span class="k k-Control">on</span> <span class="ss">:LineByLine</span>
+                <span class="nb">ringvm_settrace</span><span class="p">(</span><span class="s2">&quot;TraceLib_LineByLine()&quot;</span><span class="p">)</span>
+        <span class="k k-Control">off</span>
 
-func TraceLib_AllEvents
-        if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = &quot;tracelib.ring&quot;
-                return
-        ok
-        see &quot;====== The Trace function is Active ======&quot; + nl +
-                &quot;Trace Function Name : &quot; + ringvm_TraceFunc() + nl +
-                &quot;Trace Event : &quot;
-        switch ringvm_TraceEvent()
-                on TRACEEVENT_NEWLINE           see &quot;New Line&quot;
-                on TRACEEVENT_NEWFUNC           see &quot;New Function&quot;
-                on TRACEEVENT_RETURN            see &quot;Return&quot;
-                on TRACEEVENT_ERROR             see &quot;Error&quot;
-                on TRACEEVENT_BEFORECFUNC       see &quot;Before C Function&quot;
-                on TRACEEVENT_AFTERCFUNC        see &quot;After C Function&quot;
-        off
-        see nl +
-                &quot;Line Number : &quot; + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
-                &quot;File Name   : &quot; + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
-                &quot;Function Name : &quot; + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
-                &quot;Method or Function : &quot;
-                if ringvm_tracedata()[TRACEDATA_METHODORFUNC] =
-                                 TRACEDATA_METHODORFUNC_METHOD
-                        see &quot;Method&quot;
-                else
-                        if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
-                                see &quot;Command&quot;
-                        else
-                                see &quot;Function&quot;
-                        ok
-                ok
-                see nl + Copy(&quot;=&quot;,42) + nl
+<span class="kd">func</span> <span class="nf">TraceLib_AllEvents</span>
+        <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">],</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;tracelib.ring&quot;</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
+        <span class="k">see</span> <span class="s2">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Trace Event : &quot;</span>
+        <span class="k k-Control">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s2">&quot;New Line&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s2">&quot;New Function&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s2">&quot;Return&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s2">&quot;Error&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s2">&quot;Before C Function&quot;</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s2">&quot;After C Function&quot;</span>
+        <span class="k k-Control">off</span>
+        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+                <span class="s2">&quot;Method or Function : &quot;</span>
+                <span class="k k-Control">if</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="p">]</span> <span class="o">=</span>
+                                 <span class="n">TRACEDATA_METHODORFUNC_METHOD</span>
+                        <span class="k">see</span> <span class="s2">&quot;Method&quot;</span>
+                <span class="k k-Control">else</span>
+                        <span class="k k-Control">if</span> <span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
+                                <span class="k">see</span> <span class="s2">&quot;Command&quot;</span>
+                        <span class="k k-Control">else</span>
+                                <span class="k">see</span> <span class="s2">&quot;Function&quot;</span>
+                        <span class="k k-Control">ok</span>
+                <span class="k k-Control">ok</span>
+                <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 
-func TraceLib_Functions
-        if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = &quot;tracelib.ring&quot;
-                return
-        ok
-        switch ringvm_TraceEvent()
-                on TRACEEVENT_NEWFUNC
-                        see &quot;Open Func : &quot; +
-                        ringvm_TraceData()[TRACEDATA_FUNCNAME] + nl
-                on TRACEEVENT_RETURN
-                        see &quot;Return to Func : &quot; +
-                        ringvm_TraceData()[TRACEDATA_FUNCNAME] + nl
-        off
+<span class="kd">func</span> <span class="nf">TraceLib_Functions</span>
+        <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">],</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;tracelib.ring&quot;</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
+        <span class="k k-Control">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>
+                        <span class="k">see</span> <span class="s2">&quot;Open Func : &quot;</span> <span class="o">+</span>
+                        <span class="nb">ringvm_TraceData</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k k-Control">on</span> <span class="n">TRACEEVENT_RETURN</span>
+                        <span class="k">see</span> <span class="s2">&quot;Return to Func : &quot;</span> <span class="o">+</span>
+                        <span class="nb">ringvm_TraceData</span><span class="p">()[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">off</span>
 
-func TraceLib_PassError
-        if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = &quot;tracelib.ring&quot;
-                return
-        ok
-        switch ringvm_TraceEvent()
-                on  TRACEEVENT_ERROR
-                        see nl
-                        see &quot;TraceLib : After Error !&quot; + nl
-                        ringvm_passerror()
-        off
+<span class="kd">func</span> <span class="nf">TraceLib_PassError</span>
+        <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">],</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;tracelib.ring&quot;</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
+        <span class="k k-Control">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k k-Control">on</span>  <span class="n">TRACEEVENT_ERROR</span>
+                        <span class="k">see</span> <span class="bp">nl</span>
+                        <span class="k">see</span> <span class="s2">&quot;TraceLib : After Error !&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+        <span class="k k-Control">off</span>
 
-func TraceLib_Debugger
-        if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = &quot;tracelib.ring&quot;
-                return
-        ok
-        switch ringvm_TraceEvent()
-                on  TRACEEVENT_ERROR
-                        _BreakPoint()
-        off
+<span class="kd">func</span> <span class="nf">TraceLib_Debugger</span>
+        <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">],</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;tracelib.ring&quot;</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
+        <span class="k k-Control">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k k-Control">on</span>  <span class="n">TRACEEVENT_ERROR</span>
+                        <span class="n">_BreakPoint</span><span class="p">()</span>
+        <span class="k k-Control">off</span>
 
-func TraceLib_LineByLine
-        if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = &quot;tracelib.ring&quot; or
-                ringvm_TraceEvent() != TRACEEVENT_NEWLINE
-                return
-        ok
-        aList = ringvm_tracedata()
-        see &quot;Before Line : &quot; + aList[TRACEDATA_LINENUMBER] + nl
-        _BreakPoint()
+<span class="kd">func</span> <span class="nf">TraceLib_LineByLine</span>
+        <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="nb">ringvm_tracedata</span><span class="p">()[</span><span class="n">TRACEDATA_FILENAME</span><span class="p">],</span><span class="mi">13</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;tracelib.ring&quot;</span> <span class="ow">or</span>
+                <span class="nb">ringvm_TraceEvent</span><span class="p">()</span> <span class="o">!=</span> <span class="n">TRACEEVENT_NEWLINE</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="nb">ringvm_tracedata</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s2">&quot;Before Line : &quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="p">[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">_BreakPoint</span><span class="p">()</span>
 
-func BreakPoint
-        if not TRACE_BREAKPOINTS
-                return
-        ok
-        _BreakPoint()
+<span class="kd">func</span> <span class="nf">BreakPoint</span>
+        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">TRACE_BREAKPOINTS</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
+        <span class="n">_BreakPoint</span><span class="p">()</span>
 
-func _BreakPoint
-        see nl+nl+Copy(&quot;=&quot;,60) + nl +
-        Copy(&quot; &quot;,20)+&quot;Interactive Debugger&quot; + nl +
-        Copy(&quot;=&quot;,60) + nl +
-        &quot;Command (Exit)        : End Program&quot; + nl +
-        &quot;Command (Cont)        : Continue Execution&quot; + nl +
-        &quot;Command (Locals)      : Print local variables names&quot; + nl +
-        &quot;Command (LocalsData)  : Print local variables data&quot; + nl +
-        &quot;Command (Globals)     : Print global variables names&quot; + nl +
-        &quot;We can execute Ring code&quot; + nl +
-        Copy(&quot;=&quot;,60) + nl
-        while true
-                        see nl + &quot;code:&gt; &quot;
-                        give cCode
-                cmd = trim(lower(cCode))
-                if cmd = &quot;exit&quot; or cmd = &quot;bye&quot;
-                        shutdown()
-                ok
-                nScope = ringvm_scopescount()-2
-                switch cmd
-                        on &quot;locals&quot;
-                                ringvm_EvalInScope(nScope,&quot;see locals() callgc()&quot;)
-                                loop
-                        on &quot;localsdata&quot;
-                                PrintLocalsData(nScope)
-                                loop
-                        on &quot;globals&quot;
-                                ringvm_EvalInScope(nScope,&quot;see globals() callgc()&quot;)
-                                loop
-                        on &quot;cont&quot;
-                                ringvm_passerror()
-                                exit
-                off
-                Try
-                        ringvm_EvalInScope(nScope,cCode)
-                        catch
-                                        see cCatchError
-                        done
-        end
+<span class="kd">func</span> <span class="nf">_BreakPoint</span>
+        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="bp">nl</span><span class="o">+</span><span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;Interactive Debugger&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="s2">&quot;Command (Exit)        : End Program&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="s2">&quot;Command (Cont)        : Continue Execution&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="s2">&quot;Command (Locals)      : Print local variables names&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="s2">&quot;Command (LocalsData)  : Print local variables data&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="s2">&quot;Command (Globals)     : Print global variables names&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="s2">&quot;We can execute Ring code&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
+        <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">while</span> <span class="bp">true</span>
+                        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;code:&gt; &quot;</span>
+                        <span class="k">give</span> <span class="n">cCode</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="nb">trim</span><span class="p">(</span><span class="nb">lower</span><span class="p">(</span><span class="n">cCode</span><span class="p">))</span>
+                <span class="k k-Control">if</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;exit&quot;</span> <span class="ow">or</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;bye&quot;</span>
+                        <span class="nb">shutdown</span><span class="p">()</span>
+                <span class="k k-Control">ok</span>
+                <span class="n">nScope</span> <span class="o">=</span> <span class="nb">ringvm_scopescount</span><span class="p">()</span><span class="o">-</span><span class="mi">2</span>
+                <span class="k k-Control">switch</span> <span class="n">cmd</span>
+                        <span class="k k-Control">on</span> <span class="s2">&quot;locals&quot;</span>
+                                <span class="nb">ringvm_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see locals() callgc()&quot;</span><span class="p">)</span>
+                                <span class="k k-Control">loop</span>
+                        <span class="k k-Control">on</span> <span class="s2">&quot;localsdata&quot;</span>
+                                <span class="n">PrintLocalsData</span><span class="p">(</span><span class="n">nScope</span><span class="p">)</span>
+                                <span class="k k-Control">loop</span>
+                        <span class="k k-Control">on</span> <span class="s2">&quot;globals&quot;</span>
+                                <span class="nb">ringvm_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see globals() callgc()&quot;</span><span class="p">)</span>
+                                <span class="k k-Control">loop</span>
+                        <span class="k k-Control">on</span> <span class="s2">&quot;cont&quot;</span>
+                                <span class="nb">ringvm_passerror</span><span class="p">()</span>
+                                <span class="k k-Control">exit</span>
+                <span class="k k-Control">off</span>
+                <span class="k k-Control">Try</span>
+                        <span class="nb">ringvm_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
+                        <span class="k k-Control">catch</span>
+                                        <span class="k">see</span> <span class="bp">cCatchError</span>
+                        <span class="k k-Control">done</span>
+        <span class="k k-Control">end</span>
 
-func NoBreakPoints
-        TRACE_BREAKPOINTS = FALSE
+<span class="kd">func</span> <span class="nf">NoBreakPoints</span>
+        <span class="n">TRACE_BREAKPOINTS</span> <span class="o">=</span> <span class="bp">FALSE</span>
 
 
-func PrintLocalsData nScope
-        if nScope = 1   # Global
-                ringvm_Evalinscope(nScope,&#39;TRACE_TEMPLIST = globals()&#39;)
-        else
-                ringvm_Evalinscope(nScope,&#39;TRACE_TEMPLIST = locals() callgc()&#39;)
-        ok
-        see nl
-        aTempList = TRACE_TEMPLIST
-        TRACE_TEMPLIST = []
-        nSpaces = 5
-        for TRACE_ITEM in aTempList
-                if len(TRACE_ITEM) + 5 &gt; nSpaces
-                        nSpaces = len(TRACE_ITEM) + 5
-                ok
-        next
-        for TRACE_ITEM in aTempList
-                see &quot;Variable : &quot; +  TRACE_ITEM
-                cVarName = TRACE_ITEM
-                see copy(&quot; &quot;,nSpaces-len(cVarName)) + &quot; Type : &quot;
-                ringvm_Evalinscope(nScope,&quot;see type(&quot; +  TRACE_ITEM +&quot;)&quot;)
-                ringvm_Evalinscope(nScope,&quot;see Copy(&#39; &#39;,fabs(15-len(type(&quot; +
-                                          TRACE_ITEM +&quot;))))&quot;)
-                see &quot; Value : &quot;
-                ringvm_Evalinscope(nScope,&quot;see &quot; +  TRACE_ITEM)
-                see nl
-        next
+<span class="kd">func</span> <span class="nf">PrintLocalsData</span> <span class="n">nScope</span>
+        <span class="k k-Control">if</span> <span class="n">nScope</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Global</span>
+                <span class="nb">ringvm_Evalinscope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s1">&#39;TRACE_TEMPLIST = globals()&#39;</span><span class="p">)</span>
+        <span class="k k-Control">else</span>
+                <span class="nb">ringvm_Evalinscope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s1">&#39;TRACE_TEMPLIST = locals() callgc()&#39;</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
+        <span class="k">see</span> <span class="bp">nl</span>
+        <span class="n">aTempList</span> <span class="o">=</span> <span class="n">TRACE_TEMPLIST</span>
+        <span class="n">TRACE_TEMPLIST</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nSpaces</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="k k-Control">for</span> <span class="n">TRACE_ITEM</span> <span class="k k-Control">in</span> <span class="n">aTempList</span>
+                <span class="k k-Control">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">TRACE_ITEM</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="n">nSpaces</span>
+                        <span class="n">nSpaces</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">TRACE_ITEM</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>
+                <span class="k k-Control">ok</span>
+        <span class="k k-Control">next</span>
+        <span class="k k-Control">for</span> <span class="n">TRACE_ITEM</span> <span class="k k-Control">in</span> <span class="n">aTempList</span>
+                <span class="k">see</span> <span class="s2">&quot;Variable : &quot;</span> <span class="o">+</span>  <span class="n">TRACE_ITEM</span>
+                <span class="n">cVarName</span> <span class="o">=</span> <span class="n">TRACE_ITEM</span>
+                <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">nSpaces</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">cVarName</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; Type : &quot;</span>
+                <span class="nb">ringvm_Evalinscope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see type(&quot;</span> <span class="o">+</span>  <span class="n">TRACE_ITEM</span> <span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+                <span class="nb">ringvm_Evalinscope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see Copy(&#39; &#39;,fabs(15-len(type(&quot;</span> <span class="o">+</span>
+                                          <span class="n">TRACE_ITEM</span> <span class="o">+</span><span class="s2">&quot;))))&quot;</span><span class="p">)</span>
+                <span class="k">see</span> <span class="s2">&quot; Value : &quot;</span>
+                <span class="nb">ringvm_Evalinscope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see &quot;</span> <span class="o">+</span>  <span class="n">TRACE_ITEM</span><span class="p">)</span>
+                <span class="k">see</span> <span class="bp">nl</span>
+        <span class="k k-Control">next</span>
 </pre></div>
 </div>
 </section>
@@ -1537,16 +1537,16 @@ func PrintLocalsData nScope
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Hello world&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="mi">123</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
-<span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Hello world&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="mi">123</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">]</span>
+<span class="k">see</span> <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
 
-<span class="k">func</span> <span class="n">ringvm_see</span> <span class="n">t</span>
-        <span class="n">ring_see</span><span class="p">(</span><span class="s">&quot;We want to print: &quot;</span><span class="p">)</span>
-        <span class="n">ring_See</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">ringvm_see</span> <span class="n">t</span>
+        <span class="nb">ring_see</span><span class="p">(</span><span class="s2">&quot;We want to print: &quot;</span><span class="p">)</span>
+        <span class="nb">ring_See</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1565,16 +1565,16 @@ z: 30.000000
 <span id="index-32"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this heading"></a></h2>
 <p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
-<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
+<span class="k">see</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
 
-<span class="k">func</span> <span class="n">ringvm_give</span>
-        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
+<span class="kd">func</span> <span class="nf">ringvm_give</span>
+        <span class="k">see</span> <span class="s2">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">return</span> <span class="s2">&quot;Mahmoud&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="o">:</span> <span class="n">Mahmoud</span>
 <span class="n">Hello</span> <span class="n">Mahmoud</span>
 </pre></div>
 </div>
@@ -1590,7 +1590,7 @@ z: 30.000000
 <p>The ringvm_info() is an internal function that return a list of information about the Ring VM structure.</p>
 <p>It’s used only by the Ring Team in advanced tests to check the VM status.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">structure</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ringvm_info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">structure</span>
 </pre></div>
 </div>
 </section>
@@ -1599,7 +1599,7 @@ z: 30.000000
 <p>Check if we still have items in the memory pool or not</p>
 <p>This function is used to write tests that could detect a memory leak</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_ismempool</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">lStatus</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ringvm_ismempool</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">lStatus</span>
 </pre></div>
 </div>
 </section>
@@ -1611,7 +1611,7 @@ z: 30.000000
 <p>3 - Maximum nested events is 255 events</p>
 <p>This function is used to write tests that contains events</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_runcode</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ringvm_runcode</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

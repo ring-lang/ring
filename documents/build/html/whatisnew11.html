@@ -307,21 +307,21 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <span id="index-10"></span><h2>RingRayLib Extension<a class="headerlink" href="#ringraylib-extension" title="Permalink to this heading"></a></h2>
 <p>Ring 1.11 comes with new extension to support the RayLib game programming library</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span>    <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s2">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
         <span class="n">BeginDrawing</span><span class="p">()</span>
         <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
-        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -329,22 +329,22 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <p>Output:</p>
 <img alt="RayLib Example" src="_images/raylib_ex1.png" />
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s2">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
         <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
         <span class="n">DrawCircle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
         <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
         <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
@@ -365,7 +365,7 @@ compose the grid contain all of the digits from 1 to 9.</p>
                           <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k">end</span>
+<span class="k k-Control">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -377,45 +377,45 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <span id="index-11"></span><h2>ZeroLib Library<a class="headerlink" href="#zerolib-library" title="Permalink to this heading"></a></h2>
 <p>Ring 1.11 comes with the ZeroLib library that contains classes for Lists and Strings where the index starts from 0.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;zerolib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Using List - Index start from 0&quot;</span>
-<span class="kt">List</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">)</span>
-<span class="kt">List</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="kt">List</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
-<span class="n">nIndex</span> <span class="o">=</span> <span class="kt">List</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Find(2) = &quot;</span> <span class="o">+</span> <span class="n">nIndex</span>
-<span class="kt">List</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;After deleting the first item : List[0]&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Now List[0] = &quot;</span> <span class="o">+</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">?</span> <span class="s2">&quot;Using List - Index start from 0&quot;</span>
+<span class="n">List</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">List</span><span class="o">.</span><span class="nb">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">List</span><span class="o">.</span><span class="nb">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">nIndex</span> <span class="o">=</span> <span class="n">List</span><span class="o">.</span><span class="nb">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Find(2) = &quot;</span> <span class="o">+</span> <span class="n">nIndex</span>
+<span class="n">List</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;After deleting the first item : List[0]&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Now List[0] = &quot;</span> <span class="o">+</span> <span class="n">List</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="o">?</span> <span class="s">&quot;Using String - Index start from 0&quot;</span>
-<span class="kt">String</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="s">&quot;Welcome&quot;</span> <span class="p">)</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
-<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span>
+<span class="o">?</span> <span class="s2">&quot;Using String - Index start from 0&quot;</span>
+<span class="n">String</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="s2">&quot;Welcome&quot;</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="kt">List</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="k">from</span> <span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">List</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="kd">from</span> <span class="nc">0</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
 <span class="mi">4</span>
 <span class="mi">5</span>
-<span class="n">Find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">After</span> <span class="n">deleting</span> <span class="n">the</span> <span class="n">first</span> <span class="n">item</span> <span class="p">:</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="n">Now</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">Using</span> <span class="kt">String</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="k">from</span> <span class="mi">0</span>
+<span class="nb">Find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">After</span> <span class="n">deleting</span> <span class="n">the</span> <span class="n">first</span> <span class="n">item</span> <span class="o">:</span> <span class="n">List</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Now</span> <span class="n">List</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Using</span> <span class="n">String</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="kd">from</span> <span class="nc">0</span>
 <span class="n">W</span>
 <span class="n">e</span>
 <span class="n">l</span>
@@ -435,31 +435,31 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <li><p>TimeInfo(cInformation)</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Using the IsListContainsItems() function&quot;</span>
-<span class="n">aList1</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span><span class="p">:</span><span class="s">&quot;z&quot;</span>
-<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">h</span><span class="p">,:</span><span class="n">l</span><span class="p">,:</span><span class="n">p</span><span class="p">,:</span><span class="n">u</span><span class="o">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Using the IsListContainsItems() function&quot;</span>
+<span class="n">aList1</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="o">:</span><span class="s2">&quot;z&quot;</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:h</span><span class="p">,</span><span class="ss">:l</span><span class="p">,</span><span class="ss">:p</span><span class="p">,</span><span class="ss">:u</span><span class="p">]</span>
 <span class="o">?</span> <span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Using the IsBetween() function&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Using the IsBetween() function&quot;</span>
 <span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Using the TimeInfo() function&quot;</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">date</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">year</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">time</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">hour_12</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Using the TimeInfo() function&quot;</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:date</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:year</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:time</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:hour_12</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">the</span> <span class="n">IsListContainsItems</span><span class="p">()</span> <span class="k">function</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">the</span> <span class="n">IsListContainsItems</span><span class="p">()</span> <span class="kd">function</span>
+<span class="nf">1</span>
+<span class="n">Using</span> <span class="n">the</span> <span class="n">IsBetween</span><span class="p">()</span> <span class="kd">function</span>
+<span class="nf">0</span>
 <span class="mi">1</span>
-<span class="n">Using</span> <span class="n">the</span> <span class="n">IsBetween</span><span class="p">()</span> <span class="k">function</span>
-<span class="mi">0</span>
-<span class="mi">1</span>
-<span class="n">Using</span> <span class="n">the</span> <span class="n">TimeInfo</span><span class="p">()</span> <span class="k">function</span>
-<span class="mi">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">19</span>
+<span class="n">Using</span> <span class="n">the</span> <span class="n">TimeInfo</span><span class="p">()</span> <span class="kd">function</span>
+<span class="nf">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">19</span>
 <span class="mi">2019</span>
-<span class="mi">15</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">33</span>
+<span class="mi">15</span><span class="o">:</span><span class="mi">30</span><span class="o">:</span><span class="mi">33</span>
 <span class="mi">03</span>
 </pre></div>
 </div>

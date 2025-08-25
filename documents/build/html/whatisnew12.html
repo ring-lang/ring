@@ -289,36 +289,36 @@
 <p>Because the (Load) command load the same source file only for the first time and ignore next times.</p>
 <p>So we have to use the (Load Again) command.</p>
 <p>Where we can use these files again during the runtime as in the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">setLang</span> <span class="n">nLanguage</span>
-        <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
-                <span class="k">return</span>
-        <span class="k">ok</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">setLang</span> <span class="n">nLanguage</span>
+        <span class="k k-Control">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+                <span class="k k-Control">return</span>
+        <span class="k k-Control">ok</span>
         <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
-        <span class="c"># Change the language</span>
-                <span class="k">switch</span> <span class="n">nLanguage</span>
-                        <span class="k">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
-                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/english.ring&quot;</span>
-                        <span class="k">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
-                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/arabic.ring&quot;</span>
-                <span class="k">off</span>
+        <span class="c1"># Change the language</span>
+                <span class="k k-Control">switch</span> <span class="n">nLanguage</span>
+                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
+                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/english.ring&quot;</span>
+                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
+                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/arabic.ring&quot;</span>
+                <span class="k k-Control">off</span>
 </pre></div>
 </div>
 </section>
 <section id="ring-state-filetokens-function">
 <span id="index-9"></span><h2>ring_state_filetokens() function<a class="headerlink" href="#ring-state-filetokens-function" title="Permalink to this heading"></a></h2>
 <p>Using the ring_state_filetokens() function we can get all the tokens in the ring source code file.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_FILENAME</span>      <span class="o">=</span> <span class="s">&quot;test_tokens.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_FILENAME</span>      <span class="o">=</span> <span class="s2">&quot;test_tokens.ring&quot;</span>
 <span class="n">C_WIDTH</span>         <span class="o">=</span> <span class="mi">12</span>
 
-<span class="c"># write the file</span>
-        <span class="n">write</span><span class="p">(</span><span class="n">C_FILENAME</span><span class="p">,</span><span class="sc">&#39;</span>
-                        <span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span>
-                        <span class="o">?</span> <span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
-                        <span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;Ring&quot;</span>
-                        <span class="o">?</span> <span class="n">Name</span>
-<span class="sc">&#39;)</span>
+<span class="c1"># write the file</span>
+        <span class="nb">write</span><span class="p">(</span><span class="n">C_FILENAME</span><span class="p">,</span><span class="s1">&#39;</span>
+<span class="s1">                        see &quot;Hello, World!&quot;</span>
+<span class="s1">                        ? 3*2+3</span>
+<span class="s1">                        Name = &quot;Ring&quot;</span>
+<span class="s1">                        ? Name</span>
+<span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="c"># Token Type</span>
+<span class="c1"># Token Type</span>
         <span class="n">C_KEYWORD</span>       <span class="o">=</span> <span class="mi">0</span>
         <span class="n">C_OPERATOR</span>      <span class="o">=</span> <span class="mi">1</span>
         <span class="n">C_LITERAL</span>       <span class="o">=</span> <span class="mi">2</span>
@@ -326,39 +326,39 @@
         <span class="n">C_IDENTIFIER</span>    <span class="o">=</span> <span class="mi">4</span>
         <span class="n">C_ENDLINE</span>       <span class="o">=</span> <span class="mi">5</span>
 
-<span class="c"># Keywords List</span>
-<span class="n">aKEYWORDS</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;IF&quot;</span><span class="p">,</span><span class="s">&quot;TO&quot;</span><span class="p">,</span><span class="s">&quot;OR&quot;</span><span class="p">,</span><span class="s">&quot;AND&quot;</span><span class="p">,</span><span class="s">&quot;NOT&quot;</span><span class="p">,</span><span class="s">&quot;FOR&quot;</span><span class="p">,</span><span class="s">&quot;NEW&quot;</span><span class="p">,</span><span class="s">&quot;FUNC&quot;</span><span class="p">,</span>
-<span class="s">&quot;FROM&quot;</span><span class="p">,</span><span class="s">&quot;NEXT&quot;</span><span class="p">,</span><span class="s">&quot;LOAD&quot;</span><span class="p">,</span><span class="s">&quot;ELSE&quot;</span><span class="p">,</span><span class="s">&quot;SEE&quot;</span><span class="p">,</span><span class="s">&quot;WHILE&quot;</span><span class="p">,</span><span class="s">&quot;OK&quot;</span><span class="p">,</span><span class="s">&quot;CLASS&quot;</span><span class="p">,</span><span class="s">&quot;RETURN&quot;</span><span class="p">,</span><span class="s">&quot;BUT&quot;</span><span class="p">,</span>
-<span class="s">&quot;END&quot;</span><span class="p">,</span><span class="s">&quot;GIVE&quot;</span><span class="p">,</span><span class="s">&quot;BYE&quot;</span><span class="p">,</span><span class="s">&quot;EXIT&quot;</span><span class="p">,</span><span class="s">&quot;TRY&quot;</span><span class="p">,</span><span class="s">&quot;CATCH&quot;</span><span class="p">,</span><span class="s">&quot;DONE&quot;</span><span class="p">,</span><span class="s">&quot;SWITCH&quot;</span><span class="p">,</span><span class="s">&quot;ON&quot;</span><span class="p">,</span><span class="s">&quot;OTHER&quot;</span><span class="p">,</span><span class="s">&quot;OFF&quot;</span><span class="p">,</span>
-<span class="s">&quot;IN&quot;</span><span class="p">,</span><span class="s">&quot;LOOP&quot;</span><span class="p">,</span><span class="s">&quot;PACKAGE&quot;</span><span class="p">,</span><span class="s">&quot;IMPORT&quot;</span><span class="p">,</span><span class="s">&quot;PRIVATE&quot;</span><span class="p">,</span><span class="s">&quot;STEP&quot;</span><span class="p">,</span><span class="s">&quot;DO&quot;</span><span class="p">,</span><span class="s">&quot;AGAIN&quot;</span><span class="p">,</span><span class="s">&quot;CALL&quot;</span><span class="p">,</span><span class="s">&quot;ELSEIF&quot;</span><span class="p">,</span>
-<span class="s">&quot;PUT&quot;</span><span class="p">,</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="s">&quot;CASE&quot;</span><span class="p">,</span><span class="s">&quot;DEF&quot;</span><span class="p">,</span><span class="s">&quot;ENDFUNC&quot;</span><span class="p">,</span><span class="s">&quot;ENDCLASS&quot;</span><span class="p">,</span><span class="s">&quot;ENDPACKAGE&quot;</span><span class="p">,</span>
-<span class="s">&quot;CHANGERINGKEYWORD&quot;</span><span class="p">,</span><span class="s">&quot;CHANGERINGOPERATOR&quot;</span><span class="p">,</span><span class="s">&quot;LOADSYNTAX&quot;</span><span class="o">]</span>
+<span class="c1"># Keywords List</span>
+<span class="n">aKEYWORDS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;IF&quot;</span><span class="p">,</span><span class="s2">&quot;TO&quot;</span><span class="p">,</span><span class="s2">&quot;OR&quot;</span><span class="p">,</span><span class="s2">&quot;AND&quot;</span><span class="p">,</span><span class="s2">&quot;NOT&quot;</span><span class="p">,</span><span class="s2">&quot;FOR&quot;</span><span class="p">,</span><span class="s2">&quot;NEW&quot;</span><span class="p">,</span><span class="s2">&quot;FUNC&quot;</span><span class="p">,</span>
+<span class="s2">&quot;FROM&quot;</span><span class="p">,</span><span class="s2">&quot;NEXT&quot;</span><span class="p">,</span><span class="s2">&quot;LOAD&quot;</span><span class="p">,</span><span class="s2">&quot;ELSE&quot;</span><span class="p">,</span><span class="s2">&quot;SEE&quot;</span><span class="p">,</span><span class="s2">&quot;WHILE&quot;</span><span class="p">,</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="s2">&quot;CLASS&quot;</span><span class="p">,</span><span class="s2">&quot;RETURN&quot;</span><span class="p">,</span><span class="s2">&quot;BUT&quot;</span><span class="p">,</span>
+<span class="s2">&quot;END&quot;</span><span class="p">,</span><span class="s2">&quot;GIVE&quot;</span><span class="p">,</span><span class="s2">&quot;BYE&quot;</span><span class="p">,</span><span class="s2">&quot;EXIT&quot;</span><span class="p">,</span><span class="s2">&quot;TRY&quot;</span><span class="p">,</span><span class="s2">&quot;CATCH&quot;</span><span class="p">,</span><span class="s2">&quot;DONE&quot;</span><span class="p">,</span><span class="s2">&quot;SWITCH&quot;</span><span class="p">,</span><span class="s2">&quot;ON&quot;</span><span class="p">,</span><span class="s2">&quot;OTHER&quot;</span><span class="p">,</span><span class="s2">&quot;OFF&quot;</span><span class="p">,</span>
+<span class="s2">&quot;IN&quot;</span><span class="p">,</span><span class="s2">&quot;LOOP&quot;</span><span class="p">,</span><span class="s2">&quot;PACKAGE&quot;</span><span class="p">,</span><span class="s2">&quot;IMPORT&quot;</span><span class="p">,</span><span class="s2">&quot;PRIVATE&quot;</span><span class="p">,</span><span class="s2">&quot;STEP&quot;</span><span class="p">,</span><span class="s2">&quot;DO&quot;</span><span class="p">,</span><span class="s2">&quot;AGAIN&quot;</span><span class="p">,</span><span class="s2">&quot;CALL&quot;</span><span class="p">,</span><span class="s2">&quot;ELSEIF&quot;</span><span class="p">,</span>
+<span class="s2">&quot;PUT&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="s2">&quot;CASE&quot;</span><span class="p">,</span><span class="s2">&quot;DEF&quot;</span><span class="p">,</span><span class="s2">&quot;ENDFUNC&quot;</span><span class="p">,</span><span class="s2">&quot;ENDCLASS&quot;</span><span class="p">,</span><span class="s2">&quot;ENDPACKAGE&quot;</span><span class="p">,</span>
+<span class="s2">&quot;CHANGERINGKEYWORD&quot;</span><span class="p">,</span><span class="s2">&quot;CHANGERINGOPERATOR&quot;</span><span class="p">,</span><span class="s2">&quot;LOADSYNTAX&quot;</span><span class="p">]</span>
 
-<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">ring_state_filetokens</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="n">C_FILENAME</span><span class="p">)</span>
+<span class="n">pState</span> <span class="o">=</span> <span class="nb">ring_state_new</span><span class="p">()</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nb">ring_state_filetokens</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="n">C_FILENAME</span><span class="p">)</span>
 <span class="n">PrintTokens</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+<span class="nb">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">PrintTokens</span> <span class="n">aList</span>
-        <span class="k">for</span> <span class="n">aToken</span> <span class="k">in</span> <span class="n">aList</span>
-                <span class="k">switch</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-                <span class="k">on</span> <span class="n">C_KEYWORD</span>
-                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Keyword&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span>  <span class="o">+</span> <span class="n">aKeywords</span><span class="o">[</span><span class="mi">0</span><span class="o">+</span><span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
-                <span class="k">on</span> <span class="n">C_OPERATOR</span>
-                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Operator&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-                <span class="k">on</span> <span class="n">C_LITERAL</span>
-                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Literal&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-                <span class="k">on</span> <span class="n">C_NUMBER</span>
-                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-                <span class="k">on</span> <span class="n">C_IDENTIFIER</span>
-                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Identifier&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-                <span class="k">on</span> <span class="n">C_ENDLINE</span>
-                        <span class="o">?</span> <span class="s">&quot;EndLine&quot;</span>
-                <span class="k">off</span>
-        <span class="k">next</span>
+<span class="kd">func</span> <span class="nf">PrintTokens</span> <span class="n">aList</span>
+        <span class="k k-Control">for</span> <span class="n">aToken</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+                <span class="k k-Control">switch</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k k-Control">on</span> <span class="n">C_KEYWORD</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Keyword&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span>  <span class="o">+</span> <span class="n">aKeywords</span><span class="p">[</span><span class="mi">0</span><span class="o">+</span><span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+                <span class="k k-Control">on</span> <span class="n">C_OPERATOR</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Operator&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k k-Control">on</span> <span class="n">C_LITERAL</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Literal&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k k-Control">on</span> <span class="n">C_NUMBER</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k k-Control">on</span> <span class="n">C_IDENTIFIER</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Identifier&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k k-Control">on</span> <span class="n">C_ENDLINE</span>
+                        <span class="o">?</span> <span class="s2">&quot;EndLine&quot;</span>
+                <span class="k k-Control">off</span>
+        <span class="k k-Control">next</span>
 
-<span class="k">func</span> <span class="n">Width</span> <span class="n">cText</span><span class="p">,</span><span class="n">nWidth</span>
-        <span class="k">return</span> <span class="n">cText</span><span class="o">+</span><span class="n">copy</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="n">nWidth</span><span class="o">-</span><span class="n">len</span><span class="p">(</span><span class="n">cText</span><span class="p">))</span>
+<span class="kd">func</span> <span class="nf">Width</span> <span class="n">cText</span><span class="p">,</span><span class="n">nWidth</span>
+        <span class="k k-Control">return</span> <span class="n">cText</span><span class="o">+</span><span class="nb">copy</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">nWidth</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">cText</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -388,13 +388,13 @@ EndLine
 <p>We can generate embedded object file (C source code) from the source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)
 using -geo option</p>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
 </pre></div>
 </div>
 <p>This command will generate at least three files</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">.</span><span class="n">c</span>
-<span class="n">ringappcode</span><span class="p">.</span><span class="n">c</span>
-<span class="n">ringappcode</span><span class="p">.</span><span class="n">h</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="o">.</span><span class="n">c</span>
+<span class="n">ringappcode</span><span class="o">.</span><span class="n">h</span>
 </pre></div>
 </div>
 <p>More files could be generated based on the project size</p>

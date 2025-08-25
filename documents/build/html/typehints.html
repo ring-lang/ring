@@ -239,17 +239,17 @@ very useful for tools like</p>
 <section id="example">
 <span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>The next example will use the Type Hints library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
-<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">);</span>
+<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
+<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">);</span>
 
-<span class="n">int</span> <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
+<span class="n">int</span> <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">string</span> <span class="k">func</span> <span class="n">sayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
+<span class="n">string</span> <span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -258,21 +258,21 @@ very useful for tools like</p>
 <span id="index-3"></span><h2>User Types<a class="headerlink" href="#user-types" title="Permalink to this heading"></a></h2>
 <p>The Type Hints library is very powerful and will support user types (Classes) automatically</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="k">import</span> <span class="n">mypackage</span>
+<span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">([</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:three</span><span class="p">])</span> <span class="p">}</span>
 
-<span class="n">myclass</span> <span class="k">func</span> <span class="n">test</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">see</span> <span class="s">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">myclass</span>
+<span class="n">myclass</span> <span class="kd">func</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="s2">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k k-Control">return</span> <span class="kp">new</span> <span class="nc">myclass</span>
 <span class="p">}</span>
 
-<span class="k">package</span> <span class="n">mypackage</span> <span class="p">{</span>
-        <span class="n">public</span> <span class="k">class</span> <span class="n">myclass</span> <span class="p">{</span>
-                <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="k">func</span> <span class="n">main</span><span class="p">(</span><span class="kt">list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="kn">package</span> <span class="nn">mypackage</span> <span class="p">{</span>
+        <span class="n">public</span> <span class="kd">class</span> <span class="nc">myclass</span> <span class="p">{</span>
+                <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="kd">func</span> <span class="nf">main</span><span class="p">(</span><span class="n">list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="s2">&quot;welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
                         <span class="k">see</span> <span class="n">args</span>
                 <span class="p">}</span>
         <span class="p">}</span>
@@ -284,20 +284,20 @@ very useful for tools like</p>
 <span id="index-4"></span><h2>Using Types inside Code<a class="headerlink" href="#using-types-inside-code" title="Permalink to this heading"></a></h2>
 <p>Also you can use the types inside the code (not only the function prototype)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
 <span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="kt">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+<span class="n">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
 
-<span class="k">see</span> <span class="s">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="bp">nl</span>
 
 
-<span class="n">int</span> <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
+<span class="n">int</span> <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">string</span> <span class="k">func</span> <span class="n">sayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
+<span class="n">string</span> <span class="kd">func</span> <span class="nf">sayHello</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k k-Control">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -306,28 +306,28 @@ very useful for tools like</p>
 <span id="index-5"></span><h2>Using Override<a class="headerlink" href="#using-override" title="Permalink to this heading"></a></h2>
 <p>We can use override or &#64;override</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyNewLib</span> <span class="p">{</span>
+<span class="n">o</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyNewLib</span> <span class="p">{</span>
         <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
         <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">MyLib</span> <span class="p">{</span>
-        <span class="n">boolean</span> <span class="k">func</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
-                        <span class="k">return</span> <span class="kp">true</span>
-                <span class="k">else</span>
-                        <span class="k">return</span> <span class="kp">false</span>
-                <span class="k">ok</span>
+<span class="kd">class</span> <span class="nc">MyLib</span> <span class="p">{</span>
+        <span class="n">boolean</span> <span class="kd">func</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+                        <span class="k k-Control">return</span> <span class="bp">true</span>
+                <span class="k k-Control">else</span>
+                        <span class="k k-Control">return</span> <span class="bp">false</span>
+                <span class="k k-Control">ok</span>
         <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">MyNewLib</span> <span class="o">&lt;</span> <span class="n">MyLib</span> <span class="p">{</span>
-        <span class="o">@</span><span class="n">override</span>
-        <span class="n">boolean</span> <span class="k">func</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-                <span class="o">?</span> <span class="s">&quot;Using override&quot;</span>
-                <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="kd">class</span> <span class="nc">MyNewLib</span> <span class="o">&lt;</span> <span class="n">MyLib</span> <span class="p">{</span>
+        <span class="n">@override</span>
+        <span class="n">boolean</span> <span class="kd">func</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">?</span> <span class="s2">&quot;Using override&quot;</span>
+                <span class="k k-Control">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -347,7 +347,7 @@ Using override
 <li><p>To use the types in the function code, You must set the variable value (Assignment).</p></li>
 </ul>
 <p>The next types are defined by the library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Low Level Types</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Low Level Types</span>
 <span class="n">char</span>
 <span class="n">unsigned</span>
 <span class="n">signed</span>
@@ -361,19 +361,19 @@ Using override
 <span class="n">boolean</span>
 
 
-<span class="c"># High Level Types</span>
-<span class="kt">string</span>
-<span class="kt">list</span>
+<span class="c1"># High Level Types</span>
+<span class="n">string</span>
+<span class="n">list</span>
 <span class="n">number</span>
 <span class="n">object</span>
 
-<span class="c"># Other</span>
+<span class="c1"># Other</span>
 <span class="n">public</span>
 <span class="n">static</span>
 <span class="n">abstract</span>
 <span class="n">protected</span>
 <span class="n">override</span>
-<span class="o">@</span><span class="n">override</span>
+<span class="n">@override</span>
 </pre></div>
 </div>
 </section>

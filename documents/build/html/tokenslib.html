@@ -238,14 +238,14 @@ printTokens()
 </section>
 <section id="example">
 <span id="index-3"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tokenslib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tokenslib.ring&quot;</span>
 
-<span class="k">func</span> <span class="n">main</span>
-        <span class="n">oTokens</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RingTokens</span> <span class="p">{</span>
-                <span class="n">fromFile</span><span class="p">(</span><span class="s">&quot;hello.ring&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">main</span>
+        <span class="n">oTokens</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">RingTokens</span> <span class="p">{</span>
+                <span class="n">fromFile</span><span class="p">(</span><span class="s2">&quot;hello.ring&quot;</span><span class="p">)</span>
                 <span class="n">PrintTokens</span><span class="p">()</span>
-                <span class="o">?</span> <span class="n">Copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-                <span class="n">fromString</span><span class="p">(</span><span class="s">&quot;? 1+1&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+                <span class="n">fromString</span><span class="p">(</span><span class="s2">&quot;? 1+1&quot;</span><span class="p">)</span>
                 <span class="n">PrintTokens</span><span class="p">()</span>
         <span class="p">}</span>
 </pre></div>

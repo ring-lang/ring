@@ -260,20 +260,20 @@
 </section>
 <section id="example">
 <span id="index-3"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
 
-        <span class="o">?</span> <span class="s">&quot;Try localhost:8080/hi&quot;</span>
-        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hi&quot;</span><span class="p">,:</span><span class="n">mytest</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hi&quot;</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
 
-        <span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
 <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -284,9 +284,9 @@
 <section id="printing-constants">
 <span id="index-5"></span><h2>Printing Constants<a class="headerlink" href="#printing-constants" title="Permalink to this heading"></a></h2>
 <p>The next example print the constants defined by the extension</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Constants:&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Constants:&quot;</span>
 
 <span class="o">?</span> <span class="n">HTTPLIB_KEEPALIVE_TIMEOUT_SECOND</span>
 <span class="o">?</span> <span class="n">HTTPLIB_KEEPALIVE_MAX_COUNT</span>
@@ -312,81 +312,81 @@
 <section id="using-http-get">
 <span id="index-6"></span><h2>Using HTTP GET<a class="headerlink" href="#using-http-get" title="Permalink to this heading"></a></h2>
 <p>Example(1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hi&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hi&quot;</span><span class="p">,:</span><span class="n">mytest</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hi&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/one&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/one&quot;</span><span class="p">,:</span><span class="n">one</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/two&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/two&quot;</span><span class="p">,:</span><span class="n">two</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/one&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/one&quot;</span><span class="p">,</span><span class="ss">:one</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/two&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/two&quot;</span><span class="p">,</span><span class="ss">:two</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">one</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">one</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">two</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">two</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(3):</p>
 <p>In this example we will use anonymous function</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hello&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hello&quot;</span>
 
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
 
-        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span><span class="k">func</span> <span class="p">{</span>
-                <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hello&quot;</span><span class="p">,</span><span class="kd">func</span> <span class="p">{</span>
+                <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
         <span class="p">})</span>
 
-        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example(4):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hi - See output in console at Server-Side&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hello - See output in web browser at Client-Side&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hi - See output in console at Server-Side&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hello - See output in web browser at Client-Side&quot;</span>
 
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
 
-        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hi&quot;</span><span class="p">,</span><span class="sc">&#39;? &quot;Wow, I love Ring programming!&quot;&#39;</span><span class="p">)</span>
-        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span><span class="sc">&#39;oServer.setContent(&quot;Hello, World!&quot;, &quot;text/plain&quot;)&#39;</span><span class="p">)</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="s1">&#39;? &quot;Wow, I love Ring programming!&quot;&#39;</span><span class="p">)</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hello&quot;</span><span class="p">,</span><span class="s1">&#39;oServer.setContent(&quot;Hello, World!&quot;, &quot;text/plain&quot;)&#39;</span><span class="p">)</span>
 
-        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example(5):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="k">new</span> <span class="n">Client</span><span class="p">(</span><span class="s">&quot;localhost:8080&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">?</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;/one&quot;</span><span class="p">)</span>
-        <span class="o">?</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;/two&quot;</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">Client</span><span class="p">(</span><span class="s2">&quot;localhost:8080&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="n">download</span><span class="p">(</span><span class="s2">&quot;/one&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="n">download</span><span class="p">(</span><span class="s2">&quot;/two&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -398,195 +398,195 @@
 <section id="using-weblib">
 <span id="index-7"></span><h2>Using WebLib<a class="headerlink" href="#using-weblib" title="Permalink to this heading"></a></h2>
 <p>Example(1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/report&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/report&quot;</span><span class="p">,:</span><span class="n">report</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/report&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/report&quot;</span><span class="p">,</span><span class="ss">:report</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">report</span>
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPage</span>
+<span class="kd">func</span> <span class="nf">report</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPage</span>
         <span class="p">{</span>
                 <span class="n">nRowsCount</span> <span class="o">=</span> <span class="mi">10</span>
-                <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Report&quot;</span>
-                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Report&quot;</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
                 <span class="n">Table</span>
                 <span class="p">{</span>
-                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
                         <span class="n">TR</span>
                         <span class="p">{</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
                                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="n">nRowsCount</span><span class="p">)</span> <span class="p">}</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
                 <span class="n">Table</span>
                 <span class="p">{</span>
-                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
                         <span class="n">TR</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                         <span class="p">}</span>
-                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="n">nRowsCount</span>
+                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nRowsCount</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
-                        <span class="k">next</span>
+                        <span class="k k-Control">next</span>
                 <span class="p">}</span>
         <span class="p">}</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="using-http-post">
 <span id="index-8"></span><h2>Using HTTP Post<a class="headerlink" href="#using-http-post" title="Permalink to this heading"></a></h2>
 <p>Example(1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/form&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/form&quot;</span><span class="p">,:</span><span class="n">form</span><span class="p">)</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Post</span><span class="p">,</span><span class="s">&quot;/formresponse&quot;</span><span class="p">,:</span><span class="n">formresponse</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/form&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/form&quot;</span><span class="p">,</span><span class="ss">:form</span><span class="p">)</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Post</span><span class="p">,</span><span class="s2">&quot;/formresponse&quot;</span><span class="p">,</span><span class="ss">:formresponse</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">form</span>
+<span class="kd">func</span> <span class="nf">form</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Post Test&quot;</span><span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Post Test&quot;</span><span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">style</span><span class="o">=</span><span class="n">StyleFloatLeft</span><span class="p">()</span><span class="o">+</span><span class="n">StyleWidth</span><span class="p">(</span><span class="s">&quot;100px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">divstart</span><span class="p">([</span><span class="ss">:style</span><span class="o">=</span><span class="n">StyleFloatLeft</span><span class="p">()</span><span class="o">+</span><span class="n">StyleWidth</span><span class="p">(</span><span class="s2">&quot;100px&quot;</span><span class="p">)</span> <span class="p">])</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Number1 : &quot;</span> <span class="p">)</span>    <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Number2 : &quot;</span> <span class="p">)</span>    <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Number1 : &quot;</span> <span class="p">)</span>    <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Number2 : &quot;</span> <span class="p">)</span>    <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
-                <span class="n">formpost</span><span class="p">(</span><span class="s">&quot;formresponse&quot;</span><span class="p">)</span>
-                        <span class="n">divstart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span><span class="o">+</span><span class="n">StyleWidth</span><span class="p">(</span><span class="s">&quot;200px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">formpost</span><span class="p">(</span><span class="s2">&quot;formresponse&quot;</span><span class="p">)</span>
+                        <span class="n">divstart</span><span class="p">([</span> <span class="ss">:style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span><span class="o">+</span><span class="n">StyleWidth</span><span class="p">(</span><span class="s2">&quot;200px&quot;</span><span class="p">)</span> <span class="p">])</span>
                                 <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">textbox</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Number1&quot;</span> <span class="o">]</span><span class="p">)</span>  <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">textbox</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Number2&quot;</span> <span class="o">]</span><span class="p">)</span>  <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">submit</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Send&quot;</span> <span class="o">]</span> <span class="p">)</span>
+                                <span class="n">textbox</span><span class="p">([</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Number1&quot;</span> <span class="p">])</span>  <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
+                                <span class="n">textbox</span><span class="p">([</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Number2&quot;</span> <span class="p">])</span>  <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
+                                <span class="n">submit</span><span class="p">([</span> <span class="ss">:value</span> <span class="o">=</span> <span class="s2">&quot;Send&quot;</span> <span class="p">]</span> <span class="p">)</span>
                         <span class="n">divend</span><span class="p">()</span>
                 <span class="n">formend</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">formresponse</span>
+<span class="kd">func</span> <span class="nf">formresponse</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Post Result&quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Post Result&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span><span class="o">+</span><span class="n">styleWidth</span><span class="p">(</span><span class="s">&quot;200px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">divstart</span><span class="p">([</span> <span class="ss">:style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span><span class="o">+</span><span class="n">styleWidth</span><span class="p">(</span><span class="s2">&quot;200px&quot;</span><span class="p">)</span> <span class="p">])</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Number1 : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Number1&quot;</span><span class="o">]</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Number1 : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Number1&quot;</span><span class="p">]</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Number2 : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Number2&quot;</span><span class="o">]</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Number2 : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Number2&quot;</span><span class="p">]</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Sum : &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Number1&quot;</span><span class="o">]</span> <span class="o">+</span>
-                                        <span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Number2&quot;</span><span class="o">]</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Sum : &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Number1&quot;</span><span class="p">]</span> <span class="o">+</span>
+                                        <span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Number2&quot;</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
         <span class="p">}</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">Load</span> <span class="s">&quot;openssllib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">Load</span> <span class="s2">&quot;openssllib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hash&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hash&quot;</span><span class="p">,:</span><span class="n">hash</span><span class="p">)</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Post</span><span class="p">,</span><span class="s">&quot;/hashresponse&quot;</span><span class="p">,:</span><span class="n">hashresponse</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hash&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hash&quot;</span><span class="p">,</span><span class="ss">:hash</span><span class="p">)</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Post</span><span class="p">,</span><span class="s2">&quot;/hashresponse&quot;</span><span class="p">,</span><span class="ss">:hashresponse</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">hash</span>
+<span class="kd">func</span> <span class="nf">hash</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Hash Test&quot;</span><span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Hash Test&quot;</span><span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">StyleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">StyleWidth</span><span class="p">(</span><span class="s">&quot;100px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">divstart</span><span class="p">([</span><span class="ss">:style</span> <span class="o">=</span> <span class="n">StyleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">StyleWidth</span><span class="p">(</span><span class="s2">&quot;100px&quot;</span><span class="p">)</span> <span class="p">])</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Value : &quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Value : &quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
-                <span class="n">formpost</span><span class="p">(</span><span class="s">&quot;/hashresponse&quot;</span><span class="p">)</span>
-                        <span class="n">divstart</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">StyleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">StyleWidth</span><span class="p">(</span><span class="s">&quot;300px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">formpost</span><span class="p">(</span><span class="s2">&quot;/hashresponse&quot;</span><span class="p">)</span>
+                        <span class="n">divstart</span><span class="p">([</span><span class="ss">:style</span> <span class="o">=</span> <span class="n">StyleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">StyleWidth</span><span class="p">(</span><span class="s2">&quot;300px&quot;</span><span class="p">)</span> <span class="p">])</span>
                                 <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">textbox</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Value&quot;</span> <span class="o">]</span><span class="p">)</span>
+                                <span class="n">textbox</span><span class="p">([</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Value&quot;</span> <span class="p">])</span>
                                 <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">submit</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Send&quot;</span> <span class="o">]</span><span class="p">)</span>
+                                <span class="n">submit</span><span class="p">([</span> <span class="ss">:value</span> <span class="o">=</span> <span class="s2">&quot;Send&quot;</span> <span class="p">])</span>
                         <span class="n">divend</span><span class="p">()</span>
                 <span class="n">formend</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">hashresponse</span>
+<span class="kd">func</span> <span class="nf">hashresponse</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Hash Result&quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Hash Result&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">divstart</span><span class="p">([</span><span class="ss">:style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="p">])</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Value : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Value : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">]</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;MD5 : &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;MD5 : &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">])</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;SHA1 : &quot;</span> <span class="o">+</span> <span class="n">SHA1</span><span class="p">(</span><span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;SHA1 : &quot;</span> <span class="o">+</span> <span class="n">SHA1</span><span class="p">(</span><span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">])</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;SHA256 : &quot;</span> <span class="o">+</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;SHA256 : &quot;</span> <span class="o">+</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">])</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;SHA224 : &quot;</span> <span class="o">+</span> <span class="n">SHA224</span><span class="p">(</span><span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;SHA224 : &quot;</span> <span class="o">+</span> <span class="n">SHA224</span><span class="p">(</span><span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">])</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;SHA384 : &quot;</span> <span class="o">+</span> <span class="n">SHA384</span><span class="p">(</span><span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;SHA384 : &quot;</span> <span class="o">+</span> <span class="n">SHA384</span><span class="p">(</span><span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">])</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;SHA512 : &quot;</span> <span class="o">+</span> <span class="n">SHA512</span><span class="p">(</span><span class="n">oServer</span><span class="o">[</span><span class="s">&quot;Value&quot;</span><span class="o">]</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;SHA512 : &quot;</span> <span class="o">+</span> <span class="n">SHA512</span><span class="p">(</span><span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;Value&quot;</span><span class="p">])</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
         <span class="p">}</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -594,155 +594,155 @@
 <span id="index-9"></span><h2>Getting the Request Body<a class="headerlink" href="#getting-the-request-body" title="Permalink to this heading"></a></h2>
 <p>When building APIs, it’s common to receive data, like JSON, in the raw body of a POST request. The <cite>oServer[“key”]</cite> syntax is for form-data, not raw bodies. To get the raw body, use the <cite>body()</cite> method on the request object.</p>
 <p>Example: Receiving JSON Data</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;jsonlib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s">&quot;Content-Type: application/json&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="sc">&#39;{&quot;name&quot;: &quot;Ring&quot;}&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">data</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Post</span><span class="p">,</span> <span class="s">&quot;/data&quot;</span><span class="p">,</span> <span class="p">:</span><span class="n">process_data</span><span class="p">)</span>
+<span class="o">?</span> <span class="sb">`Try: curl -X POST -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;name&quot;: &quot;Ring&quot;}&#39; http://localhost:8080/data`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Post</span><span class="p">,</span> <span class="s2">&quot;/data&quot;</span><span class="p">,</span> <span class="ss">:process_data</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">process_data</span>
-        <span class="o">//</span> <span class="k">Get</span> <span class="n">the</span> <span class="n">request</span> <span class="n">object</span>
-        <span class="n">oRequest</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">()</span>
+<span class="kd">func</span> <span class="nf">process_data</span>
+        <span class="c1">// Get the request object</span>
+        <span class="n">oRequest</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">()</span>
 
-        <span class="o">//</span> <span class="k">Get</span> <span class="n">the</span> <span class="n">raw</span> <span class="n">body</span> <span class="n">as</span> <span class="n">a</span> <span class="kt">string</span>
-        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oRequest</span><span class="p">.</span><span class="n">body</span><span class="p">()</span>
+        <span class="c1">// Get the raw body as a string</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oRequest</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
 
-        <span class="o">?</span> <span class="s">&quot;Received raw body: &quot;</span> <span class="o">+</span> <span class="n">cBody</span>
+        <span class="o">?</span> <span class="s2">&quot;Received raw body: &quot;</span> <span class="o">+</span> <span class="n">cBody</span>
 
-        <span class="o">//</span> <span class="n">Now</span> <span class="n">you</span> <span class="n">can</span> <span class="n">parse</span> <span class="n">it</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span> <span class="n">as</span> <span class="n">JSON</span><span class="p">)</span>
+        <span class="c1">// Now you can parse it (e.g., as JSON)</span>
         <span class="n">aJson</span> <span class="o">=</span> <span class="n">json2list</span><span class="p">(</span><span class="n">cBody</span><span class="p">)</span>
-        <span class="n">cName</span> <span class="o">=</span> <span class="n">aJson</span><span class="o">[</span><span class="s">&quot;name&quot;</span><span class="o">]</span>
+        <span class="n">cName</span> <span class="o">=</span> <span class="n">aJson</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">cName</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">cName</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="using-http-put">
 <span id="index-10"></span><h2>Using HTTP PUT<a class="headerlink" href="#using-http-put" title="Permalink to this heading"></a></h2>
 <p>Example(1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/update&quot;</span>
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="k">PUT</span> <span class="o">-</span><span class="n">d</span> <span class="s">&quot;test data&quot;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">update</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Put</span><span class="p">,</span><span class="s">&quot;/update&quot;</span><span class="p">,:</span><span class="n">puttest</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/update&quot;</span>
+<span class="o">?</span> <span class="sb">`Try: curl -X PUT -d &quot;test data&quot; http://localhost:8080/update`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Put</span><span class="p">,</span><span class="s2">&quot;/update&quot;</span><span class="p">,</span><span class="ss">:puttest</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">puttest</span>
-        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">().</span><span class="n">body</span><span class="p">()</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;PUT Data received: &quot;</span> <span class="o">+</span> <span class="n">cBody</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">puttest</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">()</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;PUT Data received: &quot;</span> <span class="o">+</span> <span class="n">cBody</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;jsonlib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/items&quot;</span>
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="k">PUT</span> <span class="o">-</span><span class="n">H</span> <span class="s">&quot;Content-Type: application/json&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="sc">&#39;{&quot;name&quot;: &quot;Item 1&quot;}&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">items</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Put</span><span class="p">,</span><span class="s">&quot;/items&quot;</span><span class="p">,:</span><span class="n">updateitem</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/items&quot;</span>
+<span class="o">?</span> <span class="sb">`Try: curl -X PUT -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;name&quot;: &quot;Item 1&quot;}&#39; http://localhost:8080/items`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Put</span><span class="p">,</span><span class="s2">&quot;/items&quot;</span><span class="p">,</span><span class="ss">:updateitem</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">updateitem</span>
-        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">().</span><span class="n">body</span><span class="p">()</span>
+<span class="kd">func</span> <span class="nf">updateitem</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">()</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
         <span class="n">aJson</span> <span class="o">=</span> <span class="n">json2list</span><span class="p">(</span><span class="n">cBody</span><span class="p">)</span>
-        <span class="n">cName</span> <span class="o">=</span> <span class="n">aJson</span><span class="o">[</span><span class="p">:</span><span class="n">name</span><span class="o">]</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Updated item: &quot;</span> <span class="o">+</span> <span class="n">cName</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">cName</span> <span class="o">=</span> <span class="n">aJson</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Updated item: &quot;</span> <span class="o">+</span> <span class="n">cName</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="using-http-patch">
 <span id="index-11"></span><h2>Using HTTP PATCH<a class="headerlink" href="#using-http-patch" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/patch&quot;</span>
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">PATCH</span> <span class="o">-</span><span class="n">H</span> <span class="s">&quot;Content-Type: application/json&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="sc">&#39;{&quot;name&quot;: &quot;Partially Updated&quot;}&#39;</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">patch</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Patch</span><span class="p">,</span><span class="s">&quot;/patch&quot;</span><span class="p">,:</span><span class="n">patchtest</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/patch&quot;</span>
+<span class="o">?</span> <span class="sb">`Try: curl -X PATCH -H &quot;Content-Type: application/json&quot; -d &#39;{&quot;name&quot;: &quot;Partially Updated&quot;}&#39; http://localhost:8080/patch`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Patch</span><span class="p">,</span><span class="s2">&quot;/patch&quot;</span><span class="p">,</span><span class="ss">:patchtest</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">patchtest</span>
-        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">().</span><span class="n">body</span><span class="p">()</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;PATCH Data received: &quot;</span> <span class="o">+</span> <span class="n">cBody</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">patchtest</span>
+        <span class="n">cBody</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">()</span><span class="o">.</span><span class="n">body</span><span class="p">()</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;PATCH Data received: &quot;</span> <span class="o">+</span> <span class="n">cBody</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="using-http-delete">
 <span id="index-12"></span><h2>Using HTTP DELETE<a class="headerlink" href="#using-http-delete" title="Permalink to this heading"></a></h2>
 <p>Example(1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/delete&quot;</span>
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">DELETE</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">delete</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Delete</span><span class="p">,</span><span class="s">&quot;/delete&quot;</span><span class="p">,:</span><span class="n">deletetest</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/delete&quot;</span>
+<span class="o">?</span> <span class="sb">`Try: curl -X DELETE http://localhost:8080/delete`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Delete</span><span class="p">,</span><span class="s2">&quot;/delete&quot;</span><span class="p">,</span><span class="ss">:deletetest</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">deletetest</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Item deleted&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">deletetest</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Item deleted&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/items/5&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Example: localhost:8080/items/123&quot;</span>
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">DELETE</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">items</span><span class="o">/</span><span class="mi">5</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Delete</span><span class="p">,</span><span class="s">&quot;/items/(\d+)&quot;</span><span class="p">,:</span><span class="n">deleteitem</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/items/5&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Example: localhost:8080/items/123&quot;</span>
+<span class="o">?</span> <span class="sb">`Try: curl -X DELETE http://localhost:8080/items/5`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Delete</span><span class="p">,</span><span class="s2">&quot;/items/(\d+)&quot;</span><span class="p">,</span><span class="ss">:deleteitem</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">deleteitem</span>
-        <span class="n">cItemId</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Deleted item: &quot;</span> <span class="o">+</span> <span class="n">cItemId</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">deleteitem</span>
+        <span class="n">cItemId</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Deleted item: &quot;</span> <span class="o">+</span> <span class="n">cItemId</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="using-http-options">
 <span id="index-13"></span><h2>Using HTTP OPTIONS<a class="headerlink" href="#using-http-options" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/options&quot;</span>
-<span class="o">?</span> <span class="p">`</span><span class="k">Try</span><span class="p">:</span> <span class="n">curl</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">X</span> <span class="n">OPTIONS</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">options</span><span class="p">`</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Options</span><span class="p">,</span><span class="s">&quot;/options&quot;</span><span class="p">,:</span><span class="n">optionstest</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/options&quot;</span>
+<span class="o">?</span> <span class="sb">`Try: curl -v -X OPTIONS http://localhost:8080/options`</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Options</span><span class="p">,</span><span class="s2">&quot;/options&quot;</span><span class="p">,</span><span class="ss">:optionstest</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">optionstest</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Allowed: GET, POST, PUT, PATCH, DELETE&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">response</span><span class="p">().</span><span class="n">set_header</span><span class="p">(</span><span class="s">&quot;Access-Control-Allow-Methods&quot;</span><span class="p">,</span> <span class="s">&quot;GET, POST, PUT, PATCH, DELETE, OPTIONS&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">optionstest</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Allowed: GET, POST, PUT, PATCH, DELETE&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s2">&quot;Access-Control-Allow-Methods&quot;</span><span class="p">,</span> <span class="s2">&quot;GET, POST, PUT, PATCH, DELETE, OPTIONS&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -750,486 +750,486 @@
 <span id="index-14"></span><h2>REST API Authentication<a class="headerlink" href="#rest-api-authentication" title="Permalink to this heading"></a></h2>
 <p>A common way to secure a REST API is by requiring an API key sent in an HTTP header. The <cite>setStatus()</cite> method is useful here to send the correct HTTP status codes, like <cite>401 Unauthorized</cite> for failed authentication or <cite>200 OK</cite> for success.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;jsonlib.ring&quot;</span>
 
-<span class="c"># A simple list of valid API keys.</span>
-<span class="n">aValidApiKeys</span> <span class="o">=</span> <span class="o">[</span>
-        <span class="s">&quot;secret-key-123&quot;</span><span class="p">,</span>
-        <span class="s">&quot;power-user-456&quot;</span><span class="p">,</span>
-        <span class="s">&quot;limited-access-789&quot;</span>
-<span class="o">]</span>
+<span class="c1"># A simple list of valid API keys.</span>
+<span class="n">aValidApiKeys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;secret-key-123&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;power-user-456&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;limited-access-789&quot;</span>
+<span class="p">]</span>
 
-<span class="c"># Create the main server object</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+<span class="c1"># Create the main server object</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
 
-        <span class="c"># Define the protected API route</span>
-        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span> <span class="s">&quot;/api/data&quot;</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1"># Define the protected API route</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/api/data&quot;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 
-                <span class="c"># Authentication check</span>
-                <span class="k">if</span> <span class="n">isAuthenticated</span><span class="p">(</span><span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">())</span>
-                        <span class="c"># Success: Client is Authenticated</span>
-                        <span class="o">?</span> <span class="s">&quot;Request received with valid API Key. Sending data.&quot;</span>
+                <span class="c1"># Authentication check</span>
+                <span class="k k-Control">if</span> <span class="n">isAuthenticated</span><span class="p">(</span><span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">())</span>
+                        <span class="c1"># Success: Client is Authenticated</span>
+                        <span class="o">?</span> <span class="s2">&quot;Request received with valid API Key. Sending data.&quot;</span>
 
-                        <span class="c"># Prepare the JSON data response</span>
-                        <span class="n">aJsonData</span> <span class="o">=</span> <span class="o">[</span>
-                                <span class="p">:</span><span class="n">status</span> <span class="o">=</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
-                                <span class="p">:</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Welcome, authenticated user!&quot;</span><span class="p">,</span>
-                                <span class="p">:</span><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
-                                        <span class="p">:</span><span class="n">user_id</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">,</span>
-                                        <span class="p">:</span><span class="n">permissions</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;read_data&quot;</span><span class="p">,</span> <span class="s">&quot;view_reports&quot;</span><span class="o">]</span>
-                                <span class="o">]</span>
-                        <span class="o">]</span>
+                        <span class="c1"># Prepare the JSON data response</span>
+                        <span class="n">aJsonData</span> <span class="o">=</span> <span class="p">[</span>
+                                <span class="ss">:status</span> <span class="o">=</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+                                <span class="ss">:message</span> <span class="o">=</span> <span class="s2">&quot;Welcome, authenticated user!&quot;</span><span class="p">,</span>
+                                <span class="ss">:data</span> <span class="o">=</span> <span class="p">[</span>
+                                        <span class="ss">:user_id</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">,</span>
+                                        <span class="ss">:permissions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;read_data&quot;</span><span class="p">,</span> <span class="s2">&quot;view_reports&quot;</span><span class="p">]</span>
+                                <span class="p">]</span>
+                        <span class="p">]</span>
                         <span class="n">cJsonResponse</span> <span class="o">=</span> <span class="n">list2json</span><span class="p">(</span><span class="n">aJsonData</span><span class="p">)</span>
 
-                        <span class="c"># Send the 200 OK response with the JSON data</span>
-                        <span class="n">oServer</span><span class="p">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-                        <span class="o">?</span> <span class="s">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">.</span><span class="n">getStatus</span><span class="p">()</span>
-                        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cJsonResponse</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+                        <span class="c1"># Send the 200 OK response with the JSON data</span>
+                        <span class="n">oServer</span><span class="o">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s2">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getStatus</span><span class="p">()</span>
+                        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cJsonResponse</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
 
-                <span class="k">else</span>
-                        <span class="c"># Failure: Client is Not Authenticated</span>
-                        <span class="o">?</span> <span class="s">&quot;Request received with missing or invalid API Key. Denying access.&quot;</span>
+                <span class="k k-Control">else</span>
+                        <span class="c1"># Failure: Client is Not Authenticated</span>
+                        <span class="o">?</span> <span class="s2">&quot;Request received with missing or invalid API Key. Denying access.&quot;</span>
 
-                        <span class="c"># Prepare the JSON error response</span>
-                        <span class="n">aErrorData</span> <span class="o">=</span> <span class="o">[</span>
-                                <span class="p">:</span><span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Unauthorized&quot;</span><span class="p">,</span>
-                                <span class="p">:</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;A valid &#39;X-API-KEY&#39; header is required to access this resource.&quot;</span>
-                        <span class="o">]</span>
+                        <span class="c1"># Prepare the JSON error response</span>
+                        <span class="n">aErrorData</span> <span class="o">=</span> <span class="p">[</span>
+                                <span class="ss">:error</span> <span class="o">=</span> <span class="s2">&quot;Unauthorized&quot;</span><span class="p">,</span>
+                                <span class="ss">:message</span> <span class="o">=</span> <span class="s2">&quot;A valid &#39;X-API-KEY&#39; header is required to access this resource.&quot;</span>
+                        <span class="p">]</span>
                         <span class="n">cErrorResponse</span> <span class="o">=</span> <span class="n">list2json</span><span class="p">(</span><span class="n">aErrorData</span><span class="p">)</span>
 
-                        <span class="c"># Send the 401 Unauthorized response</span>
-                        <span class="n">oServer</span><span class="p">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
-                        <span class="o">?</span> <span class="s">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">.</span><span class="n">getStatus</span><span class="p">()</span>
-                        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cErrorResponse</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">)</span>
-                <span class="k">ok</span>
+                        <span class="c1"># Send the 401 Unauthorized response</span>
+                        <span class="n">oServer</span><span class="o">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s2">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getStatus</span><span class="p">()</span>
+                        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cErrorResponse</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+                <span class="k k-Control">ok</span>
         <span class="p">})</span>
 
-        <span class="o">?</span> <span class="s">&quot;REST API Server listening at http://localhost:8080&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;Try accessing the protected route &#39;/api/data&#39; with and without an API key.&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;Try: curl -H &#39;X-API-KEY: secret-key-123&#39; http://localhost:8080/api/data&quot;</span>
-        <span class="o">?</span> <span class="s">&quot;Or without a key: curl -v http://localhost:8080/api/data&quot;</span>
-        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;REST API Server listening at http://localhost:8080&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;Try accessing the protected route &#39;/api/data&#39; with and without an API key.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;Try: curl -H &#39;X-API-KEY: secret-key-123&#39; http://localhost:8080/api/data&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;Or without a key: curl -v http://localhost:8080/api/data&quot;</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="c"># Helper function to check for a valid API key in the request headers</span>
-<span class="k">func</span> <span class="n">isAuthenticated</span> <span class="n">oRequest</span>
-        <span class="c"># Check if the &#39;X-API-KEY&#39; header is present</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">oRequest</span><span class="p">.</span><span class="n">has_header</span><span class="p">(</span><span class="s">&quot;X-API-KEY&quot;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="kp">false</span>
-        <span class="k">ok</span>
+<span class="c1"># Helper function to check for a valid API key in the request headers</span>
+<span class="kd">func</span> <span class="nf">isAuthenticated</span> <span class="n">oRequest</span>
+        <span class="c1"># Check if the &#39;X-API-KEY&#39; header is present</span>
+        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">oRequest</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s2">&quot;X-API-KEY&quot;</span><span class="p">)</span>
+                <span class="k k-Control">return</span> <span class="bp">false</span>
+        <span class="k k-Control">ok</span>
 
-        <span class="c"># Get the key provided by the client</span>
-        <span class="n">cClientKey</span> <span class="o">=</span> <span class="n">oRequest</span><span class="p">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="s">&quot;X-API-KEY&quot;</span><span class="p">)</span>
+        <span class="c1"># Get the key provided by the client</span>
+        <span class="n">cClientKey</span> <span class="o">=</span> <span class="n">oRequest</span><span class="o">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="s2">&quot;X-API-KEY&quot;</span><span class="p">)</span>
 
-        <span class="c"># Check if the client&#39;s key exists in our list of valid keys</span>
-        <span class="k">if</span> <span class="n">find</span><span class="p">(</span><span class="n">aValidApiKeys</span><span class="p">,</span> <span class="n">cClientKey</span><span class="p">)</span>
-                <span class="k">return</span> <span class="kp">true</span>
-        <span class="k">else</span>
-                <span class="k">return</span> <span class="kp">false</span>
-        <span class="k">ok</span>
+        <span class="c1"># Check if the client&#39;s key exists in our list of valid keys</span>
+        <span class="k k-Control">if</span> <span class="nb">find</span><span class="p">(</span><span class="n">aValidApiKeys</span><span class="p">,</span> <span class="n">cClientKey</span><span class="p">)</span>
+                <span class="k k-Control">return</span> <span class="bp">true</span>
+        <span class="k k-Control">else</span>
+                <span class="k k-Control">return</span> <span class="bp">false</span>
+        <span class="k k-Control">ok</span>
 </pre></div>
 </div>
 </section>
 <section id="more-samples">
 <span id="index-15"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>Using Gradients:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/gradient&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/gradient&quot;</span><span class="p">,:</span><span class="n">gradient</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/gradient&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/gradient&quot;</span><span class="p">,</span><span class="ss">:gradient</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">gradient</span>
+<span class="kd">func</span> <span class="nf">gradient</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span><span class="s">&quot;StyleGradient() Function&quot;</span><span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span><span class="s2">&quot;StyleGradient() Function&quot;</span><span class="p">)</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">60</span>
-                        <span class="n">divstart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">id</span> <span class="o">=</span> <span class="n">x</span> <span class="p">,</span> <span class="p">:</span><span class="n">align</span> <span class="o">=</span> <span class="s">&quot;center&quot;</span> <span class="p">,</span>
-                                   <span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">stylefloatleft</span><span class="p">()</span> <span class="o">+</span>
-                                                        <span class="n">stylesize</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="mi">100</span><span class="o">/</span><span class="mi">60</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s">&quot;%&quot;</span><span class="p">,</span><span class="s">&quot;50px&quot;</span><span class="p">)</span> <span class="o">+</span>
-                                                        <span class="n">stylegradient</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
+                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">60</span>
+                        <span class="n">divstart</span><span class="p">([</span> <span class="ss">:id</span> <span class="o">=</span> <span class="n">x</span> <span class="p">,</span> <span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span> <span class="p">,</span>
+                                   <span class="ss">:style</span> <span class="o">=</span> <span class="n">stylefloatleft</span><span class="p">()</span> <span class="o">+</span>
+                                                        <span class="n">stylesize</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="mi">100</span><span class="o">/</span><span class="mi">60</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;%&quot;</span><span class="p">,</span><span class="s2">&quot;50px&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                        <span class="n">stylegradient</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">])</span>
                                 <span class="n">h3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                         <span class="n">divend</span><span class="p">()</span>
-                <span class="k">next</span>
+                <span class="k k-Control">next</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using Lists:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/lists&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/lists&quot;</span><span class="p">,:</span><span class="n">lists</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/lists&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/lists&quot;</span><span class="p">,</span><span class="ss">:lists</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">lists</span>
+<span class="kd">func</span> <span class="nf">lists</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
-                <span class="n">ulstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                                <span class="n">listart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
+                <span class="n">ulstart</span><span class="p">([])</span>
+                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                                <span class="n">listart</span><span class="p">([])</span>
                                         <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                                 <span class="n">liend</span><span class="p">()</span>
-                        <span class="k">next</span>
+                        <span class="k k-Control">next</span>
                 <span class="n">ulend</span><span class="p">()</span>
 
-                <span class="n">list2ul</span><span class="p">(</span><span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">list2ul</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">])</span>
 
-                <span class="n">ulstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                                <span class="n">listart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
-                                        <span class="n">cFuncName</span> <span class="o">=</span> <span class="s">&quot;btn&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;()&quot;</span>
-                                        <span class="n">button</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">onclick</span> <span class="o">=</span> <span class="n">cFuncName</span> <span class="p">,</span> <span class="p">:</span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="o">]</span><span class="p">)</span>
-                                        <span class="n">script</span><span class="p">(</span><span class="n">scriptfuncalert</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">,</span><span class="kt">string</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+                <span class="n">ulstart</span><span class="p">([])</span>
+                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                                <span class="n">listart</span><span class="p">([])</span>
+                                        <span class="n">cFuncName</span> <span class="o">=</span> <span class="s2">&quot;btn&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;()&quot;</span>
+                                        <span class="n">button</span><span class="p">([</span> <span class="ss">:onclick</span> <span class="o">=</span> <span class="n">cFuncName</span> <span class="p">,</span> <span class="ss">:value</span> <span class="o">=</span> <span class="n">x</span><span class="p">])</span>
+                                        <span class="n">script</span><span class="p">(</span><span class="n">scriptfuncalert</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">,</span><span class="nb">string</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
                                 <span class="n">liend</span><span class="p">()</span>
-                        <span class="k">next</span>
+                        <span class="k k-Control">next</span>
                 <span class="n">ulend</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using Tables:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/table&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/table&quot;</span><span class="p">,:</span><span class="n">table</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/table&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/table&quot;</span><span class="p">,</span><span class="ss">:table</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">table</span>
+<span class="kd">func</span> <span class="nf">table</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">styledivcenter</span><span class="p">(</span><span class="s">&quot;400px&quot;</span><span class="p">,</span><span class="s">&quot;500px&quot;</span><span class="p">)</span> <span class="o">]</span> <span class="p">)</span>
-                        <span class="n">style</span><span class="p">(</span><span class="n">styletable</span><span class="p">()</span> <span class="o">+</span> <span class="n">styletablerows</span><span class="p">(</span><span class="s">&quot;t01&quot;</span><span class="p">))</span>
-                        <span class="n">tablestart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">id</span> <span class="o">=</span> <span class="p">:</span><span class="n">t01</span> <span class="p">,</span> <span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
-                                <span class="n">rowstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
-                                        <span class="n">headerstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Number&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
-                                        <span class="n">headerstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;square&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
+                <span class="n">divstart</span><span class="p">([</span> <span class="ss">:style</span> <span class="o">=</span> <span class="n">styledivcenter</span><span class="p">(</span><span class="s2">&quot;400px&quot;</span><span class="p">,</span><span class="s2">&quot;500px&quot;</span><span class="p">)</span> <span class="p">]</span> <span class="p">)</span>
+                        <span class="n">style</span><span class="p">(</span><span class="n">styletable</span><span class="p">()</span> <span class="o">+</span> <span class="n">styletablerows</span><span class="p">(</span><span class="s2">&quot;t01&quot;</span><span class="p">))</span>
+                        <span class="n">tablestart</span><span class="p">([</span> <span class="ss">:id</span> <span class="o">=</span> <span class="ss">:t01</span> <span class="p">,</span> <span class="ss">:style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="p">])</span>
+                                <span class="n">rowstart</span><span class="p">([])</span>
+                                        <span class="n">headerstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
+                                        <span class="n">headerstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;square&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
                                 <span class="n">rowend</span><span class="p">()</span>
-                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                                        <span class="n">rowstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
-                                                <span class="n">cellstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
-                                                <span class="n">cellstart</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
+                                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                                        <span class="n">rowstart</span><span class="p">([])</span>
+                                                <span class="n">cellstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
+                                                <span class="n">cellstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
                                         <span class="n">rowend</span><span class="p">()</span>
-                                <span class="k">next</span>
+                                <span class="k k-Control">next</span>
                         <span class="n">tableend</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Play Video:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/play&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/play&quot;</span><span class="p">,:</span><span class="n">play</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/play&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/play&quot;</span><span class="p">,</span><span class="ss">:play</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;We support files in the res folder like res/horse.ogg and res/movie.mp4&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">shareFolder</span><span class="p">(</span><span class="s">&quot;res&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;We support files in the res folder like res/horse.ogg and res/movie.mp4&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">shareFolder</span><span class="p">(</span><span class="s2">&quot;res&quot;</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">play</span>
+<span class="kd">func</span> <span class="nf">play</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPage</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPage</span>
         <span class="p">{</span>
-                <span class="n">Title</span> <span class="o">=</span> <span class="s">&quot;Welcome&quot;</span>
-                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Play sound and video!&quot;</span><span class="p">)</span> <span class="p">}</span>
+                <span class="n">Title</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Play sound and video!&quot;</span><span class="p">)</span> <span class="p">}</span>
                 <span class="n">div</span>
                 <span class="p">{</span>
                         <span class="n">audio</span>
                         <span class="p">{</span>
-                                <span class="n">src</span> <span class="o">=</span> <span class="s">&quot;res/horse.ogg&quot;</span>
-                                <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;audio/ogg&quot;</span>
+                                <span class="n">src</span> <span class="o">=</span> <span class="s2">&quot;res/horse.ogg&quot;</span>
+                                <span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;audio/ogg&quot;</span>
                         <span class="p">}</span>
 
                         <span class="n">video</span>
                         <span class="p">{</span>
                                 <span class="n">width</span> <span class="o">=</span> <span class="mi">320</span>
                                 <span class="n">height</span> <span class="o">=</span> <span class="mi">240</span>
-                                <span class="n">src</span> <span class="o">=</span> <span class="s">&quot;res/movie.mp4&quot;</span>
-                                <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;video/mp4&quot;</span>
+                                <span class="n">src</span> <span class="o">=</span> <span class="s2">&quot;res/movie.mp4&quot;</span>
+                                <span class="n">type</span> <span class="o">=</span> <span class="s2">&quot;video/mp4&quot;</span>
                         <span class="p">}</span>
 
                 <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="using-cookies">
 <span id="index-16"></span><h2>Using Cookies<a class="headerlink" href="#using-cookies" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/cookie&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/cookie&quot;</span><span class="p">,:</span><span class="n">cookie</span><span class="p">)</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/cookieresponse&quot;</span><span class="p">,:</span><span class="n">cookieresponse</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/cookie&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/cookie&quot;</span><span class="p">,</span><span class="ss">:cookie</span><span class="p">)</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/cookieresponse&quot;</span><span class="p">,</span><span class="ss">:cookieresponse</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">cookie</span>
+<span class="kd">func</span> <span class="nf">cookie</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Cookie Test&quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Cookie Test&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="n">link</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;/cookieresponse&quot;</span><span class="p">,</span> <span class="p">:</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Use Cookies&quot;</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">link</span><span class="p">([</span> <span class="ss">:url</span> <span class="o">=</span> <span class="s2">&quot;/cookieresponse&quot;</span><span class="p">,</span> <span class="ss">:title</span> <span class="o">=</span> <span class="s2">&quot;Use Cookies&quot;</span> <span class="p">])</span>
         <span class="p">}</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setCookie</span><span class="p">(</span><span class="s">&quot;programminglanguage=Ring&quot;</span><span class="p">)</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setCookie</span><span class="p">(</span><span class="s">&quot;library=HTTPLib&quot;</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setCookie</span><span class="p">(</span><span class="s2">&quot;programminglanguage=Ring&quot;</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setCookie</span><span class="p">(</span><span class="s2">&quot;library=HTTPLib&quot;</span><span class="p">)</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">cookieresponse</span>
+<span class="kd">func</span> <span class="nf">cookieresponse</span>
 
-        <span class="n">aCookies</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">Cookies</span><span class="p">()</span>
+        <span class="n">aCookies</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">Cookies</span><span class="p">()</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Cookies Values&quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Cookies Values&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="n">link</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;cookie&quot;</span><span class="p">,</span> <span class="p">:</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;back&quot;</span> <span class="o">]</span><span class="p">)</span>
+                <span class="n">link</span><span class="p">([</span> <span class="ss">:url</span> <span class="o">=</span> <span class="s2">&quot;cookie&quot;</span><span class="p">,</span> <span class="ss">:title</span> <span class="o">=</span> <span class="s2">&quot;back&quot;</span> <span class="p">])</span>
                 <span class="n">newline</span><span class="p">()</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">style</span><span class="o">=</span><span class="s">&quot;float:left;width:200px&quot;</span><span class="o">]</span><span class="p">)</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Programming Language : &quot;</span> <span class="o">+</span> <span class="n">aCookies</span><span class="o">[</span><span class="p">:</span><span class="n">programminglanguage</span><span class="o">]</span> <span class="p">)</span>
+                <span class="n">divstart</span><span class="p">([</span><span class="ss">:style</span><span class="o">=</span><span class="s2">&quot;float:left;width:200px&quot;</span><span class="p">])</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Programming Language : &quot;</span> <span class="o">+</span> <span class="n">aCookies</span><span class="p">[</span><span class="ss">:programminglanguage</span><span class="p">]</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Library : &quot;</span> <span class="o">+</span> <span class="n">aCookies</span><span class="o">[</span><span class="p">:</span><span class="n">library</span><span class="o">]</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Library : &quot;</span> <span class="o">+</span> <span class="n">aCookies</span><span class="p">[</span><span class="ss">:library</span><span class="p">]</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="uploading-files">
 <span id="index-17"></span><h2>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="n">cUploadFolder</span> <span class="o">=</span> <span class="s">&quot;upload/&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">shareFolder</span><span class="p">(</span><span class="n">cUploadFolder</span><span class="p">)</span>
+<span class="n">cUploadFolder</span> <span class="o">=</span> <span class="s2">&quot;upload/&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">shareFolder</span><span class="p">(</span><span class="n">cUploadFolder</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/upload&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/upload&quot;</span><span class="p">,:</span><span class="n">upload</span><span class="p">)</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="n">Post</span><span class="p">,</span><span class="s">&quot;/uploadresponse&quot;</span><span class="p">,:</span><span class="n">uploadresponse</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/upload&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/upload&quot;</span><span class="p">,</span><span class="ss">:upload</span><span class="p">)</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Post</span><span class="p">,</span><span class="s2">&quot;/uploadresponse&quot;</span><span class="p">,</span><span class="ss">:uploadresponse</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">upload</span>
+<span class="kd">func</span> <span class="nf">upload</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Upload File&quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Upload File&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span> <span class="n">newline</span><span class="p">()</span> <span class="k">next</span>
-                <span class="n">formupload</span><span class="p">(</span><span class="s">&quot;/uploadresponse&quot;</span><span class="p">)</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Customer Name : &quot;</span> <span class="p">)</span>
-                        <span class="n">textbox</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;custname&quot;</span> <span class="o">]</span><span class="p">)</span>
+                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span> <span class="n">newline</span><span class="p">()</span> <span class="k k-Control">next</span>
+                <span class="n">formupload</span><span class="p">(</span><span class="s2">&quot;/uploadresponse&quot;</span><span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Customer Name : &quot;</span> <span class="p">)</span>
+                        <span class="n">textbox</span><span class="p">([</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;custname&quot;</span> <span class="p">])</span>
                         <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                        <span class="n">divstart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s">&quot;90px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
-                                <span class="n">uploadfile</span><span class="p">(</span><span class="s">&quot;file1&quot;</span><span class="p">)</span>  <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">uploadfile</span><span class="p">(</span><span class="s">&quot;file2&quot;</span><span class="p">)</span> <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
-                                <span class="n">submit</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Send&quot;</span> <span class="o">]</span><span class="p">)</span>
+                        <span class="n">divstart</span><span class="p">([</span> <span class="ss">:style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s2">&quot;90px&quot;</span><span class="p">)</span> <span class="p">])</span>
+                                <span class="n">uploadfile</span><span class="p">(</span><span class="s2">&quot;file1&quot;</span><span class="p">)</span>  <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
+                                <span class="n">uploadfile</span><span class="p">(</span><span class="s2">&quot;file2&quot;</span><span class="p">)</span> <span class="n">newline</span><span class="p">()</span> <span class="n">newline</span><span class="p">()</span>
+                                <span class="n">submit</span><span class="p">([</span> <span class="ss">:value</span> <span class="o">=</span> <span class="s2">&quot;Send&quot;</span> <span class="p">])</span>
                         <span class="n">divend</span><span class="p">()</span>
                 <span class="n">formend</span><span class="p">()</span>
         <span class="p">}</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">uploadresponse</span>
+<span class="kd">func</span> <span class="nf">uploadresponse</span>
 
-        <span class="n">oPage</span> <span class="o">=</span> <span class="k">New</span> <span class="n">HTMLPageFunctions</span>
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">boxstart</span><span class="p">()</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Upload Result&quot;</span> <span class="p">)</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Upload Result&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
                 <span class="n">newline</span><span class="p">()</span>
-                <span class="n">divstart</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">style</span><span class="o">=</span>  <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s">&quot;100px&quot;</span><span class="p">)</span> <span class="o">]</span><span class="p">)</span>
-                        <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">[</span><span class="s">&quot;custname&quot;</span><span class="o">]</span> <span class="p">)</span>
+                <span class="n">divstart</span><span class="p">([</span> <span class="ss">:style</span><span class="o">=</span>  <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s2">&quot;100px&quot;</span><span class="p">)</span> <span class="p">])</span>
+                        <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Name : &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">[</span><span class="s2">&quot;custname&quot;</span><span class="p">]</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
-                <span class="n">getuploadedfile</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;file1&quot;</span><span class="p">)</span>
-                <span class="n">getuploadedfile</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;file2&quot;</span><span class="p">)</span>
+                <span class="n">getuploadedfile</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="s2">&quot;file1&quot;</span><span class="p">)</span>
+                <span class="n">getuploadedfile</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="s2">&quot;file2&quot;</span><span class="p">)</span>
         <span class="p">}</span>
 
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 
 
-<span class="k">Func</span> <span class="n">getUploadedFile</span> <span class="n">oObj</span><span class="p">,</span><span class="n">cFile</span>
-        <span class="n">cNewFileName</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">cNewFileName</span> <span class="o">=</span> <span class="kp">NULL</span> <span class="k">return</span> <span class="k">ok</span>
-        <span class="n">cNewFileContent</span> <span class="o">=</span> <span class="n">oServer</span><span class="p">.</span><span class="n">getFileContent</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
-        <span class="o">/*</span>
-                <span class="n">Here</span> <span class="n">we</span> <span class="n">use</span> <span class="n">object</span><span class="p">.</span><span class="n">property</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">object</span> <span class="p">{</span> <span class="p">}</span>
-                <span class="k">To</span> <span class="n">avoid</span> <span class="n">executing</span> <span class="n">braceend</span><span class="p">()</span> <span class="n">method</span>
-        <span class="o">*/</span>
+<span class="kd">Func</span> <span class="nf">getUploadedFile</span> <span class="n">oObj</span><span class="p">,</span><span class="n">cFile</span>
+        <span class="n">cNewFileName</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="n">cNewFileName</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+        <span class="n">cNewFileContent</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getFileContent</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
+        <span class="cm">/*</span>
+<span class="cm">                Here we use object.property instead of object { }</span>
+<span class="cm">                To avoid executing braceend() method</span>
+<span class="cm">        */</span>
         <span class="n">cFileName</span> <span class="o">=</span> <span class="n">cUploadFolder</span> <span class="o">+</span> <span class="n">cNewFileName</span>
-        <span class="n">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cNewFileContent</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">isLinux</span><span class="p">()</span>
-                <span class="n">system</span><span class="p">(</span><span class="s">&quot;chmod a+x &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="p">)</span>
-        <span class="k">ok</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">text</span><span class="p">(</span> <span class="s">&quot;File &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="o">+</span> <span class="s">&quot; Uploaded ...&quot;</span> <span class="p">)</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
+        <span class="nb">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cNewFileContent</span><span class="p">)</span>
+        <span class="k k-Control">if</span> <span class="nb">isLinux</span><span class="p">()</span>
+                <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;chmod a+x &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="p">)</span>
+        <span class="k k-Control">ok</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">newline</span><span class="p">()</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">text</span><span class="p">(</span> <span class="s2">&quot;File &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="o">+</span> <span class="s2">&quot; Uploaded ...&quot;</span> <span class="p">)</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">newline</span><span class="p">()</span>
         <span class="n">imageURL</span> <span class="o">=</span> <span class="n">cFileName</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">link</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">url</span> <span class="o">=</span> <span class="n">imageURL</span><span class="p">,</span> <span class="p">:</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Download&quot;</span> <span class="o">]</span><span class="p">)</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">image</span><span class="p">(</span> <span class="o">[</span> <span class="p">:</span><span class="n">url</span> <span class="o">=</span> <span class="n">imageURL</span> <span class="p">,</span> <span class="p">:</span><span class="n">alt</span> <span class="o">=</span> <span class="p">:</span><span class="n">image</span>  <span class="o">]</span> <span class="p">)</span>
-        <span class="n">oObj</span><span class="p">.</span><span class="n">newline</span><span class="p">()</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">link</span><span class="p">([</span> <span class="ss">:url</span> <span class="o">=</span> <span class="n">imageURL</span><span class="p">,</span> <span class="ss">:title</span> <span class="o">=</span> <span class="s2">&quot;Download&quot;</span> <span class="p">])</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">newline</span><span class="p">()</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">image</span><span class="p">(</span> <span class="p">[</span> <span class="ss">:url</span> <span class="o">=</span> <span class="n">imageURL</span> <span class="p">,</span> <span class="ss">:alt</span> <span class="o">=</span> <span class="ss">:image</span>  <span class="p">]</span> <span class="p">)</span>
+        <span class="n">oObj</span><span class="o">.</span><span class="n">newline</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="using-templates">
 <span id="index-18"></span><h2>Using Templates<a class="headerlink" href="#using-templates" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
-<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">System.Web</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/template&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/template&quot;</span><span class="p">,</span><span class="s">&quot; new numbersController { start() } &quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/template&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/template&quot;</span><span class="p">,</span><span class="s2">&quot; new numbersController { start() } &quot;</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="n">numbersController</span>
+<span class="kd">class</span> <span class="nc">numbersController</span>
 
         <span class="n">MyHeader</span> <span class="n">aNumbers</span>
 
-        <span class="k">func</span> <span class="n">Start</span>
+        <span class="kd">func</span> <span class="nf">Start</span>
 
-                <span class="n">MyHeader</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Header</span>
+                <span class="n">MyHeader</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">Header</span>
                 <span class="p">{</span>
-                        <span class="n">cColumn1</span> <span class="o">=</span> <span class="s">&quot;Number&quot;</span> <span class="n">cColumn2</span> <span class="o">=</span> <span class="s">&quot;Square&quot;</span>
+                        <span class="n">cColumn1</span> <span class="o">=</span> <span class="s2">&quot;Number&quot;</span> <span class="n">cColumn2</span> <span class="o">=</span> <span class="s2">&quot;Square&quot;</span>
                 <span class="p">}</span>
 
-                <span class="n">aNumbers</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+                <span class="n">aNumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">aNumbers</span><span class="p">)</span>
-                        <span class="n">aNumbers</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">number</span>
+                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aNumbers</span><span class="p">)</span>
+                        <span class="n">aNumbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">number</span>
                         <span class="p">{</span>
                                 <span class="n">nValue</span>  <span class="o">=</span> <span class="n">x</span>   <span class="n">nSquare</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
                         <span class="p">}</span>
-                <span class="k">next</span>
+                <span class="k k-Control">next</span>
 
-                <span class="n">cTemp</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s">&quot;templates/mynumbers.html&quot;</span><span class="p">,</span><span class="n">self</span><span class="p">)</span>
+                <span class="n">cTemp</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;templates/mynumbers.html&quot;</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
 
-                <span class="n">oPage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HTMLPageFunctions</span>
+                <span class="n">oPage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HTMLPageFunctions</span>
                 <span class="p">{</span>
                         <span class="n">boxstart</span><span class="p">()</span>
-                                <span class="n">text</span><span class="p">(</span> <span class="s">&quot;Test Templates&quot;</span> <span class="p">)</span>
+                                <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Test Templates&quot;</span> <span class="p">)</span>
                                 <span class="n">newline</span><span class="p">()</span>
                         <span class="n">boxend</span><span class="p">()</span>
                         <span class="n">html</span><span class="p">(</span><span class="n">cTemp</span><span class="p">)</span>
                 <span class="p">}</span>
 
-                <span class="n">oServer</span><span class="p">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
+                <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 
-<span class="k">Class</span> <span class="n">Header</span> <span class="n">cColumn1</span> <span class="n">cColumn2</span>
+<span class="kd">Class</span> <span class="nc">Header</span> <span class="n">cColumn1</span> <span class="n">cColumn2</span>
 
-<span class="k">Class</span> <span class="n">Number</span> <span class="n">nValue</span>   <span class="n">nSquare</span>
+<span class="kd">Class</span> <span class="nc">Number</span> <span class="n">nValue</span>   <span class="n">nSquare</span>
 </pre></div>
 </div>
 </section>
 <section id="regular-expressions">
 <span id="index-19"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/numbers/&lt;number&gt;&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Example: localhost:8080/numbers/123&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;(/numbers/(\d+))&quot;</span><span class="p">,:</span><span class="n">mytest</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/numbers/&lt;number&gt;&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Example: localhost:8080/numbers/123&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;(/numbers/(\d+))&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="n">cOutput</span> <span class="o">=</span> <span class="s">&quot;Match(1): &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">cOutput</span> <span class="o">+=</span> <span class="s">&quot;Match(2): &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="n">cOutput</span> <span class="o">=</span> <span class="s2">&quot;Match(1): &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">cOutput</span> <span class="o">+=</span> <span class="s2">&quot;Match(2): &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">.</span><span class="n">Match</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cOutput</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="stop-the-server">
 <span id="index-20"></span><h2>Stop the Server<a class="headerlink" href="#stop-the-server" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
-<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+<span class="o">?</span> <span class="s2">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span>
 
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/time&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Try localhost:8080/stop&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/time&quot;</span><span class="p">,:</span><span class="n">gettime</span><span class="p">)</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/stop&quot;</span><span class="p">,:</span><span class="n">stop</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/time&quot;</span>
+<span class="o">?</span> <span class="s2">&quot;Try localhost:8080/stop&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/time&quot;</span><span class="p">,</span><span class="ss">:gettime</span><span class="p">)</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/stop&quot;</span><span class="p">,</span><span class="ss">:stop</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
-<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">gettime</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Time: &quot;</span> <span class="o">+</span> <span class="n">time</span><span class="p">(),</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">gettime</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="nb">time</span><span class="p">(),</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 
-<span class="k">func</span> <span class="n">stop</span>
-        <span class="n">oServer</span><span class="p">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="kd">func</span> <span class="nf">stop</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>

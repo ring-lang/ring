@@ -228,14 +228,14 @@
 <section id="clock-function">
 <span id="index-1"></span><h2>Clock() Function<a class="headerlink" href="#clock-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Clock</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">clock</span> <span class="n">ticks</span> <span class="k">from</span> <span class="n">program</span> <span class="n">start</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Clock</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">clock</span> <span class="n">ticks</span> <span class="kd">from</span> <span class="nc">program</span> <span class="n">start</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Calculate performance&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span> <span class="k">next</span>
-<span class="k">see</span> <span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Calculate performance&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">1000000</span> <span class="k k-Control">next</span>
+<span class="k">see</span> <span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
 </pre></div>
 </div>
 </section>
@@ -243,13 +243,13 @@
 <span id="index-2"></span><h2>ClocksPerSecond() Function<a class="headerlink" href="#clockspersecond-function" title="Permalink to this heading"></a></h2>
 <p>Return how many clocks in one second</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k">in</span> <span class="n">one</span> <span class="n">second</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k k-Control">in</span> <span class="n">one</span> <span class="n">second</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Wait 1 second</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">clockspersecond</span><span class="p">()</span> <span class="k">end</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wait 1 second</span>
+<span class="n">t</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="k k-Control">while</span> <span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="nb">clockspersecond</span><span class="p">()</span> <span class="k k-Control">end</span>
 </pre></div>
 </div>
 </section>
@@ -257,7 +257,7 @@
 <span id="index-3"></span><h2>Time() Function<a class="headerlink" href="#time-function" title="Permalink to this heading"></a></h2>
 <p>We can get the system time using the Time() function.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="n">time</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="nb">time</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -265,11 +265,11 @@
 <span id="index-4"></span><h2>Date() Function<a class="headerlink" href="#date-function" title="Permalink to this heading"></a></h2>
 <p>We can get the date using the Date() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">date</span> <span class="s">&quot;dd/mm/yyyy&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Date</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">String</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">date</span> <span class="s2">&quot;dd/mm/yyyy&quot;</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Date : &quot;</span> <span class="o">+</span> <span class="n">date</span><span class="p">()</span>  <span class="c"># Date : 24/05/2015</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Date : &quot;</span> <span class="o">+</span> <span class="nb">date</span><span class="p">()</span>  <span class="c1"># Date : 24/05/2015</span>
 </pre></div>
 </div>
 </section>
@@ -277,7 +277,7 @@
 <span id="index-5"></span><h2>TimeList() Function<a class="headerlink" href="#timelist-function" title="Permalink to this heading"></a></h2>
 <p>We can print the date and the time information using the TimeList() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">time</span> <span class="ow">and</span> <span class="n">date</span> <span class="n">information</span><span class="p">.</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">TimeList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">time</span> <span class="ow">and</span> <span class="n">date</span> <span class="n">information</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>The next table presents the list items</p>
@@ -354,69 +354,69 @@
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Output</span><span class="p">:</span>
-<span class="o">**</span> <span class="n">Sun</span>                  <span class="n">abbreviated</span> <span class="n">weekday</span> <span class="n">name</span>
-<span class="o">**</span> <span class="n">Sunday</span>               <span class="n">full</span> <span class="n">weekday</span> <span class="n">name</span>
-<span class="o">**</span> <span class="n">May</span>                  <span class="n">abbreviated</span> <span class="n">month</span> <span class="n">name</span>
-<span class="o">**</span> <span class="n">May</span>                  <span class="n">full</span> <span class="n">month</span> <span class="n">name</span>
-<span class="o">**</span> <span class="mi">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">15</span> <span class="mi">09</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">38</span>    <span class="n">Date</span> <span class="o">&amp;</span> <span class="n">Time</span>
-<span class="o">**</span> <span class="mi">24</span>                   <span class="n">Day</span> <span class="n">of</span> <span class="n">the</span> <span class="n">month</span>
-<span class="o">**</span> <span class="mi">09</span>                   <span class="n">Hour</span> <span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-<span class="o">**</span> <span class="mi">09</span>                   <span class="n">Hour</span> <span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="o">**</span> <span class="mi">144</span>                  <span class="n">Day</span> <span class="n">of</span> <span class="n">the</span> <span class="n">year</span>
-<span class="o">**</span> <span class="mi">05</span>                   <span class="n">Month</span> <span class="n">of</span> <span class="n">the</span> <span class="n">year</span>
-<span class="o">**</span> <span class="mi">58</span>                   <span class="n">Minutes</span> <span class="n">after</span> <span class="n">hour</span>
-<span class="o">**</span> <span class="n">AM</span>                   <span class="n">AM</span> <span class="ow">or</span> <span class="n">PM</span>
-<span class="o">**</span> <span class="mi">38</span>                   <span class="n">Seconds</span> <span class="n">after</span> <span class="n">the</span> <span class="n">hour</span>
-<span class="o">**</span> <span class="mi">21</span>                   <span class="n">Week</span> <span class="n">of</span> <span class="n">the</span> <span class="n">year</span> <span class="p">(</span><span class="n">sun</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span>
-<span class="o">**</span> <span class="mi">0</span>                    <span class="n">day</span> <span class="n">of</span> <span class="n">the</span> <span class="n">week</span>
-<span class="o">**</span> <span class="mi">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">15</span>             <span class="n">date</span>
-<span class="o">**</span> <span class="mi">09</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">38</span>             <span class="n">time</span>
-<span class="o">**</span> <span class="mi">15</span>                   <span class="n">year</span> <span class="n">of</span> <span class="n">the</span> <span class="n">century</span>
-<span class="o">**</span> <span class="mi">2015</span>                 <span class="n">year</span>
-<span class="o">**</span> <span class="n">Arab</span> <span class="n">Standard</span> <span class="n">Time</span>   <span class="n">time</span> <span class="n">zone</span>
-<span class="o">**</span> <span class="o">%</span>                    <span class="n">percent</span> <span class="n">sign</span>
-<span class="o">*/</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Output:</span>
+<span class="cm">** Sun                  abbreviated weekday name</span>
+<span class="cm">** Sunday               full weekday name</span>
+<span class="cm">** May                  abbreviated month name</span>
+<span class="cm">** May                  full month name</span>
+<span class="cm">** 05/24/15 09:58:38    Date &amp; Time</span>
+<span class="cm">** 24                   Day of the month</span>
+<span class="cm">** 09                   Hour (24)</span>
+<span class="cm">** 09                   Hour (12)</span>
+<span class="cm">** 144                  Day of the year</span>
+<span class="cm">** 05                   Month of the year</span>
+<span class="cm">** 58                   Minutes after hour</span>
+<span class="cm">** AM                   AM or PM</span>
+<span class="cm">** 38                   Seconds after the hour</span>
+<span class="cm">** 21                   Week of the year (sun-sat)</span>
+<span class="cm">** 0                    day of the week</span>
+<span class="cm">** 05/24/15             date</span>
+<span class="cm">** 09:58:38             time</span>
+<span class="cm">** 15                   year of the century</span>
+<span class="cm">** 2015                 year</span>
+<span class="cm">** Arab Standard Time   time zone</span>
+<span class="cm">** %                    percent sign</span>
+<span class="cm">*/</span>
 
-<span class="k">See</span> <span class="n">TimeList</span><span class="p">()</span>
+<span class="k">See</span> <span class="nb">TimeList</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Day Name : &quot;</span> <span class="o">+</span> <span class="n">TimeList</span><span class="p">()</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>       <span class="c"># Sunday</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Day Name : &quot;</span> <span class="o">+</span> <span class="nb">TimeList</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>       <span class="c1"># Sunday</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Month Name : &quot;</span> <span class="o">+</span> <span class="n">TimeList</span><span class="p">()</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>     <span class="c"># May</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Month Name : &quot;</span> <span class="o">+</span> <span class="nb">TimeList</span><span class="p">()[</span><span class="mi">4</span><span class="p">]</span>     <span class="c1"># May</span>
 </pre></div>
 </div>
 </section>
 <section id="adddays-function">
 <span id="index-6"></span><h2>AddDays() Function<a class="headerlink" href="#adddays-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">AddDays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">nDays</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Date</span> <span class="k">from</span> <span class="n">cDate</span> <span class="ow">and</span> <span class="n">after</span> <span class="n">nDays</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">AddDays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">nDays</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Date</span> <span class="kd">from</span> <span class="nc">cDate</span> <span class="ow">and</span> <span class="n">after</span> <span class="n">nDays</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cDate</span> <span class="o">=</span> <span class="n">date</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="n">nl</span>                  <span class="c"># 24/05/2015</span>
-<span class="n">cDate</span> <span class="o">=</span> <span class="n">adddays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="n">nl</span>                  <span class="c"># 03/06/2015</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cDate</span> <span class="o">=</span> <span class="nb">date</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="bp">nl</span>                  <span class="c1"># 24/05/2015</span>
+<span class="n">cDate</span> <span class="o">=</span> <span class="nb">adddays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="bp">nl</span>                  <span class="c1"># 03/06/2015</span>
 </pre></div>
 </div>
 </section>
 <section id="diffdays-function">
 <span id="index-7"></span><h2>DiffDays() Function<a class="headerlink" href="#diffdays-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DiffDays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">DiffDays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cDate1</span> <span class="o">=</span> <span class="n">date</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">cDate1</span> <span class="o">+</span> <span class="n">nl</span>                                         <span class="c"># 24/05/2015</span>
-<span class="n">cDate2</span> <span class="o">=</span> <span class="n">adddays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cDate2</span> <span class="o">+</span> <span class="n">nl</span>                                         <span class="c"># 03/06/2015</span>
-<span class="k">see</span> <span class="s">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>        <span class="c"># -10</span>
-<span class="k">see</span> <span class="s">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">diffdays</span><span class="p">(</span><span class="n">cDate2</span><span class="p">,</span><span class="n">cDate1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>        <span class="c"># 10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cDate1</span> <span class="o">=</span> <span class="nb">date</span><span class="p">()</span>
+<span class="k">see</span> <span class="n">cDate1</span> <span class="o">+</span> <span class="bp">nl</span>                                         <span class="c1"># 24/05/2015</span>
+<span class="n">cDate2</span> <span class="o">=</span> <span class="nb">adddays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">cDate2</span> <span class="o">+</span> <span class="bp">nl</span>                                         <span class="c1"># 03/06/2015</span>
+<span class="k">see</span> <span class="s2">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="nb">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>        <span class="c1"># -10</span>
+<span class="k">see</span> <span class="s2">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="nb">diffdays</span><span class="p">(</span><span class="n">cDate2</span><span class="p">,</span><span class="n">cDate1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>        <span class="c1"># 10</span>
 </pre></div>
 </div>
 </section>
@@ -427,26 +427,26 @@
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="sd">###-------------------------------------------------------------</span>
-<span class="c"># EpochTime()</span>
-<span class="c"># Example ---  EpochSec = EpochTime( Date(), Time() )</span>
-<span class="c"># Call Format: EpochSec = EpochTime( &quot;15/07/2016&quot;, &quot;10:15:30&quot; )</span>
-<span class="c">#              EpochSec = 1468577730</span>
-<span class="c">#---------------------------------------------------------------</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1">###-------------------------------------------------------------</span>
+<span class="c1"># EpochTime()</span>
+<span class="c1"># Example ---  EpochSec = EpochTime( Date(), Time() )</span>
+<span class="c1"># Call Format: EpochSec = EpochTime( &quot;15/07/2016&quot;, &quot;10:15:30&quot; )</span>
+<span class="c1">#              EpochSec = 1468577730</span>
+<span class="c1">#---------------------------------------------------------------</span>
 
-<span class="k">Func</span> <span class="n">EpochTime</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Time</span><span class="p">)</span>
+<span class="kd">Func</span> <span class="nf">EpochTime</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Time</span><span class="p">)</span>
 
-    <span class="n">arrayDate</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
-    <span class="n">arrayTime</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">arrayDate</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="n">arrayTime</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
 
-    <span class="n">Year</span> <span class="o">=</span> <span class="n">arrayDate</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="p">;</span> <span class="n">Month</span>  <span class="o">=</span> <span class="n">arrayDate</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">;</span> <span class="n">Day</span>    <span class="o">=</span> <span class="n">arrayDate</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-    <span class="n">Hour</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">;</span> <span class="n">Minute</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">;</span> <span class="n">Second</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+    <span class="n">Year</span> <span class="o">=</span> <span class="n">arrayDate</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">;</span> <span class="n">Month</span>  <span class="o">=</span> <span class="n">arrayDate</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">;</span> <span class="n">Day</span>    <span class="o">=</span> <span class="n">arrayDate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Hour</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">;</span> <span class="n">Minute</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">;</span> <span class="n">Second</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 
-    <span class="n">cDate1</span>    <span class="o">=</span> <span class="n">Day</span> <span class="o">+</span><span class="s">&quot;/&quot;</span><span class="o">+</span> <span class="n">Month</span> <span class="o">+</span><span class="s">&quot;/&quot;</span><span class="o">+</span> <span class="n">Year</span>
-    <span class="n">cDate2</span>    <span class="o">=</span> <span class="s">&quot;01/01/&quot;</span> <span class="o">+</span> <span class="n">Year</span>
-    <span class="n">DayOfYear</span> <span class="o">=</span> <span class="n">DiffDays</span><span class="p">(</span> <span class="n">cDate1</span><span class="p">,</span> <span class="n">cDate2</span><span class="p">)</span>
+    <span class="n">cDate1</span>    <span class="o">=</span> <span class="n">Day</span> <span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span> <span class="n">Month</span> <span class="o">+</span><span class="s2">&quot;/&quot;</span><span class="o">+</span> <span class="n">Year</span>
+    <span class="n">cDate2</span>    <span class="o">=</span> <span class="s2">&quot;01/01/&quot;</span> <span class="o">+</span> <span class="n">Year</span>
+    <span class="n">DayOfYear</span> <span class="o">=</span> <span class="nb">DiffDays</span><span class="p">(</span> <span class="n">cDate1</span><span class="p">,</span> <span class="n">cDate2</span><span class="p">)</span>
 
-    <span class="sd">### Formula</span>
+    <span class="c1">### Formula</span>
     <span class="n">tm_sec</span>  <span class="o">=</span> <span class="n">Second</span>    <span class="o">*</span> <span class="mi">1</span>
     <span class="n">tm_min</span>  <span class="o">=</span> <span class="n">Minute</span>    <span class="o">*</span> <span class="mi">60</span>
     <span class="n">tm_hour</span> <span class="o">=</span> <span class="n">Hour</span>      <span class="o">*</span> <span class="mi">3600</span>
@@ -454,15 +454,15 @@
     <span class="n">tm_year</span> <span class="o">=</span> <span class="n">Year</span>      <span class="o">-</span> <span class="mi">1900</span>
 
     <span class="n">tm_year1</span> <span class="o">=</span>         <span class="p">(</span> <span class="n">tm_year</span> <span class="o">-</span>  <span class="mi">70</span><span class="p">)</span>          <span class="o">*</span> <span class="mi">31536000</span>
-    <span class="n">tm_year2</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">-</span>  <span class="mi">69</span><span class="p">)</span> <span class="o">/</span>   <span class="mi">4</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
-    <span class="n">tm_year3</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">-</span>   <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
-    <span class="n">tm_year4</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">+</span> <span class="mi">299</span><span class="p">)</span> <span class="o">/</span> <span class="mi">400</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">tm_year2</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">-</span>  <span class="mi">69</span><span class="p">)</span> <span class="o">/</span>   <span class="mi">4</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">tm_year3</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">-</span>   <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
+    <span class="n">tm_year4</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">+</span> <span class="mi">299</span><span class="p">)</span> <span class="o">/</span> <span class="mi">400</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
 
-    <span class="sd">### Result</span>
+    <span class="c1">### Result</span>
     <span class="n">EpochSec</span> <span class="o">=</span> <span class="n">tm_sec</span> <span class="o">+</span> <span class="n">tm_min</span> <span class="o">+</span> <span class="n">tm_hour</span> <span class="o">+</span> <span class="n">tm_yday</span> <span class="o">+</span>
                <span class="n">tm_year1</span> <span class="o">+</span> <span class="n">tm_year2</span> <span class="o">-</span> <span class="n">tm_year3</span> <span class="o">+</span> <span class="n">tm_year4</span>
 
-<span class="k">return</span> <span class="n">EpochSec</span>
+<span class="k k-Control">return</span> <span class="n">EpochSec</span>
 </pre></div>
 </div>
 </section>

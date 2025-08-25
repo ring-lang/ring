@@ -288,7 +288,7 @@
 </ol>
 <img alt="Form Designer - Event Method" src="_images/fdeventmethod.png" />
 <p>This will add the next code to the Controller Class</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">CloseWindow</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">CloseWindow</span>
         <span class="n">oView</span> <span class="p">{</span>
         <span class="p">}</span>
 </pre></div>
@@ -297,17 +297,17 @@
 controller class.</p>
 <img alt="Form Designer - Event Code" src="_images/fdeventcode.png" />
 <p>In this example we write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">CloseWindow</span>
-        <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">CloseWindow</span>
+        <span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Where inside the controller class, We uses the oView object to access the form.</p>
 <p>Another Example :</p>
 <img alt="Form Designer - Say Hello" src="_images/fdsayhello1.png" />
 <p>The Event Code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">SayHello</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">SayHello</span>
         <span class="n">oView</span> <span class="p">{</span>
-                <span class="n">LineEdit2</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="o">+</span> <span class="n">LineEdit1</span><span class="p">.</span><span class="n">text</span><span class="p">()</span> <span class="p">)</span>
+                <span class="n">LineEdit2</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span><span class="o">+</span> <span class="n">LineEdit1</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="p">)</span>
         <span class="p">}</span>
 </pre></div>
 </div>
