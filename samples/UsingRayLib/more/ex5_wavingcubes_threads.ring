@@ -4,6 +4,7 @@
 # 2020, Ilir Liburn <iliribur@gmail.com>
 #===================================================================#
 
+load "stdlibcore.ring"
 load "raylib.ring"
 load "gamelib.ring"
 
@@ -14,9 +15,12 @@ qub          = pow(numBlocks, 3)
 data         = list(numThreads, qub)
 	
 mute         = al_create_mutex()
+muteStop     = al_create_mutex()
 
 screenWidth  = 800
 screenHeight = 450
+
+lStopThreads = False
 
 prepareData()
 createThreads()
@@ -73,6 +77,14 @@ func startAnimation
 	end
 
 	CloseWindow()
+
+	# Terminate the sub thread 
+		al_lock_mutex(muteStop)
+		lStopThreads = True
+		al_unlock_mutex(muteStop)
+		sleep(0.1)
+
+	? "End of Main Thread"
 	Shutdown()
 
 func createThreads 
@@ -89,7 +101,8 @@ func thread i
 	next
 
 	cnt = numBlocks - 1
-	while true
+	lContinue = True
+	while lContinue
 		time = GetTime()
 		scale = (2.0 + sin(time)) * 0.7
 		v = 1
@@ -110,6 +123,10 @@ func thread i
 			next
 		next
 		al_lock_mutex(mute)
-		swap(data, 1, i)
+			swap(data, 1, i)
 		al_unlock_mutex(mute)
+		al_lock_mutex(muteStop)
+			lContinue = ! lStopThreads
+		al_unlock_mutex(muteStop)
 	end
+	? "End of Sub Thread"
