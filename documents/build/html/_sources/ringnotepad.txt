@@ -306,7 +306,9 @@ The Tools Menu
 
 From this menu we can run the Form Designer in separate window
 
-Also we can run the REPL (Read-Eval-Print-Loop) application
+Also, we can run the REPL (Read-Eval-Print-Loop) application
+
+We have a GUI tool for Ring Package Manger (RingPM)
 
 .. image:: rnotemenu_tools.png
 	:alt: Ring Notepad - Tools Menu
