@@ -154,8 +154,8 @@ class RingLexer(RegexLexer):
 
 
 			# Keywords
-			(words(keywords_control, prefix=r'\b', suffix=r'\b'), Keyword.Control),
-			(words(keywords_exception, prefix=r'\b', suffix=r'\b'), Keyword.Control),
+			(words(keywords_control, prefix=r'\b', suffix=r'\b'), Keyword),
+			(words(keywords_exception, prefix=r'\b', suffix=r'\b'), Keyword),
 			(words(keywords_declaration, prefix=r'\b', suffix=r'\b'), Keyword.Declaration),
 			(words(keywords_module, prefix=r'\b', suffix=r'\b'), Keyword.Namespace),
 			(words(keywords_oop, prefix=r'\b', suffix=r'\b'), Keyword.Pseudo),
