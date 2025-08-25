@@ -763,6 +763,13 @@ class RNoteMainWindow
 						}
 						addaction(oAction)
 						addseparator()
+						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Alt+Shift+P"))
+							settext(T_RINGNOTEPAD_RINGPMGUI) # "RingPM - GUI"
+							setclickEvent(Method(:RINGPMGUI))
+						}
+						addaction(oAction)
+						addseparator()
 						subOSTools = addmenu(T_RINGNOTEPAD_OPERATINGSYSTEMTOOLS) # "Operating System Tools"
 						subOSTools {
 							oAction = new qAction(this.win1) {

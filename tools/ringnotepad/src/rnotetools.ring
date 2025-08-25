@@ -36,6 +36,10 @@ class RNoteTools
 		ok
 		RunTool(cAppFileName)
 
+	func RINGPMGUI
+		cAppFileName = cCurrentDir + "../ringpmgui/ringpmguiController.ring"
+		RunTool(cAppFileName)
+
 	func OSTerminal
 		if isWindows()
 			cCommand = 'start cmd /K "cd ' + cStartupFolder + '"'
