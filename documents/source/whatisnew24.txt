@@ -114,11 +114,12 @@ More Improvements
 * GameEngine: Clear error message if image/font/sound file doesn't exist
 * JSONLib: Handle a case when the input is an array only
 * RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()
+* RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
-* RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
 * RingHTTPLib: Support more server http methods: PUT, PATCH, DELETE and OPTIONS
 * RingLibSDL: Enable building the extension using recent MSVC compiler
+* RingLibuv: Revise the documentation/samples to use destroy_sockaddr_in() function 
 * Space() function: Don't accept values over UINT_MAX
 * List() function: Don't accept values over UINT_MAX 
 * List() function: Don't use blocks for small 1D lists
