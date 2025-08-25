@@ -23,7 +23,7 @@ func main
     ok
     uv_run(myloop, UV_RUN_DEFAULT)
     destroy_uv_tcp_t(server)
-    destroy_uv_sockaddr_in(addr)
+    destroy_sockaddr_in(addr)
 
 func newconnection
 	? "New Connection"
