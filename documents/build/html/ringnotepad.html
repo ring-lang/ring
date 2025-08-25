@@ -58,7 +58,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-notepad-main-window">Ring Notepad - Main Window</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-and-running-your-first-console-application">Creating and running your first Console Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-and-running-your-first-gui-webassembly-mobile-application">Creating and running your first GUI/WebAssembly/Mobile Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-and-running-your-first-web-application">Creating and running your first Web Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-and-running-your-first-web-application-using-cgi">Creating and running your first Web Application using CGI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-and-running-your-first-web-application-using-httplib">Creating and running your first Web Application using HTTPLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-and-running-your-first-desktop-mobile-game">Creating and running your first Desktop/Mobile Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-main-file-in-the-project">The Main File in the Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-file-menu">The File Menu</a></li>
@@ -288,8 +289,8 @@
 <p>The next screen shot present the application during the runtime</p>
 <img alt="Using Ring Notepad" src="_images/urn_shot8.png" />
 </section>
-<section id="creating-and-running-your-first-web-application">
-<span id="index-4"></span><h2>Creating and running your first Web Application<a class="headerlink" href="#creating-and-running-your-first-web-application" title="Permalink to this heading"></a></h2>
+<section id="creating-and-running-your-first-web-application-using-cgi">
+<span id="index-4"></span><h2>Creating and running your first Web Application using CGI<a class="headerlink" href="#creating-and-running-your-first-web-application-using-cgi" title="Permalink to this heading"></a></h2>
 <p>To learn how to support Ring in your web server and how to create web applications check
 the “Web Development (CGI Library)” chapter.</p>
 <div class="admonition note">
@@ -299,6 +300,10 @@ the “Web Development (CGI Library)” chapter.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For Windows users, Ring comes with Apache Web server! Using Ring Notepad we can run any web application from any folder directly without doing any configuration.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For modern web applications development use the HTTPLib instead of using CGI</p>
 </div>
 <p>Source Code:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1">#!ring -cgi</span>
@@ -319,8 +324,32 @@ the “Web Development (CGI Library)” chapter.</p>
 <p>We can run the web application using the Web icon.</p>
 <img alt="Ring Notepad - Run Web Application - shot 1" src="_images/runwebapp1.png" />
 </section>
+<section id="creating-and-running-your-first-web-application-using-httplib">
+<span id="index-5"></span><h2>Creating and running your first Web Application using HTTPLib<a class="headerlink" href="#creating-and-running-your-first-web-application-using-httplib" title="Permalink to this heading"></a></h2>
+<p>This Ring script sets up a lightweight HTTP server that listens on port 8080
+and responds to GET requests at the endpoint.</p>
+<p>When accessed, it returns a plain text message saying “Hello World!” to the client.</p>
+<p>Source Code:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hi&quot;</span>
+        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">mytest</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="Ring Notepad - Run Web Application using HTTPLib" src="_images/urn_httplib.png" />
+</section>
 <section id="creating-and-running-your-first-desktop-mobile-game">
-<span id="index-5"></span><h2>Creating and running your first Desktop/Mobile Game<a class="headerlink" href="#creating-and-running-your-first-desktop-mobile-game" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Creating and running your first Desktop/Mobile Game<a class="headerlink" href="#creating-and-running-your-first-desktop-mobile-game" title="Permalink to this heading"></a></h2>
 <p>To learn about creating 2D Games using Ring check the “Demo Project - Game Engine for 2D Games” chapter.</p>
 <p>Source Code:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;gameengine.ring&quot;</span>
@@ -347,7 +376,7 @@ the “Web Development (CGI Library)” chapter.</p>
 <img alt="Using Ring Notepad" src="_images/urn_shot10.png" />
 </section>
 <section id="the-main-file-in-the-project">
-<span id="index-6"></span><h2>The Main File in the Project<a class="headerlink" href="#the-main-file-in-the-project" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>The Main File in the Project<a class="headerlink" href="#the-main-file-in-the-project" title="Permalink to this heading"></a></h2>
 <p>The idea of the Main File ToolBar is to determine the main file in the project When the project contains many source code files</p>
 <p>Using this feature we can run the project (Main File) at any time while opening other files in the project without the need to switch to the Main File to run the project.</p>
 <p>To quickly use this feature</p>
@@ -360,13 +389,13 @@ the “Web Development (CGI Library)” chapter.</p>
 <img alt="Ring Notepad" src="_images/urn_shot12.png" />
 </section>
 <section id="the-file-menu">
-<span id="index-7"></span><h2>The File Menu<a class="headerlink" href="#the-file-menu" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>The File Menu<a class="headerlink" href="#the-file-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can create, open and save the source code files.</p>
 <p>Another feature in this menu is “Print to PDF”</p>
 <img alt="Ring Notepad - File Menu" src="_images/rnotemenu_file.png" />
 </section>
 <section id="the-edit-menu">
-<span id="index-8"></span><h2>The Edit Menu<a class="headerlink" href="#the-edit-menu" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>The Edit Menu<a class="headerlink" href="#the-edit-menu" title="Permalink to this heading"></a></h2>
 <p>From the Edit menu we can Cut, Copy and Paste text.</p>
 <p>Also we can change the font and the colors.</p>
 <p>We can Go to a specific line or use the Find and Replace window
@@ -377,7 +406,7 @@ to find and replace text.</p>
 <img alt="Ring Notepad - Edit Menu" src="_images/rnotemenu_edit.png" />
 </section>
 <section id="the-view-menu">
-<span id="index-9"></span><h2>The View Menu<a class="headerlink" href="#the-view-menu" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>The View Menu<a class="headerlink" href="#the-view-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can show/hide the dockable windows</p>
 <p>Also we can change the Style of the Ring Notepad</p>
 <p>Common Styles are (Fusion White and Modern Black)</p>
@@ -386,31 +415,31 @@ to find and replace text.</p>
 <img alt="Ring Notepad - View Menu - Set Mode" src="_images/rnotemenu_mode.png" />
 </section>
 <section id="the-program-menu">
-<span id="index-10"></span><h2>The Program Menu<a class="headerlink" href="#the-program-menu" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>The Program Menu<a class="headerlink" href="#the-program-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can run the programs</p>
 <p>Also we can set the Main file in the project</p>
 <img alt="Ring Notepad - Program Menu" src="_images/rnotemenu_program.png" />
 </section>
 <section id="the-browser-menu">
-<span id="index-11"></span><h2>The Browser Menu<a class="headerlink" href="#the-browser-menu" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>The Browser Menu<a class="headerlink" href="#the-browser-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can quickly open common links in the browser</p>
 <img alt="Ring Notepad - Browser Menu" src="_images/rnotemenu_browser.png" />
 </section>
 <section id="the-tools-menu">
-<span id="index-12"></span><h2>The Tools Menu<a class="headerlink" href="#the-tools-menu" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>The Tools Menu<a class="headerlink" href="#the-tools-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can run the Form Designer in separate window</p>
 <p>Also, we can run the REPL (Read-Eval-Print-Loop) application</p>
 <p>We have a GUI tool for Ring Package Manger (RingPM)</p>
 <img alt="Ring Notepad - Tools Menu" src="_images/rnotemenu_tools.png" />
 </section>
 <section id="the-distribute-menu">
-<span id="index-13"></span><h2>The Distribute Menu<a class="headerlink" href="#the-distribute-menu" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>The Distribute Menu<a class="headerlink" href="#the-distribute-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can build an executable file for the application</p>
 <p>Also we can prepare the application for distribution</p>
 <img alt="Ring Notepad - Distribute Menu" src="_images/rnotedistributemenu.png" />
 </section>
 <section id="the-help-menu">
-<span id="index-14"></span><h2>The Help Menu<a class="headerlink" href="#the-help-menu" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>The Help Menu<a class="headerlink" href="#the-help-menu" title="Permalink to this heading"></a></h2>
 <p>From this menu we can open the help files (CHM &amp; PDF)</p>
 <img alt="Ring Notepad - Help Menu" src="_images/rnotemenu_help.png" />
 <p>We can download these files from Ring website or using the Ring package manager (ringpm)</p>

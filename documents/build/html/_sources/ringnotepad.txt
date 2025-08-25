@@ -109,10 +109,10 @@ The next screen shot present the application during the runtime
 
 	
 .. index:: 
-	pair: Ring Notepad; Ring Notepad - Creating and running your first Web application 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first Web application using CGI 
 
-Creating and running your first Web Application 
-===============================================
+Creating and running your first Web Application using CGI
+=========================================================
 
 To learn how to support Ring in your web server and how to create web applications check 
 the "Web Development (CGI Library)" chapter.
@@ -121,6 +121,7 @@ the "Web Development (CGI Library)" chapter.
 
 .. tip:: For Windows users, Ring comes with Apache Web server! Using Ring Notepad we can run any web application from any folder directly without doing any configuration.
 
+.. tip:: For modern web applications development use the HTTPLib instead of using CGI
 
 Source Code:
 
@@ -148,6 +149,40 @@ We can run the web application using the Web icon.
 
 .. image:: runwebapp1.png
 	:alt: Ring Notepad - Run Web Application - shot 1
+
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first Web application using HTTPLib 
+
+Creating and running your first Web Application using HTTPLib
+=============================================================
+
+This Ring script sets up a lightweight HTTP server that listens on port 8080 
+and responds to GET requests at the endpoint. 
+
+When accessed, it returns a plain text message saying "Hello World!" to the client. 
+
+Source Code:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	oServer = new Server {
+
+		? "Try localhost:8080/hi"
+		route(:Get,"/hi",:mytest)
+
+		? "Listen to port 8080"
+		listen("0.0.0.0", 8080)
+
+	}
+
+	func mytest 
+		oServer.setContent("Hello World!", "text/plain")
+
+.. image:: urn_httplib.png
+	:alt: Ring Notepad - Run Web Application using HTTPLib
 
 .. index:: 
 	pair: Ring Notepad; Ring Notepad - Creating and running your first game 
