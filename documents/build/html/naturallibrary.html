@@ -110,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -322,7 +322,7 @@ I will count Again!
 <p>So we must have two files for defining the commands in the CurrentDir()+”/../command” folder</p>
 <p>File: hello.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeyword</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">hello</span><span class="p">,</span>
         <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="s">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
@@ -332,7 +332,7 @@ I will count Again!
 </div>
 <p>File: count.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">count</span><span class="p">,</span>
         <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span> <span class="p">{</span>
@@ -411,7 +411,7 @@ the function that will be executed.</p>
 user will write after the keyword.</p>
 <p>File: print.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeywordExpression</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">print</span><span class="p">,</span>
         <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -434,7 +434,7 @@ user will write after the keyword.</p>
 <p>Example (2)</p>
 <p>File: iwantwindow.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsCommand</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Command</span> <span class="o">=</span> <span class="s">&quot;i want window&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="s">&quot;Command: I want window&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -457,7 +457,7 @@ user will write after the keyword.</p>
 <p>Example (3)</p>
 <p>File: windowtitleis.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsCommandString</span><span class="p">(</span><span class="o">[</span>
-        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="k">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Command</span> <span class="o">=</span> <span class="s">&quot;window title is&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="s">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
@@ -522,7 +522,7 @@ Command: Window title is Hello World
 DefineNaturalCommand object or by defining new class as in the next examples.</p>
 <p>If we used DefineNaturalCommand (More Simple), The class will be defined during the runtime.</p>
 <p>File: hello.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span> <span class="n">MyLanguage</span><span class="p">.</span><span class="n">Natural</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Package</span> <span class="n">MyLanguage</span><span class="p">.</span><span class="n">Natural</span>
 
 <span class="k">class</span> <span class="n">Hello</span>
 
@@ -534,7 +534,7 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
 </pre></div>
 </div>
 <p>File: count.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Package</span> <span class="n">MyLanguage</span><span class="p">.</span><span class="n">Natural</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Package</span> <span class="n">MyLanguage</span><span class="p">.</span><span class="n">Natural</span>
 
 <span class="k">class</span> <span class="n">Count</span>
 

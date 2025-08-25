@@ -139,7 +139,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -509,19 +509,19 @@ the program code and we can modify our code during the runtime.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">packages</span><span class="p">()</span>
 
-<span class="n">Package</span> <span class="n">Package1</span>
+<span class="k">Package</span> <span class="n">Package1</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package2</span>
+<span class="k">Package</span> <span class="n">Package2</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package3</span>
+<span class="k">Package</span> <span class="n">Package3</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package4</span>
+<span class="k">Package</span> <span class="n">Package4</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 </pre></div>
@@ -538,8 +538,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-10"></span><h2>ispackage() Function<a class="headerlink" href="#ispackage-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a package is defined or not using the ispackage() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="n">defined</span>
-                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Package</span> <span class="n">is</span> <span class="n">defined</span>
+                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Package</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -548,19 +548,19 @@ the program code and we can modify our code during the runtime.</p>
     <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package5&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
     <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-<span class="n">Package</span> <span class="n">Package1</span>
+<span class="k">Package</span> <span class="n">Package1</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package2</span>
+<span class="k">Package</span> <span class="n">Package2</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package3</span>
+<span class="k">Package</span> <span class="n">Package3</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package4</span>
+<span class="k">Package</span> <span class="n">Package4</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 </pre></div>
@@ -634,7 +634,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-13"></span><h2>packageclasses() Function<a class="headerlink" href="#packageclasses-function" title="Permalink to this heading"></a></h2>
 <p>We can get a list of classes names inside a package using the packageclasses() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packageclasses</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">package</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packageclasses</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span> <span class="n">inside</span> <span class="n">the</span> <span class="k">package</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -643,11 +643,11 @@ the program code and we can modify our code during the runtime.</p>
 <span class="k">see</span> <span class="s">&quot;classes in Package2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="k">see</span> <span class="n">packageclasses</span><span class="p">(</span><span class="s">&quot;Package2&quot;</span><span class="p">)</span>
 
-<span class="n">Package</span> <span class="n">Package1</span>
+<span class="k">Package</span> <span class="n">Package1</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package2</span>
+<span class="k">Package</span> <span class="n">Package2</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
         <span class="k">Class</span> <span class="n">class2</span>
@@ -680,11 +680,11 @@ the program code and we can modify our code during the runtime.</p>
     <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package2&quot;</span><span class="p">,</span><span class="s">&quot;class1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
     <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package2&quot;</span><span class="p">,</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-<span class="n">Package</span> <span class="n">Package1</span>
+<span class="k">Package</span> <span class="n">Package1</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
 
-<span class="n">Package</span> <span class="n">Package2</span>
+<span class="k">Package</span> <span class="n">Package2</span>
         <span class="k">Class</span> <span class="n">class1</span>
                 <span class="k">Func</span> <span class="n">f1</span>
         <span class="k">Class</span> <span class="n">class2</span>
@@ -847,7 +847,7 @@ the program code and we can modify our code during the runtime.</p>
 <p>We can test if the object contains a private attribute or not using the isprivateattribute() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span>
-                                              <span class="n">contains</span> <span class="n">the</span> <span class="n">private</span> <span class="n">attribute</span>
+                                              <span class="n">contains</span> <span class="n">the</span> <span class="k">private</span> <span class="n">attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -861,7 +861,7 @@ the program code and we can modify our code during the runtime.</p>
 
 <span class="k">Class</span> <span class="n">Person</span>
         <span class="n">name</span> <span class="n">address</span> <span class="n">phone</span>
-        <span class="n">private</span>
+        <span class="k">private</span>
                 <span class="n">job</span> <span class="n">salary</span>
 </pre></div>
 </div>
@@ -902,7 +902,7 @@ the program code and we can modify our code during the runtime.</p>
 <p>We can test if the object class contains a private method or not using the isprivatemethod() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span>
-                                        <span class="n">the</span> <span class="n">private</span> <span class="n">method</span>
+                                        <span class="n">the</span> <span class="k">private</span> <span class="n">method</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -914,7 +914,7 @@ the program code and we can modify our code during the runtime.</p>
 <span class="k">Class</span> <span class="n">Test</span>
         <span class="k">func</span>  <span class="n">f1</span>
                 <span class="k">see</span> <span class="s">&quot;message from f1()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">private</span>
+        <span class="k">private</span>
                 <span class="k">func</span> <span class="n">f2</span>
                         <span class="k">see</span> <span class="s">&quot;message from f2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
@@ -1214,7 +1214,7 @@ The Find uses the member name, rather than the column number</p>
 <span id="index-30"></span><h2>packagename() Function<a class="headerlink" href="#packagename-function" title="Permalink to this heading"></a></h2>
 <p>We can know the package name of the latest successful import command using the packagename() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packagename</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">package</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">successful</span> <span class="k">import</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packagename</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="k">package</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">successful</span> <span class="k">import</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -1237,7 +1237,7 @@ The Find uses the member name, rather than the column number</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">importpackage</span><span class="p">(:</span><span class="n">mypackage</span><span class="p">)</span>
 <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">myfunction</span><span class="p">()</span> <span class="p">}</span>
 
-<span class="n">package</span> <span class="n">mypackage</span>
+<span class="k">package</span> <span class="n">mypackage</span>
         <span class="k">class</span> <span class="n">myclass</span>
                 <span class="k">function</span> <span class="n">myfunction</span>
                         <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>

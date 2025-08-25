@@ -143,7 +143,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -661,7 +661,7 @@ If the RSA key contains only the public part, then returned string will start wi
 <span class="k">try</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_generate</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">rsa_export_pem</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
-        <span class="o">/*</span> <span class="n">save</span> <span class="n">private</span> <span class="n">key</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">save</span> <span class="k">private</span> <span class="n">key</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
         <span class="n">write</span> <span class="p">(</span><span class="s">&quot;privateKey.pem&quot;</span><span class="p">,</span> <span class="n">rsaKeyPEM</span><span class="p">)</span>
 
         <span class="o">/*</span> <span class="n">save</span> <span class="n">public</span> <span class="n">key</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
@@ -704,11 +704,11 @@ if the PEM string starts with “—–BEGIN PUBLIC KEY—–”, then an RSA pu
 <span id="index-18"></span><h2>rsa_is_privatekey() Function<a class="headerlink" href="#rsa-is-privatekey-function" title="Permalink to this heading"></a></h2>
 <p>We can check whether an RSA key is a private key or public key using the rsa_is_privatekey() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_is_privatekey</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">pRsaKey</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">private</span> <span class="n">key</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_is_privatekey</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">pRsaKey</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="k">private</span> <span class="n">key</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">create</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">key</span> <span class="k">from</span> <span class="n">a</span> <span class="n">PEM</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">check</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">a</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">create</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">key</span> <span class="k">from</span> <span class="n">a</span> <span class="n">PEM</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">check</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">a</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
 <span class="k">try</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
@@ -780,7 +780,7 @@ For RSA decryption, the RSA key must contain the private key part.</p>
  <span class="o">*</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">content</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 
@@ -887,7 +887,7 @@ The hash algorithm specified in rsa_decrypt_oaep() call must be the same as the 
  <span class="o">*</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">content</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 
@@ -998,7 +998,7 @@ The size of the result of raw RSA decryption is equal to the length of RSA modul
  <span class="o">/*</span> <span class="n">We</span> <span class="n">decrypt</span> <span class="n">AES</span> <span class="n">using</span> <span class="n">rsa_decrypt_raw</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">remove</span> <span class="n">padding</span> <span class="n">manually</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 
@@ -1079,7 +1079,7 @@ The size of the result of RSA PKCS signature is equal to the length of RSA modul
  <span class="o">*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">added</span> <span class="n">manually</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 
@@ -1120,7 +1120,7 @@ The size of the result of RSA PKCS signature is equal to the length of RSA modul
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span><span class="p">.</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 
@@ -1258,7 +1258,7 @@ The size of the result of RSA PSS signature is equal to the length of RSA modulu
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 
@@ -1294,7 +1294,7 @@ The size of the result of RSA PSS signature is equal to the length of RSA modulu
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
  <span class="o">*/</span>
 <span class="k">try</span>
-        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="k">private</span> <span class="n">key</span> <span class="o">*/</span>
         <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
         <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
 

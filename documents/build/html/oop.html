@@ -124,7 +124,7 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -261,7 +261,7 @@ inside the Ring programming language.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span><span class="o">|&lt;|</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
         <span class="o">[</span><span class="n">Attributes</span><span class="o">]</span>
         <span class="o">[</span><span class="n">Methods</span><span class="o">]</span>
-        <span class="o">[</span><span class="n">Private</span>
+        <span class="o">[</span><span class="k">Private</span>
           <span class="o">[</span><span class="n">Attributes</span><span class="o">]</span>
           <span class="o">[</span><span class="n">Methods</span><span class="o">]</span>
         <span class="o">]</span>
@@ -540,7 +540,7 @@ parameters and change the order of parameters when adding them to the Hash.</p>
         <span class="k">func</span> <span class="n">printsalary</span>
                 <span class="k">see</span> <span class="s">&quot;Salary : &quot;</span> <span class="o">+</span> <span class="n">salary</span> <span class="o">+</span> <span class="n">nl</span>
 
-        <span class="n">private</span>
+        <span class="k">private</span>
 
         <span class="n">salary</span> <span class="o">=</span> <span class="mi">15000</span>
 
@@ -552,8 +552,8 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>   <span class="p">:</span> <span class="n">Test</span>
 <span class="n">Age</span>    <span class="p">:</span> <span class="mi">20</span>
 <span class="n">Salary</span> <span class="p">:</span> <span class="mi">15000</span>
-<span class="n">Error</span> <span class="p">(</span><span class="n">R27</span><span class="p">)</span> <span class="p">:</span> <span class="n">Using</span> <span class="n">private</span> <span class="n">attribute</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">salary</span>
-<span class="n">Error</span> <span class="p">(</span><span class="n">R26</span><span class="p">)</span> <span class="p">:</span> <span class="n">Calling</span> <span class="n">private</span> <span class="n">method</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">increasesalary</span>
+<span class="n">Error</span> <span class="p">(</span><span class="n">R27</span><span class="p">)</span> <span class="p">:</span> <span class="n">Using</span> <span class="k">private</span> <span class="n">attribute</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">salary</span>
+<span class="n">Error</span> <span class="p">(</span><span class="n">R26</span><span class="p">)</span> <span class="p">:</span> <span class="n">Calling</span> <span class="k">private</span> <span class="n">method</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">increasesalary</span>
 </pre></div>
 </div>
 </section>
@@ -858,7 +858,7 @@ using eval() we can execute the string to define the classes</p>
 <section id="packages">
 <span id="index-9"></span><h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading"></a></h2>
 <p>We can create a package (a group of classes under a common name) using the next syntax</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">PackageName</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">package</span> <span class="n">PackageName</span>
         <span class="k">Class</span> <span class="n">Class1</span>
                 <span class="p">...</span>
         <span class="k">Class</span> <span class="n">Class2</span>
@@ -872,7 +872,7 @@ using eval() we can execute the string to define the classes</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">output</span><span class="p">.</span><span class="n">console</span>
 <span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 
-<span class="n">Package</span> <span class="n">System</span><span class="p">.</span><span class="n">Output</span>
+<span class="k">Package</span> <span class="n">System</span><span class="p">.</span><span class="n">Output</span>
         <span class="k">Class</span> <span class="n">Console</span>
                 <span class="k">Func</span> <span class="n">Print</span> <span class="n">cText</span>
                         <span class="k">see</span> <span class="n">cText</span> <span class="o">+</span> <span class="n">nl</span>
@@ -889,7 +889,7 @@ using eval() we can execute the string to define the classes</p>
 <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">console</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="n">Package</span> <span class="n">System</span><span class="p">.</span><span class="n">Output</span>
+<span class="k">Package</span> <span class="n">System</span><span class="p">.</span><span class="n">Output</span>
         <span class="k">Class</span> <span class="n">Console</span>
                 <span class="k">Func</span> <span class="n">Print</span> <span class="n">cText</span>
                         <span class="k">see</span> <span class="n">cText</span> <span class="o">+</span> <span class="n">nl</span>
