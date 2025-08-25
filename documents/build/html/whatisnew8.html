@@ -406,14 +406,14 @@ version: 1.0
 <span class="o">?</span> <span class="n">x</span>             <span class="c1"># Print 10</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
-        <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">next</span>
         <span class="o">?</span> <span class="n">x</span>     <span class="c1"># Print 6</span>
 
 <span class="kd">func</span> <span class="nf">test2</span>
         <span class="n">list</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">list</span>
-        <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">list</span>
+        <span class="k">next</span>
         <span class="o">?</span> <span class="n">x</span>     <span class="c1"># Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)</span>
 </pre></div>
 </div>
@@ -441,9 +441,9 @@ the ‘+’ operator.</p>
 <span class="o">?</span> <span class="n">c1</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="k k-Control">for</span> <span class="n">item</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">aList</span>
         <span class="n">cStr</span> <span class="o">+=</span> <span class="nb">int2bytes</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;All String&quot;</span>
 <span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;First Part&quot;</span>

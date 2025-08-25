@@ -314,13 +314,13 @@ The for in loop can update the list items.</p>
         <span class="k">see</span> <span class="n">aList</span>       <span class="c1"># print one two three</span>
 
 <span class="kd">Func</span> <span class="nf">update</span> <span class="n">aList</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>
-                <span class="k k-Control">switch</span> <span class="n">x</span>
-                <span class="k k-Control">on</span> <span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>
-                <span class="k k-Control">on</span> <span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;two&quot;</span>
-                <span class="k k-Control">on</span> <span class="mi">3</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;three&quot;</span>
-                <span class="k k-Control">off</span>
-        <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+                <span class="k">switch</span> <span class="n">x</span>
+                <span class="k">on</span> <span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>
+                <span class="k">on</span> <span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;two&quot;</span>
+                <span class="k">on</span> <span class="mi">3</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;three&quot;</span>
+                <span class="k">off</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 <p>Using Lists during definition</p>
@@ -329,14 +329,14 @@ The for in loop can update the list items.</p>
 </pre></div>
 </div>
 <p>Exit from more than one loop</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                <span class="k k-Control">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                 <span class="k">see</span> <span class="s2">&quot;x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">nl</span>
-                                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
-                                                <span class="k k-Control">exit</span> <span class="mi">2</span>     <span class="c1"># exit from 2 loops</span>
-                                <span class="k k-Control">ok</span>
-                <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+                                <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+                                                <span class="k">exit</span> <span class="mi">2</span>     <span class="c1"># exit from 2 loops</span>
+                                <span class="k">ok</span>
+                <span class="k">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -458,13 +458,13 @@ to write functions that are more usable in different situations.</p>
 <span class="kd">Class</span> <span class="nc">Number</span> <span class="n">one</span> <span class="n">two</span> <span class="n">three</span>
         <span class="kd">Func</span> <span class="nf">GetOne</span>
                 <span class="k">See</span> <span class="s2">&quot;Number : One&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">return</span> <span class="mi">1</span>
+                <span class="k">return</span> <span class="mi">1</span>
         <span class="kd">Func</span> <span class="nf">GetTwo</span>
                 <span class="k">See</span> <span class="s2">&quot;Number : Two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">return</span> <span class="mi">2</span>
+                <span class="k">return</span> <span class="mi">2</span>
         <span class="kd">Func</span> <span class="nf">GetThree</span>
                 <span class="k">See</span> <span class="s2">&quot;Number : Three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">return</span> <span class="mi">3</span>
+                <span class="k">return</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </section>
@@ -492,7 +492,7 @@ to write functions that are more usable in different situations.</p>
 </div>
 <p>We can create a list then execute code generated from that list</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aWords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="s2">&quot;it&quot;</span><span class="p">,</span><span class="s2">&quot;is&quot;</span><span class="p">,</span><span class="s2">&quot;me&quot;</span><span class="p">]</span>
-<span class="k k-Control">for</span> <span class="n">word</span> <span class="k k-Control">in</span> <span class="n">aWords</span> <span class="n">cCode</span><span class="o">=</span><span class="n">word</span><span class="o">+</span><span class="s2">&quot;=0&quot;</span> <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">aWords</span> <span class="n">cCode</span><span class="o">=</span><span class="n">word</span><span class="o">+</span><span class="s2">&quot;=0&quot;</span> <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span> <span class="k">next</span>
 </pre></div>
 </div>
 <p>We can read text files using the Read(cFileName) function and we can write files using the Write(cFileName,cString) function.</p>
@@ -522,29 +522,29 @@ Also keywords that can be ignored like the ‘the’ keyword</p>
                 <span class="n">the</span><span class="o">=</span><span class="mi">0</span>
 
         <span class="kd">func</span> <span class="nf">geti</span>
-                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
                                 <span class="n">nIwantwindow</span><span class="o">++</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">getwant</span>
-                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
                                 <span class="n">nIwantwindow</span><span class="o">++</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">getwindow</span>
-                        <span class="k k-Control">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                        <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
                                 <span class="k">see</span> <span class="s2">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                        <span class="k k-Control">ok</span>
-                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">ok</span>
+                        <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
                                 <span class="n">nWindowTitle</span><span class="o">++</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">settitle</span> <span class="n">cValue</span>
-                        <span class="k k-Control">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
                                 <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
                                 <span class="k">see</span> <span class="s2">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="bp">nl</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>To complete the previous example, use read() to get the content of a file that contains</p>
@@ -578,14 +578,14 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
           <span class="n">div</span>
           <span class="p">{</span>
                 <span class="n">classname</span> <span class="o">=</span> <span class="ss">:row</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
                   <span class="n">div</span>
                   <span class="p">{</span>
                     <span class="n">classname</span> <span class="o">=</span> <span class="s2">&quot;col-sm-4&quot;</span>
                     <span class="n">H3</span> <span class="p">{</span> <span class="n">html</span><span class="p">(</span><span class="s2">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span> <span class="p">}</span>
                     <span class="n">P</span>  <span class="p">{</span> <span class="n">html</span><span class="p">(</span><span class="s2">&quot;Using a scripting language is very fun!&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="p">}</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
           <span class="p">}</span>
         <span class="p">}</span>
   <span class="p">}</span>

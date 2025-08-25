@@ -332,7 +332,7 @@ ringpm run listentoquran
 <p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100_000_000</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100_000_000</span> <span class="k">next</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
 </pre></div>
@@ -347,9 +347,9 @@ ringpm run listentoquran
 <p>While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">1_000_000</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
         <span class="n">result</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="n">result</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
@@ -486,11 +486,11 @@ using Bytes2List() and List2Bytes() functions.</p>
 
 <span class="kd">class</span> <span class="nc">MyLib</span> <span class="p">{</span>
         <span class="n">boolean</span> <span class="kd">func</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
-                        <span class="k k-Control">return</span> <span class="bp">true</span>
-                <span class="k k-Control">else</span>
-                        <span class="k k-Control">return</span> <span class="bp">false</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+                        <span class="k">return</span> <span class="bp">true</span>
+                <span class="k">else</span>
+                        <span class="k">return</span> <span class="bp">false</span>
+                <span class="k">ok</span>
         <span class="p">}</span>
 <span class="p">}</span>
 
@@ -498,7 +498,7 @@ using Bytes2List() and List2Bytes() functions.</p>
         <span class="n">@override</span>
         <span class="n">boolean</span> <span class="kd">func</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
                 <span class="o">?</span> <span class="s2">&quot;Using override&quot;</span>
-                <span class="k k-Control">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -593,13 +593,13 @@ without the need to convert them to Lists.</p>
 <span class="o">?</span> <span class="s2">&quot;Creating the image...&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">nIndex</span><span class="o">=</span><span class="mi">0</span>
-<span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">height</span>
-        <span class="k k-Control">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">width</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">height</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">width</span>
                 <span class="n">cData</span><span class="p">[</span><span class="n">nIndex</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
                 <span class="n">cData</span><span class="p">[</span><span class="n">nIndex</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
                 <span class="n">cData</span><span class="p">[</span><span class="n">nIndex</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+        <span class="k">next</span>
+<span class="k">next</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 
 <span class="c1"># Write the image</span>

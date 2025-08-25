@@ -313,9 +313,9 @@ SecondWindow() method to access the object.</p>
         <span class="n">Open_WindowAndLink</span><span class="p">(</span><span class="ss">:SecondWindowController</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
 
     <span class="kd">func</span> <span class="nf">SendMessage</span>
-        <span class="k k-Control">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
             <span class="n">SecondWindow</span><span class="p">()</span><span class="o">.</span><span class="n">setMessage</span><span class="p">(</span><span class="s2">&quot;Message from the first window&quot;</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
     <span class="kd">func</span> <span class="nf">setMessage</span> <span class="n">cMessage</span>
         <span class="n">oView</span><span class="o">.</span><span class="n">Label1</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
@@ -413,24 +413,24 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 <span id="index-6"></span><h2>Better Loop|Exit Command<a class="headerlink" href="#better-loop-exit-command" title="Permalink to this heading"></a></h2>
 <p>The Loop|Exit command is updated to accept Expressions after the command (not only numbers).</p>
 <p>The syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">Loop</span><span class="o">|</span><span class="k k-Control">Exit</span> <span class="p">[</span><span class="n">Number</span><span class="p">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Loop</span><span class="o">|</span><span class="k">Exit</span> <span class="p">[</span><span class="n">Number</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Changed to</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">Loop</span><span class="o">|</span><span class="k k-Control">Exit</span> <span class="p">[</span><span class="n">Expression</span><span class="p">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Loop</span><span class="o">|</span><span class="k">Exit</span> <span class="p">[</span><span class="n">Expression</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">XLoop</span> <span class="o">=</span> <span class="mi">2</span>       <span class="c1"># The outer loop</span>
 <span class="n">YLoop</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># The first inner loop</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-        <span class="k k-Control">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="k">see</span> <span class="s2">&quot;x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
-                        <span class="k k-Control">exit</span> <span class="n">XLoop</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+                        <span class="k">exit</span> <span class="n">XLoop</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -476,7 +476,7 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 <span class="kd">class</span> <span class="nc">mytest</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
         <span class="kd">func</span> <span class="nf">init</span>
-                <span class="k k-Control">return</span> <span class="kp">self</span>     <span class="c1"># Return by reference</span>
+                <span class="k">return</span> <span class="kp">self</span>     <span class="c1"># Return by reference</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -565,9 +565,9 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 <p>Example (3): Print file names in the myfile.zip</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 <span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
        <span class="k">see</span> <span class="n">zip_getfilenamebyindex</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
 </pre></div>
 </div>

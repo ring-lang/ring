@@ -443,9 +443,9 @@ Hello World
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Welcome&quot;</span>
 
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">200_000</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">200_000</span>
         <span class="n">cStr</span> <span class="o">+=</span> <span class="s2">&quot;Welcome&quot;</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clocksPerSecond</span><span class="p">()</span>
 </pre></div>
@@ -460,9 +460,9 @@ Hello World
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Welcome to the Ring programming language&quot;</span>
 
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">200_000</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">200_000</span>
         <span class="n">cStr2</span> <span class="o">=</span> <span class="nb">subStr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">,</span><span class="s2">&quot;***Ring***&quot;</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clocksPerSecond</span><span class="p">()</span>
 </pre></div>
@@ -533,14 +533,14 @@ Hello World
 
         <span class="kd">func</span> <span class="nf">removeObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
                 <span class="n">nPos</span> <span class="o">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">observer</span><span class="p">)</span>
-                <span class="k k-Control">if</span> <span class="n">nPos</span>
+                <span class="k">if</span> <span class="n">nPos</span>
                         <span class="nb">del</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">notify</span><span class="p">()</span>
-                <span class="k k-Control">for</span> <span class="n">oObj</span> <span class="k k-Control">in</span> <span class="n">aObservers</span>
+                <span class="k">for</span> <span class="n">oObj</span> <span class="k">in</span> <span class="n">aObservers</span>
                         <span class="n">oObj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
         <span class="kd">func</span> <span class="nf">setValue</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span>

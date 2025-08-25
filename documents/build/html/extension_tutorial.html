@@ -311,13 +311,13 @@ cp libmylib.dylib /usr/local/lib
 </div>
 <p>This time we use mylib.ring instead of using LoadLib() function directly</p>
 <p>In mylib.ring we have the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="nb">iswindows</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">iswindows</span><span class="p">()</span>
         <span class="nb">LoadLib</span><span class="p">(</span><span class="s2">&quot;mylib.dll&quot;</span><span class="p">)</span>
-<span class="k k-Control">but</span> <span class="nb">ismacosx</span><span class="p">()</span>
+<span class="k">but</span> <span class="nb">ismacosx</span><span class="p">()</span>
         <span class="nb">LoadLib</span><span class="p">(</span><span class="s2">&quot;libmylib.dylib&quot;</span><span class="p">)</span>
-<span class="k k-Control">else</span>
+<span class="k">else</span>
         <span class="nb">LoadLib</span><span class="p">(</span><span class="s2">&quot;libmylib.so&quot;</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <p>The file test.ring contains</p>
@@ -599,7 +599,7 @@ Sum List contains numbers from 1 to 10
 <span class="mi">8</span>
 <span class="n">Say</span> <span class="n">Hello</span>
 <span class="n">Hello</span> <span class="n">Mahmoud</span>
-<span class="n">Sum</span> <span class="n">List</span> <span class="n">contains</span> <span class="n">numbers</span> <span class="kd">from</span> <span class="nc">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<span class="n">Sum</span> <span class="n">List</span> <span class="n">contains</span> <span class="n">numbers</span> <span class="kd">from</span> <span class="nc">1</span> <span class="k">to</span> <span class="mi">10</span>
 <span class="mi">55</span>
 <span class="n">Increment</span> <span class="n">List</span> <span class="n">Items</span>
 <span class="mi">11</span>

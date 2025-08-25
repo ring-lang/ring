@@ -304,9 +304,9 @@
 <span class="n">pdf_add_line</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLUE</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">30</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
         <span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">PDF_RED</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;I LOVE PROGRAMMING!&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span><span class="n">PDF_BLUE</span><span class="p">)</span>
 
@@ -483,7 +483,7 @@ Ring 1.18 --&gt; 500  FPS
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">t1</span><span class="o">=</span><span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">1_000_000</span> <span class="n">r</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span> <span class="n">r</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="k">next</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="o">?</span> <span class="n">r</span>
 <span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
@@ -528,9 +528,9 @@ Time using Ring 1.20    --&gt; 244 ms
 <p>This release support using the ForEach keyword in For-in loops</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
-<span class="k k-Control">ForEach</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+<span class="k">ForEach</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
         <span class="o">?</span> <span class="n">x</span>
-<span class="k k-Control">Next</span>
+<span class="k">Next</span>
 </pre></div>
 </div>
 </section>
@@ -584,7 +584,7 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 <span class="n">f</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">f</span> <span class="n">x</span>
-        <span class="k k-Control">return</span> <span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>    <span class="c1"># Here 2 comes before x and x could be an object</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>    <span class="c1"># Here 2 comes before x and x could be an object</span>
 
 <span class="kd">class</span> <span class="nc">List</span>
 
@@ -595,37 +595,37 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 
 <span class="kd">func</span> <span class="nf">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">vValue</span>
 
-        <span class="k k-Control">if</span> <span class="n">cOperator</span> <span class="o">=</span> <span class="s2">&quot;r+&quot;</span>
+        <span class="k">if</span> <span class="n">cOperator</span> <span class="o">=</span> <span class="s2">&quot;r+&quot;</span>
                 <span class="n">cOperator</span> <span class="o">=</span> <span class="s2">&quot;+&quot;</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
-        <span class="k k-Control">switch</span> <span class="n">cOperator</span>
-                <span class="k k-Control">on</span> <span class="s2">&quot;+&quot;</span>
-                        <span class="k k-Control">if</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+        <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s2">&quot;+&quot;</span>
+                        <span class="k">if</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span>
                                         <span class="n">t</span> <span class="o">+=</span> <span class="n">vValue</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">but</span> <span class="nb">isObject</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
-                                <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="nb">isObject</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
                                         <span class="n">aList</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="n">vValue</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">on</span> <span class="s2">&quot;*&quot;</span>
-                        <span class="k k-Control">if</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s2">&quot;*&quot;</span>
+                        <span class="k">if</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span>
                                         <span class="n">t</span> <span class="o">*=</span> <span class="n">vValue</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">but</span> <span class="nb">isObject</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
-                                <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="nb">isObject</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
                                         <span class="n">aList</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">*=</span> <span class="n">vValue</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">on</span> <span class="s2">&quot;[]&quot;</span>
-                        <span class="k k-Control">return</span> <span class="n">aList</span><span class="p">[</span><span class="n">vValue</span><span class="p">]</span>
-                <span class="k k-Control">on</span> <span class="s2">&quot;len&quot;</span>
-                        <span class="k k-Control">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-        <span class="k k-Control">off</span>
-        <span class="k k-Control">return</span> <span class="kp">self</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s2">&quot;[]&quot;</span>
+                        <span class="k">return</span> <span class="n">aList</span><span class="p">[</span><span class="n">vValue</span><span class="p">]</span>
+                <span class="k">on</span> <span class="s2">&quot;len&quot;</span>
+                        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="k">off</span>
+        <span class="k">return</span> <span class="kp">self</span>
 
 <span class="kd">func</span> <span class="nf">print</span>
         <span class="o">?</span> <span class="n">aList</span>

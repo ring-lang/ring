@@ -333,17 +333,17 @@ Hello from testloadpackage.ring
 <p>Where we can use these files again to execute their code multiple times during the runtime as in the next code</p>
 <p>Similar to all of the Load commands, The Load Again command is executed directly by the Ring compiler in the parsing stage.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">setLang</span> <span class="n">nLanguage</span>
-        <span class="k k-Control">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
-                <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
         <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
         <span class="c1"># Change the language</span>
-                <span class="k k-Control">switch</span> <span class="n">nLanguage</span>
-                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
-                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/english.ring&quot;</span>
-                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
-                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/arabic.ring&quot;</span>
-                <span class="k k-Control">off</span>
+                <span class="k">switch</span> <span class="n">nLanguage</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
+                                <span class="kn">load</span> <span class="k">again</span> <span class="s2">&quot;translation/english.ring&quot;</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
+                                <span class="kn">load</span> <span class="k">again</span> <span class="s2">&quot;translation/arabic.ring&quot;</span>
+                <span class="k">off</span>
 </pre></div>
 </div>
 </section>

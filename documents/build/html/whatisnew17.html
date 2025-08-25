@@ -318,9 +318,9 @@ CSV2List(cCSVString) --&gt; aList
 
 <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">,</span> <span class="s2">&quot;square&quot;</span> <span class="p">]</span> <span class="p">]</span>
 
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
         <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="nb">write</span><span class="p">(</span> <span class="s2">&quot;squares.csv&quot;</span><span class="p">,</span> <span class="n">list2CSV</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
@@ -330,16 +330,16 @@ CSV2List(cCSVString) --&gt; aList
 <p>Example (2)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;csvlib.ring&quot;</span>
 
-<span class="k k-Control">if</span> <span class="o">!</span> <span class="nb">fexists</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="o">!</span> <span class="nb">fexists</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span>
         <span class="o">?</span> <span class="s2">&quot;The file squares.csv doesn&#39;t exist! - Run writeSquaresTable.ring to create it&quot;</span>
-        <span class="k k-Control">return</span>
-<span class="k k-Control">ok</span>
+        <span class="k">return</span>
+<span class="k">ok</span>
 
 <span class="n">aList</span> <span class="o">=</span> <span class="n">CSV2List</span><span class="p">(</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span> <span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">subList</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+<span class="k">for</span> <span class="n">subList</span> <span class="k">in</span> <span class="n">aList</span>
         <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -489,9 +489,9 @@ fax
         <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
         <span class="n">aList</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="s2">&quot;Square&quot;</span><span class="p">]]</span>
-        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">]</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
         <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
@@ -589,12 +589,12 @@ rwaReadBinaryResource(modulePath, resourceName, resourceType) ---&gt; String (By
 <li><p>continue</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
         <span class="o">?</span> <span class="n">t</span>
-        <span class="k k-Control">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
+        <span class="k">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
                 <span class="o">?</span> <span class="ss">:three</span>
-        <span class="k k-Control">endif</span>
-<span class="k k-Control">endfor</span>
+        <span class="k">endif</span>
+<span class="k">endfor</span>
 </pre></div>
 </div>
 </section>

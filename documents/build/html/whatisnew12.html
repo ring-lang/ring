@@ -290,17 +290,17 @@
 <p>So we have to use the (Load Again) command.</p>
 <p>Where we can use these files again during the runtime as in the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">setLang</span> <span class="n">nLanguage</span>
-        <span class="k k-Control">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
-                <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
         <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
         <span class="c1"># Change the language</span>
-                <span class="k k-Control">switch</span> <span class="n">nLanguage</span>
-                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
-                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/english.ring&quot;</span>
-                        <span class="k k-Control">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
-                                <span class="kn">load</span> <span class="k k-Control">again</span> <span class="s2">&quot;translation/arabic.ring&quot;</span>
-                <span class="k k-Control">off</span>
+                <span class="k">switch</span> <span class="n">nLanguage</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
+                                <span class="kn">load</span> <span class="k">again</span> <span class="s2">&quot;translation/english.ring&quot;</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
+                                <span class="kn">load</span> <span class="k">again</span> <span class="s2">&quot;translation/arabic.ring&quot;</span>
+                <span class="k">off</span>
 </pre></div>
 </div>
 </section>
@@ -340,25 +340,25 @@
 <span class="nb">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">PrintTokens</span> <span class="n">aList</span>
-        <span class="k k-Control">for</span> <span class="n">aToken</span> <span class="k k-Control">in</span> <span class="n">aList</span>
-                <span class="k k-Control">switch</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k k-Control">on</span> <span class="n">C_KEYWORD</span>
+        <span class="k">for</span> <span class="n">aToken</span> <span class="k">in</span> <span class="n">aList</span>
+                <span class="k">switch</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">on</span> <span class="n">C_KEYWORD</span>
                         <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Keyword&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span>  <span class="o">+</span> <span class="n">aKeywords</span><span class="p">[</span><span class="mi">0</span><span class="o">+</span><span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
-                <span class="k k-Control">on</span> <span class="n">C_OPERATOR</span>
+                <span class="k">on</span> <span class="n">C_OPERATOR</span>
                         <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Operator&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-                <span class="k k-Control">on</span> <span class="n">C_LITERAL</span>
+                <span class="k">on</span> <span class="n">C_LITERAL</span>
                         <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Literal&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-                <span class="k k-Control">on</span> <span class="n">C_NUMBER</span>
+                <span class="k">on</span> <span class="n">C_NUMBER</span>
                         <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-                <span class="k k-Control">on</span> <span class="n">C_IDENTIFIER</span>
+                <span class="k">on</span> <span class="n">C_IDENTIFIER</span>
                         <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s2">&quot;Identifier&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-                <span class="k k-Control">on</span> <span class="n">C_ENDLINE</span>
+                <span class="k">on</span> <span class="n">C_ENDLINE</span>
                         <span class="o">?</span> <span class="s2">&quot;EndLine&quot;</span>
-                <span class="k k-Control">off</span>
-        <span class="k k-Control">next</span>
+                <span class="k">off</span>
+        <span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">Width</span> <span class="n">cText</span><span class="p">,</span><span class="n">nWidth</span>
-        <span class="k k-Control">return</span> <span class="n">cText</span><span class="o">+</span><span class="nb">copy</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">nWidth</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">cText</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">cText</span><span class="o">+</span><span class="nb">copy</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">nWidth</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">cText</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Output:</p>

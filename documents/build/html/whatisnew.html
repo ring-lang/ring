@@ -268,13 +268,13 @@ and it’s ability to create declarative and natural domain specific languages i
         <span class="kd">func</span> <span class="nf">braceexpreval</span> <span class="n">x</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
         <span class="kd">func</span> <span class="nf">getnumbers</span>
-                <span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">value</span>
+                <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">value</span>
                         <span class="k">see</span> <span class="s2">&quot;Enter Number (&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;) :&quot;</span> <span class="k">give</span> <span class="n">nNumber</span>
                         <span class="n">aNumbers</span> <span class="o">+</span> <span class="n">nNumber</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
         <span class="kd">func</span> <span class="nf">getsum</span>
                 <span class="n">nSUm</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k k-Control">next</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k">next</span>
                 <span class="k">see</span> <span class="s2">&quot;The Sum : &quot;</span> <span class="o">+</span> <span class="n">nSum</span>
         <span class="kd">private</span>
                 <span class="n">value</span><span class="o">=</span><span class="mi">0</span> <span class="n">aNumbers</span><span class="o">=</span><span class="p">[]</span>
@@ -332,7 +332,7 @@ more options.</p>
 </div>
 <p>We have new styles (optional) for control structures.</p>
 <p>Example :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">While</span> <span class="bp">True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="bp">True</span>
 
         <span class="k">Put</span> <span class="s2">&quot;</span>
 <span class="s2">                Main Menu</span>
@@ -343,25 +343,25 @@ more options.</p>
 
 <span class="s2">            &quot;</span> <span class="k">Get</span> <span class="n">nOption</span>
 
-        <span class="k k-Control">Switch</span> <span class="n">nOption</span>
-        <span class="k k-Control">Case</span> <span class="mi">1</span>
+        <span class="k">Switch</span> <span class="n">nOption</span>
+        <span class="k">Case</span> <span class="mi">1</span>
                 <span class="k">Put</span> <span class="s2">&quot;Enter your name : &quot;</span>
                 <span class="k">Get</span> <span class="n">name</span>
                 <span class="k">Put</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">Case</span> <span class="mi">2</span>
+        <span class="k">Case</span> <span class="mi">2</span>
                 <span class="k">Put</span> <span class="s2">&quot;Sample : using while loop&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">Case</span> <span class="mi">3</span>
-                <span class="k k-Control">Bye</span>
-        <span class="k k-Control">Else</span>
+        <span class="k">Case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">Else</span>
                 <span class="k">Put</span> <span class="s2">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">End</span>
-<span class="k k-Control">End</span>
+        <span class="k">End</span>
+<span class="k">End</span>
 </pre></div>
 </div>
 <p>Example :</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="k k-Control">While</span> <span class="bp">True</span> <span class="p">{</span>
+<span class="k">While</span> <span class="bp">True</span> <span class="p">{</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span>
 <span class="s2">                Main Menu</span>
@@ -374,16 +374,16 @@ more options.</p>
 
         <span class="n">nOption</span> <span class="o">=</span> <span class="nb">GetString</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">nOption</span> <span class="p">{</span>
-        <span class="k k-Control">case</span> <span class="mi">1</span>
+        <span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter your name : &quot;</span><span class="p">)</span>
                 <span class="n">name</span> <span class="o">=</span> <span class="nb">getstring</span><span class="p">()</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">#{</span><span class="n">name</span><span class="si">}</span><span class="s2">\n&quot;</span><span class="p">)</span>
-        <span class="k k-Control">case</span> <span class="mi">2</span>
+        <span class="k">case</span> <span class="mi">2</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample : using switch statement\n&quot;</span><span class="p">)</span>
-        <span class="k k-Control">case</span> <span class="mi">3</span>
-                <span class="k k-Control">Bye</span>
-        <span class="k k-Control">else</span>
+        <span class="k">case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">else</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bad option...\n&quot;</span><span class="p">)</span>
         <span class="p">}</span>
 
@@ -446,14 +446,14 @@ more options.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Map()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k k-Control">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Filter()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k k-Control">return</span> <span class="bp">true</span> <span class="k k-Control">else</span> <span class="k k-Control">return</span> <span class="bp">false</span> <span class="k k-Control">ok</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="bp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="bp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -642,15 +642,15 @@ using nested structures or using natural programming.</p>
 <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
 <span class="n">aResult</span> <span class="o">=</span>  <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aResult</span>
-        <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">x</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
                 <span class="k">see</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+        <span class="k">next</span>
+<span class="k">next</span>
 <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aResult</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
         <span class="k">see</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="n">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
 </pre></div>
 </div>

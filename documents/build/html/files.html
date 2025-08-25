@@ -333,13 +333,13 @@
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Testing DIR() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">mylist</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="s2">&quot;C:\myfolder&quot;</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">mylist</span>
-        <span class="k k-Control">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                 <span class="k">see</span> <span class="s2">&quot;Directory : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="k">see</span> <span class="s2">&quot;File : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">ok</span>
-<span class="k k-Control">next</span>
+        <span class="k">ok</span>
+<span class="k">next</span>
 <span class="k">see</span> <span class="s2">&quot;Files count : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -439,9 +439,9 @@ the old file</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">freopen</span><span class="p">(</span><span class="s2">&quot;myprogoutput.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w+&quot;</span><span class="p">,</span><span class="n">stdout</span><span class="p">)</span>
 <span class="k">see</span> <span class="s2">&quot;welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="cm">/*</span>
 <span class="cm">** Read : https://en.wikipedia.org/wiki/Device_file#Device_files</span>
@@ -455,7 +455,7 @@ the old file</p>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output to stdout</span>
-<span class="k k-Control">Done</span>
+<span class="k">Done</span>
 
 <span class="c1"># Output to file : myprogoutput.txt</span>
 <span class="n">welcome</span>
@@ -494,7 +494,7 @@ the old file</p>
 <span id="index-12"></span><h2>Fseek() Function<a class="headerlink" href="#fseek-function" title="Permalink to this heading"></a></h2>
 <p>We can set the file position of the stream using the Fseek() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fseek</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span> <span class="n">nOffset</span><span class="p">,</span> <span class="n">nWhence</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">zero</span> <span class="k k-Control">if</span> <span class="n">successful</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fseek</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">,</span> <span class="n">nOffset</span><span class="p">,</span> <span class="n">nWhence</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">zero</span> <span class="k">if</span> <span class="n">successful</span>
 </pre></div>
 </div>
 <p>The next table presents the nWhence values</p>
@@ -562,7 +562,7 @@ function</p>
 <span id="index-18"></span><h2>Feof() Function<a class="headerlink" href="#feof-function" title="Permalink to this heading"></a></h2>
 <p>We can test the end-of-file indicator using the Feof() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Feof</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">EOF</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="ow">not</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Feof</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">EOF</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 </pre></div>
 </div>
 </section>
@@ -570,7 +570,7 @@ function</p>
 <span id="index-19"></span><h2>Ferror() Function<a class="headerlink" href="#ferror-function" title="Permalink to this heading"></a></h2>
 <p>We can test the error indicator of a given stream using the Ferror() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Ferror</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">error</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="ow">not</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Ferror</span><span class="p">(</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">error</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 </pre></div>
 </div>
 </section>
@@ -644,7 +644,7 @@ function</p>
 <span id="index-28"></span><h2>Fexists() Function<a class="headerlink" href="#fexists-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a file exists using the Fexists() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fexists</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Fexists</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -749,10 +749,10 @@ function</p>
 <span class="k">see</span> <span class="s2">&quot;print file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../samples/fromdoc/filefuncs.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="nb">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="k k-Control">while</span> <span class="nb">isstring</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="k">while</span> <span class="nb">isstring</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
                 <span class="k">see</span> <span class="n">r</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="nb">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
 <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;print line from the file&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -774,11 +774,11 @@ function</p>
 
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefolder</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;../tests/scripts/test78.txt&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="k">see</span> <span class="s2">&quot;testing ungetc() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="nb">fgetc</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
                 <span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="bp">nl</span>
                 <span class="nb">ungetc</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
 <span class="k">see</span> <span class="s2">&quot;testing fread() &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -797,17 +797,17 @@ function</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;Testing: fread()&quot;</span> <span class="o">+</span><span class="s2">&quot; FileName: &quot;</span><span class="o">+</span> <span class="nb">exefilename</span><span class="p">()</span> <span class="o">+</span><span class="bp">nl</span> <span class="o">+</span><span class="bp">nl</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nb">exefilename</span><span class="p">(),</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="nb">fread</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">n</span> <span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="nb">isprint</span><span class="p">(</span><span class="nb">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isprint</span><span class="p">(</span><span class="nb">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
                 <span class="k">see</span> <span class="nb">substr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="k">see</span> <span class="s2">&quot;.&quot;</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="c1">### 80 char per line</span>
-        <span class="k k-Control">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">80</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">80</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="k">see</span> <span class="bp">nl</span>
-        <span class="k k-Control">ok</span>
-<span class="k k-Control">next</span>
+        <span class="k">ok</span>
+<span class="k">next</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>

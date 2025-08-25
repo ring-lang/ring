@@ -383,7 +383,7 @@
 <p>To find an item inside the list we can use the find() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Find</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
-<span class="nb">Find</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k k-Control">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="nb">Find</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="nb">Find</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 </pre></div>
 </div>
@@ -411,7 +411,7 @@
 <p>Also we can use the binarysearch() function to search in sorted list.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">BinarySearch</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
-<span class="nb">BinarySearch</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k k-Control">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="nb">BinarySearch</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -435,8 +435,8 @@
 <p>We can sort the list using the sort() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Sort</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="n">List</span>
-<span class="nb">Sort</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="n">List</span> <span class="n">based</span> <span class="k k-Control">on</span> <span class="n">nColumn</span>
-<span class="nb">Sort</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="n">List</span> <span class="n">based</span> <span class="k k-Control">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
+<span class="nb">Sort</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="n">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">nColumn</span>
+<span class="nb">Sort</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="n">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -565,12 +565,12 @@ lists in variables, pass lists to functions, and return lists from functions.</p
 
 <span class="kd">func</span> <span class="nf">duplicate</span> <span class="n">list</span>
         <span class="n">nMax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
                 <span class="n">list</span> <span class="o">+</span> <span class="n">list</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
-        <span class="k k-Control">next</span>
-        <span class="k k-Control">return</span> <span class="n">list</span>
+        <span class="k">next</span>
+        <span class="k">return</span> <span class="n">list</span>
 
-<span class="kd">func</span> <span class="nf">mylist</span> <span class="k k-Control">return</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+<span class="kd">func</span> <span class="nf">mylist</span> <span class="k">return</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -691,11 +691,11 @@ Where the order of parameters will not be important (we can change the order).</
   <span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="n">sizeList</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
-  <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">sizeList</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">sizeList</span>
      <span class="k">See</span> <span class="n">aList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span><span class="bp">nl</span>
      <span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">aList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-  <span class="k k-Control">next</span>
-<span class="k k-Control">return</span> <span class="n">acc</span>
+  <span class="k">next</span>
+<span class="k">return</span> <span class="n">acc</span>
 </pre></div>
 </div>
 </section>
@@ -717,37 +717,37 @@ Where the order of parameters will not be important (we can change the order).</
 <span class="c1">### isSolvedSoduku - Return ARRAY</span>
 
 <span class="kd">Func</span> <span class="nf">myFunctionArray</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
-    <span class="k k-Control">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">9</span>
-        <span class="k k-Control">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">9</span>
-            <span class="k k-Control">if</span> <span class="n">sudoku</span><span class="p">[</span><span class="n">Row</span><span class="p">][</span><span class="n">Col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">9</span>
+        <span class="k">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">9</span>
+            <span class="k">if</span> <span class="n">sudoku</span><span class="p">[</span><span class="n">Row</span><span class="p">][</span><span class="n">Col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
                 <span class="c1">//----------------------------</span>
                 <span class="c1">// Return Array with 3 fields</span>
-                <span class="k k-Control">return</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="p">]</span>
-            <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-    <span class="k k-Control">next</span>
-<span class="k k-Control">return</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="p">]</span>
+                <span class="k">return</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="p">]</span>
+            <span class="k">ok</span>
+        <span class="k">next</span>
+    <span class="k">next</span>
+<span class="k">return</span> <span class="p">[</span><span class="bp">True</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="p">]</span>
 
 <span class="c1">###----------------------------------</span>
 <span class="c1">### isSolvedSoduku - Return HASH</span>
 
 <span class="kd">Func</span> <span class="nf">myFunctionHash</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
-    <span class="k k-Control">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span>
-        <span class="k k-Control">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span>
-            <span class="k k-Control">if</span> <span class="n">sudoku</span><span class="p">[</span><span class="n">Row</span><span class="p">][</span><span class="n">Col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+        <span class="k">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+            <span class="k">if</span> <span class="n">sudoku</span><span class="p">[</span><span class="n">Row</span><span class="p">][</span><span class="n">Col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
                 <span class="c1">//---------------------------------</span>
                 <span class="c1">// Return Hash Table with 3 fields</span>
-                <span class="k k-Control">return</span>  <span class="p">[</span>   <span class="ss">:lValue</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
+                <span class="k">return</span>  <span class="p">[</span>   <span class="ss">:lValue</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span>
                             <span class="ss">:nRow</span>   <span class="o">=</span> <span class="n">Row</span><span class="p">,</span>
                             <span class="ss">:nCol</span>   <span class="o">=</span> <span class="n">Col</span>
                         <span class="p">]</span>
-            <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-    <span class="k k-Control">next</span>
+            <span class="k">ok</span>
+        <span class="k">next</span>
+    <span class="k">next</span>
 
-<span class="k k-Control">return</span>  <span class="p">[</span> <span class="ss">:lValue</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="ss">:nRow</span> <span class="o">=</span> <span class="n">Row</span><span class="p">,</span> <span class="ss">:nCol</span> <span class="o">=</span> <span class="n">Col</span> <span class="p">]</span>
+<span class="k">return</span>  <span class="p">[</span> <span class="ss">:lValue</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="ss">:nRow</span> <span class="o">=</span> <span class="n">Row</span><span class="p">,</span> <span class="ss">:nCol</span> <span class="o">=</span> <span class="n">Col</span> <span class="p">]</span>
 
 <span class="c1">###-----------------------------</span>
 </pre></div>
@@ -768,27 +768,27 @@ Where the order of parameters will not be important (we can change the order).</
 
 <span class="n">Counter</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="k k-Control">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-  <span class="k k-Control">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k k-Control">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
             <span class="n">blist</span><span class="p">[</span><span class="n">Col</span><span class="p">][</span><span class="n">Row</span><span class="p">][</span><span class="n">Dep</span><span class="p">]</span> <span class="o">=</span> <span class="n">Counter</span>
             <span class="n">Counter</span><span class="o">++</span>
-    <span class="k k-Control">next</span>
-  <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+    <span class="k">next</span>
+  <span class="k">next</span>
+<span class="k">next</span>
 
 <span class="c1">###-----------------------------------------------</span>
 <span class="c1">### Print the array elements in block format</span>
 
-<span class="k k-Control">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-  <span class="k k-Control">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k k-Control">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
             <span class="k">See</span> <span class="n">bList</span><span class="p">[</span><span class="n">Col</span><span class="p">][</span><span class="n">Row</span><span class="p">][</span><span class="n">Dep</span><span class="p">]</span> <span class="k">See</span> <span class="s2">&quot; &quot;</span>
-    <span class="k k-Control">next</span>
+    <span class="k">next</span>
     <span class="k">See</span> <span class="bp">nl</span>
-  <span class="k k-Control">next</span>
+  <span class="k">next</span>
     <span class="k">See</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="c1">###===========================</span>
 <span class="c1">### FUNCTIONS</span>
@@ -807,21 +807,21 @@ Where the order of parameters will not be important (we can change the order).</
      <span class="n">sizeList</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dimArray</span><span class="p">)</span>
 
      <span class="n">newParms</span> <span class="o">=</span> <span class="p">[]</span>
-     <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="k k-Control">to</span> <span class="n">sizeList</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="n">sizeList</span>
         <span class="nb">Add</span><span class="p">(</span><span class="n">newParms</span><span class="p">,</span> <span class="n">dimArray</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-     <span class="k k-Control">next</span>
+     <span class="k">next</span>
 
      <span class="n">alist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dimArray</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-     <span class="k k-Control">if</span> <span class="n">sizeList</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">return</span> <span class="n">aList</span>
-     <span class="k k-Control">ok</span>
+     <span class="k">if</span> <span class="n">sizeList</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">aList</span>
+     <span class="k">ok</span>
 
-     <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">alist</span>
+     <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">alist</span>
          <span class="n">t</span> <span class="o">=</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">newParms</span><span class="p">)</span>
-     <span class="k k-Control">next</span>
+     <span class="k">next</span>
 
-<span class="k k-Control">return</span> <span class="n">alist</span>
+<span class="k">return</span> <span class="n">alist</span>
 </pre></div>
 </div>
 </section>

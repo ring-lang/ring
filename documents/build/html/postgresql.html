@@ -243,31 +243,31 @@
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
 
-<span class="k k-Control">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-                <span class="k k-Control">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;select * from pg_database&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
         <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 
 <span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nFields</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
                 <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nFields</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
                 <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="k">see</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
@@ -311,22 +311,22 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
 
-<span class="k k-Control">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-                <span class="k k-Control">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;DROP DATABASE IF EXISTS mahdb;&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
@@ -338,9 +338,9 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 <span class="s2">                 ADDRESS        CHAR(50),</span>
 <span class="s2">                 SALARY         REAL );</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
@@ -350,34 +350,34 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 <span class="s2">                                (3, &#39;Mohammed&#39;, 33, &#39;Egypt&#39; , 30.00 ),</span>
 <span class="s2">                                (4, &#39;Ibrahim&#39; , 24, &#39;Egypt &#39;, 40.00 );</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
 <span class="s2">           select * from COMPANY</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
         <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k k-Control">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+        <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
 
 
 <span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nFields</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
                 <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nFields</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
                 <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="k">see</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 

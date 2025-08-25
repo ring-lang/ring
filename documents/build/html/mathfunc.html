@@ -400,14 +400,14 @@
 <span id="index-3"></span><h2>Random() Function<a class="headerlink" href="#random-function" title="Permalink to this heading"></a></h2>
 <p>The Random() function generate a random number and we can set the maximum value (optional).</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Random</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Random</span> <span class="n">number</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">range</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Random</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Random</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">range</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">20</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">20</span>
         <span class="k">see</span>  <span class="s2">&quot;Random number : &quot;</span> <span class="o">+</span> <span class="nb">random</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
              <span class="s2">&quot;Random number Max (100) : &quot;</span> <span class="o">+</span> <span class="nb">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Program Output:</p>
@@ -466,7 +466,7 @@
 <span id="index-5"></span><h2>Unsigned() Function<a class="headerlink" href="#unsigned-function" title="Permalink to this heading"></a></h2>
 <p>We can use unsigned numbers using the Unsigned() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">result</span> <span class="n">of</span> <span class="n">cOperator</span> <span class="n">operation</span> <span class="k k-Control">on</span> <span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">result</span> <span class="n">of</span> <span class="n">cOperator</span> <span class="n">operation</span> <span class="k">on</span> <span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -475,16 +475,16 @@
 <span class="c1"># Jenkins hash function - https://en.wikipedia.org/wiki/Jenkins_hash_function</span>
 <span class="kd">func</span> <span class="nf">oat_hash</span> <span class="n">cKey</span>
         <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">cKey</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cKey</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
                 <span class="n">r</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="n">h</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
         <span class="n">h</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="s2">&quot;&gt;&gt;&quot;</span><span class="p">),</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>
         <span class="n">h</span> <span class="o">=</span> <span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="nb">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="s2">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
-        <span class="k k-Control">return</span> <span class="n">h</span>
+        <span class="k">return</span> <span class="n">h</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -501,10 +501,10 @@
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.1234567890123</span>
-<span class="k k-Control">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">14</span>
+<span class="k">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">14</span>
         <span class="nb">decimals</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>

@@ -415,9 +415,9 @@
 
                 <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -492,9 +492,9 @@
 
                 <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -582,9 +582,9 @@
 
                 <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -605,28 +605,28 @@
 
 <span class="kd">func</span> <span class="nf">processNormalKeys</span>
         <span class="n">key</span> <span class="o">=</span> <span class="n">GLUTEventKey</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
                 <span class="nb">shutdown</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">processSpecialKeys</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">GLUTEventKey</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_F1</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_F1</span>
                                 <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                                 <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                                 <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_F2</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_F2</span>
                                 <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                                 <span class="n">green</span> <span class="o">=</span> <span class="mf">1.0</span>
                                 <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_F3</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_F3</span>
                                 <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                                 <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                                 <span class="n">blue</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 </pre></div>
 </div>
 <p>Screen Shot</p>
@@ -680,9 +680,9 @@
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span>  <span class="o">/</span> <span class="n">h</span>
 
@@ -706,9 +706,9 @@
 <span class="kd">func</span> <span class="nf">processNormalKeys</span>
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
                 <span class="nb">shutdown</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 
@@ -736,14 +736,14 @@
         <span class="n">glEnd</span><span class="p">()</span>
 
                 <span class="c1">// Draw 36 SnowMen</span>
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
-                <span class="k k-Control">for</span>  <span class="n">j</span><span class="o">=-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
+                <span class="k">for</span>  <span class="n">j</span><span class="o">=-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
                         <span class="n">glPushMatrix</span><span class="p">()</span>
                         <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
                         <span class="n">drawSnowMan</span><span class="p">()</span>
                         <span class="n">glPopMatrix</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
         <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
 
@@ -755,22 +755,22 @@
 
         <span class="n">fraction</span> <span class="o">=</span> <span class="mf">0.1</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_LEFT</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_LEFT</span>
                         <span class="n">angle</span> <span class="o">-=</span> <span class="mf">0.01</span>
                         <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
                         <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_RIGHT</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_RIGHT</span>
                         <span class="n">angle</span> <span class="o">+=</span> <span class="mf">0.01</span>
                         <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
                         <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                         <span class="n">x</span> <span class="o">+=</span> <span class="n">lx</span> <span class="o">*</span> <span class="n">fraction</span>
                         <span class="n">z</span> <span class="o">+=</span> <span class="n">lz</span> <span class="o">*</span> <span class="n">fraction</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">x</span> <span class="o">-=</span> <span class="n">lx</span> <span class="o">*</span> <span class="n">fraction</span>
                         <span class="n">z</span> <span class="o">-=</span> <span class="n">lz</span> <span class="o">*</span> <span class="n">fraction</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">main</span>
@@ -823,9 +823,9 @@
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -887,13 +887,13 @@
 
 <span class="kd">func</span> <span class="nf">renderScene</span>
 
-        <span class="k k-Control">if</span> <span class="n">deltaMove</span>
+        <span class="k">if</span> <span class="n">deltaMove</span>
                 <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="n">deltaAngle</span>
+        <span class="k">if</span> <span class="n">deltaAngle</span>
                 <span class="n">computeDir</span><span class="p">(</span><span class="n">deltaAngle</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Clear Color and Depth Buffers</span>
         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
@@ -917,14 +917,14 @@
 
 <span class="c1">// Draw 36 SnowMen</span>
 
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
-                <span class="k k-Control">for</span> <span class="n">j</span><span class="o">=-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
+                <span class="k">for</span> <span class="n">j</span><span class="o">=-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
                         <span class="n">glPushMatrix</span><span class="p">()</span>
                         <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
                         <span class="n">drawSnowMan</span><span class="p">()</span>
                         <span class="n">glPopMatrix</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
         <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
 
@@ -933,31 +933,31 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_LEFT</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_LEFT</span>
                          <span class="n">deltaAngle</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.01</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_RIGHT</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_RIGHT</span>
                          <span class="n">deltaAngle</span> <span class="o">=</span> <span class="mf">0.01</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                          <span class="n">deltaMove</span> <span class="o">=</span> <span class="mf">0.5</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 <span class="kd">func</span> <span class="nf">releaseKey</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_LEFT</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_LEFT</span>
                         <span class="n">deltaAngle</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_RIGHT</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_RIGHT</span>
                         <span class="n">deltaAngle</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
 
@@ -1014,9 +1014,9 @@
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -1070,9 +1070,9 @@
 
 <span class="kd">func</span> <span class="nf">renderScene</span>
 
-        <span class="k k-Control">if</span> <span class="n">deltaMove</span>
+        <span class="k">if</span> <span class="n">deltaMove</span>
                 <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Clear Color and Depth Buffers</span>
         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
@@ -1096,51 +1096,51 @@
 
         <span class="c1">// Draw 36 SnowMen</span>
 
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
-                <span class="k k-Control">for</span>  <span class="n">j</span><span class="o">=-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
+                <span class="k">for</span>  <span class="n">j</span><span class="o">=-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
                                          <span class="n">glPushMatrix</span><span class="p">()</span>
                                          <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
                                          <span class="n">drawSnowMan</span><span class="p">()</span>
                                          <span class="n">glPopMatrix</span><span class="p">()</span>
-                 <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                 <span class="k">next</span>
+        <span class="k">next</span>
         <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">processNormalKeys</span>
 
         <span class="n">key</span>  <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-                <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
                          <span class="nb">shutdown</span><span class="p">()</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">pressKey</span>
         <span class="n">key</span>  <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-           <span class="k k-Control">switch</span> <span class="n">key</span>
-                         <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+           <span class="k">switch</span> <span class="n">key</span>
+                         <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                                 <span class="n">deltaMove</span> <span class="o">=</span> <span class="mf">0.5</span>
-                         <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                         <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                                  <span class="n">deltaMove</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
-           <span class="k k-Control">off</span>
+           <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">releaseKey</span>
         <span class="n">key</span>  <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
-                <span class="k k-Control">switch</span> <span class="n">key</span>
-                         <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+                <span class="k">switch</span> <span class="n">key</span>
+                         <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                                 <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-                         <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                         <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                                 <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k k-Control">off</span>
+                <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">mouseMove</span>
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
                 <span class="c1">// this will only be true when the left button is down</span>
-                <span class="k k-Control">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 
                 <span class="c1">// update deltaAngle</span>
                 <span class="n">deltaAngle</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">-</span> <span class="n">xOrigin</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
@@ -1148,7 +1148,7 @@
                 <span class="c1">// update camera&#39;s direction</span>
                 <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
                 <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 
@@ -1160,17 +1160,17 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// only start motion if the left button is pressed</span>
-        <span class="k k-Control">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
+        <span class="k">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
                 <span class="c1">// when the button is released</span>
-                <span class="k k-Control">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
                         <span class="n">angle</span> <span class="o">+=</span> <span class="n">deltaAngle</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="c1">// state = GLUT_DOWN</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="n">xx</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
                 <span class="nb">fflush</span><span class="p">(</span><span class="n">stdout</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">main</span>
@@ -1261,9 +1261,9 @@
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -1320,9 +1320,9 @@
 
 <span class="kd">func</span> <span class="nf">renderScene</span>
 
-        <span class="k k-Control">if</span> <span class="n">deltaMove</span>
+        <span class="k">if</span> <span class="n">deltaMove</span>
                 <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Clear Color and Depth Buffers</span>
         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
@@ -1346,14 +1346,14 @@
 
 <span class="c1">// Draw 36 SnowMen</span>
 
-        <span class="k k-Control">for</span>  <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
-                <span class="k k-Control">for</span>  <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
+        <span class="k">for</span>  <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
+                <span class="k">for</span>  <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
                         <span class="n">glPushMatrix</span><span class="p">()</span>
                         <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
                         <span class="n">drawSnowMan</span><span class="p">()</span>
                         <span class="n">glPopMatrix</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
         <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
 
@@ -1367,26 +1367,26 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="n">glutSetMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="mi">27</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="mi">27</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fillMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">colorMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">shrinkMenu</span><span class="p">)</span>
                         <span class="nb">shutdown</span><span class="p">()</span>
 
-                <span class="k k-Control">on</span> <span class="s1">&#39;s&#39;</span>
-                        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">menuFlag</span>
+                <span class="k">on</span> <span class="s1">&#39;s&#39;</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">menuFlag</span>
                           <span class="n">glutChangeToSubMenu</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Shrink&quot;</span><span class="p">,</span><span class="n">shrinkMenu</span><span class="p">)</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">on</span> <span class="s1">&#39;c&#39;</span>
-                        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">menuFlag</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s1">&#39;c&#39;</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">menuFlag</span>
                                 <span class="n">glutChangeToSubMenu</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Color&quot;</span><span class="p">,</span><span class="n">colorMenu</span><span class="p">)</span>
-                        <span class="k k-Control">ok</span>
-        <span class="k k-Control">off</span>
-        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
+                        <span class="k">ok</span>
+        <span class="k">off</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span>
                 <span class="nb">shutdown</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">pressKey</span>
@@ -1395,24 +1395,24 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                          <span class="n">deltaMove</span> <span class="o">=</span> <span class="mf">0.5</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">releaseKey</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -1424,7 +1424,7 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// this will only be true when the left button is down</span>
-        <span class="k k-Control">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 
                 <span class="c1">// update deltaAngle</span>
                 <span class="n">deltaAngle</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">-</span> <span class="n">xOrigin</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
@@ -1432,7 +1432,7 @@
                 <span class="c1">// update camera&#39;s direction</span>
                 <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
                 <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">mouseButton</span>
@@ -1443,16 +1443,16 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// only start motion if the left button is pressed</span>
-        <span class="k k-Control">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
+        <span class="k">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
                 <span class="c1">// when the button is released</span>
-                <span class="k k-Control">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
                         <span class="n">angle</span> <span class="o">+=</span> <span class="n">deltaAngle</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="c1">// state = GLUT_DOWN</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="n">xx</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -1465,11 +1465,11 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span>  <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
+        <span class="k">if</span>  <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">processMainMenu</span>
@@ -1482,50 +1482,50 @@
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
+        <span class="k">switch</span> <span class="n">option</span>
 
-                <span class="k k-Control">on</span> <span class="n">C_FILL</span>
+                <span class="k">on</span> <span class="n">C_FILL</span>
                          <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_FILL</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">C_LINE</span>
+                <span class="k">on</span> <span class="n">C_LINE</span>
                          <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_LINE</span><span class="p">)</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">processShrinkMenu</span>
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
+        <span class="k">switch</span> <span class="n">option</span>
 
-                <span class="k k-Control">on</span> <span class="n">C_SHRINK</span>
+                <span class="k">on</span> <span class="n">C_SHRINK</span>
                         <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.5</span>
-                <span class="k k-Control">on</span> <span class="n">C_NORMAL</span>
+                <span class="k">on</span> <span class="n">C_NORMAL</span>
                          <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.0</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">processColorMenu</span>
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
-                <span class="k k-Control">on</span> <span class="n">C_RED</span>
+        <span class="k">switch</span> <span class="n">option</span>
+                <span class="k">on</span> <span class="n">C_RED</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_GREEN</span>
+                <span class="k">on</span> <span class="n">C_GREEN</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_BLUE</span>
+                <span class="k">on</span> <span class="n">C_BLUE</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">1.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_ORANGE</span>
+                <span class="k">on</span> <span class="n">C_ORANGE</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.5</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">createPopupMenus</span>
@@ -1663,9 +1663,9 @@
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -1715,9 +1715,9 @@
 
 <span class="kd">func</span> <span class="nf">renderBitmapString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
         <span class="n">glRasterPos3f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">c</span> <span class="k k-Control">in</span> <span class="n">string</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">string</span>
                 <span class="n">glutBitmapCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
 
 <span class="kd">func</span> <span class="nf">computePos</span> <span class="n">deltaMove</span>
@@ -1728,9 +1728,9 @@
 
 <span class="kd">func</span> <span class="nf">renderScene</span>
 
-        <span class="k k-Control">if</span>  <span class="n">deltaMove</span>
+        <span class="k">if</span>  <span class="n">deltaMove</span>
                 <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Clear Color and Depth Buffers</span>
         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
@@ -1754,16 +1754,16 @@
         <span class="n">glEnd</span><span class="p">()</span>
 
 <span class="c1">// Draw 36 SnowMen</span>
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
-                <span class="k k-Control">for</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="mi">2</span>
                         <span class="n">glPushMatrix</span><span class="p">()</span>
                         <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
                         <span class="n">drawSnowMan</span><span class="p">()</span>
                         <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">6</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
                         <span class="n">renderBitmapString</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="n">font</span> <span class="p">,</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">number</span><span class="p">)</span>
                         <span class="n">glPopMatrix</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
 
         <span class="n">glutSwapBuffers</span><span class="p">()</span>
 
@@ -1777,14 +1777,14 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="mi">27</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="mi">27</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fillMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">colorMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fontMenu</span><span class="p">)</span>
                         <span class="nb">Shutdown</span><span class="p">()</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">pressKey</span>
@@ -1793,24 +1793,24 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                          <span class="n">deltaMove</span> <span class="o">=</span> <span class="mf">0.5</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">releaseKey</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -1822,7 +1822,7 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// this will only be true when the left button is down</span>
-        <span class="k k-Control">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 
                 <span class="c1">// update deltaAngle</span>
                 <span class="n">deltaAngle</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">-</span> <span class="n">xOrigin</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
@@ -1830,7 +1830,7 @@
                 <span class="c1">// update camera&#39;s direction</span>
                 <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
                 <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">mouseButton</span>
@@ -1841,16 +1841,16 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// only start motion if the left button is pressed</span>
-        <span class="k k-Control">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
+        <span class="k">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
                 <span class="c1">// when the button is released</span>
-                <span class="k k-Control">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
                         <span class="n">angle</span> <span class="o">+=</span> <span class="n">deltaAngle</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="c1">// state = GLUT_DOWN</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="n">xx</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -1861,11 +1861,11 @@
 
         <span class="n">status</span> <span class="o">=</span> <span class="n">glutEventStatus</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">processMainMenu</span>
@@ -1878,58 +1878,58 @@
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
+        <span class="k">switch</span> <span class="n">option</span>
 
-                <span class="k k-Control">on</span> <span class="n">C_FILL</span>
+                <span class="k">on</span> <span class="n">C_FILL</span>
                         <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_FILL</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">C_LINE</span>
+                <span class="k">on</span> <span class="n">C_LINE</span>
                          <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_LINE</span><span class="p">)</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">processFontMenu</span>
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_8_BY_13</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_8_BY_13</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_8_BY_13</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_9_BY_15</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_9_BY_15</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_9_BY_15</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_10</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_24</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_10</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_12</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_18</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 <span class="kd">func</span> <span class="nf">processColorMenu</span>
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
-                <span class="k k-Control">on</span> <span class="n">C_RED</span>
+        <span class="k">switch</span> <span class="n">option</span>
+                <span class="k">on</span> <span class="n">C_RED</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_GREEN</span>
+                <span class="k">on</span> <span class="n">C_GREEN</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_BLUE</span>
+                <span class="k">on</span> <span class="n">C_BLUE</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">1.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_ORANGE</span>
+                <span class="k">on</span> <span class="n">C_ORANGE</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.5</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">createPopupMenus</span>
@@ -2082,9 +2082,9 @@
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
-        <span class="k k-Control">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
@@ -2134,17 +2134,17 @@
 
 <span class="kd">func</span> <span class="nf">renderBitmapString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
         <span class="n">glRasterPos3f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">c</span> <span class="k k-Control">in</span> <span class="n">string</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">string</span>
                 <span class="n">glutBitmapCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">renderStrokeFontString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
         <span class="n">glPushMatrix</span><span class="p">()</span>
         <span class="n">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
         <span class="n">glScalef</span><span class="p">(</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">c</span> <span class="k k-Control">in</span> <span class="n">string</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">string</span>
                 <span class="n">glutStrokeCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="nb">Ascii</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="n">glPopMatrix</span><span class="p">()</span>
 
 
@@ -2186,9 +2186,9 @@
 
 <span class="kd">func</span> <span class="nf">renderScene</span>
 
-        <span class="k k-Control">if</span>  <span class="n">deltaMove</span>
+        <span class="k">if</span>  <span class="n">deltaMove</span>
                 <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Clear Color and Depth Buffers</span>
         <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
@@ -2212,26 +2212,26 @@
         <span class="n">glEnd</span><span class="p">()</span>
 
 <span class="c1">// Draw 9 SnowMen</span>
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">for</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k k-Control">to</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="o">-</span><span class="mi">1</span>
                         <span class="n">glPushMatrix</span><span class="p">()</span>
                         <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
                         <span class="n">drawSnowMan</span><span class="p">()</span>
                         <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
                         <span class="n">renderBitmapString</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="n">font</span> <span class="p">,</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">number</span><span class="p">)</span>
                         <span class="n">glPopMatrix</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
 
         <span class="c1">// Code to compute frames per second</span>
         <span class="n">frame</span><span class="o">++</span>
 
         <span class="n">time</span><span class="o">=</span><span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_ELAPSED_TIME</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="n">time</span> <span class="o">-</span> <span class="n">timebase</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="o">-</span> <span class="n">timebase</span> <span class="o">&gt;</span> <span class="mi">1000</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;RingFreeGLUT - FPS: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">frame</span><span class="o">*</span><span class="mf">1000.0</span><span class="o">/</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">timebase</span><span class="p">))</span>
                 <span class="n">timebase</span> <span class="o">=</span> <span class="n">time</span>
                 <span class="n">frame</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Code to display a string (fps) with bitmap fonts</span>
         <span class="n">setOrthographicProjection</span><span class="p">()</span>
@@ -2255,14 +2255,14 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="mi">27</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="mi">27</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fillMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">colorMenu</span><span class="p">)</span>
                         <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fontMenu</span><span class="p">)</span>
                         <span class="nb">Shutdown</span><span class="p">()</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">pressKey</span>
@@ -2271,24 +2271,24 @@
         <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                          <span class="n">deltaMove</span> <span class="o">=</span> <span class="mf">0.5</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">releaseKey</span>
 
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">key</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">switch</span> <span class="n">key</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                         <span class="n">deltaMove</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -2300,7 +2300,7 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// this will only be true when the left button is down</span>
-        <span class="k k-Control">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 
                 <span class="c1">// update deltaAngle</span>
                 <span class="n">deltaAngle</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">-</span> <span class="n">xOrigin</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.001</span>
@@ -2308,7 +2308,7 @@
                 <span class="c1">// update camera&#39;s direction</span>
                 <span class="n">lx</span> <span class="o">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
                 <span class="n">lz</span> <span class="o">=</span> <span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="n">deltaAngle</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">mouseButton</span>
@@ -2319,16 +2319,16 @@
         <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// only start motion if the left button is pressed</span>
-        <span class="k k-Control">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
+        <span class="k">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
                 <span class="c1">// when the button is released</span>
-                <span class="k k-Control">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
+                <span class="k">if</span> <span class="n">state</span> <span class="o">=</span> <span class="n">GLUT_UP</span>
                         <span class="n">angle</span> <span class="o">+=</span> <span class="n">deltaAngle</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="c1">// state = GLUT_DOWN</span>
                         <span class="n">xOrigin</span> <span class="o">=</span> <span class="n">xx</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -2339,11 +2339,11 @@
 
         <span class="n">status</span> <span class="o">=</span> <span class="n">glutEventStatus</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
 <span class="kd">func</span> <span class="nf">processMainMenu</span>
@@ -2356,58 +2356,58 @@
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
+        <span class="k">switch</span> <span class="n">option</span>
 
-                <span class="k k-Control">on</span> <span class="n">C_FILL</span>
+                <span class="k">on</span> <span class="n">C_FILL</span>
                         <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_FILL</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">C_LINE</span>
+                <span class="k">on</span> <span class="n">C_LINE</span>
                          <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_LINE</span><span class="p">)</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">processFontMenu</span>
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_8_BY_13</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_8_BY_13</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_8_BY_13</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_9_BY_15</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_9_BY_15</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_9_BY_15</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_10</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_TIMES_ROMAN_24</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_10</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_12</span>
-                <span class="k k-Control">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>
+                <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>
                         <span class="n">font</span> <span class="o">=</span> <span class="n">GLUT_BITMAP_HELVETICA_18</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 <span class="kd">func</span> <span class="nf">processColorMenu</span>
 
         <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
 
-        <span class="k k-Control">switch</span> <span class="n">option</span>
-                <span class="k k-Control">on</span> <span class="n">C_RED</span>
+        <span class="k">switch</span> <span class="n">option</span>
+                <span class="k">on</span> <span class="n">C_RED</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_GREEN</span>
+                <span class="k">on</span> <span class="n">C_GREEN</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_BLUE</span>
+                <span class="k">on</span> <span class="n">C_BLUE</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.0</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">1.0</span>
-                <span class="k k-Control">on</span> <span class="n">C_ORANGE</span>
+                <span class="k">on</span> <span class="n">C_ORANGE</span>
                         <span class="n">red</span> <span class="o">=</span> <span class="mf">1.0</span>
                         <span class="n">green</span> <span class="o">=</span> <span class="mf">0.5</span>
                         <span class="n">blue</span> <span class="o">=</span> <span class="mf">0.5</span>
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">createPopupMenus</span>
@@ -2583,22 +2583,22 @@
         <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
 
   <span class="c1">//  Right arrow - increase rotation by 5 degree</span>
-        <span class="k k-Control">switch</span> <span class="n">Key</span>
+        <span class="k">switch</span> <span class="n">Key</span>
 
-        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_RIGHT</span>
+        <span class="k">on</span> <span class="n">GLUT_KEY_RIGHT</span>
                 <span class="n">rotate_y</span> <span class="o">+=</span> <span class="mi">5</span>
 
         <span class="c1">//  Left arrow - decrease rotation by 5 degree</span>
-        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_LEFT</span>
+        <span class="k">on</span> <span class="n">GLUT_KEY_LEFT</span>
                 <span class="n">rotate_y</span> <span class="o">-=</span> <span class="mi">5</span>
 
-        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_UP</span>
+        <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
                 <span class="n">rotate_x</span> <span class="o">+=</span> <span class="mi">5</span>
 
-        <span class="k k-Control">on</span> <span class="n">GLUT_KEY_DOWN</span>
+        <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
                 <span class="n">rotate_x</span> <span class="o">-=</span> <span class="mi">5</span>
 
-        <span class="k k-Control">off</span>
+        <span class="k">off</span>
 
   <span class="c1">//  Request display update</span>
   <span class="n">glutPostRedisplay</span><span class="p">()</span>

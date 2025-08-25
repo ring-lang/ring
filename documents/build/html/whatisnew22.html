@@ -328,8 +328,8 @@ The braceEnd() method prints the sum of the last row.</p>
                 <span class="n">aCallList</span> <span class="o">=</span> <span class="nb">ringvm_calllist</span><span class="p">()</span>
                 <span class="n">nLine</span>     <span class="o">=</span> <span class="n">aCallList</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aCallList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">7</span><span class="p">]</span>
 
-                <span class="k k-Control">if</span> <span class="n">nLastRow</span>  <span class="o">=</span> <span class="mi">0</span>      <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>            <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
-                <span class="k k-Control">if</span> <span class="n">nLastRow</span> <span class="o">!=</span> <span class="n">nLine</span>  <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>   <span class="o">?</span> <span class="n">nSum</span>   <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="n">nLastRow</span>  <span class="o">=</span> <span class="mi">0</span>      <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>            <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k">return</span> <span class="k">ok</span>
+                <span class="k">if</span> <span class="n">nLastRow</span> <span class="o">!=</span> <span class="n">nLine</span>  <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>   <span class="o">?</span> <span class="n">nSum</span>   <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k">return</span> <span class="k">ok</span>
 
                 <span class="n">nSum</span> <span class="o">+=</span> <span class="n">value</span>
 
@@ -368,13 +368,13 @@ with hyphens between them, except for the last element in each row.</p>
 
 <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
-        <span class="k k-Control">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">])</span>
-                <span class="k k-Control">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="k">ok</span>
+        <span class="k">next</span>
         <span class="o">?</span> <span class="s2">&quot;&quot;</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -415,13 +415,13 @@ in a structured format.</p>
                   <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span><span class="p">}</span>  <span class="p">]</span>
 
         <span class="kd">func</span> <span class="nf">getObject</span>
-                <span class="k k-Control">return</span> <span class="n">myMethod</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">myMethod</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">myMethod</span>
-                <span class="k k-Control">return</span> <span class="n">aList</span><span class="p">[</span><span class="n">myIndex</span><span class="p">()]</span>
+                <span class="k">return</span> <span class="n">aList</span><span class="p">[</span><span class="n">myIndex</span><span class="p">()]</span>
 
         <span class="kd">func</span> <span class="nf">myIndex</span>
-                <span class="k k-Control">return</span> <span class="mi">2</span>
+                <span class="k">return</span> <span class="mi">2</span>
 
 <span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>

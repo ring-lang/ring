@@ -234,7 +234,7 @@
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Calculate performance&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">1000000</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span> <span class="k">next</span>
 <span class="k">see</span> <span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
 </pre></div>
 </div>
@@ -243,13 +243,13 @@
 <span id="index-2"></span><h2>ClocksPerSecond() Function<a class="headerlink" href="#clockspersecond-function" title="Permalink to this heading"></a></h2>
 <p>Return how many clocks in one second</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k k-Control">in</span> <span class="n">one</span> <span class="n">second</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k">in</span> <span class="n">one</span> <span class="n">second</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wait 1 second</span>
 <span class="n">t</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">while</span> <span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="nb">clockspersecond</span><span class="p">()</span> <span class="k k-Control">end</span>
+<span class="k">while</span> <span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="nb">clockspersecond</span><span class="p">()</span> <span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -462,7 +462,7 @@
     <span class="n">EpochSec</span> <span class="o">=</span> <span class="n">tm_sec</span> <span class="o">+</span> <span class="n">tm_min</span> <span class="o">+</span> <span class="n">tm_hour</span> <span class="o">+</span> <span class="n">tm_yday</span> <span class="o">+</span>
                <span class="n">tm_year1</span> <span class="o">+</span> <span class="n">tm_year2</span> <span class="o">-</span> <span class="n">tm_year3</span> <span class="o">+</span> <span class="n">tm_year4</span>
 
-<span class="k k-Control">return</span> <span class="n">EpochSec</span>
+<span class="k">return</span> <span class="n">EpochSec</span>
 </pre></div>
 </div>
 </section>

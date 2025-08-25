@@ -234,13 +234,13 @@ the Ring programming language.</p>
 <li><p>If Statement</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">Expression</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Expression</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">but</span> <span class="n">Expression</span>
+<span class="k">but</span> <span class="n">Expression</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">else</span>
+<span class="k">else</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -253,23 +253,23 @@ the Ring programming language.</p>
 
 <span class="s2">    &quot;</span> <span class="k">give</span> <span class="n">nOption</span>
 
-<span class="k k-Control">if</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">1</span>  <span class="k">see</span> <span class="s2">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">name</span> <span class="k">see</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">but</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;Sample : using if statement&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">but</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">3</span> <span class="k k-Control">bye</span>
-<span class="k k-Control">else</span> <span class="k">see</span> <span class="s2">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">ok</span>
+<span class="k">if</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">1</span>  <span class="k">see</span> <span class="s2">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">name</span> <span class="k">see</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">but</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;Sample : using if statement&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">but</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">bye</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <ul class="simple" id="index-2">
 <li><p>Switch Statement</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">switch</span> <span class="n">Expression</span>
-<span class="k k-Control">on</span> <span class="n">Expression</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="n">Expression</span>
+<span class="k">on</span> <span class="n">Expression</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">other</span>
+<span class="k">other</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">off</span>
+<span class="k">off</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -282,12 +282,12 @@ the Ring programming language.</p>
 
 <span class="s2">    &quot;</span> <span class="k">Give</span> <span class="n">nOption</span>
 
-<span class="k k-Control">Switch</span> <span class="n">nOption</span>
-<span class="k k-Control">On</span> <span class="mi">1</span> <span class="k">See</span> <span class="s2">&quot;Enter your name : &quot;</span> <span class="k">Give</span> <span class="n">name</span> <span class="k">See</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">On</span> <span class="mi">2</span> <span class="k">See</span> <span class="s2">&quot;Sample : using switch statement&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">On</span> <span class="mi">3</span> <span class="k k-Control">Bye</span>
-<span class="k k-Control">Other</span> <span class="k">See</span> <span class="s2">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">Off</span>
+<span class="k">Switch</span> <span class="n">nOption</span>
+<span class="k">On</span> <span class="mi">1</span> <span class="k">See</span> <span class="s2">&quot;Enter your name : &quot;</span> <span class="k">Give</span> <span class="n">name</span> <span class="k">See</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">On</span> <span class="mi">2</span> <span class="k">See</span> <span class="s2">&quot;Sample : using switch statement&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">On</span> <span class="mi">3</span> <span class="k">Bye</span>
+<span class="k">Other</span> <span class="k">See</span> <span class="s2">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">Off</span>
 </pre></div>
 </div>
 </section>
@@ -297,13 +297,13 @@ the Ring programming language.</p>
 <li><p>While Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">while</span> <span class="n">Expression</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">Expression</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">While</span> <span class="bp">True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="bp">True</span>
 
         <span class="k">See</span> <span class="s2">&quot;</span>
 <span class="s2">                Main Menu</span>
@@ -314,33 +314,33 @@ the Ring programming language.</p>
 
 <span class="s2">            &quot;</span> <span class="k">Give</span> <span class="n">nOption</span>
 
-        <span class="k k-Control">Switch</span> <span class="n">nOption</span>
-        <span class="k k-Control">On</span> <span class="mi">1</span>
+        <span class="k">Switch</span> <span class="n">nOption</span>
+        <span class="k">On</span> <span class="mi">1</span>
                 <span class="k">See</span> <span class="s2">&quot;Enter your name : &quot;</span>
                 <span class="k">Give</span> <span class="n">name</span>
                 <span class="k">See</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">On</span> <span class="mi">2</span>
+        <span class="k">On</span> <span class="mi">2</span>
                 <span class="k">See</span> <span class="s2">&quot;Sample : using while loop&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">On</span> <span class="mi">3</span>
-                <span class="k k-Control">Bye</span>
-        <span class="k k-Control">Other</span>
+        <span class="k">On</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">Other</span>
                 <span class="k">See</span> <span class="s2">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">Off</span>
-<span class="k k-Control">End</span>
+        <span class="k">Off</span>
+<span class="k">End</span>
 </pre></div>
 </div>
 <ul class="simple" id="index-5">
 <li><p>For Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">identifier</span><span class="o">=</span><span class="n">expression</span> <span class="k k-Control">to</span> <span class="n">expression</span> <span class="p">[</span><span class="k k-Control">step</span> <span class="n">expression</span><span class="p">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">identifier</span><span class="o">=</span><span class="n">expression</span> <span class="k">to</span> <span class="n">expression</span> <span class="p">[</span><span class="k">step</span> <span class="n">expression</span><span class="p">]</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># print numbers from 1 to 10</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>  <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>  <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="k">next</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -348,37 +348,37 @@ the Ring programming language.</p>
 <span class="k">See</span> <span class="s2">&quot;Start : &quot;</span> <span class="k">give</span> <span class="n">nStart</span>  <span class="n">nStart</span> <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="n">nStart</span>
 <span class="k">See</span> <span class="s2">&quot;End   : &quot;</span> <span class="k">give</span> <span class="n">nEnd</span>    <span class="n">nEnd</span>   <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="n">nEnd</span>
 <span class="k">See</span> <span class="s2">&quot;Step  : &quot;</span> <span class="k">give</span> <span class="n">nStep</span>   <span class="n">nStep</span>  <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="n">nStep</span>
-<span class="k k-Control">For</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k k-Control">to</span> <span class="n">nEnd</span> <span class="k k-Control">Step</span> <span class="n">nStep</span>
+<span class="k">For</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span> <span class="k">Step</span> <span class="n">nStep</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">Next</span>
+<span class="k">Next</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># print even numbers from 0 to 10</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">10</span> <span class="k k-Control">step</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">step</span> <span class="mi">2</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># print even numbers from 10 to 0</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k k-Control">to</span> <span class="mi">0</span> <span class="k k-Control">step</span> <span class="o">-</span><span class="mi">2</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">to</span> <span class="mi">0</span> <span class="k">step</span> <span class="o">-</span><span class="mi">2</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <ul class="simple" id="index-6">
 <li><p>For in Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span><span class="o">|</span><span class="k k-Control">foreach</span> <span class="n">identifier</span> <span class="k k-Control">in</span> <span class="n">List</span><span class="o">/</span><span class="n">String</span>  <span class="p">[</span><span class="k k-Control">step</span> <span class="n">expression</span><span class="p">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="o">|</span><span class="k">foreach</span> <span class="n">identifier</span> <span class="k">in</span> <span class="n">List</span><span class="o">/</span><span class="n">String</span>  <span class="p">[</span><span class="k">step</span> <span class="n">expression</span><span class="p">]</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>    <span class="c1"># create list contains numbers from 1 to 10</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>  <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="k k-Control">next</span>  <span class="c1"># print numbers from 1 to 10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>  <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="k">next</span>  <span class="c1"># print numbers from 1 to 10</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -392,9 +392,9 @@ the Ring programming language.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>    <span class="c1"># create list contains numbers from 1 to 10</span>
 <span class="c1"># print odd items inside the list</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span> <span class="k k-Control">step</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">step</span> <span class="mi">2</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -405,15 +405,15 @@ the Ring programming language.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>     <span class="c1"># create list contains numbers from 1 to 5</span>
 <span class="c1"># replace list numbers with strings</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>
-        <span class="k k-Control">switch</span> <span class="n">x</span>
-        <span class="k k-Control">on</span> <span class="mi">1</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>
-        <span class="k k-Control">on</span> <span class="mi">2</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;two&quot;</span>
-        <span class="k k-Control">on</span> <span class="mi">3</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;three&quot;</span>
-        <span class="k k-Control">on</span> <span class="mi">4</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;four&quot;</span>
-        <span class="k k-Control">on</span> <span class="mi">5</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;five&quot;</span>
-        <span class="k k-Control">off</span>
-<span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="k">switch</span> <span class="n">x</span>
+        <span class="k">on</span> <span class="mi">1</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>
+        <span class="k">on</span> <span class="mi">2</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;two&quot;</span>
+        <span class="k">on</span> <span class="mi">3</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;three&quot;</span>
+        <span class="k">on</span> <span class="mi">4</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;four&quot;</span>
+        <span class="k">on</span> <span class="mi">5</span>  <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;five&quot;</span>
+        <span class="k">off</span>
+<span class="k">next</span>
 <span class="k">see</span> <span class="n">aList</span>       <span class="c1"># print the list items</span>
 </pre></div>
 </div>
@@ -421,17 +421,17 @@ the Ring programming language.</p>
 <section id="do-again-loop">
 <span id="index-9"></span><h2>Do Again Loop<a class="headerlink" href="#do-again-loop" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">do</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="k k-Control">again</span> <span class="n">expression</span>
+<span class="k">again</span> <span class="n">expression</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k k-Control">do</span>
+<span class="k">do</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">x</span><span class="o">++</span>
-<span class="k k-Control">again</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+<span class="k">again</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </section>
@@ -439,14 +439,14 @@ the Ring programming language.</p>
 <span id="index-10"></span><h2>Exit Command<a class="headerlink" href="#exit-command" title="Permalink to this heading"></a></h2>
 <p>Used to go outside one or more of loops.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">exit</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>       <span class="c1"># inside loop</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">exit</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>       <span class="c1"># inside loop</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="k k-Control">exit</span> <span class="k k-Control">ok</span>
-<span class="k k-Control">next</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">exit</span> <span class="k">ok</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -454,14 +454,14 @@ the Ring programming language.</p>
 <span id="index-11"></span><h2>Exit from two loops<a class="headerlink" href="#exit-from-two-loops" title="Permalink to this heading"></a></h2>
 <p>The next example presents how to use the exit command to exit from two loops in one jump.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-        <span class="k k-Control">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="k">see</span> <span class="s2">&quot;x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
-                        <span class="k k-Control">exit</span> <span class="mi">2</span>     <span class="c1"># exit from 2 loops</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+                        <span class="k">exit</span> <span class="mi">2</span>     <span class="c1"># exit from 2 loops</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -469,17 +469,17 @@ the Ring programming language.</p>
 <span id="index-12"></span><h2>Loop Command<a class="headerlink" href="#loop-command" title="Permalink to this heading"></a></h2>
 <p>Used to jump to the next iteration in the loop.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">loop</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>       <span class="c1"># inside loop</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">loop</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>       <span class="c1"># inside loop</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-        <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
                 <span class="k">see</span> <span class="s2">&quot;Number Three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">loop</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">loop</span>
+        <span class="k">ok</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -499,11 +499,11 @@ argument and the result will be one.</p>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="k k-Control">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span>
         <span class="k">see</span> <span class="s2">&quot;great&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 
-<span class="kd">func</span> <span class="nf">nice</span>  <span class="k">see</span> <span class="s2">&quot;nice&quot;</span> <span class="o">+</span> <span class="bp">nl</span>   <span class="k k-Control">return</span> <span class="mi">1</span>
+<span class="kd">func</span> <span class="nf">nice</span>  <span class="k">see</span> <span class="s2">&quot;nice&quot;</span> <span class="o">+</span> <span class="bp">nl</span>   <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -511,11 +511,11 @@ argument and the result will be one.</p>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="k k-Control">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span>
         <span class="k">see</span> <span class="s2">&quot;great&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 
-<span class="kd">func</span> <span class="nf">nice</span>  <span class="k">see</span> <span class="s2">&quot;nice&quot;</span> <span class="o">+</span> <span class="bp">nl</span>   <span class="k k-Control">return</span> <span class="mi">1</span>
+<span class="kd">func</span> <span class="nf">nice</span>  <span class="k">see</span> <span class="s2">&quot;nice&quot;</span> <span class="o">+</span> <span class="bp">nl</span>   <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -526,11 +526,11 @@ argument and the result will be one.</p>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="k k-Control">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">nice</span><span class="p">())</span>
         <span class="k">see</span> <span class="s2">&quot;great&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 
-<span class="kd">func</span> <span class="nf">nice</span>  <span class="k">see</span> <span class="s2">&quot;nice&quot;</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="k k-Control">return</span> <span class="mi">1</span>
+<span class="kd">func</span> <span class="nf">nice</span>  <span class="k">see</span> <span class="s2">&quot;nice&quot;</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </section>
@@ -547,9 +547,9 @@ argument and the result will be one.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># output = message from the if statement</span>
 
-<span class="k k-Control">if</span> <span class="mi">5</span>    <span class="c1"># 5 evaluates to true because it&#39;s not zero (0).</span>
+<span class="k">if</span> <span class="mi">5</span>    <span class="c1"># 5 evaluates to true because it&#39;s not zero (0).</span>
         <span class="k">see</span> <span class="s2">&quot;message from the if statement&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </section>

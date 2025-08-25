@@ -295,10 +295,10 @@
 <p>The next function in stdlib.ring uses the PrevFileName() to know if the file of the
 caller function is the main source file of the program or not.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">Func</span> <span class="nf">IsMainSourceFile</span>
-        <span class="k k-Control">if</span> <span class="nb">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="bp">sysargv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-                <span class="k k-Control">return</span> <span class="bp">true</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">return</span> <span class="bp">false</span>
+        <span class="k">if</span> <span class="nb">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="bp">sysargv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="k">return</span> <span class="bp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="bp">false</span>
 </pre></div>
 </div>
 </section>
@@ -440,11 +440,11 @@ library (RingLibCurl) around LibCurl.</p>
 only variables).</p>
 <p>For example the next code from the Stars Fighter Game</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cFunc</span> <span class="o">=</span> <span class="n">oself</span><span class="o">.</span><span class="n">keypress</span>
-<span class="k k-Control">call</span> <span class="n">cFunc</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
+<span class="k">call</span> <span class="n">cFunc</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Can be written in one line</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">call</span> <span class="n">oself</span><span class="o">.</span><span class="n">keypress</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">call</span> <span class="n">oself</span><span class="o">.</span><span class="n">keypress</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -474,9 +474,9 @@ warning, While without that option the error will pass silent.</p>
 more than one time. For example it’s common to start each file with the next code. where
 the function IsMainSourceFile() is part from the stdlib.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
-<span class="k k-Control">if</span> <span class="n">IsMainSourceFile</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">IsMainSourceFile</span><span class="p">()</span>
         <span class="c1">// Testing</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </section>

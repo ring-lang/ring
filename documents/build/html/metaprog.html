@@ -291,7 +291,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-1"></span><h2>locals() Function<a class="headerlink" href="#locals-function" title="Permalink to this heading"></a></h2>
 <p>We can get a list of variables names in the current scope using the locals() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">locals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="n">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">names</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">locals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="n">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -321,7 +321,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-2"></span><h2>globals() Function<a class="headerlink" href="#globals-function" title="Permalink to this heading"></a></h2>
 <p>We can get a list of variables names in the global scope using the globals() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">globals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="n">list</span> <span class="n">contains</span> <span class="n">variables</span> <span class="n">names</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">globals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="n">list</span> <span class="n">contains</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -380,9 +380,9 @@ the program code and we can modify our code during the runtime.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span>  <span class="nb">cfunctions</span><span class="p">()</span>
 <span class="k">See</span> <span class="s2">&quot;Count : &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;()&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -404,8 +404,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-5"></span><h2>islocal() Function<a class="headerlink" href="#islocal-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a variable is defined in the local scope or not using the islocal() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">islocal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
-                           <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">islocal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
+                           <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -429,8 +429,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-6"></span><h2>isglobal() Function<a class="headerlink" href="#isglobal-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a variable is defined in the global scope or not using the isglobal() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isglobal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
-                            <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k k-Control">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isglobal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
+                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -455,8 +455,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-7"></span><h2>isfunction() Function<a class="headerlink" href="#isfunction-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a Ring function is defined or not using the isfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="kd">function</span> <span class="nf">is</span> <span class="n">defined</span>
-                              <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="kd">function</span> <span class="nf">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="kd">function</span> <span class="nf">is</span> <span class="n">defined</span>
+                              <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="kd">function</span> <span class="nf">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -482,8 +482,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-8"></span><h2>iscfunction() Function<a class="headerlink" href="#iscfunction-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a C function is defined or not using the iscfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">iscfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">C</span> <span class="kd">function</span> <span class="nf">is</span> <span class="n">defined</span>
-                               <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">C</span> <span class="kd">function</span> <span class="nf">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">iscfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="kd">function</span> <span class="nf">is</span> <span class="n">defined</span>
+                               <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="kd">function</span> <span class="nf">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -538,8 +538,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-10"></span><h2>ispackage() Function<a class="headerlink" href="#ispackage-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a package is defined or not using the ispackage() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="kn">Package</span> <span class="nn">is</span> <span class="n">defined</span>
-                            <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="kn">Package</span> <span class="nn">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="kn">Package</span> <span class="nn">is</span> <span class="n">defined</span>
+                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="kn">Package</span> <span class="nn">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -604,8 +604,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-12"></span><h2>isclass() Function<a class="headerlink" href="#isclass-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a class is defined or not using the isclass() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isclass</span><span class="p">(</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="n">defined</span>
-                         <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isclass</span><span class="p">(</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="n">defined</span>
+                         <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -657,9 +657,9 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span> <span class="k k-Control">in</span> <span class="n">Package1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span> <span class="k">in</span> <span class="n">Package1</span>
 <span class="n">class1</span>
-<span class="n">classes</span> <span class="k k-Control">in</span> <span class="n">Package2</span>
+<span class="n">classes</span> <span class="k">in</span> <span class="n">Package2</span>
 <span class="n">class1</span>
 <span class="n">class2</span>
 <span class="n">class3</span>
@@ -670,8 +670,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-14"></span><h2>ispackageclass() Function<a class="headerlink" href="#ispackageclass-function" title="Permalink to this heading"></a></h2>
 <p>We can check if a class is defined inside package or not using the ispackageclass() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ispackageclass</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">,</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="n">defined</span>
-                                             <span class="n">returns</span> <span class="mi">0</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ispackageclass</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">,</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="n">defined</span>
+                                             <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="kd">Class</span> <span class="nc">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -769,7 +769,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-18"></span><h2>isobject() Function<a class="headerlink" href="#isobject-function" title="Permalink to this heading"></a></h2>
 <p>We can check the variable to know if it’s an object or not using the isobject() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isobject</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k k-Control">if</span> <span class="n">it</span><span class="s1">&#39;s an object, False if it&#39;</span><span class="n">s</span> <span class="ow">not</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isobject</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">it</span><span class="s1">&#39;s an object, False if it&#39;</span><span class="n">s</span> <span class="ow">not</span>
 </pre></div>
 </div>
 </section>
@@ -783,7 +783,7 @@ the program code and we can modify our code during the runtime.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">point</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="nb">attributes</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>          <span class="c1"># we can use see attributes(o1)</span>
-<span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">aList</span> <span class="k">see</span> <span class="n">t</span> <span class="k k-Control">next</span>       <span class="c1"># print xyz</span>
+<span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">see</span> <span class="n">t</span> <span class="k">next</span>       <span class="c1"># print xyz</span>
 <span class="kd">Class</span> <span class="nc">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
@@ -799,10 +799,10 @@ the program code and we can modify our code during the runtime.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">test</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="nb">methods</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;o1.&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;()&quot;</span>
         <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="kd">Class</span> <span class="nc">Test</span>
         <span class="kd">func</span> <span class="nf">f1</span>
@@ -827,7 +827,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-21"></span><h2>isattribute() Function<a class="headerlink" href="#isattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object contains an attribute or not using the isattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">object</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">attribute</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -846,7 +846,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-22"></span><h2>isprivateattribute() Function<a class="headerlink" href="#isprivateattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object contains a private attribute or not using the isprivateattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">object</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span>
                                               <span class="n">contains</span> <span class="n">the</span> <span class="kd">private</span> <span class="n">attribute</span>
 </pre></div>
 </div>
@@ -878,7 +878,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-23"></span><h2>ismethod() Function<a class="headerlink" href="#ismethod-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object class contains a method or not using the ismethod() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ismethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">object</span> <span class="kd">class</span> <span class="nc">contains</span> <span class="n">the</span> <span class="n">method</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ismethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="kd">class</span> <span class="nc">contains</span> <span class="n">the</span> <span class="n">method</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -901,7 +901,7 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-24"></span><h2>isprivatemethod() Function<a class="headerlink" href="#isprivatemethod-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object class contains a private method or not using the isprivatemethod() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k k-Control">if</span> <span class="n">the</span> <span class="n">object</span> <span class="kd">class</span> <span class="nc">contains</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="kd">class</span> <span class="nc">contains</span>
                                         <span class="n">the</span> <span class="kd">private</span> <span class="n">method</span>
 </pre></div>
 </div>
@@ -1078,10 +1078,10 @@ The Find uses the member name, rather than the column number</p>
 <span class="k">see</span> <span class="n">myList</span>
 <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span><span class="s2">&quot;=====================&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
      <span class="k">see</span>  <span class="s2">&quot;Pos: &quot;</span><span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s2">&quot; | &quot;</span><span class="o">+</span> <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">position</span> <span class="o">+</span><span class="s2">&quot; | &quot;</span><span class="o">+</span> <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span>
           <span class="s2">&quot; | &quot;</span><span class="o">+</span>  <span class="n">myList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">symbol</span>    <span class="o">+</span><span class="s2">&quot; | &quot;</span><span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 
 <span class="k">See</span> <span class="n">findclass</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="s2">&quot;MHD&quot;</span><span class="p">,</span> <span class="s2">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span><span class="bp">nl</span>   <span class="c1">### Specify Member class name</span>
@@ -1092,15 +1092,15 @@ The Find uses the member name, rather than the column number</p>
 
        <span class="k">See</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;FindClass: &quot;</span>  <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">nl</span>
 
-       <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">classList</span><span class="p">)</span>
+       <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">classList</span><span class="p">)</span>
             <span class="n">result</span> <span class="o">=</span> <span class="nb">getattribute</span><span class="p">(</span> <span class="n">classList</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">classMember</span> <span class="p">)</span>
 
            <span class="k">See</span> <span class="s2">&quot;Result-Attr: &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span>  <span class="n">result</span> <span class="o">+</span><span class="bp">nl</span>
-           <span class="k k-Control">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cValue</span>
+           <span class="k">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cValue</span>
                <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
-            <span class="k k-Control">ok</span>
-       <span class="k k-Control">next</span>
-<span class="k k-Control">return</span> <span class="n">j</span>
+            <span class="k">ok</span>
+       <span class="k">next</span>
+<span class="k">return</span> <span class="n">j</span>
 
 <span class="c1">###--------------------------------------</span>
 

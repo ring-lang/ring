@@ -240,7 +240,7 @@
 <p>Also when we need more speed we can use C/C++ extensions!</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100_000_000</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100_000_000</span> <span class="k">next</span>
 <span class="o">?</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -252,14 +252,14 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;Create list contains 100,000 items&quot;</span>
 <span class="n">nMax</span>  <span class="o">=</span> <span class="mi">100_000</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nMax</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span> <span class="n">aList</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span> <span class="n">aList</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span> <span class="k">next</span>
 
 <span class="o">?</span> <span class="s2">&quot;Do 3000 search operations - Find the last item (Worst Case!)&quot;</span>
 <span class="n">c</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 
-<span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3000</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3000</span>
         <span class="nb">find</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="n">nMax</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="nb">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">c</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">clockspersecond</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 </pre></div>
@@ -285,11 +285,11 @@ Time: 0.81 seconds
                         <span class="n">root</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qTreeWidgetItem</span><span class="p">()</span>
                         <span class="n">root</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;The Root Node&quot;</span><span class="p">)</span>
                         <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-                        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">C_NODESCOUNT</span>
+                        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">C_NODESCOUNT</span>
                                 <span class="n">oItem</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qTreeWidgetItem</span><span class="p">()</span>
                                 <span class="n">oItem</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Item &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
                                 <span class="n">root</span><span class="o">.</span><span class="n">addchild</span><span class="p">(</span><span class="n">oItem</span><span class="p">)</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                         <span class="n">cTime</span> <span class="o">=</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
                         <span class="n">setHeaderLabel</span><span class="p">(</span><span class="s2">&quot;Creating &quot;</span><span class="o">+</span><span class="n">C_NODESCOUNT</span><span class="o">+</span><span class="s2">&quot; nodes in &quot;</span> <span class="o">+</span> <span class="n">cTime</span> <span class="o">+</span> <span class="s2">&quot; seconds.&quot;</span><span class="p">)</span>
                         <span class="n">addTopLevelItem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -323,17 +323,17 @@ Time: 0.81 seconds
 <span class="o">?</span> <span class="s2">&quot;Create the list using the For loop&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">C_COUNT</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">C_COUNT</span>
         <span class="n">aList</span> <span class="o">+</span> <span class="n">x</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;Create the list using the list() function and the For loop&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">C_COUNT</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">C_COUNT</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">C_COUNT</span>
         <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 </pre></div>
 </div>
@@ -363,16 +363,16 @@ Time : 0.012 seconds
 <span class="o">?</span> <span class="s2">&quot;Using * operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">out</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">C_COUNT</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">C_COUNT</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;Using *= operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">C_COUNT</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">C_COUNT</span>
         <span class="n">out</span> <span class="o">*=</span> <span class="mi">2</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 </pre></div>
 </div>
@@ -395,15 +395,15 @@ Time : 0.07 seconds
 
 <span class="o">?</span> <span class="s2">&quot;Using len() in the For loop&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;Using len() before the For loop&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
-<span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 </pre></div>
 </div>
@@ -424,33 +424,33 @@ Time : 0.03 seconds
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;calling 100000 functions&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100000</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
         <span class="n">test</span><span class="p">()</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">test</span>
 
 <span class="o">?</span> <span class="s2">&quot;calling 100000 methods using the dot operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100000</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
         <span class="n">o1</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;calling 100000 methods using braces &quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100000</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
         <span class="n">o1</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;calling 100000 methods using braces (outside the loop) &quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">o1</span> <span class="p">{</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100000</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
         <span class="n">test</span><span class="p">()</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="p">}</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 

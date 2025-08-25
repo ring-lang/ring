@@ -249,9 +249,9 @@
 <p>Example : Print file names in the myfile.zip</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 <span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
        <span class="k">see</span> <span class="n">zip_getfilenamebyindex</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 <span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -314,9 +314,9 @@
 <span class="kp">new</span> <span class="nc">Zip</span> <span class="p">{</span>
         <span class="n">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
         <span class="n">Open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">filescount</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">filescount</span><span class="p">()</span>
                 <span class="k">See</span> <span class="n">GetFileNameByIndex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="n">Close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>

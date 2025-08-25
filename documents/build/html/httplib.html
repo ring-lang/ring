@@ -438,7 +438,7 @@
                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                         <span class="p">}</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nRowsCount</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="n">nRowsCount</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
@@ -447,7 +447,7 @@
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                 <span class="p">}</span>
         <span class="p">}</span>
 
@@ -767,7 +767,7 @@
         <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/api/data&quot;</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
 
                 <span class="c1"># Authentication check</span>
-                <span class="k k-Control">if</span> <span class="n">isAuthenticated</span><span class="p">(</span><span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">isAuthenticated</span><span class="p">(</span><span class="n">oServer</span><span class="o">.</span><span class="n">request</span><span class="p">())</span>
                         <span class="c1"># Success: Client is Authenticated</span>
                         <span class="o">?</span> <span class="s2">&quot;Request received with valid API Key. Sending data.&quot;</span>
 
@@ -787,7 +787,7 @@
                         <span class="o">?</span> <span class="s2">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getStatus</span><span class="p">()</span>
                         <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cJsonResponse</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
 
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="c1"># Failure: Client is Not Authenticated</span>
                         <span class="o">?</span> <span class="s2">&quot;Request received with missing or invalid API Key. Denying access.&quot;</span>
 
@@ -802,7 +802,7 @@
                         <span class="n">oServer</span><span class="o">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
                         <span class="o">?</span> <span class="s2">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getStatus</span><span class="p">()</span>
                         <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cErrorResponse</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
         <span class="p">})</span>
 
         <span class="o">?</span> <span class="s2">&quot;REST API Server listening at http://localhost:8080&quot;</span>
@@ -815,19 +815,19 @@
 <span class="c1"># Helper function to check for a valid API key in the request headers</span>
 <span class="kd">func</span> <span class="nf">isAuthenticated</span> <span class="n">oRequest</span>
         <span class="c1"># Check if the &#39;X-API-KEY&#39; header is present</span>
-        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">oRequest</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s2">&quot;X-API-KEY&quot;</span><span class="p">)</span>
-                <span class="k k-Control">return</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">oRequest</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s2">&quot;X-API-KEY&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">false</span>
+        <span class="k">ok</span>
 
         <span class="c1"># Get the key provided by the client</span>
         <span class="n">cClientKey</span> <span class="o">=</span> <span class="n">oRequest</span><span class="o">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="s2">&quot;X-API-KEY&quot;</span><span class="p">)</span>
 
         <span class="c1"># Check if the client&#39;s key exists in our list of valid keys</span>
-        <span class="k k-Control">if</span> <span class="nb">find</span><span class="p">(</span><span class="n">aValidApiKeys</span><span class="p">,</span> <span class="n">cClientKey</span><span class="p">)</span>
-                <span class="k k-Control">return</span> <span class="bp">true</span>
-        <span class="k k-Control">else</span>
-                <span class="k k-Control">return</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="nb">find</span><span class="p">(</span><span class="n">aValidApiKeys</span><span class="p">,</span> <span class="n">cClientKey</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">true</span>
+        <span class="k">else</span>
+                <span class="k">return</span> <span class="bp">false</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -854,14 +854,14 @@
                 <span class="n">boxstart</span><span class="p">()</span>
                         <span class="n">text</span><span class="p">(</span><span class="s2">&quot;StyleGradient() Function&quot;</span><span class="p">)</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">60</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">60</span>
                         <span class="n">divstart</span><span class="p">([</span> <span class="ss">:id</span> <span class="o">=</span> <span class="n">x</span> <span class="p">,</span> <span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span> <span class="p">,</span>
                                    <span class="ss">:style</span> <span class="o">=</span> <span class="n">stylefloatleft</span><span class="p">()</span> <span class="o">+</span>
                                                         <span class="n">stylesize</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="mi">100</span><span class="o">/</span><span class="mi">60</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;%&quot;</span><span class="p">,</span><span class="s2">&quot;50px&quot;</span><span class="p">)</span> <span class="o">+</span>
                                                         <span class="n">stylegradient</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">])</span>
                                 <span class="n">h3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                         <span class="n">divend</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
         <span class="p">}</span>
         <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
 </pre></div>
@@ -885,23 +885,23 @@
         <span class="n">oPage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">HTMLPageFunctions</span>
         <span class="p">{</span>
                 <span class="n">ulstart</span><span class="p">([])</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                 <span class="n">listart</span><span class="p">([])</span>
                                         <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                                 <span class="n">liend</span><span class="p">()</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                 <span class="n">ulend</span><span class="p">()</span>
 
                 <span class="n">list2ul</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">])</span>
 
                 <span class="n">ulstart</span><span class="p">([])</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                 <span class="n">listart</span><span class="p">([])</span>
                                         <span class="n">cFuncName</span> <span class="o">=</span> <span class="s2">&quot;btn&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;()&quot;</span>
                                         <span class="n">button</span><span class="p">([</span> <span class="ss">:onclick</span> <span class="o">=</span> <span class="n">cFuncName</span> <span class="p">,</span> <span class="ss">:value</span> <span class="o">=</span> <span class="n">x</span><span class="p">])</span>
                                         <span class="n">script</span><span class="p">(</span><span class="n">scriptfuncalert</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">,</span><span class="nb">string</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
                                 <span class="n">liend</span><span class="p">()</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                 <span class="n">ulend</span><span class="p">()</span>
         <span class="p">}</span>
         <span class="n">oServer</span><span class="o">.</span><span class="n">setHTMLPage</span><span class="p">(</span><span class="n">oPage</span><span class="p">)</span>
@@ -932,12 +932,12 @@
                                         <span class="n">headerstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
                                         <span class="n">headerstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;square&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
                                 <span class="n">rowend</span><span class="p">()</span>
-                                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                         <span class="n">rowstart</span><span class="p">([])</span>
                                                 <span class="n">cellstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
                                                 <span class="n">cellstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
                                         <span class="n">rowend</span><span class="p">()</span>
-                                <span class="k k-Control">next</span>
+                                <span class="k">next</span>
                         <span class="n">tableend</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
         <span class="p">}</span>
@@ -1073,7 +1073,7 @@
                         <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Upload File&quot;</span> <span class="p">)</span>
                         <span class="n">newline</span><span class="p">()</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span> <span class="n">newline</span><span class="p">()</span> <span class="k k-Control">next</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span> <span class="n">newline</span><span class="p">()</span> <span class="k">next</span>
                 <span class="n">formupload</span><span class="p">(</span><span class="s2">&quot;/uploadresponse&quot;</span><span class="p">)</span>
                         <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Customer Name : &quot;</span> <span class="p">)</span>
                         <span class="n">textbox</span><span class="p">([</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;custname&quot;</span> <span class="p">])</span>
@@ -1110,7 +1110,7 @@
 
 <span class="kd">Func</span> <span class="nf">getUploadedFile</span> <span class="n">oObj</span><span class="p">,</span><span class="n">cFile</span>
         <span class="n">cNewFileName</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getfilename</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="n">cNewFileName</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">cNewFileName</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="k">return</span> <span class="k">ok</span>
         <span class="n">cNewFileContent</span> <span class="o">=</span> <span class="n">oServer</span><span class="o">.</span><span class="n">getFileContent</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
         <span class="cm">/*</span>
 <span class="cm">                Here we use object.property instead of object { }</span>
@@ -1118,9 +1118,9 @@
 <span class="cm">        */</span>
         <span class="n">cFileName</span> <span class="o">=</span> <span class="n">cUploadFolder</span> <span class="o">+</span> <span class="n">cNewFileName</span>
         <span class="nb">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cNewFileContent</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="nb">isLinux</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isLinux</span><span class="p">()</span>
                 <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;chmod a+x &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="n">oObj</span><span class="o">.</span><span class="n">newline</span><span class="p">()</span>
         <span class="n">oObj</span><span class="o">.</span><span class="n">text</span><span class="p">(</span> <span class="s2">&quot;File &quot;</span><span class="o">+</span><span class="n">cFileName</span><span class="o">+</span> <span class="s2">&quot; Uploaded ...&quot;</span> <span class="p">)</span>
         <span class="n">oObj</span><span class="o">.</span><span class="n">newline</span><span class="p">()</span>
@@ -1161,12 +1161,12 @@
 
                 <span class="n">aNumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aNumbers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aNumbers</span><span class="p">)</span>
                         <span class="n">aNumbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">number</span>
                         <span class="p">{</span>
                                 <span class="n">nValue</span>  <span class="o">=</span> <span class="n">x</span>   <span class="n">nSquare</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
                         <span class="p">}</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
                 <span class="n">cTemp</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;templates/mynumbers.html&quot;</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
 

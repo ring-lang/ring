@@ -312,8 +312,8 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test IsAppCompiled()&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">IsAppCompiled</span><span class="p">()</span> <span class="k">see</span> <span class="s2">&quot;Application has been compiled using Ring2EXE&quot;</span>
-<span class="k k-Control">else</span> <span class="k">see</span> <span class="s2">&quot;Application is running under Ring interpreter&quot;</span> <span class="k k-Control">ok</span>
+<span class="k">if</span> <span class="n">IsAppCompiled</span><span class="p">()</span> <span class="k">see</span> <span class="s2">&quot;Application has been compiled using Ring2EXE&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;Application is running under Ring interpreter&quot;</span> <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -331,8 +331,8 @@
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test AppArguments()&quot;</span><span class="p">)</span>
 <span class="n">argsList</span> <span class="o">=</span> <span class="n">AppArguments</span><span class="p">()</span>
 <span class="n">argsCount</span> <span class="o">=</span> <span class="nb">Len</span><span class="p">(</span><span class="n">argsList</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">argsCount</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">see</span> <span class="s2">&quot;No arguments passed to the Ring script&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">else</span> <span class="k">see</span> <span class="s2">&quot;Ring script arguments = &quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="nb">list2str</span><span class="p">(</span><span class="n">argsList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="k k-Control">ok</span>
+<span class="k">if</span> <span class="n">argsCount</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">see</span> <span class="s2">&quot;No arguments passed to the Ring script&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;Ring script arguments = &quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="nb">list2str</span><span class="p">(</span><span class="n">argsList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -430,7 +430,7 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Map()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k k-Control">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -445,7 +445,7 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Filter()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k k-Control">return</span> <span class="bp">true</span> <span class="k k-Control">else</span> <span class="k k-Control">return</span> <span class="bp">false</span> <span class="k k-Control">ok</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="bp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="bp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -462,8 +462,8 @@ to be the same Type</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k k-Control">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;Love&quot;</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">],</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k k-Control">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;Love&quot;</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">],</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -611,8 +611,8 @@ to be the same Type</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Isprime()&quot;</span><span class="p">)</span>
-<span class="k k-Control">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;16 is a prime number&quot;</span>
-<span class="k k-Control">else</span> <span class="k">see</span> <span class="s2">&quot;16 is not a prime number&quot;</span> <span class="k k-Control">ok</span>
+<span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;16 is a prime number&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;16 is not a prime number&quot;</span> <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -788,9 +788,9 @@ to be the same Type</p>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">45</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="n">factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="k">see</span> <span class="s2">&quot;Factors of &quot;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span>
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
     <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -822,8 +822,8 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Isleapyear()&quot;</span><span class="p">)</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
-<span class="k k-Control">if</span> <span class="n">Isleapyear</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is a leap year.&quot;</span>
-<span class="k k-Control">else</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is not a leap year.&quot;</span> <span class="k k-Control">ok</span>
+<span class="k">if</span> <span class="n">Isleapyear</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is a leap year.&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is not a leap year.&quot;</span> <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -916,13 +916,13 @@ to be the same Type</p>
 <span class="c1"># Generates all permutations of n different numerals</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Permutation()&quot;</span><span class="p">)</span>
 <span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="k k-Control">for</span> <span class="n">perm</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">24</span>
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">perm</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">24</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
                 <span class="k">see</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="k">see</span> <span class="bp">nl</span>
         <span class="n">Permutation</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -939,8 +939,8 @@ to be the same Type</p>
 <span class="c1"># Read a file line by line.</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Readline()&quot;</span><span class="p">)</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;test.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="k k-Control">while</span> <span class="ow">not</span> <span class="nb">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k k-Control">end</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="nb">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">end</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1007,9 +1007,9 @@ to be the same Type</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="k k-Control">if</span> <span class="n">ismainsourcefile</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">ismainsourcefile</span><span class="p">()</span>
         <span class="c1"># code</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -1033,7 +1033,7 @@ to be the same Type</p>
 <span id="index-44"></span><h2>Fsize() Function<a class="headerlink" href="#fsize-function" title="Permalink to this heading"></a></h2>
 <p>The function return the file size in bytes.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">FSize</span><span class="p">(</span><span class="n">File</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">Number</span> <span class="p">(</span><span class="n">File</span> <span class="n">Size</span> <span class="k k-Control">in</span> <span class="n">Bytes</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">FSize</span><span class="p">(</span><span class="n">File</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">Number</span> <span class="p">(</span><span class="n">File</span> <span class="n">Size</span> <span class="k">in</span> <span class="n">Bytes</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

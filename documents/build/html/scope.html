@@ -900,7 +900,7 @@ and the Friend class contains an attribute called “name” also.</p>
         <span class="n">friend</span>
         <span class="kd">func</span> <span class="nf">getfriend</span>
                 <span class="n">aFriends</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">Friend</span>
-                <span class="k k-Control">return</span> <span class="n">aFriends</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)]</span>
+                <span class="k">return</span> <span class="n">aFriends</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)]</span>
 
 <span class="kd">Class</span> <span class="nc">Friend</span>
         <span class="n">name</span>
@@ -972,14 +972,14 @@ z: 30.000000
 <span class="o">?</span> <span class="n">x</span>             <span class="c1"># Print 10</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
-        <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">next</span>
         <span class="o">?</span> <span class="n">x</span>     <span class="c1"># Print 6</span>
 
 <span class="kd">func</span> <span class="nf">test2</span>
         <span class="n">list</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">list</span>
-        <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">list</span>
+        <span class="k">next</span>
         <span class="o">?</span> <span class="n">x</span>     <span class="c1"># Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)</span>
 </pre></div>
 </div>

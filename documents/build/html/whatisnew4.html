@@ -381,22 +381,22 @@ I will count Again!
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:count</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
-                <span class="k k-Control">if</span> <span class="ow">not</span> <span class="nb">isattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span> <span class="p">{</span>
                         <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
                         <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="p">}</span>
-                <span class="k k-Control">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="p">}</span>
-                <span class="k k-Control">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
                         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;The Numbers!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
                         <span class="n">Count_Times</span><span class="o">++</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k k-Control">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k k-Control">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
                         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
                 <span class="n">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -462,7 +462,7 @@ I will count Again!
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter your name : &quot;</span><span class="p">)</span>     <span class="p">;</span>
         <span class="n">Name</span> <span class="o">=</span> <span class="nb">getString</span><span class="p">()</span>              <span class="p">;</span>
         <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Hello : </span><span class="si">#{</span><span class="n">Name</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>      <span class="p">;</span>
-        <span class="k k-Control">return</span>                          <span class="p">;</span>
+        <span class="k">return</span>                          <span class="p">;</span>
 </pre></div>
 </div>
 </section>

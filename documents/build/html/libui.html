@@ -424,7 +424,7 @@
                 <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">)</span>
 
-        <span class="k k-Control">return</span> <span class="n">hbox</span>
+        <span class="k">return</span> <span class="n">hbox</span>
 
 <span class="kd">func</span> <span class="nf">makeNumbersPage</span>
 
@@ -478,7 +478,7 @@
         <span class="n">uiRadioButtonsAppend</span><span class="p">(</span><span class="n">rb</span><span class="p">,</span> <span class="s2">&quot;Radio Button 3&quot;</span><span class="p">)</span>
         <span class="n">uiBoxAppend</span><span class="p">(</span><span class="n">vbox</span><span class="p">,</span> <span class="n">rb</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="k k-Control">return</span> <span class="n">hbox</span>
+        <span class="k">return</span> <span class="n">hbox</span>
 
 
 <span class="kd">func</span> <span class="nf">makeBasicControlsPage</span>
@@ -534,7 +534,7 @@
                 <span class="n">uiNewNonWrappingMultilineEntry</span><span class="p">(),</span>
                 <span class="mi">1</span><span class="p">)</span>
 
-        <span class="k k-Control">return</span> <span class="n">vbox</span>
+        <span class="k">return</span> <span class="n">vbox</span>
 
 
 <span class="kd">func</span> <span class="nf">onSpinboxChanged</span>
@@ -550,18 +550,18 @@
 
 <span class="kd">func</span> <span class="nf">onOpenFileClicked</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">uiOpenFile</span><span class="p">(</span><span class="n">mainwin</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="nb">ISNULL</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">ISNULL</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
                 <span class="n">uiEntrySetText</span><span class="p">(</span><span class="n">entryOpen</span><span class="p">,</span> <span class="s2">&quot;(cancelled)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
         <span class="n">uiEntrySetText</span><span class="p">(</span><span class="n">entryOpen</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">onSaveFileClicked</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">uiSaveFile</span><span class="p">(</span><span class="n">mainwin</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="nb">ISNULL</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">ISNULL</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
                 <span class="n">uiEntrySetText</span><span class="p">(</span><span class="n">entrySave</span><span class="p">,</span> <span class="s2">&quot;(cancelled)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
         <span class="n">uiEntrySetText</span><span class="p">(</span><span class="n">entrySave</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">onMsgBoxClicked</span>
@@ -701,11 +701,11 @@
 
 <span class="kd">func</span> <span class="nf">enableItemTest</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
         <span class="n">item</span> <span class="o">=</span> <span class="n">uiEventMenuItem</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">uiMenuItemChecked</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uiMenuItemChecked</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
                 <span class="n">uiMenuItemEnable</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">uiMenuItemDisable</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">forceOn</span>
         <span class="n">uiMenuItemSetChecked</span><span class="p">(</span><span class="n">enabledItem</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -796,10 +796,10 @@
 <span class="kd">func</span> <span class="nf">draw</span>
         <span class="n">nWidth</span> <span class="o">=</span> <span class="n">uiEventAreaWidth</span><span class="p">()</span>             <span class="n">nHeight</span> <span class="o">=</span> <span class="n">uiEventAreaHeight</span><span class="p">()</span>
         <span class="n">uiRectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nWidth</span><span class="p">,</span> <span class="n">nHeight</span><span class="p">,</span> <span class="n">colorBlue</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">255</span> <span class="k k-Control">step</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span> <span class="k">to</span> <span class="mi">255</span> <span class="k">step</span> <span class="mi">2</span>
                 <span class="n">customColor</span> <span class="o">=</span> <span class="n">y</span>
                 <span class="n">uiRectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nWidth</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">customColor</span><span class="p">)</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">closeApp</span>
         <span class="n">uiQuit</span><span class="p">()</span>
@@ -832,14 +832,14 @@
 <span class="kd">func</span> <span class="nf">pointLocations</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span>
         <span class="n">xincr</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">9</span>               <span class="c1">// 10 - 1 to make the last point be at the end</span>
         <span class="n">yincr</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">100</span>
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="c1">// get the value of the point</span>
                 <span class="n">n</span> <span class="o">=</span> <span class="n">uiSpinboxValue</span><span class="p">(</span><span class="n">datapoints</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                 <span class="c1">// because y=0 is the top but n=0 is the bottom, we need to flip</span>
                 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">n</span><span class="p">;</span>
                 <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">xincr</span> <span class="o">*</span> <span class="n">i</span>
                 <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">yincr</span> <span class="o">*</span> <span class="n">n</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">constructGraph</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">extend</span>
         <span class="n">xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -847,22 +847,22 @@
         <span class="n">pointLocations</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">uiDrawNewPath</span><span class="p">(</span><span class="n">uiDrawFillModeWinding</span><span class="p">)</span>
         <span class="n">uiDrawPathNewFigure</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="n">uiDrawPathLineTo</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="k k-Control">next</span>
-        <span class="k k-Control">if</span> <span class="n">extend</span>
+        <span class="k">next</span>
+        <span class="k">if</span> <span class="n">extend</span>
                 <span class="n">uiDrawPathLineTo</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
                 <span class="n">uiDrawPathLineTo</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
                 <span class="n">uiDrawPathCloseFigure</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="n">uiDrawPathEnd</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k k-Control">return</span> <span class="n">path</span>
+        <span class="k">return</span> <span class="n">path</span>
 
 
 <span class="kd">func</span> <span class="nf">graphSize</span> <span class="n">clientWidth</span><span class="p">,</span> <span class="n">clientHeight</span>
         <span class="n">graphWidth</span> <span class="o">=</span> <span class="n">clientWidth</span> <span class="o">-</span> <span class="n">xoffLeft</span> <span class="o">-</span> <span class="n">xoffRight</span>
         <span class="n">graphHeight</span> <span class="o">=</span> <span class="n">clientHeight</span> <span class="o">-</span> <span class="n">yoffTop</span> <span class="o">-</span> <span class="n">yoffBottom</span>
-        <span class="k k-Control">return</span> <span class="p">[</span><span class="n">graphWidth</span><span class="p">,</span><span class="n">graphHeight</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">graphWidth</span><span class="p">,</span><span class="n">graphHeight</span><span class="p">]</span>
 
 <span class="kd">func</span> <span class="nf">handlerDraw</span>
         <span class="c1">// fill the area with white</span>
@@ -938,7 +938,7 @@
         <span class="n">uiDrawFreePath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
         <span class="c1">// now draw the point being hovered over</span>
-        <span class="k k-Control">if</span> <span class="n">currentPoint</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">currentPoint</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="n">xs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
                 <span class="n">ys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
                 <span class="n">pointLocations</span><span class="p">(</span><span class="n">graphWidth</span><span class="p">,</span> <span class="n">graphHeight</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
@@ -953,13 +953,13 @@
                 <span class="c1">// use the same brush as for the histogram lines</span>
                 <span class="n">uiDrawFill</span><span class="p">(</span><span class="n">uiEventContext</span><span class="p">(),</span> <span class="n">path</span><span class="p">,</span> <span class="n">brush</span><span class="p">)</span>
                 <span class="n">uiDrawFreePath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">inPoint</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xtest</span><span class="p">,</span> <span class="n">ytest</span>
         <span class="c1">// TODO switch to using a matrix</span>
         <span class="n">x</span> <span class="o">-=</span> <span class="n">xoffLeft</span>
         <span class="n">y</span> <span class="o">-=</span> <span class="n">yoffTop</span>
-        <span class="k k-Control">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">xtest</span> <span class="o">-</span> <span class="n">pointRadius</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">xtest</span> <span class="o">-</span> <span class="n">pointRadius</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
                 <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">xtest</span> <span class="o">+</span> <span class="n">pointRadius</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
                 <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="n">ytest</span> <span class="o">-</span> <span class="n">pointRadius</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
                 <span class="p">(</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">ytest</span> <span class="o">+</span> <span class="n">pointRadius</span><span class="p">)</span>
@@ -977,14 +977,14 @@
         <span class="n">e</span> <span class="o">=</span> <span class="n">uiEventAreaMouseEvent</span><span class="p">()</span>
         <span class="n">eX</span> <span class="o">=</span> <span class="n">get_uiAreaMouseEvent_X</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
         <span class="n">eY</span> <span class="o">=</span> <span class="n">get_uiAreaMouseEvent_Y</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                <span class="k k-Control">if</span> <span class="n">inPoint</span><span class="p">(</span><span class="n">eX</span><span class="p">,</span> <span class="n">eY</span><span class="p">,</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-                        <span class="k k-Control">exit</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-        <span class="k k-Control">if</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">11</span>               <span class="c1">// not in a point</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">if</span> <span class="n">inPoint</span><span class="p">(</span><span class="n">eX</span><span class="p">,</span> <span class="n">eY</span><span class="p">,</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                        <span class="k">exit</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">11</span>               <span class="c1">// not in a point</span>
                 <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">currentPoint</span> <span class="o">=</span> <span class="n">i</span>
 
@@ -999,7 +999,7 @@
 <span class="kd">func</span> <span class="nf">onClosing</span>
         <span class="n">uiControlDestroy</span><span class="p">(</span><span class="n">uiControl</span><span class="p">(</span><span class="n">mainwin</span><span class="p">))</span>
         <span class="n">uiQuit</span><span class="p">()</span>
-        <span class="k k-Control">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="mi">0</span>
 
 <span class="kd">func</span> <span class="nf">shouldQuit</span>
         <span class="n">uiControlDestroy</span><span class="p">(</span><span class="n">uiControl</span><span class="p">(</span><span class="n">mainwin</span><span class="p">))</span>
@@ -1023,12 +1023,12 @@
         <span class="n">uiBoxAppend</span><span class="p">(</span><span class="n">hbox</span><span class="p">,</span> <span class="n">uiControl</span><span class="p">(</span><span class="n">vbox</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="nb">srandom</span><span class="p">(</span><span class="nb">clock</span><span class="p">());</span>
-        <span class="k k-Control">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="n">datapoints</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">uiNewSpinbox</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
                 <span class="n">uiSpinboxSetValue</span><span class="p">(</span><span class="n">datapoints</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">random</span><span class="p">()</span> <span class="o">%</span> <span class="mi">101</span><span class="p">)</span>
                 <span class="n">uiSpinboxOnChanged</span><span class="p">(</span><span class="n">datapoints</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;onDatapointChanged()&quot;</span><span class="p">)</span>
                 <span class="n">uiBoxAppend</span><span class="p">(</span><span class="n">vbox</span><span class="p">,</span> <span class="n">uiControl</span><span class="p">(</span><span class="n">datapoints</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
         <span class="n">colorButton</span> <span class="o">=</span> <span class="n">uiNewColorButton</span><span class="p">()</span>
 
@@ -1074,9 +1074,9 @@
         <span class="n">nEnd</span> <span class="o">=</span> <span class="n">nStart</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">what</span><span class="p">)</span>
         <span class="n">uiAttributedStringAppendUnattributed</span><span class="p">(</span><span class="n">attrstr</span><span class="p">,</span> <span class="n">what</span><span class="p">)</span>
         <span class="n">uiAttributedStringSetAttribute</span><span class="p">(</span><span class="n">attrstr</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">nStart</span><span class="p">,</span> <span class="n">nEnd</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="o">!</span> <span class="nb">ISNULL</span><span class="p">(</span><span class="n">attr2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span> <span class="nb">ISNULL</span><span class="p">(</span><span class="n">attr2</span><span class="p">)</span>
                 <span class="n">uiAttributedStringSetAttribute</span><span class="p">(</span><span class="n">attrstr</span><span class="p">,</span> <span class="n">attr2</span><span class="p">,</span> <span class="n">nStart</span><span class="p">,</span> <span class="n">nEnd</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">makeAttributedString</span>
 

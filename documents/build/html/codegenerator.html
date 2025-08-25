@@ -278,17 +278,17 @@ and al_get_new_display_option() functions.</p>
 <p>The generated code will be as in the next example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_create_display</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="n">al_create_display</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
                                  <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="s2">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">);</span>
@@ -297,13 +297,13 @@ and al_get_new_display_option() functions.</p>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_destroy_display</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
         <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-        <span class="k k-Control">return</span> <span class="p">;</span>
+        <span class="k">return</span> <span class="p">;</span>
   <span class="p">}</span>
-  <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
         <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-        <span class="k k-Control">return</span> <span class="p">;</span>
+        <span class="k">return</span> <span class="p">;</span>
   <span class="p">}</span>
   <span class="n">al_destroy_display</span><span class="p">((</span><span class="n">ALLEGRO_DISPLAY</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">));</span>
 <span class="p">}</span>
@@ -311,9 +311,9 @@ and al_get_new_display_option() functions.</p>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_get_new_display_flags</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">al_get_new_display_flags</span><span class="p">());</span>
 <span class="p">}</span>
@@ -321,13 +321,13 @@ and al_get_new_display_option() functions.</p>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_set_new_display_flags</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">al_set_new_display_flags</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
 <span class="p">}</span>
@@ -335,17 +335,17 @@ and al_get_new_display_option() functions.</p>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_get_new_display_option</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">al_get_new_display_option</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
                                 <span class="n">RING_API_GETINTPOINTER</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
@@ -450,11 +450,11 @@ we need to write the code of this function.</p>
 <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_exit</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
 <span class="p">}</span>
-<span class="k k-Control">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 </pre></div>
@@ -508,7 +508,7 @@ types that can be considered as numbers when the code generator find it in the f
 <p>using &lt;filter&gt; and &lt;/filter&gt; we can include/exclude parts of the configuration file
 based on a condition, for example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span> <span class="nb">iswindows</span><span class="p">()</span>
-        <span class="o">...</span> <span class="n">functions</span> <span class="n">related</span> <span class="k k-Control">to</span> <span class="n">windows</span>
+        <span class="o">...</span> <span class="n">functions</span> <span class="n">related</span> <span class="k">to</span> <span class="n">windows</span>
 <span class="o">&lt;/</span><span class="n">filter</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -589,11 +589,11 @@ to create 2D games!</p>
 <span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_exit</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
 
@@ -642,20 +642,20 @@ threads to our Ring applications by using a threads library.</p>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">ring_list_getstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
         <span class="n">ring_vm_runcodefromthread</span><span class="p">(</span><span class="n">pVM</span><span class="p">,</span><span class="n">cStr</span><span class="p">);</span>
         <span class="n">ring_list_delete</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
-        <span class="k k-Control">return</span> <span class="bp">NULL</span><span class="p">;</span>
+        <span class="k">return</span> <span class="bp">NULL</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_create_thread</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">pThread</span><span class="p">;</span>
         <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">pList</span> <span class="o">=</span> <span class="n">ring_list_new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
         <span class="n">ring_list_addstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
@@ -670,13 +670,13 @@ threads to our Ring applications by using a threads library.</p>
 <span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_run_detached_thread</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
-                <span class="k k-Control">return</span> <span class="p">;</span>
+                <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
         <span class="n">pList</span> <span class="o">=</span> <span class="n">ring_list_new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
         <span class="n">ring_list_addstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
@@ -1069,10 +1069,10 @@ also Ring code around 9000 lines.</p>
 <span class="n">bool</span> <span class="n">restoreGeometry</span><span class="p">(</span><span class="n">QByteArray</span><span class="p">)</span>
 <span class="n">QByteArray</span> <span class="n">saveGeometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">scroll</span><span class="p">(</span><span class="n">int</span> <span class="n">dx</span><span class="p">,</span> <span class="n">int</span> <span class="n">dy</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">setAcceptDrops</span><span class="p">(</span><span class="n">bool</span> <span class="k k-Control">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">setAcceptDrops</span><span class="p">(</span><span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setAccessibleDescription</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setAccessibleName</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
-<span class="n">void</span> <span class="nb">setAttribute</span><span class="p">(</span><span class="n">int</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">bool</span> <span class="k k-Control">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">setAttribute</span><span class="p">(</span><span class="n">int</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setAutoFillBackground</span><span class="p">(</span><span class="n">bool</span> <span class="n">enabled</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setBackgroundRole</span><span class="p">(</span><span class="n">int</span> <span class="n">role</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setBaseSize</span><span class="p">(</span><span class="n">int</span> <span class="n">basew</span><span class="p">,</span> <span class="n">int</span> <span class="n">baseh</span><span class="p">)</span>
@@ -1201,7 +1201,7 @@ also Ring code around 9000 lines.</p>
 <span class="n">void</span> <span class="n">setSelection</span><span class="p">(</span><span class="n">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">int</span> <span class="n">length</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setTextFormat</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">setTextInteractionFlags</span><span class="p">(</span><span class="n">int</span> <span class="n">flags</span><span class="p">)</span>
-<span class="n">void</span> <span class="n">setWordWrap</span><span class="p">(</span><span class="n">bool</span> <span class="k k-Control">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">setWordWrap</span><span class="p">(</span><span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
 <span class="n">QString</span> <span class="n">text</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">int</span> <span class="n">textFormat</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">int</span> <span class="n">textInteractionFlags</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -1250,7 +1250,7 @@ also Ring code around 9000 lines.</p>
 <span class="n">QString</span> <span class="n">displayText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">dragEnabled</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">int</span> <span class="n">echoMode</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
-<span class="n">void</span> <span class="k k-Control">end</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
+<span class="n">void</span> <span class="k">end</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
 <span class="n">void</span> <span class="n">getTextMargins</span><span class="p">(</span><span class="n">int</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">top</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">right</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">bottom</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">hasAcceptableInput</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="n">bool</span> <span class="n">hasFrame</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>

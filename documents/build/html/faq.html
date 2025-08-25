@@ -512,10 +512,10 @@ This is important to know when we do arithmetic operations on numbers.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">4</span>
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span>
 <span class="p">{</span>
         <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">=</span> <span class="nb">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">kk</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">4</span> <span class="p">{</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">kk</span><span class="p">]</span><span class="o">=</span> <span class="nb">char</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span><span class="n">kk</span><span class="p">)</span> <span class="p">}</span>
+        <span class="k">for</span> <span class="n">kk</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span> <span class="p">{</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">kk</span><span class="p">]</span><span class="o">=</span> <span class="nb">char</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span><span class="n">kk</span><span class="p">)</span> <span class="p">}</span>
         <span class="o">?</span> <span class="s2">&quot; B&quot;</span> <span class="o">+</span><span class="n">k</span> <span class="o">+</span><span class="s2">&quot;: &quot;</span> <span class="o">+</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
 <span class="p">}</span>
 
@@ -665,11 +665,11 @@ And the language comes with innovative features added to achieve the language go
 <p>The question was about this code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
-    <span class="k k-Control">return</span> <span class="kd">func</span> <span class="p">{</span> <span class="k k-Control">return</span> <span class="n">a</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="kd">func</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">innerF</span> <span class="o">=</span> <span class="k k-Control">call</span> <span class="n">f</span><span class="p">()</span>
-<span class="k k-Control">call</span> <span class="n">innerF</span><span class="p">()</span>
+<span class="n">innerF</span> <span class="o">=</span> <span class="k">call</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">call</span> <span class="n">innerF</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -794,9 +794,9 @@ local variables instead of the Global scope.</p>
 <span class="k">See</span> <span class="s2">&quot;X value = &quot;</span> <span class="o">+</span> <span class="n">X</span>  <span class="c1"># here I expect that x will be (10)</span>
                       <span class="c1"># but I will get another value (6) because myfunc() uses x !</span>
 <span class="kd">Func</span> <span class="nf">myfunc</span>
-   <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
+   <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
        <span class="k">See</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-   <span class="k k-Control">next</span>
+   <span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -815,9 +815,9 @@ local variables instead of the Global scope.</p>
    <span class="k">See</span> <span class="s2">&quot;X value = &quot;</span> <span class="o">+</span> <span class="n">X</span>
 
 <span class="kd">Func</span> <span class="nf">myfunc</span>
-   <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">5</span>
+   <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
        <span class="k">See</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-   <span class="k k-Control">next</span>
+   <span class="k">next</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -849,18 +849,18 @@ local variables instead of the Global scope.</p>
 <p>But for high level language designed for applications it's better to be natural</p>
 <p>Example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
         <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>In the previous example we start from 1 to the length of the array
 if the index starts from 0 we will write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>or remember the for loop in other languages</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">nMax</span> <span class="p">;</span> <span class="n">x</span><span class="o">++</span> <span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">nMax</span> <span class="p">;</span> <span class="n">x</span><span class="o">++</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>You will use the &lt; operator !</p>
@@ -961,7 +961,7 @@ But It’s not the Ring way “Spirit” to do things.</p>
 
 <span class="kd">class</span> <span class="nc">point</span>
         <span class="n">x</span> <span class="n">y</span>
-        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="n">$3D</span> <span class="k k-Control">return</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">$3D</span> <span class="k">return</span> <span class="k">ok</span>
         <span class="n">z</span>
 </pre></div>
 </div>
@@ -1036,7 +1036,7 @@ Also you can call the methods instead of using the attributes. It’s your choic
 
                 <span class="kd">func</span> <span class="nf">getname</span>
                                 <span class="k">see</span> <span class="s2">&quot;Message from GetName() Function!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">nl</span>
-                                <span class="k k-Control">return</span> <span class="s2">&quot;Mr. &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
+                                <span class="k">return</span> <span class="s2">&quot;Mr. &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1082,7 +1082,7 @@ the problem. Also using the Main function and avoiding global variables may help
 <span class="n">oPerson</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Person</span>
 <span class="k">see</span> <span class="n">oPerson</span>
 <span class="kd">Class</span> <span class="nc">Person</span>
-    <span class="k k-Control">if</span> <span class="n">$debug</span>  <span class="n">date</span><span class="o">=</span><span class="nb">date</span><span class="p">()</span>  <span class="n">time</span><span class="o">=</span><span class="nb">time</span><span class="p">()</span> <span class="k k-Control">ok</span>
+    <span class="k">if</span> <span class="n">$debug</span>  <span class="n">date</span><span class="o">=</span><span class="nb">date</span><span class="p">()</span>  <span class="n">time</span><span class="o">=</span><span class="nb">time</span><span class="p">()</span> <span class="k">ok</span>
 </pre></div>
 </div>
 <p>In the previous example when we have the $debug flag set to true, we will add the Date and Time
@@ -1149,7 +1149,7 @@ For large programs, use classes and objects and small number of global variables
        <span class="nb">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">C_FILEEND</span><span class="p">)</span>
        <span class="n">nFileSize</span> <span class="o">=</span> <span class="nb">ftell</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
        <span class="nb">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">C_FILESTART</span><span class="p">)</span>
-       <span class="k k-Control">return</span> <span class="n">nFileSize</span>
+       <span class="k">return</span> <span class="n">nFileSize</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1173,12 +1173,12 @@ then we can add the path variable to the file name</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cPath</span> <span class="o">=</span> <span class="n">CurrentPath</span><span class="p">()</span>
 <span class="kd">func</span> <span class="nf">currentpath</span>
         <span class="n">cFileName</span> <span class="o">=</span> <span class="nb">filename</span><span class="p">()</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="k k-Control">to</span> <span class="mi">1</span> <span class="k k-Control">step</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k k-Control">if</span> <span class="n">cFileName</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
-                        <span class="k k-Control">return</span> <span class="nb">left</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-        <span class="k k-Control">return</span> <span class="n">cFileName</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">step</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">if</span> <span class="n">cFileName</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
+                        <span class="k">return</span> <span class="nb">left</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="k">return</span> <span class="n">cFileName</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1195,8 +1195,8 @@ Just accept a list that works like hash/dictionary</p>
 <span class="n">sum</span><span class="p">([</span> <span class="ss">:a</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">])</span>
 <span class="n">sum</span><span class="p">([</span> <span class="ss">:b</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">])</span>
 <span class="kd">func</span> <span class="nf">sum</span> <span class="n">pList</span>
-        <span class="k k-Control">if</span> <span class="n">plist</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="n">pList</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">plist</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="n">pList</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">plist</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="n">pList</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">plist</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="n">pList</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">ok</span>
         <span class="k">see</span> <span class="n">pList</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span> <span class="o">+</span> <span class="n">pList</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
@@ -1218,13 +1218,13 @@ Just accept a list that works like hash/dictionary</p>
         <span class="ss">:Egypt</span> <span class="o">=</span> <span class="s2">&quot;Cairo&quot;</span>
 <span class="p">]</span>
 
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">mylist</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
         <span class="k">see</span> <span class="n">x</span><span class="p">[</span><span class="n">C_COUNTRY</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">mylist</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
         <span class="k">see</span> <span class="n">x</span><span class="p">[</span><span class="n">C_CITY</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1338,7 +1338,7 @@ message from test
 <span id="index-38"></span><h2>Why this example use the GetChar() twice?<a class="headerlink" href="#why-this-example-use-the-getchar-twice" title="Permalink to this heading"></a></h2>
 <p>The GetChar() function accept one character from the keyboard buffer</p>
 <p>In this example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">While</span> <span class="bp">True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="bp">True</span>
         <span class="k">See</span> <span class="s2">&quot;</span>
 <span class="s2">                Main Menu</span>
 <span class="s2">                (1) Say Hello</span>
@@ -1349,13 +1349,13 @@ message from test
         <span class="c1"># the previous two lines can be replaced with the next line</span>
         <span class="c1"># Give Option</span>
 
-        <span class="k k-Control">if</span> <span class="n">Option</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">Option</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="k">see</span> <span class="s2">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
                 <span class="k">see</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
-        <span class="k k-Control">else</span>
-                <span class="k k-Control">bye</span>
-        <span class="k k-Control">ok</span>
-<span class="k k-Control">End</span>
+        <span class="k">else</span>
+                <span class="k">bye</span>
+        <span class="k">ok</span>
+<span class="k">End</span>
 </pre></div>
 </div>
 <p>We uses GetChar() Three times</p>
@@ -1406,11 +1406,11 @@ in file tests\seeuninit2.ring
 </pre></div>
 </div>
 <p>if you want to check for the error, just use Try/Catch/End</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">Try</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Try</span>
         <span class="k">see</span> <span class="n">x</span>
-<span class="k k-Control">Catch</span>
+<span class="k">Catch</span>
         <span class="k">See</span> <span class="s2">&quot;Sorry, We can&#39;t use x!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">Done</span>
+<span class="k">Done</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1894,16 +1894,16 @@ Message from dlfunc
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
                         <span class="n">setselectionbehavior</span><span class="p">(</span><span class="n">QAbstractItemView_SelectRows</span><span class="p">)</span>
 
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                                <span class="k k-Control">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                         <span class="n">item1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtablewidgetitem</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="o">+</span><span class="n">X</span><span class="o">+</span><span class="s2">&quot;C&quot;</span><span class="o">+</span><span class="n">Y</span><span class="p">)</span>
                                         <span class="n">setitem</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">item1</span><span class="p">)</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">next</span>
+                                <span class="k">next</span>
+                        <span class="k">next</span>
 
                         <span class="n">cmb</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QComboBox</span><span class="p">(</span><span class="n">Table1</span><span class="p">)</span> <span class="p">{</span>
                                 <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">]</span>
-                                <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k k-Control">next</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">next</span>
                         <span class="p">}</span>
                                 <span class="n">setCellWidget</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
                 <span class="p">}</span>
@@ -1928,12 +1928,12 @@ Message from dlfunc
                 <span class="n">Table1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qTableWidget</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setrowcount</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">setcolumncount</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                                <span class="k k-Control">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                         <span class="n">item1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtablewidgetitem</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
                                         <span class="n">setitem</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">item1</span><span class="p">)</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">next</span>
+                                <span class="k">next</span>
+                        <span class="k">next</span>
                 <span class="p">}</span>
                 <span class="n">btn1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Increase&quot;</span><span class="p">)</span>
@@ -1946,15 +1946,15 @@ Message from dlfunc
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">pClick</span>
-        <span class="k k-Control">for</span> <span class="n">nRow</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="n">Table1</span><span class="o">.</span><span class="n">rowcount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
-                <span class="k k-Control">for</span> <span class="n">nCol</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="n">Table1</span><span class="o">.</span><span class="n">columncount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">nRow</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">Table1</span><span class="o">.</span><span class="n">rowcount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">for</span> <span class="n">nCol</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">Table1</span><span class="o">.</span><span class="n">columncount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
                         <span class="n">Table1</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">nRow</span><span class="p">,</span><span class="n">nCol</span><span class="p">)</span>  <span class="p">{</span>
-                                <span class="k k-Control">if</span> <span class="n">isSelected</span><span class="p">()</span>
+                                <span class="k">if</span> <span class="n">isSelected</span><span class="p">()</span>
                                         <span class="n">setText</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">text</span><span class="p">())</span> <span class="p">)</span>
-                                <span class="k k-Control">ok</span>
+                                <span class="k">ok</span>
                         <span class="p">}</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">next</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -1973,13 +1973,13 @@ Message from dlfunc
 <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;select * from tel&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
         <span class="k">See</span> <span class="bp">nl</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
                 <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-                <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nMax</span> <span class="k">see</span> <span class="s2">&quot; - &quot;</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">end</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nMax</span> <span class="k">see</span> <span class="s2">&quot; - &quot;</span> <span class="k">ok</span>
+        <span class="k">next</span>
+<span class="k">end</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
@@ -2014,12 +2014,12 @@ SQLite ODBC (UTF-8) Driver - UsageCount=1
 <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;select * from tel.dbf&quot;</span><span class="p">)</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
            <span class="k">See</span> <span class="s2">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-           <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
+           <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
                            <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span>
-           <span class="k k-Control">next</span>
-<span class="k k-Control">end</span>
+           <span class="k">next</span>
+<span class="k">end</span>
 <span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
@@ -2047,12 +2047,12 @@ Mahmoud - Egypt - 123456 - Close database...
 <span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s2">&quot;select * from t38&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="k">See</span> <span class="s2">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
         <span class="k">See</span> <span class="s2">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nMax</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
                 <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">end</span>
+        <span class="k">next</span>
+<span class="k">end</span>
 <span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>

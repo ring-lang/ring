@@ -652,7 +652,7 @@ return the page object instead of creating the object using new statement.</p>
                 <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Upload File&quot;</span> <span class="p">)</span>
                 <span class="n">newline</span><span class="p">()</span>
         <span class="n">boxend</span><span class="p">()</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span> <span class="n">newline</span><span class="p">()</span> <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span> <span class="n">newline</span><span class="p">()</span> <span class="k">next</span>
         <span class="n">formupload</span><span class="p">(</span><span class="s2">&quot;ex9.ring&quot;</span><span class="p">)</span>
                 <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Customer Name : &quot;</span> <span class="p">)</span>
                 <span class="n">textbox</span><span class="p">([</span> <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;custname&quot;</span> <span class="p">])</span>
@@ -687,12 +687,12 @@ return the page object instead of creating the object using new statement.</p>
                 <span class="n">text</span><span class="p">(</span> <span class="s2">&quot;Name : &quot;</span> <span class="o">+</span> <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;custname&quot;</span><span class="p">]</span> <span class="p">)</span>
                 <span class="n">newline</span><span class="p">()</span>
         <span class="n">divend</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;file&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
                 <span class="n">getuploadedfile</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="s2">&quot;file&quot;</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;file2&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;file2&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
                 <span class="n">getuploadedfile</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="s2">&quot;file2&quot;</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 <span class="p">}</span>
 
 <span class="kd">Func</span> <span class="nf">getuploadedfile</span> <span class="n">oObj</span><span class="p">,</span><span class="n">cFile</span>
@@ -832,12 +832,12 @@ return the page object instead of creating the object using new statement.</p>
 
                 <span class="n">aNumbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aNumbers</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aNumbers</span><span class="p">)</span>
                         <span class="n">aNumbers</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">number</span>
                         <span class="p">{</span>
                                 <span class="n">nValue</span>  <span class="o">=</span> <span class="n">x</span>   <span class="n">nSquare</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
                         <span class="p">}</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
                 <span class="n">cTemp</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;mynumbers.html&quot;</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
 
@@ -966,15 +966,15 @@ return the page object instead of creating the object using new statement.</p>
         <span class="n">divstart</span><span class="p">([</span> <span class="ss">:style</span> <span class="o">=</span> <span class="n">styleFloatLeft</span><span class="p">()</span> <span class="o">+</span> <span class="n">styleWidth</span><span class="p">(</span><span class="s2">&quot;400px&quot;</span><span class="p">)</span> <span class="p">])</span>
                 <span class="n">newline</span><span class="p">()</span>
                 <span class="n">aList</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">cUploadPath</span><span class="p">)</span>
-                <span class="k k-Control">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
                         <span class="n">nIndex</span> <span class="o">=</span> <span class="nb">random</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">))</span>
-                        <span class="k k-Control">if</span> <span class="n">nindex</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">nIndex</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">ok</span>
+                        <span class="k">if</span> <span class="n">nindex</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">nIndex</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">ok</span>
                         <span class="n">cItem</span> <span class="o">=</span> <span class="s2">&quot;upload/&quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="p">[</span><span class="n">nIndex</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
                         <span class="n">newline</span><span class="p">()</span>
                         <span class="n">image</span><span class="p">(</span> <span class="p">[</span> <span class="ss">:url</span> <span class="o">=</span> <span class="n">cItem</span> <span class="p">,</span> <span class="ss">:alt</span> <span class="o">=</span> <span class="ss">:image</span>  <span class="p">]</span> <span class="p">)</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">text</span><span class="p">(</span><span class="s2">&quot;No images!&quot;</span><span class="p">)</span> <span class="n">newline</span><span class="p">()</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
         <span class="n">divend</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
@@ -999,21 +999,21 @@ contains the clicked button number.</p>
         <span class="kp">New</span> <span class="nc">Page</span>
         <span class="p">{</span>
                 <span class="n">ulstart</span><span class="p">([])</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                 <span class="n">listart</span><span class="p">([])</span>
                                         <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                                 <span class="n">liend</span><span class="p">()</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                 <span class="n">ulend</span><span class="p">()</span>
                 <span class="n">list2ul</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">])</span>
                 <span class="n">ulstart</span><span class="p">([])</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                 <span class="n">listart</span><span class="p">([])</span>
                                         <span class="n">cFuncName</span> <span class="o">=</span> <span class="s2">&quot;btn&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;()&quot;</span>
                                         <span class="n">button</span><span class="p">([</span> <span class="ss">:onclick</span> <span class="o">=</span> <span class="n">cFuncName</span> <span class="p">,</span> <span class="ss">:value</span> <span class="o">=</span> <span class="n">x</span><span class="p">])</span>
                                         <span class="n">script</span><span class="p">(</span><span class="n">scriptfuncalert</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">,</span><span class="nb">string</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
                                 <span class="n">liend</span><span class="p">()</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                 <span class="n">ulend</span><span class="p">()</span>
         <span class="p">}</span>
 </pre></div>
@@ -1040,12 +1040,12 @@ and cellend() functions.</p>
                                         <span class="n">headerstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
                                         <span class="n">headerstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;square&quot;</span><span class="p">)</span> <span class="n">headerend</span><span class="p">()</span>
                                 <span class="n">rowend</span><span class="p">()</span>
-                                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                         <span class="n">rowstart</span><span class="p">([])</span>
                                                 <span class="n">cellstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   <span class="n">cellend</span><span class="p">()</span>
                                                 <span class="n">cellstart</span><span class="p">([])</span> <span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="n">cellend</span><span class="p">()</span>
                                         <span class="n">rowend</span><span class="p">()</span>
-                                <span class="k k-Control">next</span>
+                                <span class="k">next</span>
                         <span class="n">tableend</span><span class="p">()</span>
                 <span class="n">divend</span><span class="p">()</span>
         <span class="p">}</span>
@@ -1068,14 +1068,14 @@ and cellend() functions.</p>
                 <span class="n">boxstart</span><span class="p">()</span>
                         <span class="n">text</span><span class="p">(</span><span class="s2">&quot;StyleGradient() Function&quot;</span><span class="p">)</span>
                 <span class="n">boxend</span><span class="p">()</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">60</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">60</span>
                         <span class="n">divstart</span><span class="p">([</span> <span class="ss">:id</span> <span class="o">=</span> <span class="n">x</span> <span class="p">,</span> <span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span> <span class="p">,</span>
                                    <span class="ss">:style</span> <span class="o">=</span> <span class="n">stylefloatleft</span><span class="p">()</span> <span class="o">+</span>
                                             <span class="n">stylesize</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="mi">100</span><span class="o">/</span><span class="mi">60</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;%&quot;</span><span class="p">,</span><span class="s2">&quot;50px&quot;</span><span class="p">)</span> <span class="o">+</span>
                                             <span class="n">stylegradient</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">])</span>
                                 <span class="n">h3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                         <span class="n">divend</span><span class="p">()</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -1273,7 +1273,7 @@ Func Main
                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                           <span class="p">}</span>
-                          <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100</span>
+                          <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
@@ -1282,7 +1282,7 @@ Func Main
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
-                          <span class="k k-Control">next</span>
+                          <span class="k">next</span>
                 <span class="p">}</span>
 
         <span class="p">}</span>
@@ -1482,11 +1482,11 @@ modify a record.</p>
   <span class="n">oLanguage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">SalaryLanguageEnglish</span>
 
   <span class="kd">Func</span> <span class="nf">AddFuncScript</span> <span class="n">oPage</span><span class="p">,</span><span class="n">oController</span>
-        <span class="k k-Control">return</span>   <span class="n">oPage</span><span class="o">.</span><span class="n">scriptfuncajax</span><span class="p">(</span><span class="s2">&quot;myadd&quot;</span><span class="p">,</span><span class="n">oController</span><span class="o">.</span><span class="n">cMainURL</span><span class="o">+</span>
+        <span class="k">return</span>   <span class="n">oPage</span><span class="o">.</span><span class="n">scriptfuncajax</span><span class="p">(</span><span class="s2">&quot;myadd&quot;</span><span class="p">,</span><span class="n">oController</span><span class="o">.</span><span class="n">cMainURL</span><span class="o">+</span>
                  <span class="n">oController</span><span class="o">.</span><span class="n">cOperation</span><span class="o">+</span><span class="s2">&quot;=add&quot;</span><span class="p">,</span><span class="s2">&quot;mysubpage&quot;</span><span class="p">)</span>
 
   <span class="kd">Func</span> <span class="nf">FormViewContent</span> <span class="n">oController</span><span class="p">,</span><span class="n">oTranslation</span><span class="p">,</span><span class="n">oPage</span>
-        <span class="k k-Control">return</span> <span class="p">[</span>
+        <span class="k">return</span> <span class="p">[</span>
                         <span class="p">[</span> <span class="n">oTranslation</span><span class="o">.</span><span class="n">aColumnsTitles</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;textbox&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
                           <span class="n">oController</span><span class="o">.</span><span class="n">oModel</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">oPage</span><span class="o">.</span><span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span>    <span class="p">],</span>
                         <span class="p">[</span> <span class="n">oTranslation</span><span class="o">.</span><span class="n">aColumnsTitles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;textbox&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">,</span>
@@ -1539,10 +1539,10 @@ like username &amp; email.</p>
   <span class="n">oLanguage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">UsersLanguageEnglish</span>
 
   <span class="kd">Func</span> <span class="nf">AddFuncScript</span> <span class="n">oPage</span><span class="p">,</span><span class="n">oController</span>
-        <span class="k k-Control">return</span>   <span class="n">oPage</span><span class="o">.</span><span class="n">scriptfunc</span><span class="p">(</span><span class="s2">&quot;myadd&quot;</span><span class="p">,</span><span class="n">oPage</span><span class="o">.</span><span class="n">scriptredirection</span><span class="p">(</span><span class="s2">&quot;ex26.ring&quot;</span><span class="p">))</span>
+        <span class="k">return</span>   <span class="n">oPage</span><span class="o">.</span><span class="n">scriptfunc</span><span class="p">(</span><span class="s2">&quot;myadd&quot;</span><span class="p">,</span><span class="n">oPage</span><span class="o">.</span><span class="n">scriptredirection</span><span class="p">(</span><span class="s2">&quot;ex26.ring&quot;</span><span class="p">))</span>
 
   <span class="kd">Func</span> <span class="nf">FormViewContent</span> <span class="n">oController</span><span class="p">,</span><span class="n">oTranslation</span><span class="p">,</span><span class="n">oPage</span>
-        <span class="k k-Control">return</span> <span class="p">[</span>
+        <span class="k">return</span> <span class="p">[</span>
                         <span class="p">[</span><span class="n">oTranslation</span><span class="o">.</span><span class="n">aColumnsTitles</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="s2">&quot;textbox&quot;</span><span class="p">,</span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
                         <span class="n">oController</span><span class="o">.</span><span class="n">oModel</span><span class="o">.</span><span class="n">UserName</span><span class="p">,</span><span class="n">oPage</span><span class="o">.</span><span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)],</span>
                         <span class="p">[</span><span class="n">oTranslation</span><span class="o">.</span><span class="n">aColumnsTitles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="s2">&quot;textbox&quot;</span><span class="p">,</span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
@@ -1653,18 +1653,18 @@ like username &amp; email.</p>
 
 <span class="n">oUser</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">UsersModel</span>
 <span class="n">oUser</span><span class="o">.</span><span class="n">Connect</span><span class="p">()</span>
-<span class="k k-Control">if</span> <span class="n">oUser</span><span class="o">.</span><span class="n">findwith</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">oUser</span><span class="o">.</span><span class="n">findwith</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">])</span>
         <span class="kp">new</span> <span class="nc">page</span> <span class="p">{</span>
                 <span class="n">text</span><span class="p">(</span><span class="s2">&quot;The user name is already registered&quot;</span><span class="p">)</span>
         <span class="p">}</span>
-        <span class="k k-Control">return</span>
-<span class="k k-Control">ok</span>
-<span class="k k-Control">if</span> <span class="n">oUser</span><span class="o">.</span><span class="n">findwith</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">])</span>
+        <span class="k">return</span>
+<span class="k">ok</span>
+<span class="k">if</span> <span class="n">oUser</span><span class="o">.</span><span class="n">findwith</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">])</span>
         <span class="kp">new</span> <span class="nc">page</span> <span class="p">{</span>
                 <span class="n">text</span><span class="p">(</span><span class="s2">&quot;This email is already registered&quot;</span><span class="p">)</span>
         <span class="p">}</span>
-        <span class="k k-Control">return</span>
-<span class="k k-Control">ok</span>
+        <span class="k">return</span>
+<span class="k">ok</span>
 
 <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;salt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str2hex</span><span class="p">(</span><span class="n">RandBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
 <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;pwhash&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">aPagevars</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;salt&quot;</span><span class="p">])</span>
@@ -1745,18 +1745,18 @@ like username &amp; email.</p>
 <span class="n">oUser</span><span class="o">.</span><span class="n">Connect</span><span class="p">()</span>
 <span class="n">lResult</span> <span class="o">=</span> <span class="n">oUser</span><span class="o">.</span><span class="n">FindWith</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">])</span>
 <span class="kp">new</span> <span class="nc">page</span> <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="n">lResult</span>
-                <span class="k k-Control">if</span> <span class="n">sha256</span><span class="p">(</span><span class="n">aPagevars</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">oUser</span><span class="o">.</span><span class="n">Salt</span><span class="p">)</span> <span class="o">=</span> <span class="n">oUser</span><span class="o">.</span><span class="n">pwhash</span>
+        <span class="k">if</span> <span class="n">lResult</span>
+                <span class="k">if</span> <span class="n">sha256</span><span class="p">(</span><span class="n">aPagevars</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span><span class="o">+</span><span class="n">oUser</span><span class="o">.</span><span class="n">Salt</span><span class="p">)</span> <span class="o">=</span> <span class="n">oUser</span><span class="o">.</span><span class="n">pwhash</span>
                         <span class="n">text</span> <span class="p">(</span><span class="s2">&quot;Correct Password!&quot;</span><span class="p">)</span>
                         <span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;sessionid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str2hex</span><span class="p">(</span><span class="n">randbytes</span><span class="p">(</span><span class="mi">32</span><span class="p">))</span>
                         <span class="n">oUser</span><span class="o">.</span><span class="n">UpdateColumn</span><span class="p">(</span><span class="s2">&quot;sessionid&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;sessionid&quot;</span><span class="p">])</span>
                         <span class="n">cookie</span><span class="p">(</span><span class="s2">&quot;sessionid&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;sessionid&quot;</span><span class="p">])</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">text</span> <span class="p">(</span><span class="s2">&quot;Bad password!&quot;</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">else</span>
+                <span class="k">ok</span>
+        <span class="k">else</span>
                 <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Bad User Name!&quot;</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 <span class="p">}</span>
 <span class="n">oUser</span><span class="o">.</span><span class="n">Disconnect</span><span class="p">()</span>
 </pre></div>
@@ -1773,11 +1773,11 @@ like username &amp; email.</p>
 <span class="n">oUser</span><span class="o">.</span><span class="n">Connect</span><span class="p">()</span>
 <span class="n">lResult</span> <span class="o">=</span> <span class="n">oUser</span><span class="o">.</span><span class="n">FindWith</span><span class="p">(</span><span class="s2">&quot;sessionid&quot;</span><span class="p">,</span><span class="n">aPageVars</span><span class="p">[</span><span class="s2">&quot;sessionid&quot;</span><span class="p">])</span>
 <span class="kp">new</span> <span class="nc">page</span> <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="n">lResult</span>
+        <span class="k">if</span> <span class="n">lResult</span>
                 <span class="n">text</span><span class="p">(</span><span class="s2">&quot;User Name : &quot;</span> <span class="o">+</span> <span class="n">oUser</span><span class="o">.</span><span class="n">username</span> <span class="p">)</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Please Login First!&quot;</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 <span class="p">}</span>
 <span class="n">oUser</span><span class="o">.</span><span class="n">Disconnect</span><span class="p">()</span>
 </pre></div>
@@ -1811,28 +1811,28 @@ like username &amp; email.</p>
 
   <span class="kd">Func</span> <span class="nf">QueryResult</span>
 
-        <span class="k k-Control">return</span> <span class="n">mysql_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mysql_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 
   <span class="kd">Func</span> <span class="nf">QueryResultWithColumns</span>
         <span class="c1"># return columns names + query result</span>
-        <span class="k k-Control">return</span> <span class="n">mysql_result2</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mysql_result2</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 
   <span class="kd">Func</span> <span class="nf">QueryValue</span>
         <span class="n">aResult</span> <span class="o">=</span> <span class="n">mysql_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="nb">islist</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">islist</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
           <span class="n">aResult</span> <span class="o">=</span> <span class="n">aResult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-          <span class="k k-Control">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
-                <span class="k k-Control">return</span> <span class="n">aResult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-          <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">return</span> <span class="mi">0</span>
+          <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+                <span class="k">return</span> <span class="n">aResult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+          <span class="k">ok</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="mi">0</span>
 
   <span class="kd">Func</span> <span class="nf">EscapeString</span> <span class="n">x</span>
-        <span class="k k-Control">if</span> <span class="nb">isstring</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-          <span class="k k-Control">return</span> <span class="n">MySQL_Escape_String</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-        <span class="k k-Control">else</span>
-          <span class="k k-Control">return</span> <span class="n">MySQL_Escape_String</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="nb">string</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="nb">isstring</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+          <span class="k">return</span> <span class="n">MySQL_Escape_String</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span>
+          <span class="k">return</span> <span class="n">MySQL_Escape_String</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="nb">string</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">ok</span>
 
   <span class="kd">Private</span>
         <span class="n">con</span> <span class="o">=</span> <span class="bp">NULL</span>
@@ -1847,21 +1847,21 @@ like username &amp; email.</p>
 
   <span class="c1"># set table name from class name</span>
   <span class="n">classname</span> <span class="o">=</span> <span class="nb">lower</span><span class="p">(</span><span class="nb">classname</span><span class="p">(</span><span class="kp">self</span><span class="p">))</span>
-  <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="n">classname</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="ss">:model</span>
+  <span class="k">if</span> <span class="nb">right</span><span class="p">(</span><span class="n">classname</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="ss">:model</span>
         <span class="n">cTablename</span> <span class="o">=</span> <span class="nb">left</span><span class="p">(</span><span class="n">classname</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">classname</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-  <span class="k k-Control">ok</span>
+  <span class="k">ok</span>
 
   <span class="kd">Func</span> <span class="nf">Insert</span>
 
         <span class="n">cValues</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aColumns</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aColumns</span>
           <span class="n">cValues</span> <span class="o">+=</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">EscapeString</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;&#39;,&quot;</span>
-        <span class="k k-Control">Next</span>
+        <span class="k">Next</span>
         <span class="n">cValues</span> <span class="o">=</span> <span class="nb">left</span><span class="p">(</span><span class="n">cValues</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cValues</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># remove last comma</span>
         <span class="n">cColumns</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aColumns</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aColumns</span>
           <span class="n">cColumns</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="n">cColumns</span> <span class="o">=</span> <span class="nb">left</span><span class="p">(</span><span class="n">cColumns</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cColumns</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">query</span><span class="p">(</span><span class="s2">&quot;insert into &quot;</span> <span class="o">+</span> <span class="n">cTableName</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="n">cColumns</span><span class="o">+</span><span class="s2">&quot;) values (&quot;</span> <span class="o">+</span>
                  <span class="n">cValues</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span> <span class="p">)</span>
@@ -1869,10 +1869,10 @@ like username &amp; email.</p>
   <span class="kd">Func</span> <span class="nf">Update</span> <span class="n">nID</span>
 
         <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aColumns</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aColumns</span>
           <span class="n">cStr</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot; = &#39;&quot;</span> <span class="o">+</span> <span class="n">EscapeString</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;&#39; , &quot;</span>
         <span class="c1"># the space after comma is necessary</span>
-        <span class="k k-Control">Next</span>
+        <span class="k">Next</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="nb">left</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">query</span><span class="p">(</span><span class="s2">&quot;update &quot;</span> <span class="o">+</span> <span class="n">cTableName</span> <span class="o">+</span> <span class="s2">&quot; set &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="s2">&quot; where id = &quot;</span> <span class="o">+</span> <span class="n">nID</span> <span class="p">)</span>
 
@@ -1885,7 +1885,7 @@ like username &amp; email.</p>
 
         <span class="n">query</span><span class="p">(</span><span class="s2">&quot;SELECT count(*) FROM &quot;</span> <span class="o">+</span> <span class="n">cTableName</span> <span class="o">+</span>
                  <span class="s2">&quot; where &quot;</span><span class="o">+</span><span class="n">cSearchColumn</span><span class="o">+</span><span class="s2">&quot; like &#39;&quot;</span> <span class="o">+</span> <span class="n">EscapeString</span><span class="p">(</span><span class="n">cValue</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span><span class="p">)</span>
-        <span class="k k-Control">return</span> <span class="n">queryValue</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">queryValue</span><span class="p">()</span>
 
   <span class="kd">Func</span> <span class="nf">Read</span> <span class="n">nStart</span><span class="p">,</span><span class="n">nRecordsPerPage</span>
 
@@ -1907,9 +1907,9 @@ like username &amp; email.</p>
         <span class="c1"># move the result from the array to the object attributes</span>
         <span class="n">ID</span> <span class="o">=</span> <span class="n">nID</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span>
           <span class="n">cCode</span> <span class="o">+=</span> <span class="n">aColumns</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; = hex2str(&#39;&quot;</span> <span class="o">+</span> <span class="nb">str2hex</span><span class="p">(</span><span class="n">aResult</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;&#39;)&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 
   <span class="kd">Func</span> <span class="nf">FindWith</span> <span class="n">cColumn</span><span class="p">,</span><span class="n">cValue</span>
@@ -1917,19 +1917,19 @@ like username &amp; email.</p>
         <span class="n">query</span><span class="p">(</span><span class="s2">&quot;select * from &quot;</span> <span class="o">+</span> <span class="n">cTableName</span> <span class="o">+</span> <span class="s2">&quot; where &quot;</span><span class="o">+</span><span class="n">cColumn</span><span class="o">+</span><span class="s2">&quot; = &#39;&quot;</span> <span class="o">+</span>
         <span class="n">EscapeString</span><span class="p">(</span><span class="n">cValue</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="p">)</span>
         <span class="n">aResult</span> <span class="o">=</span> <span class="n">queryResult</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
           <span class="n">aResult</span> <span class="o">=</span> <span class="n">aResult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k k-Control">else</span>
-          <span class="k k-Control">return</span> <span class="mi">0</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">else</span>
+          <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">ok</span>
         <span class="c1"># move the result from the array to the object attributes</span>
         <span class="n">ID</span> <span class="o">=</span> <span class="n">aResult</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span>
           <span class="n">cCode</span> <span class="o">+=</span> <span class="n">aColumns</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; = hex2str(&#39;&quot;</span> <span class="o">+</span> <span class="nb">str2hex</span><span class="p">(</span><span class="n">aResult</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;&#39;)&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
-        <span class="k k-Control">return</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">1</span>
 
   <span class="kd">Func</span> <span class="nf">Delete</span> <span class="n">ID</span>
 
@@ -1938,9 +1938,9 @@ like username &amp; email.</p>
   <span class="kd">Func</span> <span class="nf">Clear</span>
 
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aColumns</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aColumns</span>
           <span class="n">cCode</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">&#39; = &quot;&quot;&#39;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 
   <span class="kd">Func</span> <span class="nf">LoadModel</span>
@@ -1948,22 +1948,22 @@ like username &amp; email.</p>
         <span class="c1"># create the columns array</span>
         <span class="n">query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM &quot;</span><span class="o">+</span> <span class="n">cTableName</span> <span class="o">+</span> <span class="s2">&quot; limit 0,1&quot;</span><span class="p">)</span>
         <span class="n">aQueryResult</span> <span class="o">=</span> <span class="n">QueryResultWithColumns</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aQueryResult</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aQueryResult</span><span class="p">)</span>
           <span class="n">aColumns</span> <span class="o">+</span> <span class="nb">lower</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">aQueryResult</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
         <span class="c1"># create attribute for each column</span>
-        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aColumns</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aColumns</span>
           <span class="nb">addattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
   <span class="kd">Func</span> <span class="nf">Connect</span>
 
         <span class="kp">Super</span><span class="o">.</span><span class="n">Connect</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">nLoadModel</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">nLoadModel</span> <span class="o">=</span> <span class="mi">0</span>
           <span class="n">nLoadModel</span> <span class="o">=</span> <span class="mi">1</span>
           <span class="n">LoadModel</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
   <span class="kd">private</span>
 
@@ -1979,13 +1979,13 @@ like username &amp; email.</p>
 
   <span class="c1"># Dynamic creation of oView = new tablenameView and oModel = new tablename.Model</span>
   <span class="n">classname</span> <span class="o">=</span> <span class="nb">lower</span><span class="p">(</span><span class="nb">classname</span><span class="p">(</span><span class="kp">self</span><span class="p">))</span>
-  <span class="k k-Control">if</span> <span class="nb">right</span><span class="p">(</span><span class="n">classname</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>  <span class="o">=</span> <span class="ss">:controller</span>
+  <span class="k">if</span> <span class="nb">right</span><span class="p">(</span><span class="n">classname</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>  <span class="o">=</span> <span class="ss">:controller</span>
         <span class="n">tablename</span> <span class="o">=</span> <span class="nb">left</span><span class="p">(</span><span class="n">classname</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">classname</span><span class="p">)</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;oView = new &quot;</span> <span class="o">+</span> <span class="n">tablename</span><span class="o">+</span><span class="s2">&quot;View&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">cCode</span> <span class="o">+=</span> <span class="s2">&quot;oModel = new &quot;</span> <span class="o">+</span> <span class="n">tablename</span><span class="o">+</span><span class="s2">&quot;Model&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="nb">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
         <span class="n">oModel</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-  <span class="k k-Control">ok</span>
+  <span class="k">ok</span>
 
   <span class="n">cSearchName</span> <span class="o">=</span> <span class="s2">&quot;searchname&quot;</span>
   <span class="n">cPart</span> <span class="o">=</span> <span class="s2">&quot;part&quot;</span>
@@ -1995,22 +1995,22 @@ like username &amp; email.</p>
   <span class="n">cRecID</span> <span class="o">=</span> <span class="s2">&quot;recid&quot;</span>
 
   <span class="n">aColumnsNames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-  <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">oModel</span><span class="o">.</span><span class="n">aColumns</span>
+  <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">oModel</span><span class="o">.</span><span class="n">aColumns</span>
         <span class="n">aColumnsNames</span> <span class="o">+</span> <span class="n">t</span>
-  <span class="k k-Control">next</span>
+  <span class="k">next</span>
 
   <span class="n">cMainURL</span> <span class="o">=</span> <span class="n">website</span> <span class="o">+</span> <span class="s2">&quot;?&quot;</span>
 
   <span class="kd">func</span> <span class="nf">Routing</span>
 
-        <span class="k k-Control">switch</span>      <span class="n">aPageVars</span><span class="p">[</span><span class="n">cOperation</span><span class="p">]</span>
-        <span class="k k-Control">on</span> <span class="bp">NULL</span>     <span class="n">showtable</span><span class="p">()</span>
-        <span class="k k-Control">on</span> <span class="ss">:add</span>     <span class="n">addrecord</span><span class="p">()</span>
-        <span class="k k-Control">on</span> <span class="ss">:save</span>    <span class="n">saverecord</span><span class="p">()</span>
-        <span class="k k-Control">on</span> <span class="ss">:delete</span>  <span class="n">deleterecord</span><span class="p">()</span>
-        <span class="k k-Control">on</span> <span class="ss">:edit</span>    <span class="n">editrecord</span><span class="p">()</span>
-        <span class="k k-Control">on</span> <span class="ss">:update</span>  <span class="n">updaterecord</span><span class="p">()</span>
-        <span class="k k-Control">off</span>
+        <span class="k">switch</span>      <span class="n">aPageVars</span><span class="p">[</span><span class="n">cOperation</span><span class="p">]</span>
+        <span class="k">on</span> <span class="bp">NULL</span>     <span class="n">showtable</span><span class="p">()</span>
+        <span class="k">on</span> <span class="ss">:add</span>     <span class="n">addrecord</span><span class="p">()</span>
+        <span class="k">on</span> <span class="ss">:save</span>    <span class="n">saverecord</span><span class="p">()</span>
+        <span class="k">on</span> <span class="ss">:delete</span>  <span class="n">deleterecord</span><span class="p">()</span>
+        <span class="k">on</span> <span class="ss">:edit</span>    <span class="n">editrecord</span><span class="p">()</span>
+        <span class="k">on</span> <span class="ss">:update</span>  <span class="n">updaterecord</span><span class="p">()</span>
+        <span class="k">off</span>
 
   <span class="kd">func</span> <span class="nf">ShowTable</span>
 
@@ -2018,25 +2018,25 @@ like username &amp; email.</p>
 
         <span class="n">nPagesCount</span> <span class="o">=</span> <span class="nb">ceil</span><span class="p">(</span><span class="n">nRecordsCount</span> <span class="o">/</span> <span class="n">nRecordsPerPage</span><span class="p">)</span>
 
-        <span class="k k-Control">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="n">cPart</span><span class="p">]</span> <span class="o">=</span> <span class="n">cLast</span>
+        <span class="k">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="n">cPart</span><span class="p">]</span> <span class="o">=</span> <span class="n">cLast</span>
           <span class="n">aPageVars</span><span class="p">[</span><span class="n">cPart</span><span class="p">]</span> <span class="o">=</span> <span class="nb">string</span><span class="p">(</span><span class="n">nPagesCount</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">nActivePage</span> <span class="o">=</span> <span class="nb">number</span><span class="p">(</span><span class="n">aPageVars</span><span class="p">[</span><span class="n">cPart</span><span class="p">])</span>
-        <span class="k k-Control">if</span> <span class="n">nActivePage</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">nActivePage</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">nActivePage</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">nActivePage</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="p">(</span> <span class="n">nActivePage</span> <span class="o">&gt;</span> <span class="n">nPagesCount</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">nRecordsCount</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">nActivePage</span> <span class="o">&gt;</span> <span class="n">nPagesCount</span> <span class="p">)</span> <span class="ow">and</span> <span class="n">nRecordsCount</span> <span class="o">&gt;</span> <span class="mi">0</span>
           <span class="n">ErrorMsg</span><span class="p">(</span><span class="n">cPageError</span><span class="p">)</span>
-          <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+          <span class="k">return</span>
+        <span class="k">ok</span>
 
         <span class="n">nStart</span> <span class="o">=</span> <span class="p">(</span><span class="n">nActivePage</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">nRecordsPerPage</span>
 
-        <span class="k k-Control">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="n">cSearchName</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
+        <span class="k">if</span> <span class="n">aPageVars</span><span class="p">[</span><span class="n">cSearchName</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
           <span class="n">oModel</span><span class="o">.</span><span class="nb">Read</span><span class="p">(</span> <span class="n">nStart</span><span class="p">,</span><span class="n">nRecordsPerPage</span> <span class="p">)</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
           <span class="n">oModel</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span> <span class="n">aPageVars</span><span class="p">[</span><span class="n">cSearchName</span><span class="p">],</span><span class="n">nStart</span><span class="p">,</span><span class="n">nRecordsPerPage</span> <span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">oView</span><span class="o">.</span><span class="n">GridView</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
 

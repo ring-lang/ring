@@ -254,7 +254,7 @@
 <span class="p">(</span><span class="n">commit</span> <span class="mi">24</span><span class="n">d88487f47629fac9d4acd231497a3a412bdee8</span><span class="p">)</span>
 <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">2014</span> <span class="n">the</span> <span class="n">Emscripten</span> <span class="n">authors</span> <span class="p">(</span><span class="k">see</span> <span class="n">AUTHORS</span><span class="o">.</span><span class="n">txt</span><span class="p">)</span>
 <span class="kp">This</span> <span class="n">is</span> <span class="n">free</span> <span class="ow">and</span> <span class="n">open</span> <span class="n">source</span> <span class="n">software</span> <span class="n">under</span> <span class="n">the</span> <span class="n">MIT</span> <span class="n">license</span><span class="o">.</span>
-<span class="n">There</span> <span class="n">is</span> <span class="n">NO</span> <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k k-Control">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="k k-Control">FOR</span> <span class="n">A</span>
+<span class="n">There</span> <span class="n">is</span> <span class="n">NO</span> <span class="n">warranty</span><span class="p">;</span> <span class="ow">not</span> <span class="n">even</span> <span class="k">for</span> <span class="n">MERCHANTABILITY</span> <span class="ow">or</span> <span class="n">FITNESS</span> <span class="k">FOR</span> <span class="n">A</span>
 <span class="n">PARTICULAR</span> <span class="n">PURPOSE</span><span class="o">.</span>
 </pre></div>
 </div>
@@ -321,11 +321,11 @@
 </div></blockquote>
 </li>
 </ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
         <span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="s2">&quot;:/cards.jpg&quot;</span><span class="p">)</span>
-<span class="k k-Control">else</span>
+<span class="k">else</span>
         <span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="s2">&quot;cards.jpg&quot;</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -344,22 +344,22 @@ add them (create projects with many files).</p>
 <li><p>use if isWebAssembly() when you want to modify the code just for WebAssembly</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
         <span class="c1">// WebAssembly code</span>
-<span class="k k-Control">else</span>
+<span class="k">else</span>
         <span class="c1">// other platforms</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>When you deal with Qt Classes you can determine the images from resources (you don’t need to copy them using main.cpp)</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
     <span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="s2">&quot;:/cards.jpg&quot;</span><span class="p">)</span>
-<span class="k k-Control">else</span>
+<span class="k">else</span>
     <span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="s2">&quot;cards.jpg&quot;</span><span class="p">)</span>
-<span class="k k-Control">ok</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <p>Now RingQt comes with the AppFile() function to determine the file name</p>

@@ -241,7 +241,7 @@
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="o">&lt;</span><span class="n">function_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">parameters</span><span class="p">]</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
-<span class="p">[</span><span class="k k-Control">end</span><span class="p">]</span>
+<span class="p">[</span><span class="k">end</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -251,7 +251,7 @@
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="nf">hello</span>
         <span class="k">put</span> <span class="s2">&quot;Hello from function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -267,7 +267,7 @@
 
 <span class="kd">def</span> <span class="nf">hello</span>
         <span class="k">put</span> <span class="s2">&quot;Hello from function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -286,7 +286,7 @@ of identifiers separated by comma.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="nf">sum</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span>
         <span class="k">put</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -321,7 +321,7 @@ when it’s defined, it will be executed after the end of other statements.</p>
 
 <span class="kd">def</span> <span class="nf">main</span>
         <span class="k">put</span> <span class="s2">&quot;Message from the main function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -338,15 +338,15 @@ Variables defined outside functions (before any function) are global variables.<
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                          <span class="c1"># x is a global variable.</span>
 
 <span class="kd">def</span> <span class="nf">main</span>
-        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>         <span class="c1"># t is a local variable</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>         <span class="c1"># t is a local variable</span>
                 <span class="n">mycounter</span><span class="p">()</span>     <span class="c1"># call function</span>
-        <span class="k k-Control">end</span>
-<span class="k k-Control">end</span>
+        <span class="k">end</span>
+<span class="k">end</span>
 
 <span class="kd">def</span> <span class="nf">mycounter</span>
         <span class="k">put</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>              <span class="c1"># print the global variable value</span>
         <span class="n">x</span><span class="o">--</span>                     <span class="c1"># decrement</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -360,7 +360,7 @@ of the new variables to local.</p>
 <span id="index-7"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this heading"></a></h2>
 <p>The function can return a value using the Return command.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">Return</span> <span class="p">[</span><span class="n">Expression</span><span class="p">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Return</span> <span class="p">[</span><span class="n">Expression</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -373,9 +373,9 @@ to end the function execution without returning any value.</p>
 <p>if the function doesn’t return explicit value, it will return NULL (empty string = “” ).</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="bp">NULL</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="bp">NULL</span>
         <span class="k">put</span> <span class="s2">&quot;the function doesn&#39;t return a value&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="kd">def</span> <span class="nf">novalue</span>
 </pre></div>
@@ -388,7 +388,7 @@ and the function can call itself using different parameters.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">put</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># output = 120</span>
 
-<span class="kd">def</span> <span class="nf">fact</span> <span class="n">x</span> <span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">return</span> <span class="mi">1</span> <span class="k k-Control">else</span> <span class="k k-Control">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k k-Control">end</span>
+<span class="kd">def</span> <span class="nf">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">end</span>
 </pre></div>
 </div>
 </section>

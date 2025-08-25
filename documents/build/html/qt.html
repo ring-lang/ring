@@ -357,11 +357,11 @@ to avoid stopping the GUI.</p>
 <p>We can avoid calling the exec() method, and create our main loop</p>
 <p>It’s not recommended to do that, It’s just an option.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instead of calling the exec() method</span>
-        <span class="k k-Control">while</span> <span class="bp">true</span>
+        <span class="k">while</span> <span class="bp">true</span>
                 <span class="n">oApp</span><span class="o">.</span><span class="n">processevents</span><span class="p">()</span>    <span class="c1"># Respond to GUI Events</span>
                 <span class="c1"># More Thing to do, We have the control!</span>
                 <span class="c1"># .....</span>
-        <span class="k k-Control">end</span>
+        <span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -459,7 +459,7 @@ to avoid stopping the GUI.</p>
                 <span class="n">list1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qlistwidget</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
                         <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">]</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">alist</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k k-Control">next</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">alist</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
                         <span class="n">setcurrentrow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
                         <span class="n">win1</span><span class="o">.</span><span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Items Count : &quot;</span> <span class="o">+</span> <span class="n">count</span><span class="p">()</span> <span class="p">)</span>
                 <span class="p">}</span>
@@ -505,7 +505,7 @@ to avoid stopping the GUI.</p>
                 <span class="n">list1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qlistwidget</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
                         <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">]</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">alist</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k k-Control">next</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">alist</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
 
                         <span class="n">setcurrentrow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
                         <span class="n">win1</span><span class="o">.</span><span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Items Count : &quot;</span> <span class="o">+</span> <span class="n">count</span><span class="p">()</span> <span class="p">)</span>
@@ -607,16 +607,16 @@ to avoid stopping the GUI.</p>
                         <span class="n">myitem</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtreewidgetitem</span><span class="p">()</span>
                         <span class="n">myitem</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;The First Step&quot;</span><span class="p">)</span>
                         <span class="n">addtoplevelitem</span><span class="p">(</span><span class="n">myitem</span><span class="p">)</span>
-                        <span class="k k-Control">for</span>  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span>  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                 <span class="n">myitem2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtreewidgetitem</span><span class="p">()</span>
                                 <span class="n">myitem2</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
                                 <span class="n">myitem</span><span class="o">.</span><span class="n">addchild</span><span class="p">(</span><span class="n">myitem2</span><span class="p">)</span>
-                                <span class="k k-Control">for</span>  <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                                <span class="k">for</span>  <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                         <span class="n">myitem3</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtreewidgetitem</span><span class="p">()</span>
                                         <span class="n">myitem3</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
                                         <span class="n">myitem2</span><span class="o">.</span><span class="n">addchild</span><span class="p">(</span><span class="n">myitem3</span><span class="p">)</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">next</span>
+                                <span class="k">next</span>
+                        <span class="k">next</span>
                         <span class="n">setheaderlabel</span><span class="p">(</span><span class="s2">&quot;Steps Tree&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
 
@@ -648,7 +648,7 @@ to avoid stopping the GUI.</p>
                 <span class="kp">New</span> <span class="nc">QComboBox</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
                         <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;three&quot;</span><span class="p">,</span><span class="s2">&quot;four&quot;</span><span class="p">,</span><span class="s2">&quot;five&quot;</span><span class="p">]</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aList</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k k-Control">next</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">next</span>
                 <span class="p">}</span>
 
                 <span class="n">show</span><span class="p">()</span>
@@ -826,7 +826,7 @@ to avoid stopping the GUI.</p>
                         <span class="p">]</span>
 
                 <span class="n">tool1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtoolbar</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">abtns</span> <span class="n">addwidget</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">addseparator</span><span class="p">()</span> <span class="k k-Control">next</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">abtns</span> <span class="n">addwidget</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">addseparator</span><span class="p">()</span> <span class="k">next</span>
                         <span class="n">setmovable</span><span class="p">(</span><span class="bp">true</span><span class="p">)</span>
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
                         <span class="n">setFloatable</span><span class="p">(</span><span class="bp">true</span><span class="p">)</span>
@@ -983,12 +983,12 @@ to avoid stopping the GUI.</p>
                         <span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
                         <span class="n">setselectionbehavior</span><span class="p">(</span><span class="n">QAbstractItemView_SelectRows</span><span class="p">)</span>
 
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                                <span class="k k-Control">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                                         <span class="n">item1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qtablewidgetitem</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="o">+</span><span class="n">X</span><span class="o">+</span><span class="s2">&quot;C&quot;</span><span class="o">+</span><span class="n">Y</span><span class="p">)</span>
                                         <span class="n">setitem</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">item1</span><span class="p">)</span>
-                                <span class="k k-Control">next</span>
-                        <span class="k k-Control">next</span>
+                                <span class="k">next</span>
+                        <span class="k">next</span>
 
                 <span class="p">}</span>
 
@@ -1015,12 +1015,12 @@ to avoid stopping the GUI.</p>
                 <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">150</span><span class="p">)</span>
                 <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Using QProgressBar&quot;</span><span class="p">)</span>
 
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k k-Control">to</span> <span class="mi">100</span> <span class="k k-Control">step</span> <span class="mi">10</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">to</span> <span class="mi">100</span> <span class="k">step</span> <span class="mi">10</span>
                         <span class="kp">new</span> <span class="nc">qprogressbar</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                                 <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
                                 <span class="n">setvalue</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
                         <span class="p">}</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
                 <span class="n">show</span><span class="p">()</span>
         <span class="p">}</span>
@@ -1249,11 +1249,11 @@ to avoid stopping the GUI.</p>
 
 <span class="kd">Func</span> <span class="nf">HandleClickEvent</span>
 
-    <span class="k k-Control">if</span> <span class="n">CheckBox</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">CheckBox</span><span class="o">.</span><span class="n">isChecked</span><span class="p">()</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="n">CheckBox</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="s2">&quot;New Customer. Check 1-ON&quot;</span><span class="p">)</span>
-    <span class="k k-Control">else</span>
+    <span class="k">else</span>
         <span class="n">CheckBox</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="s2">&quot;New Customer. Check 0-OFF&quot;</span><span class="p">)</span>
-    <span class="k k-Control">ok</span>
+    <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -1413,12 +1413,12 @@ a group of movies from different positions at the same time</p>
 <span class="kp">New</span> <span class="nc">qApp</span> <span class="p">{</span>
         <span class="n">win1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qMainWindow</span><span class="p">()</span> <span class="p">{</span>
                 <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Using QFrame&quot;</span><span class="p">)</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">10</span>
                         <span class="n">frame1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qframe</span><span class="p">(</span><span class="n">win1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                                 <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="o">+</span><span class="mi">50</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
                                 <span class="n">setframestyle</span><span class="p">(</span><span class="n">QFrame_Raised</span> <span class="o">|</span> <span class="n">QFrame_WinPanel</span><span class="p">)</span>
                         <span class="p">}</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
                 <span class="n">showMaximized</span><span class="p">()</span>
         <span class="p">}</span>
         <span class="n">exec</span><span class="p">()</span>
@@ -1674,7 +1674,7 @@ To use it just use the function setValueChangedEvent()</p>
         <span class="n">label1</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="n">thetime</span><span class="p">())</span>
 
 <span class="kd">func</span> <span class="nf">theTime</span>
-        <span class="k k-Control">return</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="nb">Time</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="nb">Time</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The application during the runtime</p>
@@ -1723,13 +1723,13 @@ To use it just use the function setValueChangedEvent()</p>
         <span class="n">LabelMan</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="n">theTime</span><span class="p">())</span>     <span class="c1">### ==&gt;&gt; func</span>
 
         <span class="n">Increment</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="k k-Control">if</span> <span class="n">BarMan</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">100</span>        <span class="c1">### ProgressBar start over.</span>
+        <span class="k">if</span> <span class="n">BarMan</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">100</span>        <span class="c1">### ProgressBar start over.</span>
             <span class="n">BarMan</span><span class="o">.</span><span class="n">setvalue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="n">BarMan</span><span class="p">{</span> <span class="n">setvalue</span><span class="p">(</span><span class="n">value</span><span class="p">()</span> <span class="o">+</span> <span class="n">Increment</span><span class="p">)</span> <span class="p">}</span>
 
 <span class="kd">Func</span> <span class="nf">theTime</span>
-        <span class="k k-Control">return</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="nb">Time</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="nb">Time</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="QProgressBar" src="_images/ringqt_shot15-B.jpg" />
@@ -1796,10 +1796,10 @@ To use it just use the function setValueChangedEvent()</p>
 <span class="kd">func</span> <span class="nf">pTime</span>
 
         <span class="c1">### Stop Timer when image is size of Window area</span>
-        <span class="k k-Control">if</span> <span class="n">imageW</span> <span class="o">&gt;</span> <span class="n">BoxWidth</span>
+        <span class="k">if</span> <span class="n">imageW</span> <span class="o">&gt;</span> <span class="n">BoxWidth</span>
                 <span class="n">TimerMan</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
                 <span class="n">imageStock</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>      <span class="c1">### Will clear the image</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">### Grow image</span>
         <span class="n">imageW</span> <span class="o">+=</span> <span class="n">GrowBy</span>
@@ -1971,9 +1971,9 @@ To use it just use the function setValueChangedEvent()</p>
                         <span class="n">printer1</span><span class="o">.</span><span class="n">newpage</span><span class="p">()</span>
                         <span class="n">myfont2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qfont</span><span class="p">(</span><span class="s2">&quot;Times&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
                         <span class="n">setfont</span><span class="p">(</span><span class="n">myfont2</span><span class="p">)</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">30</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
                                 <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;Number : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                         <span class="n">endpaint</span><span class="p">()</span>
                 <span class="p">}</span>
         <span class="p">}</span>
@@ -2150,9 +2150,9 @@ To use it just use the function setValueChangedEvent()</p>
         <span class="n">label1</span>
         <span class="p">{</span>
                 <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">())</span>
-                <span class="k k-Control">if</span> <span class="n">x</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">600</span>
+                <span class="k">if</span> <span class="n">x</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">600</span>
                         <span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="n">y</span><span class="p">())</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -2191,13 +2191,13 @@ To use it just use the function setValueChangedEvent()</p>
                 <span class="n">setstandardbuttons</span><span class="p">(</span><span class="n">QMessageBox_Yes</span> <span class="o">|</span> <span class="n">QMessageBox_No</span> <span class="o">|</span> <span class="n">QMessageBox_Close</span><span class="p">)</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">exec</span><span class="p">()</span>
                 <span class="n">win1</span> <span class="p">{</span>
-                        <span class="k k-Control">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Yes</span>
+                        <span class="k">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Yes</span>
                                 <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
-                        <span class="k k-Control">but</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_No</span>
+                        <span class="k">but</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_No</span>
                                 <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">)</span>
-                        <span class="k k-Control">but</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Close</span>
+                        <span class="k">but</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Close</span>
                                 <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
                 <span class="p">}</span>
         <span class="p">}</span>
 </pre></div>
@@ -2239,7 +2239,7 @@ To use it just use the function setValueChangedEvent()</p>
                 <span class="n">setlabeltext</span><span class="p">(</span><span class="s2">&quot;User Name&quot;</span><span class="p">)</span>
                 <span class="n">settextvalue</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
                 <span class="n">lcheck</span> <span class="o">=</span> <span class="n">exec</span><span class="p">()</span>
-                <span class="k k-Control">if</span> <span class="n">lCheck</span> <span class="n">win1</span><span class="o">.</span><span class="n">setwindowtitle</span><span class="p">(</span><span class="n">oInput</span><span class="o">.</span><span class="n">textvalue</span><span class="p">())</span> <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="n">lCheck</span> <span class="n">win1</span><span class="o">.</span><span class="n">setwindowtitle</span><span class="p">(</span><span class="n">oInput</span><span class="o">.</span><span class="n">textvalue</span><span class="p">())</span> <span class="k">ok</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -2378,7 +2378,7 @@ Events</p>
         <span class="n">ny2</span> <span class="o">=</span> <span class="n">myfilter</span><span class="o">.</span><span class="n">getglobaly</span><span class="p">()</span>
         <span class="n">ndiffx</span> <span class="o">=</span> <span class="n">nX2</span> <span class="o">-</span> <span class="n">nX</span>
         <span class="n">ndiffy</span> <span class="o">=</span> <span class="n">nY2</span> <span class="o">-</span> <span class="n">nY</span>
-        <span class="k k-Control">if</span> <span class="n">lPress</span>
+        <span class="k">if</span> <span class="n">lPress</span>
                 <span class="n">Label1</span> <span class="p">{</span>
                         <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">()</span><span class="o">+</span><span class="n">ndiffx</span><span class="p">,</span><span class="n">y</span><span class="p">()</span><span class="o">+</span><span class="n">ndiffy</span><span class="p">)</span>
                         <span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;background-color: Green;</span>
@@ -2387,7 +2387,7 @@ Events</p>
                         <span class="n">ny</span> <span class="o">=</span> <span class="n">nY2</span>
                 <span class="p">}</span>
 
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>The application during the runtime</p>
@@ -2508,9 +2508,9 @@ Events</p>
 
 <span class="kd">Func</span> <span class="nf">pTime</span>
         <span class="n">nAngle</span><span class="o">++</span>
-        <span class="k k-Control">if</span> <span class="n">nAngle</span> <span class="o">=</span> <span class="mi">90</span>
+        <span class="k">if</span> <span class="n">nAngle</span> <span class="o">=</span> <span class="mi">90</span>
                 <span class="n">nAngle</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="n">pDraw</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2549,16 +2549,16 @@ Events</p>
 
 <span class="kd">func</span> <span class="nf">pWork</span>
         <span class="n">nCode</span> <span class="o">=</span>  <span class="n">oFilter</span><span class="o">.</span><span class="n">getkeycode</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">nCode</span> <span class="o">=</span> <span class="mi">16777220</span>     <span class="c1"># ENTER Key</span>
-                <span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-                        <span class="k k-Control">if</span> <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">HasFocus</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">nCode</span> <span class="o">=</span> <span class="mi">16777220</span>     <span class="c1"># ENTER Key</span>
+                <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">HasFocus</span><span class="p">()</span>
                                 <span class="n">t</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
-                                <span class="k k-Control">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">ok</span>
+                                <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">ok</span>
                                 <span class="n">aList</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">SetFocus</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-                                <span class="k k-Control">exit</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">next</span>
-        <span class="k k-Control">ok</span>
+                                <span class="k">exit</span>
+                        <span class="k">ok</span>
+                <span class="k">next</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 </section>
@@ -2862,23 +2862,23 @@ Events</p>
 
   <span class="kd">Func</span> <span class="nf">OpenDatabase</span>
         <span class="n">lCreate</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="k k-Control">if</span> <span class="ow">not</span> <span class="nb">fexists</span><span class="p">(</span><span class="n">cDir</span> <span class="o">+</span> <span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">fexists</span><span class="p">(</span><span class="n">cDir</span> <span class="o">+</span> <span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
           <span class="n">lCreate</span> <span class="o">=</span> <span class="bp">True</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="kp">new</span> <span class="nc">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
           <span class="kp">this</span><span class="o">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
                 <span class="n">Open</span><span class="p">()</span>
           <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k k-Control">if</span> <span class="n">lCreate</span>
+        <span class="k">if</span> <span class="n">lCreate</span>
           <span class="kp">new</span> <span class="nc">QSqlQuery</span><span class="p">(</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">exec</span><span class="p">(</span><span class="s2">&quot;create table weighthistory (id integer primary key,&quot;</span><span class="o">+</span>
                      <span class="s2">&quot; f_date varchar(10),&quot;</span><span class="o">+</span>
                      <span class="s2">&quot; f_time varchar(8), f_weight varchar(8) );&quot;</span><span class="p">)</span>
                 <span class="n">delete</span><span class="p">()</span>
           <span class="p">}</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
   <span class="kd">Func</span> <span class="nf">CloseDatabase</span>
@@ -2891,7 +2891,7 @@ Events</p>
   <span class="kd">Func</span> <span class="nf">DeleteWeight</span>
         <span class="n">Table1</span> <span class="p">{</span>
            <span class="n">nRow</span> <span class="o">=</span> <span class="n">CurrentRow</span><span class="p">()</span>
-          <span class="k k-Control">if</span> <span class="n">nRow</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+          <span class="k">if</span> <span class="n">nRow</span> <span class="o">&gt;=</span> <span class="mi">0</span>
                 <span class="n">nID</span> <span class="o">=</span> <span class="kp">this</span><span class="o">.</span><span class="n">aIDs</span><span class="p">[</span><span class="n">nROW</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
                 <span class="kp">new</span> <span class="nc">QSqlQuery</span><span class="p">(</span> <span class="p">)</span> <span class="p">{</span>
                   <span class="n">exec</span><span class="p">(</span><span class="s2">&quot;delete from weighthistory where id = &quot;</span> <span class="o">+</span> <span class="n">nID</span> <span class="p">)</span>
@@ -2899,7 +2899,7 @@ Events</p>
                 <span class="nb">Del</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">aIDs</span><span class="p">,</span><span class="n">nRow</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">removerow</span><span class="p">(</span><span class="n">nRow</span><span class="p">)</span>
                 <span class="n">selectrow</span><span class="p">(</span><span class="n">nRow</span><span class="p">)</span>
-          <span class="k k-Control">ok</span>
+          <span class="k">ok</span>
         <span class="p">}</span>
 
 
@@ -2926,25 +2926,25 @@ Events</p>
           <span class="n">exec</span><span class="p">(</span><span class="s2">&quot;select * from weighthistory&quot;</span><span class="p">)</span>
           <span class="n">nRows</span> <span class="o">=</span> <span class="mi">0</span>
           <span class="kp">this</span><span class="o">.</span><span class="n">Table1</span><span class="o">.</span><span class="n">setrowcount</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-          <span class="k k-Control">while</span> <span class="n">movenext</span><span class="p">()</span>
+          <span class="k">while</span> <span class="n">movenext</span><span class="p">()</span>
                 <span class="kp">this</span><span class="o">.</span><span class="n">table1</span> <span class="p">{</span>
                   <span class="n">insertRow</span><span class="p">(</span><span class="n">nRows</span><span class="p">)</span>
                   <span class="kp">this</span><span class="o">.</span><span class="n">aIDs</span> <span class="o">+</span> <span class="n">query</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>
-                  <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">3</span>
+                  <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
                         <span class="n">cStr</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span>
                         <span class="n">item</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qTableWidgetItem</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
                         <span class="n">setItem</span><span class="p">(</span><span class="n">nRows</span><span class="p">,</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">item</span><span class="p">)</span>
-                  <span class="k k-Control">next</span>
+                  <span class="k">next</span>
                 <span class="p">}</span>
                 <span class="n">nRows</span><span class="o">++</span>
-          <span class="k k-Control">end</span>
+          <span class="k">end</span>
           <span class="n">delete</span><span class="p">()</span>
         <span class="p">}</span>
         <span class="n">table1</span><span class="o">.</span><span class="n">setitemChangedEvent</span><span class="p">(</span><span class="n">$ApplicationObject</span><span class="o">+</span><span class="s2">&quot;.ItemChanged()&quot;</span><span class="p">)</span>
 
   <span class="kd">Func</span> <span class="nf">ItemChanged</span>
         <span class="n">nRow</span> <span class="o">=</span>  <span class="n">table1</span><span class="o">.</span><span class="n">currentrow</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">nRow</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">nRow</span> <span class="o">&gt;=</span> <span class="mi">0</span>
           <span class="n">myitem</span> <span class="o">=</span> <span class="n">Table1</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">table1</span><span class="o">.</span><span class="n">currentrow</span><span class="p">(),</span><span class="mi">0</span><span class="p">)</span>
           <span class="n">cDate</span> <span class="o">=</span> <span class="n">myitem</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
           <span class="n">myitem</span> <span class="o">=</span> <span class="n">Table1</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">table1</span><span class="o">.</span><span class="n">currentrow</span><span class="p">(),</span><span class="mi">1</span><span class="p">)</span>
@@ -2960,7 +2960,7 @@ Events</p>
                 <span class="n">exec</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
                 <span class="n">delete</span><span class="p">()</span>
           <span class="p">}</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>The next screen shot for the application during the runtime</p>
@@ -3064,7 +3064,7 @@ Events</p>
                         <span class="p">]</span>
 
                 <span class="n">tool1</span> <span class="o">=</span> <span class="n">addtoolbar</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>  <span class="p">{</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="k k-Control">in</span> <span class="n">aBtns</span> <span class="n">addwidget</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">addseparator</span><span class="p">()</span> <span class="k k-Control">next</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aBtns</span> <span class="n">addwidget</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">addseparator</span><span class="p">()</span> <span class="k">next</span>
                 <span class="p">}</span>
 
                 <span class="n">menu1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qmenubar</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
@@ -3274,9 +3274,9 @@ Events</p>
                         <span class="p">}</span>
                         <span class="n">setmodel</span><span class="p">(</span><span class="n">ofile</span><span class="p">)</span>
                         <span class="n">myindex</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">oDir</span><span class="o">.</span><span class="n">currentpath</span><span class="p">(),</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">ofile</span><span class="o">.</span><span class="n">columncount</span><span class="p">()</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">ofile</span><span class="o">.</span><span class="n">columncount</span><span class="p">()</span>
                                 <span class="n">hidecolumn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-                        <span class="k k-Control">next</span>
+                        <span class="k">next</span>
                         <span class="n">setcurrentindex</span><span class="p">(</span><span class="n">myindex</span><span class="p">)</span>
                         <span class="n">setexpanded</span><span class="p">(</span><span class="n">myindex</span><span class="p">,</span><span class="bp">true</span><span class="p">)</span>
                         <span class="n">header</span><span class="p">()</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
@@ -3370,9 +3370,9 @@ Events</p>
 
 <span class="kd">func</span> <span class="nf">pChangeFile</span>
         <span class="n">myitem</span> <span class="o">=</span> <span class="n">tree1</span><span class="o">.</span><span class="n">currentindex</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">ofile</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">myitem</span><span class="p">)</span>
-                <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">ofile</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">myitem</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
         <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="n">ofile</span><span class="o">.</span><span class="n">filepath</span><span class="p">(</span><span class="n">myitem</span><span class="p">)</span>
         <span class="n">textedit1</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="n">cActiveFileName</span><span class="p">))</span>
         <span class="n">textedit1</span><span class="o">.</span><span class="n">setfocus</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -3403,10 +3403,10 @@ Events</p>
         <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">pFind</span>
-        <span class="k k-Control">if</span> <span class="nb">isobject</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isobject</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
                 <span class="n">oSearch</span><span class="o">.</span><span class="n">activatewindow</span><span class="p">()</span>
-                <span class="k k-Control">return</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
         <span class="n">oSearch</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span>
         <span class="p">{</span>
                 <span class="kp">new</span> <span class="nc">qLabel</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
@@ -3474,49 +3474,49 @@ Events</p>
 
 <span class="kd">Func</span> <span class="nf">pReplace</span>
         <span class="n">oCursor</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">textCursor</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">oCursor</span><span class="o">.</span><span class="n">HasSelection</span><span class="p">()</span> <span class="o">=</span> <span class="bp">false</span>
+        <span class="k">if</span> <span class="n">oCursor</span><span class="o">.</span><span class="n">HasSelection</span><span class="p">()</span> <span class="o">=</span> <span class="bp">false</span>
                 <span class="kp">new</span> <span class="nc">qMessagebox</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
                 <span class="p">{</span>
                         <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Replace&quot;</span><span class="p">)</span>
                         <span class="n">SetText</span><span class="p">(</span><span class="s2">&quot;No Selection&quot;</span><span class="p">)</span>
                         <span class="n">show</span><span class="p">()</span>
                 <span class="p">}</span>
-                <span class="k k-Control">return</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">return</span> <span class="bp">false</span>
+        <span class="k">ok</span>
         <span class="n">cValue</span> <span class="o">=</span> <span class="n">oSearchValue</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
         <span class="n">cSelected</span> <span class="o">=</span> <span class="n">oCursor</span><span class="o">.</span><span class="n">SelectedText</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">oSearchCase</span><span class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Unchecked</span>
+        <span class="k">if</span> <span class="n">oSearchCase</span><span class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Unchecked</span>
                 <span class="n">cValue</span> <span class="o">=</span> <span class="nb">lower</span><span class="p">(</span><span class="n">cValue</span><span class="p">)</span>
                 <span class="n">cSelected</span> <span class="o">=</span> <span class="nb">lower</span><span class="p">(</span><span class="n">cSelected</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">cSelected</span> <span class="o">!=</span> <span class="n">cValue</span>
+        <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">cSelected</span> <span class="o">!=</span> <span class="n">cValue</span>
                 <span class="kp">new</span> <span class="nc">qMessagebox</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
                 <span class="p">{</span>
                         <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Replace&quot;</span><span class="p">)</span>
                         <span class="n">SetText</span><span class="p">(</span><span class="s2">&quot;No Match&quot;</span><span class="p">)</span>
                         <span class="n">show</span><span class="p">()</span>
                 <span class="p">}</span>
-                <span class="k k-Control">return</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">return</span> <span class="bp">false</span>
+        <span class="k">ok</span>
         <span class="n">cValue</span> <span class="o">=</span> <span class="n">oReplaceValue</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
         <span class="n">nStart</span> <span class="o">=</span> <span class="n">oCursor</span><span class="o">.</span><span class="n">SelectionStart</span><span class="p">()</span>
         <span class="n">nEnd</span> <span class="o">=</span> <span class="n">oCursor</span><span class="o">.</span><span class="n">SelectionEnd</span><span class="p">()</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">()</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="nb">left</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nStart</span><span class="p">)</span><span class="o">+</span><span class="n">cValue</span><span class="o">+</span><span class="nb">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nEnd</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">textedit1</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
-        <span class="k k-Control">return</span> <span class="n">pFindValue</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">pFindValue</span><span class="p">()</span>
 
 <span class="kd">Func</span> <span class="nf">pReplaceAll</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">toPlainText</span><span class="p">()</span>
         <span class="n">cOldValue</span> <span class="o">=</span> <span class="n">oSearchValue</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
         <span class="n">cNewValue</span> <span class="o">=</span> <span class="n">oReplaceValue</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">oSearchCase</span><span class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Unchecked</span>
+        <span class="k">if</span> <span class="n">oSearchCase</span><span class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Unchecked</span>
                 <span class="c1"># Not Case Sensitive</span>
                 <span class="n">cStr</span> <span class="o">=</span> <span class="nb">SubStr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cOldValue</span><span class="p">,</span><span class="n">cNewValue</span><span class="p">,</span><span class="bp">true</span><span class="p">)</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="c1"># Case Sensitive</span>
                 <span class="n">cStr</span> <span class="o">=</span> <span class="nb">SubStr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cOldValue</span><span class="p">,</span><span class="n">cNewValue</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="n">textedit1</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
         <span class="kp">new</span> <span class="nc">qMessagebox</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
         <span class="p">{</span>
@@ -3530,9 +3530,9 @@ Events</p>
         <span class="n">oSearch</span> <span class="o">=</span> <span class="bp">NULL</span>
 
 <span class="kd">func</span> <span class="nf">pSearchKeyPress</span>
-        <span class="k k-Control">if</span> <span class="n">oSearchFilter</span><span class="o">.</span><span class="n">getKeyCode</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Key_Escape</span>
+        <span class="k">if</span> <span class="n">oSearchFilter</span><span class="o">.</span><span class="n">getKeyCode</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Key_Escape</span>
                 <span class="n">pSearchClose</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">pFindValue</span>
         <span class="n">oCursor</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">textcursor</span><span class="p">()</span>
@@ -3540,11 +3540,11 @@ Events</p>
         <span class="n">cValue</span> <span class="o">=</span> <span class="n">oSearchValue</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">toplaintext</span><span class="p">()</span>
         <span class="n">cStr</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nPosStart</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="n">oSearchCase</span><span class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Unchecked</span>
+        <span class="k">if</span> <span class="n">oSearchCase</span><span class="o">.</span><span class="n">checkState</span><span class="p">()</span> <span class="o">=</span> <span class="n">Qt_Unchecked</span>
                 <span class="n">cStr</span> <span class="o">=</span> <span class="nb">lower</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>  <span class="n">cValue</span> <span class="o">=</span> <span class="nb">lower</span><span class="p">(</span><span class="n">cValue</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
         <span class="n">nPos</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cValue</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="n">nPos</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">nPos</span> <span class="o">&gt;</span> <span class="mi">0</span>
                 <span class="n">nPos</span> <span class="o">+=</span> <span class="n">nPosStart</span> <span class="o">-</span> <span class="mi">2</span>
                 <span class="n">oCursor</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">textcursor</span><span class="p">()</span>
                 <span class="n">oCursor</span><span class="o">.</span><span class="n">setposition</span><span class="p">(</span><span class="n">nPos</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -3552,16 +3552,16 @@ Events</p>
                 <span class="n">oCursor</span> <span class="o">=</span> <span class="n">textedit1</span><span class="o">.</span><span class="n">textcursor</span><span class="p">()</span>
                 <span class="n">oCursor</span><span class="o">.</span><span class="n">setposition</span><span class="p">(</span><span class="n">nPos</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">cValue</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">textedit1</span><span class="o">.</span><span class="n">settextcursor</span><span class="p">(</span><span class="n">oCursor</span><span class="p">)</span>
-                <span class="k k-Control">return</span> <span class="bp">true</span>
-        <span class="k k-Control">else</span>
+                <span class="k">return</span> <span class="bp">true</span>
+        <span class="k">else</span>
                 <span class="kp">new</span> <span class="nc">qMessagebox</span><span class="p">(</span><span class="n">oSearch</span><span class="p">)</span>
                 <span class="p">{</span>
                         <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Search&quot;</span><span class="p">)</span>
                         <span class="n">SetText</span><span class="p">(</span><span class="s2">&quot;Cannot find :&quot;</span> <span class="o">+</span> <span class="n">cValue</span><span class="p">)</span>
                         <span class="n">show</span><span class="p">()</span>
                 <span class="p">}</span>
-                <span class="k k-Control">return</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">return</span> <span class="bp">false</span>
+        <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">pNofileopened</span>
         <span class="kp">New</span> <span class="nc">qMessageBox</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
@@ -3571,22 +3571,22 @@ Events</p>
         <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">pDebug</span>
-        <span class="k k-Control">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">Null</span> <span class="k k-Control">return</span> <span class="n">pNofileopened</span><span class="p">()</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">Null</span> <span class="k">return</span> <span class="n">pNofileopened</span><span class="p">()</span> <span class="k">ok</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;start run &quot;</span> <span class="o">+</span> <span class="n">cActiveFileName</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="nb">system</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">pRun</span>
-        <span class="k k-Control">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">Null</span> <span class="k k-Control">return</span> <span class="n">pNofileopened</span><span class="p">()</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">Null</span> <span class="k">return</span> <span class="n">pNofileopened</span><span class="p">()</span> <span class="k">ok</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;start ring &quot;</span> <span class="o">+</span> <span class="n">cActiveFileName</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="nb">system</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">pRunNoConsole</span>
-        <span class="k k-Control">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">Null</span> <span class="k k-Control">return</span> <span class="n">pNofileopened</span><span class="p">()</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">Null</span> <span class="k">return</span> <span class="n">pNofileopened</span><span class="p">()</span> <span class="k">ok</span>
         <span class="n">cCode</span> <span class="o">=</span> <span class="s2">&quot;start /b ring &quot;</span> <span class="o">+</span> <span class="n">cActiveFileName</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="nb">system</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">pSave</span>
-        <span class="k k-Control">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="k k-Control">return</span> <span class="n">pSaveAs</span><span class="p">()</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="bp">NULL</span> <span class="k">return</span> <span class="n">pSaveAs</span><span class="p">()</span> <span class="k">ok</span>
         <span class="n">writefile</span><span class="p">(</span><span class="n">cActiveFileName</span><span class="p">,</span><span class="n">textedit1</span><span class="o">.</span><span class="n">toplaintext</span><span class="p">())</span>
         <span class="n">status1</span><span class="o">.</span><span class="n">showmessage</span><span class="p">(</span><span class="s2">&quot;File : &quot;</span> <span class="o">+</span> <span class="n">cActiveFileName</span> <span class="o">+</span> <span class="s2">&quot; saved!&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">lAskToSave</span> <span class="o">=</span> <span class="bp">false</span>
@@ -3594,13 +3594,13 @@ Events</p>
 <span class="kd">func</span> <span class="nf">pSaveAs</span>
         <span class="kp">new</span> <span class="nc">qfiledialog</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">cName</span> <span class="o">=</span> <span class="n">getsavefilename</span><span class="p">(</span><span class="n">win1</span><span class="p">,</span><span class="s2">&quot;Save As&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;source files(*.ring)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">if</span> <span class="n">cName</span> <span class="o">!=</span> <span class="bp">NULL</span>
+                <span class="k">if</span> <span class="n">cName</span> <span class="o">!=</span> <span class="bp">NULL</span>
                         <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="n">cName</span>
                         <span class="n">writefile</span><span class="p">(</span><span class="n">cActiveFileName</span><span class="p">,</span><span class="n">textedit1</span><span class="o">.</span><span class="n">toplaintext</span><span class="p">())</span>
                         <span class="n">status1</span><span class="o">.</span><span class="n">showmessage</span><span class="p">(</span><span class="s2">&quot;File : &quot;</span> <span class="o">+</span> <span class="n">cActiveFileName</span> <span class="o">+</span> <span class="s2">&quot; saved!&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
                         <span class="n">pSetActiveFileName</span><span class="p">()</span>
                         <span class="n">lAskToSave</span> <span class="o">=</span> <span class="bp">false</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
         <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">pPrint</span>
@@ -3655,29 +3655,29 @@ Events</p>
 <span class="kd">func</span> <span class="nf">pOpen</span>
         <span class="kp">new</span> <span class="nc">qfiledialog</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">cName</span> <span class="o">=</span> <span class="n">getopenfilename</span><span class="p">(</span><span class="n">win1</span><span class="p">,</span><span class="s2">&quot;open file&quot;</span><span class="p">,</span><span class="s2">&quot;c:\&quot;</span><span class="p">,</span><span class="s2">&quot;source files(*.ring)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">if</span> <span class="n">cName</span> <span class="o">!=</span> <span class="bp">NULL</span>
+                <span class="k">if</span> <span class="n">cName</span> <span class="o">!=</span> <span class="bp">NULL</span>
                         <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="n">cName</span>
                         <span class="n">textedit1</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="n">cActiveFileName</span><span class="p">))</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
         <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">pNew</span>
         <span class="kp">new</span> <span class="nc">qfiledialog</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">cName</span> <span class="o">=</span> <span class="n">getsavefilename</span><span class="p">(</span><span class="n">win1</span><span class="p">,</span><span class="s2">&quot;New file&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;source files(*.ring)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">if</span> <span class="n">cName</span> <span class="o">!=</span> <span class="bp">NULL</span>
+                <span class="k">if</span> <span class="n">cName</span> <span class="o">!=</span> <span class="bp">NULL</span>
                         <span class="nb">write</span><span class="p">(</span><span class="n">cName</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
                         <span class="n">cActiveFileName</span> <span class="o">=</span> <span class="n">cName</span>
                         <span class="n">textedit1</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="nb">read</span><span class="p">(</span><span class="n">cActiveFileName</span><span class="p">))</span>
 
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
         <span class="p">}</span>
 
 <span class="kd">Func</span> <span class="nf">WriteFile</span> <span class="n">cFileName</span><span class="p">,</span><span class="n">cCode</span>
         <span class="n">aCode</span> <span class="o">=</span> <span class="nb">str2list</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
         <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span>
-        <span class="k k-Control">for</span> <span class="n">cLine</span> <span class="k k-Control">in</span> <span class="n">aCode</span>
+        <span class="k">for</span> <span class="n">cLine</span> <span class="k">in</span> <span class="n">aCode</span>
                 <span class="nb">fwrite</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">cLine</span><span class="o">+</span><span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">+</span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
         <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 
 <span class="kd">Func</span> <span class="nf">MsgBox</span> <span class="n">cTitle</span><span class="p">,</span><span class="n">cMessage</span>
@@ -3709,7 +3709,7 @@ Events</p>
                         <span class="s2">&quot;cWebSite = &#39;&quot;</span> <span class="o">+</span> <span class="n">cWebsite</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">cSettings</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cSettings</span><span class="p">,</span><span class="bp">nl</span><span class="p">,</span><span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">+</span><span class="nb">char</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
         <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;ringnotepad.ini&quot;</span><span class="p">,</span><span class="n">cSettings</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="n">lAsktoSave</span>
+        <span class="k">if</span> <span class="n">lAsktoSave</span>
                 <span class="kp">new</span> <span class="nc">qmessagebox</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
                 <span class="p">{</span>
                         <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Save Changes?&quot;</span><span class="p">)</span>
@@ -3719,15 +3719,15 @@ Events</p>
                                            <span class="n">QMessageBox_No</span> <span class="o">|</span> <span class="n">QMessageBox_Cancel</span><span class="p">)</span>
                         <span class="n">result</span> <span class="o">=</span> <span class="n">exec</span><span class="p">()</span>
                         <span class="n">win1</span> <span class="p">{</span>
-                        <span class="k k-Control">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Yes</span>
+                        <span class="k">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Yes</span>
                                 <span class="n">pSave</span><span class="p">()</span>
-                        <span class="k k-Control">but</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Cancel</span>
-                                <span class="k k-Control">return</span> <span class="bp">false</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">but</span> <span class="n">result</span> <span class="o">=</span> <span class="n">QMessageBox_Cancel</span>
+                                <span class="k">return</span> <span class="bp">false</span>
+                        <span class="k">ok</span>
                 <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">return</span> <span class="bp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="bp">true</span>
 
 <span class="kd">Func</span> <span class="nf">pSetWebsite</span>
         <span class="n">oWebView</span> <span class="p">{</span> <span class="n">loadpage</span><span class="p">(</span><span class="kp">new</span> <span class="nc">qurl</span><span class="p">(</span><span class="n">cWebSite</span><span class="p">))</span> <span class="p">}</span>
@@ -3740,9 +3740,9 @@ Events</p>
         <span class="n">pSetWebsite</span><span class="p">()</span>
 
 <span class="kd">Func</span> <span class="nf">pQuit</span>
-        <span class="k k-Control">if</span> <span class="n">pSaveSettings</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">pSaveSettings</span><span class="p">()</span>
                 <span class="n">myapp</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>The application during the runtime</p>
@@ -3778,29 +3778,29 @@ if the card value is “5” the player get points for all visible cards.</p>
 
 <span class="n">aMyCards</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">aMyValues</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k k-Control">for</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">3</span>
-        <span class="k k-Control">for</span> <span class="n">y1</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="mi">12</span>
+<span class="k">for</span> <span class="n">x1</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">3</span>
+        <span class="k">for</span> <span class="n">y1</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">12</span>
           <span class="n">temppic</span> <span class="o">=</span> <span class="n">mypic</span><span class="o">.</span><span class="nb">copy</span><span class="p">((</span><span class="mi">79</span><span class="o">*</span><span class="n">y1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,(</span><span class="mi">124</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">79</span><span class="p">,</span><span class="mi">124</span><span class="p">)</span>
                   <span class="n">aMyCards</span> <span class="o">+</span> <span class="n">temppic</span>
                   <span class="n">aMyValues</span> <span class="o">+</span> <span class="p">(</span><span class="n">y1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k k-Control">next</span>
-<span class="k k-Control">next</span>
+        <span class="k">next</span>
+<span class="k">next</span>
 
 <span class="n">nPlayer1Score</span> <span class="o">=</span> <span class="mi">0</span>   <span class="n">nPlayer2Score</span><span class="o">=</span><span class="mi">0</span>
 
-<span class="k k-Control">do</span>
+<span class="k">do</span>
         <span class="n">Page1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Game</span>
         <span class="n">Page1</span><span class="o">.</span><span class="n">Start</span><span class="p">()</span>
-<span class="k k-Control">again</span> <span class="n">Page1</span><span class="o">.</span><span class="n">lnewgame</span>
+<span class="k">again</span> <span class="n">Page1</span><span class="o">.</span><span class="n">lnewgame</span>
 
 <span class="n">mypic</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 <span class="n">mypic2</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 <span class="n">Player1EatPic</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 <span class="n">Player2EatPic</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 
-<span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">aMyCards</span>
+<span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aMyCards</span>
           <span class="n">t</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">gui_setbtnpixmap</span> <span class="n">pBtn</span><span class="p">,</span><span class="n">pPixmap</span>
         <span class="n">pBtn</span> <span class="p">{</span>
@@ -3851,14 +3851,14 @@ if the card value is “5” the player get points for all visible cards.</p>
 
                 <span class="n">aBtns</span> <span class="o">=</span> <span class="p">[]</span>
 
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nCardsCount</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nCardsCount</span>
                         <span class="n">aBtns</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">qpushbutton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
                         <span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setfixedwidth</span><span class="p">(</span><span class="mi">79</span><span class="o">*</span><span class="n">nScale</span><span class="p">)</span>
                         <span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setfixedheight</span><span class="p">(</span><span class="mi">124</span><span class="o">*</span><span class="n">nScale</span><span class="p">)</span>
                         <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">mypic2</span><span class="p">)</span>
                         <span class="n">layout2</span><span class="o">.</span><span class="n">addwidget</span><span class="p">(</span><span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
                         <span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setclickevent</span><span class="p">(</span><span class="s2">&quot;Page1.Player1click(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
                 <span class="n">layout1</span><span class="o">.</span><span class="n">addwidget</span><span class="p">(</span><span class="n">label1</span><span class="p">)</span>
                 <span class="n">layout1</span><span class="o">.</span><span class="n">addlayout</span><span class="p">(</span><span class="n">layout2</span><span class="p">)</span>
@@ -3874,14 +3874,14 @@ if the card value is “5” the player get points for all visible cards.</p>
                 <span class="n">layout3</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qhboxlayout</span><span class="p">()</span>
 
                 <span class="n">aBtns2</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nCardsCount</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nCardsCount</span>
                         <span class="n">aBtns2</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">qpushbutton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
                         <span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setfixedwidth</span><span class="p">(</span><span class="mi">79</span><span class="o">*</span><span class="n">nScale</span><span class="p">)</span>
                         <span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setfixedheight</span><span class="p">(</span><span class="mi">124</span><span class="o">*</span><span class="n">nScale</span><span class="p">)</span>
                         <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">mypic2</span><span class="p">)</span>
                         <span class="n">layout3</span><span class="o">.</span><span class="n">addwidget</span><span class="p">(</span><span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
                         <span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setclickevent</span><span class="p">(</span><span class="s2">&quot;Page1.Player2click(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
                 <span class="n">layout1</span><span class="o">.</span><span class="n">addwidget</span><span class="p">(</span><span class="n">label2</span><span class="p">)</span>
                 <span class="n">layout1</span><span class="o">.</span><span class="n">addlayout</span><span class="p">(</span><span class="n">layout3</span><span class="p">)</span>
@@ -3892,7 +3892,7 @@ if the card value is “5” the player get points for all visible cards.</p>
                 <span class="n">app1</span><span class="o">.</span><span class="n">exec</span><span class="p">()</span>
 
         <span class="kd">Func</span> <span class="nf">Player1Click</span> <span class="n">x</span>
-                <span class="k k-Control">if</span> <span class="n">nRole</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="n">nRole</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                         <span class="n">nPos</span> <span class="o">=</span> <span class="p">((</span><span class="nb">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="nb">clock</span><span class="p">())</span><span class="o">%</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aCards</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
                         <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">aCards</span><span class="p">[</span><span class="n">nPos</span><span class="p">])</span>
                         <span class="nb">del</span><span class="p">(</span><span class="n">aCards</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
@@ -3902,10 +3902,10 @@ if the card value is “5” the player get points for all visible cards.</p>
                         <span class="nb">del</span><span class="p">(</span><span class="n">aValues</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
                         <span class="n">Player1Eat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">aStatusValues</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
                         <span class="n">checknewgame</span><span class="p">()</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
         <span class="kd">Func</span> <span class="nf">Player2Click</span> <span class="n">x</span>
-                <span class="k k-Control">if</span> <span class="n">nRole</span> <span class="o">=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="n">nRole</span> <span class="o">=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
                         <span class="n">nPos</span> <span class="o">=</span> <span class="p">((</span><span class="nb">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="nb">clock</span><span class="p">())</span><span class="o">%</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">aCards</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
                         <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">aCards</span><span class="p">[</span><span class="n">nPos</span><span class="p">])</span>
                         <span class="nb">del</span><span class="p">(</span><span class="n">aCards</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
@@ -3915,7 +3915,7 @@ if the card value is “5” the player get points for all visible cards.</p>
                         <span class="nb">del</span><span class="p">(</span><span class="n">aValues</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
                         <span class="n">Player2Eat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">aStatusValues2</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
                         <span class="n">checknewgame</span><span class="p">()</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
         <span class="kd">Func</span> <span class="nf">Player1Eat</span> <span class="n">nPos</span><span class="p">,</span><span class="n">nValue</span>
 
@@ -3923,27 +3923,27 @@ if the card value is “5” the player get points for all visible cards.</p>
 
                  <span class="n">delay</span><span class="p">(</span><span class="n">nDelayEat</span><span class="p">)</span>
                  <span class="n">lEat</span> <span class="o">=</span> <span class="bp">false</span>
-                 <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">nCardsCount</span>
-                         <span class="k k-Control">if</span> <span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatusValues2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">nValue</span> <span class="ow">or</span> <span class="n">nValue</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+                 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nCardsCount</span>
+                         <span class="k">if</span> <span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatusValues2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">nValue</span> <span class="ow">or</span> <span class="n">nValue</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
                                 <span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">Player1EatPic</span><span class="p">)</span>
                                 <span class="n">lEat</span> <span class="o">=</span> <span class="bp">True</span>
                                 <span class="n">nPlayer1Score</span><span class="o">++</span>
-                         <span class="k k-Control">ok</span>
-                         <span class="k k-Control">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">nPos</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
+                         <span class="k">ok</span>
+                         <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">nPos</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
                                 <span class="p">(</span><span class="n">aStatusValues</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">nValue</span> <span class="ow">or</span> <span class="n">nValue</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
                                 <span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">Player1EatPic</span><span class="p">)</span>
                                 <span class="n">lEat</span> <span class="o">=</span> <span class="bp">True</span>
                                 <span class="n">nPlayer1Score</span><span class="o">++</span>
-                         <span class="k k-Control">ok</span>
-                 <span class="k k-Control">next</span>
-                 <span class="k k-Control">if</span> <span class="n">lEat</span>
+                         <span class="k">ok</span>
+                 <span class="k">next</span>
+                 <span class="k">if</span> <span class="n">lEat</span>
                                 <span class="n">nPlayer1Score</span><span class="o">++</span>
                                 <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns</span><span class="p">[</span><span class="n">nPos</span><span class="p">],</span><span class="n">Player1EatPic</span><span class="p">)</span>
                                 <span class="n">aStatus</span><span class="p">[</span><span class="n">nPos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">label1</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="s2">&quot;Player (1) - Score : &quot;</span> <span class="o">+</span> <span class="n">nPlayer1Score</span><span class="p">)</span>
-                 <span class="k k-Control">ok</span>
+                 <span class="k">ok</span>
 
         <span class="kd">Func</span> <span class="nf">Player2Eat</span> <span class="n">nPos</span><span class="p">,</span><span class="n">nValue</span>
 
@@ -3951,59 +3951,59 @@ if the card value is “5” the player get points for all visible cards.</p>
 
                  <span class="n">delay</span><span class="p">(</span><span class="n">nDelayEat</span><span class="p">)</span>
                  <span class="n">lEat</span> <span class="o">=</span> <span class="bp">false</span>
-                 <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span>  <span class="n">nCardsCount</span>
-                         <span class="k k-Control">if</span> <span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatusValues</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">nValue</span> <span class="ow">or</span> <span class="n">nValue</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+                 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span>  <span class="n">nCardsCount</span>
+                         <span class="k">if</span> <span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatusValues</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">nValue</span> <span class="ow">or</span> <span class="n">nValue</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
                                 <span class="n">aStatus</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">Player2EatPic</span><span class="p">)</span>
                                 <span class="n">lEat</span> <span class="o">=</span> <span class="bp">True</span>
                                 <span class="n">nPlayer2Score</span><span class="o">++</span>
-                         <span class="k k-Control">ok</span>
+                         <span class="k">ok</span>
 
-                         <span class="k k-Control">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">nPos</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
+                         <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">nPos</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
                                 <span class="p">(</span><span class="n">aStatusValues2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">nValue</span> <span class="ow">or</span> <span class="n">nValue</span><span class="o">=</span><span class="mi">5</span> <span class="p">)</span>
                                 <span class="n">aStatus2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns2</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">Player2EatPic</span><span class="p">)</span>
                                 <span class="n">lEat</span> <span class="o">=</span> <span class="bp">True</span>
                                 <span class="n">nPlayer2Score</span><span class="o">++</span>
-                         <span class="k k-Control">ok</span>
-                 <span class="k k-Control">next</span>
-                 <span class="k k-Control">if</span> <span class="n">lEat</span>
+                         <span class="k">ok</span>
+                 <span class="k">next</span>
+                 <span class="k">if</span> <span class="n">lEat</span>
                                 <span class="n">nPlayer2Score</span><span class="o">++</span>
                                 <span class="n">gui_setbtnpixmap</span><span class="p">(</span><span class="n">aBtns2</span><span class="p">[</span><span class="n">nPos</span><span class="p">],</span><span class="n">Player2EatPic</span><span class="p">)</span>
                                 <span class="n">aStatus2</span><span class="p">[</span><span class="n">nPos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
                                 <span class="n">label2</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="s2">&quot;Player (2) - Score : &quot;</span> <span class="o">+</span> <span class="n">nPlayer2Score</span><span class="p">)</span>
-                 <span class="k k-Control">ok</span>
+                 <span class="k">ok</span>
 
         <span class="kd">Func</span> <span class="nf">checknewgame</span>
-                <span class="k k-Control">if</span> <span class="n">isnewgame</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">isnewgame</span><span class="p">()</span>
                                   <span class="n">lnewgame</span> <span class="o">=</span> <span class="bp">true</span>
 
-                                  <span class="k k-Control">if</span> <span class="n">nPlayer1Score</span> <span class="o">&gt;</span> <span class="n">nPlayer2Score</span>
+                                  <span class="k">if</span> <span class="n">nPlayer1Score</span> <span class="o">&gt;</span> <span class="n">nPlayer2Score</span>
                                          <span class="n">label1</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="s2">&quot;Player (1) Wins!!!&quot;</span><span class="p">)</span>
-                                  <span class="k k-Control">ok</span>
-                                  <span class="k k-Control">if</span> <span class="n">nPlayer2Score</span> <span class="o">&gt;</span> <span class="n">nPlayer1Score</span>
+                                  <span class="k">ok</span>
+                                  <span class="k">if</span> <span class="n">nPlayer2Score</span> <span class="o">&gt;</span> <span class="n">nPlayer1Score</span>
                                          <span class="n">label2</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="s2">&quot;Player (2) Wins!!!&quot;</span><span class="p">)</span>
-                                  <span class="k k-Control">ok</span>
+                                  <span class="k">ok</span>
 
                                   <span class="n">app1</span><span class="o">.</span><span class="n">processEvents</span><span class="p">()</span>
                                   <span class="n">delay</span><span class="p">(</span><span class="n">nDelayNewGame</span><span class="p">)</span>
 
                                   <span class="n">win1</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
                                   <span class="n">app1</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
         <span class="kd">Func</span> <span class="nf">isnewgame</span>
-                <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">aStatus</span>
-                        <span class="k k-Control">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
-                                <span class="k k-Control">return</span> <span class="bp">false</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">next</span>
-                <span class="k k-Control">for</span> <span class="n">t</span> <span class="k k-Control">in</span> <span class="n">aStatus2</span>
-                        <span class="k k-Control">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
-                                <span class="k k-Control">return</span> <span class="bp">false</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">next</span>
-                <span class="k k-Control">return</span> <span class="bp">true</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aStatus</span>
+                        <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">return</span> <span class="bp">false</span>
+                        <span class="k">ok</span>
+                <span class="k">next</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aStatus2</span>
+                        <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">return</span> <span class="bp">false</span>
+                        <span class="k">ok</span>
+                <span class="k">next</span>
+                <span class="k">return</span> <span class="bp">true</span>
 
         <span class="kd">Func</span> <span class="nf">delay</span> <span class="n">x</span>
         <span class="n">nTime</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">1000</span>
@@ -4719,9 +4719,9 @@ Also updated methods so the index start from 1 when we deal with the GUI control
         <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
         <span class="n">aList</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="s2">&quot;Square&quot;</span><span class="p">]]</span>
-        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">]</span>
-        <span class="k k-Control">next</span>
+        <span class="k">next</span>
 
         <span class="n">oView</span><span class="o">.</span><span class="n">tablewidget1</span><span class="o">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
@@ -4779,7 +4779,7 @@ Also updated methods so the index start from 1 when we deal with the GUI control
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
-                                <span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">100</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
                                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
@@ -4788,7 +4788,7 @@ Also updated methods so the index start from 1 when we deal with the GUI control
                                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                         <span class="p">}</span>
-                                <span class="k k-Control">next</span>
+                                <span class="k">next</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
                 <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="n">output</span><span class="p">())</span>

@@ -260,12 +260,12 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
         <span class="n">BeginDrawing</span><span class="p">()</span>
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -284,17 +284,17 @@
 <span class="n">ballPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
-        <span class="k k-Control">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_RIGHT</span><span class="p">)</span> <span class="n">ballPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_LEFT</span><span class="p">)</span>  <span class="n">ballPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-=</span> <span class="mi">2</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_UP</span><span class="p">)</span>    <span class="n">ballPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-=</span> <span class="mi">2</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_DOWN</span><span class="p">)</span>  <span class="n">ballPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k k-Control">ok</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_RIGHT</span><span class="p">)</span> <span class="n">ballPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_LEFT</span><span class="p">)</span>  <span class="n">ballPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-=</span> <span class="mi">2</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_UP</span><span class="p">)</span>    <span class="n">ballPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-=</span> <span class="mi">2</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_DOWN</span><span class="p">)</span>  <span class="n">ballPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k">ok</span>
         <span class="n">BeginDrawing</span><span class="p">()</span>
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;move the ball with arrow keys&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
                 <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">ballPosition</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -316,17 +316,17 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span> <span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span> <span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">ballPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
                 <span class="n">ballColor</span> <span class="o">=</span> <span class="n">MAROON</span>
-        <span class="k k-Control">but</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span>
+        <span class="k">but</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span>
                 <span class="n">ballColor</span> <span class="o">=</span> <span class="n">LIME</span>
-        <span class="k k-Control">but</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span>
+        <span class="k">but</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span>
                 <span class="n">ballColor</span> <span class="o">=</span> <span class="n">DARKBLUE</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">BLACK</span><span class="p">)</span>
@@ -334,7 +334,7 @@
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;move ball with mouse and click mouse button to change color&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">YELLOW</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -362,7 +362,7 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -383,7 +383,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -411,11 +411,11 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">UpdateCamera</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span><span class="n">CAMERA_FREE</span><span class="p">)</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span> <span class="n">camera</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span> <span class="n">camera</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -441,7 +441,7 @@
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;- Z to zoom to (0, 0, 0)&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -463,7 +463,7 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">boxPositionY</span> <span class="o">-=</span> <span class="p">(</span><span class="n">GetMouseWheelMove</span><span class="p">()</span><span class="o">*</span><span class="n">scrollSpeed</span><span class="p">)</span>
 
@@ -477,7 +477,7 @@
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Box position Y: &quot;</span><span class="o">+</span><span class="n">boxPositionY</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -504,34 +504,34 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">ballPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
         <span class="n">ballColor</span> <span class="o">=</span> <span class="n">BEIGE</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">MAROON</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">LIME</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">DARKBLUE</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">MAROON</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">LIME</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">DARKBLUE</span> <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="n">touchCounter</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">touchCounter</span><span class="o">--</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">touchCounter</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">touchCounter</span><span class="o">--</span> <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">to</span> <span class="n">MAX_TOUCH_POINTS</span><span class="o">-</span><span class="mi">1</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">MAX_TOUCH_POINTS</span><span class="o">-</span><span class="mi">1</span>
                         <span class="n">touchPosition</span> <span class="o">=</span> <span class="n">GetTouchPosition</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-                        <span class="k k-Control">if</span> <span class="n">touchPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">touchPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+                        <span class="k">if</span> <span class="n">touchPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">touchPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span>
                                 <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">touchPosition</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
                                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">touchPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="n">touchPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">next</span>
+                        <span class="k">ok</span>
+                <span class="k">next</span>
 
                 <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">ballPosition</span><span class="p">,</span> <span class="mi">30</span> <span class="o">+</span> <span class="p">(</span><span class="n">touchCounter</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">ballColor</span><span class="p">)</span>
 
@@ -540,7 +540,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -569,19 +569,19 @@
 
 <span class="n">heights</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">MAX_COLUMNS</span><span class="p">)</span>
 <span class="n">positions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">MAX_COLUMNS</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">item</span> <span class="k k-Control">in</span> <span class="n">positions</span> <span class="n">item</span> <span class="o">=</span> <span class="n">vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">positions</span> <span class="n">item</span> <span class="o">=</span> <span class="n">vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">next</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">MAX_COLUMNS</span><span class="p">)</span>
-<span class="k k-Control">for</span> <span class="n">item</span> <span class="k k-Control">in</span> <span class="n">colors</span> <span class="n">item</span> <span class="o">=</span> <span class="n">BLACK</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">colors</span> <span class="n">item</span> <span class="o">=</span> <span class="n">BLACK</span> <span class="k">next</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span>  <span class="n">MAX_COLUMNS</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span>  <span class="n">MAX_COLUMNS</span>
         <span class="n">heights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">GetRandomValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
         <span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">GetRandomValue</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">heights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">GetRandomValue</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="p">)</span>
         <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">RAYLibColor</span><span class="p">(</span><span class="n">GetRandomValue</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">GetRandomValue</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">55</span><span class="p">),</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">255</span> <span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">UpdateCamera</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span><span class="n">CAMERA_FIRST_PERSON</span><span class="p">)</span>
 
@@ -596,10 +596,10 @@
                 <span class="n">DrawCube</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">0</span> <span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>      <span class="c1">// Draw a green wall</span>
                 <span class="n">DrawCube</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">16</span> <span class="p">),</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>      <span class="c1">// Draw a yellow wall</span>
 
-                <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span>  <span class="n">MAX_COLUMNS</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span>  <span class="n">MAX_COLUMNS</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">heights</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">heights</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
 
         <span class="n">EndMode3D</span><span class="p">()</span>
 
@@ -611,7 +611,7 @@
         <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;- Mouse move to look around&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -645,18 +645,18 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="o">!</span><span class="n">collision</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">collision</span>
                 <span class="n">ray</span> <span class="o">=</span> <span class="n">GetMouseRay</span><span class="p">(</span><span class="n">GetMousePosition</span><span class="p">(),</span> <span class="n">camera</span><span class="p">)</span>
                 <span class="n">collision</span> <span class="o">=</span> <span class="n">GetRayCollisionBox</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span>
                 <span class="n">BoundingBox</span><span class="p">(</span> <span class="n">cubePosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
                         <span class="n">cubePosition</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="n">collision</span> <span class="o">=</span> <span class="n">collision</span><span class="o">.</span><span class="n">hit</span>
-        <span class="k k-Control">else</span> <span class="n">collision</span> <span class="o">=</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">else</span> <span class="n">collision</span> <span class="o">=</span> <span class="bp">false</span>
+        <span class="k">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -664,15 +664,15 @@
 
                 <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">collision</span>
+                <span class="k">if</span> <span class="n">collision</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
                 <span class="n">DrawRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
                 <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -681,12 +681,12 @@
 
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Try selecting the box with mouse!&quot;</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">collision</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">*</span> <span class="mf">0.1</span><span class="n">f</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span> <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="n">collision</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">*</span> <span class="mf">0.1</span><span class="n">f</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span> <span class="k">ok</span>
 
                 <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -706,15 +706,15 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
         <span class="n">BeginDrawing</span><span class="p">()</span>
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">DARKBLUE</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Count from 1 to 10&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">Yellow</span><span class="p">)</span>
-                <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                         <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="o">+</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
-                <span class="k k-Control">next</span>
+                <span class="k">next</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -749,30 +749,30 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
-        <span class="k k-Control">if</span> <span class="o">!</span><span class="n">collision1</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">collision1</span>
                 <span class="n">ray</span> <span class="o">=</span> <span class="n">GetMouseRay</span><span class="p">(</span><span class="n">GetMousePosition</span><span class="p">(),</span> <span class="n">camera</span><span class="p">)</span>
 
                 <span class="n">collision1</span> <span class="o">=</span> <span class="n">GetRayCollisionBox</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span>
                 <span class="n">BoundingBox</span><span class="p">(</span> <span class="n">cubePosition1</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition1</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition1</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
                 <span class="n">cubePosition1</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition1</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition1</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="n">collision1</span> <span class="o">=</span> <span class="n">collision1</span><span class="o">.</span><span class="n">hit</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">collision1</span> <span class="o">=</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span>  <span class="o">!</span><span class="n">collision2</span>
+        <span class="k">ok</span>
+        <span class="k">if</span>  <span class="o">!</span><span class="n">collision2</span>
                 <span class="n">ray</span> <span class="o">=</span> <span class="n">GetMouseRay</span><span class="p">(</span><span class="n">GetMousePosition</span><span class="p">(),</span> <span class="n">camera</span><span class="p">)</span>
 
                 <span class="n">collision2</span> <span class="o">=</span> <span class="n">GetRayCollisionBox</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span>
                 <span class="n">BoundingBox</span><span class="p">(</span> <span class="n">cubePosition2</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition2</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition2</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
                 <span class="n">cubePosition2</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition2</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cubePosition2</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="n">collision2</span> <span class="o">=</span> <span class="n">collision2</span><span class="o">.</span><span class="n">hit</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="n">collision2</span> <span class="o">=</span> <span class="bp">false</span>
-        <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -780,29 +780,29 @@
 
                 <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">collision1</span>
+                <span class="k">if</span> <span class="n">collision1</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition1</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition1</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition1</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
                         <span class="n">collision1</span> <span class="o">=</span> <span class="bp">true</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition1</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition1</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
                         <span class="n">collision1</span> <span class="o">=</span> <span class="bp">false</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
-                <span class="k k-Control">if</span> <span class="n">collision2</span>
+                <span class="k">if</span> <span class="n">collision2</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition2</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition2</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition2</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
                         <span class="n">collision2</span> <span class="o">=</span> <span class="bp">true</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition2</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
                         <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition2</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cubeSize</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
                         <span class="n">collision2</span> <span class="o">=</span> <span class="bp">false</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
 
                 <span class="n">DrawRay</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
@@ -812,12 +812,12 @@
 
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Try selecting the box with mouse!&quot;</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">collision1</span> <span class="ow">or</span> <span class="n">collision2</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">*</span> <span class="mf">0.1</span><span class="n">f</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span> <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="n">collision1</span> <span class="ow">or</span> <span class="n">collision2</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="s2">&quot;BOX SELECTED&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">*</span> <span class="mf">0.1</span><span class="n">f</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span> <span class="k">ok</span>
 
                 <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -836,7 +836,7 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -865,7 +865,7 @@
                                 <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -889,7 +889,7 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -898,9 +898,9 @@
         <span class="n">DrawLine</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span>
         <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">500</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
 
-        <span class="k k-Control">if</span> <span class="n">drawRing</span> <span class="n">DrawRing</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">MAROON</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">drawRingLines</span> <span class="n">DrawRingLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">drawCircleLines</span> <span class="n">DrawCircleSectorLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">drawRing</span> <span class="n">DrawRing</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">MAROON</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">drawRingLines</span> <span class="n">DrawRingLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">drawCircleLines</span> <span class="n">DrawCircleSectorLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
 
         <span class="n">startAngle</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span> <span class="s2">&quot;StartAngle&quot;</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="o">-</span><span class="mi">450</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
         <span class="n">endAngle</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span> <span class="s2">&quot;EndAngle&quot;</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="o">-</span><span class="mi">450</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
@@ -913,13 +913,13 @@
         <span class="n">drawRingLines</span> <span class="o">=</span> <span class="n">GuiCheckBox</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span> <span class="s2">&quot;Draw RingLines&quot;</span><span class="p">,</span> <span class="n">drawRingLines</span><span class="p">)</span>
         <span class="n">drawCircleLines</span> <span class="o">=</span> <span class="n">GuiCheckBox</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span> <span class="s2">&quot;Draw CircleLines&quot;</span><span class="p">,</span> <span class="n">drawCircleLines</span><span class="p">)</span>
 
-        <span class="k k-Control">if</span> <span class="n">segments</span> <span class="o">&gt;=</span> <span class="mi">4</span>        <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;MODE: MANUAL&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
-        <span class="k k-Control">else</span>                    <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;MODE: AUTO&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>  <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">segments</span> <span class="o">&gt;=</span> <span class="mi">4</span>        <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;MODE: MANUAL&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+        <span class="k">else</span>                    <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;MODE: AUTO&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>  <span class="k">ok</span>
 
         <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -944,13 +944,13 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">())</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">())</span>
 
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span>
                 <span class="n">start</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
-        <span class="k k-Control">else</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">))</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">))</span>
                 <span class="n">endvec</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
@@ -961,7 +961,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -996,43 +996,43 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="c1">// Move box if not paused</span>
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pause</span><span class="p">)</span> <span class="n">boxA</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">boxASpeedX</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pause</span><span class="p">)</span> <span class="n">boxA</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">boxASpeedX</span> <span class="k">ok</span>
 
         <span class="c1">// Bounce box on x screen limits</span>
-        <span class="k k-Control">if</span> <span class="p">(((</span><span class="n">boxA</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxA</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">boxA</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">))</span> <span class="n">boxASpeedX</span> <span class="o">=</span> <span class="n">boxASpeedX</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="p">(((</span><span class="n">boxA</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxA</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">boxA</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">))</span> <span class="n">boxASpeedX</span> <span class="o">=</span> <span class="n">boxASpeedX</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
 
         <span class="c1">// Update player-controlled-box (box02)</span>
         <span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetMouseX</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="o">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span>
         <span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetMouseY</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span>
 
         <span class="c1">// Make sure Box B does not go out of move area limits</span>
-        <span class="k k-Control">if</span> <span class="p">((</span><span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxB</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="o">.</span><span class="n">width</span>
-        <span class="k k-Control">else</span> <span class="p">(</span><span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxB</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="o">.</span><span class="n">width</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">boxB</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="p">((</span><span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">boxB</span><span class="o">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenHeight</span><span class="p">())</span> <span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="o">.</span><span class="n">height</span>
-        <span class="k k-Control">else</span> <span class="p">(</span><span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">screenUpperLimit</span><span class="p">)</span> <span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">screenUpperLimit</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">boxB</span><span class="o">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenHeight</span><span class="p">())</span> <span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="o">.</span><span class="n">height</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">screenUpperLimit</span><span class="p">)</span> <span class="n">boxB</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">screenUpperLimit</span> <span class="k">ok</span>
 
         <span class="c1">// Check boxes collision</span>
         <span class="n">collision</span> <span class="o">=</span> <span class="n">CheckCollisionRecs</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
 
         <span class="c1">// Get collision rectangle (only on collision)</span>
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span> <span class="k">ok</span>
 
         <span class="c1">// Pause Box A movement</span>
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">))</span> <span class="n">pause</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">pause</span> <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">))</span> <span class="n">pause</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">pause</span> <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">collision</span> <span class="o">=</span> <span class="bp">true</span>
+                <span class="k">if</span> <span class="n">collision</span> <span class="o">=</span> <span class="bp">true</span>
                 <span class="n">color</span> <span class="o">=</span> <span class="n">RED</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                 <span class="n">color</span> <span class="o">=</span> <span class="n">BLACK</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
                 <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenUpperLimit</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
                 <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
 
@@ -1042,7 +1042,7 @@
                 <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxB</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
                 <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="o">=</span> <span class="bp">true</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="o">=</span> <span class="bp">true</span>
 
                         <span class="c1">// Draw collision area</span>
                         <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
@@ -1053,13 +1053,13 @@
                         <span class="c1">// Draw collision area</span>
                         <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Collision Area: &quot;</span> <span class="o">+</span> <span class="nb">string</span><span class="p">(</span><span class="n">boxCollision</span><span class="o">.</span><span class="n">width</span><span class="o">*</span><span class="n">boxCollision</span><span class="o">.</span><span class="n">height</span><span class="p">),</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">screenUpperLimit</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
                 <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -1089,13 +1089,13 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">irisLeftPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
         <span class="n">irisRightPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
         <span class="c1">// Check not inside the left eye sclera</span>
-        <span class="k k-Control">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
                 <span class="n">dx</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="o">.</span><span class="n">x</span>
                 <span class="n">dy</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="o">.</span><span class="n">y</span>
 
@@ -1106,10 +1106,10 @@
 
                 <span class="n">irisLeftPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scleraLeftPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dxx</span>
                 <span class="n">irisLeftPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">scleraLeftPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dyy</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="c1">// Check not inside the right eye sclera</span>
-        <span class="k k-Control">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
                 <span class="n">dx</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="o">.</span><span class="n">x</span>
                 <span class="n">dy</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="o">.</span><span class="n">y</span>
 
@@ -1120,7 +1120,7 @@
 
                 <span class="n">irisRightPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scleraRightPosition</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dxx</span>
                 <span class="n">irisRightPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">scleraRightPosition</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dyy</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1138,7 +1138,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -1171,36 +1171,36 @@
         <span class="s2">&quot;DARKBROWN&quot;</span><span class="p">,</span> <span class="s2">&quot;GRAY&quot;</span><span class="p">,</span> <span class="s2">&quot;RED&quot;</span><span class="p">,</span> <span class="s2">&quot;GOLD&quot;</span><span class="p">,</span> <span class="s2">&quot;LIME&quot;</span><span class="p">,</span> <span class="s2">&quot;BLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;VIOLET&quot;</span><span class="p">,</span> <span class="s2">&quot;BROWN&quot;</span><span class="p">,</span>
         <span class="s2">&quot;LIGHTGRAY&quot;</span><span class="p">,</span> <span class="s2">&quot;PINK&quot;</span><span class="p">,</span> <span class="s2">&quot;YELLOW&quot;</span><span class="p">,</span> <span class="s2">&quot;GREEN&quot;</span><span class="p">,</span> <span class="s2">&quot;SKYBLUE&quot;</span><span class="p">,</span> <span class="s2">&quot;PURPLE&quot;</span><span class="p">,</span> <span class="s2">&quot;BEIGE&quot;</span> <span class="p">]</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">MAX_COLORS_COUNT</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">MAX_COLORS_COUNT</span>
         <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">MAX_COLORS_COUNT</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">MAX_COLORS_COUNT</span>
         <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 
 <span class="c1">// Fills colorsRecs data (for every rectangle)</span>
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">MAX_COLORS_COUNT</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">MAX_COLORS_COUNT</span>
         <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">100</span><span class="o">*</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">7</span><span class="p">)</span>
         <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">80</span> <span class="o">+</span> <span class="mi">100</span><span class="o">*</span><span class="nb">floor</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="nb">floor</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
         <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">100</span>
         <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="n">mousePoint</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
 <span class="c1">// Main game loop</span>
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">mousePoint</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
-        <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">MAX_COLORS_COUNT</span>
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">CheckCollisionPointRec</span><span class="p">(</span><span class="n">mousePoint</span><span class="p">,</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="k k-Control">else</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">next</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">MAX_COLORS_COUNT</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">CheckCollisionPointRec</span><span class="p">(</span><span class="n">mousePoint</span><span class="p">,</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ok</span>
+        <span class="k">next</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1209,26 +1209,26 @@
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;raylib colors palette&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;press SPACE to see all colors&quot;</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">180</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
 
-                <span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="n">MAX_COLORS_COUNT</span>    <span class="c1">// Draw all rectangles</span>
-                        <span class="k k-Control">if</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">MAX_COLORS_COUNT</span>    <span class="c1">// Draw all rectangles</span>
+                        <span class="k">if</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                         <span class="n">cstate</span> <span class="o">=</span> <span class="mf">0.6</span>
-                        <span class="k k-Control">else</span>
+                        <span class="k">else</span>
                         <span class="n">cstate</span> <span class="o">=</span> <span class="mf">1.0</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
 
                         <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Fade</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cstate</span><span class="p">))</span>
 
-                        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span> <span class="o">||</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span> <span class="o">||</span> <span class="n">colorState</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                                 <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">26</span><span class="p">,</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
                                 <span class="n">DrawRectangleLinesEx</span><span class="p">(</span><span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.3</span><span class="n">f</span><span class="p">))</span>
                                 <span class="n">DrawText</span><span class="p">(</span><span class="n">colorNames</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">MeasureText</span><span class="p">(</span><span class="n">colorNames</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="mi">12</span><span class="p">,</span>
                                 <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">colorsRecs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">next</span>
+                        <span class="k">ok</span>
+                <span class="k">next</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -1256,28 +1256,28 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">mousePosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">CheckCollisionPointRec</span><span class="p">(</span><span class="n">mousePosition</span><span class="p">,</span> <span class="n">rec</span><span class="p">)</span> <span class="ow">and</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">CheckCollisionPointRec</span><span class="p">(</span><span class="n">mousePosition</span><span class="p">,</span> <span class="n">rec</span><span class="p">)</span> <span class="ow">and</span>
                 <span class="n">CheckCollisionPointRec</span><span class="p">(</span><span class="n">mousePosition</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">,</span> <span class="n">rec</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">,</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">,</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span> <span class="p">)))</span>
                 <span class="n">mouseScaleReady</span> <span class="o">=</span> <span class="bp">true</span>
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span> <span class="n">mouseScaleMode</span> <span class="o">=</span> <span class="bp">true</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">else</span> <span class="n">mouseScaleReady</span> <span class="o">=</span> <span class="bp">false</span> <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span> <span class="n">mouseScaleMode</span> <span class="o">=</span> <span class="bp">true</span> <span class="k">ok</span>
+        <span class="k">else</span> <span class="n">mouseScaleReady</span> <span class="o">=</span> <span class="bp">false</span> <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="p">(</span><span class="n">mouseScaleMode</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mouseScaleMode</span><span class="p">)</span>
 
                 <span class="n">mouseScaleReady</span> <span class="o">=</span> <span class="bp">true</span>
 
                 <span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="n">mousePosition</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">rec</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
                 <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="p">(</span><span class="n">mousePosition</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">rec</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">)</span> <span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span> <span class="k k-Control">ok</span>
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">&lt;</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">)</span> <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span> <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">)</span> <span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span> <span class="k">ok</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">&lt;</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">)</span> <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span> <span class="k">ok</span>
 
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">IsMouseButtonReleased</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span> <span class="n">mouseScaleMode</span> <span class="o">=</span> <span class="bp">false</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">IsMouseButtonReleased</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span> <span class="n">mouseScaleMode</span> <span class="o">=</span> <span class="bp">false</span> <span class="k">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1287,17 +1287,17 @@
 
                 <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">GREEN</span><span class="p">,</span> <span class="mf">0.5</span><span class="n">f</span><span class="p">))</span>
 
-                <span class="k k-Control">if</span> <span class="p">(</span><span class="n">mouseScaleReady</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">mouseScaleReady</span><span class="p">)</span>
 
                         <span class="n">DrawRectangleLinesEx</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
                         <span class="n">DrawTriangle</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span> <span class="n">rec</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span><span class="p">,</span> <span class="n">rec</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="p">),</span>
                         <span class="n">Vector2</span><span class="p">(</span> <span class="n">rec</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">rec</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="p">),</span>
                         <span class="n">Vector2</span><span class="p">(</span> <span class="n">rec</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">rec</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">rec</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">MOUSE_SCALE_MARK_SIZE</span> <span class="p">),</span> <span class="n">RED</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -1326,30 +1326,30 @@
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">UpdateMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
                 <span class="n">StopMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
                 <span class="n">PlayMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_P</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_P</span><span class="p">)</span>
                 <span class="n">pause</span> <span class="o">=</span> <span class="o">!</span><span class="n">pause</span>
 
-                <span class="k k-Control">if</span> <span class="n">pause</span>
+                <span class="k">if</span> <span class="n">pause</span>
                         <span class="n">PauseMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
                         <span class="n">ResumeMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">timePlayed</span> <span class="o">=</span> <span class="n">GetMusicTimePlayed</span><span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="o">/</span> <span class="n">GetMusicTimeLength</span><span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="o">*</span><span class="mi">400</span>
 
-        <span class="k k-Control">if</span> <span class="n">timePlayed</span> <span class="o">&gt;</span> <span class="mi">400</span>
+        <span class="k">if</span> <span class="n">timePlayed</span> <span class="o">&gt;</span> <span class="mi">400</span>
                 <span class="n">StopMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1366,7 +1366,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">UnloadMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
 
@@ -1395,10 +1395,10 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>  <span class="k k-Control">ok</span>
-        <span class="k k-Control">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_ENTER</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>  <span class="k k-Control">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>  <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_ENTER</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>  <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1409,7 +1409,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">UnloadSound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>
 <span class="n">UnloadSound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>
@@ -1455,7 +1455,7 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
                 <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
@@ -1467,7 +1467,7 @@
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Source images have been cropped, scaled, flipped and copied one over the other.&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">UnloadTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>
 
@@ -1525,12 +1525,12 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        <span class="k k-Control">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="o">||</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_RIGHT</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="o">||</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_RIGHT</span><span class="p">)</span>
                 <span class="n">currentTexture</span><span class="o">++</span>
-                <span class="k k-Control">if</span> <span class="n">currentTexture</span> <span class="o">&gt;</span> <span class="n">NUM_TEXTURES</span>  <span class="n">currentTexture</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">if</span> <span class="n">currentTexture</span> <span class="o">&gt;</span> <span class="n">NUM_TEXTURES</span>  <span class="n">currentTexture</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1542,25 +1542,25 @@
                 <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">325</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">WHITE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">410</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 
-                <span class="k k-Control">switch</span><span class="p">(</span><span class="n">currentTexture</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">1</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;VERTICAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">2</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;HORIZONTAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">3</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;DIAGONAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">4</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;RADIAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">5</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;SQUARE GRADIENT&quot;</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">6</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;CHECKED&quot;</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">7</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;WHITE NOISE&quot;</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">8</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;PERLIN NOISE&quot;</span><span class="p">,</span> <span class="mi">630</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
-                        <span class="k k-Control">on</span> <span class="mi">9</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;CELLULAR&quot;</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
-                <span class="k k-Control">off</span>
+                <span class="k">switch</span><span class="p">(</span><span class="n">currentTexture</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">1</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;VERTICAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">2</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;HORIZONTAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">3</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;DIAGONAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">4</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;RADIAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">5</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;SQUARE GRADIENT&quot;</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">6</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;CHECKED&quot;</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">7</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;WHITE NOISE&quot;</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">8</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;PERLIN NOISE&quot;</span><span class="p">,</span> <span class="mi">630</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">9</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;CELLULAR&quot;</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                <span class="k">off</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
-<span class="k k-Control">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span>  <span class="n">NUM_TEXTURES</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span>  <span class="n">NUM_TEXTURES</span>
         <span class="n">UnloadTexture</span><span class="p">(</span> <span class="n">textures</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
-<span class="k k-Control">next</span>
+<span class="k">next</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -1597,7 +1597,7 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">rotation</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">+</span><span class="mi">1</span>
 
@@ -1619,7 +1619,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">UnloadTexture</span><span class="p">(</span><span class="n">scarfy</span><span class="p">)</span>        <span class="c1">// Texture unloading</span>
 
@@ -1649,22 +1649,22 @@
 
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
 
-        <span class="k k-Control">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
 
                         <span class="n">camera</span><span class="o">.</span><span class="n">fovy</span> <span class="o">=</span> <span class="n">WIDTH_ORTHOGRAPHIC</span>
                         <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
 
-                <span class="k k-Control">else</span>
+                <span class="k">else</span>
 
                         <span class="n">camera</span><span class="o">.</span><span class="n">fovy</span> <span class="o">=</span> <span class="n">FOVY_PERSPECTIVE</span>
                         <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
-                <span class="k k-Control">ok</span>
-        <span class="k k-Control">ok</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
         <span class="n">BeginDrawing</span><span class="p">()</span>
 
@@ -1692,19 +1692,19 @@
 
                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Press Spacebar to switch camera type&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                <span class="k k-Control">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
+                <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
                         <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;ORTHOGRAPHIC&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-                <span class="k k-Control">else</span>
-                        <span class="k k-Control">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                <span class="k">else</span>
+                        <span class="k">if</span> <span class="n">camera</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
                                 <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;PERSPECTIVE&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
+                <span class="k">ok</span>
 
                 <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
@@ -1741,7 +1741,7 @@
 <span class="n">UnloadImage</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 <span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k k-Control">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
         <span class="n">UpdateCamera</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span><span class="n">CAMERA_ORBITAL</span><span class="p">)</span>
 
@@ -1763,7 +1763,7 @@
 
         <span class="n">EndDrawing</span><span class="p">()</span>
 
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 
 <span class="n">UnloadTexture</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">)</span>
 <span class="n">UnloadTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>

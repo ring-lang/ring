@@ -268,21 +268,21 @@ compiler for syntax flexibility.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>  <span class="kd">func</span> <span class="nf">function</span>
 <span class="cp">ChangeRingKeyword</span>  <span class="k">see</span>  <span class="n">print</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">ok</span>   <span class="k k-Control">endif</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">next</span> <span class="k k-Control">endfor</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">end</span>  <span class="k k-Control">endwhile</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">ok</span>   <span class="k">endif</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">next</span> <span class="k">endfor</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">end</span>  <span class="k">endwhile</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k k-Control">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">print</span> <span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                <span class="k k-Control">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
                         <span class="n">print</span> <span class="s2">&quot;number three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">endif</span>
-        <span class="k k-Control">endfor</span>
+                <span class="k">endif</span>
+        <span class="k">endfor</span>
 
 <span class="n">x</span><span class="o">--</span>
-<span class="k k-Control">endwhile</span>
+<span class="k">endwhile</span>
 
 <span class="n">test</span><span class="p">()</span>
 
@@ -291,9 +291,9 @@ compiler for syntax flexibility.</p>
 
 <span class="cp">ChangeRingKeyword</span>  <span class="kd">function</span> <span class="nf">func</span>
 <span class="cp">ChangeRingKeyword</span>  <span class="n">print</span> <span class="k">see</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">endif</span> <span class="k k-Control">ok</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">endfor</span> <span class="k k-Control">next</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">endwhile</span> <span class="k k-Control">end</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">endif</span> <span class="k">ok</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">endfor</span> <span class="k">next</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">endwhile</span> <span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -317,11 +317,11 @@ compiler for syntax flexibility.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">changeringoperator</span> <span class="o">+</span> <span class="n">_</span><span class="o">+</span>
 <span class="cp">changeringkeyword</span> <span class="k">SEE</span> <span class="n">PRINT</span>
 
-<span class="k k-Control">try</span>
+<span class="k">try</span>
         <span class="n">print</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">10</span>
-<span class="k k-Control">catch</span>
+<span class="k">catch</span>
         <span class="n">print</span> <span class="bp">nl</span> <span class="n">print</span> <span class="s2">&quot;error&quot;</span> <span class="n">print</span> <span class="bp">nl</span>
-<span class="k k-Control">done</span>
+<span class="k">done</span>
 
 <span class="cp">changeringoperator</span> <span class="n">_</span><span class="o">+</span> <span class="o">+</span>
 </pre></div>
@@ -353,31 +353,31 @@ in many source files. You can’t use the Load command to call these files becau
 <p>Example:</p>
 <p>File : StyleBasicOn.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>       <span class="k">see</span>     <span class="n">print</span>
-<span class="cp">ChangeRingKeyword</span>       <span class="k k-Control">ok</span>      <span class="k k-Control">endif</span>
-<span class="cp">ChangeRingKeyword</span>       <span class="k k-Control">next</span>    <span class="k k-Control">endfor</span>
-<span class="cp">ChangeRingKeyword</span>       <span class="k k-Control">end</span>     <span class="k k-Control">endwhile</span>
+<span class="cp">ChangeRingKeyword</span>       <span class="k">ok</span>      <span class="k">endif</span>
+<span class="cp">ChangeRingKeyword</span>       <span class="k">next</span>    <span class="k">endfor</span>
+<span class="cp">ChangeRingKeyword</span>       <span class="k">end</span>     <span class="k">endwhile</span>
 </pre></div>
 </div>
 <p>File : StyleBasicOff.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span>  <span class="n">print</span>        <span class="k">see</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">endif</span>        <span class="k k-Control">ok</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">endfor</span>       <span class="k k-Control">next</span>
-<span class="cp">ChangeRingKeyword</span>  <span class="k k-Control">endwhile</span>     <span class="k k-Control">end</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">endif</span>        <span class="k">ok</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">endfor</span>       <span class="k">next</span>
+<span class="cp">ChangeRingKeyword</span>  <span class="k">endwhile</span>     <span class="k">end</span>
 </pre></div>
 </div>
 <p>File : UseStyleBasic.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">LoadSyntax</span> <span class="s2">&quot;stylebasicon.ring&quot;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k k-Control">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">print</span> <span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-                <span class="k k-Control">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
                         <span class="n">print</span> <span class="s2">&quot;number three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="k k-Control">endif</span>
-        <span class="k k-Control">endfor</span>
+                <span class="k">endif</span>
+        <span class="k">endfor</span>
         <span class="n">x</span><span class="o">--</span>
-<span class="k k-Control">endwhile</span>
+<span class="k">endwhile</span>
 
 <span class="cp">LoadSyntax</span> <span class="s2">&quot;stylebasicoff.ring&quot;</span>
 
@@ -427,11 +427,11 @@ in many source files. You can’t use the Load command to call these files becau
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myfunc</span> <span class="o">=</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span><span class="n">y</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">}</span>
 
-<span class="k k-Control">call</span> <span class="n">myfunc</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">call</span> <span class="n">myfunc</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="n">myfunc2</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="bp">nl</span> <span class="p">}</span>
 
-<span class="k k-Control">call</span> <span class="n">myfunc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">call</span> <span class="n">myfunc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -456,7 +456,7 @@ in many source files. You can’t use the Load command to call these files becau
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span>
 <span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
-<span class="n">Welcome</span> <span class="k k-Control">to</span> <span class="n">Ring</span>
+<span class="n">Welcome</span> <span class="k">to</span> <span class="n">Ring</span>
 <span class="n">one</span>
 <span class="n">two</span>
 <span class="n">three</span>
@@ -501,12 +501,12 @@ any force from the Compiler.</p>
 Then you can use the ‘elseif’ keyword.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">give</span> <span class="n">x</span>
-<span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span> <span class="k">see</span> <span class="s2">&quot;three&quot;</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">4</span> <span class="k">see</span> <span class="s2">&quot;four&quot;</span>
-<span class="k k-Control">else</span> <span class="k">see</span> <span class="s2">&quot;other&quot;</span>
-<span class="k k-Control">ok</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span> <span class="k">see</span> <span class="s2">&quot;three&quot;</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">4</span> <span class="k">see</span> <span class="s2">&quot;four&quot;</span>
+<span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;other&quot;</span>
+<span class="k">ok</span>
 <span class="k">see</span> <span class="bp">nl</span>
 </pre></div>
 </div>
@@ -519,12 +519,12 @@ Then you can use the ‘else’ keyword.</p>
 <p>i.e. ‘other’ keyword is the same as ‘else’ keyword.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k k-Control">switch</span> <span class="n">x</span>
-        <span class="k k-Control">on</span> <span class="mi">10</span>
+<span class="k">switch</span> <span class="n">x</span>
+        <span class="k">on</span> <span class="mi">10</span>
                 <span class="k">see</span> <span class="s2">&quot;10&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">else</span>
+        <span class="k">else</span>
                 <span class="k">see</span> <span class="s2">&quot;not 10&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -545,42 +545,42 @@ Then you can use the ‘else’ keyword.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;if statement..&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
         <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
         <span class="k">see</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 <span class="k">see</span> <span class="s2">&quot;for loop..&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="n">t</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 <span class="k">see</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;switch...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="k k-Control">switch</span> <span class="n">x</span>
-        <span class="k k-Control">on</span> <span class="mi">1</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">on</span> <span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">switch</span> <span class="n">x</span>
+        <span class="k">on</span> <span class="mi">1</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">on</span> <span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">end</span>
 
 <span class="k">see</span> <span class="s2">&quot;try catch...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">try</span>
+<span class="k">try</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="k k-Control">catch</span>
+<span class="k">catch</span>
         <span class="k">see</span> <span class="s2">&quot;catching error&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">statement</span><span class="o">..</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">statement</span><span class="o">..</span>
 <span class="n">one</span>
-<span class="k k-Control">for</span> <span class="k k-Control">loop</span><span class="o">..</span>
+<span class="k">for</span> <span class="k">loop</span><span class="o">..</span>
 <span class="mi">12345678910</span>
-<span class="k k-Control">switch</span><span class="o">...</span>
+<span class="k">switch</span><span class="o">...</span>
 <span class="n">one</span>
-<span class="k k-Control">try</span> <span class="k k-Control">catch</span><span class="o">...</span>
+<span class="k">try</span> <span class="k">catch</span><span class="o">...</span>
 <span class="n">catching</span> <span class="n">error</span>
 </pre></div>
 </div>
@@ -598,42 +598,42 @@ Then you can use the ‘else’ keyword.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s2">&quot;if statement..&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k k-Control">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">{</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">{</span>
         <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
         <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
+<span class="k">elseif</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span>
         <span class="k">see</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="p">}</span>
 <span class="k">see</span> <span class="s2">&quot;for loop..&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span> <span class="p">{</span>
+<span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>
         <span class="k">see</span> <span class="n">t</span>
 <span class="p">}</span>
 <span class="k">see</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;switch...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="k k-Control">switch</span> <span class="n">x</span> <span class="p">{</span>
-        <span class="k k-Control">on</span> <span class="mi">1</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">on</span> <span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="k">on</span> <span class="mi">1</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">on</span> <span class="mi">2</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="p">}</span>
 
 <span class="k">see</span> <span class="s2">&quot;try catch...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="k k-Control">try</span> <span class="p">{</span>
+<span class="k">try</span> <span class="p">{</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="k k-Control">catch</span>
+<span class="k">catch</span>
         <span class="k">see</span> <span class="s2">&quot;catching error&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">if</span> <span class="n">statement</span><span class="o">..</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">statement</span><span class="o">..</span>
 <span class="n">one</span>
-<span class="k k-Control">for</span> <span class="k k-Control">loop</span><span class="o">..</span>
+<span class="k">for</span> <span class="k">loop</span><span class="o">..</span>
 <span class="mi">12345678910</span>
-<span class="k k-Control">switch</span><span class="o">...</span>
+<span class="k">switch</span><span class="o">...</span>
 <span class="n">one</span>
-<span class="k k-Control">try</span> <span class="k k-Control">catch</span><span class="o">...</span>
+<span class="k">try</span> <span class="k">catch</span><span class="o">...</span>
 <span class="n">catching</span> <span class="n">error</span>
 </pre></div>
 </div>
@@ -653,23 +653,23 @@ Then you can use the ‘else’ keyword.</p>
 <span id="index-12"></span><h2>Using ‘case’ as ‘on’ in switch statements<a class="headerlink" href="#using-case-as-on-in-switch-statements" title="Permalink to this heading"></a></h2>
 <p>We can replace the ‘on’ keyword with ‘case’ keyword in the switch statement.</p>
 <p>Example (1) :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-        <span class="k k-Control">switch</span> <span class="n">x</span>
-        <span class="k k-Control">case</span> <span class="mi">1</span> <span class="k">put</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">case</span> <span class="mi">2</span> <span class="k">put</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">case</span> <span class="mi">3</span> <span class="k">put</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">else</span> <span class="k">put</span> <span class="s2">&quot;else&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">end</span>
-<span class="k k-Control">end</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">switch</span> <span class="n">x</span>
+        <span class="k">case</span> <span class="mi">1</span> <span class="k">put</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">case</span> <span class="mi">2</span> <span class="k">put</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">case</span> <span class="mi">3</span> <span class="k">put</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">else</span> <span class="k">put</span> <span class="s2">&quot;else&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Example (2) :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span> <span class="p">{</span>
-        <span class="k k-Control">switch</span> <span class="n">x</span> <span class="p">{</span>
-        <span class="k k-Control">case</span> <span class="mi">1</span> <span class="k">put</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">case</span> <span class="mi">2</span> <span class="k">put</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">case</span> <span class="mi">3</span> <span class="k">put</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k k-Control">else</span> <span class="k">put</span> <span class="s2">&quot;else&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span> <span class="k">put</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">case</span> <span class="mi">2</span> <span class="k">put</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">case</span> <span class="mi">3</span> <span class="k">put</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">else</span> <span class="k">put</span> <span class="s2">&quot;else&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -714,11 +714,11 @@ Then you can use the ‘else’ keyword.</p>
 <span id="index-15"></span><h2>Using ‘break’/’continue’ keywords<a class="headerlink" href="#using-break-continue-keywords" title="Permalink to this heading"></a></h2>
 <p>Instead of using Exit/Loop commands we can use Break/Continue</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span> <span class="p">{</span>
-        <span class="k k-Control">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span> <span class="p">{</span>
-                <span class="k k-Control">continue</span>
-        <span class="k k-Control">elseif</span> <span class="n">t</span><span class="o">=</span><span class="mi">5</span>
-                <span class="k k-Control">break</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span> <span class="p">{</span>
+                <span class="k">continue</span>
+        <span class="k">elseif</span> <span class="n">t</span><span class="o">=</span><span class="mi">5</span>
+                <span class="k">break</span>
         <span class="p">}</span>
         <span class="o">?</span> <span class="n">t</span>
 <span class="p">}</span>
@@ -744,9 +744,9 @@ Then you can use the ‘else’ keyword.</p>
         <span class="kd">class</span> <span class="nc">myclass</span>
                 <span class="kd">def</span> <span class="nf">myfunc</span>
                         <span class="k">put</span> <span class="s2">&quot;Hello, World!&quot;</span>
-                <span class="k k-Control">end</span>
-        <span class="k k-Control">end</span>
-<span class="k k-Control">end</span>
+                <span class="k">end</span>
+        <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -769,11 +769,11 @@ Then you can use the ‘else’ keyword.</p>
 <section id="using-endif-endfor-endwhile-endswitch-endtry-keywords">
 <span id="index-18"></span><h2>Using ‘endif’/’endfor’/’endwhile’/’endswitch’/’endtry’ keywords<a class="headerlink" href="#using-endif-endfor-endwhile-endswitch-endtry-keywords" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k k-Control">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span>
-        <span class="k k-Control">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
                 <span class="o">?</span> <span class="ss">:three</span>
-        <span class="k k-Control">endif</span>
-<span class="k k-Control">endfor</span>
+        <span class="k">endif</span>
+<span class="k">endfor</span>
 </pre></div>
 </div>
 </section>

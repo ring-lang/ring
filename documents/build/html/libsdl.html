@@ -286,7 +286,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">tex2</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
 <span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
 
-<span class="k k-Control">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k k-Control">to</span> <span class="mi">10</span> <span class="n">showtex</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span> <span class="n">showtex</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span> <span class="k k-Control">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="n">showtex</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span> <span class="n">showtex</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span> <span class="k">next</span>
 
 <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
 <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span>
@@ -443,17 +443,17 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
 
 <span class="n">myevent</span> <span class="o">=</span> <span class="n">sdl_new_sdl_event</span><span class="p">()</span>
-<span class="k k-Control">while</span> <span class="bp">true</span>
+<span class="k">while</span> <span class="bp">true</span>
         <span class="n">thevent</span> <span class="o">=</span> <span class="n">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-        <span class="k k-Control">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">sdl_get_sdl_quit</span><span class="p">()</span>
-                        <span class="k k-Control">exit</span>
-                <span class="k k-Control">on</span> <span class="n">sdl_get_sdl_keydown</span><span class="p">()</span>
+        <span class="k">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="n">sdl_get_sdl_quit</span><span class="p">()</span>
+                        <span class="k">exit</span>
+                <span class="k">on</span> <span class="n">sdl_get_sdl_keydown</span><span class="p">()</span>
                         <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k k-Control">exit</span> <span class="k k-Control">ok</span>
+                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
 
-        <span class="k k-Control">off</span>
-<span class="k k-Control">end</span>
+        <span class="k">off</span>
+<span class="k">end</span>
 
 <span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
 <span class="n">SDL_Quit</span><span class="p">()</span>
@@ -479,40 +479,40 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
 
 <span class="n">myevent</span> <span class="o">=</span> <span class="n">sdl_new_sdl_event</span><span class="p">()</span>
-<span class="k k-Control">while</span> <span class="bp">true</span>
+<span class="k">while</span> <span class="bp">true</span>
         <span class="n">cMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="n">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-        <span class="k k-Control">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">SDL_QUIT</span>
-                        <span class="k k-Control">exit</span>
-                <span class="k k-Control">on</span> <span class="n">SDL_KEYDOWN</span>
+        <span class="k">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="n">SDL_QUIT</span>
+                        <span class="k">exit</span>
+                <span class="k">on</span> <span class="n">SDL_KEYDOWN</span>
                         <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k k-Control">exit</span> <span class="k k-Control">ok</span>
-                <span class="k k-Control">on</span> <span class="n">SDL_MOUSEBUTTONDOWN</span>
-                        <span class="k k-Control">if</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_LEFT</span>
+                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
+                <span class="k">on</span> <span class="n">SDL_MOUSEBUTTONDOWN</span>
+                        <span class="k">if</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_LEFT</span>
                                 <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s2">&quot; Button_Left_Down &quot;</span> <span class="p">)</span>
-                        <span class="k k-Control">but</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_MIDDLE</span>
+                        <span class="k">but</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_MIDDLE</span>
                                 <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s2">&quot; Button_Middle_Down &quot;</span> <span class="p">)</span>
-                        <span class="k k-Control">but</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_RIGHT</span>
+                        <span class="k">but</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_RIGHT</span>
                                 <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s2">&quot; Button_Right_Down &quot;</span> <span class="p">)</span>
-                        <span class="k k-Control">ok</span>
-                <span class="k k-Control">on</span> <span class="n">SDL_MOUSEMOTION</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="n">SDL_MOUSEMOTION</span>
                         <span class="n">sdl_fillrect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="k k-Control">if</span> <span class="n">sdl_get_sdl_event_motion_xrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="k">if</span> <span class="n">sdl_get_sdl_event_motion_xrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Left &quot;</span>
-                        <span class="k k-Control">else</span>
+                        <span class="k">else</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Right &quot;</span>
-                        <span class="k k-Control">ok</span>
-                        <span class="k k-Control">if</span> <span class="n">sdl_get_sdl_event_motion_yrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="k">ok</span>
+                        <span class="k">if</span> <span class="n">sdl_get_sdl_event_motion_yrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Up &quot;</span>
-                        <span class="k k-Control">else</span>
+                        <span class="k">else</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Down &quot;</span>
-                        <span class="k k-Control">ok</span>
+                        <span class="k">ok</span>
                         <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; x = &quot;</span> <span class="o">+</span> <span class="n">sdl_get_sdl_event_motion_x</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
                         <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; y = &quot;</span> <span class="o">+</span> <span class="n">sdl_get_sdl_event_motion_y</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
                         <span class="n">showmsg</span><span class="p">(</span><span class="n">cMsg</span><span class="p">)</span>
-        <span class="k k-Control">off</span>
-<span class="k k-Control">end</span>
+        <span class="k">off</span>
+<span class="k">end</span>
 
 <span class="n">SDL_Destroy_SDL_Color</span><span class="p">(</span><span class="n">Color</span><span class="p">)</span>
 <span class="n">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
@@ -541,16 +541,16 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">Mix_PlayChannel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sound</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">myevent</span> <span class="o">=</span> <span class="n">sdl_new_sdl_event</span><span class="p">()</span>
-<span class="k k-Control">while</span> <span class="bp">true</span>
+<span class="k">while</span> <span class="bp">true</span>
         <span class="n">thevent</span> <span class="o">=</span> <span class="n">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-        <span class="k k-Control">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                <span class="k k-Control">on</span> <span class="n">sdl_get_sdl_quit</span><span class="p">()</span>
-                        <span class="k k-Control">exit</span>
-                <span class="k k-Control">on</span> <span class="n">sdl_get_sdl_keydown</span><span class="p">()</span>
+        <span class="k">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="n">sdl_get_sdl_quit</span><span class="p">()</span>
+                        <span class="k">exit</span>
+                <span class="k">on</span> <span class="n">sdl_get_sdl_keydown</span><span class="p">()</span>
                         <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                        <span class="k k-Control">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k k-Control">exit</span> <span class="k k-Control">ok</span>
-        <span class="k k-Control">off</span>
-<span class="k k-Control">end</span>
+                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
+        <span class="k">off</span>
+<span class="k">end</span>
 
 <span class="n">Mix_FreeChunk</span><span class="p">(</span> <span class="n">sound</span> <span class="p">)</span>
 <span class="n">Mix_CloseAudio</span><span class="p">()</span>

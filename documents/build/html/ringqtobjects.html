@@ -353,9 +353,9 @@ SetParentObject() methods.</p>
         <span class="n">openWindowAndLink</span><span class="p">(</span><span class="ss">:SecondWindowController</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
 
     <span class="kd">func</span> <span class="nf">SendMessage</span>
-        <span class="k k-Control">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
             <span class="n">SecondWindow</span><span class="p">()</span><span class="o">.</span><span class="n">setMessage</span><span class="p">(</span><span class="s2">&quot;Message from the first window&quot;</span><span class="p">)</span>
-        <span class="k k-Control">ok</span>
+        <span class="k">ok</span>
 
     <span class="kd">func</span> <span class="nf">setMessage</span> <span class="n">cMessage</span>
         <span class="n">oView</span><span class="o">.</span><span class="n">Label1</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
@@ -426,13 +426,13 @@ using the openWindowInPackages() function.</p>
                         <span class="p">}</span>
 
         <span class="kd">func</span> <span class="nf">FirstWindow</span>
-                <span class="k k-Control">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nFirstWindowID</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nFirstWindowID</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">SecondWindow</span>
-                <span class="k k-Control">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nSecondWindowID</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nSecondWindowID</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">ThirdWindow</span>
-                <span class="k k-Control">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nThirdWindowID</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nThirdWindowID</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
 
