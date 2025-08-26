@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graphics and 2D Games programming using RingAllegro" href="allegro.html" />
-    <link rel="prev" title="Deploying Ring Web Applications using Docker" href="ring_cloud.html" /> 
+    <link rel="prev" title="Deploying Ring Web Applications to Cloud Platforms" href="ring_cloud_platforms.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -106,6 +106,7 @@
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Web Applications to Shared Hosting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction-the-cgi-model">1. Introduction: The CGI Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">2. Prerequisites</a></li>
@@ -352,14 +353,17 @@
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">  </span><span class="c1"># Guess home directory for various hosting panels.</span>
 <span class="w">  </span><span class="c1"># Plesk: /var/www/vhosts/domain.com/httpdocs/cgi-bin</span>
+<span class="w">  </span><span class="c1">#     or /home/domain.com/httpdocs/cgi-bin</span>
 <span class="w">  </span><span class="c1"># cPanel/DirectAdmin: /home/username/public_html/cgi-bin</span>
 <span class="w">  </span><span class="c1"># KeyHelp: /home/users/username/www/cgi-bin</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>/var/www/vhosts/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nv">HOME_DIR_GUESS</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="p">%/httpdocs*</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>/home/users/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nv">HOME_DIR_GUESS</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="p">%/www*</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>/home/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>/home/*/public_html*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">    </span><span class="nv">HOME_DIR_GUESS</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="p">%/public_html*</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">elif</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>/home/*/httpdocs*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nv">HOME_DIR_GUESS</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="p">%/httpdocs*</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="w">  </span><span class="k">else</span>
 <span class="w">    </span><span class="c1"># Fallback to the current directory if no pattern matches.</span>
 <span class="w">    </span><span class="nv">HOME_DIR_GUESS</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span>
@@ -450,9 +454,9 @@
 <li><p>Using the File Manager, navigate to your web root (usually <code class="docutils literal notranslate"><span class="pre">public_html</span></code>, <code class="docutils literal notranslate"><span class="pre">httpdocs</span></code>, or <code class="docutils literal notranslate"><span class="pre">www</span></code>).</p></li>
 <li><p>If it doesn’t exist, create a folder named <code class="docutils literal notranslate"><span class="pre">cgi-bin</span></code>.</p></li>
 <li><p>Upload the <code class="docutils literal notranslate"><span class="pre">ring.cgi</span></code> script you created earlier into this <code class="docutils literal notranslate"><span class="pre">cgi-bin</span></code> folder.</p></li>
-<li><p><strong>Set its permissions to ``755``</strong> (rwx r-x r-x). This is crucial to make it executable. You can typically do this by right-clicking the file in the File Manager and choosing “Change Permissions.”</p></li>
+<li><p><strong>Set its permissions to</strong> <code class="docutils literal notranslate"><span class="pre">755</span></code> (rwx r-x r-x). This is crucial to make it executable. You can typically do this by right-clicking the file in the File Manager and choosing “Change Permissions.”</p></li>
 </ol>
-<p id="index-9"><strong>Step 3: Create the ``.htaccess`` File</strong></p>
+<p id="index-9"><strong>Step 3: Create the</strong> <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> <strong>File</strong></p>
 <ol class="arabic">
 <li><p>In your web root (<code class="docutils literal notranslate"><span class="pre">public_html</span></code>, <code class="docutils literal notranslate"><span class="pre">httpdocs</span></code>, etc.), create a new file named <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code>.</p></li>
 <li><p>Add the following content. This tells the web server to use our wrapper script for any file ending in <code class="docutils literal notranslate"><span class="pre">.ring</span></code>.</p>
@@ -587,7 +591,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>install.sh
 <li><p><strong>Tested &amp; Confirmed:</strong> The <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> method works flawlessly on cPanel, which typically runs on an Apache or LiteSpeed web server.</p></li>
 <li><p><strong>File Uploads:</strong> Use the <strong>File Manager</strong> tool. Your web root, the folder where website files are publicly accessible, is <code class="docutils literal notranslate"><span class="pre">public_html</span></code>. This folder is located inside your home directory, which has a full path like <code class="docutils literal notranslate"><span class="pre">/home/username/public_html/</span></code>.</p></li>
 <li><p><strong>Permissions:</strong> In <strong>File Manager</strong>, right-click on the <code class="docutils literal notranslate"><span class="pre">ring.cgi</span></code> file and select <strong>Change Permissions</strong>. Enter <code class="docutils literal notranslate"><span class="pre">755</span></code> and save to make the script executable. By default, files often have <code class="docutils literal notranslate"><span class="pre">0644</span></code> permissions and folders have <code class="docutils literal notranslate"><span class="pre">0755</span></code>.</p></li>
-<li><p><strong>Creating ``.htaccess``:</strong> In <strong>File Manager</strong>, you can create a new file by clicking the <strong>+ File</strong> button. To view existing <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> files, which are hidden by default, go to the <strong>Settings</strong> menu in the top right and check the box for <strong>Show Hidden Files (dotfiles)</strong>.</p></li>
+<li><p><strong>Creating</strong> <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> <strong>:</strong> In <strong>File Manager</strong>, you can create a new file by clicking the <strong>+ File</strong> button. To view existing <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> files, which are hidden by default, go to the <strong>Settings</strong> menu in the top right and check the box for <strong>Show Hidden Files (dotfiles)</strong>.</p></li>
 <li><p><strong>CGI Status:</strong> CGI is generally enabled on cPanel servers. The server looks for a <code class="docutils literal notranslate"><span class="pre">cgi-sys/defaultwebpage.cgi</span></code> when a domain does not have a configured VirtualHost or is pointed to the wrong IP, indicating CGI is active. Including the <code class="docutils literal notranslate"><span class="pre">Options</span> <span class="pre">+ExecCGI</span></code> directive in your <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> file can help ensure that CGI scripts are executed in your specific directory.</p></li>
 </ul>
 <p>—</p>
@@ -598,7 +602,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>install.sh
 <li><p><strong>Tested &amp; Confirmed:</strong> The <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> method is effective on Plesk servers running Apache. If the server uses Nginx as a proxy, you must ensure Apache is also enabled and processes requests for <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> to work.</p></li>
 <li><p><strong>File Uploads:</strong> Use the <strong>Files</strong> or <strong>File Manager</strong> tab. Your web root is typically the <code class="docutils literal notranslate"><span class="pre">httpdocs</span></code> directory.</p></li>
 <li><p><strong>Permissions:</strong> In the <strong>Files</strong> tab, click the three-dot menu next to the <code class="docutils literal notranslate"><span class="pre">ring.cgi</span></code> file and choose <strong>Change Permissions</strong>. To make the script executable, ensure the <strong>Execute</strong> permission is checked for the “Owner” and “Group” users.</p></li>
-<li><p><strong>``.htaccess`` Support:</strong> For <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> files to work, go to your domain’s <strong>Apache &amp; Nginx Settings</strong> and ensure that Apache is enabled and that requests are not being handled exclusively by Nginx.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> <strong>Support:</strong> For <code class="docutils literal notranslate"><span class="pre">.htaccess</span></code> files to work, go to your domain’s <strong>Apache &amp; Nginx Settings</strong> and ensure that Apache is enabled and that requests are not being handled exclusively by Nginx.</p></li>
 <li><p><strong>CGI Status:</strong> To enable CGI script execution, go to the domain’s <strong>Hosting Settings</strong> and ensure that <strong>CGI support</strong> is enabled. You may also need to configure the handler in the <strong>PHP Settings</strong> page by adding an <code class="docutils literal notranslate"><span class="pre">AddHandler</span></code> directive for <code class="docutils literal notranslate"><span class="pre">.cgi</span></code> files in the “Additional Apache directives” section.</p></li>
 </ul>
 <p>—</p>
@@ -651,7 +655,7 @@ sudo<span class="w"> </span>bash<span class="w"> </span>install.sh
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ring_cloud.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications using Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ring_cloud_platforms.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications to Cloud Platforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="allegro.html" class="btn btn-neutral float-right" title="Graphics and 2D Games programming using RingAllegro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

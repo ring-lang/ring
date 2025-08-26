@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
@@ -1944,8 +1945,6 @@
         <li><a href="sourcecode.html#index-2">Building From Source Code</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Composition
 
@@ -1953,6 +1952,8 @@
         <li><a href="oop.html#index-3">Object Oriented Programming</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Configuration file
 
@@ -1988,6 +1989,20 @@
         <li><a href="web.html#index-2">Using XAMPP Apache web server</a>
 </li>
         <li><a href="web.html#index-1">Web Development (CGI Library)</a>
+</li>
+      </ul></li>
+      <li>
+    Configure the Environment Variable
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-14">Railway.app</a>
+</li>
+      </ul></li>
+      <li>
+    Configure the Required Environment Variable
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-8">Fly.io</a>
 </li>
       </ul></li>
       <li>
@@ -2830,6 +2845,13 @@
 </li>
       </ul></li>
       <li>
+    Deploy the Application
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-9">Fly.io</a>
+</li>
+      </ul></li>
+      <li>
     Deploying after updates
 
       <ul>
@@ -2863,19 +2885,27 @@
     Deploying Ring Web Applications
 
       <ul>
-        <li><a href="ring_cloud.html#index-37">Conclusion</a>
+        <li><a href="ring_cloud_platforms.html#index-0">Cloud Platforms</a>
+</li>
+        <li><a href="ring_cloud.html#index-37">Conclusion</a>, <a href="ring_cloud_platforms.html#index-17">[1]</a>
 </li>
         <li><a href="ring_cloud.html#index-0">Deploying Ring Web Applications using Docker</a>
 </li>
         <li><a href="ring_cloud.html#index-20">Deploying to Production</a>
 </li>
+        <li><a href="ring_cloud_platforms.html#index-4">Deployment Scenarios</a>
+</li>
         <li><a href="ring_cloud.html#index-3">Dockerizing Your Ring Application</a>
 </li>
         <li><a href="ring_cloud.html#index-1">Introduction</a>
 </li>
+        <li><a href="ring_cloud_platforms.html#index-1">Introduction: The PaaS Model</a>
+</li>
         <li><a href="ring_cloud.html#index-6">Local Development with Docker Compose</a>
 </li>
-        <li><a href="ring_cloud.html#index-2">Prerequisites</a>
+        <li><a href="ring_cloud.html#index-2">Prerequisites</a>, <a href="ring_cloud_platforms.html#index-2">[1]</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-3">The Foundation: Application and Dockerfile</a>
 </li>
       </ul></li>
       <li>
@@ -2927,6 +2957,10 @@
 
       <ul>
         <li><a href="ring_cloud_cgi.html#index-11">Cloud VM with Nginx &amp; FastCGI</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-5">Path A: Deploying to Fly.io</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-11">Path B: Deploying to Railway.app</a>
 </li>
         <li><a href="ring_cloud_cgi.html#index-6">Shared Hosting with .htaccess (Apache/LiteSpeed)</a>
 </li>
@@ -4195,6 +4229,21 @@
 </li>
       </ul></li>
       <li>
+    Fly.io
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-8">Configure the Required Environment Variable</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-9">Deploy the Application</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-7">Initialize Your Application without Deploying</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-6">Log in to Fly.io</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-10">Visit Your Application</a>
+</li>
+      </ul></li>
+      <li>
     Following Eyes
 
       <ul>
@@ -4438,6 +4487,8 @@
         <li><a href="foxringfuncsdoc.html#index-4">FoxRing Functions Reference</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     frALines() function
 
@@ -4445,8 +4496,6 @@
         <li><a href="foxringfuncsdoc.html#index-24">FoxRing Functions Reference</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     frAllTrim() function
 
@@ -5157,6 +5206,13 @@
         <li><a href="generalinfo.html#index-2">Memory Management</a>
 </li>
         <li><a href="generalinfo.html#index-1">Ring Architecture</a>
+</li>
+      </ul></li>
+      <li>
+    Generate a Public Domain
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-15">Railway.app</a>
 </li>
       </ul></li>
       <li>
@@ -5980,6 +6036,20 @@
 </li>
       </ul></li>
       <li>
+    Initialize and Deploy
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-13">Railway.app</a>
+</li>
+      </ul></li>
+      <li>
+    Initialize Your Application without Deploying
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-7">Fly.io</a>
+</li>
+      </ul></li>
+      <li>
     Input Keys
 
       <ul>
@@ -6134,6 +6204,8 @@
         <li><a href="checkandconvert.html#index-9">Data Type</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     IsAndroid() Function
 
@@ -6141,8 +6213,6 @@
         <li><a href="systemfunc.html#index-12">System Functions</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     isappcompiled() Function
 
@@ -6814,8 +6884,6 @@
         <li><a href="usingrogueutil.html#index-9">Using RogueUtil</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     list of functions
 
@@ -6823,6 +6891,8 @@
         <li><a href="mathfunc.html#index-1">Mathematical Functions</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     List2Bytes()
 
@@ -6988,6 +7058,20 @@
 
       <ul>
         <li><a href="ringbeep.html#index-1">Create your first extension</a>
+</li>
+      </ul></li>
+      <li>
+    Log in to Fly.io
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-6">Fly.io</a>
+</li>
+      </ul></li>
+      <li>
+    Log in to Railway
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-12">Railway.app</a>
 </li>
       </ul></li>
       <li>
@@ -8712,6 +8796,20 @@
 
       <ul>
         <li><a href="lists.html#index-17">Lists</a>
+</li>
+      </ul></li>
+      <li>
+    Path A: Deploying to Fly.io
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-5">Deployment Scenarios</a>
+</li>
+      </ul></li>
+      <li>
+    Path B: Deploying to Railway.app
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-11">Deployment Scenarios</a>
 </li>
       </ul></li>
       <li>
@@ -12016,6 +12114,21 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    Railway.app
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-14">Configure the Environment Variable</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-15">Generate a Public Domain</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-13">Initialize and Deploy</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-12">Log in to Railway</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-16">Visit Your Application</a>
+</li>
+      </ul></li>
       <li>
     Raise()
 
@@ -17835,8 +17948,6 @@
         <li><a href="functions3.html#index-6">Functions - Third Style</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     varptr()
 
@@ -17844,6 +17955,8 @@
         <li><a href="lowlevel.html#index-2">Low Level Functions</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Version() Function
 
@@ -17863,6 +17976,15 @@
 
       <ul>
         <li><a href="reference.html#index-8">Language Specification</a>
+</li>
+      </ul></li>
+      <li>
+    Visit Your Application
+
+      <ul>
+        <li><a href="ring_cloud_platforms.html#index-10">Fly.io</a>
+</li>
+        <li><a href="ring_cloud_platforms.html#index-16">Railway.app</a>
 </li>
       </ul></li>
       <li>

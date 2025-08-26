@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploying Ring Web Applications to Cloud Platforms &mdash; Ring 1.24.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Deploying Web Applications to Shared Hosting" href="ring_cloud_cgi.html" />
+    <link rel="prev" title="Deploying Ring Web Applications using Docker" href="ring_cloud.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Deploying Web Applications to Cloud Platforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-the-paas-model">1. Introduction: The PaaS Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-foundation-application-and-dockerfile">3. The Foundation: Application and Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment-scenarios">4. Deployment Scenarios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#path-a-deploying-to-fly-io">Path A: Deploying to Fly.io</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#log-in-to-fly-io">1. Log in to Fly.io</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialize-your-application-without-deploying">2. Initialize Your Application without Deploying</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-required-environment-variable">3. Configure the Required Environment Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deploy-the-application">4. Deploy the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visit-your-application">5. Visit Your Application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#path-b-deploying-to-railway-app">Path B: Deploying to Railway.app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#log-in-to-railway">1. Log in to Railway</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialize-and-deploy">2. Initialize and Deploy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-the-environment-variable">3. Configure the Environment Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-a-public-domain">4. Generate a Public Domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-16">5. Visit Your Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">5. Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Deploying Ring Web Applications to Cloud Platforms</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deploying-ring-web-applications-to-cloud-platforms">
+<span id="index-0"></span><h1>Deploying Ring Web Applications to Cloud Platforms<a class="headerlink" href="#deploying-ring-web-applications-to-cloud-platforms" title="Permalink to this heading"></a></h1>
+<p>Chapter Author: Youssef Saeed</p>
+<p>While the tutorial on deploying with Docker and a reverse proxy covers a traditional, powerful setup, modern Platform-as-a-Service (PaaS) providers like Fly.io and Railway.app offer a dramatically simplified deployment experience. These platforms abstract away the complexity of managing servers, reverse proxies, and SSL certificates, allowing you to go from code to a live, secure URL in minutes.</p>
+<p>This tutorial guides you through deploying the same containerized Ring application to both Fly.io, known for its global reach and fine-grained control, and Railway.app, celebrated for its “it just works” simplicity.</p>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction-the-paas-model" id="id2">1. Introduction: The PaaS Model</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id3">2. Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#the-foundation-application-and-dockerfile" id="id4">3. The Foundation: Application and Dockerfile</a></p></li>
+<li><p><a class="reference internal" href="#deployment-scenarios" id="id5">4. Deployment Scenarios</a></p>
+<ul>
+<li><p><a class="reference internal" href="#path-a-deploying-to-fly-io" id="id6">Path A: Deploying to Fly.io</a></p></li>
+<li><p><a class="reference internal" href="#path-b-deploying-to-railway-app" id="id7">Path B: Deploying to Railway.app</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#conclusion" id="id8">5. Conclusion</a></p></li>
+</ul>
+</nav>
+<section id="introduction-the-paas-model">
+<span id="index-1"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Introduction: The PaaS Model</a><a class="headerlink" href="#introduction-the-paas-model" title="Permalink to this heading"></a></h2>
+<p>This approach differs fundamentally from setting up a reverse proxy on a cloud VM.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Self-Managed VM (Nginx/Traefik/Caddy)</p></th>
+<th class="head"><p>Managed PaaS (Fly.io/Railway)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>You manage the server, networking, and firewall rules.</p></td>
+<td><p>The platform manages the entire underlying infrastructure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>You are responsible for setting up and configuring a reverse proxy (Nginx, etc.).</p></td>
+<td><p>The platform provides a built-in, auto-configured edge router.</p></td>
+</tr>
+<tr class="row-even"><td><p>SSL certificate acquisition and renewal is a manual or scripted step (e.g., Certbot).</p></td>
+<td><p>SSL is provisioned and renewed automatically for your application.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deployment involves SSH’ing into a server and running <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span></code>.</p></td>
+<td><p>Deployment is typically done via a CLI command (<code class="docutils literal notranslate"><span class="pre">flyctl</span> <span class="pre">deploy</span></code> or <code class="docutils literal notranslate"><span class="pre">railway</span> <span class="pre">up</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>Scaling requires manual intervention (e.g., setting up a load balancer).</p></td>
+<td><p>Scaling is often a simple command or a setting in a dashboard.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The PaaS model is ideal for developers who want to focus on their code and not on infrastructure management.</p>
+<p><strong>Why Fly.io and Railway.app?</strong></p>
+<p>This tutorial focuses specifically on Fly.io and Railway.app because they are exceptionally developer-friendly and share a critical feature: <strong>both offer a generous free tier that does not require a credit card to get started.</strong> This makes them the perfect platforms for learning, prototyping, and deploying personal or small-scale applications without any initial financial commitment.</p>
+</section>
+<section id="prerequisites">
+<span id="index-2"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>A basic understanding of the Ring programming language.</p></li>
+<li><p>A free account on <a class="reference external" href="https://fly.io/">Fly.io</a> and/or <a class="reference external" href="https://railway.com/">Railway.app</a>.</p></li>
+<li><p>The respective command-line tools installed for the path you choose:</p>
+<ul>
+<li><p><strong>For Path A:</strong> <a class="reference external" href="https://fly.io/docs/flyctl/install/">flyctl</a></p></li>
+<li><p><strong>For Path B:</strong> <a class="reference external" href="https://docs.railway.com/guides/cli">Railway CLI</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-foundation-application-and-dockerfile">
+<span id="index-3"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">3. The Foundation: Application and Dockerfile</a><a class="headerlink" href="#the-foundation-application-and-dockerfile" title="Permalink to this heading"></a></h2>
+<p>For consistency, we will deploy the exact same application and <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> used in the reverse proxy tutorial. This highlights a key benefit of Docker: the containerized application is portable and does not need to be changed for different hosting environments.</p>
+<p>Ensure you have these two files in your project directory.</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">app.ring</span></code> file:</p></li>
+</ol>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;httplib.ring&quot;</span>
+
+<span class="c1"># Main Execution Block</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
+   <span class="c1"># Route for the root path</span>
+   <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="ss">:mainRoute</span><span class="p">)</span>
+
+   <span class="c1"># Listen on all available network interfaces on port 8080</span>
+   <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">mainRoute</span>
+   <span class="c1"># Set content type to HTML</span>
+   <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;&lt;!DOCTYPE html&gt;</span>
+<span class="s2">&lt;html&gt;</span>
+<span class="s2">&lt;head&gt;&lt;title&gt;Ring HTTPLib App&lt;/title&gt;&lt;/head&gt;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;h1&gt;Hello from Ring on a PaaS!&lt;/h1&gt;</span>
+<span class="s2">&lt;p&gt;This is a Ring application running inside a Docker container on a modern cloud platform.&lt;/p&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">&lt;/html&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;text/html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>:</p></li>
+</ol>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># Use a lightweight Ring image as the base</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ysdragon/ring:light</span>
+
+<span class="c"># Set the working directory inside the container</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Copy the application source code</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+
+<span class="c"># The ysdragon/ring:light image uses the RING_FILE environment variable</span>
+<span class="c"># to determine which script to run. We&#39;ll set this via the platform UI/config.</span>
+<span class="c"># It also automatically exposes port 8080, which the platforms will detect.</span>
+</pre></div>
+</div>
+</section>
+<section id="deployment-scenarios">
+<span id="index-4"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">4. Deployment Scenarios</a><a class="headerlink" href="#deployment-scenarios" title="Permalink to this heading"></a></h2>
+<p>Choose the platform you wish to deploy to.</p>
+<p>—</p>
+<section id="path-a-deploying-to-fly-io">
+<span id="index-5"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Path A: Deploying to Fly.io</a><a class="headerlink" href="#path-a-deploying-to-fly-io" title="Permalink to this heading"></a></h3>
+<p>Fly.io launches your application containers on “micro-VMs” across its global network. The deployment is a two-step process: first, you initialize the configuration, and second, you deploy.</p>
+<section id="log-in-to-fly-io">
+<span id="index-6"></span><h4>1. Log in to Fly.io<a class="headerlink" href="#log-in-to-fly-io" title="Permalink to this heading"></a></h4>
+<p>Open your terminal and authenticate the <code class="docutils literal notranslate"><span class="pre">flyctl</span></code> CLI with your Fly.io account.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flyctl<span class="w"> </span>auth<span class="w"> </span>login
+</pre></div>
+</div>
+</section>
+<section id="initialize-your-application-without-deploying">
+<span id="index-7"></span><h4>2. Initialize Your Application without Deploying<a class="headerlink" href="#initialize-your-application-without-deploying" title="Permalink to this heading"></a></h4>
+<p>To set environment variables <em>before</em> the first deployment, we need to create the <code class="docutils literal notranslate"><span class="pre">fly.toml</span></code> configuration file without immediately starting a build. The <code class="docutils literal notranslate"><span class="pre">--no-deploy</span></code> flag is perfect for this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flyctl<span class="w"> </span>launch<span class="w"> </span>--no-deploy
+</pre></div>
+</div>
+<p>This command will:</p>
+<ul class="simple">
+<li><p>Scan your source code and detect the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</p></li>
+<li><p>Ask you for an <strong>App Name</strong> and to choose a <strong>Region</strong>.</p></li>
+<li><p>Create the <code class="docutils literal notranslate"><span class="pre">fly.toml</span></code> file in your project directory.</p></li>
+<li><p>Exit without deploying, returning you to the command line.</p></li>
+</ul>
+</section>
+<section id="configure-the-required-environment-variable">
+<span id="index-8"></span><h4>3. Configure the Required Environment Variable<a class="headerlink" href="#configure-the-required-environment-variable" title="Permalink to this heading"></a></h4>
+<p>Our container image needs the <code class="docutils literal notranslate"><span class="pre">RING_FILE</span></code> environment variable to know which script to run. We set this using Fly’s secrets management. Secrets are encrypted and become available to your application at runtime.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flyctl<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">RING_FILE</span><span class="o">=</span>app.ring
+</pre></div>
+</div>
+</section>
+<section id="deploy-the-application">
+<span id="index-9"></span><h4>4. Deploy the Application<a class="headerlink" href="#deploy-the-application" title="Permalink to this heading"></a></h4>
+<p>Now that your <code class="docutils literal notranslate"><span class="pre">fly.toml</span></code> file is created and the required secret is set, you can run your first deployment. <code class="docutils literal notranslate"><span class="pre">flyctl</span></code> will build the Docker image, push it to Fly’s registry, and provision a machine to run it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flyctl<span class="w"> </span>deploy
+</pre></div>
+</div>
+</section>
+<section id="visit-your-application">
+<span id="index-10"></span><h4>5. Visit Your Application<a class="headerlink" href="#visit-your-application" title="Permalink to this heading"></a></h4>
+<p>Once the deployment is complete, the CLI will display your application’s hostname. You can also run the following command at any time to open it in your browser.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flyctl<span class="w"> </span>open
+</pre></div>
+</div>
+<p>Your Ring application is now live with a secure <code class="docutils literal notranslate"><span class="pre">https://&lt;app-name&gt;.fly.dev</span></code> URL!</p>
+<p>—</p>
+</section>
+</section>
+<section id="path-b-deploying-to-railway-app">
+<span id="index-11"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Path B: Deploying to Railway.app</a><a class="headerlink" href="#path-b-deploying-to-railway-app" title="Permalink to this heading"></a></h3>
+<p>Railway offers an incredibly simple deployment experience, allowing you to deploy directly from your local machine with its powerful command-line interface.</p>
+<section id="log-in-to-railway">
+<span id="index-12"></span><h4>1. Log in to Railway<a class="headerlink" href="#log-in-to-railway" title="Permalink to this heading"></a></h4>
+<p>Open your terminal and authenticate the Railway CLI.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>login
+</pre></div>
+</div>
+</section>
+<section id="initialize-and-deploy">
+<span id="index-13"></span><h4>2. Initialize and Deploy<a class="headerlink" href="#initialize-and-deploy" title="Permalink to this heading"></a></h4>
+<p>Navigate to your project directory in your terminal and run the <code class="docutils literal notranslate"><span class="pre">up</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your project folder containing app.ring and Dockerfile</span>
+railway<span class="w"> </span>up
+</pre></div>
+</div>
+<p>This command will:</p>
+<ul class="simple">
+<li><p>Prompt you to create a new project on Railway. Confirm this.</p></li>
+<li><p>Detect the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> in your directory.</p></li>
+<li><p>Build the Docker image from your local files and upload it.</p></li>
+<li><p>Deploy the service.</p></li>
+</ul>
+<p>The first deployment will start, but the application won’t work correctly until we set the required environment variable.</p>
+</section>
+<section id="configure-the-environment-variable">
+<span id="index-14"></span><h4>3. Configure the Environment Variable<a class="headerlink" href="#configure-the-environment-variable" title="Permalink to this heading"></a></h4>
+<p>Use the CLI to set the <code class="docutils literal notranslate"><span class="pre">RING_FILE</span></code> variable. This tells our Ring container which script to execute. Railway will automatically trigger a new deployment with this setting.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>variables<span class="w"> </span>--set<span class="w"> </span><span class="s2">&quot;RING_FILE=app.ring&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="generate-a-public-domain">
+<span id="index-15"></span><h4>4. Generate a Public Domain<a class="headerlink" href="#generate-a-public-domain" title="Permalink to this heading"></a></h4>
+<p>By default, a new service on Railway is not exposed to the public internet. You can generate a secure, public domain for it using the <code class="docutils literal notranslate"><span class="pre">railway</span> <span class="pre">domain</span></code> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>domain
+</pre></div>
+</div>
+<p>The command will return a public URL for your service, which will look something like <code class="docutils literal notranslate"><span class="pre">your-app-name-production.up.railway.app</span></code>.</p>
+</section>
+<section id="index-16">
+<span id="id1"></span><h4>5. Visit Your Application<a class="headerlink" href="#index-16" title="Permalink to this heading"></a></h4>
+<p>You can now visit the <code class="docutils literal notranslate"><span class="pre">https://...up.railway.app</span></code> URL that was generated in the previous step to see your live Ring application.</p>
+<p>At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again in the “Settings” tab of your service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This command opens your Railway project dashboard in the browser</span>
+railway<span class="w"> </span>open
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusion">
+<span id="index-17"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Conclusion</a><a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h2>
+<p>This tutorial demonstrated how modern PaaS providers can eliminate nearly all the overhead of infrastructure management.</p>
+<ul class="simple">
+<li><p><strong>Fly.io</strong> is a fantastic choice when you need more control over your deployment’s configuration, want to distribute your application globally, or need to run services other than web apps. It gives you power and flexibility while still automating the hardest parts of deployment.</p></li>
+<li><p><strong>Railway.app</strong> is the champion of developer experience and speed. Its direct CLI deployment workflow makes it an incredible tool for rapid prototyping, personal projects, and any scenario where you want to move from code to a live URL with minimal friction.</p></li>
+</ul>
+<p>By leveraging Docker, your Ring application becomes universally portable, allowing you to choose the deployment model—from a self-managed VM with a reverse proxy to a fully managed PaaS—that best fits your project’s needs and your personal workflow.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ring_cloud.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications using Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-right" title="Deploying Web Applications to Shared Hosting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -65,6 +65,7 @@ Contents:
    Web Development (CGI Library) <web>
    Deploying Web Applications using Heroku <deployincloud>
    Deploying Web Applications using Docker <ring_cloud>
+   Deploying Web Applications to Cloud Platforms <ring_cloud_platforms>
    Deploying Web Applications to Shared Hosting <ring_cloud_cgi>
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Demo Project - Game Engine for 2D Games <gameengine>	
