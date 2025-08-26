@@ -107,15 +107,18 @@ This wrapper cleverly handles different hosting configurations, sets up necessar
     # this script attempts to deduce it from the current working directory (PWD).
     if [ -z "$HOME" ]; then
       # Guess home directory for various hosting panels.
-      # Plesk: /var/www/vhosts/domain.com/httpdocs/cgi-bin
+      # Plesk: /var/www/vhosts/domain.com/httpdocs/cgi-bin 
+      #     or /home/domain.com/httpdocs/cgi-bin
       # cPanel/DirectAdmin: /home/username/public_html/cgi-bin
       # KeyHelp: /home/users/username/www/cgi-bin
       if [[ "$PWD" == /var/www/vhosts/* ]]; then
         HOME_DIR_GUESS="${PWD%/httpdocs*}"
       elif [[ "$PWD" == /home/users/* ]]; then
         HOME_DIR_GUESS="${PWD%/www*}"
-      elif [[ "$PWD" == /home/* ]]; then
+      elif [[ "$PWD" == /home/*/public_html* ]]; then
         HOME_DIR_GUESS="${PWD%/public_html*}"
+      elif [[ "$PWD" == /home/*/httpdocs* ]]; then
+        HOME_DIR_GUESS="${PWD%/httpdocs*}"
       else
         # Fallback to the current directory if no pattern matches.
         HOME_DIR_GUESS="$PWD"
@@ -217,11 +220,11 @@ This is the most common scenario. It relies on a ``.htaccess`` file to tell the 
 1.  Using the File Manager, navigate to your web root (usually ``public_html``, ``httpdocs``, or ``www``).
 2.  If it doesn't exist, create a folder named ``cgi-bin``.
 3.  Upload the ``ring.cgi`` script you created earlier into this ``cgi-bin`` folder.
-4.  **Set its permissions to ``755``** (rwx r-x r-x). This is crucial to make it executable. You can typically do this by right-clicking the file in the File Manager and choosing "Change Permissions."
+4.  **Set its permissions to** ``755`` (rwx r-x r-x). This is crucial to make it executable. You can typically do this by right-clicking the file in the File Manager and choosing "Change Permissions."
 
 .. index::
 	pair: Shared Hosting; Create the .htaccess File
-**Step 3: Create the ``.htaccess`` File**
+**Step 3: Create the** ``.htaccess`` **File**
 
 1.  In your web root (``public_html``, ``httpdocs``, etc.), create a new file named ``.htaccess``.
 2.  Add the following content. This tells the web server to use our wrapper script for any file ending in ``.ring``.
@@ -406,7 +409,7 @@ cPanel
 *   **Tested & Confirmed:** The ``.htaccess`` method works flawlessly on cPanel, which typically runs on an Apache or LiteSpeed web server.
 *   **File Uploads:** Use the **File Manager** tool. Your web root, the folder where website files are publicly accessible, is ``public_html``. This folder is located inside your home directory, which has a full path like ``/home/username/public_html/``.
 *   **Permissions:** In **File Manager**, right-click on the ``ring.cgi`` file and select **Change Permissions**. Enter ``755`` and save to make the script executable. By default, files often have ``0644`` permissions and folders have ``0755``.
-*   **Creating ``.htaccess``:** In **File Manager**, you can create a new file by clicking the **+ File** button. To view existing ``.htaccess`` files, which are hidden by default, go to the **Settings** menu in the top right and check the box for **Show Hidden Files (dotfiles)**.
+*   **Creating** ``.htaccess`` **:** In **File Manager**, you can create a new file by clicking the **+ File** button. To view existing ``.htaccess`` files, which are hidden by default, go to the **Settings** menu in the top right and check the box for **Show Hidden Files (dotfiles)**.
 *   **CGI Status:** CGI is generally enabled on cPanel servers. The server looks for a ``cgi-sys/defaultwebpage.cgi`` when a domain does not have a configured VirtualHost or is pointed to the wrong IP, indicating CGI is active. Including the ``Options +ExecCGI`` directive in your ``.htaccess`` file can help ensure that CGI scripts are executed in your specific directory.
 
 ---
@@ -419,7 +422,7 @@ Plesk
 *   **Tested & Confirmed:** The ``.htaccess`` method is effective on Plesk servers running Apache. If the server uses Nginx as a proxy, you must ensure Apache is also enabled and processes requests for ``.htaccess`` to work.
 *   **File Uploads:** Use the **Files** or **File Manager** tab. Your web root is typically the ``httpdocs`` directory.
 *   **Permissions:** In the **Files** tab, click the three-dot menu next to the ``ring.cgi`` file and choose **Change Permissions**. To make the script executable, ensure the **Execute** permission is checked for the "Owner" and "Group" users.
-*   **``.htaccess`` Support:** For ``.htaccess`` files to work, go to your domain's **Apache & Nginx Settings** and ensure that Apache is enabled and that requests are not being handled exclusively by Nginx.
+*   ``.htaccess`` **Support:** For ``.htaccess`` files to work, go to your domain's **Apache & Nginx Settings** and ensure that Apache is enabled and that requests are not being handled exclusively by Nginx.
 *   **CGI Status:** To enable CGI script execution, go to the domain's **Hosting Settings** and ensure that **CGI support** is enabled. You may also need to configure the handler in the **PHP Settings** page by adding an ``AddHandler`` directive for ``.cgi`` files in the "Additional Apache directives" section.
 
 ---
