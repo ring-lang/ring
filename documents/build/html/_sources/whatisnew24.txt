@@ -108,7 +108,7 @@ The next samples are added:
 
 The next samples are improved
 
-* ring/samples/UsingThreads/RingThreads
+* samples/UsingThreads/RingThreads
 * samples/UsingRayLib/more/ex5_wavingcubes_threads.ring
 
 .. index:: 
