@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.24 comes with the next features!
 
 * Ring for macOS (Apple silicon)
+* RingPM GUI
 * Better RingLibCurl
 * More RingPM Packages
 * More Samples
@@ -30,6 +31,31 @@ Ring for macOS (Apple silicon)
 Build scripts are revised to support both of macOS (Intel) and macOS (Apple silicon)
 
 Tested using macOS 13 (Intel) and macOS 15 (Apple silicon)
+
+.. index:: 
+	pair: What is new in Ring 1.24?; RingPM GUI
+
+RingPM GUI
+==========
+
+A GUI tool for Ring Package Manager (RingPM)
+
+We can run it from the Tools Menu in Ring Notepad or using RingPM 
+
+.. code-block:: none
+
+	ringpm run ringpmgui
+
+Features: 
+
+* Package Installation: Install Ring packages by entering the package name
+* Package Management: View all installed packages in a table format
+* Package Operations: Run, update, and remove installed packages
+* Real-time Output: View command output and progress in real-time
+* User-friendly Interface: Clean and intuitive GUI design
+
+.. image:: ringpmgui.png
+	:alt: RingPM GUI
 
 .. index:: 
 	pair: What is new in Ring 1.24?; Better RingLibCurl
@@ -66,7 +92,6 @@ The following packages have been added to the RingPM registry.
 * Worm: Simple example about Map generation in Ring Game Engine for 2D Games
 * TicTacToePlus: An implementation for the TicTacToe game (large board) using RingQt
 * Ring-JWT: JWT library for the Ring programming language
-* RingPMGUI: Ring Package Manager GUI using RingQt
 
 Example:
 
