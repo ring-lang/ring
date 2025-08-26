@@ -40,7 +40,7 @@ void ring_vm_listfuncs_add(void *pPointer) {
 			return;
 		}
 		/* Check the Range */
-		if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
+		if (ring_list_getsize_gc(pVM->pRingState, pList) == RING_LIST_MAXSIZE) {
 			RING_API_ERROR(RING_API_RANGEEXCEEDED);
 			return;
 		}
@@ -65,16 +65,19 @@ void ring_vm_listfuncs_add(void *pPointer) {
 				/* The ring_vm_addlisttolist() function will check if pList2 is a Reference */
 				ring_vm_addlisttolist(pVM, pList2, pList);
 			} else {
-				for (x = 1; x <= ring_list_getsize(pList2); x++) {
-					if (ring_list_isstring(pList2, x)) {
-						ring_list_addstring2_gc(pVM->pRingState, pList,
-									ring_list_getstring(pList2, x),
-									ring_list_getstringsize(pList2, x));
-					} else if (ring_list_isdouble(pList2, x)) {
-						ring_list_adddouble_gc(pVM->pRingState, pList,
-								       ring_list_getdouble(pList2, x));
-					} else if (ring_list_islist(pList2, x)) {
-						ring_vm_addlisttolist(pVM, ring_list_getlist(pList2, x), pList);
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList2); x++) {
+					if (ring_list_isstring_gc(pVM->pRingState, pList2, x)) {
+						ring_list_addstring2_gc(
+						    pVM->pRingState, pList,
+						    ring_list_getstring_gc(pVM->pRingState, pList2, x),
+						    ring_list_getstringsize_gc(pVM->pRingState, pList2, x));
+					} else if (ring_list_isdouble_gc(pVM->pRingState, pList2, x)) {
+						ring_list_adddouble_gc(
+						    pVM->pRingState, pList,
+						    ring_list_getdouble_gc(pVM->pRingState, pList2, x));
+					} else if (ring_list_islist_gc(pVM->pRingState, pList2, x)) {
+						ring_vm_addlisttolist(
+						    pVM, ring_list_getlist_gc(pVM->pRingState, pList2, x), pList);
 					}
 				}
 			}
@@ -102,7 +105,7 @@ void ring_vm_listfuncs_del(void *pPointer) {
 		}
 		if (RING_API_ISNUMBER(2)) {
 			nNum1 = RING_API_GETNUMBER(2);
-			if ((nNum1 < 1) || (nNum1 > ring_list_getsize(pList))) {
+			if ((nNum1 < 1) || (nNum1 > ring_list_getsize_gc(pVM->pRingState, pList))) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
@@ -127,7 +130,7 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 		if (RING_API_ISLIST(1) && RING_API_ISLIST(2)) {
 			pList = RING_API_GETLIST(1);
 			pList2 = RING_API_GETLIST(2);
-			ring_list_swaptwolists(pList, pList2);
+			ring_list_swaptwolists_gc(pVM->pRingState, pList, pList2);
 			return;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -148,7 +151,7 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 		if (RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3)) {
 			nNum1 = RING_API_GETNUMBER(2);
 			nNum2 = RING_API_GETNUMBER(3);
-			nSize = ring_list_getsize(pList);
+			nSize = ring_list_getsize_gc(pVM->pRingState, pList);
 			if ((nNum1 > 0) && (nNum2 > 0) && (nNum1 != nNum2) && (nNum1 <= nSize) && (nNum2 <= nSize)) {
 				ring_list_swap_gc(pVM->pRingState, pList, (unsigned int)nNum1, (unsigned int)nNum2);
 				ring_list_clearcache_gc(pVM->pRingState, pList);
@@ -231,7 +234,7 @@ void ring_vm_listfuncs_find(void *pPointer) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
-		if (ring_list_getsize(pList) > 0) {
+		if (ring_list_getsize_gc(pVM->pRingState, pList) > 0) {
 			nColumn = 0;
 			if (RING_API_PARACOUNT >= 3) {
 				if (RING_API_ISNUMBER(3)) {
@@ -311,18 +314,19 @@ void ring_vm_listfuncs_min(void *pPointer) {
 				ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 				return;
 			}
-			if (ring_list_getsize(pList) > 0) {
-				if (ring_list_isnumber(pList, RING_ONE)) {
-					nNum1 = ring_list_getdouble(pList, RING_ONE);
+			if (ring_list_getsize_gc(pVM->pRingState, pList) > 0) {
+				if (ring_list_isnumber_gc(pVM->pRingState, pList, RING_ONE)) {
+					nNum1 = ring_list_getdouble_gc(pVM->pRingState, pList, RING_ONE);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 					return;
 				}
-				if (ring_list_getsize(pList) > 1) {
-					for (x = 1; x <= ring_list_getsize(pList); x++) {
-						if (ring_list_isnumber(pList, x)) {
-							if (ring_list_getdouble(pList, x) < nNum1) {
-								nNum1 = ring_list_getdouble(pList, x);
+				if (ring_list_getsize_gc(pVM->pRingState, pList) > 1) {
+					for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+						if (ring_list_isnumber_gc(pVM->pRingState, pList, x)) {
+							if (ring_list_getdouble_gc(pVM->pRingState, pList, x) < nNum1) {
+								nNum1 =
+								    ring_list_getdouble_gc(pVM->pRingState, pList, x);
 							}
 						} else {
 							RING_API_ERROR(RING_API_BADPARATYPE);
@@ -367,18 +371,19 @@ void ring_vm_listfuncs_max(void *pPointer) {
 				ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 				return;
 			}
-			if (ring_list_getsize(pList) > 0) {
-				if (ring_list_isnumber(pList, RING_ONE)) {
-					nNum1 = ring_list_getdouble(pList, RING_ONE);
+			if (ring_list_getsize_gc(pVM->pRingState, pList) > 0) {
+				if (ring_list_isnumber_gc(pVM->pRingState, pList, RING_ONE)) {
+					nNum1 = ring_list_getdouble_gc(pVM->pRingState, pList, RING_ONE);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 					return;
 				}
-				if (ring_list_getsize(pList) > 1) {
-					for (x = 1; x <= ring_list_getsize(pList); x++) {
-						if (ring_list_isnumber(pList, x)) {
-							if (ring_list_getdouble(pList, x) > nNum1) {
-								nNum1 = ring_list_getdouble(pList, x);
+				if (ring_list_getsize_gc(pVM->pRingState, pList) > 1) {
+					for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+						if (ring_list_isnumber_gc(pVM->pRingState, pList, x)) {
+							if (ring_list_getdouble_gc(pVM->pRingState, pList, x) > nNum1) {
+								nNum1 =
+								    ring_list_getdouble_gc(pVM->pRingState, pList, x);
 							}
 						} else {
 							RING_API_ERROR(RING_API_BADPARATYPE);
@@ -428,22 +433,23 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 			return;
 		}
 		/* Check the Range */
-		if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
+		if (ring_list_getsize_gc(pVM->pRingState, pList) == RING_LIST_MAXSIZE) {
 			RING_API_ERROR(RING_API_RANGEEXCEEDED);
 			return;
 		}
 		x = RING_API_GETNUMBER(2);
-		if ((x < 0) || (x > ring_list_getsize(pList))) {
+		if ((x < 0) || (x > ring_list_getsize_gc(pVM->pRingState, pList))) {
 			RING_API_ERROR(RING_VM_ERROR_INDEXOUTOFRANGE);
 			return;
 		}
 		nPos = (unsigned int)x;
 		if (RING_API_ISSTRING(3)) {
-			ring_list_insertstring2(pList, nPos, RING_API_GETSTRING(3), RING_API_GETSTRINGSIZE(3));
+			ring_list_insertstring2_gc(pVM->pRingState, pList, nPos, RING_API_GETSTRING(3),
+						   RING_API_GETSTRINGSIZE(3));
 		} else if (RING_API_ISNUMBER(3)) {
-			ring_list_insertdouble(pList, nPos, RING_API_GETNUMBER(3));
+			ring_list_insertdouble_gc(pVM->pRingState, pList, nPos, RING_API_GETNUMBER(3));
 		} else if (RING_API_ISLIST(3)) {
-			pList2 = ring_list_insertlist(pList, nPos);
+			pList2 = ring_list_insertlist_gc(pVM->pRingState, pList, nPos);
 			pItem = ring_list_getitem_gc(pVM->pRingState, pList, nPos + 1);
 			if (ring_list_isref_gc(pVM->pRingState, RING_API_GETLIST(3))) {
 				ring_list_assignreftoitem_gc(pVM->pRingState, RING_API_GETLIST(3), pItem);
@@ -483,70 +489,74 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
-		ring_vm_listcopy((VM *)pPointer, pList, pList2);
-		if (ring_list_getsize(pList) < 2) {
+		ring_vm_listcopy(pVM, pList, pList2);
+		if (ring_list_getsize_gc(pVM->pRingState, pList) < 2) {
 			RING_API_RETLIST(pList2);
 			return;
 		}
 		if (nParaCount == 1) {
-			if (ring_list_isnumber(pList, RING_ONE)) {
+			if (ring_list_isnumber_gc(pVM->pRingState, pList, RING_ONE)) {
 				/* Check that all items are numbers */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					if (!ring_list_isnumber(pList, x)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					if (!ring_list_isnumber_gc(pVM->pRingState, pList, x)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
 				}
 				ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
 						     RING_ZERO, RING_CSTR_EMPTY);
-			} else if (ring_list_isstring(pList, RING_ONE)) {
+			} else if (ring_list_isstring_gc(pVM->pRingState, pList, RING_ONE)) {
 				/* Check that all items are strings */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					if (!ring_list_isstring(pList, x)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					if (!ring_list_isstring_gc(pVM->pRingState, pList, x)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
 				}
-				ring_list_sortstr(pList, RING_ONE, ring_list_getsize(pList), RING_ZERO,
-						  RING_CSTR_EMPTY);
+				ring_list_sortstr_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
+						     RING_ZERO, RING_CSTR_EMPTY);
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
-		} else if ((nParaCount == 2) && RING_API_ISNUMBER(2) && ring_list_islist(pList, RING_ONE)) {
+		} else if ((nParaCount == 2) && RING_API_ISNUMBER(2) &&
+			   ring_list_islist_gc(pVM->pRingState, pList, RING_ONE)) {
 			nColumn = RING_API_GETNUMBER(2);
-			pList3 = ring_list_getlist(pList, RING_ONE);
-			if (ring_list_isnumber(pList3, nColumn)) {
+			pList3 = ring_list_getlist_gc(pVM->pRingState, pList, RING_ONE);
+			if (ring_list_isnumber_gc(pVM->pRingState, pList3, nColumn)) {
 				/* Check that all items are numbers */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					pList3 = ring_list_getlist(pList, x);
-					if (!ring_list_isnumber(pList3, nColumn)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					pList3 = ring_list_getlist_gc(pVM->pRingState, pList, x);
+					if (!ring_list_isnumber_gc(pVM->pRingState, pList3, nColumn)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
 				}
-				ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
-						     nColumn, RING_CSTR_EMPTY);
-			} else if (ring_list_isstring(pList3, nColumn)) {
+				ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE,
+						     ring_list_getsize_gc(pVM->pRingState, pList), nColumn,
+						     RING_CSTR_EMPTY);
+			} else if (ring_list_isstring_gc(pVM->pRingState, pList3, nColumn)) {
 				/* Check that all items are strings */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					pList3 = ring_list_getlist(pList, x);
-					if (!ring_list_isstring(pList3, nColumn)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					pList3 = ring_list_getlist_gc(pVM->pRingState, pList, x);
+					if (!ring_list_isstring_gc(pVM->pRingState, pList3, nColumn)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
 				}
-				ring_list_sortstr(pList, RING_ONE, ring_list_getsize(pList), nColumn, RING_CSTR_EMPTY);
+				ring_list_sortstr_gc(pVM->pRingState, pList, RING_ONE,
+						     ring_list_getsize_gc(pVM->pRingState, pList), nColumn,
+						     RING_CSTR_EMPTY);
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
-		} else if ((nParaCount == 3) && RING_API_ISNUMBER(2) && ring_list_islist(pList, RING_ONE) &&
-			   RING_API_ISSTRING(3)) {
+		} else if ((nParaCount == 3) && RING_API_ISNUMBER(2) &&
+			   ring_list_islist_gc(pVM->pRingState, pList, RING_ONE) && RING_API_ISSTRING(3)) {
 			nColumn = RING_API_GETNUMBER(2);
 			cAttribute = RING_API_GETSTRING(3);
 			ring_general_lower(cAttribute);
-			pList3 = ring_list_getlist(pList, RING_ONE);
+			pList3 = ring_list_getlist_gc(pVM->pRingState, pList, RING_ONE);
 			if (nColumn > 1) {
-				pList3 = ring_list_getlist(pList3, nColumn);
+				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, nColumn);
 			}
 			if (ring_vm_oop_isobject(pVM, pList3)) {
 				nPos = ring_list_findstring_gc(pVM->pRingState,
@@ -556,14 +566,15 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 					RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 					return;
 				}
-				pList3 = ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA);
-				pList3 = ring_list_getlist(pList3, nPos);
-				if (ring_list_isstring(pList3, RING_VAR_VALUE)) {
-					ring_list_sortstr(pList, RING_ONE, ring_list_getsize(pList), nColumn,
-							  cAttribute);
-				} else if (ring_list_isnumber(pList3, RING_VAR_VALUE)) {
-					ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
+				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, RING_OBJECT_OBJECTDATA);
+				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, nPos);
+				if (ring_list_isstring_gc(pVM->pRingState, pList3, RING_VAR_VALUE)) {
+					ring_list_sortstr_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
 							     nColumn, cAttribute);
+				} else if (ring_list_isnumber_gc(pVM->pRingState, pList3, RING_VAR_VALUE)) {
+					ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE,
+							     ring_list_getsize_gc(pVM->pRingState, pList), nColumn,
+							     cAttribute);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}
@@ -599,8 +610,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 		if (nParaCount == 2) {
 			if (RING_API_ISSTRING(2)) {
 				/* Check that all items are strings */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					if (!ring_list_isstring(pList, x)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					if (!ring_list_isstring_gc(pVM->pRingState, pList, x)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
@@ -609,8 +620,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 				    pVM->pRingState, pList, RING_API_GETSTRING(2), RING_ZERO, RING_CSTR_EMPTY));
 			} else if (RING_API_ISNUMBER(2)) {
 				/* Check that all items are numbers */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					if (!ring_list_isnumber(pList, x)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					if (!ring_list_isnumber_gc(pVM->pRingState, pList, x)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
@@ -624,9 +635,9 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 			nColumn = RING_API_GETNUMBER(3);
 			if (RING_API_ISSTRING(2)) {
 				/* Check that all items are strings */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					pList2 = ring_list_getlist(pList, x);
-					if (!ring_list_isstring(pList2, nColumn)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					pList2 = ring_list_getlist_gc(pVM->pRingState, pList, x);
+					if (!ring_list_isstring_gc(pVM->pRingState, pList2, nColumn)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
@@ -635,9 +646,9 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 				    pVM->pRingState, pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));
 			} else if (RING_API_ISNUMBER(2)) {
 				/* Check that all items are numbers */
-				for (x = 1; x <= ring_list_getsize(pList); x++) {
-					pList2 = ring_list_getlist(pList, x);
-					if (!ring_list_isnumber(pList2, nColumn)) {
+				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
+					pList2 = ring_list_getlist_gc(pVM->pRingState, pList, x);
+					if (!ring_list_isnumber_gc(pVM->pRingState, pList2, nColumn)) {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 						return;
 					}
@@ -673,12 +684,14 @@ void ring_vm_listfuncs_reverse(void *pPointer) {
 			ring_vm_error(pVM, RING_VM_ERROR_VARISNOTLIST);
 			return;
 		}
-		for (x = ring_list_getsize(pList2); x >= 1; x--) {
-			if (ring_list_isstring(pList2, x)) {
-				ring_list_addstring(pList, ring_list_getstring(pList2, x));
-			} else if (ring_list_isnumber(pList2, x)) {
-				ring_list_adddouble(pList, ring_list_getdouble(pList2, x));
-			} else if (ring_list_islist(pList2, x)) {
+		for (x = ring_list_getsize_gc(pVM->pRingState, pList2); x >= 1; x--) {
+			if (ring_list_isstring_gc(pVM->pRingState, pList2, x)) {
+				ring_list_addstring_gc(pVM->pRingState, pList,
+						       ring_list_getstring_gc(pVM->pRingState, pList2, x));
+			} else if (ring_list_isnumber_gc(pVM->pRingState, pList2, x)) {
+				ring_list_adddouble_gc(pVM->pRingState, pList,
+						       ring_list_getdouble_gc(pVM->pRingState, pList2, x));
+			} else if (ring_list_islist_gc(pVM->pRingState, pList2, x)) {
 				pList3 = ring_list_newlist_gc(pVM->pRingState, pList);
 				ring_vm_listcopy(pVM, pList3, ring_list_getlist(pList2, x));
 				pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
