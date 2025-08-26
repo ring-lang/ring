@@ -17,9 +17,10 @@ Ring 1.24 comes with the next features!
 
 * Ring for macOS (Apple silicon)
 * RingPM GUI
-* Better RingLibCurl
 * More RingPM Packages
 * More Samples
+* Better RingLibCurl
+* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -57,27 +58,6 @@ Features:
 .. image:: ringpmgui.png
 	:alt: RingPM GUI
 
-.. index:: 
-	pair: What is new in Ring 1.24?; Better RingLibCurl
-
-Better RingLibCurl
-==================
-
-The next functions are added to the extension
-
-.. code-block:: none
-
-	* void curl_global_cleanup(void)
-	* CURLM *curl_multi_init(void)
-	* CURLMcode curl_multi_cleanup(CURLM *multi_handle)
-	* CURLMcode curl_multi_add_handle(CURLM *multi_handle, CURL *curl_handle)
-	* CURLMcode curl_multi_remove_handle(CURLM *multi_handle, CURL *curl_handle)
-	* List* curl_multi_perform(CURLM *multi_handle)
-	* List* curl_multi_wait(CURLM* multi_handle, double timeout_ms)
-	* List* curl_multi_info_read(CURLM *multi_handle)
-	* List* curl_ws_send(CURL *curl, const char *buffer, double fragsize, int flags)
-	* List* curl_ws_recv(CURL *curl, double buflen)
-	* List* curl_ws_meta(CURL *curl)
 
 .. index:: 
 	pair: What is new in Ring 1.24?; More RingPM Packages
@@ -129,6 +109,45 @@ The next samples are improved
 
 * ring/samples/UsingThreads/RingThreads
 * samples/UsingRayLib/more/ex5_wavingcubes_threads.ring
+
+.. index:: 
+	pair: What is new in Ring 1.24?; Better RingLibCurl
+
+Better RingLibCurl
+==================
+
+The next functions are added to the extension
+
+.. code-block:: none
+
+	* void curl_global_cleanup(void)
+	* CURLM *curl_multi_init(void)
+	* CURLMcode curl_multi_cleanup(CURLM *multi_handle)
+	* CURLMcode curl_multi_add_handle(CURLM *multi_handle, CURL *curl_handle)
+	* CURLMcode curl_multi_remove_handle(CURLM *multi_handle, CURL *curl_handle)
+	* List* curl_multi_perform(CURLM *multi_handle)
+	* List* curl_multi_wait(CURLM* multi_handle, double timeout_ms)
+	* List* curl_multi_info_read(CURLM *multi_handle)
+	* List* curl_ws_send(CURL *curl, const char *buffer, double fragsize, int flags)
+	* List* curl_ws_recv(CURL *curl, double buflen)
+	* List* curl_ws_meta(CURL *curl)
+
+.. index:: 
+	pair: What is new in Ring  1.24; Better Documentation
+
+Better Documentation
+====================
+
+The next chapters are added:
+
+* Deploying Ring Web Applications using Docker
+* Deploying Web Applications to Shared Hosting
+
+The next chapters are improved
+
+* Using Ring Notepad
+* Using Ring Libuv
+* Using Ring LibCurl
 
 .. index:: 
 	pair: What is new in Ring  1.24; More Improvements
