@@ -170,6 +170,8 @@ We can run the web application using the Web icon.
 Creating and running your first Web Application using HTTPLib
 =============================================================
 
+To learn about developing web applications using HTTPLib check the "Using HTTPLib" chapter.
+
 This Ring script sets up a lightweight HTTP server that listens on port 8080 
 and responds to GET requests at the endpoint. 
 
