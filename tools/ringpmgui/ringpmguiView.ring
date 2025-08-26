@@ -17,8 +17,7 @@ if IsMainSourceFile() {
 
 class ringpmguiView from WindowsViewParent
 	win = new MainWindow() { 
-		move(100,5)
-		resize(900,700)
+		resize(1060,725)
 		setWindowTitle("RingPM GUI - Ring Package Manager")
 		setstylesheet("background-color: #fcf8f8ff;") 
 		setWinIcon(win,"images/ringpmgui.png") 
@@ -91,7 +90,7 @@ class ringpmguiView from WindowsViewParent
 			setitemDoubleClickedEvent(Method(:runPackage))
 			# Set column widths
 			setColumnWidth(1, 200)
-			setColumnWidth(2, 500)
+			setColumnWidth(2, 660)
 			setColumnWidth(3, 130)
 			
 			# Make table read-only
