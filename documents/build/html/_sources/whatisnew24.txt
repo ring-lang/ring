@@ -137,6 +137,8 @@ More Improvements
 
 * Better scripts for building Ring (32bit) and Ring (64bit) on Windows
 * FindInFiles: Using setSelectionMode() to enable single-row selection
+* FindInFiles: Using lightguilib.ring instead of guilib.ring
+* FindInFiles: Show the window at the screen centre 
 * GameEngine: Clear error message if image/font/sound file doesn't exist
 * JSONLib: Handle a case when the input is an array only
 * RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()
