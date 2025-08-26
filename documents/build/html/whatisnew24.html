@@ -187,6 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringhttplib">Better RingHTTPLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -234,6 +235,7 @@
 <li><p>More RingPM Packages</p></li>
 <li><p>More Samples</p></li>
 <li><p>Better RingLibCurl</p></li>
+<li><p>Better RingHTTPLib</p></li>
 <li><p>Better Documentation</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -318,8 +320,18 @@
 </pre></div>
 </div>
 </section>
+<section id="better-ringhttplib">
+<span id="index-7"></span><h2>Better RingHTTPLib<a class="headerlink" href="#better-ringhttplib" title="Permalink to this heading"></a></h2>
+<p>The next changes and improvements are done to the extension</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* The file httplib.h is updated (Using 0.23.1)
+* Added body() method to HTTPLib_Request class
+* Added setStatus() and getStatus() to Server class
+* Support more server http methods: PUT, PATCH, DELETE and OPTIONS
+</pre></div>
+</div>
+</section>
 <section id="better-documentation">
-<span id="index-7"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
 <p>The next chapters are added:</p>
 <ul class="simple">
 <li><p>Deploying Ring Web Applications using Docker</p></li>
@@ -333,21 +345,17 @@
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better scripts for building Ring (32bit) and Ring (64bit) on Windows</p></li>
 <li><p>FindInFiles: Using setSelectionMode() to enable single-row selection</p></li>
 <li><p>FindInFiles: Using lightguilib.ring instead of guilib.ring</p></li>
 <li><p>FindInFiles: Show the window at the screen centre</p></li>
 <li><p>GameEngine: Clear error message if image/font/sound file doesn’t exist</p></li>
-<li><p>JSONLib: Handle a case when the input is an array only</p></li>
+<li><p>RingJSONLib: Handle a case when the input is an array only</p></li>
 <li><p>RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()</p></li>
-<li><p>RingHTTPLib: The file httplib.h is updated (Using 0.23.1)</p></li>
-<li><p>RingHTTPLib: Added body() method to HTTPLib_Request class</p></li>
-<li><p>RingHTTPLib: Added setStatus() and getStatus() to Server class</p></li>
-<li><p>RingHTTPLib: Support more server http methods: PUT, PATCH, DELETE and OPTIONS</p></li>
 <li><p>RingLibSDL: Enable building the extension using recent MSVC compiler</p></li>
-<li><p>RingLibuv: Revise the documentation/samples to use destroy_sockaddr_in() function</p></li>
+<li><p>RingLibuv: Revise the samples to use destroy_sockaddr_in() function</p></li>
 <li><p>Space() function: Don’t accept values over UINT_MAX</p></li>
 <li><p>List() function: Don’t accept values over UINT_MAX</p></li>
 <li><p>List() function: Don’t use blocks for small 1D lists</p></li>
