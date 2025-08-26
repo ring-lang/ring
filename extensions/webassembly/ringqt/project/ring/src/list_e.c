@@ -109,7 +109,7 @@ void ring_vm_listfuncs_del(void *pPointer) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
-			ring_list_deleteitem_gc(((VM *)pPointer)->pRingState, pList, nNum1);
+			ring_list_deleteitem_gc(pVM->pRingState, pList, nNum1);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
