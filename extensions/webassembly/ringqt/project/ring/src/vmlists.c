@@ -411,13 +411,14 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 	List *pList;
 	Item *pItem;
 	const char *cStr2;
-	if (ring_list_getsize(pVar) > 0) {
-		for (x = 1; x <= ring_list_getsize(pVar); x++) {
-			if (ring_list_islist(pVar, x)) {
-				pList = ring_list_getlist(pVar, x);
-				if (ring_list_getsize(pList) == RING_LISTHASH_SIZE) {
-					if (ring_list_isstring(pList, RING_LISTHASH_KEY)) {
-						cStr2 = ring_list_getstring(pList, RING_LISTHASH_KEY);
+	if (ring_list_getsize_gc(pVM->pRingState, pVar) > 0) {
+		for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pVar); x++) {
+			if (ring_list_islist_gc(pVM->pRingState, pVar, x)) {
+				pList = ring_list_getlist_gc(pVM->pRingState, pVar, x);
+				if (ring_list_getsize_gc(pVM->pRingState, pList) == RING_LISTHASH_SIZE) {
+					if (ring_list_isstring_gc(pVM->pRingState, pList, RING_LISTHASH_KEY)) {
+						cStr2 =
+						    ring_list_getstring_gc(pVM->pRingState, pList, RING_LISTHASH_KEY);
 						if (ring_general_strcmpnotcasesensitive(cStr, cStr2) == 0) {
 							pItem = ring_list_getitem_gc(pVM->pRingState, pList,
 										     RING_LISTHASH_VALUE);
