@@ -445,25 +445,25 @@ void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
 	List *pNewList2, *pSourceList;
 	Item *pItem;
 	/* Copy Items */
-	nMax = ring_list_getsize(pList);
+	nMax = ring_list_getsize_gc(pVM->pRingState, pList);
 	if (nMax == 0) {
 		return;
 	}
 	for (x = 1; x <= nMax; x++) {
-		if (ring_list_isint(pList, x)) {
+		if (ring_list_isint_gc(pVM->pRingState, pList, x)) {
 			ring_list_addint_gc(pVM->pRingState, pNewList, ring_list_getint(pList, x));
-		} else if (ring_list_isdouble(pList, x)) {
+		} else if (ring_list_isdouble_gc(pVM->pRingState, pList, x)) {
 			ring_list_adddouble_gc(pVM->pRingState, pNewList, ring_list_getdouble(pList, x));
-		} else if (ring_list_isstring(pList, x)) {
+		} else if (ring_list_isstring_gc(pVM->pRingState, pList, x)) {
 			ring_list_addstring2_gc(pVM->pRingState, pNewList, ring_list_getstring(pList, x),
 						ring_list_getstringsize(pList, x));
-		} else if (ring_list_ispointer(pList, x)) {
+		} else if (ring_list_ispointer_gc(pVM->pRingState, pList, x)) {
 			ring_list_addpointer_gc(pVM->pRingState, pNewList, ring_list_getpointer(pList, x));
-		} else if (ring_list_isfuncpointer(pList, x)) {
+		} else if (ring_list_isfuncpointer_gc(pVM->pRingState, pList, x)) {
 			ring_list_addfuncpointer_gc(pVM->pRingState, pNewList, ring_list_getfuncpointer(pList, x));
-		} else if (ring_list_islist(pList, x)) {
+		} else if (ring_list_islist_gc(pVM->pRingState, pList, x)) {
 			pNewList2 = ring_list_newlist_gc(pVM->pRingState, pNewList);
-			pSourceList = ring_list_getlist(pList, x);
+			pSourceList = ring_list_getlist_gc(pVM->pRingState, pList, x);
 			if (ring_list_isref_gc(pVM->pRingState, pSourceList)) {
 				/* Copy By Reference */
 				ring_list_setlistbyref_gc(pVM->pRingState, pNewList, ring_list_getsize(pNewList),
@@ -481,7 +481,7 @@ void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
 		}
 	}
 	/* Check if the List is a C Pointer List */
-	if (ring_list_iscpointerlist(pList)) {
+	if (ring_list_iscpointerlist_gc(pVM->pRingState, pList)) {
 		/* Copy The Pointer by Reference */
 		pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState, pNewList->pFirst->pValue);
 		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_CPOINTER_POINTER);
@@ -502,18 +502,21 @@ int ring_vm_isoperationaftersublist(VM *pVM) {
 		nOPCode = RING_VM_IR_OPCODEVALUE(pVM->nPC - 3);
 		if (nOPCode == ICO_LISTEND) {
 			/* Get the Parent List */
-			pParent = (List *)ring_list_getpointer(pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
+			pParent = (List *)ring_list_getpointer_gc(pVM->pRingState, pVM->pNestedLists,
+								  ring_list_getsize(pVM->pNestedLists));
 			/* Get the Sub List */
-			pSub = ring_list_getlist(pParent, ring_list_getsize(pParent));
+			pSub = ring_list_getlist_gc(pVM->pRingState, pParent, ring_list_getsize(pParent));
 			/* Create a Temp. variable for the sub list */
 			ring_vm_createtemplist(pVM);
 			pVar = (List *)RING_VM_STACK_READP;
 			ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
 			ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
-			ring_list_deleteallitems_gc(pVM->pRingState, ring_list_getlist(pVar, RING_VAR_VALUE));
-			ring_vm_listcopy(pVM, ring_list_getlist(pVar, RING_VAR_VALUE), pSub);
+			ring_list_deleteallitems_gc(pVM->pRingState,
+						    ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE));
+			ring_vm_listcopy(pVM, ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE), pSub);
 			/* Delete the sub list from the Parent List */
-			ring_list_deleteitem_gc(pVM->pRingState, pParent, ring_list_getsize(pParent));
+			ring_list_deleteitem_gc(pVM->pRingState, pParent,
+						ring_list_getsize_gc(pVM->pRingState, pParent));
 			return RING_TRUE;
 		}
 	}
