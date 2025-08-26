@@ -157,7 +157,8 @@ Better Documentation
 The next chapters are added:
 
 * Deploying Ring Web Applications using Docker
-* Deploying Web Applications to Shared Hosting
+* Deploying Ring Web Applications to Cloud Platforms
+* Deploying Ring Web Applications to Shared Hosting
 
 The next chapters are improved
 
