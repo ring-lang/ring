@@ -167,8 +167,8 @@ void ring_vm_loadindexaddress(VM *pVM) {
 		if (RING_VM_STACK_ISPOINTER) {
 			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 				pVar = (List *)RING_VM_STACK_READP;
-				if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-					pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
+				if (ring_list_islist_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
+					pVar = ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						ring_vm_exprnpoo(pVM, "[]", nNum1);
@@ -181,13 +181,13 @@ void ring_vm_loadindexaddress(VM *pVM) {
 					}
 					pItem = ring_list_getitem_gc(pVM->pRingState, pVar, nNum1);
 					RING_VM_STACK_PUSHPVALUE(pItem);
-				} else if (ring_list_isstring(pVar, RING_VAR_VALUE)) {
+				} else if (ring_list_isstring_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
 					RING_VM_STACK_POP;
-					if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_NULL) {
+					if (ring_list_getint_gc(pVM->pRingState, pVar, RING_VAR_TYPE) == RING_VM_NULL) {
 						ring_vm_error(pVM, RING_VM_ERROR_USINGNULLVARIABLE);
 						return;
 					}
-					pString = ring_list_getstringobject(pVar, RING_VAR_VALUE);
+					pString = ring_list_getstringobject_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
 					ring_vm_stringindex(pVM, pString, nNum1);
 					return;
 				} else {
@@ -248,8 +248,8 @@ void ring_vm_loadindexaddress(VM *pVM) {
 			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 				pVar = (List *)RING_VM_STACK_READP;
 				RING_VM_STACK_POP;
-				if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-					pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
+				if (ring_list_islist_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
+					pVar = ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						RING_VM_SP_INC;
