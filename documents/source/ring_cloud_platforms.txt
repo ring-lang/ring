@@ -1,0 +1,281 @@
+.. index::
+  single: Deploying Ring Web Applications; Cloud Platforms
+
+Deploying Ring Web Applications to Cloud Platforms
+==================================================
+
+Chapter Author: Youssef Saeed
+
+While the tutorial on deploying with Docker and a reverse proxy covers a traditional, powerful setup, modern Platform-as-a-Service (PaaS) providers like Fly.io and Railway.app offer a dramatically simplified deployment experience. These platforms abstract away the complexity of managing servers, reverse proxies, and SSL certificates, allowing you to go from code to a live, secure URL in minutes.
+
+This tutorial guides you through deploying the same containerized Ring application to both Fly.io, known for its global reach and fine-grained control, and Railway.app, celebrated for its "it just works" simplicity.
+
+.. contents:: Table of Contents
+  :depth: 2
+  :local:
+
+.. index::
+  single: Deploying Ring Web Applications; Introduction: The PaaS Model
+1. Introduction: The PaaS Model
+-------------------------------
+
+This approach differs fundamentally from setting up a reverse proxy on a cloud VM.
+
+.. list-table::
+  :widths: 50 50
+  :header-rows: 1
+
+  * - Self-Managed VM (Nginx/Traefik/Caddy)
+    - Managed PaaS (Fly.io/Railway)
+  * - You manage the server, networking, and firewall rules.
+    - The platform manages the entire underlying infrastructure.
+  * - You are responsible for setting up and configuring a reverse proxy (Nginx, etc.).
+    - The platform provides a built-in, auto-configured edge router.
+  * - SSL certificate acquisition and renewal is a manual or scripted step (e.g., Certbot).
+    - SSL is provisioned and renewed automatically for your application.
+  * - Deployment involves SSH'ing into a server and running ``docker compose``.
+    - Deployment is typically done via a CLI command (``flyctl deploy`` or ``railway up``).
+  * - Scaling requires manual intervention (e.g., setting up a load balancer).
+    - Scaling is often a simple command or a setting in a dashboard.
+
+The PaaS model is ideal for developers who want to focus on their code and not on infrastructure management.
+
+**Why Fly.io and Railway.app?**
+
+This tutorial focuses specifically on Fly.io and Railway.app because they are exceptionally developer-friendly and share a critical feature: **both offer a generous free tier that does not require a credit card to get started.** This makes them the perfect platforms for learning, prototyping, and deploying personal or small-scale applications without any initial financial commitment.
+
+.. index::
+  single: Deploying Ring Web Applications; Prerequisites
+2. Prerequisites
+----------------
+
+*  A basic understanding of the Ring programming language.
+*  A free account on `Fly.io <https://fly.io/>`_ and/or `Railway.app <https://railway.com/>`_.
+*  The respective command-line tools installed for the path you choose:
+
+   *  **For Path A:** `flyctl <https://fly.io/docs/flyctl/install/>`_
+   *  **For Path B:** `Railway CLI <https://docs.railway.com/guides/cli>`_
+
+.. index::
+  single: Deploying Ring Web Applications; The Foundation: Application and Dockerfile
+3. The Foundation: Application and Dockerfile
+---------------------------------------------
+
+For consistency, we will deploy the exact same application and ``Dockerfile`` used in the reverse proxy tutorial. This highlights a key benefit of Docker: the containerized application is portable and does not need to be changed for different hosting environments.
+
+Ensure you have these two files in your project directory.
+
+1. The ``app.ring`` file:
+
+.. code-block:: ring
+
+   load "httplib.ring"
+
+   # Main Execution Block
+   oServer = new Server {
+      # Route for the root path
+      route(:Get, "/", :mainRoute)
+
+      # Listen on all available network interfaces on port 8080
+      listen("0.0.0.0", 8080)
+   }
+
+   func mainRoute
+      # Set content type to HTML
+      oServer.setContent("<!DOCTYPE html>
+   <html>
+   <head><title>Ring HTTPLib App</title></head>
+   <body>
+   <h1>Hello from Ring on a PaaS!</h1>
+   <p>This is a Ring application running inside a Docker container on a modern cloud platform.</p>
+   </body>
+   </html>", "text/html")
+
+2. The ``Dockerfile``:
+
+.. code-block:: dockerfile
+
+   # Use a lightweight Ring image as the base
+   FROM ysdragon/ring:light
+
+   # Set the working directory inside the container
+   WORKDIR /app
+
+   # Copy the application source code
+   COPY . .
+
+   # The ysdragon/ring:light image uses the RING_FILE environment variable
+   # to determine which script to run. We'll set this via the platform UI/config.
+   # It also automatically exposes port 8080, which the platforms will detect.
+
+.. index::
+  single: Deploying Ring Web Applications; Deployment Scenarios
+4. Deployment Scenarios
+-----------------------
+
+Choose the platform you wish to deploy to.
+
+---
+
+.. index::
+   pair: Deployment Scenarios; Path A: Deploying to Fly.io
+Path A: Deploying to Fly.io
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Fly.io launches your application containers on "micro-VMs" across its global network. The deployment is a two-step process: first, you initialize the configuration, and second, you deploy.
+
+.. index::
+   pair: Fly.io; Log in to Fly.io
+1. Log in to Fly.io
+^^^^^^^^^^^^^^^^^^^
+
+Open your terminal and authenticate the ``flyctl`` CLI with your Fly.io account.
+
+.. code-block:: bash
+
+   flyctl auth login
+
+.. index::
+   pair: Fly.io; Initialize Your Application without Deploying
+2. Initialize Your Application without Deploying
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To set environment variables *before* the first deployment, we need to create the ``fly.toml`` configuration file without immediately starting a build. The ``--no-deploy`` flag is perfect for this.
+
+.. code-block:: bash
+
+   flyctl launch --no-deploy
+
+This command will:
+
+*  Scan your source code and detect the ``Dockerfile``.
+*  Ask you for an **App Name** and to choose a **Region**.
+*  Create the ``fly.toml`` file in your project directory.
+*  Exit without deploying, returning you to the command line.
+
+.. index::
+   pair: Fly.io; Configure the Required Environment Variable
+3. Configure the Required Environment Variable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Our container image needs the ``RING_FILE`` environment variable to know which script to run. We set this using Fly's secrets management. Secrets are encrypted and become available to your application at runtime.
+
+.. code-block:: bash
+
+   flyctl secrets set RING_FILE=app.ring
+
+.. index::
+   pair: Fly.io; Deploy the Application
+4. Deploy the Application
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that your ``fly.toml`` file is created and the required secret is set, you can run your first deployment. ``flyctl`` will build the Docker image, push it to Fly's registry, and provision a machine to run it.
+
+.. code-block:: bash
+
+   flyctl deploy
+
+.. index::
+   pair: Fly.io; Visit Your Application
+5. Visit Your Application
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once the deployment is complete, the CLI will display your application's hostname. You can also run the following command at any time to open it in your browser.
+
+.. code-block:: bash
+
+   flyctl open
+
+Your Ring application is now live with a secure ``https://<app-name>.fly.dev`` URL!
+
+---
+
+.. index::
+   pair: Deployment Scenarios; Path B: Deploying to Railway.app
+Path B: Deploying to Railway.app
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Railway offers an incredibly simple deployment experience, allowing you to deploy directly from your local machine with its powerful command-line interface.
+
+.. index::
+   pair: Railway.app; Log in to Railway
+1. Log in to Railway
+^^^^^^^^^^^^^^^^^^^^
+
+Open your terminal and authenticate the Railway CLI.
+
+.. code-block:: bash
+
+   railway login
+
+.. index::
+   pair: Railway.app; Initialize and Deploy
+2. Initialize and Deploy
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Navigate to your project directory in your terminal and run the ``up`` command.
+
+.. code-block:: bash
+
+   # In your project folder containing app.ring and Dockerfile
+   railway up
+
+This command will:
+
+*  Prompt you to create a new project on Railway. Confirm this.
+*  Detect the ``Dockerfile`` in your directory.
+*  Build the Docker image from your local files and upload it.
+*  Deploy the service.
+
+The first deployment will start, but the application won't work correctly until we set the required environment variable.
+
+.. index::
+   pair: Railway.app; Configure the Environment Variable
+3. Configure the Environment Variable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use the CLI to set the ``RING_FILE`` variable. This tells our Ring container which script to execute. Railway will automatically trigger a new deployment with this setting.
+
+.. code-block:: bash
+
+   railway variables --set "RING_FILE=app.ring"
+
+.. index::
+   pair: Railway.app; Generate a Public Domain
+4. Generate a Public Domain
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, a new service on Railway is not exposed to the public internet. You can generate a secure, public domain for it using the ``railway domain`` command.
+
+.. code-block:: bash
+
+   railway domain
+
+The command will return a public URL for your service, which will look something like ``your-app-name-production.up.railway.app``.
+
+.. index::
+   pair: Railway.app; Visit Your Application
+5. Visit Your Application
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can now visit the ``https://...up.railway.app`` URL that was generated in the previous step to see your live Ring application.
+
+At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again in the "Settings" tab of your service.
+
+.. code-block:: bash
+
+   # This command opens your Railway project dashboard in the browser
+   railway open
+
+.. index::
+  single: Deploying Ring Web Applications; Conclusion
+5. Conclusion
+-------------
+
+This tutorial demonstrated how modern PaaS providers can eliminate nearly all the overhead of infrastructure management.
+
+*  **Fly.io** is a fantastic choice when you need more control over your deployment's configuration, want to distribute your application globally, or need to run services other than web apps. It gives you power and flexibility while still automating the hardest parts of deployment.
+
+*  **Railway.app** is the champion of developer experience and speed. Its direct CLI deployment workflow makes it an incredible tool for rapid prototyping, personal projects, and any scenario where you want to move from code to a live URL with minimal friction.
+
+By leveraging Docker, your Ring application becomes universally portable, allowing you to choose the deployment model—from a self-managed VM with a reverse proxy to a fully managed PaaS—that best fits your project's needs and your personal workflow.
