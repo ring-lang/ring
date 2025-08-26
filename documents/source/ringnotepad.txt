@@ -78,9 +78,14 @@ We can run console applications using Ctrl+F5 (Used for GUI Apps)
 
 This way we will see the program output in Ring Notepad - Output Window
 
+We will try the next example
+
+.. code-block:: ring
+
+	See "What is your name? " give cName see "Hello " + cName
+
 .. image:: urn_sayhello.png
 	:alt: Using Ring Notepad - Say Hello sample
-
 
 .. index:: 
 	pair: Ring Notepad; Ring Notepad - Creating and running your first GUI/WebAssembly/Mobile application 
