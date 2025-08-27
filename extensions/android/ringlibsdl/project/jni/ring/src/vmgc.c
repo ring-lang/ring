@@ -646,7 +646,13 @@ RING_API void ring_list_clearrefdata_gc(void *pState, List *pList) {
 	pList->vGC.nListType = 0;
 }
 
-RING_API int ring_list_getrefcount_gc(void *pState, List *pList) { return pList->vGC.nReferenceCount + 1; }
+RING_API int ring_list_getrefcount_gc(void *pState, List *pList) {
+	int nCount;
+	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LISTREFCOUNT);
+	nCount = pList->vGC.nReferenceCount + 1;
+	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LISTREFCOUNT);
+	return nCount;
+}
 
 RING_API int ring_list_isdontref_gc(void *pState, List *pList) { return pList->vGC.lDontRef; }
 
