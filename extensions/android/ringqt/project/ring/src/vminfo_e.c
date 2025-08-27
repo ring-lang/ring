@@ -269,7 +269,7 @@ void ring_vm_info_ringvminfo(void *pPointer) {
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->nInsideEval);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->lRetEvalDontDelete);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->nRunCode);
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->pRingState->lRunFromThread);
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->pRingState->lRunFromSubThread);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->nPC);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->nSP);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->nFuncSP);

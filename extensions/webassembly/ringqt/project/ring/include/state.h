@@ -63,7 +63,7 @@ typedef struct RingState {
 	/* Flag to know if we are using threads in the current application */
 	unsigned int lUsingThreads : 1;
 	/* Flag to know if we are running from sub thread (Useful to avoid deleting the shared Global Scope) */
-	unsigned int lRunFromThread : 1;
+	unsigned int lRunFromSubThread : 1;
 	/* Flag (Not Case Sensitive) */
 	unsigned int lNotCaseSensitive : 1;
 	/* Flag (Comments As Tokens From Scanner) */

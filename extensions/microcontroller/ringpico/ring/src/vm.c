@@ -244,7 +244,7 @@ VM *ring_vm_delete(VM *pVM) {
 			pVM->aFuncCall[x].pTempMem = ring_list_delete_gc(pVM->pRingState, pVM->aFuncCall[x].pTempMem);
 		}
 		/* Delete scope lists */
-		if ((x < 1) || (pVM->pRingState->lRunFromThread && (x < 2))) {
+		if ((x < 1) || (pVM->pRingState->lRunFromSubThread && (x < 2))) {
 			continue;
 		}
 		ring_list_deleteallitems_gc(pVM->pRingState, RING_VM_GETSCOPE(x));

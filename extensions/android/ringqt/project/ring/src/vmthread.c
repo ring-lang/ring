@@ -88,7 +88,7 @@ RING_API RingState *ring_vm_createthreadstate(VM *pVM) {
 	/* Flag that we are using threads */
 	pState->lUsingThreads = RING_TRUE;
 	/* Flag that we are running from sub thread */
-	pState->lRunFromThread = RING_TRUE;
+	pState->lRunFromSubThread = RING_TRUE;
 	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction;
 	/* Delete the C Functions */
 	ring_vm_deletecfunctions(pState->pVM);
