@@ -125,7 +125,7 @@ pItems
 Type: Item *
 pItem
 Type: unsigned int
-x
+x, lUseListCache
 ring_list_deleteitem_gc
 Type: unsigned int
 x
