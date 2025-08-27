@@ -321,7 +321,7 @@ RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
 				ring_list_assignreftovar_gc(pVM->pRingState, pRef, pVar, RING_VAR_VALUE);
 				/* If the same reference is passed as parameter multiple times then keep treating it as
 				 * new reference */
-				pRef->vGC.lNewRef = 1;
+				ring_list_enablelnewref_gc(pVM->pRingState, pRef);
 			}
 		}
 	}
@@ -365,7 +365,7 @@ RING_API List *ring_list_newref_gc(void *pState, List *pVariableList, List *pLis
 		pVM = ((RingState *)pState)->pVM;
 	}
 	/* Note: The list may already have a container variable (Previous Reference) */
-	pList->vGC.lNewRef = 1;
+	ring_list_enablelnewref_gc(pState, pList);
 	if (pList->vGC.pContainer == NULL) {
 		ring_list_acceptlistbyref_gc(pState, pVariableList, RING_VAR_VALUE, pList);
 		/* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable
@@ -388,7 +388,7 @@ RING_API List *ring_list_newref_gc(void *pState, List *pVariableList, List *pLis
 }
 
 RING_API void ring_list_assignreftovar_gc(void *pState, List *pRef, List *pVar, unsigned int nPos) {
-	pRef->vGC.lNewRef = 0;
+	ring_list_disablelnewref_gc(pState, pRef);
 	if (ring_list_islist(pVar, nPos)) {
 		if (ring_list_getlist(pVar, nPos) == pRef) {
 			return;
@@ -399,7 +399,7 @@ RING_API void ring_list_assignreftovar_gc(void *pState, List *pRef, List *pVar, 
 
 RING_API void ring_list_assignreftoitem_gc(void *pState, List *pRef, Item *pItem) {
 	List *pList;
-	pRef->vGC.lNewRef = 0;
+	ring_list_disablelnewref_gc(pState, pRef);
 	pList = ring_item_getlist(pItem);
 	if (!(pList == pRef)) {
 		ring_list_delete_gc(pState, pList);
@@ -430,7 +430,7 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 	/* Avoid deleting objects when the list is just a reference */
 	if (ring_list_isref_gc(pState, pList)) {
 		/* We don't delete the list because there are other references */
-		pList->vGC.lNewRef = 0;
+		ring_list_disablelnewref_gc(pState, pList);
 		if (ring_list_getrefcount_gc(pState, pList) > 1) {
 			ring_list_updaterefcount_gc(pState, pList, RING_LISTREF_DEC);
 			pList = ring_list_collectcycles_gc(pState, pList);
@@ -594,7 +594,7 @@ RING_API int ring_list_iscircular_gc(void *pState, List *pList) {
 RING_API int ring_list_checkrefinleftside_gc(void *pState, List *pList) {
 	/* If we have Ref()/Reference() at the Left-Side then Delete the reference */
 	if (pList->vGC.lNewRef) {
-		pList->vGC.lNewRef = 0;
+		ring_list_disablelnewref_gc(pState, pList);
 		return RING_TRUE;
 	}
 	return RING_FALSE;
