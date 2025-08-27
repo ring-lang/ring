@@ -619,7 +619,11 @@ RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar) {
 }
 
 RING_API int ring_list_isref_gc(void *pState, List *pList) {
-	return (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1);
+	int lRef;
+	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LISTREFCOUNT);
+	lRef = (pList->vGC.nReferenceCount > 0) || (pList->vGC.lNewRef == 1);
+	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LISTREFCOUNT);
+	return lRef;
 }
 
 RING_API int ring_list_isrefcontainer_gc(void *pState, List *pList) { return pList->vGC.lDontDelete; }

@@ -291,6 +291,8 @@ ring_list_iscircular_gc
 ring_list_checkrefinleftside_gc
 ring_list_checkrefvarinleftside_gc
 ring_list_isref_gc
+Type: int
+lRef
 ring_list_isrefcontainer_gc
 ring_list_clearrefdata_gc
 ring_list_getrefcount_gc
