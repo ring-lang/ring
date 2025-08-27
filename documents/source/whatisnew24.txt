@@ -198,6 +198,7 @@ More Improvements
 * Ring VM: ring_objfile_readfromsource() - Better implementation
 * Ring VM: Better functions for threads support
 * Ring VM: Support handling stack overflow error using Try/Catch
+* Ring VM: Thread safe reference counting for Ring Lists
 * Ring VM: Thread safe reference counting for List items that wraps C pointers
 * Ring VM: Clean memory after runtime errors before returning to the operating system
 * Ring Compiler: Spaces inside multi-character operators (like !=, <=, >=) are not allowed
