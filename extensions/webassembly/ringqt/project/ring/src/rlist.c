@@ -223,8 +223,8 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 		if (pList->pItemsArray != NULL) {
 			return pList->pItemsArray[nIndex - 1];
 		}
-		/* Avoid cache for small lists (up to 6 items) */
-		if (ring_list_getsize(pList) <= 6) {
+		/* Avoid cache for small lists */
+		if (ring_list_getsize(pList) <= RING_LIST_MAXSIZEWITHOUTLISTCACHE) {
 			if (nIndex == 1) {
 				return pList->pFirst->pValue;
 			} else if (nIndex == ring_list_getsize(pList)) {
