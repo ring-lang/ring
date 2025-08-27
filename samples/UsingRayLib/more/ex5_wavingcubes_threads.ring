@@ -82,7 +82,10 @@ func startAnimation
 		al_lock_mutex(muteStop)
 		lStopThreads = True
 		al_unlock_mutex(muteStop)
-		sleep(0.1)
+
+	# Give enough time for sub threads to be terminated
+	# Not perfect solution because it assumes that each thread need 0.1 second 
+		sleep(0.1*numThreads)
 
 	? "End of Main Thread"
 	Shutdown()
@@ -129,4 +132,4 @@ func thread i
 			lContinue = ! lStopThreads
 		al_unlock_mutex(muteStop)
 	end
-	? "End of Sub Thread"
+	? nl+"End of Sub Thread (" + i + ")"
