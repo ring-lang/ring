@@ -29,7 +29,7 @@ Type: unsigned int
 nLoadAgain
 Type: unsigned int
 nCustomGlobalScopeCounter
-Type: int
+Type: unsigned int
 nInstructionsCount
 Type: unsigned int
 lRun : 1
