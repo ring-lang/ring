@@ -62,6 +62,8 @@ lOnlyTokens : 1
 Type: unsigned int
 lNoLineNumber : 1
 Type: unsigned int
+lUsingThreads
+Type: unsigned int
 lRunFromThread : 1
 Type: unsigned int
 lNotCaseSensitive : 1

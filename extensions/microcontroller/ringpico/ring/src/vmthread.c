@@ -6,6 +6,7 @@ RING_API void ring_vm_mutexfunctions(VM *pVM, void *(*pFuncCreate)(void), void (
 				     void (*pFuncUnlock)(void *), void (*pFuncDestroy)(void *)) {
 	int x;
 	if (pVM->pMutex == NULL) {
+		pVM->pRingState->lUsingThreads = RING_TRUE;
 		pVM->pFuncMutexCreate = pFuncCreate;
 		pVM->pFuncMutexLock = pFuncLock;
 		pVM->pFuncMutexUnlock = pFuncUnlock;
@@ -84,7 +85,9 @@ RING_API RingState *ring_vm_createthreadstate(VM *pVM) {
 	unsigned int x;
 	/* Create the RingState */
 	pState = ring_state_init();
-	/* Flag that we are running from thread */
+	/* Flag that we are using threads */
+	pState->lUsingThreads = RING_TRUE;
+	/* Flag that we are running from sub thread */
 	pState->lRunFromThread = RING_TRUE;
 	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction;
 	/* Delete the C Functions */
