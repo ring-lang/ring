@@ -379,8 +379,10 @@
 <li><p>Ring VM: Clean memory after runtime errors before returning to the operating system</p></li>
 <li><p>Ring Compiler: Spaces inside multi-character operators (like !=, &lt;=, &gt;=) are not allowed</p></li>
 <li><p>Ring Compiler/VM: ring_list_setcache() is renamed to ring_list_setcache_gc()</p></li>
+<li><p>Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads</p></li>
 <li><p>Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()</p></li>
 <li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)</p></li>
+<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads</p></li>
 <li><p>Ring Compiler/VM: Check size overflow for Ring Strings, Lists and HashTables</p></li>
 <li><p>Ring Compiler/VM: Check reference count overflow for Ring Lists and List Items</p></li>
 <li><p>Ring Compiler/VM: String functions - Get index as (unsigned int) instead of (int)</p></li>
