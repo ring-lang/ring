@@ -72,6 +72,28 @@ RING_API void ring_vm_custmutexdestroy(VM *pVM, void *pMutex) {
 	}
 }
 
+RING_API void ring_vm_statecustmutexlock(void *pState, unsigned int nMutex) {
+	VM *pVM;
+	if (pState == NULL || (((RingState *)pState)->pVM == NULL)) {
+		return;
+	}
+	pVM = ((RingState *)pState)->pVM;
+	if (pVM->pFuncMutexLock != NULL) {
+		pVM->pFuncMutexLock(pVM->aCustomMutex[nMutex]);
+	}
+}
+
+RING_API void ring_vm_statecustmutexunlock(void *pState, unsigned int nMutex) {
+	VM *pVM;
+	if (pState == NULL || (((RingState *)pState)->pVM == NULL)) {
+		return;
+	}
+	pVM = ((RingState *)pState)->pVM;
+	if (pVM->pFuncMutexUnlock != NULL) {
+		pVM->pFuncMutexUnlock(pVM->aCustomMutex[nMutex]);
+	}
+}
+
 RING_API void ring_vm_runcodefromthread(VM *pVM, const char *cStr) {
 	RingState *pState;
 	pState = ring_vm_createthreadstate(pVM);

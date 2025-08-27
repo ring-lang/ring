@@ -10,6 +10,12 @@ ring_vm_custmutexcreate
 ring_vm_custmutexlock
 ring_vm_custmutexunlock
 ring_vm_custmutexdestroy
+ring_vm_statecustmutexlock
+Type: VM *
+pVM
+ring_vm_statecustmutexunlock
+Type: VM *
+pVM
 ring_vm_runcodefromthread
 Type: RingState *
 pState

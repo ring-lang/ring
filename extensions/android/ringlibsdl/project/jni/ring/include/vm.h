@@ -977,6 +977,10 @@ RING_API void ring_vm_bytecodefornewthread(VM *pVM, VM *pOldVM);
 RING_API RingState *ring_vm_createthreadstate(VM *pVM);
 
 RING_API void ring_vm_deletethreadstate(VM *pVM, RingState *pState);
+
+RING_API void ring_vm_statecustmutexlock(void *pState, unsigned int nMutex);
+
+RING_API void ring_vm_steatecustmutexunlock(void *pState, unsigned int nMutex);
 /* Trace */
 
 void ring_vm_traceevent(VM *pVM, char nEvent);
