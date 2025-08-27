@@ -83,6 +83,8 @@ RING_API void ring_list_clearrefdata_gc(void *pState, List *pList);
 
 RING_API int ring_list_getrefcount_gc(void *pState, List *pList);
 
+RING_API int ring_list_getrefcountvalue_gc(void *pState, List *pList);
+
 RING_API int ring_list_isdontref_gc(void *pState, List *pList);
 
 RING_API void ring_list_enabledontref_gc(void *pState, List *pList);

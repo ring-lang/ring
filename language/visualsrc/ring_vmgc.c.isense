@@ -296,6 +296,9 @@ lRef
 ring_list_isrefcontainer_gc
 ring_list_clearrefdata_gc
 ring_list_getrefcount_gc
+ring_list_getrefcountvalue_gc
+Type: int
+nCount
 ring_list_isdontref_gc
 ring_list_enabledontref_gc
 ring_list_disabledontref_gc
