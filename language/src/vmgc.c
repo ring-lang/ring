@@ -513,7 +513,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 			if (ring_list_islist(pActiveList, y)) {
 				pSubList = ring_list_getlist(pActiveList, y);
 				if ((pSubList != pList) && ring_list_containssublist_gc(pState, pSubList, pList)) {
-					if (pSubList->vGC.nReferenceCount > pSubList->vGC.nTempRC) {
+					if (ring_list_getrefcountvalue_gc(pState, pSubList) > pSubList->vGC.nTempRC) {
 						lDelete = 0;
 						break;
 					}
@@ -525,7 +525,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 		}
 	}
 	/* Check if we can delete the Cycle */
-	if ((pList->vGC.nReferenceCount <= pList->vGC.nTempRC) && (lDelete == 1)) {
+	if ((ring_list_getrefcountvalue_gc(pState, pList) <= pList->vGC.nTempRC) && (lDelete == 1)) {
 		/*
 		**  Delete the Cycle
 		**  Delete all items in aProcess except the Root
