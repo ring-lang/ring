@@ -91,6 +91,8 @@ RING_API void ring_list_enabledontref_gc(void *pState, List *pList);
 
 RING_API void ring_list_disabledontref_gc(void *pState, List *pList);
 
+RING_API void ring_list_enablelnewref_gc(void *pState, List *pRef);
+
 RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef);
 
 RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar);
