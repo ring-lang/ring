@@ -62,7 +62,7 @@ lOnlyTokens : 1
 Type: unsigned int
 lNoLineNumber : 1
 Type: unsigned int
-lUsingThreads
+lUsingThreads: 1
 Type: unsigned int
 lRunFromThread : 1
 Type: unsigned int

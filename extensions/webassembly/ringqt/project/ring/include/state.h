@@ -61,7 +61,7 @@ typedef struct RingState {
 	/* Avoid line number ( when we use eval() from VM ) */
 	unsigned int lNoLineNumber : 1;
 	/* Flag to know if we are using threads in the current application */
-	unsigned int lUsingThreads;
+	unsigned int lUsingThreads : 1;
 	/* Flag to know if we are running from sub thread (Useful to avoid deleting the shared Global Scope) */
 	unsigned int lRunFromThread : 1;
 	/* Flag (Not Case Sensitive) */
