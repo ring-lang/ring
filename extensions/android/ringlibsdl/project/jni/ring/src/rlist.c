@@ -179,7 +179,7 @@ RING_API void ring_list_clearcache_gc(void *pState, List *pList) {
 
 RING_API void ring_list_setcache_gc(void *pState, List *pList, struct Items *pItems, unsigned int nNextItem) {
 	/* Check if we can use the List Cache (We avoid this when using threads) */
-	if ((pState != NULL) && (((RingState *)pState)->pVM != NULL) && (((RingState *)pState)->pVM->pMutex != NULL)) {
+	if ((pState != NULL) && (((RingState *)pState)->lUsingThreads == RING_TRUE)) {
 		return;
 	}
 	pList->pLastItem = pItems;
@@ -248,8 +248,7 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 			}
 		}
 		/* Check if we can use the List Cache (We avoid this when using threads) */
-		lUseListCache = !((pState != NULL) && (((RingState *)pState)->pVM != NULL) &&
-				  (((RingState *)pState)->pVM->pMutex != NULL));
+		lUseListCache = !((pState != NULL) && (((RingState *)pState)->lUsingThreads == RING_TRUE));
 		if (lUseListCache) {
 			/* Quickly Get The First or The Last Item */
 			if (nIndex == 1) {
