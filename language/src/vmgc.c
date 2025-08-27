@@ -666,6 +666,8 @@ RING_API void ring_list_disabledontref_gc(void *pState, List *pList) { pList->vG
 
 RING_API void ring_list_enablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 1; }
 
+RING_API int ring_list_islnewref_gc(void *pState, List *pList) { return pList->vGC.lNewRef; }
+
 RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 0; }
 
 RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar) {
