@@ -9,7 +9,7 @@ load "raylib.ring"
 load "gamelib.ring"
 
 numBlocks    = 15
-numThreads   = 2 // including main thread, min = 1, max = 2 due to race conditions 
+numThreads   = 2 // including main thread (min = 1) 
 
 qub          = pow(numBlocks, 3)
 data         = list(numThreads, qub)
