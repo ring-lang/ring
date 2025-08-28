@@ -63,6 +63,9 @@ Contents:
    Building RingQt Applications for Mobile <qtmobile>
    Building RingQt Applications for WebAssembly <qtwebassembly>
    Web Development (CGI Library) <web>
+   Using CSVLib <csvlib>
+   Using JSONLib <jsonlib>
+   Using HTTPLib <httplib>
    Deploying Web Applications using Heroku <deployincloud>
    Deploying Web Applications using Docker <ring_cloud>
    Deploying Web Applications to Cloud Platforms <ring_cloud_platforms>
@@ -83,9 +86,6 @@ Contents:
    Using ZeroLib <zerolib>
    Using FoxRing <foxringfuncsdoc>
    Using BigNumber <bignumber>
-   Using CSVLib <csvlib>
-   Using JSONLib <jsonlib>
-   Using HTTPLib <httplib>
    Using TokensLib <tokenslib>
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
