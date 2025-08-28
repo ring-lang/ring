@@ -315,7 +315,7 @@ RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
 		pList = (List *)RING_VM_STACK_READP;
 		if (ring_list_isrefcontainer_gc(pVM->pRingState, pList)) {
 			pRef = ring_list_getlist(pList, RING_VAR_VALUE);
-			if (pRef->vGC.lNewRef) {
+			if (ring_list_islnewref_gc(pVM->pRingState, pRef)) {
 				lRef = 1;
 				pVar = ring_vm_addlistarg(pVM, cVariable);
 				ring_list_assignreftovar_gc(pVM->pRingState, pRef, pVar, RING_VAR_VALUE);
@@ -593,7 +593,7 @@ RING_API int ring_list_iscircular_gc(void *pState, List *pList) {
 
 RING_API int ring_list_checkrefinleftside_gc(void *pState, List *pList) {
 	/* If we have Ref()/Reference() at the Left-Side then Delete the reference */
-	if (pList->vGC.lNewRef) {
+	if (ring_list_islnewref_gc(pState, pList)) {
 		ring_list_disablelnewref_gc(pState, pList);
 		return RING_TRUE;
 	}
@@ -664,9 +664,9 @@ RING_API void ring_list_enabledontref_gc(void *pState, List *pList) { pList->vGC
 
 RING_API void ring_list_disabledontref_gc(void *pState, List *pList) { pList->vGC.lDontRef = 0; }
 
-RING_API void ring_list_enablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 1; }
-
 RING_API int ring_list_islnewref_gc(void *pState, List *pList) { return pList->vGC.lNewRef; }
+
+RING_API void ring_list_enablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 1; }
 
 RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 0; }
 
