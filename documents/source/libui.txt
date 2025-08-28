@@ -19,6 +19,9 @@ Runtime files and their size (For Ring 1.14)
 * Total : 1,291 KB without compressing the files
 * After compressing the files (To ZIP file) - Total : 504 KB
 
+.. note:: The official Libui project is no longer under active development
+
+.. tip:: This extension doesn't support macOS (Apple Silicon)
 
 .. index:: 
 	pair: libui; Hello World
