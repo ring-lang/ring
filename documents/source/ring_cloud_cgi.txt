@@ -1,8 +1,8 @@
 .. index::
-	single: Deploying Ring CGI Applications; Deploying Web Applications to Shared Hosting
+	single: Deploying Ring CGI Applications; Deploying Ring Web Applications to Shared Hosting
 
-Deploying Web Applications to Shared Hosting
-============================================
+Deploying Ring Web Applications to Shared Hosting
+=================================================
 
 Chapter Author: Youssef Saeed
 
@@ -16,6 +16,7 @@ This tutorial guides you through deploying Ring applications as CGI scripts. We 
 
 .. index::
 	single: Deploying Ring CGI Applications; Introduction: The CGI Model
+
 1. Introduction: The CGI Model
 ------------------------------
 
@@ -40,6 +41,7 @@ The CGI model is incredibly portable and has been a workhorse of the web for dec
 
 .. index::
 	single: Deploying Ring CGI Applications; Prerequisites
+
 2. Prerequisites
 ----------------
 
@@ -50,6 +52,7 @@ The CGI model is incredibly portable and has been a workhorse of the web for dec
 
 .. index::
 	single: Deploying Ring CGI Applications; Creating a CGI-Compatible Ring Script
+
 3. Creating a CGI-Compatible Ring Script
 ----------------------------------------
 
@@ -77,6 +80,7 @@ Create a file named ``hello.ring`` with the following content.
 
 .. index::
 	single: Deploying Ring CGI Applications; The Universal Ring CGI Wrapper
+
 4. The Universal Ring CGI Wrapper
 ---------------------------------
 
@@ -191,6 +195,7 @@ This wrapper cleverly handles different hosting configurations, sets up necessar
 
 .. index::
 	single: Deploying Ring CGI Applications; Deployment Scenarios
+
 5. Deployment Scenarios
 -----------------------
 
@@ -243,6 +248,7 @@ This is the most common scenario. It relies on a ``.htaccess`` file to tell the 
 
 .. index::
 	pair: Shared Hosting; Upload and Test Your Ring Application
+
 **Step 4: Upload and Test Your Ring Application**
 
 1.  Upload your ``hello.ring`` file to your web root.
@@ -254,6 +260,7 @@ If everything is configured correctly, you should see the "Hello from a Ring CGI
 
 .. index::
 	pair: Deployment Scenarios; Cloud VM with Nginx & FastCGI
+
 Path B: Cloud VM with Nginx & FastCGI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -272,6 +279,7 @@ SSH into your VM and install Nginx and the FastCGI wrapper.
 
 .. index::
 	pair: Nginx & FastCGI; Enable and Start Services
+
 **Step 2: Enable and Start Services**
 
 Ensure both services start on boot and are running now.
@@ -283,6 +291,7 @@ Ensure both services start on boot and are running now.
 
 .. index::
 	pair: Nginx & FastCGI; Install Ring in a System Location
+
 **Step 3: Install Ring in a System Location**
 
 1.  Upload or move the ``ring`` folder to ``/opt/``. The final location must be ``/opt/ring``.
@@ -301,6 +310,7 @@ Ensure both services start on boot and are running now.
 
 .. index::
 	pair: Nginx & FastCGI; Make the Ring Executable System-Wide
+
 **Step 4: Make the Ring Executable System-Wide**
 
 This allows scripts to find the ``ring`` command without a full path.
@@ -331,6 +341,7 @@ For this method, your script must have a "shebang" line pointing to the system-w
 
 .. index::
 	pair: Nginx & FastCGI; Upload Script and Set Permissions
+
 **Step 6: Upload Script and Set Permissions**
 
 1.  Upload ``hello.ring`` to your Nginx web root (typically ``/var/www/html``).
@@ -366,6 +377,7 @@ Edit your Nginx site configuration (e.g., ``/etc/nginx/sites-available/default``
 
 .. index::
 	pair: Nginx & FastCGI; Restart and Test
+
 **Step 8: Restart and Test**
 
 1.  Reload Nginx to apply the new configuration.
@@ -380,6 +392,7 @@ This method is more involved but is the standard, secure way to integrate CGI wi
 
 .. index::
 	single: Deploying Ring CGI Applications; Platform-Specific Guides for Shared Hosting
+
 6. Platform-Specific Guides for Shared Hosting
 ----------------------------------------------
 
@@ -387,8 +400,10 @@ For **Path A**, here are specific tips for popular control panels.
 
 .. index::
 	pair: Platform-Specific Guides; A Crucial Note on Host-Level CGI Support
+
 A Crucial Note on Host-Level CGI Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Before you begin, understand that the ``.htaccess`` method depends on your hosting provider allowing CGI execution. Our ``.htaccess`` file uses ``Options +ExecCGI``, but some hosts disable this for security.
 
 **Troubleshooting Tip:** If you follow the steps for Path A and see a **"500 Internal Server Error,"** the most common cause is a server-level restriction.
@@ -403,6 +418,7 @@ Confirming this first can save you hours of debugging.
 
 .. index::
 	pair: Platform-Specific Guides; cPanel
+
 cPanel
 ~~~~~~
 
@@ -416,6 +432,7 @@ cPanel
 
 .. index::
 	pair: Platform-Specific Guides; Plesk
+
 Plesk
 ~~~~~
 
@@ -429,6 +446,7 @@ Plesk
 
 .. index::
 	pair: Platform-Specific Guides; DirectAdmin
+
 DirectAdmin
 ~~~~~~~~~~~
 
@@ -440,6 +458,7 @@ DirectAdmin
 
 .. index::
 	pair: Platform-Specific Guides; KeyHelp
+
 KeyHelp
 ~~~~~~~
 
@@ -450,6 +469,7 @@ KeyHelp
 
 .. index::
 	single: Deploying Ring CGI Applications; Security Considerations
+
 7. Security Considerations
 --------------------------
 
@@ -466,6 +486,7 @@ KeyHelp
 
 .. index::
 	single: Deploying Ring CGI Applications; Conclusion
+
 8. Conclusion
 -------------
 
