@@ -21,8 +21,8 @@ Ring 1.24 comes with the next features!
 * More Samples
 * Better RingLibCurl
 * Better RingHTTPLib
-* Better Documentation
 * Better Support for Threads
+* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -150,6 +150,20 @@ The next changes and improvements are done to the extension
 	* Support more server http methods: PUT, PATCH, DELETE and OPTIONS
 
 .. index:: 
+	pair: What is new in Ring  1.24; Better Support for Threads
+
+Better Support for Threads
+==========================
+
+* Ring VM: Better functions for threads support
+* Ring VM: Thread safe reference counting for Ring Lists
+* Ring VM: Thread safe reference counting for List items that wraps C pointers
+* Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads
+* Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads
+
+.. note:: When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.
+
+.. index:: 
 	pair: What is new in Ring  1.24; Better Documentation
 
 Better Documentation
@@ -166,20 +180,6 @@ The next chapters are improved
 * Using Ring Notepad
 * Using Ring Libuv
 * Using Ring LibCurl
-
-.. index:: 
-	pair: What is new in Ring  1.24; Better Support for Threads
-
-Better Support for Threads
-==========================
-
-* Ring VM: Better functions for threads support
-* Ring VM: Thread safe reference counting for Ring Lists
-* Ring VM: Thread safe reference counting for List items that wraps C pointers
-* Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads
-* Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads
-
-.. note:: When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.
 
 .. index:: 
 	pair: What is new in Ring  1.24; More Improvements

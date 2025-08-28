@@ -189,8 +189,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringhttplib">Better RingHTTPLib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-support-for-threads">Better Support for Threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -238,8 +238,8 @@
 <li><p>More Samples</p></li>
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better RingHTTPLib</p></li>
-<li><p>Better Documentation</p></li>
 <li><p>Better Support for Threads</p></li>
+<li><p>Better Documentation</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -333,8 +333,22 @@
 </pre></div>
 </div>
 </section>
+<section id="better-support-for-threads">
+<span id="index-8"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Ring VM: Better functions for threads support</p></li>
+<li><p>Ring VM: Thread safe reference counting for Ring Lists</p></li>
+<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
+<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads</p></li>
+<li><p>Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.</p>
+</div>
+</section>
 <section id="better-documentation">
-<span id="index-8"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
 <p>The next chapters are added:</p>
 <ul class="simple">
 <li><p>Deploying Ring Web Applications using Docker</p></li>
@@ -347,20 +361,6 @@
 <li><p>Using Ring Libuv</p></li>
 <li><p>Using Ring LibCurl</p></li>
 </ul>
-</section>
-<section id="better-support-for-threads">
-<span id="index-9"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>Ring VM: Better functions for threads support</p></li>
-<li><p>Ring VM: Thread safe reference counting for Ring Lists</p></li>
-<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
-<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads</p></li>
-<li><p>Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.</p>
-</div>
 </section>
 <section id="more-improvements">
 <span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
