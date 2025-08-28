@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringhttplib">Better RingHTTPLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-support-for-threads">Better Support for Threads</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -238,6 +239,7 @@
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better RingHTTPLib</p></li>
 <li><p>Better Documentation</p></li>
+<li><p>Better Support for Threads</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -346,8 +348,22 @@
 <li><p>Using Ring LibCurl</p></li>
 </ul>
 </section>
+<section id="better-support-for-threads">
+<span id="index-9"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Ring VM: Better functions for threads support</p></li>
+<li><p>Ring VM: Thread safe reference counting for Ring Lists</p></li>
+<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
+<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads</p></li>
+<li><p>Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.</p>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better scripts for building Ring (32bit) and Ring (64bit) on Windows</p></li>
 <li><p>FindInFiles: Using setSelectionMode() to enable single-row selection</p></li>
@@ -373,17 +389,12 @@
 <li><p>Ring PM: Error message when the package contains a file that doesn’t exist</p></li>
 <li><p>Ring PM: Disable colors usage in output when the CUILIB_COLORS environment variable is 0</p></li>
 <li><p>Ring VM: ring_objfile_readfromsource() - Better implementation</p></li>
-<li><p>Ring VM: Better functions for threads support</p></li>
 <li><p>Ring VM: Support handling stack overflow error using Try/Catch</p></li>
-<li><p>Ring VM: Thread safe reference counting for Ring Lists</p></li>
-<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
 <li><p>Ring VM: Clean memory after runtime errors before returning to the operating system</p></li>
 <li><p>Ring Compiler: Spaces inside multi-character operators (like !=, &lt;=, &gt;=) are not allowed</p></li>
 <li><p>Ring Compiler/VM: ring_list_setcache() is renamed to ring_list_setcache_gc()</p></li>
-<li><p>Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads</p></li>
 <li><p>Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()</p></li>
 <li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)</p></li>
-<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads</p></li>
 <li><p>Ring Compiler/VM: Check size overflow for Ring Strings, Lists and HashTables</p></li>
 <li><p>Ring Compiler/VM: Check reference count overflow for Ring Lists and List Items</p></li>
 <li><p>Ring Compiler/VM: String functions - Get index as (unsigned int) instead of (int)</p></li>

@@ -22,6 +22,7 @@ Ring 1.24 comes with the next features!
 * Better RingLibCurl
 * Better RingHTTPLib
 * Better Documentation
+* Better Support for Threads
 * More Improvements
 
 .. index:: 
@@ -167,6 +168,20 @@ The next chapters are improved
 * Using Ring LibCurl
 
 .. index:: 
+	pair: What is new in Ring  1.24; Better Support for Threads
+
+Better Support for Threads
+==========================
+
+* Ring VM: Better functions for threads support
+* Ring VM: Thread safe reference counting for Ring Lists
+* Ring VM: Thread safe reference counting for List items that wraps C pointers
+* Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads
+* Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads
+
+.. note:: When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.
+
+.. index:: 
 	pair: What is new in Ring  1.24; More Improvements
 
 More Improvements
@@ -196,17 +211,12 @@ More Improvements
 * Ring PM: Error message when the package contains a file that doesn't exist 
 * Ring PM: Disable colors usage in output when the CUILIB_COLORS environment variable is 0
 * Ring VM: ring_objfile_readfromsource() - Better implementation
-* Ring VM: Better functions for threads support
 * Ring VM: Support handling stack overflow error using Try/Catch
-* Ring VM: Thread safe reference counting for Ring Lists
-* Ring VM: Thread safe reference counting for List items that wraps C pointers
 * Ring VM: Clean memory after runtime errors before returning to the operating system
 * Ring Compiler: Spaces inside multi-character operators (like !=, <=, >=) are not allowed
 * Ring Compiler/VM: ring_list_setcache() is renamed to ring_list_setcache_gc()
-* Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads
 * Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()
 * Ring Compiler/VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)
-* Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads
 * Ring Compiler/VM: Check size overflow for Ring Strings, Lists and HashTables
 * Ring Compiler/VM: Check reference count overflow for Ring Lists and List Items
 * Ring Compiler/VM: String functions - Get index as (unsigned int) instead of (int)
