@@ -664,11 +664,25 @@ RING_API void ring_list_enabledontref_gc(void *pState, List *pList) { pList->vGC
 
 RING_API void ring_list_disabledontref_gc(void *pState, List *pList) { pList->vGC.lDontRef = 0; }
 
-RING_API int ring_list_islnewref_gc(void *pState, List *pList) { return pList->vGC.lNewRef; }
+RING_API int ring_list_islnewref_gc(void *pState, List *pList) {
+	int lNewRef;
+	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
+	lNewRef = pList->vGC.lNewRef;
+	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
+	return lNewRef;
+}
 
-RING_API void ring_list_enablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 1; }
+RING_API void ring_list_enablelnewref_gc(void *pState, List *pRef) {
+	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
+	pRef->vGC.lNewRef = 1;
+	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
+}
 
-RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef) { pRef->vGC.lNewRef = 0; }
+RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef) {
+	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
+	pRef->vGC.lNewRef = 0;
+	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
+}
 
 RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar) {
 	List *pList;

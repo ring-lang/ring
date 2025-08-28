@@ -303,6 +303,8 @@ ring_list_isdontref_gc
 ring_list_enabledontref_gc
 ring_list_disabledontref_gc
 ring_list_islnewref_gc
+Type: int
+lNewRef
 ring_list_enablelnewref_gc
 ring_list_disablelnewref_gc
 ring_list_resetlnewref_gc
