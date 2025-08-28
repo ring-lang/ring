@@ -167,6 +167,9 @@ class RingLexer(RegexLexer):
 			(words(functions_builtin, prefix=r'\b', suffix=r'\b(?=\s*\()'),
 			 Name.Builtin),
 
+			# Function calls
+			(r'\b(%s)(?=\s*\()' % identifier, Name.Function),
+
 			# Numbers
 			(r'0x[a-f0-9_]+', Number.Hex),
 			(r'0b[01_]+', Number.Bin),
