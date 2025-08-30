@@ -83,11 +83,21 @@ func processOptions cOption
 
 	switch lower(cOption)
 	on "keywords:lower"
-		cKeywordsStyle = :lower
+		cKeywordsStyle	= :lower
 	on "keywords:upper"
-		cKeywordsStyle = :upper
+		cKeywordsStyle	= :upper
 	on "keywords:name"
-		cKeywordsStyle = :name
+		cKeywordsStyle	= :name
+	on "indentation:tabs"
+		cIndentation	= :tabs
+	on "indentation:spaces"
+		cIndentation	= :spaces
+	on "indentation:2spaces"
+		cIndentation	= :2spaces
+	on "indentation:4spaces"
+		cIndentation	= :4spaces
+	on "indentation:8spaces"
+		cIndentation	= :8spaces
 	other
 		return false
 	off	
