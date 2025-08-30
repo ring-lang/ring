@@ -75,7 +75,14 @@ func processTokens aTokens
 
 func processKeyword nIndex
 	
-	return lower(aKeywords[nIndex]) 
+	cKeyword = lower(aKeywords[nIndex]) 
+
+	# Add new lines before important keywords
+	if find(["package","class","func","def","function","private"],cKeyword)
+		cKeyword = nl + cKeyword
+	ok
+
+	return cKeyword
 
 func processLiteral cLiteral
 
