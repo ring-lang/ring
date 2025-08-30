@@ -51,6 +51,9 @@ func processFile cFileName
 	line()	
 	? "Process file: " + cFileName
 	line()
+	cDir = currentDir()
+	cFileDir = justFilePath(cFileName)
+	if cFileDir chdir(cFileDir) ok
 	try
 		processTokens(loadFileTokens(cFileName))
 	catch
@@ -59,6 +62,7 @@ func processFile cFileName
 		? cCatchError 
 		line()
 	done
+	chdir(cDir)
 
 func loadFileTokens cFileName
 
