@@ -10,12 +10,14 @@ load "tokenslib.ring"
 # Global Variables (Customization)
 
 cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
+cTabsOrSpace	 = :tabs	# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 
 # Global Variables (Control)
 
 aFilesToProcess  = []
 lSpaceAfterToken = False
 nTabsCount	 = 0
+nSpacesPerTab	 = 8
 aStartNLAndTabs  = [ :class, :func, :def, :function, 
 		     :for, :foreach, :while, :do, :if, :switch, :try ]
 aStartNL	 = [ :load, :package, :import, :break, :continue, :exit, :loop, 
