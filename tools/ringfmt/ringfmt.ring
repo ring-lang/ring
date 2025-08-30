@@ -7,9 +7,13 @@
 load "stdlibcore.ring"
 load "tokenslib.ring"
 
-# Global Variables
+# Global Variables (Control)
 
+aFilesToProcess  = []
 lSpaceAfterToken = False
+
+# Global Variables (Customization)
+
 cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
 
 func main
@@ -21,9 +25,9 @@ func main
 
 	processArguments(aPara)
 
-func processArguments aPara 
+	processFiles()
 
-	aFilesToProcess = []
+func processArguments aPara 
 
 	for cArg in aPara 
 		if processOptions(cArg) loop ok
@@ -38,6 +42,8 @@ func processArguments aPara
 			ok
 		ok
 	next
+
+func processFiles
 
 	for cFile in aFilesToProcess
 		processFile(cFile)  
