@@ -62,6 +62,9 @@ func getListOfFiles cArg
 	return aList
 
 func processOptions cOption
+	
+	# Pass dash '-' at the start of any option
+	if left(cOption,1) = "-" cOption = substr(cOption,2) ok
 
 	switch lower(cOption)
 	on "keywords:lower"
