@@ -23,18 +23,25 @@ func main
 
 func processArguments aPara 
 
+	aFilesToProcess = []
+
 	for cArg in aPara 
+		if processOptions(cArg) loop ok
 		if fexists(cArg)
-			processFile(cArg)
+			aFilesToProcess + cArg
 		else 
 			aList = getListOfFiles(cArg)
 			if aList
 				for cFile in aList aPara + prepareFileName(cFile) next
 			else
-				processOptions(cArg)
+				? "Unknown argument: " + cArg
 			ok
 		ok
-	next  
+	next
+
+	for cFile in aFilesToProcess
+		processFile(cFile)  
+	next
 
 func getListOfFiles cArg
 
@@ -45,6 +52,7 @@ func getListOfFiles cArg
 		aList   = listAllFiles(cFolder,justFileName(cArg))
 	catch
 	done
+
 	return aList
 
 func processOptions cOption
@@ -57,8 +65,10 @@ func processOptions cOption
 	on "keywords:name"
 		cKeywordsStyle = :name
 	other
-		? "Unknown argument: " + cOption
+		return false
 	off	
+	
+	return True
 
 func prepareFileName cFileName
 	
@@ -175,7 +185,9 @@ func processEndLine cEndLine
 	else
 		cValue   = NL
 	ok
+
 	lSpaceAfterToken = False
+
 	return cValue
 
 func processComment cComment
