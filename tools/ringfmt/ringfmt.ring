@@ -29,15 +29,21 @@ func processArguments aPara
 func processFile cFileName
 	
 	? "Process file: " + cFileName
-	processTokens(loadFileTokens(cFileName))
+	try
+		processTokens(loadFileTokens(cFileName))
+	catch
+		line()
+		? "Error processing the file: " + cFileName
+		? cCatchError 
+		line()
+	done
 
 func loadFileTokens cFileName
 
 	pState = ring_state_new()
 	aTokens = ring_state_stringtokens(pState,read(cFileName),False,True)
 	if ring_state_scannererror(pState) 
-		? "Ring Scanner Error!"
-		bye 
+		raise("Ring Scanner Error!")
 	ok
 	ring_state_delete(pState)
 	return aTokens	
@@ -73,20 +79,19 @@ func processLiteral cLiteral
 	but ! substr(cLiteral,"`")
 		return "`" + cLiteral + "`"
 	else 
-		? "Unexpected literal content: " + cLiteral
-		bye
+		raise("Unexpected literal content: " + cLiteral)
 	ok
 
 func showhelp
 
-	line ()
+	line()
 	? "RingFmt (Source code formatter and beautifier)"
-	line ()
+	line()
 	? "2025, Mahmoud Fayed <msfclipper@yahoo.com>"
 	? "Prototyping: Bert Mariani & Azzeddine Remmal"
-	line ()
+	line()
 	? "Usage: ringfmt <filename.ring>"
-	line ()
+	line()
 
 func line
 
