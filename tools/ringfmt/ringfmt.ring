@@ -9,7 +9,7 @@ load "tokenslib.ring"
 
 # Global Variables (Customization)
 
-cKeywordsStyle		= :lower	# Options :lower, :upper & :name
+cKeywordsStyle		= :lower	# Options :lower, :upper, :name
 cIndentation 		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 
 # Global Variables (Control)
@@ -29,7 +29,7 @@ aEndTabs		= [	:next, :again, :ok, :off, :done,
 aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
-aOperatorNoSpace	= [	"[",":","(",")"							]
+aOperatorNoSpace	= [	"[",":","("							]
 
 func main
 
