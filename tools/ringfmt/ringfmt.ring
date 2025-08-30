@@ -37,10 +37,23 @@ func processArguments aPara
 			if aList
 				for cFile in aList aPara + prepareFileName(cFile) next
 			else
-				? "Unknown argument: " + cArg
+				processOptions(cArg)
 			ok
 		ok
 	next  
+
+func processOptions cOption
+
+	switch lower(cOption)
+	on "keywords:lower"
+		cKeywordsStyle = :lower
+	on "keywords:upper"
+		cKeywordsStyle = :upper
+	on "keywords:name"
+		cKeywordsStyle = :name
+	other
+		? "Unknown argument: " + cOption
+	off	
 
 func prepareFileName cFileName
 	
