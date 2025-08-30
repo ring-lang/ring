@@ -10,7 +10,7 @@ load "tokenslib.ring"
 # Global Variables
 
 lSpaceAfterToken = False
-lKeywordsStyle	 = :lower	# Options :lower, :upper & :name
+cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
 
 func main
 
@@ -110,7 +110,7 @@ func processKeyword cValue
 	cKeyword = aKeywords[nIndex] 
 
 	# Apply the required keyword style
-	switch lKeywordsStyle
+	switch cKeywordsStyle
 	on :lower
 		cKeyword = lower(cKeyword)
 	on :upper
