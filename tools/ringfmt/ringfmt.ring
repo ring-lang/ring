@@ -18,14 +18,14 @@ aFilesToProcess  = []
 lSpaceAfterToken = False
 nTabsCount	 = 0
 nSpacesPerTab	 = 8
-aStartNLAndTabs  = [ :class, :func, :def, :function, 
-		     :for, :foreach, :while, :do, :if, :switch, :try ]
+aStartImportant	 = [ :package, :class, :func, :def, :function ]
+aEndImportant	 = [ :endpackage, :endclass, :endfunc, :end, :endfunction ]
+aStartTabs	 = [ :for, :foreach, :while, :do, :if, :switch, :try ]
+aEndTabs	 = [ :next, :again, :ok, :off, :done,
+		     :endif, :endfor, :endswitch, :endtry, :endwhile ]
 aStartNL	 = [ :load, :package, :import, :break, :continue, :exit, :loop, 
 		     :else, :elseif, :but, :on, :case, :other, :catch, :bye,
 		     :put, :get, :see, :give ]
-aEndTab		 = [ :endclass, :endfunc, :end, :endfunction,
-		     :next, :again, :ok, :off, :done,
-		     :endif, :endfor, :endswitch, :endtry, :endwhile ]
 
 func main
 
@@ -162,6 +162,10 @@ func printToken cValue
 	see cValue
 	if lSpaceAfterToken see " " ok
 
+func getTabs
+
+	return copy(Tab,nTabsCount)
+
 func processKeyword cValue
 
 	nIndex   = 0 + cValue	
@@ -178,7 +182,11 @@ func processKeyword cValue
 	off
 
 	# Add new lines before important keywords
-	if find(["package","class","func","def","function","private"],lower(cKeyword))
+	if find(aStartTabs,lower(cKeyword))
+		nTabsCount++ 
+	but find(aEndTabs,lower(cKeyword))
+		if nTabsCount nTabsCount-- ok
+	but find(aStartNL,lower(cKeyword))
 		cKeyword = nl + cKeyword
 	ok
 
@@ -218,7 +226,7 @@ func processEndLine cEndLine
 
 	lSpaceAfterToken = False
 
-	return cValue
+	return cValue 
 
 func processComment cComment
 
