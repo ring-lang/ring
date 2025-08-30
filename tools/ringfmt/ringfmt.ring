@@ -9,28 +9,28 @@ load "tokenslib.ring"
 
 # Global Variables (Customization)
 
-cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
-cTabsOrSpace	 = :tabs	# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
+cKeywordsStyle		= :lower	# Options :lower, :upper & :name
+cTabsOrSpace		= :tabs	# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 
 # Global Variables (Control)
 
-aFilesToProcess  = []
-aFileTokens	 = []
-nCurrentToken	 = 0
-cOutputBuffer	 = ""
-lSpaceAfterToken = False
-lNextNLisTwoNLs  = False
-nTabsCount	 = 0
-nSpacesPerTab	 = 8
-aStartImportant	 = [ :package, :class, :func, :def, :function ]
-aEndImportant	 = [ :endpackage, :endclass, :endfunc, :end, :endfunction ]
-aStartTabs	 = [ :for, :foreach, :while, :do, :if, :switch, :try ]
-aEndTabs	 = [ :next, :again, :ok, :off, :done,
-		     :endif, :endfor, :endswitch, :endtry, :endwhile ]
-aStartNL	 = [ :load, :package, :import, :break, :continue, :exit, :loop, 
-		     :else, :elseif, :but, :on, :case, :other, :catch, :bye,
-		     :put, :get, :see, :give ]
-aOperatorNoSpace = [ "[",":","(",")" ]
+aFilesToProcess		= []
+aFileTokens		= []
+nCurrentToken		= 0
+cOutputBuffer		= ""
+lSpaceAfterToken	= False
+lNextNLisTwoNLs		= False
+nTabsCount		= 0
+nSpacesPerTab		= 8
+aStartImportant		= [	:package, :class, :func, :def, :function			]
+aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
+aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try			]
+aEndTabs		= [	:next, :again, :ok, :off, :done,
+				:endif, :endfor, :endswitch, :endtry, :endwhile			]
+aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
+				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
+				:put, :get, :see, :give						]
+aOperatorNoSpace	= [	"[",":","(",")"							]
 
 func main
 
