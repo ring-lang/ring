@@ -21,6 +21,9 @@ cOutputBuffer		= ""
 lSpaceAfterToken	= False
 lNextNLisTwoNLs		= False
 nTabsCount		= 0
+nPackageTab		= 0
+nClassTab		= 0
+nFuncTab		= 0
 aStartImportant		= [	:package, :class, :func, :def, :function			]
 aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
 aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try			]
@@ -203,7 +206,22 @@ func getTabChars
 func processKeyword cValue
 
 	nIndex   = 0 + cValue	
-	cKeyword = aKeywords[nIndex] 
+	cKeyword = lower(aKeywords[nIndex]) 
+
+	# Apply tabs for important sections (package, class & function)
+	lImportantSection	= True
+	if cKeyword = :package
+		nPackageTab	= 1
+	but cKeyword = :class
+		nClassTab	= 1
+	but find([:func,:def,:function],cKeyword)
+		nFuncTab	= 1
+	else
+		lImportantSection = False
+	ok
+	if lImportantSection
+		nTabsCount = nPackageTab + nClassTab + nFuncTab
+	ok
 
 	# Apply the required keyword style
 	switch cKeywordsStyle
