@@ -27,13 +27,7 @@ func processArguments aPara
 		if fexists(cArg)
 			processFile(cArg)
 		else 
-			aList = []
-			try
-				cFolder = justFilePath(cArg)
-				if      ! cFolder cFolder = currentDir() ok
-				aList   = listAllFiles(cFolder,justFileName(cArg))
-			catch
-			done
+			aList = getListOfFiles(cArg)
 			if aList
 				for cFile in aList aPara + prepareFileName(cFile) next
 			else
@@ -41,6 +35,17 @@ func processArguments aPara
 			ok
 		ok
 	next  
+
+func getListOfFiles cArg
+
+	aList = []
+	try
+		cFolder = justFilePath(cArg)
+		if      ! cFolder cFolder = currentDir() ok
+		aList   = listAllFiles(cFolder,justFileName(cArg))
+	catch
+	done
+	return aList
 
 func processOptions cOption
 
