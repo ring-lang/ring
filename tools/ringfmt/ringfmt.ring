@@ -10,7 +10,7 @@ load "tokenslib.ring"
 # Global Variables (Customization)
 
 cKeywordsStyle		= :lower	# Options :lower, :upper & :name
-cTabsOrSpace		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
+cIndentation 		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 
 # Global Variables (Control)
 
@@ -178,7 +178,7 @@ func getTabs
 func getTabChars
 
 	cTabChars = Tab
-	switch cTabsOrSpace
+	switch cIndentation 
 		on :spaces
 			cTabChars = Copy(" ",8)
 		on :2spaces
