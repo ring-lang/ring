@@ -29,8 +29,8 @@ func processArguments aPara
 			aList = []
 			try
 				cFolder = justFilePath(cArg)
-				if ! cFolder cFolder = currentDir() ok
-				aList = listAllFiles(cFolder,justFileName(cArg))
+				if      ! cFolder cFolder = currentDir() ok
+				aList   = listAllFiles(cFolder,justFileName(cArg))
 			catch
 			done
 			if aList
@@ -55,7 +55,7 @@ func processFile cFileName
 	line()	
 	? "Process file: " + cFileName
 	line()
-	cDir = currentDir()
+	cDir     = currentDir()
 	cFileDir = justFilePath(cFileName)
 	if cFileDir chdir(cFileDir) ok
 	try
@@ -70,7 +70,7 @@ func processFile cFileName
 
 func loadFileTokens cFileName
 
-	pState = ring_state_new()
+	pState  = ring_state_new()
 	aTokens = ring_state_stringtokens(pState,read(cFileName),False,True)
 	if ring_state_scannererror(pState) 
 		raise("Ring Scanner Error!")
@@ -82,21 +82,22 @@ func processTokens aTokens
 
 	for aToken in aTokens
 		lSpaceAfterToken = True
+		cValue		 = aToken[C_TOKENVALUE]
 		switch aToken[C_TOKENTYPE] 
 			on C_KEYWORD 
-				cValue = processKeyword(aToken[C_TOKENVALUE]) 
+				cValue = processKeyword    (cValue) 
 			on C_OPERATOR 
-				cValue = processOperator(aToken[C_TOKENVALUE])
+				cValue = processOperator   (cValue)
 			on C_LITERAL 
-				cValue = processLiteral(aToken[C_TOKENVALUE])
+				cValue = processLiteral    (cValue)
    			on C_NUMBER 
-				cValue = processNumber(aToken[C_TOKENVALUE])
+				cValue = processNumber     (cValue)
 			on C_IDENTIFIER 
-				cValue = processIdentifier(aToken[C_TOKENVALUE])
+				cValue = processIdentifier (cValue)
 			on C_ENDLINE
-				cValue = processEndLine(aToken[C_TOKENVALUE])
+				cValue = processEndLine    (cValue)
 			on C_COMMENT
-				cValue = processComment(aToken[C_TOKENVALUE])
+				cValue = processComment    (cValue)
 		off
 		see cValue
 		if lSpaceAfterToken see " " ok
@@ -104,7 +105,7 @@ func processTokens aTokens
 
 func processKeyword cValue
 
-	nIndex = 0 + cValue	
+	nIndex   = 0 + cValue	
 	cKeyword = lower(aKeywords[nIndex]) 
 
 	# Add new lines before important keywords
@@ -120,7 +121,7 @@ func processOperator cOperator
 
 func processLiteral cLiteral
 
-	if ! substr(cLiteral,'"')
+	if  ! substr(cLiteral,'"')
 		return '"' + cLiteral + '"'
 	but ! substr(cLiteral,"'")
 		return "'" + cLiteral + "'"
@@ -141,9 +142,9 @@ func processIdentifier cIdentifier
 func processEndLine cEndLine
 
 	if isWindows()
-		cValue = WindowsNL()
+		cValue   = WindowsNL()
 	else
-		cValue = NL
+		cValue   = NL
 	ok
 	lSpaceAfterToken = False
 	return cValue
