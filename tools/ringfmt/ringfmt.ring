@@ -22,13 +22,35 @@ func processArguments aPara
 		if fexists(cArg)
 			processFile(cArg)
 		else 
-			? "Unknown argument: " + cArg
+			aList = []
+			try
+				cFolder = justFilePath(cArg)
+				if ! cFolder cFolder = currentDir() ok
+				aList = listAllFiles(cFolder,justFileName(cArg))
+			catch
+			done
+			if aList
+				for cFile in aList aPara + prepareFileName(cFile) next
+			else
+				? "Unknown argument: " + cArg
+			ok
 		ok
 	next  
 
-func processFile cFileName
+func prepareFileName cFileName
 	
+	if isWindows()
+		cFileName = substr(cFileName,"/","\")
+	else
+		cFileName = substr(cFileName,"\","/")
+	ok
+	return cFileName
+
+func processFile cFileName
+
+	line()	
 	? "Process file: " + cFileName
+	line()
 	try
 		processTokens(loadFileTokens(cFileName))
 	catch
