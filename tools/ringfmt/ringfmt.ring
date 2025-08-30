@@ -68,6 +68,7 @@ func processTokens aTokens
 				lSpaceAfterToken = False
 			on C_COMMENT
 				cValue = processComment(aToken[C_TOKENVALUE])
+				lSpaceAfterToken = False
 		off
 		see cValue
 		if lSpaceAfterToken see " " ok
