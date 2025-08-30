@@ -15,6 +15,7 @@
 	C_NUMBER 	= 3
 	C_IDENTIFIER 	= 4
 	C_ENDLINE 	= 5
+	C_COMMENT	= 6
 
 # Keywords List
 	aKEYWORDS = [
