@@ -33,7 +33,35 @@ func processFile cFileName
 	processTokens(oTokens.aTokens)
 
 func processTokens aTokens 
-	? aTokens
+	for aToken in aTokens
+		switch aToken[C_TOKENTYPE] 
+			on C_KEYWORD 
+				cValue = aKeywords[0+aToken[C_TOKENVALUE]] 
+			on C_OPERATOR 
+				cValue = aToken[C_TOKENVALUE]
+			on C_LITERAL 
+				cValue = processLiteral(aToken[C_TOKENVALUE])
+   			on C_NUMBER 
+				cValue = aToken[C_TOKENVALUE]
+			on C_IDENTIFIER 
+				cValue = aToken[C_TOKENVALUE]
+			on C_ENDLINE 
+				cValue = NL
+		off
+		see cValue + " "
+	next
+
+func processLiteral cLiteral
+	if ! substr(cLiteral,'"')
+		return '"' + cLiteral + '"'
+	but ! substr(cLiteral,"'")
+		return "'" + cLiteral + "'"
+	but ! substr(cLiteral,"`")
+		return "`" + cLiteral + "`"
+	else 
+		? "Unexpected literal content: " + cLiteral
+		bye
+	ok
 
 func showhelp
 
