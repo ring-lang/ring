@@ -99,6 +99,11 @@ The next samples are added:
 * samples/UsingHTTPLib/test20.ring
 * samples/UsingHTTPLib/test21.ring
 * samples/UsingHTTPLib/test22.ring
+* samples/UsingLibSDL/test11.ring
+* samples/UsingLibSDL/test12.ring
+* samples/UsingLibSDL/test13.ring
+* samples/UsingLibSDL/test14.ring
+* samples/UsingLibSDL/test15.ring
 * samples/Language/SyntaxFiles
 * samples/Language/ClassMethods/genfunctopassmethod.ring
 * samples/Language/ClassMethods/genfunctopassmethod2.ring
