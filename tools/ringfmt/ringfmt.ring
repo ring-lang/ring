@@ -202,6 +202,21 @@ func processKeyword cValue
 
 func processOperator cOperator
 
+	if cOperator = ":"
+		lSpaceAfterToken = False 
+		nNextToken = nCurrentToken+1
+		if nNextToken < len(aFileTokens)
+			aNextToken = aFileTokens[nCurrentToken+1]
+			if aNextToken[C_TOKENTYPE] = C_KEYWORD
+				del(aFileTokens,nNextToken)
+				cValue	 = aNextToken[C_TOKENVALUE]
+				nIndex   = 0 + cValue	
+				cKeyword = lower(aKeywords[nIndex])	
+				cOperator += cKeyword
+			ok
+		ok
+	ok
+
 	return cOperator
 
 func processLiteral cLiteral
