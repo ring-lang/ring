@@ -28,6 +28,7 @@ aEndTabs	 = [ :next, :again, :ok, :off, :done,
 aStartNL	 = [ :load, :package, :import, :break, :continue, :exit, :loop, 
 		     :else, :elseif, :but, :on, :case, :other, :catch, :bye,
 		     :put, :get, :see, :give ]
+aOperatorNoSpace = [ "[",":","(",")" ]
 
 func main
 
@@ -202,8 +203,11 @@ func processKeyword cValue
 
 func processOperator cOperator
 
-	if cOperator = ":"
+	if find(aOperatorNoSpace, cOperator)
 		lSpaceAfterToken = False 
+	ok
+
+	if cOperator = ":"
 		nNextToken = nCurrentToken+1
 		if nNextToken < len(aFileTokens)
 			aNextToken = aFileTokens[nCurrentToken+1]
