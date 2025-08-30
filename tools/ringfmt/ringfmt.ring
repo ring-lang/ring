@@ -10,7 +10,7 @@ load "tokenslib.ring"
 # Global Variables (Customization)
 
 cKeywordsStyle		= :lower	# Options :lower, :upper & :name
-cTabsOrSpace		= :tabs	# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
+cTabsOrSpace		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 
 # Global Variables (Control)
 
@@ -21,7 +21,6 @@ cOutputBuffer		= ""
 lSpaceAfterToken	= False
 lNextNLisTwoNLs		= False
 nTabsCount		= 0
-nSpacesPerTab		= 8
 aStartImportant		= [	:package, :class, :func, :def, :function			]
 aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
 aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try			]
@@ -174,7 +173,22 @@ func printToken cValue
 
 func getTabs
 
-	return copy(Tab,nTabsCount)
+	return copy(getTabChars(),nTabsCount)
+
+func getTabChars
+
+	cTabChars = Tab
+	switch cTabsOrSpace
+		on :spaces
+			cTabChars = Copy(" ",8)
+		on :2spaces
+			cTabChars = Copy(" ",2)
+		on :4spaces
+			cTabChars = Copy(" ",4)
+		on :8spaces
+			cTabChars = Copy(" ",8)
+	off
+	return cTabChars
 
 func processKeyword cValue
 
@@ -210,8 +224,11 @@ func processKeyword cValue
 
 func removeLastTabFromBuffer
 
-	if right(cOutputBuffer,1) = Tab
-		cOutputBuffer = left(cOutputBuffer, len(cOutputBuffer) - 1 )
+	cTabChars	= getTabChars()
+	nTabCharsSize	= len(cTabChars)
+
+	if right(cOutputBuffer,nTabCharsSize) = cTabChars
+		cOutputBuffer = left(cOutputBuffer, len(cOutputBuffer) - nTabCharsSize )
 	ok
 
 func processOperator cOperator
