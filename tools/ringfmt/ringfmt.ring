@@ -10,6 +10,7 @@ load "tokenslib.ring"
 # Global Variables
 
 lSpaceAfterToken = False
+lKeywordsStyle	 = :lower	# Options :lower, :upper & :name
 
 func main
 
@@ -106,10 +107,20 @@ func processTokens aTokens
 func processKeyword cValue
 
 	nIndex   = 0 + cValue	
-	cKeyword = lower(aKeywords[nIndex]) 
+	cKeyword = aKeywords[nIndex] 
+
+	# Apply the required keyword style
+	switch lKeywordsStyle
+	on :lower
+		cKeyword = lower(cKeyword)
+	on :upper
+		cKeyword = upper(cKeyword)
+	on :name
+		cKeyword = upper(left(cKeyword,1)) + lower(substr(cKeyword,2))
+	off
 
 	# Add new lines before important keywords
-	if find(["package","class","func","def","function","private"],cKeyword)
+	if find(["package","class","func","def","function","private"],lower(cKeyword))
 		cKeyword = nl + cKeyword
 	ok
 
