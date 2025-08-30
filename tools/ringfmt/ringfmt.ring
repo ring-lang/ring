@@ -5,6 +5,7 @@
 */ 
 
 load "stdlibcore.ring"
+load "tokenslib.ring"
 
 func main
 
@@ -12,6 +13,22 @@ func main
 
 	nParaCount = len(aPara)
 	if ! nParaCount showHelp() return ok
+
+	processArguments(aPara)
+
+func processArguments aPara 
+
+	for cArg in aPara 
+		if fexists(cArg)
+			processFile(cArg)
+		else 
+			? "Unknown argument: " + cArg
+		ok
+	next  
+
+func processFile cFileName
+	
+	? "Process file: " + cFileName
 
 func showhelp
 
