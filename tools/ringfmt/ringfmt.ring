@@ -29,10 +29,21 @@ func processArguments aPara
 func processFile cFileName
 	
 	? "Process file: " + cFileName
-	oTokens = new RingTokens { fromFile(cFileName) }
-	processTokens(oTokens.aTokens)
+	processTokens(loadFileTokens(cFileName))
+
+func loadFileTokens cFileName
+
+	pState = ring_state_new()
+	aTokens = ring_state_stringtokens(pState,read(cFileName),False,True)
+	if ring_state_scannererror(pState) 
+		? "Ring Scanner Error!"
+		bye 
+	ok
+	ring_state_delete(pState)
+	return aTokens	
 
 func processTokens aTokens 
+
 	for aToken in aTokens
 		switch aToken[C_TOKENTYPE] 
 			on C_KEYWORD 
@@ -47,11 +58,14 @@ func processTokens aTokens
 				cValue = aToken[C_TOKENVALUE]
 			on C_ENDLINE 
 				cValue = NL
+			on C_COMMENT
+				cValue = aToken[C_TOKENVALUE]
 		off
 		see cValue + " "
 	next
 
 func processLiteral cLiteral
+
 	if ! substr(cLiteral,'"')
 		return '"' + cLiteral + '"'
 	but ! substr(cLiteral,"'")
