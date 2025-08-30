@@ -51,9 +51,10 @@ func loadFileTokens cFileName
 func processTokens aTokens 
 
 	for aToken in aTokens
+		lSpaceAfterToken = True
 		switch aToken[C_TOKENTYPE] 
 			on C_KEYWORD 
-				cValue = aKeywords[0+aToken[C_TOKENVALUE]] 
+				cValue = processKeyword(0+aToken[C_TOKENVALUE]) 
 			on C_OPERATOR 
 				cValue = aToken[C_TOKENVALUE]
 			on C_LITERAL 
@@ -64,11 +65,17 @@ func processTokens aTokens
 				cValue = aToken[C_TOKENVALUE]
 			on C_ENDLINE 
 				cValue = NL
+				lSpaceAfterToken = False
 			on C_COMMENT
 				cValue = aToken[C_TOKENVALUE]
 		off
-		see cValue + " "
+		see cValue
+		if lSpaceAfterToken see " " ok
 	next
+
+func processKeyword nIndex
+	
+	return lower(aKeywords[nIndex]) 
 
 func processLiteral cLiteral
 
