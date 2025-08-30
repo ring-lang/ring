@@ -15,6 +15,8 @@ cTabsOrSpace	 = :tabs	# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 # Global Variables (Control)
 
 aFilesToProcess  = []
+aFileTokens	 = []
+nCurrentToken	 = 0
 lSpaceAfterToken = False
 nTabsCount	 = 0
 nSpacesPerTab	 = 8
@@ -129,11 +131,14 @@ func loadFileTokens cFileName
 
 func processTokens aTokens 
 
-	for aToken in aTokens
+	aFileTokens   = aTokens
+	nCurrentToken = 1
+	for aToken in aFileTokens
 		lSpaceAfterToken = True
 		cValue		 = aToken[C_TOKENVALUE]
 		cValue 		 = processToken(aToken,cValue)
 		printToken(cValue)
+		nCurrentToken++
 	next
 
 func processToken aToken, cValue
@@ -186,8 +191,11 @@ func processKeyword cValue
 		nTabsCount++ 
 	but find(aEndTabs,lower(cKeyword))
 		if nTabsCount nTabsCount-- ok
-	but find(aStartNL,lower(cKeyword))
+		printToken(processEndLine(NL))
+	but find(aStartImportant,lower(cKeyword))
 		cKeyword = nl + cKeyword
+	but find(aEndImportant,lower(cKeyword))
+		cKeyword += nl
 	ok
 
 	return cKeyword
@@ -226,7 +234,7 @@ func processEndLine cEndLine
 
 	lSpaceAfterToken = False
 
-	return cValue 
+	return cValue + getTabs()
 
 func processComment cComment
 
