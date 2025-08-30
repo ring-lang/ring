@@ -67,7 +67,7 @@ func processTokens aTokens
 				cValue = NL
 				lSpaceAfterToken = False
 			on C_COMMENT
-				cValue = aToken[C_TOKENVALUE]
+				cValue = processComment(aToken[C_TOKENVALUE])
 		off
 		see cValue
 		if lSpaceAfterToken see " " ok
@@ -95,6 +95,13 @@ func processLiteral cLiteral
 	else 
 		raise("Unexpected literal content: " + cLiteral)
 	ok
+
+func processComment cComment
+
+	# Add new line after multi-line comments
+	if substr(cComment,nl) cComment += nl ok
+
+	return cComment
 
 func showhelp
 
