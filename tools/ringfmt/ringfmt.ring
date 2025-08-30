@@ -19,6 +19,7 @@ aFileTokens	 = []
 nCurrentToken	 = 0
 cOutputBuffer	 = ""
 lSpaceAfterToken = False
+lNextNLisTwoNLs  = False
 nTabsCount	 = 0
 nSpacesPerTab	 = 8
 aStartImportant	 = [ :package, :class, :func, :def, :function ]
@@ -198,6 +199,7 @@ func processKeyword cValue
 		removeLastTabFromBuffer()
 	but find(aStartImportant,lower(cKeyword))
 		cKeyword = nl + cKeyword
+		lNextNLisTwoNLs = True
 	but find(aEndImportant,lower(cKeyword))
 		cKeyword += nl
 	but find(aStartNL,lower(cKeyword))
@@ -260,6 +262,11 @@ func processEndLine cEndLine
 		cValue   = WindowsNL()
 	else
 		cValue   = NL
+	ok
+
+	if lNextNLisTwoNLs
+		lNextNLisTwoNLs = False
+		cValue += cValue
 	ok
 
 	lSpaceAfterToken = False
