@@ -195,14 +195,22 @@ func processKeyword cValue
 		nTabsCount++ 
 	but find(aEndTabs,lower(cKeyword))
 		if nTabsCount nTabsCount-- ok
-		printToken(processEndLine(NL))
+		removeLastTabFromBuffer()
 	but find(aStartImportant,lower(cKeyword))
 		cKeyword = nl + cKeyword
 	but find(aEndImportant,lower(cKeyword))
 		cKeyword += nl
+	but find(aStartNL,lower(cKeyword))
+		removeLastTabFromBuffer()
 	ok
 
 	return cKeyword
+
+func removeLastTabFromBuffer
+
+	if right(cOutputBuffer,1) = Tab
+		cOutputBuffer = left(cOutputBuffer, len(cOutputBuffer) - 1 )
+	ok
 
 func processOperator cOperator
 
