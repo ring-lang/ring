@@ -15,7 +15,8 @@ Load "stdfunctions.ring"
 	Output		: the result of the test (0,1)
 */
 Func IsAppCompiled
-	return substr(lower(JustFileName(exefilename())),".exe","") != "ring"
+	cAppFileName = substr(lower(JustFileName(exefilename())),".exe","")
+	return (cAppFileName != "ring") and (cAppFileName != "ringw")
 	
 /*
 	Function Name	: apparguments
