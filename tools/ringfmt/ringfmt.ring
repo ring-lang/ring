@@ -29,6 +29,11 @@ func processArguments aPara
 func processFile cFileName
 	
 	? "Process file: " + cFileName
+	oTokens = new RingTokens { fromFile(cFileName) }
+	processTokens(oTokens.aTokens)
+
+func processTokens aTokens 
+	? aTokens
 
 func showhelp
 
