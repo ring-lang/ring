@@ -7,6 +7,10 @@
 load "stdlibcore.ring"
 load "tokenslib.ring"
 
+# Global Variables
+
+lSpaceAfterToken = False
+
 func main
 
 	aPara	   = AppArguments()
@@ -82,19 +86,17 @@ func processTokens aTokens
 			on C_KEYWORD 
 				cValue = processKeyword(0+aToken[C_TOKENVALUE]) 
 			on C_OPERATOR 
-				cValue = aToken[C_TOKENVALUE]
+				cValue = processOperator(aToken[C_TOKENVALUE])
 			on C_LITERAL 
 				cValue = processLiteral(aToken[C_TOKENVALUE])
    			on C_NUMBER 
-				cValue = aToken[C_TOKENVALUE]
+				cValue = processNumber(aToken[C_TOKENVALUE])
 			on C_IDENTIFIER 
-				cValue = aToken[C_TOKENVALUE]
-			on C_ENDLINE 
-				cValue = NL
-				lSpaceAfterToken = False
+				cValue = processIdentifier(aToken[C_TOKENVALUE])
+			on C_ENDLINE
+				cValue = processEndLine(aToken[C_TOKENVALUE])
 			on C_COMMENT
 				cValue = processComment(aToken[C_TOKENVALUE])
-				lSpaceAfterToken = False
 		off
 		see cValue
 		if lSpaceAfterToken see " " ok
@@ -111,6 +113,10 @@ func processKeyword nIndex
 
 	return cKeyword
 
+func processOperator cOperator
+
+	return cOperator
+
 func processLiteral cLiteral
 
 	if ! substr(cLiteral,'"')
@@ -123,10 +129,30 @@ func processLiteral cLiteral
 		raise("Unexpected literal content: " + cLiteral)
 	ok
 
+func processNumber cNumber
+
+	return cNumber
+
+func processIdentifier cIdentifier
+	
+	return cIdentifier
+
+func processEndLine cEndLine
+
+	if isWindows()
+		cValue = WindowsNL()
+	else
+		cValue = NL
+	ok
+	lSpaceAfterToken = False
+	return cValue
+
 func processComment cComment
 
 	# Add new line after multi-line comments
 	if substr(cComment,nl) cComment += nl ok
+
+	lSpaceAfterToken = False
 
 	return cComment
 
