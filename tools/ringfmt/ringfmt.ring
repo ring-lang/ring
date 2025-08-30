@@ -84,7 +84,7 @@ func processTokens aTokens
 		lSpaceAfterToken = True
 		switch aToken[C_TOKENTYPE] 
 			on C_KEYWORD 
-				cValue = processKeyword(0+aToken[C_TOKENVALUE]) 
+				cValue = processKeyword(aToken[C_TOKENVALUE]) 
 			on C_OPERATOR 
 				cValue = processOperator(aToken[C_TOKENVALUE])
 			on C_LITERAL 
@@ -102,8 +102,9 @@ func processTokens aTokens
 		if lSpaceAfterToken see " " ok
 	next
 
-func processKeyword nIndex
-	
+func processKeyword cValue
+
+	nIndex = 0 + cValue	
 	cKeyword = lower(aKeywords[nIndex]) 
 
 	# Add new lines before important keywords
