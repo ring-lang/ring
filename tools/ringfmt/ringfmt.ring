@@ -146,9 +146,8 @@ func loadFileTokens cFileName
 
 func processTokens aTokens 
 
-	cOutputBuffer = ""
 	aFileTokens   = aTokens
-	nCurrentToken = 1
+	resetVariables()
 	for aToken in aFileTokens
 		lSpaceAfterToken = True
 		cValue		 = aToken[C_TOKENVALUE]
@@ -157,6 +156,15 @@ func processTokens aTokens
 		nCurrentToken++
 	next
 	? cOutputBuffer
+
+func resetVariables
+
+	nCurrentToken	= 1
+	cOutputBuffer	= ""
+	nTabsCount	= 0
+	nPackageTab	= 0
+	nClassTab	= 0
+	nFuncTab	= 0	
 
 func processToken aToken, cValue
 
@@ -186,7 +194,11 @@ func printToken cValue
 
 func getTabs
 
-	return copy(getTabChars(),nTabsCount)
+	return getNTabs(nTabsCount)
+
+func getNTabs nCount
+
+	return copy(getTabChars(),nCount)
 
 func getTabChars
 
