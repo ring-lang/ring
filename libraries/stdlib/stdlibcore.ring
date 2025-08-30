@@ -15,13 +15,7 @@ Load "stdfunctions.ring"
 	Output		: the result of the test (0,1)
 */
 Func IsAppCompiled
-	# when running under the interpreter, we have at least two arguments
-	# and the second argument is equal to filename() output
-	if (Len(sysargv) >= 2) and (sysargv[2] = filename())
-		return false
-	else
-		return true
-	ok
+	return substr(lower(JustFileName(exefilename())),".exe","") != "ring"
 	
 /*
 	Function Name	: apparguments
