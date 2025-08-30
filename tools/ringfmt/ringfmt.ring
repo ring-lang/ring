@@ -118,25 +118,35 @@ func processTokens aTokens
 	for aToken in aTokens
 		lSpaceAfterToken = True
 		cValue		 = aToken[C_TOKENVALUE]
-		switch aToken[C_TOKENTYPE] 
-			on C_KEYWORD 
-				cValue = processKeyword    (cValue) 
-			on C_OPERATOR 
-				cValue = processOperator   (cValue)
-			on C_LITERAL 
-				cValue = processLiteral    (cValue)
-   			on C_NUMBER 
-				cValue = processNumber     (cValue)
-			on C_IDENTIFIER 
-				cValue = processIdentifier (cValue)
-			on C_ENDLINE
-				cValue = processEndLine    (cValue)
-			on C_COMMENT
-				cValue = processComment    (cValue)
-		off
-		see cValue
-		if lSpaceAfterToken see " " ok
+		cValue 		 = processToken(aToken,cValue)
+		printToken(cValue)
 	next
+
+func processToken aToken, cValue
+
+	switch aToken[C_TOKENTYPE] 
+		on C_KEYWORD 
+			cValue = processKeyword    (cValue) 
+		on C_OPERATOR 
+			cValue = processOperator   (cValue)
+		on C_LITERAL 
+			cValue = processLiteral    (cValue)
+		on C_NUMBER 
+			cValue = processNumber     (cValue)
+		on C_IDENTIFIER 
+			cValue = processIdentifier (cValue)
+		on C_ENDLINE
+			cValue = processEndLine    (cValue)
+		on C_COMMENT
+			cValue = processComment    (cValue)
+	off
+
+	return cValue
+
+func printToken cValue
+
+	see cValue
+	if lSpaceAfterToken see " " ok
 
 func processKeyword cValue
 
