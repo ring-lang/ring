@@ -17,6 +17,7 @@ cTabsOrSpace	 = :tabs	# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 aFilesToProcess  = []
 aFileTokens	 = []
 nCurrentToken	 = 0
+cOutputBuffer	 = ""
 lSpaceAfterToken = False
 nTabsCount	 = 0
 nSpacesPerTab	 = 8
@@ -132,6 +133,7 @@ func loadFileTokens cFileName
 
 func processTokens aTokens 
 
+	cOutputBuffer = ""
 	aFileTokens   = aTokens
 	nCurrentToken = 1
 	for aToken in aFileTokens
@@ -141,6 +143,7 @@ func processTokens aTokens
 		printToken(cValue)
 		nCurrentToken++
 	next
+	? cOutputBuffer
 
 func processToken aToken, cValue
 
@@ -165,8 +168,8 @@ func processToken aToken, cValue
 
 func printToken cValue
 
-	see cValue
-	if lSpaceAfterToken see " " ok
+	cOutputBuffer += cValue
+	if lSpaceAfterToken cOutputBuffer += " " ok
 
 func getTabs
 
