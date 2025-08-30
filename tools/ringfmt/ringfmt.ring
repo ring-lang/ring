@@ -15,6 +15,15 @@ cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
 
 aFilesToProcess  = []
 lSpaceAfterToken = False
+nTabsCount	 = 0
+aStartNLAndTabs  = [ :class, :func, :def, :function, 
+		     :for, :foreach, :while, :do, :if, :switch, :try ]
+aStartNL	 = [ :load, :package, :import, :break, :continue, :exit, :loop, 
+		     :else, :elseif, :but, :on, :case, :other, :catch, :bye,
+		     :put, :get, :see, :give ]
+aEndTab		 = [ :endclass, :endfunc, :end, :endfunction,
+		     :next, :again, :ok, :off, :done,
+		     :endif, :endfor, :endswitch, :endtry, :endwhile ]
 
 func main
 
