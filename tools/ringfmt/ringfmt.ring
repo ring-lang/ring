@@ -7,14 +7,14 @@
 load "stdlibcore.ring"
 load "tokenslib.ring"
 
+# Global Variables (Customization)
+
+cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
+
 # Global Variables (Control)
 
 aFilesToProcess  = []
 lSpaceAfterToken = False
-
-# Global Variables (Customization)
-
-cKeywordsStyle	 = :lower	# Options :lower, :upper & :name
 
 func main
 
