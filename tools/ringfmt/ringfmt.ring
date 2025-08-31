@@ -450,6 +450,8 @@ func processEndLine cEndLine
 
 	if nTabsCount > nLastTabsCount and nTabsCount != nLastTabsCount+1
 		nTabsCount = nLastTabsCount+1
+	but nTabsCount < nLastTabsCount and nTabsCount != nLastTabsCount-1
+		nTabsCount = nLastTabsCount-1
 	ok
 
 	nLastTabsCount = nTabsCount
