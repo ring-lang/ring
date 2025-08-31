@@ -444,8 +444,14 @@ func processEndLine cEndLine
 
 func processComment cComment
 
-	# Add new line after multi-line comments
-	if substr(cComment,nl) cComment += nl ok
+	# Add new line before/after multi-line comments
+	if substr(cComment,nl) 
+		cComment = nl + cComment + nl
+	else
+		if ! afterTabOrSpaceOrNLInBuffer()
+			cComment = " " + cComment 
+		ok
+	ok
 
 	lSpaceAfterToken = False
 
