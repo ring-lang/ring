@@ -313,20 +313,26 @@ func processOperator cOperator
 	ok
 
 	if cOperator = ":"
-		nNextToken = nCurrentToken+1
-		if nNextToken < len(aFileTokens)
-			aNextToken = aFileTokens[nCurrentToken+1]
-			if aNextToken[C_TOKENTYPE] = C_KEYWORD
-				del(aFileTokens,nNextToken)
-				cValue	 = aNextToken[C_TOKENVALUE]
-				nIndex   = 0 + cValue	
-				cKeyword = lower(aKeywords[nIndex])	
-				cOperator += cKeyword
-			ok
+		aNextToken = getNextToken()
+		if aNextToken[C_TOKENTYPE] = C_KEYWORD
+			del(aFileTokens,nCurrentToken+1)
+			cValue	 = aNextToken[C_TOKENVALUE]
+			nIndex   = 0 + cValue	
+			cKeyword = lower(aKeywords[nIndex])	
+			cOperator += cKeyword
 		ok
 	ok
 
 	return cOperator
+
+func getNextToken
+
+	nNextToken = nCurrentToken+1
+	if nNextToken < len(aFileTokens)
+		return aFileTokens[nCurrentToken+1]
+	ok
+
+	return [-1,-1,-1]
 
 func processLiteral cLiteral
 
@@ -346,12 +352,8 @@ func processNumber cNumber
 
 func processIdentifier cIdentifier
 
-	nNextToken = nCurrentToken+1
-	if nNextToken < len(aFileTokens)
-		aNextToken = aFileTokens[nCurrentToken+1]
-		if aNextToken[C_TOKENTYPE] != C_OPERATOR
-			lSpaceAfterToken = True
-		ok
+	if getNextToken()[C_TOKENTYPE] != C_OPERATOR
+		lSpaceAfterToken = True
 	ok
 
 	return cIdentifier
