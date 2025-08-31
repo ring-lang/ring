@@ -46,10 +46,12 @@ aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop,
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
 
-aOperatorSpaceBefore	= [	"=","?","+=","-=","*=","/=","%=",
+aOperatorSpaceBefore	= [	"=","?",
+				"+=","-=","*=","/=","%=",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
-aOperatorSpaceAfter	= [	"=","?",",","+=","-=","*=","/=","%=",
+aOperatorSpaceAfter	= [	"=","?",",","!",
+				"+=","-=","*=","/=","%=",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
 
