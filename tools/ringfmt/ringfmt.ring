@@ -33,8 +33,8 @@ aEndTabs		= [	:next, :again, :ok, :off, :done,
 aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
-aOperatorSpaceBefore	= [	"="								]
-aOperatorNoSpaceAfter	= [	"[","]","(",")",".",":"							]
+aOperatorSpaceBefore	= [	"=",":"								]
+aOperatorSpaceAfter	= [	"=",":"								]
 
 func main
 
@@ -151,8 +151,6 @@ func processTokens aTokens
 	aFileTokens   = aTokens
 	resetVariables()
 	for aToken in aFileTokens
-		lSpaceBeforeToken	= False
-		lSpaceAfterToken	= True
 		cValue			= aToken[C_TOKENVALUE]
 		cValue 			= processToken(aToken,cValue)
 		printToken(cValue)
@@ -162,12 +160,14 @@ func processTokens aTokens
 
 func resetVariables
 
-	nCurrentToken	= 1
-	cOutputBuffer	= ""
-	nTabsCount	= 0
-	nPackageTab	= 0
-	nClassTab	= 0
-	nFuncTab	= 0	
+	nCurrentToken		= 1
+	cOutputBuffer		= ""
+	nTabsCount		= 0
+	nPackageTab		= 0
+	nClassTab		= 0
+	nFuncTab		= 0	
+	lSpaceBeforeToken	= False
+	lSpaceAfterToken	= False
 
 func processToken aToken, cValue
 
@@ -282,8 +282,8 @@ func processOperator cOperator
 		lSpaceBeforeToken = True 
 	ok
 
-	if find(aOperatorNoSpaceAfter, cOperator)
-		lSpaceAfterToken = False 
+	if find(aOperatorSpaceAfter, cOperator)
+		lSpaceAfterToken = True 
 	ok
 
 	if cOperator = ":"
