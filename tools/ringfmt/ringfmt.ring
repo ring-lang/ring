@@ -346,6 +346,14 @@ func processNumber cNumber
 
 func processIdentifier cIdentifier
 
+	nNextToken = nCurrentToken+1
+	if nNextToken < len(aFileTokens)
+		aNextToken = aFileTokens[nCurrentToken+1]
+		if aNextToken[C_TOKENTYPE] != C_OPERATOR
+			lSpaceAfterToken = True
+		ok
+	ok
+
 	return cIdentifier
 
 func processEndLine cEndLine
