@@ -38,9 +38,9 @@ nFuncTab		= 0
 aStartImportant		= [	:package, :class, :func, :def, :function			]
 aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
 
-aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try, "{"		]
+aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try			]
 aEndTabs		= [	:next, :again, :ok, :off, :done,
-				:endif, :endfor, :endswitch, :endtry, :endwhile, "}"		]
+				:endif, :endfor, :endswitch, :endtry, :endwhile			]
 
 aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
