@@ -53,6 +53,7 @@ aOperatorSpaceAfter	= [	"=","?",",","+=","-=","*=","/=","%=",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
 
+aOperatorSpaceBeforeVar = [")","]","}",'"',"'","`"]
 
 func main
 
@@ -356,11 +357,23 @@ func processNumber cNumber
 
 func processIdentifier cIdentifier
 
+	if find(aOperatorSpaceBeforeVar, getLastCharInBuffer())
+		lSpaceBeforeToken = True
+	ok
+
 	if getNextToken()[C_TOKENTYPE] != C_OPERATOR
 		lSpaceAfterToken = True
 	ok
 
 	return cIdentifier
+
+func getLastCharInBuffer
+
+	if cOutputBuffer
+		return right(cOutputBuffer,1)
+	ok
+
+	return NULL
 
 func processEndLine cEndLine
 
