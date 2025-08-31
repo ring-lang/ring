@@ -19,6 +19,7 @@ aFilesToProcess		= []
 aFileTokens		= []
 nCurrentToken		= 0
 cOutputBuffer		= ""
+cCurrentFileName	= ""
 
 ## Spaces 
 lSpaceBeforeToken	= False
@@ -168,6 +169,9 @@ func loadFileTokens cFileName
 		raise("Ring Scanner Error!")
 	ok
 	ring_state_delete(pState)
+
+	cCurrentFileName = cFileName
+
 	return aTokens	
 
 func processTokens aTokens 
@@ -182,7 +186,8 @@ func processTokens aTokens
 		printToken(cValue)
 		nCurrentToken++
 	next
-	? cOutputBuffer
+
+	write(cCurrentFileName, cOutputBuffer)
 
 func resetVariables
 
