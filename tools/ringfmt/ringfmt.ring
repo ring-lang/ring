@@ -32,7 +32,7 @@ aEndTabs		= [	:next, :again, :ok, :off, :done,
 aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
-aOperatorNoSpace	= [	"[",":","("							]
+aOperatorNoSpace	= [	"[",":","(","."							]
 
 func main
 
@@ -311,7 +311,7 @@ func processNumber cNumber
 	return cNumber
 
 func processIdentifier cIdentifier
-	
+
 	return cIdentifier
 
 func processEndLine cEndLine
