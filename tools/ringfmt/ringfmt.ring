@@ -417,7 +417,9 @@ func processEndLine cEndLine
 	ok
 
 	# Check if we have many new lines 
-	if lRespectSections and ( (0 + cEndLine) - nLastLineNumber > 1 ) and ! lNextNLisTwoNLs
+	if lRespectSections and (nLastLineNumber != 0) and 
+		( (0 + cEndLine) - nLastLineNumber > 1 ) and ! lNextNLisTwoNLs
+
 		cValue += cValue
 	ok
 
