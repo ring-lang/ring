@@ -252,10 +252,10 @@ func processKeyword cValue
 		if nTabsCount nTabsCount-- ok
 		removeLastTabFromBuffer()
 	but find(aStartImportant,lower(cKeyword))
-		cKeyword = nl + cKeyword
+		cKeyword = nl + getNTabs(nTabsCount-1) + cKeyword
 		lNextNLisTwoNLs = True
 	but find(aEndImportant,lower(cKeyword))
-		cKeyword += nl
+		cKeyword += nl + getNTabs(nTabsCount-1)
 	but find(aStartNL,lower(cKeyword))
 		removeLastTabFromBuffer()
 	ok
