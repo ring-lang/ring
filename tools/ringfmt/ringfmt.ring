@@ -314,7 +314,7 @@ func afterTabOrSpaceOrNLInBuffer
 
 func processOperator cOperator
 
-	if find(aOperatorSpaceBefore, cOperator)
+	if find(aOperatorSpaceBefore, cOperator) and ! afterTabOrSpaceOrNLInBuffer()
 		lSpaceBeforeToken = True 
 	ok
 
@@ -375,14 +375,14 @@ func processNumber cNumber
 func addSpaceBeforeThisTokenIfThePrevTokenIsNumberOrLiteral
 
 	nType = getPrevToken()[C_TOKENTYPE]
-	if nType = C_NUMBER or nType = C_LITERAL
+	if (nType = C_NUMBER or nType = C_LITERAL) and ! afterTabOrSpaceOrNLInBuffer()
 		lSpaceBeforeToken = True
 	ok
 
 func processIdentifier cIdentifier
 
-	if find(aOperatorSpaceBeforeVar, getLastCharInBuffer()) OR
-		getPrevToken()[C_TOKENTYPE] = C_NUMBER
+	if ( find(aOperatorSpaceBeforeVar, getLastCharInBuffer()) OR
+		getPrevToken()[C_TOKENTYPE] = C_NUMBER ) and ! afterTabOrSpaceOrNLInBuffer()
 		lSpaceBeforeToken = True
 	ok
 
