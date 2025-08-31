@@ -26,6 +26,8 @@ lSpaceAfterToken	= False
 
 ## New Lines 
 lNextNLisTwoNLs		= False
+lRespectSections	= True
+nLastLineNumber		= 0
 
 ## Tabs and Indentation
 nTabsCount		= 0
@@ -430,6 +432,13 @@ func processEndLine cEndLine
 	ok
 
 	nLastTabsCount = nTabsCount
+
+	# Check if we have many new lines 
+	if lRespectSections and ( (0 + cEndLine) - nLastLineNumber > 1 )
+		cValue += cValue
+	ok
+
+	nLastLineNumber = 0 + cEndLine
 
 	return cValue + getTabs()
 
