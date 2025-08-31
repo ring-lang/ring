@@ -247,8 +247,11 @@ func processKeyword cValue
 	lImportantSection	= True
 	if cKeyword = :package
 		nPackageTab	= 1
+		nClassTab	= 0
+		nFuncTab	= 0
 	but cKeyword = :class
 		nClassTab	= 1
+		nFuncTab	= 0
 	but find([:func,:def,:function],cKeyword)
 		nFuncTab	= 1
 	else
