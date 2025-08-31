@@ -14,17 +14,27 @@ cIndentation 		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
 
 # Global Variables (Control)
 
+## Files and Tokens
 aFilesToProcess		= []
 aFileTokens		= []
 nCurrentToken		= 0
 cOutputBuffer		= ""
+
+## Spaces 
 lSpaceBeforeToken	= False
 lSpaceAfterToken	= False
+
+## New Lines 
 lNextNLisTwoNLs		= False
+
+## Tabs and Indentation
 nTabsCount		= 0
 nPackageTab		= 0
 nClassTab		= 0
 nFuncTab		= 0
+
+## Configuration Lists
+
 aStartImportant		= [	:package, :class, :func, :def, :function			]
 aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
 aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try, "{"		]
@@ -35,6 +45,7 @@ aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop,
 				:put, :get, :see, :give						]
 aOperatorSpaceBefore	= [	"=",":"								]
 aOperatorSpaceAfter	= [	"=",":"								]
+
 
 func main
 
