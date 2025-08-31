@@ -257,8 +257,14 @@ func processKeyword cValue
 	but cKeyword = :class
 		nClassTab	= 1
 		nFuncTab	= 0
-	but find([:func,:def,:function],cKeyword)
-		nFuncTab	= 1
+	but find([:func,:def,:function],cKeyword) 
+		if ! lastTokenIsAssignment()
+			nFuncTab	= 1
+		else
+			# We have anonymous function
+			lSpaceAfterToken = True
+			return lower(cKeyword)
+		ok
 	else
 		lImportantSection = False
 	ok
@@ -295,6 +301,12 @@ func processKeyword cValue
 	lSpaceAfterToken	= True
 
 	return cKeyword
+
+func lastTokenIsAssignment
+
+	aPrevToken = getPrevToken()
+	return aPrevToken[C_TOKENTYPE] = C_OPERATOR and aPrevToken[C_TOKENVALUE] = "="
+
 
 func removeLastTabFromBuffer
 
