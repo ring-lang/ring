@@ -313,7 +313,7 @@ func afterTabOrSpaceOrNLInBuffer
 		return cLastChar = Tab or cLastChar = " " or cLastChar = NL 
 	ok
 
-	return false
+	return true
 
 func processOperator cOperator
 
