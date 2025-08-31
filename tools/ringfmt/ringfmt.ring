@@ -354,6 +354,8 @@ func getPrevToken
 
 func processLiteral cLiteral
 
+	addSpaceBeforeThisTokenIfThePrevTokenIsNumberOrLiteral()
+
 	if  ! substr(cLiteral,'"')
 		return '"' + cLiteral + '"'
 	but ! substr(cLiteral,"'")
@@ -366,12 +368,16 @@ func processLiteral cLiteral
 
 func processNumber cNumber
 
+	addSpaceBeforeThisTokenIfThePrevTokenIsNumberOrLiteral()
+
+	return cNumber
+
+func addSpaceBeforeThisTokenIfThePrevTokenIsNumberOrLiteral
+
 	nType = getPrevToken()[C_TOKENTYPE]
 	if nType = C_NUMBER or nType = C_LITERAL
 		lSpaceBeforeToken = True
 	ok
-
-	return cNumber
 
 func processIdentifier cIdentifier
 
