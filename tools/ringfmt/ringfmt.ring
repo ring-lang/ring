@@ -32,6 +32,7 @@ nTabsCount		= 0
 nPackageTab		= 0
 nClassTab		= 0
 nFuncTab		= 0
+nLastTabsCount		= 0
 
 ## Configuration Lists
 
@@ -419,6 +420,16 @@ func processEndLine cEndLine
 	ok
 
 	lSpaceAfterToken = False
+
+	# We can use braces to access objects or in control structures 
+	# Using braces in controls structures increase nTabsCount multiple times 
+	# Here we adjust the nTabsCount 
+
+	if nTabsCount > nLastTabsCount and nTabsCount != nLastTabsCount+1
+		nTabsCount = nLastTabsCount+1
+	ok
+
+	nLastTabsCount = nTabsCount
 
 	return cValue + getTabs()
 
