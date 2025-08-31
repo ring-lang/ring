@@ -37,14 +37,17 @@ nFuncTab		= 0
 
 aStartImportant		= [	:package, :class, :func, :def, :function			]
 aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
+
 aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try, "{"		]
 aEndTabs		= [	:next, :again, :ok, :off, :done,
 				:endif, :endfor, :endswitch, :endtry, :endwhile, "}"		]
+
 aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
-aOperatorSpaceBefore	= [	"=",":"								]
-aOperatorSpaceAfter	= [	"=",":"								]
+
+aOperatorSpaceBefore	= [	"=","?"								]
+aOperatorSpaceAfter	= [	"=","?",","								]
 
 
 func main
@@ -162,6 +165,8 @@ func processTokens aTokens
 	aFileTokens   = aTokens
 	resetVariables()
 	for aToken in aFileTokens
+		lSpaceBeforeToken	= False
+		lSpaceAfterToken	= False
 		cValue			= aToken[C_TOKENVALUE]
 		cValue 			= processToken(aToken,cValue)
 		printToken(cValue)
@@ -177,8 +182,6 @@ func resetVariables
 	nPackageTab		= 0
 	nClassTab		= 0
 	nFuncTab		= 0	
-	lSpaceBeforeToken	= False
-	lSpaceAfterToken	= False
 
 func processToken aToken, cValue
 
@@ -275,6 +278,9 @@ func processKeyword cValue
 		removeLastTabFromBuffer()
 	ok
 
+	lSpaceBeforeToken	= ! afterTabOrSpaceOrNLInBuffer()
+	lSpaceAfterToken	= True
+
 	return cKeyword
 
 func removeLastTabFromBuffer
@@ -286,6 +292,15 @@ func removeLastTabFromBuffer
 		right(cOutputBuffer,nTabCharsSize) = cTabChars
 			cOutputBuffer = left(cOutputBuffer, len(cOutputBuffer) - nTabCharsSize )
 	ok
+
+func afterTabOrSpaceOrNLInBuffer
+	
+	if len(cOutputBuffer) 
+		cLastChar = right(cOutputBuffer,1) 
+		return cLastChar = Tab or cLastChar = " " or cLastChar = NL 
+	ok
+
+	return false
 
 func processOperator cOperator
 
