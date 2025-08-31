@@ -416,6 +416,13 @@ func processEndLine cEndLine
 		cValue   = NL
 	ok
 
+	# Check if we have many new lines 
+	if lRespectSections and ( (0 + cEndLine) - nLastLineNumber > 1 ) and ! lNextNLisTwoNLs
+		cValue += cValue
+	ok
+
+	nLastLineNumber = 0 + cEndLine
+
 	if lNextNLisTwoNLs
 		lNextNLisTwoNLs = False
 		cValue += cValue
@@ -432,13 +439,6 @@ func processEndLine cEndLine
 	ok
 
 	nLastTabsCount = nTabsCount
-
-	# Check if we have many new lines 
-	if lRespectSections and ( (0 + cEndLine) - nLastLineNumber > 1 )
-		cValue += cValue
-	ok
-
-	nLastLineNumber = 0 + cEndLine
 
 	return cValue + getTabs()
 
