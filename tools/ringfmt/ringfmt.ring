@@ -46,8 +46,12 @@ aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop,
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
 
-aOperatorSpaceBefore	= [	"=","?"								]
-aOperatorSpaceAfter	= [	"=","?",","								]
+aOperatorSpaceBefore	= [	"=","?","+=","-=","*=","/=","%=",
+				"&=","|=","^=","<<=",">>=",
+				"<",">","<=",">=","!=","&&","||"				]
+aOperatorSpaceAfter	= [	"=","?",",","+=","-=","*=","/=","%=",
+				"&=","|=","^=","<<=",">>=",
+				"<",">","<=",">=","!=","&&","||"				]
 
 
 func main
