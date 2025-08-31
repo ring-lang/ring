@@ -46,7 +46,7 @@ aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop,
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
 
-aOperatorSpaceBefore	= [	"=","?",
+aOperatorSpaceBefore	= [	"=","?","{",
 				"+=","-=","*=","/=","%=",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
@@ -331,6 +331,11 @@ func processOperator cOperator
 			cKeyword = lower(aKeywords[nIndex])	
 			cOperator += cKeyword
 		ok
+	but cOperator = "{"
+		nTabsCount++ 
+	but cOperator = "}"
+		if nTabsCount nTabsCount-- ok
+		removeLastTabFromBuffer()
 	ok
 
 	return cOperator
