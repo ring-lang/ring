@@ -344,6 +344,14 @@ func getNextToken
 
 	return [-1,-1,-1]
 
+func getPrevToken
+
+	if nCurrentToken > 1
+		return aFileTokens[nCurrentToken-1]
+	ok
+
+	return [-1,-1,-1]
+
 func processLiteral cLiteral
 
 	if  ! substr(cLiteral,'"')
@@ -362,7 +370,8 @@ func processNumber cNumber
 
 func processIdentifier cIdentifier
 
-	if find(aOperatorSpaceBeforeVar, getLastCharInBuffer())
+	if find(aOperatorSpaceBeforeVar, getLastCharInBuffer()) OR
+		getPrevToken()[C_TOKENTYPE] = C_NUMBER
 		lSpaceBeforeToken = True
 	ok
 
