@@ -18,6 +18,7 @@ aFilesToProcess		= []
 aFileTokens		= []
 nCurrentToken		= 0
 cOutputBuffer		= ""
+lSpaceBeforeToken	= False
 lSpaceAfterToken	= False
 lNextNLisTwoNLs		= False
 nTabsCount		= 0
@@ -32,7 +33,8 @@ aEndTabs		= [	:next, :again, :ok, :off, :done,
 aStartNL		= [	:load, :package, :import, :break, :continue, :exit, :loop, 
 				:else, :elseif, :but, :on, :case, :other, :catch, :bye,
 				:put, :get, :see, :give						]
-aOperatorNoSpace	= [	"[",":","(","."							]
+aOperatorSpaceBefore	= [	"="								]
+aOperatorNoSpaceAfter	= [	"[","]","(",")",".",":"							]
 
 func main
 
@@ -149,9 +151,10 @@ func processTokens aTokens
 	aFileTokens   = aTokens
 	resetVariables()
 	for aToken in aFileTokens
-		lSpaceAfterToken = True
-		cValue		 = aToken[C_TOKENVALUE]
-		cValue 		 = processToken(aToken,cValue)
+		lSpaceBeforeToken	= False
+		lSpaceAfterToken	= True
+		cValue			= aToken[C_TOKENVALUE]
+		cValue 			= processToken(aToken,cValue)
 		printToken(cValue)
 		nCurrentToken++
 	next
@@ -189,6 +192,7 @@ func processToken aToken, cValue
 
 func printToken cValue
 
+	if lSpaceBeforeToken cOutputBuffer += " " ok
 	cOutputBuffer += cValue
 	if lSpaceAfterToken cOutputBuffer += " " ok
 
@@ -274,7 +278,11 @@ func removeLastTabFromBuffer
 
 func processOperator cOperator
 
-	if find(aOperatorNoSpace, cOperator)
+	if find(aOperatorSpaceBefore, cOperator)
+		lSpaceBeforeToken = True 
+	ok
+
+	if find(aOperatorNoSpaceAfter, cOperator)
 		lSpaceAfterToken = False 
 	ok
 
