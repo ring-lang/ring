@@ -366,6 +366,11 @@ func processLiteral cLiteral
 
 func processNumber cNumber
 
+	nType = getPrevToken()[C_TOKENTYPE]
+	if nType = C_NUMBER or nType = C_LITERAL
+		lSpaceBeforeToken = True
+	ok
+
 	return cNumber
 
 func processIdentifier cIdentifier
