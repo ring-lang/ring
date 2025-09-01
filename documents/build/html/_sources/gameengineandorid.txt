@@ -5,6 +5,8 @@
 Building Games For Android
 ==========================
 
+Chapter Author: Youssef Saeed
+
 In this chapter, we will learn about building RingLibSDL games for mobile. This will allow us to create Android packages (`.apk` or `.aab`) for applications developed using the Ring Game Engine for 2D games.
 
 RingLibSDL is a binding that connects the Ring programming language with the Simple DirectMedia Layer (SDL) library, providing a powerful framework for creating cross-platform games and multimedia applications.
