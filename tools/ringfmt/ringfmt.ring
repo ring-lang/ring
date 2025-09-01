@@ -490,6 +490,35 @@ func processComment cComment
 
 	# Add new line before/after multi-line comments
 	if substr(cComment,nl) 
+		nTabsCount = nPackageTab + nClassTab 
+		# Remove /* and */
+		cComment   = subStr(cComment,3,len(cComment)-4)	 
+		# Remove Spaces, Tabs and New Lines
+		while (left(cComment,1)   = Tab) or (left(cComment,1) = " ") or 
+			(left(cComment,1) = char(13)) or (left(cComment,1) = char(10))
+			cComment = substr(cComment,2)
+		end
+		while (right(cComment,1)   = Tab) or (right(cComment,1) = " ") or 
+			(right(cComment,1) = char(13)) or (right(cComment,1) = char(10))
+			cComment = left(cComment,len(cComment)-1)
+		end	
+		# Convert the string to list
+		aList = str2List(cComment)
+		# Process each line
+		for cLine in aList
+			while left(cLine,1) = Tab or left(cLine,1) = " "
+				cLine = substr(cLine,2)
+			end
+			if left(cLine,2) = "**"
+				cLine = getNTabs(nTabsCount) + cLine
+			else
+				cLine = getNTabs(nTabsCount+1) + cLine
+			ok
+		next
+		# Convert the list to string
+		cComment = list2Str(aList)
+		# Get the final comment after formatting
+		cComment = getNTabs(nTabsCount) + "/*" + nl + cComment + nl + getNTabs(nTabsCount) + "*/"
 		cComment = nl + cComment + nl
 	else
 		if ! afterTabOrSpaceOrNLInBuffer()
