@@ -28,7 +28,6 @@ lSpaceAfterToken	= False
 
 ## New Lines 
 lNextNLisTwoNLs		= False
-lRespectSections	= True
 nLastLineNumber		= 0
 
 ## Tabs and Indentation
@@ -210,10 +209,15 @@ func resetVariables
 
 	nCurrentToken		= 1
 	cOutputBuffer		= ""
+	cCurrentFileName	= ""
+	lNextNLisTwoNLs		= False
+	nLastLineNumber		= 0
 	nTabsCount		= 0
 	nPackageTab		= 0
 	nClassTab		= 0
 	nFuncTab		= 0	
+	nLastTabsCount		= 0
+
 
 func processToken aToken, cValue
 
@@ -455,9 +459,7 @@ func processEndLine cEndLine
 	ok
 
 	# Check if we have many new lines 
-	if lRespectSections and (nLastLineNumber != 0) and 
-		( (0 + cEndLine) - nLastLineNumber > 1 ) and ! lNextNLisTwoNLs
-
+	if nLastLineNumber and ( (0 + cEndLine) - nLastLineNumber > 1 ) and ! lNextNLisTwoNLs
 		cValue += cValue
 	ok
 
