@@ -263,7 +263,7 @@ func processKeyword cValue
 		nClassTab	= 1
 		nFuncTab	= 0
 	but find([:func,:def,:function],cKeyword) 
-		if ! lastTokenIsAssignment()
+		if ! lastTokenIsOperator([ "=", "(", "," ,"[" ])
 			nFuncTab	= 1
 		else
 			# We have anonymous function
@@ -307,10 +307,14 @@ func processKeyword cValue
 
 	return cKeyword
 
-func lastTokenIsAssignment
+func lastTokenIsOperator aOperators
 
 	aPrevToken = getPrevToken()
-	return aPrevToken[C_TOKENTYPE] = C_OPERATOR and aPrevToken[C_TOKENVALUE] = "="
+	if aPrevToken[C_TOKENTYPE] = C_OPERATOR 
+		cOperator = aPrevToken[C_TOKENVALUE]
+		return find(aOperators,cOperator)
+	ok
+	return False
 
 
 func removeLastTabFromBuffer
