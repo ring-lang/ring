@@ -11,6 +11,7 @@ load "tokenslib.ring"
 
 cKeywordsStyle		= :lower	# Options :lower, :upper, :name
 cIndentation 		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
+lPrintOutput		= False		# Just Print the output
 
 # Global Variables (Control)
 
@@ -59,9 +60,9 @@ aOperatorSpaceAfter	= [	"=","?",",","!",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
 
-aOperatorSpaceBeforeVar = [")","]","}",'"',"'","`"]
+aOperatorSpaceBeforeVar = [	")","]","}",'"',"'","`"						]
 
-aOperatorBeforeAnonFunc = [ "=", "(", "," ,"[" ]
+aOperatorBeforeAnonFunc = [	"=", "(", "," ,"[" 						]
 
 func main
 
@@ -130,6 +131,8 @@ func processOptions cOption
 		cIndentation	= :4spaces
 	on "indentation:8spaces"
 		cIndentation	= :8spaces
+	on "output:print"
+		lPrintOutput	= True
 	other
 		return false
 	off	
@@ -189,7 +192,11 @@ func processTokens aTokens
 		nCurrentToken++
 	next
 
-	write(cCurrentFileName, cOutputBuffer)
+	if lPrintOutput
+		? cOutputBuffer
+	else
+		write(cCurrentFileName, cOutputBuffer)
+	ok
 
 func resetVariables
 
