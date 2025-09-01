@@ -114,9 +114,37 @@
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Building Games For Android</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#download-requirements-and-update-the-android-sdk">Download Requirements and Update the Android SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automated-setup-using-scripts">Automated Setup using Scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-scripts">Installation Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#on-linux">On Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-windows">On Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-setup">Environment Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-third-party-library-sources">Download Third-Party Library Sources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">On Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">On Linux</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#project-folder">Project Folder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building-the-project">Building the project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-project">Building the Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#method-1-using-android-studio-recommended">Method 1: Using Android Studio (Recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-2-using-gradle-from-the-command-line">Method 2: Using Gradle from the Command Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-3-using-build-scripts">Method 3: Using Build Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">On Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">On Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
@@ -220,87 +248,271 @@
              
   <section id="building-games-for-android">
 <span id="index-0"></span><h1>Building Games For Android<a class="headerlink" href="#building-games-for-android" title="Permalink to this heading"></a></h1>
-<p>In this chapter we will learn about Building RingLibSDL Games for Mobile.</p>
-<p>So we can create packages (<a href="#id1"><span class="problematic" id="id2">*</span></a>.apk) for the applications that are developed using Ring Game Engine for 2D Games.</p>
-<section id="download-requirements-and-update-the-android-sdk">
-<span id="index-1"></span><h2>Download Requirements and Update the Android SDK<a class="headerlink" href="#download-requirements-and-update-the-android-sdk" title="Permalink to this heading"></a></h2>
+<p>In this chapter, we will learn about building RingLibSDL games for mobile. This will allow us to create Android packages (<cite>.apk</cite> or <cite>.aab</cite>) for applications developed using the Ring Game Engine for 2D games.</p>
+<p>RingLibSDL is a binding that connects the Ring programming language with the Simple DirectMedia Layer (SDL) library, providing a powerful framework for creating cross-platform games and multimedia applications.</p>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id6">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#automated-setup-using-scripts" id="id7">Automated Setup using Scripts</a></p>
 <ul>
-<li><p>The Android SDK Tools</p>
-<blockquote>
-<div><p><a class="reference external" href="https://developer.android.com/studio/index.html">https://developer.android.com/studio/index.html</a></p>
-</div></blockquote>
-</li>
-<li><p>The Android NDK (Tested using android-ndk-r10c)</p>
-<blockquote>
-<div><p><a class="reference external" href="https://developer.android.com/ndk/index.html">https://developer.android.com/ndk/index.html</a></p>
-</div></blockquote>
-</li>
-<li><p>Apache Ant v1.8 or later</p>
-<blockquote>
-<div><p><a class="reference external" href="http://ant.apache.org/bindownload.cgi">http://ant.apache.org/bindownload.cgi</a></p>
-</div></blockquote>
-</li>
-<li><p>Java SE Development Kit (JDK) v6 or later</p>
-<blockquote>
-<div><p><a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a></p>
-</div></blockquote>
-</li>
-<li><p>Update the Android SDK to get the API and tools packages required for development</p>
-<blockquote>
-<div><p>Tested using Android 4.4.2 (API 19)</p>
-</div></blockquote>
-</li>
-<li><p>In Windows - Define the next Environment Variables based on your system.</p></li>
+<li><p><a class="reference internal" href="#installation-scripts" id="id8">Installation Scripts</a></p></li>
 </ul>
-<ol class="arabic simple">
-<li><p>JAVA_HOME</p></li>
-</ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>For Example : C:\Program Files (x86)\Java\jdk1.8.0_05
-</pre></div>
+</li>
+<li><p><a class="reference internal" href="#environment-setup" id="id9">Environment Setup</a></p></li>
+<li><p><a class="reference internal" href="#download-third-party-library-sources" id="id10">Download Third-Party Library Sources</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id11">On Windows</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id12">On Linux</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#project-folder" id="id13">Project Folder</a></p></li>
+<li><p><a class="reference internal" href="#building-the-project" id="id14">Building the Project</a></p>
+<ul>
+<li><p><a class="reference internal" href="#method-1-using-android-studio-recommended" id="id15">Method 1: Using Android Studio (Recommended)</a></p></li>
+<li><p><a class="reference internal" href="#method-2-using-gradle-from-the-command-line" id="id16">Method 2: Using Gradle from the Command Line</a></p></li>
+<li><p><a class="reference internal" href="#method-3-using-build-scripts" id="id17">Method 3: Using Build Scripts</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#troubleshooting" id="id18">Troubleshooting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#common-issues" id="id19">Common Issues</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#next-steps" id="id20">Next Steps</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<span id="index-1"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<p>Before you begin, you need to have the necessary development tools installed on your system.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Android Studio</strong></dt><dd><p>The recommended way to get the Android SDK, NDK, and build tools is by installing the latest version of <a class="reference external" href="https://developer.android.com/studio">Android Studio</a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Android SDK</strong></dt><dd><ul>
+<li><p>Android SDK Platform 36 or the latest available.</p></li>
+<li><p>You can install and manage SDK platforms through the SDK Manager in Android Studio.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Android NDK</strong></dt><dd><ul>
+<li><p>Android NDK version r27 or later.</p></li>
+<li><p>This can also be installed and managed through the Android Studio SDK Manager (<code class="docutils literal notranslate"><span class="pre">Tools</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">SDK</span> <span class="pre">Manager</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">SDK</span> <span class="pre">Tools</span></code> tab).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Java Development Kit (JDK)</strong></dt><dd><ul>
+<li><p>JDK 17 or later. We recommend using a modern LTS version.</p></li>
+<li><p><strong>Recommended:</strong> <a class="reference external" href="https://www.azul.com/downloads/?package=jdk#zulu">Azul Zulu JDK 21</a> or later.</p></li>
+<li><p><strong>Alternative:</strong> <a class="reference external" href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">Oracle OpenJDK 17</a> or later.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you prefer an automated setup, you can use the provided installation scripts (<code class="docutils literal notranslate"><span class="pre">install_android_sdk.sh</span></code> for Linux or <code class="docutils literal notranslate"><span class="pre">install_android_sdk.ps1</span></code> for Windows) to install the JDK, Android SDK, NDK, and set up the environment automatically. See the <a class="reference internal" href="#automated-setup-using-scripts"><span class="std std-ref">Automated Setup using Scripts</span></a> section below.</p>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>ANDROID_HOME</p></li>
+</section>
+<section id="automated-setup-using-scripts">
+<span id="index-2"></span><span id="id1"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Automated Setup using Scripts</a><a class="headerlink" href="#automated-setup-using-scripts" title="Permalink to this heading"></a></h2>
+<p>To simplify the installation process, you can use the provided scripts that automatically download and install the required components.</p>
+<section id="installation-scripts">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Installation Scripts</a><a class="headerlink" href="#installation-scripts" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">install_android_sdk.sh</span></code> (for Linux) and <code class="docutils literal notranslate"><span class="pre">install_android_sdk.ps1</span></code> (for Windows) scripts will:</p>
+<ul class="simple">
+<li><p>Download and install Azul Zulu JDK 21 LTS</p></li>
+<li><p>Download and install Android SDK command-line tools</p></li>
+<li><p>Download and install Android NDK r27</p></li>
+<li><p>Download and install Android build tools, platform tools, and platforms</p></li>
+<li><p>Accept Android SDK licenses</p></li>
+<li><p>Set up environment variables for the current session and persistently</p></li>
+</ul>
+<section id="on-linux">
+<h4>On Linux<a class="headerlink" href="#on-linux" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open a terminal.</p></li>
+<li><p>Navigate to the project root directory.</p></li>
+<li><p>Make the script executable and run it:</p></li>
 </ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>For Example : B:\mahmoud\Tools\Java-Android\adt-bundle-windows-x86-20140702\sdk
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./install_android_sdk.sh
 </pre></div>
 </div>
 </section>
+<section id="on-windows">
+<h4>On Windows<a class="headerlink" href="#on-windows" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open PowerShell as Administrator.</p></li>
+<li><p>Navigate to the project root directory.</p></li>
+<li><p>Run the script:</p></li>
+</ol>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.\</span><span class="n">install_android_sdk</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Windows script requires administrator privileges to set persistent environment variables.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="environment-setup">
+<span id="index-3"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">Environment Setup</a><a class="headerlink" href="#environment-setup" title="Permalink to this heading"></a></h2>
+<p>For the command-line tools to work correctly, you should define the following environment variables based on your system’s configuration. If you used the automated installation scripts, these will be set up automatically.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>JAVA_HOME</strong></dt><dd><p>This should point to the installation directory of your JDK.
+* <strong>Example (Windows):</strong> <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Zulu\zulu-21</span></code> or <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java\jdk-17</span></code>
+* <strong>Example (Linux/macOS):</strong> <code class="docutils literal notranslate"><span class="pre">/usr/lib/jvm/openjdk17</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>ANDROID_SDK_ROOT</strong> (or <strong>ANDROID_HOME</strong>)</dt><dd><p>This should point to the location of your Android SDK.
+* <strong>Example (Windows):</strong> <code class="docutils literal notranslate"><span class="pre">C:\Users\YourUser\AppData\Local\Android\Sdk</span></code>
+* <strong>Example (Linux/macOS):</strong> <code class="docutils literal notranslate"><span class="pre">/home/youruser/Android/Sdk</span></code></p>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="download-third-party-library-sources">
+<span id="index-4"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink">Download Third-Party Library Sources</a><a class="headerlink" href="#download-third-party-library-sources" title="Permalink to this heading"></a></h2>
+<p>The Android build process compiles third-party libraries like SDL2 from source. Before building the project, you must first download the source code for these required libraries.</p>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">ring/extensions/android/ringlibsdl/project</span></code> directory and run the appropriate script for your operating system.</p>
+<section id="id2">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">On Windows</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p>Open PowerShell and run the <code class="docutils literal notranslate"><span class="pre">download_deps.ps1</span></code> script:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.\</span><span class="n">download_deps</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">On Linux</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>Open your terminal and run the <code class="docutils literal notranslate"><span class="pre">download_deps.sh</span></code> script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./download_deps.sh
+</pre></div>
+</div>
+</section>
+</section>
 <section id="project-folder">
-<span id="index-2"></span><h2>Project Folder<a class="headerlink" href="#project-folder" title="Permalink to this heading"></a></h2>
-<p>Open the project folder : ring/extensions/android/ringlibsdl/project</p>
-<img alt="RingLibSDL for Android" src="_images/ringlibsdlandroid_shot1.png" />
-<p>You can add the source code (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ring) and Images/Sound Files to the assets folder.</p>
-<img alt="RingLibSDL for Android" src="_images/ringlibsdlandroid_shot2.png" />
-<p>You will find the Flappy Bird 3000 Game ready for building.</p>
-<p>The execution starts from the start.ring file</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;game2.ring&quot;</span>
+<span id="index-5"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Project Folder</a><a class="headerlink" href="#project-folder" title="Permalink to this heading"></a></h2>
+<p>Open the project folder located at: <code class="docutils literal notranslate"><span class="pre">ring/extensions/android/ringlibsdl/project</span></code></p>
+<img alt="RingLibSDL for Android Project Structure" src="_images/ringlibsdlandroid_shot1.png" />
+<p>You can add your source code (<code class="docutils literal notranslate"><span class="pre">*.ring</span></code>), images, and sound files to the <code class="docutils literal notranslate"><span class="pre">app/src/main/assets</span></code> folder.</p>
+<img alt="RingLibSDL for Android Assets Folder" src="_images/ringlibsdlandroid_shot2.png" />
+<p>You will find the “Flappy Bird 3000” game ready for building. The execution starts from the <code class="docutils literal notranslate"><span class="pre">start.ring</span></code> file in the assets folder.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;flappybird3000.ring&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="building-the-project">
-<span id="index-3"></span><h2>Building the project<a class="headerlink" href="#building-the-project" title="Permalink to this heading"></a></h2>
-<p>Move to the ring/extensions/android/ringlibsdl/project folder</p>
-<p>We can build using the next command (We need to do this for one time only).</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ndk-build
+<span id="index-6"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink">Building the Project</a><a class="headerlink" href="#building-the-project" title="Permalink to this heading"></a></h2>
+<p>The project can now be built using either the Gradle command-line wrapper, directly from Android Studio, or using the provided build scripts.</p>
+<section id="method-1-using-android-studio-recommended">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Method 1: Using Android Studio (Recommended)</a><a class="headerlink" href="#method-1-using-android-studio-recommended" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open Android Studio.</p></li>
+<li><p>Select <strong>Open</strong>.</p></li>
+<li><p>Navigate to and select the <code class="docutils literal notranslate"><span class="pre">ring/extensions/android/ringlibsdl/project</span></code> directory.</p></li>
+<li><p>Wait for Android Studio to sync the project with Gradle.</p></li>
+<li><p>Once synced, you can build the project using the <strong>Build</strong> menu (e.g., <code class="docutils literal notranslate"><span class="pre">Build</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">App</span> <span class="pre">Bundles</span> <span class="pre">or</span> <span class="pre">APKs</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">APKs</span></code>).</p></li>
+<li><p>You can also run the application directly on an emulator or a connected device by clicking the <strong>Run</strong> button (green play icon).</p></li>
+</ol>
+</section>
+<section id="method-2-using-gradle-from-the-command-line">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Method 2: Using Gradle from the Command Line</a><a class="headerlink" href="#method-2-using-gradle-from-the-command-line" title="Permalink to this heading"></a></h3>
+<p>If you prefer not to use the Android Studio GUI, you can build the project using the included Gradle wrapper.</p>
+<ol class="arabic simple">
+<li><p>Open a terminal or command prompt.</p></li>
+<li><p>Navigate to the project directory:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>ring/extensions/android/ringlibsdl/project
 </pre></div>
 </div>
-<p>Then we can create the package (<a href="#id5"><span class="problematic" id="id6">*</span></a>.apk) using the next command.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ant debug
+<ol class="arabic simple" start="3">
+<li><p>To build a debug APK, run the appropriate command for your system:</p></li>
+</ol>
+<p><strong>On Windows:</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gradlew.bat assembleDebug
 </pre></div>
 </div>
-<p>We can write a batch file for building the project (file: build.bat)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rem You will need to modify this batch file based on your environment
-
-set JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_05
-set ANDROID_HOME=B:\mahmoud\Tools\JavaAndroid\adt-bundle-windows-x86-20140702\sdk
-set NDK_ROOT=B:\mahmoud\Tools\JavaAndroid\android-ndk-r10c
-
-set path=%path%;B:\mahmoud\Tools\JavaAndroid\android-ndk-r10c
-set path=%path%;B:\mahmoud\Tools\JavaAndroid\apache-ant-1.9.4\bin
-
-ndk-build
+<p><strong>On Linux and macOS:</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./gradlew assembleDebug
 </pre></div>
 </div>
+<ol class="arabic simple" start="4">
+<li><p>The generated APK will be located in the <code class="docutils literal notranslate"><span class="pre">app/build/outputs/apk/debug/</span></code> directory.</p></li>
+</ol>
+</section>
+<section id="method-3-using-build-scripts">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Method 3: Using Build Scripts</a><a class="headerlink" href="#method-3-using-build-scripts" title="Permalink to this heading"></a></h3>
+<p>For a fully automated build process, you can use the provided build scripts that handle environment setup and building.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">build.sh</span></code> (for Linux) and <code class="docutils literal notranslate"><span class="pre">build.ps1</span></code> (for Windows) scripts will:</p>
+<ul class="simple">
+<li><p>Check for required prerequisites (JDK, SDK, NDK, Gradle wrapper)</p></li>
+<li><p>Set up environment variables for the build session</p></li>
+<li><p>Execute the Gradle build process</p></li>
+<li><p>Display build output and results</p></li>
+</ul>
+<section id="id4">
+<h4>On Linux<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open a terminal.</p></li>
+<li><p>Navigate to the project root directory.</p></li>
+<li><p>Make the script executable and run it:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./build.sh
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h4>On Windows<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open PowerShell.</p></li>
+<li><p>Navigate to the project root directory.</p></li>
+<li><p>Run the script:</p></li>
+</ol>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.\</span><span class="n">build</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="troubleshooting">
+<span id="index-7"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<section id="common-issues">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Common Issues</a><a class="headerlink" href="#common-issues" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Gradle sync fails in Android Studio</strong></dt><dd><p>Make sure you have the correct Android SDK and NDK versions installed as specified in the <span class="xref std std-ref">prerequisites</span> section.</p>
+</dd>
+<dt><strong>Environment variables not recognized</strong></dt><dd><p>If you didn’t use the automated setup scripts, ensure you’ve properly set the <code class="docutils literal notranslate"><span class="pre">JAVA_HOME</span></code> and <code class="docutils literal notranslate"><span class="pre">ANDROID_SDK_ROOT</span></code> environment variables as described in the <span class="xref std std-ref">environment-setup</span> section.</p>
+</dd>
+<dt><strong>Build fails with missing dependencies</strong></dt><dd><p>Run the appropriate dependency download script for your platform (<code class="docutils literal notranslate"><span class="pre">download_deps.sh</span></code> or <code class="docutils literal notranslate"><span class="pre">download_deps.ps1</span></code>) as described in the <span class="xref std std-ref">download-third-party-library-sources</span> section.</p>
+</dd>
+<dt><strong>APK installs but crashes on launch</strong></dt><dd><p>Check that all required assets are in the <code class="docutils literal notranslate"><span class="pre">app/src/main/assets</span></code> folder and that the <code class="docutils literal notranslate"><span class="pre">start.ring</span></code> file correctly loads your main game file.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="next-steps">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Next Steps</a><a class="headerlink" href="#next-steps" title="Permalink to this heading"></a></h2>
+<p>After successfully building your Android application:</p>
+<ol class="arabic simple">
+<li><p>Test the application on an actual Android device to ensure proper functionality.</p></li>
+<li><p>Consider creating a signed release build for distribution:
+- In Android Studio: <code class="docutils literal notranslate"><span class="pre">Build</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Signed</span> <span class="pre">Bundle</span> <span class="pre">/</span> <span class="pre">APK</span></code>
+- Follow the prompts to create or use an existing keystore</p></li>
+<li><p>For publishing to Google Play, generate an Android App Bundle (<code class="docutils literal notranslate"><span class="pre">.aab</span></code>) instead of an APK.</p></li>
+</ol>
 </section>
 </section>
 
