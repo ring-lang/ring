@@ -61,6 +61,8 @@ aOperatorSpaceAfter	= [	"=","?",",","!",
 
 aOperatorSpaceBeforeVar = [")","]","}",'"',"'","`"]
 
+aOperatorBeforeAnonFunc = [ "=", "(", "," ,"[" ]
+
 func main
 
 	aPara	   = AppArguments()
@@ -263,7 +265,7 @@ func processKeyword cValue
 		nClassTab	= 1
 		nFuncTab	= 0
 	but find([:func,:def,:function],cKeyword) 
-		if ! lastTokenIsOperator([ "=", "(", "," ,"[" ])
+		if ! lastTokenIsOperator(aOperatorBeforeAnonFunc)
 			nFuncTab	= 1
 		else
 			# We have anonymous function
