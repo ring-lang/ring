@@ -11,7 +11,7 @@ load "tokenslib.ring"
 
 cKeywordsStyle		= :lower	# Options :lower, :upper, :name
 cIndentation 		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
-lPrintOutput		= False		# Just Print the output
+cOutputType		= :print	# Just Print the output
 
 # Global Variables (Control)
 
@@ -132,7 +132,9 @@ func processOptions cOption
 	on "indentation:8spaces"
 		cIndentation	= :8spaces
 	on "output:print"
-		lPrintOutput	= True
+		cOutputType	= :print
+	on "output:write"
+		cOutputType	= :write
 	other
 		return false
 	off	
@@ -192,9 +194,9 @@ func processTokens aTokens
 		nCurrentToken++
 	next
 
-	if lPrintOutput
+	if cOutputType = :print
 		? cOutputBuffer
-	else
+	but cOutputType = :write
 		write(cCurrentFileName, cOutputBuffer)
 	ok
 
