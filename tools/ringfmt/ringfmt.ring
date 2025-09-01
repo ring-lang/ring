@@ -131,6 +131,12 @@ func processOptions cOption
 		cIndentation	= :4spaces
 	on "indentation:8spaces"
 		cIndentation	= :8spaces
+	on "indentation:2"
+		cIndentation	= :2spaces
+	on "indentation:4"
+		cIndentation	= :4spaces
+	on "indentation:8"
+		cIndentation	= :8spaces
 	on "output:print"
 		cOutputType	= :print
 	on "output:write"
