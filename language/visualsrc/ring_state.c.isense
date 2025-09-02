@@ -62,9 +62,9 @@ lOnlyTokens : 1
 Type: unsigned int
 lNoLineNumber : 1
 Type: unsigned int
-lUsingThreads: 1
+lUsingThreads : 1
 Type: unsigned int
-lRunFromThread : 1
+lRunFromSubThread : 1
 Type: unsigned int
 lNotCaseSensitive : 1
 Type: unsigned int
@@ -172,7 +172,7 @@ pVM
 Type: const char *
 cFileName
 Type: int
-x,lCont,lRunVM,lFreeFilesList
+x,lCont,lRunVM,lFreeFilesList,nFileSize
 c
 ring_state_exit
 ring_state_cgiheader

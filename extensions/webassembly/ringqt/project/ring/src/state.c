@@ -344,7 +344,7 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 	Scanner *pScanner;
 	VM *pVM;
 	const char *cFileName = "runstring";
-	int x, lCont, lRunVM, lFreeFilesList;
+	int x, lCont, lRunVM, lFreeFilesList, nFileSize;
 	signed char c;
 	lFreeFilesList = 0;
 	/* Check file */
@@ -372,7 +372,8 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 	}
 	/* Read String */
 	pScanner = ring_scanner_new(pRingState);
-	for (x = 0; x < strlen(cString); x++) {
+	nFileSize = strlen(cString);
+	for (x = 0; x < nFileSize; x++) {
 		c = cString[x];
 		ring_scanner_readchar(pScanner, c);
 	}
