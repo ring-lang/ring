@@ -495,6 +495,16 @@ func processEndLine cEndLine
 		nTabsCount = nLastTabsCount-1
 	ok
 
+	# Take in mind that we can write an if-statement in one line (using braces)
+	# Example: if condition { }
+	# This will lead to increasing the nTabsCount!
+
+	if nTabsCount = nLastTabsCount+1 and 
+		aFileTokens[nLastTokenInLastLine][C_TOKENTYPE] = C_OPERATOR and
+		aFileTokens[nLastTokenInLastLine][C_TOKENVALUE] = "}"
+		nTabsCount = nLastTabsCount
+	ok 
+
 	nLastTabsCount = nTabsCount
 
 	return cValue + getTabs()
