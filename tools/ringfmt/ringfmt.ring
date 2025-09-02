@@ -47,8 +47,7 @@ aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try			]
 aEndTabs		= [	:next, :end, :again, :ok, :off, :done,
 				:endif, :endfor, :endswitch, :endtry, :endwhile			]
 
-aStartNL		= [	:load, :package, :import,  
-				:else, :elseif, :but, :on, :case, :other, :catch		]
+aStartNL		= [	:package, :else, :elseif, :but, :on, :case, :other, :catch	]
 
 aOperatorSpaceBefore	= [	"=","?","{",
 				"+=","-=","*=","/=","%=",
