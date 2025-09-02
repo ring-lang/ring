@@ -314,7 +314,7 @@ unsigned int ring_scanner_isnumber(String *pStr) {
 	lHex = RING_FALSE;
 	cStr = ring_string_get(pStr);
 	nLen = ring_string_size(pStr);
-	for (x = 0; x < strlen(cStr); x++) {
+	for (x = 0; x < nLen; x++) {
 		/* Accept Hexadecimal values */
 		if ((x == 0) && (nLen > 2)) {
 			if (cStr[0] == '0') {
