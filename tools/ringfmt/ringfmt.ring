@@ -29,6 +29,7 @@ lSpaceAfterToken	= False
 ## New Lines 
 lNextNLisTwoNLs		= False
 nLastLineNumber		= 0
+nLastTokenInLastLine	= 0
 
 ## Tabs and Indentation
 nTabsCount		= 0
@@ -376,13 +377,20 @@ func processOperator cOperator
 			cOperator += cKeyword
 		ok
 	but cOperator = "{"
-		nTabsCount++ 
-	but cOperator = "}"
-		if nTabsCount nTabsCount-- ok
-		removeLastTabFromBuffer()
+		lAddTabs = True
+		# Take in mind writing conditions in many lines then using braces
+		if nLastTokenInLastLine
+			if aFileTokens[nLastTokenInLastLine][C_TOKENTYPE] = C_KEYWORD
+				cKeyword = lower(aKeywords[0+aFileTokens[nLastTokenInLastLine][C_TOKENVALUE]])
+				lAddTabs = ! ( cKeyword = "and" or cKeyword = "or" or cKeyword = "not" )
+			ok
+		ok
+		if lAddTabs
+			nTabsCount++ 
+		ok
 	but cOperator = "["
 		nTabsCount++ 
-	but cOperator = "]"
+	but cOperator = "}" or cOperator = "]"
 		if nTabsCount nTabsCount-- ok
 		removeLastTabFromBuffer()
 	ok
@@ -455,6 +463,8 @@ func getLastCharInBuffer
 	return NULL
 
 func processEndLine cEndLine
+
+	nLastTokenInLastLine = nCurrentToken - 1
 
 	if isWindows()
 		cValue   = WindowsNL()
