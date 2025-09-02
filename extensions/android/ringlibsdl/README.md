@@ -114,11 +114,11 @@ Open your terminal and run the `download_deps.sh` script:
 
 Open the project folder located at: `ring/extensions/android/ringlibsdl/project`
 
-![RingLibSDL for Android Project Structure](ringlibsdlandroid_shot1.png)
+![RingLibSDL for Android Project Structure](../../../documents/source/ringlibsdlandroid_shot1.png)
 
 You can add your source code (`*.ring`), images, and sound files to the `app/src/main/assets` folder.
 
-![RingLibSDL for Android Assets Folder](ringlibsdlandroid_shot2.png)
+![RingLibSDL for Android Assets Folder](../../../documents/source/ringlibsdlandroid_shot2.png)
 
 You will find the "Flappy Bird 3000" game ready for building. The execution starts from the `start.ring` file in the assets folder.
 
