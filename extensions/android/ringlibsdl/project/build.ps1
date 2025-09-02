@@ -142,30 +142,15 @@ function Invoke-GradleBuild {
     )
     
     Write-LogMessage "Starting the Gradle build process ($Task)..."
-    Write-LogMessage "Build output will be displayed below:" -Level "INFO"
     Write-Host "--------------------------------------------------" -ForegroundColor Cyan
-    
+
     try {
-        # Execute the build command and capture output
-        $process = Start-Process -FilePath $GradlewPath -ArgumentList $Task -NoNewWindow -Wait -PassThru -RedirectStandardOutput "$env:TEMP\gradle_stdout.txt" -RedirectStandardError "$env:TEMP\gradle_stderr.txt"
-        
-        # Display standard output
-        if (Test-Path "$env:TEMP\gradle_stdout.txt") {
-            Get-Content "$env:TEMP\gradle_stdout.txt" | ForEach-Object {
-                Write-Host $_
-            }
-        }
-        
-        # Display standard error
-        if (Test-Path "$env:TEMP\gradle_stderr.txt") {
-            Get-Content "$env:TEMP\gradle_stderr.txt" | ForEach-Object {
-                Write-Host $_ -ForegroundColor Red
-            }
-        }
-        
+        # Execute the build command
+        $process = Start-Process -FilePath $GradlewPath -ArgumentList $Task -NoNewWindow -Wait -PassThru
+
         Write-Host "--------------------------------------------------" -ForegroundColor Cyan
         $exitCode = $process.ExitCode
-        
+
         if ($exitCode -eq 0) {
             Write-LogMessage "Build completed successfully." -Level "SUCCESS"
             return $true
@@ -178,11 +163,6 @@ function Invoke-GradleBuild {
     catch {
         Write-LogMessage "An exception occurred during the build process. Error: $_" -Level "ERROR"
         return $false
-    }
-    finally {
-        # Clean up temporary files
-        Remove-Item "$env:TEMP\gradle_stdout.txt" -ErrorAction SilentlyContinue
-        Remove-Item "$env:TEMP\gradle_stderr.txt" -ErrorAction SilentlyContinue
     }
 }
 
