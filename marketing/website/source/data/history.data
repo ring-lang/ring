@@ -1,4 +1,5 @@
 aNews = [
+  ["September 2, 2025",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/android/ringlibsdl"> Building Games For Android</a>'],
   ["August 20, 2025",'<a href="https://github.com/ysdragon/ring-jwt"> Ring-JWT: Authentication and authorization library for Ring</a>'],
   ["August 17, 2025",'<a href="https://github.com/azzeddine2017/ringpmgui"> RingPM GUI</a>'],
   ["August 14, 2025",'<a href="https://github.com/ysdragon/deploy-ring"> Ring Cloud Deployment Guides</a>'],
