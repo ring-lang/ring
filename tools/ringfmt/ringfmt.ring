@@ -53,7 +53,7 @@ aOperatorSpaceBefore	= [	"=","?","{",
 				"+=","-=","*=","/=","%=",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
-aOperatorSpaceAfter	= [	"=","?",",","!",
+aOperatorSpaceAfter	= [	"=","?",",","!","{",
 				"+=","-=","*=","/=","%=",
 				"&=","|=","^=","<<=",">>=",
 				"<",">","<=",">=","!=","&&","||"				]
@@ -378,6 +378,11 @@ func processOperator cOperator
 	but cOperator = "{"
 		nTabsCount++ 
 	but cOperator = "}"
+		if nTabsCount nTabsCount-- ok
+		removeLastTabFromBuffer()
+	but cOperator = "["
+		nTabsCount++ 
+	but cOperator = "]"
 		if nTabsCount nTabsCount-- ok
 		removeLastTabFromBuffer()
 	ok
