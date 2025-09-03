@@ -179,7 +179,8 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 		pScanner->pRingState->lStartup = 1;
 		strcpy(cStartup, RING_FILES_LOADSTARTUPSTR);
 		/* Execute Load Startup File */
-		for (x = 0; x < strlen(cStartup); x++) {
+		nSize = strlen(cStartup);
+		for (x = 0; x < nSize; x++) {
 			ring_scanner_readchar(pScanner, cStartup[x]);
 		}
 		/* Set the line number */
@@ -193,7 +194,8 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 	if (ring_general_fexists(RING_FILES_AUTOLOADSYNTAX) && !(strcmp(cFileName2, RING_FILES_AUTOLOADSYNTAX) == 0)) {
 		strcpy(cStartup, RING_FILES_LOADSYNTAXSTR);
 		/* Execute Load Syntax File */
-		for (x = 0; x < strlen(cStartup); x++) {
+		nSize = strlen(cStartup);
+		for (x = 0; x < nSize; x++) {
 			ring_scanner_readchar(pScanner, cStartup[x]);
 		}
 		ring_string_setfromint_gc(pRingState, pScanner->pActiveToken, RING_ONE);
