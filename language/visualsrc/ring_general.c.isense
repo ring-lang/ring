@@ -37,7 +37,7 @@ Type: int
 x
 ring_general_folderexistinfilename
 Type: int
-x
+x, nSize
 ring_general_exefolder
 Type: char
 cDir[RING_PATHSIZE]
