@@ -36,7 +36,7 @@ ring_general_isobjectfile
 Type: int
 x
 ring_general_folderexistinfilename
-Type: int
+Type: unsigned int
 x, nSize
 ring_general_exefolder
 Type: char

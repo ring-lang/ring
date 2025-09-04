@@ -161,17 +161,17 @@ RING_API int ring_general_isobjectfile(const char *cStr) {
 }
 
 RING_API int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName) {
-	int x, nSize;
+	unsigned int x, nSize;
 	nSize = strlen(cFolderName);
 	if (nSize < strlen(cFileName)) {
 #ifdef _WIN32
-		for (x = 0; (unsigned)x < nSize; x++) {
+		for (x = 0; x < nSize; x++) {
 			if ((tolower(cFolderName[x]) != tolower(cFileName[x]))) {
 				return RING_FALSE;
 			}
 		}
 #else
-		for (x = 0; (unsigned)x < nSize; x++) {
+		for (x = 0; x < nSize; x++) {
 			if (cFolderName[x] != cFileName[x]) {
 				return RING_FALSE;
 			}
