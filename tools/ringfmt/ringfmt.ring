@@ -209,6 +209,7 @@ func processTokens aTokens
 	if cOutputType = :print
 		? cOutputBuffer
 	but cOutputType = :write
+		? "Write File: " + cCurrentFileName
 		write(cCurrentFileName, cOutputBuffer)
 	ok
 
@@ -216,7 +217,6 @@ func resetVariables
 
 	nCurrentToken		= 1
 	cOutputBuffer		= ""
-	cCurrentFileName	= ""
 	lNextNLisTwoNLs		= False
 	nLastLineNumber		= 0
 	nTabsCount		= 0
@@ -224,7 +224,6 @@ func resetVariables
 	nClassTab		= 0
 	nFuncTab		= 0	
 	nLastTabsCount		= 0
-
 
 func processToken aToken, cValue
 
