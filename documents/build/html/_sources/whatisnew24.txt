@@ -203,7 +203,8 @@ More Improvements
 * RingLibSDL: Enable building the extension using recent MSVC compiler
 * RingLibSDL: Better support for Android (Using recent development tools)
 * RingLibuv: Revise the samples to use destroy_sockaddr_in() function 
-* StdLib - isAppCompiled() function - Better implemetation
+* StdLib - isAppCompiled() function: Better implemetation
+* ring_state_stringtokens(): Better performance 
 * Space() function: Don't accept values over UINT_MAX
 * List() function: Don't accept values over UINT_MAX 
 * List() function: Don't use blocks for small 1D lists
