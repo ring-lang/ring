@@ -64,6 +64,8 @@ aOperatorBeforeAnonFunc = [	"=", "(", "," ,"[" 						]
 
 func main
 
+	decimals(3)
+
 	aPara	   = AppArguments()
 
 	nParaCount = len(aPara)
@@ -139,6 +141,8 @@ func processOptions cOption
 		cOutputType	= :print
 	on "output:write"
 		cOutputType	= :write
+	on "output:none"
+		cOutputType	= :none
 	other
 		return false
 	off	
@@ -163,7 +167,11 @@ func processFile cFileName
 	cFileDir = justFilePath(cFileName)
 	if cFileDir chdir(cFileDir) ok
 	try
+		nClock1 = clock()
 		processTokens(loadFileTokens(cFileName))
+		line()	
+		? "Processing Time: " + ((clock()-nClock1)/clocksPerSecond()) + " seconds."
+		line()
 	catch
 		line()
 		? "Error processing the file: " + cFileName
