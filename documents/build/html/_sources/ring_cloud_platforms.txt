@@ -209,40 +209,52 @@ Open your terminal and authenticate the Railway CLI.
    railway login
 
 .. index::
-   pair: Railway.app; Initialize and Deploy
-2. Initialize and Deploy
-^^^^^^^^^^^^^^^^^^^^^^^^
+   pair: Railway.app; Initialize a New Project
+2. Initialize a New Project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate to your project directory in your terminal and run the ``up`` command.
+This command creates a new project in your Railway account.
 
 .. code-block:: bash
 
-   # In your project folder containing app.ring and Dockerfile
-   railway up
-
-This command will:
-
-*  Prompt you to create a new project on Railway. Confirm this.
-*  Detect the ``Dockerfile`` in your directory.
-*  Build the Docker image from your local files and upload it.
-*  Deploy the service.
-
-The first deployment will start, but the application won't work correctly until we set the required environment variable.
+    railway init --name my_ring_project
 
 .. index::
-   pair: Railway.app; Configure the Environment Variable
-3. Configure the Environment Variable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   pair: Railway.app; Link Your Local Directory
+3. Link Your Local Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use the CLI to set the ``RING_FILE`` variable. This tells our Ring container which script to execute. Railway will automatically trigger a new deployment with this setting.
+Next, associate your local project directory with the project you just created on Railway.
 
 .. code-block:: bash
 
-   railway variables --set "RING_FILE=app.ring"
+    railway link --project my_ring_project
+
+.. index::
+   pair: Railway.app; Add Service and Configure Variables
+4. Add Service and Configure Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This command creates a new service and sets its required environment variables.
+
+.. code-block:: bash
+
+   railway add --service my_ring_project --variables "RING_FILE=app.ring"
+
+.. index::
+   pair: Railway.app; Deploy the Application
+5. Deploy the Application
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now, deploy your application. The ``up`` command builds your ``Dockerfile`` and starts the service. The ``-c`` flag streams build logs only, then exits.
+
+.. code-block:: bash
+
+   railway up -c
 
 .. index::
    pair: Railway.app; Generate a Public Domain
-4. Generate a Public Domain
+6. Generate a Public Domain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, a new service on Railway is not exposed to the public internet. You can generate a secure, public domain for it using the ``railway domain`` command.
@@ -255,12 +267,12 @@ The command will return a public URL for your service, which will look something
 
 .. index::
    pair: Railway.app; Visit Your Application
-5. Visit Your Application
+7. Visit Your Application
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can now visit the ``https://...up.railway.app`` URL that was generated in the previous step to see your live Ring application.
 
-At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again in the "Settings" tab of your service.
+At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again.
 
 .. code-block:: bash
 

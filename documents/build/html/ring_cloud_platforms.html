@@ -27,7 +27,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Deploying Web Applications to Shared Hosting" href="ring_cloud_cgi.html" />
+    <link rel="next" title="Deploying Ring Web Applications to Shared Hosting" href="ring_cloud_cgi.html" />
     <link rel="prev" title="Deploying Ring Web Applications using Docker" href="ring_cloud.html" /> 
 </head>
 
@@ -124,10 +124,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#path-b-deploying-to-railway-app">Path B: Deploying to Railway.app</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#log-in-to-railway">1. Log in to Railway</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#initialize-and-deploy">2. Initialize and Deploy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configure-the-environment-variable">3. Configure the Environment Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#generate-a-public-domain">4. Generate a Public Domain</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#index-16">5. Visit Your Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialize-a-new-project">2. Initialize a New Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#link-your-local-directory">3. Link Your Local Directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-service-and-configure-variables">4. Add Service and Configure Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-16">5. Deploy the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generate-a-public-domain">6. Generate a Public Domain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#index-18">7. Visit Your Application</a></li>
 </ul>
 </li>
 </ul>
@@ -246,20 +248,20 @@
 <nav class="contents local" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#introduction-the-paas-model" id="id2">1. Introduction: The PaaS Model</a></p></li>
-<li><p><a class="reference internal" href="#prerequisites" id="id3">2. Prerequisites</a></p></li>
-<li><p><a class="reference internal" href="#the-foundation-application-and-dockerfile" id="id4">3. The Foundation: Application and Dockerfile</a></p></li>
-<li><p><a class="reference internal" href="#deployment-scenarios" id="id5">4. Deployment Scenarios</a></p>
+<li><p><a class="reference internal" href="#introduction-the-paas-model" id="id3">1. Introduction: The PaaS Model</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id4">2. Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#the-foundation-application-and-dockerfile" id="id5">3. The Foundation: Application and Dockerfile</a></p></li>
+<li><p><a class="reference internal" href="#deployment-scenarios" id="id6">4. Deployment Scenarios</a></p>
 <ul>
-<li><p><a class="reference internal" href="#path-a-deploying-to-fly-io" id="id6">Path A: Deploying to Fly.io</a></p></li>
-<li><p><a class="reference internal" href="#path-b-deploying-to-railway-app" id="id7">Path B: Deploying to Railway.app</a></p></li>
+<li><p><a class="reference internal" href="#path-a-deploying-to-fly-io" id="id7">Path A: Deploying to Fly.io</a></p></li>
+<li><p><a class="reference internal" href="#path-b-deploying-to-railway-app" id="id8">Path B: Deploying to Railway.app</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#conclusion" id="id8">5. Conclusion</a></p></li>
+<li><p><a class="reference internal" href="#conclusion" id="id9">5. Conclusion</a></p></li>
 </ul>
 </nav>
 <section id="introduction-the-paas-model">
-<span id="index-1"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">1. Introduction: The PaaS Model</a><a class="headerlink" href="#introduction-the-paas-model" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">1. Introduction: The PaaS Model</a><a class="headerlink" href="#introduction-the-paas-model" title="Permalink to this heading"></a></h2>
 <p>This approach differs fundamentally from setting up a reverse proxy on a cloud VM.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -294,7 +296,7 @@
 <p>This tutorial focuses specifically on Fly.io and Railway.app because they are exceptionally developer-friendly and share a critical feature: <strong>both offer a generous free tier that does not require a credit card to get started.</strong> This makes them the perfect platforms for learning, prototyping, and deploying personal or small-scale applications without any initial financial commitment.</p>
 </section>
 <section id="prerequisites">
-<span id="index-2"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">2. Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">2. Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>A basic understanding of the Ring programming language.</p></li>
 <li><p>A free account on <a class="reference external" href="https://fly.io/">Fly.io</a> and/or <a class="reference external" href="https://railway.com/">Railway.app</a>.</p></li>
@@ -307,7 +309,7 @@
 </ul>
 </section>
 <section id="the-foundation-application-and-dockerfile">
-<span id="index-3"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">3. The Foundation: Application and Dockerfile</a><a class="headerlink" href="#the-foundation-application-and-dockerfile" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">3. The Foundation: Application and Dockerfile</a><a class="headerlink" href="#the-foundation-application-and-dockerfile" title="Permalink to this heading"></a></h2>
 <p>For consistency, we will deploy the exact same application and <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> used in the reverse proxy tutorial. This highlights a key benefit of Docker: the containerized application is portable and does not need to be changed for different hosting environments.</p>
 <p>Ensure you have these two files in your project directory.</p>
 <ol class="arabic simple">
@@ -318,15 +320,15 @@
 <span class="c1"># Main Execution Block</span>
 <span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
    <span class="c1"># Route for the root path</span>
-   <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="ss">:mainRoute</span><span class="p">)</span>
+   <span class="nf">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="ss">:mainRoute</span><span class="p">)</span>
 
    <span class="c1"># Listen on all available network interfaces on port 8080</span>
-   <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+   <span class="nf">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">mainRoute</span>
    <span class="c1"># Set content type to HTML</span>
-   <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;&lt;!DOCTYPE html&gt;</span>
+   <span class="n">oServer</span><span class="o">.</span><span class="nf">setContent</span><span class="p">(</span><span class="s2">&quot;&lt;!DOCTYPE html&gt;</span>
 <span class="s2">&lt;html&gt;</span>
 <span class="s2">&lt;head&gt;&lt;title&gt;Ring HTTPLib App&lt;/title&gt;&lt;/head&gt;</span>
 <span class="s2">&lt;body&gt;</span>
@@ -355,11 +357,11 @@
 </div>
 </section>
 <section id="deployment-scenarios">
-<span id="index-4"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">4. Deployment Scenarios</a><a class="headerlink" href="#deployment-scenarios" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">4. Deployment Scenarios</a><a class="headerlink" href="#deployment-scenarios" title="Permalink to this heading"></a></h2>
 <p>Choose the platform you wish to deploy to.</p>
 <p>—</p>
 <section id="path-a-deploying-to-fly-io">
-<span id="index-5"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Path A: Deploying to Fly.io</a><a class="headerlink" href="#path-a-deploying-to-fly-io" title="Permalink to this heading"></a></h3>
+<span id="index-5"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Path A: Deploying to Fly.io</a><a class="headerlink" href="#path-a-deploying-to-fly-io" title="Permalink to this heading"></a></h3>
 <p>Fly.io launches your application containers on “micro-VMs” across its global network. The deployment is a two-step process: first, you initialize the configuration, and second, you deploy.</p>
 <section id="log-in-to-fly-io">
 <span id="index-6"></span><h4>1. Log in to Fly.io<a class="headerlink" href="#log-in-to-fly-io" title="Permalink to this heading"></a></h4>
@@ -407,7 +409,7 @@
 </section>
 </section>
 <section id="path-b-deploying-to-railway-app">
-<span id="index-11"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Path B: Deploying to Railway.app</a><a class="headerlink" href="#path-b-deploying-to-railway-app" title="Permalink to this heading"></a></h3>
+<span id="index-11"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Path B: Deploying to Railway.app</a><a class="headerlink" href="#path-b-deploying-to-railway-app" title="Permalink to this heading"></a></h3>
 <p>Railway offers an incredibly simple deployment experience, allowing you to deploy directly from your local machine with its powerful command-line interface.</p>
 <section id="log-in-to-railway">
 <span id="index-12"></span><h4>1. Log in to Railway<a class="headerlink" href="#log-in-to-railway" title="Permalink to this heading"></a></h4>
@@ -416,41 +418,46 @@
 </pre></div>
 </div>
 </section>
-<section id="initialize-and-deploy">
-<span id="index-13"></span><h4>2. Initialize and Deploy<a class="headerlink" href="#initialize-and-deploy" title="Permalink to this heading"></a></h4>
-<p>Navigate to your project directory in your terminal and run the <code class="docutils literal notranslate"><span class="pre">up</span></code> command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># In your project folder containing app.ring and Dockerfile</span>
-railway<span class="w"> </span>up
+<section id="initialize-a-new-project">
+<span id="index-13"></span><h4>2. Initialize a New Project<a class="headerlink" href="#initialize-a-new-project" title="Permalink to this heading"></a></h4>
+<p>This command creates a new project in your Railway account.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>init<span class="w"> </span>--name<span class="w"> </span>my_ring_project
 </pre></div>
 </div>
-<p>This command will:</p>
-<ul class="simple">
-<li><p>Prompt you to create a new project on Railway. Confirm this.</p></li>
-<li><p>Detect the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> in your directory.</p></li>
-<li><p>Build the Docker image from your local files and upload it.</p></li>
-<li><p>Deploy the service.</p></li>
-</ul>
-<p>The first deployment will start, but the application won’t work correctly until we set the required environment variable.</p>
 </section>
-<section id="configure-the-environment-variable">
-<span id="index-14"></span><h4>3. Configure the Environment Variable<a class="headerlink" href="#configure-the-environment-variable" title="Permalink to this heading"></a></h4>
-<p>Use the CLI to set the <code class="docutils literal notranslate"><span class="pre">RING_FILE</span></code> variable. This tells our Ring container which script to execute. Railway will automatically trigger a new deployment with this setting.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>variables<span class="w"> </span>--set<span class="w"> </span><span class="s2">&quot;RING_FILE=app.ring&quot;</span>
+<section id="link-your-local-directory">
+<span id="index-14"></span><h4>3. Link Your Local Directory<a class="headerlink" href="#link-your-local-directory" title="Permalink to this heading"></a></h4>
+<p>Next, associate your local project directory with the project you just created on Railway.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>link<span class="w"> </span>--project<span class="w"> </span>my_ring_project
+</pre></div>
+</div>
+</section>
+<section id="add-service-and-configure-variables">
+<span id="index-15"></span><h4>4. Add Service and Configure Variables<a class="headerlink" href="#add-service-and-configure-variables" title="Permalink to this heading"></a></h4>
+<p>This command creates a new service and sets its required environment variables.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>add<span class="w"> </span>--service<span class="w"> </span>my_ring_project<span class="w"> </span>--variables<span class="w"> </span><span class="s2">&quot;RING_FILE=app.ring&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="index-16">
+<span id="id1"></span><h4>5. Deploy the Application<a class="headerlink" href="#index-16" title="Permalink to this heading"></a></h4>
+<p>Now, deploy your application. The <code class="docutils literal notranslate"><span class="pre">up</span></code> command builds your <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> and starts the service. The <code class="docutils literal notranslate"><span class="pre">-c</span></code> flag streams build logs only, then exits.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>up<span class="w"> </span>-c
 </pre></div>
 </div>
 </section>
 <section id="generate-a-public-domain">
-<span id="index-15"></span><h4>4. Generate a Public Domain<a class="headerlink" href="#generate-a-public-domain" title="Permalink to this heading"></a></h4>
+<span id="index-17"></span><h4>6. Generate a Public Domain<a class="headerlink" href="#generate-a-public-domain" title="Permalink to this heading"></a></h4>
 <p>By default, a new service on Railway is not exposed to the public internet. You can generate a secure, public domain for it using the <code class="docutils literal notranslate"><span class="pre">railway</span> <span class="pre">domain</span></code> command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>railway<span class="w"> </span>domain
 </pre></div>
 </div>
 <p>The command will return a public URL for your service, which will look something like <code class="docutils literal notranslate"><span class="pre">your-app-name-production.up.railway.app</span></code>.</p>
 </section>
-<section id="index-16">
-<span id="id1"></span><h4>5. Visit Your Application<a class="headerlink" href="#index-16" title="Permalink to this heading"></a></h4>
+<section id="index-18">
+<span id="id2"></span><h4>7. Visit Your Application<a class="headerlink" href="#index-18" title="Permalink to this heading"></a></h4>
 <p>You can now visit the <code class="docutils literal notranslate"><span class="pre">https://...up.railway.app</span></code> URL that was generated in the previous step to see your live Ring application.</p>
-<p>At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again in the “Settings” tab of your service.</p>
+<p>At any time, you can also open your project dashboard in the browser to view logs, settings, and find this domain again.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This command opens your Railway project dashboard in the browser</span>
 railway<span class="w"> </span>open
 </pre></div>
@@ -459,7 +466,7 @@ railway<span class="w"> </span>open
 </section>
 </section>
 <section id="conclusion">
-<span id="index-17"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">5. Conclusion</a><a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">5. Conclusion</a><a class="headerlink" href="#conclusion" title="Permalink to this heading"></a></h2>
 <p>This tutorial demonstrated how modern PaaS providers can eliminate nearly all the overhead of infrastructure management.</p>
 <ul class="simple">
 <li><p><strong>Fly.io</strong> is a fantastic choice when you need more control over your deployment’s configuration, want to distribute your application globally, or need to run services other than web apps. It gives you power and flexibility while still automating the hardest parts of deployment.</p></li>
@@ -474,7 +481,7 @@ railway<span class="w"> </span>open
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ring_cloud.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications using Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-right" title="Deploying Web Applications to Shared Hosting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-right" title="Deploying Ring Web Applications to Shared Hosting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

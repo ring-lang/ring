@@ -115,6 +115,7 @@ This wrapper cleverly handles different hosting configurations, sets up necessar
       #     or /home/domain.com/httpdocs/cgi-bin
       # cPanel/DirectAdmin: /home/username/public_html/cgi-bin
       # KeyHelp: /home/users/username/www/cgi-bin
+      # ispManager: /var/www/username/data/www/domain/cgi-bin
       if [[ "$PWD" == /var/www/vhosts/* ]]; then
         HOME_DIR_GUESS="${PWD%/httpdocs*}"
       elif [[ "$PWD" == /home/users/* ]]; then
@@ -123,6 +124,8 @@ This wrapper cleverly handles different hosting configurations, sets up necessar
         HOME_DIR_GUESS="${PWD%/public_html*}"
       elif [[ "$PWD" == /home/*/httpdocs* ]]; then
         HOME_DIR_GUESS="${PWD%/httpdocs*}"
+      elif [[ "$PWD" == /var/www/*/data/* ]]; then
+        HOME_DIR_GUESS="${PWD%%/data/*}/data"
       else
         # Fallback to the current directory if no pattern matches.
         HOME_DIR_GUESS="$PWD"
@@ -466,6 +469,19 @@ KeyHelp
 *   **File Uploads:** Use the **Files -> File Manager**. Your web root is typically ``/www`` inside your user's home directory (``/home/users/username/www``).
 *   **Permissions:** Within the File Manager, you can change a file's permissions. Click on the file and adjust the permissions as needed (e.g., from ``0644`` to ``0755`` to make a script executable).
 *   **CGI Status:** CGI is **not** enabled by default for users. The server administrator must first enable the "Perl/CGI" permission for the specific user account. Once enabled, ``.htaccess`` directives can be used to manage CGI script execution. The ``ring.cgi`` wrapper's logic should function correctly within KeyHelp's structure, provided the necessary permissions are set.
+
+---
+
+.. index::
+  pair: Platform-Specific Guides; ispManager
+
+ispManager
+~~~~~~~~~~
+
+*   **Tested & Confirmed:** The ``.htaccess`` method works as expected.
+*   **File Uploads:** Use the **File Manager**. Your web root is typically located at ``/var/www/username/data/www/domain``, where ``username`` is your account name and ``domain`` is your website's domain name.
+*   **Permissions:** In the File Manager, select the ``ring.cgi`` file, click **Edit**, and then choose **Attributes**. Set the permissions to ``755`` to make it executable. By default, files are often set to ``644``, which does not allow execution.
+*   **CGI Status:** CGI support is usually enabled by default in ispManager. However, if you encounter issues, check the server settings or contact your hosting provider to ensure that CGI execution is permitted for your account. The ``ring.cgi`` wrapper should work correctly within ispManager's environment, provided the necessary permissions are set.
 
 .. index::
 	single: Deploying Ring CGI Applications; Security Considerations

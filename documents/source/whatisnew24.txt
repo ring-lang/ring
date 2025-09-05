@@ -104,6 +104,8 @@ The next samples are added:
 * samples/UsingLibSDL/test13.ring
 * samples/UsingLibSDL/test14.ring
 * samples/UsingLibSDL/test15.ring
+* samples/UsingLibSDL/test16.ring
+* samples/UsingLibSDL/test17.ring
 * samples/Language/SyntaxFiles
 * samples/Language/ClassMethods/genfunctopassmethod.ring
 * samples/Language/ClassMethods/genfunctopassmethod2.ring
