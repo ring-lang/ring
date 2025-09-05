@@ -568,7 +568,18 @@ func showhelp
 	? "2025, Mahmoud Fayed <msfclipper@yahoo.com>"
 	? "Prototyping: Bert Mariani & Azzeddine Remmal"
 	line()
-	? "Usage: ringfmt <filename.ring>"
+	? "Usage: ringfmt filename.ring [Options]"
+	line()
+	? "-keywords:upper       : Convert all keywords to UPPERCASE"
+	? "-keywords:lower       : Convert all keywords to lowercase"
+	? "-keywords:name        : Convert keywords to NameCase (e.g., Class, From)"
+	? "-indentation:tabs     : Use tab characters for indentation"
+	? "-indentation:2        : Use 2 spaces per indentation level"
+	? "-indentation:4        : Use 4 spaces per indentation level"
+	? "-indentation:8        : Use 8 spaces per indentation level"
+	? "-output:print         : Print formatted output to the console"
+	? "-output:write         : Overwrite the source file with formatted output"
+	? "-output:none          : No output"
 	line()
 
 func line
