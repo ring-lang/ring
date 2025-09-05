@@ -5,7 +5,7 @@ Class Sound from gameobject
 	type = 0
 	once = false
 	func setfile cFileName
-		if ! (isAndroid() or fexists(cFileName))
+		if ! util_fexists(cFileName)
 			? "File doesn't exist: " + cFileName
 			gl_exit()
 		ok
