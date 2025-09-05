@@ -342,14 +342,14 @@ preparing the functions/classes lists in the background.</p>
 <p>Using this function we can quickly do a process on a group of files in a folder and it’s sub folders.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">ListAllFiles</span><span class="p">(</span><span class="s2">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s2">&quot;ring&quot;</span><span class="p">)</span> <span class="c1"># *.ring only</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">ListAllFiles</span><span class="p">(</span><span class="s2">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s2">&quot;ring&quot;</span><span class="p">)</span> <span class="c1"># *.ring only</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 <span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
-<span class="k">see</span> <span class="n">listallfiles</span><span class="p">(</span><span class="s2">&quot;b:/ring/ringlibs/weblib&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># All Files</span>
+<span class="k">see</span> <span class="nf">listallfiles</span><span class="p">(</span><span class="s2">&quot;b:/ring/ringlibs/weblib&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># All Files</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -358,7 +358,7 @@ preparing the functions/classes lists in the background.</p>
 <p>The function will execute a system command like the System() function but
 will return the output in a string.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span> <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span> <span class="o">=</span> <span class="nf">SystemCmd</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s2">&quot;SystemCmd: whoami =====&quot;</span><span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">cYou</span> <span class="o">+</span><span class="bp">nl</span>
 </pre></div>
 </div>
@@ -383,44 +383,44 @@ desktop-umberto\umberto
 <span class="kd">func</span> <span class="nf">main</span>
 
         <span class="n">mypage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
-                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
                 <span class="n">Table</span>
                 <span class="p">{</span>
-                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                          <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
                           <span class="n">TR</span>
                           <span class="p">{</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
                           <span class="p">}</span>
                 <span class="p">}</span>
 
                 <span class="n">Table</span>
                 <span class="p">{</span>
-                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                          <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
                           <span class="n">TR</span>
                           <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                           <span class="p">}</span>
                           <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
                           <span class="k">next</span>
                 <span class="p">}</span>
 
         <span class="p">}</span>
 
-        <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="n">output</span><span class="p">())</span>
+        <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="nf">output</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Using this feature we can create reports quickly using WebLib &amp; GUILib together</p>
@@ -433,8 +433,8 @@ desktop-umberto\umberto
 <span class="kn">import</span> <span class="nn">System.GUI</span>
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
-        <span class="n">open_window</span><span class="p">(</span><span class="ss">:CustomersReportController</span><span class="p">)</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">open_window</span><span class="p">(</span><span class="ss">:CustomersReportController</span><span class="p">)</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">CustomersReportController</span>
@@ -442,75 +442,75 @@ desktop-umberto\umberto
         <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">CustomersReportView</span>
 
         <span class="kd">func</span> <span class="nf">Start</span>
-                <span class="n">CreateReport</span><span class="p">()</span>
+                <span class="nf">CreateReport</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">CreateReport</span>
                 <span class="n">mypage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
-                        <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="n">h1</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
                         <span class="n">Table</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
                                         <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
-                                                <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
+                                                <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
                         <span class="p">}</span>
                         <span class="n">Table</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
-                                                <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                 <span class="p">}</span>
                                 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
                                         <span class="p">}</span>
                                 <span class="k">next</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
-                <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="n">output</span><span class="p">())</span>
+                <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="nf">output</span><span class="p">())</span>
 
         <span class="kd">func</span> <span class="nf">PrintEvent</span>
                 <span class="n">printer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setoutputformat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">setoutputfilename</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span>
+                        <span class="nf">setoutputformat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="nf">setoutputfilename</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">oView</span> <span class="p">{</span>
                         <span class="n">web</span><span class="o">.</span><span class="nb">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
-                        <span class="n">web</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                        <span class="n">web</span><span class="o">.</span><span class="nf">show</span><span class="p">()</span>
                 <span class="p">}</span>
                 <span class="nb">system</span> <span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">CustomersReportView</span>
 
                 <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">window</span><span class="p">()</span> <span class="p">{</span>
-                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Report Window&quot;</span><span class="p">)</span>
-                                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                                <span class="nf">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Report Window&quot;</span><span class="p">)</span>
+                                <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
                                 <span class="n">web</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">webview</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                                        <span class="n">loadpage</span><span class="p">(</span><span class="kp">new</span> <span class="nc">qurl</span><span class="p">(</span><span class="s2">&quot;file:///&quot;</span><span class="o">+</span>
+                                        <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                                        <span class="nf">loadpage</span><span class="p">(</span><span class="kp">new</span> <span class="nc">qurl</span><span class="p">(</span><span class="s2">&quot;file:///&quot;</span><span class="o">+</span>
                                         <span class="nb">currentdir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/report.html&quot;</span><span class="p">))</span>
                                 <span class="p">}</span>
                                 <span class="kp">new</span> <span class="nc">pushbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-                                                <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;Print&quot;</span><span class="p">)</span>
-                                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:PrintEvent</span><span class="p">))</span>
+                                                <span class="nf">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                                <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;Print&quot;</span><span class="p">)</span>
+                                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:PrintEvent</span><span class="p">))</span>
                                 <span class="p">}</span>
-                                <span class="n">showMaximized</span><span class="p">()</span>
+                                <span class="nf">showMaximized</span><span class="p">()</span>
                         <span class="p">}</span>
 </pre></div>
 </div>
@@ -548,7 +548,7 @@ desktop-umberto\umberto
 <span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 <span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
-<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+<span class="n">curl</span> <span class="o">=</span> <span class="nf">curl_easy_init</span><span class="p">()</span>
 
 <span class="c1"># request = &quot;3G1JC5248YS251015?format=xml&quot;  ### VIN - Chevrolet</span>
   <span class="n">request</span> <span class="o">=</span> <span class="s2">&quot;3GYFK62847G247323?format=xml&quot;</span>  <span class="c1">### VIN - Cadillac</span>
@@ -559,30 +559,30 @@ desktop-umberto\umberto
 
         <span class="k">See</span> <span class="s2">&quot;URL Request: &quot;</span><span class="o">+</span> <span class="n">url_request</span> <span class="o">+</span><span class="bp">nl</span>
 
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">curlopt_url</span><span class="p">,</span> <span class="n">url_request</span><span class="p">)</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">);</span>
+<span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">curlopt_url</span><span class="p">,</span> <span class="n">url_request</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="nf">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">);</span>
 
         <span class="k">See</span> <span class="bp">nl</span> <span class="o">+</span><span class="s2">&quot;Response Raw: &quot;</span><span class="o">+</span> <span class="n">response</span> <span class="o">+</span><span class="bp">nl</span> <span class="o">+</span><span class="bp">nl</span>
 
-<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="nf">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
 
 <span class="n">xml</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qxmlstreamreader</span><span class="p">()</span>
-<span class="n">xml</span><span class="o">.</span><span class="n">adddata_2</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="n">xml</span><span class="o">.</span><span class="nf">adddata_2</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qstringref</span><span class="p">()</span>
-<span class="k">while</span> <span class="ow">not</span> <span class="n">xml</span><span class="o">.</span><span class="n">atend</span><span class="p">()</span>
-           <span class="k">if</span> <span class="n">xml</span><span class="o">.</span><span class="n">error</span><span class="p">()</span>
-                           <span class="k">see</span> <span class="n">xml</span><span class="o">.</span><span class="n">errorstring</span><span class="p">()</span> <span class="k">see</span> <span class="bp">nl</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">xml</span><span class="o">.</span><span class="nf">atend</span><span class="p">()</span>
+           <span class="k">if</span> <span class="n">xml</span><span class="o">.</span><span class="nf">error</span><span class="p">()</span>
+                           <span class="k">see</span> <span class="n">xml</span><span class="o">.</span><span class="nf">errorstring</span><span class="p">()</span> <span class="k">see</span> <span class="bp">nl</span>
                            <span class="k">exit</span> <span class="k">loop</span>
            <span class="k">ok</span>
 
-           <span class="n">x</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
-           <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span>
-                           <span class="k">see</span> <span class="s2">&quot;Length: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="o">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; --- &quot;</span>
-                           <span class="k">see</span> <span class="s2">&quot;Value: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="o">.</span><span class="n">tostring</span><span class="p">()</span> <span class="k">see</span> <span class="bp">nl</span>
+           <span class="n">x</span> <span class="o">=</span> <span class="n">xml</span><span class="o">.</span><span class="nf">text</span><span class="p">()</span>
+           <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="nf">length</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span>
+                           <span class="k">see</span> <span class="s2">&quot;Length: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="o">.</span><span class="nf">length</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; --- &quot;</span>
+                           <span class="k">see</span> <span class="s2">&quot;Value: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="o">.</span><span class="nf">tostring</span><span class="p">()</span> <span class="k">see</span> <span class="bp">nl</span>
            <span class="k">ok</span>
 
-           <span class="n">xml</span><span class="o">.</span><span class="n">readnext</span><span class="p">()</span>
+           <span class="n">xml</span><span class="o">.</span><span class="nf">readnext</span><span class="p">()</span>
 <span class="k">end</span>
 
 <span class="k">get</span> <span class="n">x</span>
@@ -631,7 +631,7 @@ desktop-umberto\umberto
 but takes an extra list that determine the packages
 to import before opening the window.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Open_WindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Open_WindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -639,7 +639,7 @@ to import before opening the window.</p>
 using the open_windowInPackages() function.</p>
 <p>We determine the class name “WindowFlagsController” and the packages name.</p>
 <p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(</span><span class="ss">:WindowFlagsController</span><span class="p">,[</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">open_windowInPackages</span><span class="p">(</span><span class="ss">:WindowFlagsController</span><span class="p">,[</span>
         <span class="s2">&quot;formdesigner&quot;</span><span class="p">,</span>
         <span class="s2">&quot;System.GUI&quot;</span>
 <span class="p">])</span>
@@ -722,8 +722,8 @@ using the open_windowInPackages() function.</p>
 <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
 <span class="kd">func</span> <span class="nf">changeSize</span>
-        <span class="n">w</span> <span class="o">=</span> <span class="n">glutEventWidth</span><span class="p">()</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">glutEventHeight</span><span class="p">()</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="nf">glutEventWidth</span><span class="p">()</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nf">glutEventHeight</span><span class="p">()</span>
 
         <span class="c1">// Prevent a divide by zero, when window is too short</span>
         <span class="c1">// (you cant make a window of zero width).</span>
@@ -734,92 +734,92 @@ using the open_windowInPackages() function.</p>
         <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span>
 
         <span class="c1">// Use the Projection Matrix</span>
-        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+        <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
 
         <span class="c1">// Reset Matrix</span>
-        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
         <span class="c1">// Set the viewport to be the entire window</span>
-        <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 
         <span class="c1">// Set the correct perspective.</span>
-        <span class="n">gluPerspective</span><span class="p">(</span><span class="mf">45.0</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
+        <span class="nf">gluPerspective</span><span class="p">(</span><span class="mf">45.0</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)</span>
 
         <span class="c1">// Get Back to the Modelview</span>
-        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+        <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">drawSnowMan</span>
 
-        <span class="n">glScalef</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
-        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="nf">glScalef</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="nf">glColor3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
 <span class="c1">// Draw Body</span>
-        <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span> <span class="p">,</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+        <span class="nf">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span> <span class="p">,</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="nf">glutSolidSphere</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="c1">// Draw Head</span>
-        <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+        <span class="nf">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="nf">glutSolidSphere</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="c1">// Draw Eyes</span>
-        <span class="n">glPushMatrix</span><span class="p">()</span>
-        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">)</span>
-        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">glTranslatef</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">glutSolidSphere</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">glPopMatrix</span><span class="p">()</span>
+        <span class="nf">glPushMatrix</span><span class="p">()</span>
+        <span class="nf">glColor3f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="nf">glTranslatef</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">)</span>
+        <span class="nf">glutSolidSphere</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="nf">glTranslatef</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="nf">glutSolidSphere</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+        <span class="nf">glPopMatrix</span><span class="p">()</span>
 
 <span class="c1">// Draw Nose</span>
-        <span class="n">glColor3f</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
-        <span class="n">glRotatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="n">glutSolidCone</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="nf">glColor3f</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">)</span>
+        <span class="nf">glRotatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="nf">glutSolidCone</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
-        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="nf">glColor3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">renderBitmapString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
-        <span class="n">glRasterPos3f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="nf">glRasterPos3f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">string</span>
-                <span class="n">glutBitmapCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+                <span class="nf">glutBitmapCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="nb">ascii</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
         <span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">renderStrokeFontString</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">font</span><span class="p">,</span><span class="n">string</span>
-        <span class="n">glPushMatrix</span><span class="p">()</span>
-        <span class="n">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-        <span class="n">glScalef</span><span class="p">(</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
+        <span class="nf">glPushMatrix</span><span class="p">()</span>
+        <span class="nf">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="nf">glScalef</span><span class="p">(</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">string</span>
-                <span class="n">glutStrokeCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="nb">Ascii</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+                <span class="nf">glutStrokeCharacter</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="nb">Ascii</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
         <span class="k">next</span>
-        <span class="n">glPopMatrix</span><span class="p">()</span>
+        <span class="nf">glPopMatrix</span><span class="p">()</span>
 
 
 <span class="kd">func</span> <span class="nf">restorePerspectiveProjection</span>
 
-        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+        <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
         <span class="c1">// restore previous projection matrix</span>
-        <span class="n">glPopMatrix</span><span class="p">()</span>
+        <span class="nf">glPopMatrix</span><span class="p">()</span>
 
         <span class="c1">// get back to modelview mode</span>
-        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+        <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
 
 
 <span class="kd">func</span> <span class="nf">setOrthographicProjection</span>
 
         <span class="c1">// switch to projection mode</span>
-        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+        <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
 
         <span class="c1">// save previous matrix which contains the</span>
         <span class="c1">//settings for the perspective projection</span>
-        <span class="n">glPushMatrix</span><span class="p">()</span>
+        <span class="nf">glPushMatrix</span><span class="p">()</span>
 
         <span class="c1">// reset matrix</span>
-        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
         <span class="c1">// set a 2D orthographic projection</span>
-        <span class="n">gluOrtho2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nf">gluOrtho2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="c1">// switch back to modelview mode</span>
-        <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+        <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
 
 
 
@@ -832,46 +832,46 @@ using the open_windowInPackages() function.</p>
 <span class="kd">func</span> <span class="nf">renderScene</span>
 
         <span class="k">if</span>  <span class="n">deltaMove</span>
-                <span class="n">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
+                <span class="nf">computePos</span><span class="p">(</span><span class="n">deltaMove</span><span class="p">)</span>
         <span class="k">ok</span>
 
         <span class="c1">// Clear Color and Depth Buffers</span>
-        <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+        <span class="nf">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
 
         <span class="c1">// Reset transformations</span>
-        <span class="n">glLoadIdentity</span><span class="p">()</span>
+        <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
         <span class="c1">// Set the camera</span>
-        <span class="n">gluLookAt</span><span class="p">(</span>      <span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span>
+        <span class="nf">gluLookAt</span><span class="p">(</span>      <span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span>
                         <span class="n">x</span><span class="o">+</span><span class="n">lx</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="n">z</span><span class="o">+</span><span class="n">lz</span><span class="p">,</span>
                         <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">)</span>
 
         <span class="c1">// Draw ground</span>
 
-        <span class="n">glColor3f</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
-        <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
-                <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
-                <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">100.0</span><span class="p">)</span>
-                <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">100.0</span><span class="p">)</span>
-                <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
-        <span class="n">glEnd</span><span class="p">()</span>
+        <span class="nf">glColor3f</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+        <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
+                <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">100.0</span><span class="p">)</span>
+                <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">100.0</span><span class="p">)</span>
+                <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">100.0</span><span class="p">)</span>
+        <span class="nf">glEnd</span><span class="p">()</span>
 
 <span class="c1">// Draw 9 SnowMen</span>
         <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="k">to</span> <span class="o">-</span><span class="mi">1</span>
-                        <span class="n">glPushMatrix</span><span class="p">()</span>
-                        <span class="n">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
-                        <span class="n">drawSnowMan</span><span class="p">()</span>
+                        <span class="nf">glPushMatrix</span><span class="p">()</span>
+                        <span class="nf">glTranslatef</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mf">10.0</span><span class="p">)</span>
+                        <span class="nf">drawSnowMan</span><span class="p">()</span>
                         <span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span>
-                        <span class="n">renderBitmapString</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="n">font</span> <span class="p">,</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">number</span><span class="p">)</span>
-                        <span class="n">glPopMatrix</span><span class="p">()</span>
+                        <span class="nf">renderBitmapString</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="n">font</span> <span class="p">,</span><span class="s2">&quot;&quot;</span><span class="o">+</span><span class="n">number</span><span class="p">)</span>
+                        <span class="nf">glPopMatrix</span><span class="p">()</span>
                 <span class="k">next</span>
         <span class="k">next</span>
 
         <span class="c1">// Code to compute frames per second</span>
         <span class="n">frame</span><span class="o">++</span>
 
-        <span class="n">time</span><span class="o">=</span><span class="n">glutGet</span><span class="p">(</span><span class="n">GLUT_ELAPSED_TIME</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">=</span><span class="nf">glutGet</span><span class="p">(</span><span class="n">GLUT_ELAPSED_TIME</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">time</span> <span class="o">-</span> <span class="n">timebase</span> <span class="o">&gt;</span> <span class="mi">1000</span>
                 <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;RingFreeGLUT - FPS: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">frame</span><span class="o">*</span><span class="mf">1000.0</span><span class="o">/</span><span class="p">(</span><span class="n">time</span><span class="o">-</span><span class="n">timebase</span><span class="p">))</span>
                 <span class="n">timebase</span> <span class="o">=</span> <span class="n">time</span>
@@ -879,16 +879,16 @@ using the open_windowInPackages() function.</p>
         <span class="k">ok</span>
 
         <span class="c1">// Code to display a string (fps) with bitmap fonts</span>
-        <span class="n">setOrthographicProjection</span><span class="p">()</span>
+        <span class="nf">setOrthographicProjection</span><span class="p">()</span>
 
-        <span class="n">glPushMatrix</span><span class="p">()</span>
-        <span class="n">glLoadIdentity</span><span class="p">()</span>
-        <span class="n">renderBitmapString</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">GLUT_BITMAP_HELVETICA_18</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
-        <span class="n">glPopMatrix</span><span class="p">()</span>
+        <span class="nf">glPushMatrix</span><span class="p">()</span>
+        <span class="nf">glLoadIdentity</span><span class="p">()</span>
+        <span class="nf">renderBitmapString</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">GLUT_BITMAP_HELVETICA_18</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+        <span class="nf">glPopMatrix</span><span class="p">()</span>
 
-        <span class="n">restorePerspectiveProjection</span><span class="p">()</span>
+        <span class="nf">restorePerspectiveProjection</span><span class="p">()</span>
 
-        <span class="n">glutSwapBuffers</span><span class="p">()</span>
+        <span class="nf">glutSwapBuffers</span><span class="p">()</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -896,25 +896,25 @@ using the open_windowInPackages() function.</p>
 <span class="c1">// -----------------------------------</span>
 
 <span class="kd">func</span> <span class="nf">processNormalKeys</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
-        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
-        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nf">glutEventKey</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="nf">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="nf">glutEventY</span><span class="p">()</span>
 
         <span class="k">switch</span> <span class="n">key</span>
                 <span class="k">on</span> <span class="mi">27</span>
-                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
-                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fillMenu</span><span class="p">)</span>
-                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">colorMenu</span><span class="p">)</span>
-                        <span class="n">glutDestroyMenu</span><span class="p">(</span><span class="n">fontMenu</span><span class="p">)</span>
+                        <span class="nf">glutDestroyMenu</span><span class="p">(</span><span class="n">mainMenu</span><span class="p">)</span>
+                        <span class="nf">glutDestroyMenu</span><span class="p">(</span><span class="n">fillMenu</span><span class="p">)</span>
+                        <span class="nf">glutDestroyMenu</span><span class="p">(</span><span class="n">colorMenu</span><span class="p">)</span>
+                        <span class="nf">glutDestroyMenu</span><span class="p">(</span><span class="n">fontMenu</span><span class="p">)</span>
                         <span class="nb">Shutdown</span><span class="p">()</span>
         <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">pressKey</span>
 
-        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
-        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
-        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nf">glutEventKey</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="nf">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="nf">glutEventY</span><span class="p">()</span>
 
         <span class="k">switch</span> <span class="n">key</span>
                 <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
@@ -926,7 +926,7 @@ using the open_windowInPackages() function.</p>
 
 <span class="kd">func</span> <span class="nf">releaseKey</span>
 
-        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nf">glutEventKey</span><span class="p">()</span>
 
         <span class="k">switch</span> <span class="n">key</span>
                 <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
@@ -941,8 +941,8 @@ using the open_windowInPackages() function.</p>
 <span class="c1">// -----------------------------------</span>
 
 <span class="kd">func</span> <span class="nf">mouseMove</span>
-        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
-        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="nf">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="nf">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// this will only be true when the left button is down</span>
         <span class="k">if</span> <span class="n">xOrigin</span> <span class="o">&gt;=</span> <span class="mi">0</span>
@@ -958,10 +958,10 @@ using the open_windowInPackages() function.</p>
 
 <span class="kd">func</span> <span class="nf">mouseButton</span>
 
-        <span class="n">button</span> <span class="o">=</span> <span class="n">glutEventButton</span><span class="p">()</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="n">glutEventState</span><span class="p">()</span>
-        <span class="n">xx</span> <span class="o">=</span> <span class="n">glutEventX</span><span class="p">()</span>
-        <span class="n">yy</span> <span class="o">=</span> <span class="n">glutEventY</span><span class="p">()</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="nf">glutEventButton</span><span class="p">()</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="nf">glutEventState</span><span class="p">()</span>
+        <span class="n">xx</span> <span class="o">=</span> <span class="nf">glutEventX</span><span class="p">()</span>
+        <span class="n">yy</span> <span class="o">=</span> <span class="nf">glutEventY</span><span class="p">()</span>
 
         <span class="c1">// only start motion if the left button is pressed</span>
         <span class="k">if</span> <span class="n">button</span> <span class="o">=</span> <span class="n">GLUT_LEFT_BUTTON</span>
@@ -982,7 +982,7 @@ using the open_windowInPackages() function.</p>
 
 <span class="kd">func</span> <span class="nf">processMenuStatus</span>
 
-        <span class="n">status</span> <span class="o">=</span> <span class="n">glutEventStatus</span><span class="p">()</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="nf">glutEventStatus</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">status</span> <span class="o">=</span> <span class="n">GLUT_MENU_IN_USE</span>
                 <span class="n">menuFlag</span> <span class="o">=</span> <span class="mi">1</span>
@@ -999,20 +999,20 @@ using the open_windowInPackages() function.</p>
 
 <span class="kd">func</span> <span class="nf">processFillMenu</span>
 
-        <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
+        <span class="n">option</span> <span class="o">=</span> <span class="nf">glutEventValue</span><span class="p">()</span>
 
         <span class="k">switch</span> <span class="n">option</span>
 
                 <span class="k">on</span> <span class="n">C_FILL</span>
-                        <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_FILL</span><span class="p">)</span>
+                        <span class="nf">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_FILL</span><span class="p">)</span>
                 <span class="k">on</span> <span class="n">C_LINE</span>
-                         <span class="n">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_LINE</span><span class="p">)</span>
+                         <span class="nf">glPolygonMode</span><span class="p">(</span><span class="n">GL_FRONT</span><span class="p">,</span> <span class="n">GL_LINE</span><span class="p">)</span>
         <span class="k">off</span>
 
 
 <span class="kd">func</span> <span class="nf">processFontMenu</span>
 
-        <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
+        <span class="n">option</span> <span class="o">=</span> <span class="nf">glutEventValue</span><span class="p">()</span>
 
         <span class="k">switch</span> <span class="p">(</span><span class="n">option</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">on</span> <span class="n">C_INT_GLUT_BITMAP_8_BY_13</span>
@@ -1033,7 +1033,7 @@ using the open_windowInPackages() function.</p>
 
 <span class="kd">func</span> <span class="nf">processColorMenu</span>
 
-        <span class="n">option</span> <span class="o">=</span> <span class="n">glutEventValue</span><span class="p">()</span>
+        <span class="n">option</span> <span class="o">=</span> <span class="nf">glutEventValue</span><span class="p">()</span>
 
         <span class="k">switch</span> <span class="n">option</span>
                 <span class="k">on</span> <span class="n">C_RED</span>
@@ -1057,37 +1057,37 @@ using the open_windowInPackages() function.</p>
 
 <span class="kd">func</span> <span class="nf">createPopupMenus</span>
 
-        <span class="n">fontMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processFontMenu</span><span class="p">)</span>
+        <span class="n">fontMenu</span> <span class="o">=</span> <span class="nf">glutCreateMenu</span><span class="p">(</span><span class="ss">:processFontMenu</span><span class="p">)</span>
 
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_8_BY_13 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_8_BY_13</span> <span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_9_BY_15&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_9_BY_15</span> <span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_TIMES_ROMAN_10 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>  <span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_TIMES_ROMAN_24&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>  <span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_10 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>  <span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_12&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>  <span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_18&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>  <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_8_BY_13 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_8_BY_13</span> <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_9_BY_15&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_9_BY_15</span> <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_TIMES_ROMAN_10 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_10</span>  <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_TIMES_ROMAN_24&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_TIMES_ROMAN_24</span>  <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_10 &quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_10</span>  <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_12&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_12</span>  <span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;BITMAP_HELVETICA_18&quot;</span><span class="p">,</span><span class="n">C_INT_GLUT_BITMAP_HELVETICA_18</span>  <span class="p">)</span>
 
-        <span class="n">fillMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processFillMenu</span><span class="p">)</span>
+        <span class="n">fillMenu</span> <span class="o">=</span> <span class="nf">glutCreateMenu</span><span class="p">(</span><span class="ss">:processFillMenu</span><span class="p">)</span>
 
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Fill&quot;</span><span class="p">,</span><span class="n">C_FILL</span><span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Line&quot;</span><span class="p">,</span><span class="n">C_LINE</span><span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Fill&quot;</span><span class="p">,</span><span class="n">C_FILL</span><span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Line&quot;</span><span class="p">,</span><span class="n">C_LINE</span><span class="p">)</span>
 
-        <span class="n">colorMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processColorMenu</span><span class="p">)</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span><span class="n">C_RED</span><span class="p">);</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span><span class="n">C_BLUE</span><span class="p">);</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Green&quot;</span><span class="p">,</span><span class="n">C_GREEN</span><span class="p">);</span>
-        <span class="n">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">,</span><span class="n">C_ORANGE</span><span class="p">);</span>
+        <span class="n">colorMenu</span> <span class="o">=</span> <span class="nf">glutCreateMenu</span><span class="p">(</span><span class="ss">:processColorMenu</span><span class="p">)</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span><span class="n">C_RED</span><span class="p">);</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span><span class="n">C_BLUE</span><span class="p">);</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Green&quot;</span><span class="p">,</span><span class="n">C_GREEN</span><span class="p">);</span>
+        <span class="nf">glutAddMenuEntry</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">,</span><span class="n">C_ORANGE</span><span class="p">);</span>
 
-        <span class="n">mainMenu</span> <span class="o">=</span> <span class="n">glutCreateMenu</span><span class="p">(</span><span class="ss">:processMainMenu</span><span class="p">)</span>
+        <span class="n">mainMenu</span> <span class="o">=</span> <span class="nf">glutCreateMenu</span><span class="p">(</span><span class="ss">:processMainMenu</span><span class="p">)</span>
 
-        <span class="n">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Polygon Mode&quot;</span><span class="p">,</span> <span class="n">fillMenu</span><span class="p">)</span>
-        <span class="n">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Color&quot;</span><span class="p">,</span> <span class="n">colorMenu</span><span class="p">)</span>
-        <span class="n">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Font&quot;</span><span class="p">,</span><span class="n">fontMenu</span><span class="p">)</span>
+        <span class="nf">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Polygon Mode&quot;</span><span class="p">,</span> <span class="n">fillMenu</span><span class="p">)</span>
+        <span class="nf">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Color&quot;</span><span class="p">,</span> <span class="n">colorMenu</span><span class="p">)</span>
+        <span class="nf">glutAddSubMenu</span><span class="p">(</span><span class="s2">&quot;Font&quot;</span><span class="p">,</span><span class="n">fontMenu</span><span class="p">)</span>
         <span class="c1">// attach the menu to the right button</span>
-        <span class="n">glutAttachMenu</span><span class="p">(</span><span class="n">GLUT_RIGHT_BUTTON</span><span class="p">)</span>
+        <span class="nf">glutAttachMenu</span><span class="p">(</span><span class="n">GLUT_RIGHT_BUTTON</span><span class="p">)</span>
 
         <span class="c1">// this will allow us to know if the menu is active</span>
-        <span class="n">glutMenuStatusFunc</span><span class="p">(</span><span class="ss">:processMenuStatus</span><span class="p">)</span>
+        <span class="nf">glutMenuStatusFunc</span><span class="p">(</span><span class="ss">:processMenuStatus</span><span class="p">)</span>
 
 
 <span class="c1">// -----------------------------------</span>
@@ -1097,35 +1097,35 @@ using the open_windowInPackages() function.</p>
 <span class="kd">func</span> <span class="nf">main</span>
 
         <span class="c1">// init GLUT and create window</span>
-        <span class="n">glutInit</span><span class="p">()</span>
-        <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DEPTH</span> <span class="o">|</span> <span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGBA</span><span class="p">)</span>
-        <span class="n">glutInitWindowPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-        <span class="n">glutInitWindowSize</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
-        <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;RingFreeGLUT - Test - 9 SnowMan&quot;</span><span class="p">)</span>
+        <span class="nf">glutInit</span><span class="p">()</span>
+        <span class="nf">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DEPTH</span> <span class="o">|</span> <span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGBA</span><span class="p">)</span>
+        <span class="nf">glutInitWindowPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+        <span class="nf">glutInitWindowSize</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+        <span class="nf">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;RingFreeGLUT - Test - 9 SnowMan&quot;</span><span class="p">)</span>
 
         <span class="c1">// register callbacks</span>
-        <span class="n">glutDisplayFunc</span><span class="p">(</span><span class="ss">:renderScene</span><span class="p">)</span>
-        <span class="n">glutReshapeFunc</span><span class="p">(</span><span class="ss">:changeSize</span><span class="p">)</span>
-        <span class="n">glutIdleFunc</span><span class="p">(</span><span class="ss">:renderScene</span><span class="p">)</span>
+        <span class="nf">glutDisplayFunc</span><span class="p">(</span><span class="ss">:renderScene</span><span class="p">)</span>
+        <span class="nf">glutReshapeFunc</span><span class="p">(</span><span class="ss">:changeSize</span><span class="p">)</span>
+        <span class="nf">glutIdleFunc</span><span class="p">(</span><span class="ss">:renderScene</span><span class="p">)</span>
 
-        <span class="n">glutIgnoreKeyRepeat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">glutKeyboardFunc</span><span class="p">(</span><span class="ss">:processNormalKeys</span><span class="p">)</span>
-        <span class="n">glutSpecialFunc</span><span class="p">(</span><span class="ss">:pressKey</span><span class="p">)</span>
-        <span class="n">glutSpecialUpFunc</span><span class="p">(</span><span class="ss">:releaseKey</span><span class="p">)</span>
+        <span class="nf">glutIgnoreKeyRepeat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nf">glutKeyboardFunc</span><span class="p">(</span><span class="ss">:processNormalKeys</span><span class="p">)</span>
+        <span class="nf">glutSpecialFunc</span><span class="p">(</span><span class="ss">:pressKey</span><span class="p">)</span>
+        <span class="nf">glutSpecialUpFunc</span><span class="p">(</span><span class="ss">:releaseKey</span><span class="p">)</span>
 
         <span class="c1">// here are the two new functions</span>
-        <span class="n">glutMouseFunc</span><span class="p">(</span><span class="ss">:mouseButton</span><span class="p">)</span>
-        <span class="n">glutMotionFunc</span><span class="p">(</span><span class="ss">:mouseMove</span><span class="p">)</span>
+        <span class="nf">glutMouseFunc</span><span class="p">(</span><span class="ss">:mouseButton</span><span class="p">)</span>
+        <span class="nf">glutMotionFunc</span><span class="p">(</span><span class="ss">:mouseMove</span><span class="p">)</span>
 
         <span class="c1">// OpenGL init</span>
-        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
-        <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+        <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+        <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
 
         <span class="c1">// init Menus</span>
-        <span class="n">createPopupMenus</span><span class="p">()</span>
+        <span class="nf">createPopupMenus</span><span class="p">()</span>
 
         <span class="c1">// enter GLUT event processing cycle</span>
-        <span class="n">glutMainLoop</span><span class="p">()</span>
+        <span class="nf">glutMainLoop</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shots:</p>
@@ -1176,72 +1176,72 @@ using the open_windowInPackages() function.</p>
 <span class="kd">func</span> <span class="nf">display</span>
 
   <span class="c1">//  Clear screen and Z-buffer</span>
-  <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="o">|</span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+  <span class="nf">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="o">|</span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
 
   <span class="c1">// Reset transformations</span>
-  <span class="n">glLoadIdentity</span><span class="p">()</span>
+  <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
   <span class="c1">// Rotate when user changes rotate_x and rotate_y</span>
-  <span class="n">glRotatef</span><span class="p">(</span> <span class="n">rotate_x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
-  <span class="n">glRotatef</span><span class="p">(</span> <span class="n">rotate_y</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="nf">glRotatef</span><span class="p">(</span> <span class="n">rotate_x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="nf">glRotatef</span><span class="p">(</span> <span class="n">rotate_y</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
 
   <span class="c1">//Multi-colored side - FRONT</span>
-  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
 
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P1 is red</span>
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P2 is green</span>
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P3 is blue</span>
-  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P4 is purple</span>
+  <span class="nf">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P1 is red</span>
+  <span class="nf">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P2 is green</span>
+  <span class="nf">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P3 is blue</span>
+  <span class="nf">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c1"># P4 is purple</span>
 
-  <span class="n">glEnd</span><span class="p">()</span>
+  <span class="nf">glEnd</span><span class="p">()</span>
 
   <span class="c1">// White side - BACK</span>
-  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
-  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glEnd</span><span class="p">()</span>
+  <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="nf">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glEnd</span><span class="p">()</span>
 
   <span class="c1">// Purple side - RIGHT</span>
-  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
-  <span class="n">glColor3f</span><span class="p">(</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glEnd</span><span class="p">()</span>
+  <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="nf">glColor3f</span><span class="p">(</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glEnd</span><span class="p">()</span>
 
   <span class="c1">// Green side - LEFT</span>
-  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
-  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glEnd</span><span class="p">()</span>
+  <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="nf">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glEnd</span><span class="p">()</span>
 
   <span class="c1">// Blue side - TOP</span>
-  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
-  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glEnd</span><span class="p">()</span>
+  <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="nf">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glEnd</span><span class="p">()</span>
 
   <span class="c1">// Red side - BOTTOM</span>
-  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
-  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
-  <span class="n">glEnd</span><span class="p">()</span>
+  <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="nf">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="nf">glEnd</span><span class="p">()</span>
 
-  <span class="n">glFlush</span><span class="p">()</span>
-  <span class="n">glutSwapBuffers</span><span class="p">()</span>
+  <span class="nf">glFlush</span><span class="p">()</span>
+  <span class="nf">glutSwapBuffers</span><span class="p">()</span>
 
 
 <span class="c1">// ----------------------------------------------------------</span>
@@ -1249,7 +1249,7 @@ using the open_windowInPackages() function.</p>
 <span class="c1">// ----------------------------------------------------------</span>
 <span class="kd">func</span> <span class="nf">specialKeys</span>
 
-        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nf">glutEventKey</span><span class="p">()</span>
 
   <span class="c1">//  Right arrow - increase rotation by 5 degree</span>
         <span class="k">switch</span> <span class="n">Key</span>
@@ -1270,7 +1270,7 @@ using the open_windowInPackages() function.</p>
         <span class="k">off</span>
 
   <span class="c1">//  Request display update</span>
-  <span class="n">glutPostRedisplay</span><span class="p">()</span>
+  <span class="nf">glutPostRedisplay</span><span class="p">()</span>
 
 
 
@@ -1280,23 +1280,23 @@ using the open_windowInPackages() function.</p>
 <span class="kd">func</span> <span class="nf">main</span>
 
   <span class="c1">//  Initialize GLUT and process user parameters</span>
-  <span class="n">glutInit</span><span class="p">()</span>
+  <span class="nf">glutInit</span><span class="p">()</span>
 
   <span class="c1">//  Request double buffered true color window with Z-buffer</span>
-  <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGB</span> <span class="o">|</span> <span class="n">GLUT_DEPTH</span><span class="p">)</span>
+  <span class="nf">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGB</span> <span class="o">|</span> <span class="n">GLUT_DEPTH</span><span class="p">)</span>
 
   <span class="c1">// Create window</span>
-  <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;Awesome Cube&quot;</span><span class="p">)</span>
+  <span class="nf">glutCreateWindow</span><span class="p">(</span><span class="s2">&quot;Awesome Cube&quot;</span><span class="p">)</span>
 
   <span class="c1">//  Enable Z-buffer depth test</span>
-  <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+  <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
 
   <span class="c1">// Callback functions</span>
-  <span class="n">glutDisplayFunc</span><span class="p">(</span><span class="ss">:display</span><span class="p">)</span>
-  <span class="n">glutSpecialFunc</span><span class="p">(</span><span class="ss">:specialKeys</span><span class="p">)</span>
+  <span class="nf">glutDisplayFunc</span><span class="p">(</span><span class="ss">:display</span><span class="p">)</span>
+  <span class="nf">glutSpecialFunc</span><span class="p">(</span><span class="ss">:specialKeys</span><span class="p">)</span>
 
   <span class="c1">//  Pass control to GLUT for events</span>
-  <span class="n">glutMainLoop</span><span class="p">()</span>
+  <span class="nf">glutMainLoop</span><span class="p">()</span>
 
   <span class="c1">//  Return to OS</span>
 </pre></div>
@@ -1362,8 +1362,8 @@ constants too.</p>
 <span class="k">see</span> <span class="s2">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;How are you?&quot;</span> <span class="o">+</span><span class="bp">nl</span>
-<span class="n">mytest</span><span class="p">()</span>
-<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+<span class="nf">mytest</span><span class="p">()</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">mymethod</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">mytest</span>
         <span class="k">see</span> <span class="s2">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -1588,13 +1588,13 @@ Interactive Debugger when an error happens or at breakpoints.</p>
 <p>The next example uses a Breakpoint to open the Interactive Debugger!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tracelib.ring&quot;</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="n">BreakPoint</span><span class="p">()</span>
+        <span class="nf">BreakPoint</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -1621,7 +1621,7 @@ Interactive Debugger when an error happens or at breakpoints.</p>
 <span class="kn">import</span> <span class="nn">mypackage</span>
 
 <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
-        <span class="n">myfunc</span><span class="p">()</span>
+        <span class="nf">myfunc</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
@@ -1643,7 +1643,7 @@ Interactive Debugger when an error happens or at breakpoints.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mypackage</span>
 
 <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
-        <span class="n">myfunc</span><span class="p">()</span>
+        <span class="nf">myfunc</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
@@ -1661,7 +1661,7 @@ Interactive Debugger when an error happens or at breakpoints.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">myfunc</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">myfunc</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
         <span class="kd">class</span> <span class="nc">myclass</span>
@@ -1685,8 +1685,8 @@ very useful for tools like</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
-<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">);</span>
+<span class="k">see</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
+<span class="k">see</span> <span class="nf">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">);</span>
 
 <span class="n">int</span> <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
@@ -1703,7 +1703,7 @@ very useful for tools like</p>
 
 <span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">([</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:three</span><span class="p">])</span> <span class="p">}</span>
+<span class="nf">test</span><span class="p">()</span>  <span class="p">{</span> <span class="nf">main</span><span class="p">([</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:three</span><span class="p">])</span> <span class="p">}</span>
 
 <span class="n">myclass</span> <span class="kd">func</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">see</span> <span class="s2">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -1724,8 +1724,8 @@ very useful for tools like</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
+<span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="nf">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
 
 <span class="k">see</span> <span class="s2">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="bp">nl</span>
 
@@ -1771,7 +1771,7 @@ very useful for tools like</p>
 <span class="kd">func</span> <span class="nf">main</span>
 
         <span class="kp">new</span> <span class="nc">GraphicsApp</span> <span class="p">{</span>
-                <span class="n">start</span><span class="p">()</span>
+                <span class="nf">start</span><span class="p">()</span>
         <span class="p">}</span>
 
 
@@ -1787,77 +1787,77 @@ very useful for tools like</p>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;ring.bmp&quot;</span><span class="p">)</span>
-                <span class="n">texture</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;ring.bmp&quot;</span><span class="p">)</span>
+                <span class="n">texture</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
 
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">drawScene</span>
 
                 <span class="n">w</span> <span class="o">=</span> <span class="mi">800</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">600</span>
                 <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
 
-                <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
-                <span class="n">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
-                <span class="n">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
-                <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-                <span class="n">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
-                <span class="n">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
-                <span class="n">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+                <span class="nf">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
+                <span class="nf">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                <span class="nf">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+                <span class="nf">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
+                <span class="nf">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
 
-                <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">();</span>
-                <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">5.0</span><span class="p">);</span>
+                <span class="nf">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">();</span>
+                <span class="nf">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">5.0</span><span class="p">);</span>
 
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">);</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">);</span>
 
-                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
 
-                <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
                         <span class="c1">// Front Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Back Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Top Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Bottom Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Right face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Left Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnd</span><span class="p">()</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnd</span><span class="p">()</span>
 
                 <span class="n">xrot</span> <span class="o">+=</span> <span class="mf">0.3</span>
                 <span class="n">yrot</span> <span class="o">+=</span> <span class="mf">0.2</span>
@@ -1885,55 +1885,55 @@ very useful for tools like</p>
 
         <span class="kd">func</span> <span class="nf">start</span>
 
-                <span class="n">SetUp</span><span class="p">()</span>
-                <span class="n">loadResources</span><span class="p">()</span>
-                <span class="n">eventsLoop</span><span class="p">()</span>
-                <span class="n">destroy</span><span class="p">()</span>
+                <span class="nf">SetUp</span><span class="p">()</span>
+                <span class="nf">loadResources</span><span class="p">()</span>
+                <span class="nf">eventsLoop</span><span class="p">()</span>
+                <span class="nf">destroy</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">setup</span>
 
-                <span class="n">al_init</span><span class="p">()</span>
-                <span class="n">al_init_image_addon</span><span class="p">()</span>
-                <span class="n">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
-                <span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
-                <span class="n">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
-                <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">event_queue</span> <span class="o">=</span> <span class="n">al_create_event_queue</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
-                <span class="n">ev</span> <span class="o">=</span> <span class="n">al_new_allegro_event</span><span class="p">()</span>
-                <span class="n">timeout</span> <span class="o">=</span> <span class="n">al_new_allegro_timeout</span><span class="p">()</span>
-                <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                <span class="n">timer</span> <span class="o">=</span> <span class="n">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
-                <span class="n">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_install_mouse</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_mouse_event_source</span><span class="p">())</span>
-                <span class="n">al_install_keyboard</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
+                <span class="nf">al_init</span><span class="p">()</span>
+                <span class="nf">al_init_image_addon</span><span class="p">()</span>
+                <span class="nf">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
+                <span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
+                <span class="nf">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
+                <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">event_queue</span> <span class="o">=</span> <span class="nf">al_create_event_queue</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+                <span class="n">ev</span> <span class="o">=</span> <span class="nf">al_new_allegro_event</span><span class="p">()</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="nf">al_new_allegro_timeout</span><span class="p">()</span>
+                <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                <span class="n">timer</span> <span class="o">=</span> <span class="nf">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
+                <span class="nf">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_install_mouse</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_mouse_event_source</span><span class="p">())</span>
+                <span class="nf">al_install_keyboard</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_keyboard_event_source</span><span class="p">())</span>
 
         <span class="kd">func</span> <span class="nf">eventsLoop</span>
 
                 <span class="k">while</span> <span class="bp">true</span>
-                        <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-                        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="nf">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+                        <span class="k">switch</span> <span class="nf">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
                                 <span class="k">exit</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
                                 <span class="k">exit</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -1944,7 +1944,7 @@ very useful for tools like</p>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                 <span class="k">off</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -1957,22 +1957,22 @@ very useful for tools like</p>
                                                 <span class="k">exit</span>
                                 <span class="k">off</span>
                         <span class="k">off</span>
-                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="nf">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">false</span>
-                                <span class="n">drawScene</span><span class="p">()</span>
-                                <span class="n">al_flip_display</span><span class="p">()</span>
+                                <span class="nf">drawScene</span><span class="p">()</span>
+                                <span class="nf">al_flip_display</span><span class="p">()</span>
                         <span class="k">ok</span>
                         <span class="nb">callgc</span><span class="p">()</span>
                 <span class="k">end</span>
 
         <span class="kd">func</span> <span class="nf">destroy</span>
 
-                <span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-                <span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
-                <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+                <span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="nf">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+                <span class="nf">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                <span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 
@@ -2026,15 +2026,15 @@ very useful for tools like</p>
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qwidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Context Menu&quot;</span><span class="p">)</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Context Menu&quot;</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
                 <span class="n">myfilter</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setContextmenuEvent</span><span class="p">(</span><span class="s2">&quot;mymenu()&quot;</span><span class="p">)</span>
+                        <span class="nf">setContextmenuEvent</span><span class="p">(</span><span class="s2">&quot;mymenu()&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">installeventfilter</span><span class="p">(</span><span class="n">myfilter</span><span class="p">)</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">installeventfilter</span><span class="p">(</span><span class="n">myfilter</span><span class="p">)</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 
@@ -2042,27 +2042,27 @@ very useful for tools like</p>
 
         <span class="kp">new</span> <span class="nc">qMenu</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;new&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :New&quot;</span><span class="p">)</span>
+                        <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;new&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :New&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="nf">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Open&quot;</span><span class="p">)</span>
+                        <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Open&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="nf">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;save&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Save&quot;</span><span class="p">)</span>
+                        <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;save&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Save&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="nf">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Close&quot;</span><span class="p">)</span>
+                        <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span><span class="s2">&quot;See :Close&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="nf">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oCursor</span>  <span class="o">=</span> <span class="kp">new</span> <span class="nc">qCursor</span><span class="p">()</span>
-                <span class="n">exec</span><span class="p">(</span><span class="n">oCursor</span><span class="o">.</span><span class="n">pos</span><span class="p">())</span>
+                <span class="nf">exec</span><span class="p">(</span><span class="n">oCursor</span><span class="o">.</span><span class="nf">pos</span><span class="p">())</span>
         <span class="p">}</span>
 </pre></div>
 </div>

@@ -284,11 +284,11 @@
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
         <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -322,7 +322,7 @@ the “Web Development (CGI Library)” chapter.</p>
 
 <span class="kp">new</span> <span class="nc">Page</span> <span class="p">{</span>
 
-        <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+        <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
 
 <span class="p">}</span>
 </pre></div>
@@ -344,15 +344,15 @@ and responds to GET requests at the endpoint.</p>
 <span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
 
         <span class="o">?</span> <span class="s2">&quot;Try localhost:8080/hi&quot;</span>
-        <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
+        <span class="nf">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span><span class="s2">&quot;/hi&quot;</span><span class="p">,</span><span class="ss">:mytest</span><span class="p">)</span>
 
         <span class="o">?</span> <span class="s2">&quot;Listen to port 8080&quot;</span>
-        <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+        <span class="nf">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">mytest</span>
-        <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="n">oServer</span><span class="o">.</span><span class="nf">setContent</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="Ring Notepad - Run Web Application using HTTPLib" src="_images/urn_httplib.png" />

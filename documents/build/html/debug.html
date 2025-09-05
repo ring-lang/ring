@@ -238,15 +238,15 @@
 <span id="index-2"></span><h2>Trace All Events<a class="headerlink" href="#trace-all-events" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage to trace all events.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trace All Events</span>
-<span class="n">trace</span><span class="p">(</span><span class="ss">:AllEvents</span><span class="p">)</span>
+<span class="nf">trace</span><span class="p">(</span><span class="ss">:AllEvents</span><span class="p">)</span>
 
 <span class="k">see</span> <span class="s2">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;How are you?&quot;</span> <span class="o">+</span><span class="bp">nl</span>
 
-<span class="n">mytest</span><span class="p">()</span>
+<span class="nf">mytest</span><span class="p">()</span>
 
-<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">mymethod</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">mytest</span>
         <span class="k">see</span> <span class="s2">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -261,17 +261,17 @@
 <span id="index-3"></span><h2>Trace control flow between functions<a class="headerlink" href="#trace-control-flow-between-functions" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to trace the control flow between functions.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(</span><span class="ss">:Functions</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Trace</span><span class="p">(</span><span class="ss">:Functions</span><span class="p">)</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="n">test2</span><span class="p">()</span>
+        <span class="nf">test2</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test2</span>
         <span class="k">see</span> <span class="ss">:test2</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k">see</span> <span class="n">test3</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="nf">test3</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 
 <span class="kd">func</span> <span class="nf">test3</span>
         <span class="k">see</span> <span class="ss">:test3</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -283,14 +283,14 @@ to trace the control flow between functions.</p>
 <span id="index-4"></span><h2>Pass Error<a class="headerlink" href="#pass-error" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to pass an error!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(</span><span class="ss">:PassError</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Trace</span><span class="p">(</span><span class="ss">:PassError</span><span class="p">)</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="n">test2</span><span class="p">()</span> <span class="c1"># Runtime Error!</span>
+        <span class="nf">test2</span><span class="p">()</span> <span class="c1"># Runtime Error!</span>
         <span class="k">see</span> <span class="s2">&quot;We can continue!&quot;</span>
 </pre></div>
 </div>
@@ -299,16 +299,16 @@ to pass an error!</p>
 <span id="index-5"></span><h2>Interactive Debugger<a class="headerlink" href="#interactive-debugger" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to use the Interactive Debugger</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(</span><span class="ss">:Debugger</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Trace</span><span class="p">(</span><span class="ss">:Debugger</span><span class="p">)</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 <span class="k">see</span> <span class="s2">&quot;good bye!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="n">test2</span><span class="p">()</span> <span class="c1"># Runtime Error!</span>
+        <span class="nf">test2</span><span class="p">()</span> <span class="c1"># Runtime Error!</span>
         <span class="k">see</span> <span class="s2">&quot;After Error!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="k">see</span> <span class="n">t</span> <span class="k">see</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;x = &quot;</span> <span class="k">see</span> <span class="n">x</span> <span class="k">see</span> <span class="bp">nl</span>
@@ -319,15 +319,15 @@ to use the Interactive Debugger</p>
 <span id="index-6"></span><h2>Execute Program Line by Line<a class="headerlink" href="#execute-program-line-by-line" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to execute the program line by line!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(</span><span class="ss">:LineByLine</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Trace</span><span class="p">(</span><span class="ss">:LineByLine</span><span class="p">)</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="n">test2</span><span class="p">()</span>
+        <span class="nf">test2</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;After Error!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
@@ -337,13 +337,13 @@ to execute the program line by line!</p>
 <span id="index-7"></span><h2>BreakPoint<a class="headerlink" href="#breakpoint" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to stop at a breakpoint!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test1</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="n">BreakPoint</span><span class="p">()</span>
+        <span class="nf">BreakPoint</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -354,15 +354,15 @@ to stop at a breakpoint!</p>
 <span id="index-8"></span><h2>Disable BreakPoints<a class="headerlink" href="#disable-breakpoints" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 and how to disable the Breakpoints!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">NoBreakPoints</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">NoBreakPoints</span><span class="p">()</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="n">BreakPoint</span><span class="p">()</span>
+        <span class="nf">BreakPoint</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -374,13 +374,13 @@ and how to disable the Breakpoints!</p>
 <p>The next example uses a Breakpoint to open the Interactive Debugger!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tracelib.ring&quot;</span>
 
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>
         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="k">see</span> <span class="ss">:test1</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
-        <span class="n">BreakPoint</span><span class="p">()</span>
+        <span class="nf">BreakPoint</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="s2">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
