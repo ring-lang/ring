@@ -470,13 +470,8 @@ func getLastCharInBuffer
 
 func processEndLine cEndLine
 
-	nLastTokenInLastLine = nCurrentToken - 1
-
-	if isWindows()
-		cValue   = WindowsNL()
-	else
-		cValue   = NL
-	ok
+	nLastTokenInLastLine	= nCurrentToken - 1
+	cValue			= NL
 
 	# Check if we have many new lines 
 	if nLastLineNumber and ( (0 + cEndLine) - nLastLineNumber > 1 ) and ! lNextNLisTwoNLs
