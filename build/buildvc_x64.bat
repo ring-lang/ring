@@ -204,6 +204,9 @@ cd ..\ringpm
 echo Building RingREPL...
 cd ..\ringrepl
 @call build >nul
+echo Building RingFmt...
+cd ..\ringfmt
+@call build >nul
 echo Building Folder2Qrc...
 cd ..\folder2qrc
 @call build >nul

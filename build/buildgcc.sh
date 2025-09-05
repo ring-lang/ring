@@ -119,6 +119,7 @@ if [ $# -eq 0 ] || { [ $# -eq 1 ] && [[ "$1" == "-debug" ]]; }; then
     build "../tools/ring2exe"                   ""                  "build.sh"          "Ring2EXE"              || exit 1
     build "../tools/ringpm"                     ""                  "build.sh"          "RingPM"                || exit 1
     build "../tools/ringrepl"                   ""                  "build.sh"          "RingREPL"              || exit 1
+    build "../tools/ringfmt"                    ""                  "build.sh"          "RingFmt"               || exit 1
     build "../tools/folder2qrc"                 ""                  "build.sh"          "Folder2QRC"            || exit 1
     build "../language/tests"                   ""                  "build.sh"          "Tests"                 || exit 1
     install                                                  "Ring"
@@ -137,6 +138,7 @@ for arg in "$@"; do
             build "../tools/ring2exe"                   ""                  "build.sh"          "Ring2EXE"              || exit 1
             build "../tools/ringpm"                     ""                  "build.sh"          "RingPM"                || exit 1
             build "../tools/ringrepl"                   ""                  "build.sh"          "RingREPL"              || exit 1
+            build "../tools/ringfmt"                    ""                  "build.sh"          "RingFmt"               || exit 1
             build "../tools/folder2qrc"                 ""                  "build.sh"          "Folder2QRC"            || exit 1
             build "../language/tests"                   ""                  "build.sh"          "Tests"                 || exit 1
             install                                                  "Ring"
@@ -305,6 +307,11 @@ for arg in "$@"; do
             build_header "RingREPL"
             build "../tools/ringrepl"                   ""                  "build.sh"          "RingREPL"              || exit 1
             install      "RingREPL"
+        ;;
+        -ringfmt)
+            build_header "RingFmt"
+            build "../tools/ringfmt"                    ""                  "build.sh"          "RingFmt"               || exit 1
+            install      "RingFmt"
         ;;
         -folder2qrc)
             build_header "Folder2QRC"

@@ -149,6 +149,10 @@ echo "Building RingREPL..."
 cd ../ringrepl
 ./build.sh > /dev/null 2>&1 || true
 
+echo "Building RingFmt..."
+cd ../ringfmt
+./build.sh > /dev/null 2>&1 || true
+
 echo "Building Folder2QRC..."
 cd ../folder2qrc
 ./build.sh > /dev/null 2>&1 || true
