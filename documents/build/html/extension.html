@@ -694,29 +694,29 @@ void ring_list_deleteitem_gc ( void *pState, List *pList, int index ) ;
 <p>We pass a list and a number to this function and it will check each item in the list.</p>
 <p>If the item value is not greater than the passed number, then the item will be deleted.</p>
 <p>In the implementation we uses ring_list_deleteitem_gc() function to delete the item and we pass Ring state as the first parameter using RING_API_STATE.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_filterlist</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_filterlist</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
         <span class="n">int</span> <span class="n">x</span><span class="p">;</span>
         <span class="c1">// Check Parameters Count</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
+                        <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
                         <span class="k">return</span><span class="p">;</span>
                 <span class="p">}</span>
         <span class="c1">// Check Parameters Type</span>
-                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span> <span class="n">RING_API_ISLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-                        <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span> <span class="nf">RING_API_ISLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
                         <span class="k">return</span><span class="p">;</span>
                 <span class="p">}</span>
         <span class="c1">// Filter List Items</span>
-                <span class="n">pList</span> <span class="o">=</span> <span class="n">RING_API_GETLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-                <span class="k">for</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">)</span> <span class="p">;</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">x</span><span class="o">--</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="p">(</span> <span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>
-                                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span><span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span>
-                                                 <span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">)</span>
-                                        <span class="n">ring_list_deleteitem_gc</span><span class="p">(</span><span class="n">RING_API_STATE</span><span class="p">,</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">;</span>
+                <span class="n">pList</span> <span class="o">=</span> <span class="nf">RING_API_GETLIST</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">ring_list_getsize</span><span class="p">(</span><span class="n">pList</span><span class="p">)</span> <span class="p">;</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="p">;</span> <span class="n">x</span><span class="o">--</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="p">(</span> <span class="nf">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>
+                                <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="p">(</span><span class="nf">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span>
+                                                 <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="p">)</span>
+                                        <span class="nf">ring_list_deleteitem_gc</span><span class="p">(</span><span class="n">RING_API_STATE</span><span class="p">,</span><span class="n">pList</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">;</span>
         <span class="c1">// Return Output</span>
-                <span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
+                <span class="nf">RING_API_RETLIST</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -856,7 +856,7 @@ for all of the module functions.</p>
 <p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="bp">NL</span>
 <span class="nb">LoadLib</span><span class="p">(</span><span class="s2">&quot;ringlib.dll&quot;</span><span class="p">)</span>
-<span class="n">dlfunc</span><span class="p">()</span>
+<span class="nf">dlfunc</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -872,8 +872,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
-                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="nf">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Example:</p>

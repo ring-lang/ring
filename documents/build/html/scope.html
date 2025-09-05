@@ -479,7 +479,7 @@ will try to find it.</p>
 are inside a class method, we expect that we have access to the object attributes and methods and
 this is true until we use braces to access another object attributes and methods because in this case
 our object scope will be switched to another object.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
@@ -506,7 +506,7 @@ called from line 5  in file methodbraceerror.ring
 </div>
 <p>Now what we will do to solve the previous problem?</p>
 <p>Solution (1) : Write the code that access the class attributes outside braces.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
@@ -531,7 +531,7 @@ test
 </pre></div>
 </div>
 <p>Solution (2) : Don’t Use Braces</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
@@ -547,7 +547,7 @@ test
 </div>
 <p>Solution (3) : Copy the self object</p>
 <p>We may use this solution if we want to use braces and get access to the class attributes (Just Reading).</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
@@ -583,7 +583,7 @@ Because in Ring the assignment operator copy lists and objects by value (not by 
 <p class="admonition-title">Note</p>
 <p>We can use braces again with the copy</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
@@ -626,9 +626,9 @@ Braces.</p>
         <span class="kd">Func</span> <span class="nf">OpenDatabase</span>
                 <span class="c1"># some code here</span>
                 <span class="kp">new</span> <span class="nc">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
-                                <span class="n">open</span><span class="p">()</span>
+                        <span class="n">oCon</span> <span class="o">=</span> <span class="nf">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nf">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                                <span class="nf">open</span><span class="p">()</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
                 <span class="kp">self</span><span class="o">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span>
@@ -651,9 +651,9 @@ we copied that variable to the oCon attribute.</p>
         <span class="kd">Func</span> <span class="nf">OpenDatabase</span>
                 <span class="c1"># some code here</span>
                 <span class="n">oCon</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QSqlDatabase</span><span class="p">()</span>
-                <span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span><span class="o">.</span><span class="n">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
-                        <span class="n">Open</span><span class="p">()</span>
+                <span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span><span class="o">.</span><span class="nf">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nf">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                        <span class="nf">Open</span><span class="p">()</span>
                 <span class="p">}</span>
                 <span class="c1"># some code here</span>
 </pre></div>
@@ -668,9 +668,9 @@ we copied that variable to the oCon attribute.</p>
         <span class="kd">Func</span> <span class="nf">OpenDatabase</span>
                 <span class="c1"># some code here</span>
                 <span class="kp">new</span> <span class="nc">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="kp">this</span><span class="o">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
-                                <span class="n">Open</span><span class="p">()</span>
+                        <span class="kp">this</span><span class="o">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="nf">addDatabase</span><span class="p">(</span><span class="s2">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nf">setDatabaseName</span><span class="p">(</span><span class="s2">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                                <span class="nf">Open</span><span class="p">()</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
                 <span class="c1"># some code here</span>
@@ -697,56 +697,56 @@ they will be attributes that you can access from methods.</p>
         <span class="n">$ObjectName</span> <span class="o">=</span> <span class="s2">&quot;oSecondWindow&quot;</span>
         <span class="n">oSecondWindow</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">SecondWindow</span>
 
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">Class</span> <span class="nc">FirstWindow</span>
 
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;First Window&quot;</span><span class="p">)</span>
+                <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;First Window&quot;</span><span class="p">)</span>
                 <span class="n">label1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qLabel</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                 <span class="p">{</span>
-                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+                        <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">btn1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                 <span class="p">{</span>
-                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Increment&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="n">$ObjectName</span><span class="o">+</span><span class="s2">&quot;.increment()&quot;</span><span class="p">)</span>
+                        <span class="nf">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Increment&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span><span class="n">$ObjectName</span><span class="o">+</span><span class="s2">&quot;.increment()&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
 
         <span class="kd">Func</span> <span class="nf">Increment</span>
                 <span class="n">label1</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">text</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="nf">text</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
 
 
 <span class="kd">Class</span> <span class="nc">SecondWindow</span>
 
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Second Window&quot;</span><span class="p">)</span>
+                <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Second Window&quot;</span><span class="p">)</span>
                 <span class="n">label1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qLabel</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                 <span class="p">{</span>
-                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+                        <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">btn1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
                 <span class="p">{</span>
-                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Decrement&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span><span class="n">$ObjectName</span><span class="o">+</span><span class="s2">&quot;.decrement()&quot;</span><span class="p">)</span>
+                        <span class="nf">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Decrement&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span><span class="n">$ObjectName</span><span class="o">+</span><span class="s2">&quot;.decrement()&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
 
         <span class="kd">Func</span> <span class="nf">Decrement</span>
                 <span class="n">label1</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">text</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="nf">text</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
 </pre></div>
 </div>
@@ -851,10 +851,10 @@ and the Friend class contains an attribute called “name” also.</p>
         <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mahmoud&quot;</span>
         <span class="n">aFriends</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">aFriends</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">Friend</span> <span class="p">{</span>
-                <span class="n">setname</span><span class="p">(</span><span class="s2">&quot;Gal&quot;</span><span class="p">)</span>
+                <span class="nf">setname</span><span class="p">(</span><span class="s2">&quot;Gal&quot;</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="n">aFriends</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">Friend</span> <span class="p">{</span>
-                <span class="n">setname</span><span class="p">(</span><span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
+                <span class="nf">setname</span><span class="p">(</span><span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
         <span class="p">}</span>
 
 <span class="kd">Class</span> <span class="nc">Friend</span>
@@ -871,8 +871,8 @@ and the Friend class contains an attribute called “name” also.</p>
 <span class="kd">Class</span> <span class="nc">Account</span>
         <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Mahmoud&quot;</span>
         <span class="n">aFriends</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">friend</span><span class="p">(</span><span class="s2">&quot;Gal&quot;</span><span class="p">)</span>
-        <span class="n">friend</span><span class="p">(</span><span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
+        <span class="nf">friend</span><span class="p">(</span><span class="s2">&quot;Gal&quot;</span><span class="p">)</span>
+        <span class="nf">friend</span><span class="p">(</span><span class="s2">&quot;Bert&quot;</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">friend</span> <span class="n">cName</span>
                 <span class="n">aFriends</span> <span class="o">+</span> <span class="kp">new</span> <span class="nc">Friend</span> <span class="p">{</span>
@@ -917,7 +917,7 @@ name: Bert
 <span id="index-12"></span><h2>Using braces to escape from the current object scope<a class="headerlink" href="#using-braces-to-escape-from-the-current-object-scope" title="Permalink to this heading"></a></h2>
 <p>Since braces change the current object scope to another object. we can use it to do some work without
 modifying the class attributes and using the same variable names.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="n">start</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="nf">start</span><span class="p">()</span> <span class="p">}</span>
 <span class="kd">class</span> <span class="nc">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
         <span class="kd">func</span> <span class="nf">start</span>
                 <span class="k">see</span> <span class="kp">self</span> <span class="c1"># print the x y z values (10,20,30)</span>
@@ -967,9 +967,9 @@ z: 30.000000
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="o">?</span> <span class="n">x</span>             <span class="c1"># Print 10</span>
-<span class="n">test1</span><span class="p">()</span>
+<span class="nf">test1</span><span class="p">()</span>
 <span class="o">?</span> <span class="n">x</span>             <span class="c1"># Print 10</span>
-<span class="n">test2</span><span class="p">()</span>
+<span class="nf">test2</span><span class="p">()</span>
 <span class="o">?</span> <span class="n">x</span>             <span class="c1"># Print 10</span>
 
 <span class="kd">func</span> <span class="nf">test1</span>

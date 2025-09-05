@@ -324,8 +324,8 @@ when you use the assignment statement.</p>
 <span id="index-2"></span><h2>varptr() function<a class="headerlink" href="#varptr-function" title="Permalink to this heading"></a></h2>
 <p>Use the varptr() function when you need to pass a pointer to a C/C++ function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
-<span class="nb">variablepointer</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="nf">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+<span class="nb">variablepointer</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="nf">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>example:</p>
@@ -404,7 +404,7 @@ and accept NULL pointers for optional parameters.</p>
 <p>The next example uses the SDL_BlitSurface() function from the LibSDL Library through RingSDL
 The function accept SDL_Rect pointers in the second and the last parameter.
 Also the function accept NULL pointers, so we can pass them using the NULLPointer() Function.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="nb">nullpointer</span><span class="p">())</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="nb">nullpointer</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -415,7 +415,7 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <p class="admonition-title">Tip</p>
 <p>We can pass NULL as parameter instead of using the NULLPointer() function</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -423,8 +423,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this heading"></a></h2>
 <p>Use this function to get a C pointer for Ring lists and objects</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">obj2ptr</span><span class="p">(</span><span class="n">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>         <span class="c1"># Short name</span>
-<span class="nb">object2pointer</span><span class="p">(</span><span class="n">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>  <span class="c1"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">obj2ptr</span><span class="p">(</span><span class="n">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="nf">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>         <span class="c1"># Short name</span>
+<span class="nb">object2pointer</span><span class="p">(</span><span class="n">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="nf">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>  <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -709,7 +709,7 @@ Just use the object2pointer() and pointer2object() functions.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test</span>
         <span class="k">see</span> <span class="nb">ringvm_functionslist</span><span class="p">()</span>
@@ -836,7 +836,7 @@ Just use the object2pointer() and pointer2object() functions.</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">test</span><span class="p">()</span>
+<span class="nf">test</span><span class="p">()</span>
 <span class="kd">func</span> <span class="nf">test</span>
         <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
         <span class="k">see</span> <span class="nb">ringvm_memorylist</span><span class="p">()</span>
@@ -948,9 +948,9 @@ y
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">hello</span><span class="p">()</span>
 <span class="kd">func</span> <span class="nf">hello</span>
-        <span class="n">test</span><span class="p">()</span>
+        <span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test</span>
         <span class="n">mylist</span> <span class="o">=</span> <span class="nb">ringvm_calllist</span><span class="p">()</span>
@@ -1121,8 +1121,8 @@ these low level functions!</p>
 <span class="k">see</span> <span class="s2">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">see</span> <span class="s2">&quot;How are you?&quot;</span> <span class="o">+</span><span class="bp">nl</span>
-<span class="n">mytest</span><span class="p">()</span>
-<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+<span class="nf">mytest</span><span class="p">()</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">mymethod</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">mytest</span>
         <span class="k">see</span> <span class="s2">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -1442,7 +1442,7 @@ tools and Interaction debugger too.</p>
         <span class="k">ok</span>
         <span class="k">switch</span> <span class="nb">ringvm_TraceEvent</span><span class="p">()</span>
                 <span class="k">on</span>  <span class="n">TRACEEVENT_ERROR</span>
-                        <span class="n">_BreakPoint</span><span class="p">()</span>
+                        <span class="nf">_BreakPoint</span><span class="p">()</span>
         <span class="k">off</span>
 
 <span class="kd">func</span> <span class="nf">TraceLib_LineByLine</span>
@@ -1452,13 +1452,13 @@ tools and Interaction debugger too.</p>
         <span class="k">ok</span>
         <span class="n">aList</span> <span class="o">=</span> <span class="nb">ringvm_tracedata</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;Before Line : &quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="p">[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="n">_BreakPoint</span><span class="p">()</span>
+        <span class="nf">_BreakPoint</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">BreakPoint</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">TRACE_BREAKPOINTS</span>
                 <span class="k">return</span>
         <span class="k">ok</span>
-        <span class="n">_BreakPoint</span><span class="p">()</span>
+        <span class="nf">_BreakPoint</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">_BreakPoint</span>
         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="bp">nl</span><span class="o">+</span><span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
@@ -1484,7 +1484,7 @@ tools and Interaction debugger too.</p>
                                 <span class="nb">ringvm_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see locals() callgc()&quot;</span><span class="p">)</span>
                                 <span class="k">loop</span>
                         <span class="k">on</span> <span class="s2">&quot;localsdata&quot;</span>
-                                <span class="n">PrintLocalsData</span><span class="p">(</span><span class="n">nScope</span><span class="p">)</span>
+                                <span class="nf">PrintLocalsData</span><span class="p">(</span><span class="n">nScope</span><span class="p">)</span>
                                 <span class="k">loop</span>
                         <span class="k">on</span> <span class="s2">&quot;globals&quot;</span>
                                 <span class="nb">ringvm_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="s2">&quot;see globals() callgc()&quot;</span><span class="p">)</span>

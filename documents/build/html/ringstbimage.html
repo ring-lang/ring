@@ -229,7 +229,7 @@
 <span class="c1"># Image Information</span>
         <span class="n">width</span><span class="o">=</span><span class="mi">0</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span> <span class="n">channels</span><span class="o">=</span><span class="mi">0</span>
 <span class="c1"># Ring will Free cData automatically in the end of the program</span>
-        <span class="n">cData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="s2">&quot;ring.jpg&quot;</span><span class="p">,</span><span class="ss">:width</span><span class="p">,</span><span class="ss">:height</span><span class="p">,</span><span class="ss">:channels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="nf">stbi_load</span><span class="p">(</span><span class="s2">&quot;ring.jpg&quot;</span><span class="p">,</span><span class="ss">:width</span><span class="p">,</span><span class="ss">:height</span><span class="p">,</span><span class="ss">:channels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
 <span class="c1"># Display the output</span>
         <span class="o">?</span> <span class="s2">&quot;Size (bytes): &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">cData</span><span class="p">)</span>
         <span class="o">?</span> <span class="s2">&quot;Width : &quot;</span> <span class="o">+</span> <span class="n">width</span>
@@ -238,7 +238,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Size</span> <span class="p">(</span><span class="n">bytes</span><span class="p">)</span><span class="o">:</span> <span class="mi">557371</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Size</span> <span class="p">(</span><span class="n">bytes</span><span class="p">)</span><span class="o">:</span> <span class="mi">557371</span>
 <span class="n">Width</span> <span class="o">:</span> <span class="mi">563</span>
 <span class="n">Height</span><span class="o">:</span> <span class="mi">330</span>
 <span class="n">Channels</span><span class="o">:</span> <span class="mi">3</span>
@@ -266,7 +266,7 @@
 
 <span class="c1"># Write the image</span>
 <span class="o">?</span> <span class="s2">&quot;Writing mynewimage.bmp&quot;</span>
-<span class="n">stbi_write_bmp</span><span class="p">(</span><span class="s2">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cData</span><span class="p">)</span>
+<span class="nf">stbi_write_bmp</span><span class="p">(</span><span class="s2">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cData</span><span class="p">)</span>
 <span class="n">t3</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 
 <span class="o">?</span> <span class="s2">&quot;Time to create the image : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>

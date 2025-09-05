@@ -231,28 +231,28 @@
 <section id="sqlite-init-function">
 <span id="index-1"></span><h2>sqlite_init() function<a class="headerlink" href="#sqlite-init-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite_init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">SQLite</span> <span class="n">Object</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sqlite_init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">SQLite</span> <span class="n">Object</span>
 </pre></div>
 </div>
 </section>
 <section id="sqlite-open-function">
 <span id="index-2"></span><h2>sqlite_open() function<a class="headerlink" href="#sqlite-open-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite_open</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">,</span><span class="n">cFileName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sqlite_open</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">,</span><span class="n">cFileName</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="sqlite-execute-function">
 <span id="index-3"></span><h2>sqlite_execute() function<a class="headerlink" href="#sqlite-execute-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite_execute</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">,</span><span class="n">cSQLStatement</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">,</span><span class="n">cSQLStatement</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="sqlite-close-function">
 <span id="index-4"></span><h2>sqlite_close() function<a class="headerlink" href="#sqlite-close-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite_close</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sqlite_close</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -261,9 +261,9 @@
 <p>The next code create a SQLite database, add new records then display the data.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sqlitelib.ring&quot;</span>
 
-<span class="n">oSQLite</span> <span class="o">=</span> <span class="n">sqlite_init</span><span class="p">()</span>
+<span class="n">oSQLite</span> <span class="o">=</span> <span class="nf">sqlite_init</span><span class="p">()</span>
 
-<span class="n">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;mytest.db&quot;</span><span class="p">)</span>
+<span class="nf">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;mytest.db&quot;</span><span class="p">)</span>
 
 <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;</span>
 <span class="s2">         CREATE TABLE COMPANY (</span>
@@ -273,7 +273,7 @@
 <span class="s2">         ADDRESS        CHAR(50),</span>
 <span class="s2">         SALARY         REAL );</span>
 <span class="s2">&quot;</span>
-<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
 <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;</span>
 <span class="s2">        INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)</span>
@@ -283,9 +283,9 @@
 <span class="s2">                (4, &#39;Ibrahim&#39; , 24, &#39;Egypt &#39;, 65000.00 );</span>
 <span class="s2">&quot;</span>
 
-<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
-<span class="n">aResult</span> <span class="o">=</span>  <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
+<span class="n">aResult</span> <span class="o">=</span>  <span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
         <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
                 <span class="o">?</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -295,7 +295,7 @@
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
         <span class="o">?</span> <span class="n">x</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
 <span class="k">next</span>
-<span class="n">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
+<span class="nf">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>

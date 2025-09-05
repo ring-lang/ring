@@ -440,21 +440,21 @@ more options.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Times()&quot;</span><span class="p">)</span>
-<span class="n">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="kd">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s2">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">}</span> <span class="p">)</span>
+<span class="nf">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="kd">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s2">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Map()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="nf">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Filter()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="bp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="bp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="nf">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="bp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="bp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -462,11 +462,11 @@ more options.</p>
 
 <span class="k">See</span> <span class="s2">&quot;Testing the String Class&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">oString</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">string</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-<span class="n">oString</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="o">.</span><span class="nb">upper</span><span class="p">()</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="o">.</span><span class="nb">lower</span><span class="p">()</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="o">.</span><span class="nb">left</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
-<span class="n">oString</span><span class="o">.</span><span class="nb">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nf">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">upper</span><span class="p">()</span><span class="o">.</span><span class="nf">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">lower</span><span class="p">()</span><span class="o">.</span><span class="nf">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">left</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="nf">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="o">.</span><span class="nb">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="nf">println</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -481,10 +481,10 @@ more options.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 
 <span class="n">oStack</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Stack</span>
-<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">oStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">oStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oStack</span><span class="o">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oStack</span><span class="o">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oStack</span><span class="o">.</span><span class="nf">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="o">.</span><span class="nf">pop</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -507,11 +507,11 @@ more options.</p>
         <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">,</span><span class="s2">&quot;Riyadh&quot;</span><span class="p">)</span>
         <span class="k">see</span> <span class="kp">self</span><span class="p">[</span><span class="s2">&quot;Egypt&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">see</span> <span class="kp">self</span><span class="p">[</span><span class="s2">&quot;KSA&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s2">&quot;USA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-        <span class="k">see</span> <span class="n">index</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">NL</span>
+        <span class="k">see</span> <span class="nf">contains</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="nf">contains</span><span class="p">(</span><span class="s2">&quot;USA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="k">see</span> <span class="nf">index</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="bp">NL</span>
         <span class="nb">print</span><span class="p">()</span>
-        <span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">))</span>
+        <span class="nf">delete</span><span class="p">(</span><span class="nf">index</span><span class="p">(</span><span class="s2">&quot;KSA&quot;</span><span class="p">))</span>
         <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="nb">print</span><span class="p">()</span>
 <span class="p">}</span>
@@ -523,8 +523,8 @@ more options.</p>
 <span class="n">otree</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">tree</span>
 <span class="k">See</span> <span class="s2">&quot;Test the tree Class Methods&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">otree</span> <span class="p">{</span>
-        <span class="n">set</span><span class="p">(</span><span class="s2">&quot;The first step&quot;</span><span class="p">)</span>   <span class="c1"># set the root node value</span>
-        <span class="k">see</span> <span class="n">value</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="nf">set</span><span class="p">(</span><span class="s2">&quot;The first step&quot;</span><span class="p">)</span>   <span class="c1"># set the root node value</span>
+        <span class="k">see</span> <span class="nf">value</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
         <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span>
         <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;three&quot;</span><span class="p">)</span> <span class="p">{</span>
@@ -539,7 +539,7 @@ more options.</p>
                         <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.3.1&quot;</span><span class="p">)</span> <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;2.3.2&quot;</span><span class="p">)</span> <span class="nb">Add</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">oTree</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;2.3.3&quot;</span><span class="p">)</span>
+        <span class="n">oTree</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;2.3.3&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">oTree</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
@@ -558,11 +558,11 @@ more options.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>See the RingLibSDL Chapter.</p>
@@ -590,7 +590,7 @@ using nested structures or using natural programming.</p>
                         <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
                         <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;fonts/pirulen.ttf&quot;</span>
                         <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;game development using ring is very fun!&quot;</span>
-                        <span class="n">color</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># Color = black</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># Color = black</span>
                 <span class="p">}</span>
                 <span class="n">text</span> <span class="p">{</span>
                         <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">150</span>
@@ -603,7 +603,7 @@ using nested structures or using natural programming.</p>
                         <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
                         <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;fonts/pirulen.ttf&quot;</span>
                         <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;welcome to the real world!&quot;</span>
-                        <span class="n">color</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>    <span class="c1"># Color = Blue</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>    <span class="c1"># Color = Blue</span>
                 <span class="p">}</span>
                 <span class="n">Sound</span> <span class="p">{</span>                                 <span class="c1"># Play Sound</span>
                         <span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;sound/music1.wav&quot;</span>       <span class="c1"># Sound File Name</span>
@@ -618,9 +618,9 @@ using nested structures or using natural programming.</p>
 <p>Ring 1.0 provided support for ODBC to use any database and provided native support for MySQL.</p>
 <p>Now Ring 1.1 provide native support for SQLite database too.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oSQLite</span> <span class="o">=</span> <span class="n">sqlite_init</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oSQLite</span> <span class="o">=</span> <span class="nf">sqlite_init</span><span class="p">()</span>
 
-<span class="n">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;mytest.db&quot;</span><span class="p">)</span>
+<span class="nf">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;mytest.db&quot;</span><span class="p">)</span>
 
 <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;CREATE TABLE COMPANY(&quot;</span>  <span class="o">+</span>
          <span class="s2">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
@@ -629,7 +629,7 @@ using nested structures or using natural programming.</p>
          <span class="s2">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
          <span class="s2">&quot;SALARY         REAL );&quot;</span>
 
-<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
 <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
          <span class="s2">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
@@ -640,9 +640,9 @@ using nested structures or using natural programming.</p>
          <span class="s2">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
          <span class="s2">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
 
-<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
-<span class="n">aResult</span> <span class="o">=</span>  <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
+<span class="n">aResult</span> <span class="o">=</span>  <span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
         <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
                 <span class="k">see</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -652,7 +652,7 @@ using nested structures or using natural programming.</p>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
         <span class="k">see</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">next</span>
-<span class="n">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
+<span class="nf">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

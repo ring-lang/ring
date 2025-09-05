@@ -235,7 +235,7 @@
 
 <span class="n">cPDFFileName</span> <span class="o">=</span> <span class="s2">&quot;output.pdf&quot;</span>
 
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">pdf_create</span><span class="p">(</span><span class="n">PDF_A4_WIDTH</span><span class="p">,</span> <span class="n">PDF_A4_HEIGHT</span><span class="p">,</span> <span class="p">[</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="nf">pdf_create</span><span class="p">(</span><span class="n">PDF_A4_WIDTH</span><span class="p">,</span> <span class="n">PDF_A4_HEIGHT</span><span class="p">,</span> <span class="p">[</span>
         <span class="ss">:creator</span>  <span class="o">=</span> <span class="s2">&quot;My software&quot;</span><span class="p">,</span>
         <span class="ss">:producer</span> <span class="o">=</span> <span class="s2">&quot;My software&quot;</span><span class="p">,</span>
         <span class="ss">:title</span>    <span class="o">=</span> <span class="s2">&quot;My document&quot;</span><span class="p">,</span>
@@ -244,21 +244,21 @@
         <span class="ss">:date</span>     <span class="o">=</span> <span class="s2">&quot;Today&quot;</span>
 <span class="p">]</span> <span class="p">)</span>
 
-<span class="n">pdf_set_font</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;Times-Roman&quot;</span><span class="p">)</span>
-<span class="n">pdf_append_page</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+<span class="nf">pdf_set_font</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;Times-Roman&quot;</span><span class="p">)</span>
+<span class="nf">pdf_append_page</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
 
-<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLACK</span><span class="p">)</span>
-<span class="n">pdf_add_line</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLUE</span><span class="p">)</span>
+<span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLACK</span><span class="p">)</span>
+<span class="nf">pdf_add_line</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLUE</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
-        <span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">PDF_RED</span><span class="p">)</span>
+        <span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">PDF_RED</span><span class="p">)</span>
 <span class="k">next</span>
 
-<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;I LOVE PROGRAMMING!&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span><span class="n">PDF_BLUE</span><span class="p">)</span>
+<span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;I LOVE PROGRAMMING!&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span><span class="n">PDF_BLUE</span><span class="p">)</span>
 
-<span class="n">pdf_save</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cPDFFileName</span><span class="p">)</span>
-<span class="n">pdf_destroy</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+<span class="nf">pdf_save</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cPDFFileName</span><span class="p">)</span>
+<span class="nf">pdf_destroy</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
 
 <span class="nb">system</span><span class="p">(</span><span class="n">cPDFFileName</span><span class="p">)</span>
 </pre></div>

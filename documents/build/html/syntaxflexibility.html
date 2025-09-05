@@ -285,7 +285,7 @@ compiler for syntax flexibility.</p>
 <span class="n">x</span><span class="o">--</span>
 <span class="k">endwhile</span>
 
-<span class="n">test</span><span class="p">()</span>
+<span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">function</span> <span class="nf">test</span>
         <span class="n">print</span> <span class="s2">&quot;message from test&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -410,8 +410,8 @@ in many source files. You can’t use the Load command to call these files becau
 <h2>Using “()” around the function parameters<a class="headerlink" href="#using-around-the-function-parameters" title="Permalink to this heading"></a></h2>
 <p>We can use () around the function parameters (optional).</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
-<span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">hello</span><span class="p">()</span>
+<span class="nf">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">hello</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;Hello&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -428,11 +428,11 @@ in many source files. You can’t use the Load command to call these files becau
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myfunc</span> <span class="o">=</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span><span class="n">y</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">}</span>
 
-<span class="k">call</span> <span class="n">myfunc</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">call</span> <span class="nf">myfunc</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="n">myfunc2</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="bp">nl</span> <span class="p">}</span>
 
-<span class="k">call</span> <span class="n">myfunc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">call</span> <span class="nf">myfunc</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -448,7 +448,7 @@ in many source files. You can’t use the Load command to call these files becau
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using semi-colon is optional</span>
 
 <span class="k">see</span> <span class="s2">&quot;Hello&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span> <span class="k">see</span> <span class="s2">&quot;How are you?&quot;</span> <span class="o">+</span> <span class="bp">nl</span>  <span class="p">;</span> <span class="k">see</span> <span class="s2">&quot;Welcome to Ring&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
-<span class="n">one</span><span class="p">()</span> <span class="p">;</span> <span class="n">two</span><span class="p">()</span> <span class="p">;</span> <span class="n">three</span><span class="p">()</span> <span class="p">;</span>
+<span class="nf">one</span><span class="p">()</span> <span class="p">;</span> <span class="nf">two</span><span class="p">()</span> <span class="p">;</span> <span class="nf">three</span><span class="p">()</span> <span class="p">;</span>
 <span class="kd">func</span> <span class="nf">one</span> <span class="p">;</span> <span class="k">see</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
 <span class="kd">func</span> <span class="nf">two</span> <span class="p">;</span> <span class="k">see</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
 <span class="kd">func</span> <span class="nf">three</span> <span class="p">;</span> <span class="k">see</span> <span class="s2">&quot;three&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
@@ -474,7 +474,7 @@ any force from the Compiler.</p>
 <p>example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">$global_variable</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="kp">new</span> <span class="nc">test</span> <span class="p">{</span> <span class="n">hello</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">test</span> <span class="p">{</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">test</span>
 
@@ -680,7 +680,7 @@ Then you can use the ‘else’ keyword.</p>
 <span id="index-13"></span><h2>Using ‘def’ as ‘func’ in functions/methods definition<a class="headerlink" href="#using-def-as-func-in-functions-methods-definition" title="Permalink to this heading"></a></h2>
 <p>We can use the ‘def’ keyword as the ‘func’ keyword to define functions and methods.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">one</span><span class="p">()</span> <span class="nf">two</span><span class="p">()</span>
 
 <span class="kd">def</span> <span class="nf">one</span> <span class="k">put</span> <span class="s2">&quot;one&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="kd">def</span> <span class="nf">two</span> <span class="k">put</span> <span class="s2">&quot;two&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -695,7 +695,7 @@ Then you can use the ‘else’ keyword.</p>
 <span class="kn">import</span> <span class="nn">mypackage</span>
 
 <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
-        <span class="n">myfunc</span><span class="p">()</span>
+        <span class="nf">myfunc</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
@@ -738,7 +738,7 @@ Then you can use the ‘else’ keyword.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mypackage</span>
 
 <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
-        <span class="n">myfunc</span><span class="p">()</span>
+        <span class="nf">myfunc</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
@@ -754,7 +754,7 @@ Then you can use the ‘else’ keyword.</p>
 <section id="using-function-endfunction-keywords">
 <span id="index-17"></span><h2>Using ‘function’/’endfunction’ keywords<a class="headerlink" href="#using-function-endfunction-keywords" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">one</span><span class="p">()</span> <span class="nf">two</span><span class="p">()</span> <span class="nf">three</span><span class="p">()</span>
 <span class="kd">function</span> <span class="nf">one</span>
         <span class="o">?</span> <span class="ss">:one</span>
 <span class="kd">endfunction</span>
@@ -783,7 +783,7 @@ Then you can use the ‘else’ keyword.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">myfunc</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">myfunc</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
         <span class="kd">class</span> <span class="nc">myclass</span>
@@ -803,7 +803,7 @@ Then you can use the ‘else’ keyword.</p>
 <span class="s2">&quot;</span>
 <span class="s2">        Hello, World!</span>
 <span class="s2">&quot;</span>
-<span class="n">test</span><span class="p">()</span>
+<span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">func</span>
 <span class="c1">#======================#</span>

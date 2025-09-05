@@ -256,8 +256,8 @@
 <span id="index-2"></span><h2>Example about Sharing Names between Functions and Methods<a class="headerlink" href="#example-about-sharing-names-between-functions-and-methods" title="Permalink to this heading"></a></h2>
 <p>Look at the next example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="n">test2</span><span class="p">()</span> <span class="p">}</span>
-        <span class="n">test2</span><span class="p">()</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="nf">test2</span><span class="p">()</span> <span class="p">}</span>
+        <span class="nf">test2</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">f1</span>
         <span class="k">see</span> <span class="s2">&quot;f1 function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -269,17 +269,17 @@
         <span class="k">see</span> <span class="s2">&quot;f3 function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
 <span class="kd">func</span> <span class="nf">test2</span>
-        <span class="n">myline</span><span class="p">()</span>
+        <span class="nf">myline</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;test2 function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>
-                <span class="kp">self</span><span class="o">.</span><span class="n">f3</span><span class="p">()</span>
+                <span class="nf">f1</span><span class="p">()</span>
+                <span class="nf">f2</span><span class="p">()</span>
+                <span class="nf">f3</span><span class="p">()</span>
+                <span class="kp">self</span><span class="o">.</span><span class="nf">f3</span><span class="p">()</span>
         <span class="p">}</span>
         <span class="n">myobj</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">myclass</span>
-        <span class="n">myobj</span><span class="o">.</span><span class="n">f3</span><span class="p">()</span>
-        <span class="n">myline</span><span class="p">()</span>
+        <span class="n">myobj</span><span class="o">.</span><span class="nf">f3</span><span class="p">()</span>
+        <span class="nf">myline</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">myline</span>
         <span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -287,25 +287,25 @@
 <span class="kd">Class</span> <span class="nc">myclass</span>
 
         <span class="kd">func</span> <span class="nf">test</span>
-                <span class="n">myline</span><span class="p">()</span>
+                <span class="nf">myline</span><span class="p">()</span>
                 <span class="k">see</span> <span class="s2">&quot;test method&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>
-                <span class="n">myline</span><span class="p">()</span>
+                <span class="nf">f1</span><span class="p">()</span>
+                <span class="nf">f2</span><span class="p">()</span>
+                <span class="nf">f3</span><span class="p">()</span>
+                <span class="nf">myline</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">f3</span>
                 <span class="k">see</span> <span class="s2">&quot;f3 method&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
         <span class="kd">func</span> <span class="nf">test2</span>
-                <span class="n">myline</span><span class="p">()</span>
+                <span class="nf">myline</span><span class="p">()</span>
                 <span class="k">see</span> <span class="s2">&quot;test2 method&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
                 <span class="kp">self</span> <span class="p">{</span>
-                        <span class="n">f1</span><span class="p">()</span>
-                        <span class="n">f2</span><span class="p">()</span>
-                        <span class="n">f3</span><span class="p">()</span>
+                        <span class="nf">f1</span><span class="p">()</span>
+                        <span class="nf">f2</span><span class="p">()</span>
+                        <span class="nf">f3</span><span class="p">()</span>
                 <span class="p">}</span>
-                <span class="n">myline</span><span class="p">()</span>
+                <span class="nf">myline</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -339,7 +339,7 @@ f3 method
 <p>Solution (1) : Change the current object scope to another object scope</p>
 <p>In this solution we will have an empty class called local that we will use to change the current object scope.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()}</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()}</span>
 
 <span class="kd">func</span> <span class="nf">f1</span>
         <span class="k">see</span> <span class="s2">&quot;f1 function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -356,13 +356,13 @@ f3 method
 <span class="kd">Class</span> <span class="nc">myclass</span>
 
         <span class="kd">func</span> <span class="nf">test</span>
-                <span class="n">myline</span><span class="p">()</span>
+                <span class="nf">myline</span><span class="p">()</span>
                 <span class="k">see</span> <span class="s2">&quot;test method&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>               <span class="c1"># call f3() method</span>
-                <span class="kp">new</span> <span class="nc">local</span> <span class="p">{</span> <span class="n">f3</span><span class="p">()</span> <span class="p">}</span> <span class="c1"># call f3() function</span>
-                <span class="n">myline</span><span class="p">()</span>
+                <span class="nf">f1</span><span class="p">()</span>
+                <span class="nf">f2</span><span class="p">()</span>
+                <span class="nf">f3</span><span class="p">()</span>               <span class="c1"># call f3() method</span>
+                <span class="kp">new</span> <span class="nc">local</span> <span class="p">{</span> <span class="nf">f3</span><span class="p">()</span> <span class="p">}</span> <span class="c1"># call f3() function</span>
+                <span class="nf">myline</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">f3</span>
                 <span class="k">see</span> <span class="s2">&quot;f3 method&quot;</span> <span class="o">+</span> <span class="bp">nl</span>

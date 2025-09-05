@@ -369,7 +369,7 @@ add them (create projects with many files).</p>
 <p>(4) Sometimes you will find that the button text/image is repeated in drawing !
 it’s Qt problem that you can avoid using the next code.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">isandroid</span><span class="p">()</span>
-        <span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;</span>
+        <span class="nf">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;</span>
 <span class="s2">                border-style: outset;</span>
 <span class="s2">                border-width: 2px;</span>
 <span class="s2">                border-radius: 4px;</span>
@@ -395,7 +395,7 @@ it’s Qt problem that you can avoid using the next code.</p>
 </div>
 <p>Now RingQt comes with the AppFile() function to determine the file name</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;cards.jpg&quot;</span><span class="p">))</span>  <span class="c1"># Desktop or Android</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;cards.jpg&quot;</span><span class="p">))</span>  <span class="c1"># Desktop or Android</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">

@@ -289,7 +289,7 @@
 
 <span class="n">cPDFFileName</span> <span class="o">=</span> <span class="s2">&quot;output.pdf&quot;</span>
 
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">pdf_create</span><span class="p">(</span><span class="n">PDF_A4_WIDTH</span><span class="p">,</span> <span class="n">PDF_A4_HEIGHT</span><span class="p">,</span> <span class="p">[</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="nf">pdf_create</span><span class="p">(</span><span class="n">PDF_A4_WIDTH</span><span class="p">,</span> <span class="n">PDF_A4_HEIGHT</span><span class="p">,</span> <span class="p">[</span>
         <span class="ss">:creator</span>  <span class="o">=</span> <span class="s2">&quot;My software&quot;</span><span class="p">,</span>
         <span class="ss">:producer</span> <span class="o">=</span> <span class="s2">&quot;My software&quot;</span><span class="p">,</span>
         <span class="ss">:title</span>    <span class="o">=</span> <span class="s2">&quot;My document&quot;</span><span class="p">,</span>
@@ -298,21 +298,21 @@
         <span class="ss">:date</span>     <span class="o">=</span> <span class="s2">&quot;Today&quot;</span>
 <span class="p">]</span> <span class="p">)</span>
 
-<span class="n">pdf_set_font</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;Times-Roman&quot;</span><span class="p">)</span>
-<span class="n">pdf_append_page</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+<span class="nf">pdf_set_font</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;Times-Roman&quot;</span><span class="p">)</span>
+<span class="nf">pdf_append_page</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
 
-<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLACK</span><span class="p">)</span>
-<span class="n">pdf_add_line</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLUE</span><span class="p">)</span>
+<span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLACK</span><span class="p">)</span>
+<span class="nf">pdf_add_line</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLUE</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
-        <span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">PDF_RED</span><span class="p">)</span>
+        <span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">PDF_RED</span><span class="p">)</span>
 <span class="k">next</span>
 
-<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;I LOVE PROGRAMMING!&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span><span class="n">PDF_BLUE</span><span class="p">)</span>
+<span class="nf">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="s2">&quot;I LOVE PROGRAMMING!&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span><span class="n">PDF_BLUE</span><span class="p">)</span>
 
-<span class="n">pdf_save</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cPDFFileName</span><span class="p">)</span>
-<span class="n">pdf_destroy</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+<span class="nf">pdf_save</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cPDFFileName</span><span class="p">)</span>
+<span class="nf">pdf_destroy</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
 
 <span class="nb">system</span><span class="p">(</span><span class="n">cPDFFileName</span><span class="p">)</span>
 </pre></div>
@@ -336,22 +336,22 @@ MatrixCopyCol(U-Array, Start, End)      // Create new smaller V-array from U-arr
         <span class="n">A</span> <span class="o">=</span>  <span class="p">[[</span>  <span class="mi">1</span><span class="p">],[</span>  <span class="mi">6</span><span class="p">],[</span> <span class="mi">18</span><span class="p">]]</span>
         <span class="n">B</span> <span class="o">=</span>  <span class="p">[[</span> <span class="mi">42</span><span class="p">],[</span><span class="o">-</span><span class="mi">69</span><span class="p">],[</span> <span class="mi">98</span><span class="p">]]</span>
 
-        <span class="k">See</span> <span class="s2">&quot;A &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">See</span> <span class="s2">&quot;B &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s2">&quot;A &quot;</span> <span class="nf">MatrixPrint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s2">&quot;B &quot;</span> <span class="nf">MatrixPrint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 
-        <span class="n">SP</span> <span class="o">=</span> <span class="n">MatrixScalarProjection</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+        <span class="n">SP</span> <span class="o">=</span> <span class="nf">MatrixScalarProjection</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
         <span class="k">See</span> <span class="s2">&quot;Scalar projection of B onto A = 73.26  =&gt; &quot;</span><span class="o">+</span> <span class="n">SP</span> <span class="o">+</span><span class="bp">nl</span>
 
-        <span class="n">SP</span> <span class="o">=</span> <span class="n">MatrixScalarProjection</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">SP</span> <span class="o">=</span> <span class="nf">MatrixScalarProjection</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
         <span class="k">See</span> <span class="s2">&quot;Scalar projection of A onto B = 10.96  =&gt; &quot;</span><span class="o">+</span> <span class="n">SP</span> <span class="o">+</span><span class="bp">nl</span>
 
         <span class="n">A</span> <span class="o">=</span>  <span class="p">[[</span> <span class="mi">3</span><span class="p">],[</span> <span class="mi">4</span><span class="p">]]</span>
         <span class="n">B</span> <span class="o">=</span>  <span class="p">[[</span> <span class="mi">1</span><span class="p">],[</span> <span class="mi">2</span><span class="p">]]</span>
 
-        <span class="k">See</span> <span class="s2">&quot;A &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">See</span> <span class="s2">&quot;B &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s2">&quot;A &quot;</span> <span class="nf">MatrixPrint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s2">&quot;B &quot;</span> <span class="nf">MatrixPrint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 
-        <span class="n">SP</span> <span class="o">=</span> <span class="n">MatrixScalarProjection</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+        <span class="n">SP</span> <span class="o">=</span> <span class="nf">MatrixScalarProjection</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
         <span class="k">See</span> <span class="s2">&quot;Scalar projection of A onto B = 4.9193 =&gt; &quot;</span><span class="o">+</span> <span class="n">SP</span> <span class="o">+</span><span class="bp">nl</span>
 </pre></div>
 </div>
@@ -542,13 +542,13 @@ Time using Ring 1.20    --&gt; 244 ms
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2 abc&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;What&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="kp">new</span> <span class="nc">point</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2 abc&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;What&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="kp">new</span> <span class="nc">point</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
 </pre></div>
@@ -578,11 +578,11 @@ myobj + [1,2,3]
 <p>In this release we support that the value could come first before the object and the operator()
 method will be called but the letter ‘r’ will comes before the operator (i.e. r+ instead of +)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="nf">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">mylist</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">List</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 
-<span class="n">f</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
+<span class="nf">f</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">f</span> <span class="n">x</span>
         <span class="k">return</span> <span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>    <span class="c1"># Here 2 comes before x and x could be an object</span>

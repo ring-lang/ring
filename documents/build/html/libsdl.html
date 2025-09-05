@@ -242,11 +242,11 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -255,20 +255,20 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
-<span class="n">bmp</span> <span class="o">=</span> <span class="n">SDL_LoadBMP</span><span class="p">(</span><span class="s2">&quot;hello.bmp&quot;</span><span class="p">)</span>
-<span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">)</span>
-<span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
-<span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">ren</span> <span class="o">=</span> <span class="nf">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+<span class="n">bmp</span> <span class="o">=</span> <span class="nf">SDL_LoadBMP</span><span class="p">(</span><span class="s2">&quot;hello.bmp&quot;</span><span class="p">)</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="nf">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">)</span>
+<span class="nf">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+<span class="nf">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -277,29 +277,29 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
-<span class="n">bmp</span> <span class="o">=</span> <span class="n">SDL_LoadBMP</span><span class="p">(</span><span class="s2">&quot;hello.bmp&quot;</span><span class="p">)</span>
-<span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">bmp</span> <span class="o">=</span> <span class="n">SDL_LoadBMP</span><span class="p">(</span><span class="s2">&quot;hello2.bmp&quot;</span><span class="p">)</span>
-<span class="n">tex2</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">ren</span> <span class="o">=</span> <span class="nf">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+<span class="n">bmp</span> <span class="o">=</span> <span class="nf">SDL_LoadBMP</span><span class="p">(</span><span class="s2">&quot;hello.bmp&quot;</span><span class="p">)</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="nf">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="n">bmp</span> <span class="o">=</span> <span class="nf">SDL_LoadBMP</span><span class="p">(</span><span class="s2">&quot;hello2.bmp&quot;</span><span class="p">)</span>
+<span class="n">tex2</span> <span class="o">=</span> <span class="nf">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="n">showtex</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span> <span class="n">showtex</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span> <span class="k">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="nf">showtex</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span> <span class="nf">showtex</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span> <span class="k">next</span>
 
-<span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
-<span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span>
-<span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+<span class="nf">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex2</span><span class="p">)</span>
+<span class="nf">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">showtex</span> <span class="n">oTex</span>
-        <span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-        <span class="n">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">oTex</span><span class="p">)</span>
-        <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-        <span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+        <span class="nf">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+        <span class="nf">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">oTex</span><span class="p">)</span>
+        <span class="nf">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+        <span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -308,23 +308,23 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
-<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">rect</span> <span class="o">=</span> <span class="n">sdl_new_sdl_rect</span><span class="p">()</span>
-<span class="n">sdl_set_sdl_rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
-<span class="n">SDL_RenderDrawRect</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
-<span class="n">sdl_destroy_sdl_rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
-<span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">ren</span> <span class="o">=</span> <span class="nf">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+<span class="nf">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_rect</span><span class="p">()</span>
+<span class="nf">sdl_set_sdl_rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nf">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="nf">SDL_RenderDrawRect</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+<span class="nf">sdl_destroy_sdl_rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+<span class="nf">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -333,20 +333,20 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
-<span class="n">bmp</span> <span class="o">=</span> <span class="n">IMG_Load</span><span class="p">(</span><span class="s2">&quot;hello3.png&quot;</span><span class="p">)</span>
-<span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">)</span>
-<span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
-<span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">ren</span> <span class="o">=</span> <span class="nf">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+<span class="n">bmp</span> <span class="o">=</span> <span class="nf">IMG_Load</span><span class="p">(</span><span class="s2">&quot;hello3.png&quot;</span><span class="p">)</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="nf">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">)</span>
+<span class="nf">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+<span class="nf">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -355,29 +355,29 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
-<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">ren</span> <span class="o">=</span> <span class="nf">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+<span class="nf">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
 
-<span class="n">TTF_Init</span><span class="p">()</span>
-<span class="n">font</span> <span class="o">=</span> <span class="n">TTF_OpenFont</span><span class="p">(</span><span class="s2">&quot;pirulen.ttf&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">color</span> <span class="o">=</span> <span class="n">sdl_new_sdl_color</span><span class="p">()</span>
-<span class="n">sdl_set_sdl_color_r</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_color_g</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_color_b</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="s2">&quot;Welcome to the Ring language&quot;</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
-<span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
-<span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">TTF_Init</span><span class="p">()</span>
+<span class="n">font</span> <span class="o">=</span> <span class="nf">TTF_OpenFont</span><span class="p">(</span><span class="s2">&quot;pirulen.ttf&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">color</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_color</span><span class="p">()</span>
+<span class="nf">sdl_set_sdl_color_r</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_color_g</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_color_b</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="nf">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="s2">&quot;Welcome to the Ring language&quot;</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<span class="n">surface</span> <span class="o">=</span> <span class="nf">SDL_GetWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+<span class="nf">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
 
-<span class="n">SDL_Destroy_SDL_Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="n">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
-<span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Destroy_SDL_Color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nf">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+<span class="nf">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -386,52 +386,52 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
 
 <span class="n">flags</span> <span class="o">=</span> <span class="n">IMG_INIT_JPG</span> <span class="o">|</span> <span class="n">IMG_INIT_PNG</span>
-<span class="n">IMG_Init</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
+<span class="nf">IMG_Init</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span>
 
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">ren</span> <span class="o">=</span> <span class="nf">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
 
-<span class="n">bmp</span> <span class="o">=</span> <span class="n">IMG_Load</span><span class="p">(</span><span class="s2">&quot;stars.jpg&quot;</span><span class="p">)</span>
-<span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="bp">NULL</span><span class="p">)</span>
-<span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+<span class="n">bmp</span> <span class="o">=</span> <span class="nf">IMG_Load</span><span class="p">(</span><span class="s2">&quot;stars.jpg&quot;</span><span class="p">)</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="nf">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="bp">NULL</span><span class="p">)</span>
+<span class="nf">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
 
-<span class="n">bmp</span> <span class="o">=</span> <span class="n">IMG_Load</span><span class="p">(</span><span class="s2">&quot;player.png&quot;</span><span class="p">)</span>
+<span class="n">bmp</span> <span class="o">=</span> <span class="nf">IMG_Load</span><span class="p">(</span><span class="s2">&quot;player.png&quot;</span><span class="p">)</span>
 <span class="c1"># Image - Set Transparent color (white)</span>
-<span class="n">myformat</span> <span class="o">=</span> <span class="n">sdl_get_sdl_surface_format</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">white</span> <span class="o">=</span> <span class="n">SDL_MapRGB</span><span class="p">(</span><span class="n">myformat</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
-<span class="n">SDL_SetColorKey</span><span class="p">(</span><span class="n">bmp</span><span class="p">,</span> <span class="n">SDL_True</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
+<span class="n">myformat</span> <span class="o">=</span> <span class="nf">sdl_get_sdl_surface_format</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="n">white</span> <span class="o">=</span> <span class="nf">SDL_MapRGB</span><span class="p">(</span><span class="n">myformat</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<span class="nf">SDL_SetColorKey</span><span class="p">(</span><span class="n">bmp</span><span class="p">,</span> <span class="n">SDL_True</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
 
-<span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
-<span class="n">rect</span> <span class="o">=</span> <span class="n">sdl_new_sdl_rect</span><span class="p">()</span>
-<span class="n">sdl_set_sdl_rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+<span class="n">tex</span> <span class="o">=</span> <span class="nf">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
+<span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_rect</span><span class="p">()</span>
+<span class="nf">sdl_set_sdl_rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nf">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
 
-<span class="n">SDL_SetTextureBlendMode</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">SDL_SetTextureAlphaMod</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+<span class="nf">SDL_SetTextureBlendMode</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nf">SDL_SetTextureAlphaMod</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="nf">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
 
-<span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
-<span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+<span class="nf">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+<span class="nf">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
 
-<span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="n">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">SDL_DestroyRenderer</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -440,24 +440,24 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
 
-<span class="n">myevent</span> <span class="o">=</span> <span class="n">sdl_new_sdl_event</span><span class="p">()</span>
+<span class="n">myevent</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_event</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">true</span>
-        <span class="n">thevent</span> <span class="o">=</span> <span class="n">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-        <span class="k">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                <span class="k">on</span> <span class="n">sdl_get_sdl_quit</span><span class="p">()</span>
+        <span class="n">thevent</span> <span class="o">=</span> <span class="nf">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+        <span class="k">switch</span> <span class="nf">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="nf">sdl_get_sdl_quit</span><span class="p">()</span>
                         <span class="k">exit</span>
-                <span class="k">on</span> <span class="n">sdl_get_sdl_keydown</span><span class="p">()</span>
-                        <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="nf">sdl_get_sdl_keydown</span><span class="p">()</span>
+                        <span class="n">Key</span> <span class="o">=</span> <span class="nf">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
                         <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
 
         <span class="k">off</span>
 <span class="k">end</span>
 
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -466,65 +466,65 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
 
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Mouse Events &quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Mouse Events &quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
 
-<span class="n">TTF_Init</span><span class="p">()</span>
-<span class="n">font</span> <span class="o">=</span> <span class="n">TTF_OpenFont</span><span class="p">(</span><span class="s2">&quot;pirulen.ttf&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">color</span> <span class="o">=</span> <span class="n">sdl_new_sdl_color</span><span class="p">()</span>
-<span class="n">sdl_set_sdl_color_r</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_color_g</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
-<span class="n">sdl_set_sdl_color_b</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">TTF_Init</span><span class="p">()</span>
+<span class="n">font</span> <span class="o">=</span> <span class="nf">TTF_OpenFont</span><span class="p">(</span><span class="s2">&quot;pirulen.ttf&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">color</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_color</span><span class="p">()</span>
+<span class="nf">sdl_set_sdl_color_r</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_color_g</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="nf">sdl_set_sdl_color_b</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="n">surface</span> <span class="o">=</span> <span class="nf">SDL_GetWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
 
-<span class="n">myevent</span> <span class="o">=</span> <span class="n">sdl_new_sdl_event</span><span class="p">()</span>
+<span class="n">myevent</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_event</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">true</span>
         <span class="n">cMsg</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-        <span class="k">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+        <span class="nf">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+        <span class="k">switch</span> <span class="nf">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
                 <span class="k">on</span> <span class="n">SDL_QUIT</span>
                         <span class="k">exit</span>
                 <span class="k">on</span> <span class="n">SDL_KEYDOWN</span>
-                        <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                        <span class="n">Key</span> <span class="o">=</span> <span class="nf">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
                         <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
                 <span class="k">on</span> <span class="n">SDL_MOUSEBUTTONDOWN</span>
-                        <span class="k">if</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_LEFT</span>
-                                <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s2">&quot; Button_Left_Down &quot;</span> <span class="p">)</span>
-                        <span class="k">but</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_MIDDLE</span>
-                                <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s2">&quot; Button_Middle_Down &quot;</span> <span class="p">)</span>
-                        <span class="k">but</span> <span class="n">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_RIGHT</span>
-                                <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s2">&quot; Button_Right_Down &quot;</span> <span class="p">)</span>
+                        <span class="k">if</span> <span class="nf">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_LEFT</span>
+                                <span class="nf">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="s2">&quot; Button_Left_Down &quot;</span> <span class="p">)</span>
+                        <span class="k">but</span> <span class="nf">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_MIDDLE</span>
+                                <span class="nf">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s2">&quot; Button_Middle_Down &quot;</span> <span class="p">)</span>
+                        <span class="k">but</span> <span class="nf">sdl_get_Sdl_Event_button_button</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">=</span> <span class="n">SDL_BUTTON_RIGHT</span>
+                                <span class="nf">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s2">&quot; Button_Right_Down &quot;</span> <span class="p">)</span>
                         <span class="k">ok</span>
                 <span class="k">on</span> <span class="n">SDL_MOUSEMOTION</span>
-                        <span class="n">sdl_fillrect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="n">sdl_get_sdl_event_motion_xrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="nf">sdl_fillrect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="bp">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="nf">sdl_get_sdl_event_motion_xrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Left &quot;</span>
                         <span class="k">else</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Right &quot;</span>
                         <span class="k">ok</span>
-                        <span class="k">if</span> <span class="n">sdl_get_sdl_event_motion_yrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="k">if</span> <span class="nf">sdl_get_sdl_event_motion_yrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Up &quot;</span>
                         <span class="k">else</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; Down &quot;</span>
                         <span class="k">ok</span>
-                        <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; x = &quot;</span> <span class="o">+</span> <span class="n">sdl_get_sdl_event_motion_x</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                        <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; y = &quot;</span> <span class="o">+</span> <span class="n">sdl_get_sdl_event_motion_y</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                        <span class="n">showmsg</span><span class="p">(</span><span class="n">cMsg</span><span class="p">)</span>
+                        <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; x = &quot;</span> <span class="o">+</span> <span class="nf">sdl_get_sdl_event_motion_x</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                        <span class="n">cMsg</span> <span class="o">+=</span> <span class="s2">&quot; y = &quot;</span> <span class="o">+</span> <span class="nf">sdl_get_sdl_event_motion_y</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                        <span class="nf">showmsg</span><span class="p">(</span><span class="n">cMsg</span><span class="p">)</span>
         <span class="k">off</span>
 <span class="k">end</span>
 
-<span class="n">SDL_Destroy_SDL_Color</span><span class="p">(</span><span class="n">Color</span><span class="p">)</span>
-<span class="n">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">SDL_Destroy_SDL_Color</span><span class="p">(</span><span class="n">Color</span><span class="p">)</span>
+<span class="nf">TTF_CloseFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">showmsg</span> <span class="n">mymsg</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="n">mymsg</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
-        <span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
-        <span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-        <span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="nf">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="n">mymsg</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+        <span class="nf">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="nf">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+        <span class="nf">SDL_FreeSurface</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -533,31 +533,31 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;libsdl.ring&quot;</span>
 
-<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
-<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
-<span class="n">Mix_OpenAudio</span><span class="p">(</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">MIX_DEFAULT_FORMAT</span> <span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="n">Mix_AllocateChannels</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">sound</span> <span class="o">=</span> <span class="n">Mix_LoadWav</span><span class="p">(</span> <span class="s2">&quot;sound.wav&quot;</span> <span class="p">)</span>
-<span class="n">Mix_VolumeChunk</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">Mix_PlayChannel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sound</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="nf">SDL_CreateWindow</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="nf">Mix_OpenAudio</span><span class="p">(</span> <span class="mi">44100</span><span class="p">,</span> <span class="n">MIX_DEFAULT_FORMAT</span> <span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="nf">Mix_AllocateChannels</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">sound</span> <span class="o">=</span> <span class="nf">Mix_LoadWav</span><span class="p">(</span> <span class="s2">&quot;sound.wav&quot;</span> <span class="p">)</span>
+<span class="nf">Mix_VolumeChunk</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nf">Mix_PlayChannel</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sound</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">myevent</span> <span class="o">=</span> <span class="n">sdl_new_sdl_event</span><span class="p">()</span>
+<span class="n">myevent</span> <span class="o">=</span> <span class="nf">sdl_new_sdl_event</span><span class="p">()</span>
 <span class="k">while</span> <span class="bp">true</span>
-        <span class="n">thevent</span> <span class="o">=</span> <span class="n">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-        <span class="k">switch</span> <span class="n">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
-                <span class="k">on</span> <span class="n">sdl_get_sdl_quit</span><span class="p">()</span>
+        <span class="n">thevent</span> <span class="o">=</span> <span class="nf">sdl_pollevent</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+        <span class="k">switch</span> <span class="nf">sdl_get_sdl_event_type</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="nf">sdl_get_sdl_quit</span><span class="p">()</span>
                         <span class="k">exit</span>
-                <span class="k">on</span> <span class="n">sdl_get_sdl_keydown</span><span class="p">()</span>
-                        <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
+                <span class="k">on</span> <span class="nf">sdl_get_sdl_keydown</span><span class="p">()</span>
+                        <span class="n">Key</span> <span class="o">=</span> <span class="nf">SDL_GET_SDL_Event_key_keysym_sym</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span>
                         <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
         <span class="k">off</span>
 <span class="k">end</span>
 
-<span class="n">Mix_FreeChunk</span><span class="p">(</span> <span class="n">sound</span> <span class="p">)</span>
-<span class="n">Mix_CloseAudio</span><span class="p">()</span>
-<span class="n">Mix_Quit</span><span class="p">()</span>
-<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_Quit</span><span class="p">()</span>
+<span class="nf">Mix_FreeChunk</span><span class="p">(</span> <span class="n">sound</span> <span class="p">)</span>
+<span class="nf">Mix_CloseAudio</span><span class="p">()</span>
+<span class="nf">Mix_Quit</span><span class="p">()</span>
+<span class="nf">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="nf">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>

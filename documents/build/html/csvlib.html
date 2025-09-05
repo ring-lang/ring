@@ -245,7 +245,7 @@ CSV2List(cCSVString) --&gt; aList
         <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
 <span class="k">next</span>
 
-<span class="nb">write</span><span class="p">(</span> <span class="s2">&quot;squares.csv&quot;</span><span class="p">,</span> <span class="n">list2CSV</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">write</span><span class="p">(</span> <span class="s2">&quot;squares.csv&quot;</span><span class="p">,</span> <span class="nf">list2CSV</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -258,7 +258,7 @@ CSV2List(cCSVString) --&gt; aList
         <span class="k">return</span>
 <span class="k">ok</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="n">CSV2List</span><span class="p">(</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">CSV2List</span><span class="p">(</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;squares.csv&quot;</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="k">for</span> <span class="n">subList</span> <span class="k">in</span> <span class="n">aList</span>
         <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>

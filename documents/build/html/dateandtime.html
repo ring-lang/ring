@@ -408,7 +408,7 @@
 <section id="diffdays-function">
 <span id="index-7"></span><h2>DiffDays() Function<a class="headerlink" href="#diffdays-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">DiffDays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">DiffDays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="nf">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -424,7 +424,7 @@
 <section id="epochtime-function">
 <span id="index-8"></span><h2>EpochTime() Function<a class="headerlink" href="#epochtime-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">EpochTime</span><span class="p">(</span> <span class="n">cDate</span><span class="p">,</span> <span class="n">cTime</span> <span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Epoch</span> <span class="n">Seconds</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">EpochTime</span><span class="p">(</span> <span class="n">cDate</span><span class="p">,</span> <span class="n">cTime</span> <span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Epoch</span> <span class="n">Seconds</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -437,8 +437,8 @@
 
 <span class="kd">Func</span> <span class="nf">EpochTime</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Time</span><span class="p">)</span>
 
-    <span class="n">arrayDate</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
-    <span class="n">arrayTime</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+    <span class="n">arrayDate</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span>
+    <span class="n">arrayTime</span> <span class="o">=</span> <span class="nf">split</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
 
     <span class="n">Year</span> <span class="o">=</span> <span class="n">arrayDate</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">;</span> <span class="n">Month</span>  <span class="o">=</span> <span class="n">arrayDate</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">;</span> <span class="n">Day</span>    <span class="o">=</span> <span class="n">arrayDate</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">Hour</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">;</span> <span class="n">Minute</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">;</span> <span class="n">Second</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>

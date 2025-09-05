@@ -279,31 +279,31 @@ Time: 0.81 seconds
 <span class="kd">func</span> <span class="nf">main</span>
 <span class="kp">new</span> <span class="nc">QApp</span> <span class="p">{</span>
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="n">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Many Tree Items - Testing Performance&quot;</span><span class="p">)</span>
+                <span class="nf">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="nf">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Many Tree Items - Testing Performance&quot;</span><span class="p">)</span>
                 <span class="n">tree</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QTreeWidget</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">blocksignals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="n">setUpdatesEnabled</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+                        <span class="nf">blocksignals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span> <span class="nf">setUpdatesEnabled</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
                         <span class="n">root</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qTreeWidgetItem</span><span class="p">()</span>
-                        <span class="n">root</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;The Root Node&quot;</span><span class="p">)</span>
+                        <span class="n">root</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;The Root Node&quot;</span><span class="p">)</span>
                         <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
                         <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">C_NODESCOUNT</span>
                                 <span class="n">oItem</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qTreeWidgetItem</span><span class="p">()</span>
-                                <span class="n">oItem</span><span class="o">.</span><span class="n">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Item &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
-                                <span class="n">root</span><span class="o">.</span><span class="n">addchild</span><span class="p">(</span><span class="n">oItem</span><span class="p">)</span>
+                                <span class="n">oItem</span><span class="o">.</span><span class="nf">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Item &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
+                                <span class="n">root</span><span class="o">.</span><span class="nf">addchild</span><span class="p">(</span><span class="n">oItem</span><span class="p">)</span>
                         <span class="k">next</span>
                         <span class="n">cTime</span> <span class="o">=</span> <span class="p">(</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">()</span>
-                        <span class="n">setHeaderLabel</span><span class="p">(</span><span class="s2">&quot;Creating &quot;</span><span class="o">+</span><span class="n">C_NODESCOUNT</span><span class="o">+</span><span class="s2">&quot; nodes in &quot;</span> <span class="o">+</span> <span class="n">cTime</span> <span class="o">+</span> <span class="s2">&quot; seconds.&quot;</span><span class="p">)</span>
-                        <span class="n">addTopLevelItem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-                        <span class="n">expanditem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-                        <span class="n">blocksignals</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span> <span class="n">setUpdatesEnabled</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+                        <span class="nf">setHeaderLabel</span><span class="p">(</span><span class="s2">&quot;Creating &quot;</span><span class="o">+</span><span class="n">C_NODESCOUNT</span><span class="o">+</span><span class="s2">&quot; nodes in &quot;</span> <span class="o">+</span> <span class="n">cTime</span> <span class="o">+</span> <span class="s2">&quot; seconds.&quot;</span><span class="p">)</span>
+                        <span class="nf">addTopLevelItem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+                        <span class="nf">expanditem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+                        <span class="nf">blocksignals</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span> <span class="nf">setUpdatesEnabled</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">oLayout</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QVBoxLayout</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="n">addWidget</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+                        <span class="nf">addWidget</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">setLayout</span><span class="p">(</span><span class="n">oLayout</span><span class="p">)</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">setLayout</span><span class="p">(</span><span class="n">oLayout</span><span class="p">)</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -426,7 +426,7 @@ Time : 0.03 seconds
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s2">&quot;calling 100000 functions&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">test</span><span class="p">()</span>
+        <span class="nf">test</span><span class="p">()</span>
 <span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
@@ -435,14 +435,14 @@ Time : 0.03 seconds
 <span class="o">?</span> <span class="s2">&quot;calling 100000 methods using the dot operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">o1</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+        <span class="n">o1</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
 <span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;calling 100000 methods using braces &quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">o1</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+        <span class="n">o1</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 <span class="k">next</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
 
@@ -450,7 +450,7 @@ Time : 0.03 seconds
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 <span class="n">o1</span> <span class="p">{</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">test</span><span class="p">()</span>
+        <span class="nf">test</span><span class="p">()</span>
 <span class="k">next</span>
 <span class="p">}</span>
 <span class="o">?</span> <span class="s2">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="nb">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>

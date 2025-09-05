@@ -272,45 +272,45 @@ an easy way for communication between these classes.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
-        <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:MainWindowController</span> <span class="p">)</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:MainWindowController</span> <span class="p">)</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
         <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MainWindowView</span>
         <span class="kd">func</span> <span class="nf">SubWindowAction</span>
-                <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
-                <span class="n">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="n">SetParentObject</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
+                <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
+                <span class="nf">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nf">SetParentObject</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="nf">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
                 <span class="n">btnSub</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
         <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">SubWindowController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
         <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">SubWindowView</span>
         <span class="kd">func</span> <span class="nf">SetMainWindowTitleAction</span>
-                <span class="n">Parent</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
-                <span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Click Event Done!&quot;</span><span class="p">)</span>
+                <span class="nf">Parent</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="nf">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="nf">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Click Event Done!&quot;</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">SubWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="nf">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
                 <span class="n">btnMsg</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">btnClose</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:CloseAction</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -351,15 +351,15 @@ SetParentObject() methods.</p>
     <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">firstwindowView</span>
 
     <span class="kd">func</span> <span class="nf">OpenSecondWindow</span>
-        <span class="n">openWindowAndLink</span><span class="p">(</span><span class="ss">:SecondWindowController</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
+        <span class="nf">openWindowAndLink</span><span class="p">(</span><span class="ss">:SecondWindowController</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
 
     <span class="kd">func</span> <span class="nf">SendMessage</span>
-        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
-            <span class="n">SecondWindow</span><span class="p">()</span><span class="o">.</span><span class="n">setMessage</span><span class="p">(</span><span class="s2">&quot;Message from the first window&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nf">IsSecondWindow</span><span class="p">()</span>
+            <span class="nf">SecondWindow</span><span class="p">()</span><span class="o">.</span><span class="nf">setMessage</span><span class="p">(</span><span class="s2">&quot;Message from the first window&quot;</span><span class="p">)</span>
         <span class="k">ok</span>
 
     <span class="kd">func</span> <span class="nf">setMessage</span> <span class="n">cMessage</span>
-        <span class="n">oView</span><span class="o">.</span><span class="n">Label1</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
+        <span class="n">oView</span><span class="o">.</span><span class="n">Label1</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -369,7 +369,7 @@ SetParentObject() methods.</p>
 but takes an extra list that determine the packages
 to import before opening the window.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">openWindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">openWindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -377,7 +377,7 @@ to import before opening the window.</p>
 using the openWindowInPackages() function.</p>
 <p>We determine the class name “WindowFlagsController” and the packages name.</p>
 <p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">openWindowInPackages</span><span class="p">(</span><span class="ss">:WindowFlagsController</span><span class="p">,[</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">openWindowInPackages</span><span class="p">(</span><span class="ss">:WindowFlagsController</span><span class="p">,[</span>
         <span class="s2">&quot;formdesigner&quot;</span><span class="p">,</span>
         <span class="s2">&quot;System.GUI&quot;</span>
 <span class="p">])</span>
@@ -394,8 +394,8 @@ using the openWindowInPackages() function.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
-        <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:MainWindowController</span> <span class="p">)</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:MainWindowController</span> <span class="p">)</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
@@ -406,45 +406,45 @@ using the openWindowInPackages() function.</p>
 
                 <span class="kd">func</span> <span class="nf">CreateThreeWindowsAction</span>
 
-                        <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
-                        <span class="n">nFirstWindowID</span> <span class="o">=</span> <span class="n">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nb">ObjectID</span><span class="p">()</span>
-                        <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
-                        <span class="n">nSecondWindowID</span> <span class="o">=</span> <span class="n">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nb">ObjectID</span><span class="p">()</span>
-                        <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
-                        <span class="n">nThirdWindowID</span> <span class="o">=</span> <span class="n">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nb">ObjectID</span><span class="p">()</span>
+                        <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
+                        <span class="n">nFirstWindowID</span> <span class="o">=</span> <span class="nf">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nb">ObjectID</span><span class="p">()</span>
+                        <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
+                        <span class="n">nSecondWindowID</span> <span class="o">=</span> <span class="nf">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nb">ObjectID</span><span class="p">()</span>
+                        <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:SubWindowController</span> <span class="p">)</span>
+                        <span class="n">nThirdWindowID</span> <span class="o">=</span> <span class="nf">lastWindow</span><span class="p">()</span><span class="o">.</span><span class="nb">ObjectID</span><span class="p">()</span>
 
-                        <span class="n">FirstWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
-                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;One&quot;</span><span class="p">)</span>
-                                <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="nf">FirstWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;One&quot;</span><span class="p">)</span>
+                                <span class="nf">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
                         <span class="p">}</span>
-                        <span class="n">SecondWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
-                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Two&quot;</span><span class="p">)</span>
-                                <span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                        <span class="nf">SecondWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Two&quot;</span><span class="p">)</span>
+                                <span class="nf">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
                         <span class="p">}</span>
-                        <span class="n">ThirdWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
-                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Three&quot;</span><span class="p">)</span>
-                                <span class="n">move</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+                        <span class="nf">ThirdWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Three&quot;</span><span class="p">)</span>
+                                <span class="nf">move</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
                         <span class="p">}</span>
 
         <span class="kd">func</span> <span class="nf">FirstWindow</span>
-                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nFirstWindowID</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nf">GetWindowByID</span><span class="p">(</span><span class="n">nFirstWindowID</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">SecondWindow</span>
-                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nSecondWindowID</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nf">GetWindowByID</span><span class="p">(</span><span class="n">nSecondWindowID</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">ThirdWindow</span>
-                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nThirdWindowID</span><span class="p">)</span>
+                <span class="k">return</span> <span class="nf">GetWindowByID</span><span class="p">(</span><span class="n">nThirdWindowID</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
 
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
-                <span class="n">move</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="nf">move</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
                 <span class="n">btnSub</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Create Three Windows&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:CreateThreeWindowsAction</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Create Three Windows&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:CreateThreeWindowsAction</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
         <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">SubWindowController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
@@ -454,13 +454,13 @@ using the openWindowInPackages() function.</p>
 <span class="kd">class</span> <span class="nc">SubWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
 
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
                 <span class="n">btnClose</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:CloseAction</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -480,49 +480,49 @@ using the openWindowInPackages() function.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
-                <span class="n">openWindow</span><span class="p">(</span> <span class="ss">:MainWindowController</span> <span class="p">)</span>
-                <span class="n">exec</span><span class="p">()</span>
+                <span class="nf">openWindow</span><span class="p">(</span> <span class="ss">:MainWindowController</span> <span class="p">)</span>
+                <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
                 <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MainWindowView</span>
                 <span class="kd">func</span> <span class="nf">SubWindowAction</span>
-                        <span class="n">openWindowAndLink</span><span class="p">(</span> <span class="ss">:SubWindowController</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
-                        <span class="n">subWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
-                                <span class="n">move</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-                                <span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;background-color:yellow;&quot;</span><span class="p">)</span>
+                        <span class="nf">openWindowAndLink</span><span class="p">(</span> <span class="ss">:SubWindowController</span><span class="p">,</span><span class="kp">self</span><span class="p">)</span>
+                        <span class="nf">subWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="nf">move</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                                <span class="nf">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;background-color:yellow;&quot;</span><span class="p">)</span>
                         <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MainWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
                 <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
-                                <span class="n">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Main Window&quot;</span><span class="p">)</span>
+                                <span class="nf">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
                                 <span class="n">btnSub</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                                <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
-                                                <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
+                                                <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
+                                                <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
                                 <span class="p">}</span>
                 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">SubWindowController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
                 <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">SubWindowView</span>
                 <span class="kd">func</span> <span class="nf">SetMainWindowTitleAction</span>
-                        <span class="n">MainWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">SetWindowTitle</span><span class="p">(</span>
+                        <span class="nf">MainWindow</span><span class="p">()</span><span class="o">.</span><span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="nf">SetWindowTitle</span><span class="p">(</span>
                                 <span class="s2">&quot;Message from the Sub Window - Window ID = &quot;</span> <span class="o">+</span> <span class="nb">ObjectID</span><span class="p">()</span>
                         <span class="p">)</span>
-                                <span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Click Event Done!&quot;</span><span class="p">)</span>
+                                <span class="n">oView</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="nf">SetWindowTitle</span><span class="p">(</span><span class="s2">&quot;Click Event Done!&quot;</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">SubWindowView</span> <span class="kd">from</span> <span class="nc">WindowsViewParent</span>
                 <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
-                                <span class="n">resize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Sub Window&quot;</span><span class="p">)</span>
+                                <span class="nf">resize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
                                 <span class="n">btnMsg</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                                <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
-                                                <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
+                                                <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
+                                                <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
                                 <span class="p">}</span>
                                 <span class="n">btnClose</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                                <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                                                <span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
-                                                <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="ss">:CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                                                <span class="nf">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                                                <span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;Close&quot;</span><span class="p">)</span>
+                                                <span class="nf">setClickEvent</span><span class="p">(</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:CloseAction</span> <span class="p">)</span> <span class="p">)</span>
                                 <span class="p">}</span>
                 <span class="p">}</span>
 </pre></div>

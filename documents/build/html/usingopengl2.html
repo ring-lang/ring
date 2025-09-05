@@ -231,15 +231,15 @@
 
 <span class="c1">#==============================================================</span>
 <span class="c1"># To Support MacOS X</span>
-        <span class="n">al_run_main</span><span class="p">()</span>
+        <span class="nf">al_run_main</span><span class="p">()</span>
         <span class="kd">func</span> <span class="nf">al_game_start</span>      <span class="c1"># Called by al_run_main()</span>
-                <span class="n">main</span><span class="p">()</span>          <span class="c1"># Now we call our main function</span>
+                <span class="nf">main</span><span class="p">()</span>          <span class="c1"># Now we call our main function</span>
 <span class="c1">#==============================================================</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
 
         <span class="kp">new</span> <span class="nc">GraphicsApp</span> <span class="p">{</span>
-                <span class="n">start</span><span class="p">()</span>
+                <span class="nf">start</span><span class="p">()</span>
         <span class="p">}</span>
 
 
@@ -255,77 +255,77 @@
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;ring.bmp&quot;</span><span class="p">)</span>
-                <span class="n">texture</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;ring.bmp&quot;</span><span class="p">)</span>
+                <span class="n">texture</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
 
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">drawScene</span>
 
                 <span class="n">w</span> <span class="o">=</span> <span class="mi">800</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">600</span>
                 <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
 
-                <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
-                <span class="n">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
 
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
-                <span class="n">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
-                <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-                <span class="n">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
-                <span class="n">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
-                <span class="n">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+                <span class="nf">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
+                <span class="nf">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                <span class="nf">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+                <span class="nf">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
+                <span class="nf">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
 
-                <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">5.0</span><span class="p">)</span>
+                <span class="nf">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">5.0</span><span class="p">)</span>
 
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
 
-                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
 
-                <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
                         <span class="c1">// Front Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Back Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Top Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Bottom Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Right face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Left Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnd</span><span class="p">()</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnd</span><span class="p">()</span>
 
                 <span class="n">xrot</span> <span class="o">+=</span> <span class="mf">0.3</span>
                 <span class="n">yrot</span> <span class="o">+=</span> <span class="mf">0.2</span>
@@ -353,56 +353,56 @@
 
         <span class="kd">func</span> <span class="nf">start</span>
 
-                <span class="n">SetUp</span><span class="p">()</span>
-                <span class="n">loadResources</span><span class="p">()</span>
-                <span class="n">eventsLoop</span><span class="p">()</span>
-                <span class="n">destroy</span><span class="p">()</span>
+                <span class="nf">SetUp</span><span class="p">()</span>
+                <span class="nf">loadResources</span><span class="p">()</span>
+                <span class="nf">eventsLoop</span><span class="p">()</span>
+                <span class="nf">destroy</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">setup</span>
 
-                <span class="n">al_init</span><span class="p">()</span>
-                <span class="n">al_init_image_addon</span><span class="p">()</span>
-                <span class="n">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
-                <span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
-                <span class="n">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
-                <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">event_queue</span> <span class="o">=</span> <span class="n">al_create_event_queue</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
-                <span class="n">ev</span> <span class="o">=</span> <span class="n">al_new_allegro_event</span><span class="p">()</span>
-                <span class="n">timeout</span> <span class="o">=</span> <span class="n">al_new_allegro_timeout</span><span class="p">()</span>
-                <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                <span class="n">timer</span> <span class="o">=</span> <span class="n">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
-                <span class="n">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_install_mouse</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_mouse_event_source</span><span class="p">())</span>
-                <span class="n">al_install_keyboard</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
+                <span class="nf">al_init</span><span class="p">()</span>
+                <span class="nf">al_init_image_addon</span><span class="p">()</span>
+                <span class="nf">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
+                <span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
+                <span class="nf">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
+                <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">event_queue</span> <span class="o">=</span> <span class="nf">al_create_event_queue</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+                <span class="n">ev</span> <span class="o">=</span> <span class="nf">al_new_allegro_event</span><span class="p">()</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="nf">al_new_allegro_timeout</span><span class="p">()</span>
+                <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                <span class="n">timer</span> <span class="o">=</span> <span class="nf">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
+                <span class="nf">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_install_mouse</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_mouse_event_source</span><span class="p">())</span>
+                <span class="nf">al_install_keyboard</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_keyboard_event_source</span><span class="p">())</span>
 
         <span class="kd">func</span> <span class="nf">eventsLoop</span>
 
                 <span class="k">while</span> <span class="bp">true</span>
-                        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                        <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-                        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                        <span class="nf">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+                        <span class="k">switch</span> <span class="nf">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
                                 <span class="k">exit</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
                                 <span class="k">exit</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -413,7 +413,7 @@
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                 <span class="k">off</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -426,23 +426,23 @@
                                                 <span class="k">exit</span>
                                 <span class="k">off</span>
                         <span class="k">off</span>
-                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="nf">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">false</span>
-                                <span class="n">drawScene</span><span class="p">()</span>
-                                <span class="n">al_flip_display</span><span class="p">()</span>
+                                <span class="nf">drawScene</span><span class="p">()</span>
+                                <span class="nf">al_flip_display</span><span class="p">()</span>
                         <span class="k">ok</span>
                         <span class="nb">callgc</span><span class="p">()</span>
                 <span class="k">end</span>
 
         <span class="kd">func</span> <span class="nf">destroy</span>
 
-                <span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-                <span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
-                <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
-                <span class="n">al_exit</span><span class="p">()</span>
+                <span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="nf">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+                <span class="nf">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                <span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+                <span class="nf">al_exit</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 
@@ -463,16 +463,16 @@
 
 <span class="c1">#==============================================================</span>
 <span class="c1"># To Support MacOS X</span>
-        <span class="n">al_run_main</span><span class="p">()</span>
+        <span class="nf">al_run_main</span><span class="p">()</span>
         <span class="kd">func</span> <span class="nf">al_game_start</span>      <span class="c1"># Called by al_run_main()</span>
-                <span class="n">main</span><span class="p">()</span>          <span class="c1"># Now we call our main function</span>
+                <span class="nf">main</span><span class="p">()</span>          <span class="c1"># Now we call our main function</span>
 <span class="c1">#==============================================================</span>
 
 
 <span class="kd">func</span> <span class="nf">main</span>
 
         <span class="kp">new</span> <span class="nc">GraphicsApp</span> <span class="p">{</span>
-                <span class="n">start</span><span class="p">()</span>
+                <span class="nf">start</span><span class="p">()</span>
         <span class="p">}</span>
 
 
@@ -492,56 +492,56 @@
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;sky1.jpg&quot;</span><span class="p">)</span>
-                <span class="n">texture</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;sky1.jpg&quot;</span><span class="p">)</span>
+                <span class="n">texture</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
-                <span class="n">bitmap2</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;sky2.jpg&quot;</span><span class="p">)</span>
-                <span class="n">texture2</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
+                <span class="n">bitmap2</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;sky2.jpg&quot;</span><span class="p">)</span>
+                <span class="n">texture2</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
 
-                <span class="n">bitmap3</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;sky3.jpg&quot;</span><span class="p">)</span>
-                <span class="n">texture3</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
+                <span class="n">bitmap3</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;sky3.jpg&quot;</span><span class="p">)</span>
+                <span class="n">texture3</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
 
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">drawScene</span>
 
-                <span class="n">prepare</span><span class="p">()</span>
-                <span class="n">cubes</span><span class="p">()</span>
-                <span class="n">rotate</span><span class="p">()</span>
+                <span class="nf">prepare</span><span class="p">()</span>
+                <span class="nf">cubes</span><span class="p">()</span>
+                <span class="nf">rotate</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">Prepare</span>
                 <span class="n">w</span> <span class="o">=</span> <span class="mi">800</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">600</span>
                 <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
-                <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">gluPerspective</span><span class="p">(</span><span class="o">-</span><span class="n">nPerspective</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">nPerspective</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
-                <span class="n">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
-                <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-                <span class="n">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
-                <span class="n">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
-                <span class="n">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
-                <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+                <span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">gluPerspective</span><span class="p">(</span><span class="o">-</span><span class="n">nPerspective</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">nPerspective</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+                <span class="nf">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
+                <span class="nf">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                <span class="nf">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+                <span class="nf">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
+                <span class="nf">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
+                <span class="nf">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">Cubes</span>
-                <span class="n">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mf">3.4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky1</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky1</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky1</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky2</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky2</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky2</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky3</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky3</span><span class="p">)</span>
-                <span class="n">cube</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky3</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mf">3.4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky1</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky1</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky1</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky2</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky2</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky2</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky3</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky3</span><span class="p">)</span>
+                <span class="nf">cube</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="ss">:sky3</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">Rotate</span>
                 <span class="n">xrot</span> <span class="o">+=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="mi">5</span>
@@ -551,59 +551,59 @@
 
 
         <span class="kd">func</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">nTexture</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">drawcube</span><span class="p">(</span><span class="n">nTexture</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">drawcube</span><span class="p">(</span><span class="n">nTexture</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">drawcube</span><span class="p">(</span><span class="n">cTexture</span><span class="p">)</span>
 
                 <span class="k">switch</span> <span class="n">cTexture</span>
                         <span class="k">on</span> <span class="ss">:sky1</span>
-                                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+                                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
                         <span class="k">on</span> <span class="ss">:sky2</span>
-                                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture2</span><span class="p">)</span>
+                                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture2</span><span class="p">)</span>
                         <span class="k">on</span> <span class="ss">:sky3</span>
-                                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture3</span><span class="p">)</span>
+                                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture3</span><span class="p">)</span>
                 <span class="k">off</span>
 
 
-                <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
                         <span class="c1">// Front Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Back Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Top Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Bottom Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
 
                         <span class="c1">// Right face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
 
                         <span class="c1">// Left Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnd</span><span class="p">()</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnd</span><span class="p">()</span>
 
 
 <span class="kd">class</span> <span class="nc">GraphicsAppBase</span>
@@ -627,56 +627,56 @@
 
         <span class="kd">func</span> <span class="nf">start</span>
 
-                <span class="n">SetUp</span><span class="p">()</span>
-                <span class="n">loadResources</span><span class="p">()</span>
-                <span class="n">eventsLoop</span><span class="p">()</span>
-                <span class="n">destroy</span><span class="p">()</span>
+                <span class="nf">SetUp</span><span class="p">()</span>
+                <span class="nf">loadResources</span><span class="p">()</span>
+                <span class="nf">eventsLoop</span><span class="p">()</span>
+                <span class="nf">destroy</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">setup</span>
 
-                <span class="n">al_init</span><span class="p">()</span>
-                <span class="n">al_init_image_addon</span><span class="p">()</span>
-                <span class="n">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
-                <span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
-                <span class="n">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
-                <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">event_queue</span> <span class="o">=</span> <span class="n">al_create_event_queue</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
-                <span class="n">ev</span> <span class="o">=</span> <span class="n">al_new_allegro_event</span><span class="p">()</span>
-                <span class="n">timeout</span> <span class="o">=</span> <span class="n">al_new_allegro_timeout</span><span class="p">()</span>
-                <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                <span class="n">timer</span> <span class="o">=</span> <span class="n">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
-                <span class="n">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_install_mouse</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_mouse_event_source</span><span class="p">())</span>
-                <span class="n">al_install_keyboard</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
+                <span class="nf">al_init</span><span class="p">()</span>
+                <span class="nf">al_init_image_addon</span><span class="p">()</span>
+                <span class="nf">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
+                <span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
+                <span class="nf">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
+                <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">event_queue</span> <span class="o">=</span> <span class="nf">al_create_event_queue</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+                <span class="n">ev</span> <span class="o">=</span> <span class="nf">al_new_allegro_event</span><span class="p">()</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="nf">al_new_allegro_timeout</span><span class="p">()</span>
+                <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                <span class="n">timer</span> <span class="o">=</span> <span class="nf">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
+                <span class="nf">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_install_mouse</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_mouse_event_source</span><span class="p">())</span>
+                <span class="nf">al_install_keyboard</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_keyboard_event_source</span><span class="p">())</span>
 
         <span class="kd">func</span> <span class="nf">eventsLoop</span>
 
                 <span class="k">while</span> <span class="bp">true</span>
-                        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                        <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-                        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                        <span class="nf">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+                        <span class="k">switch</span> <span class="nf">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
                                 <span class="k">exit</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
                                 <span class="k">exit</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -687,7 +687,7 @@
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                 <span class="k">off</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -700,23 +700,23 @@
                                                 <span class="k">exit</span>
                                 <span class="k">off</span>
                         <span class="k">off</span>
-                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="nf">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">false</span>
-                                <span class="n">drawScene</span><span class="p">()</span>
-                                <span class="n">al_flip_display</span><span class="p">()</span>
+                                <span class="nf">drawScene</span><span class="p">()</span>
+                                <span class="nf">al_flip_display</span><span class="p">()</span>
                         <span class="k">ok</span>
                         <span class="nb">callgc</span><span class="p">()</span>
                 <span class="k">end</span>
 
         <span class="kd">func</span> <span class="nf">destroy</span>
 
-                <span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-                <span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
-                <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
-                <span class="n">al_exit</span><span class="p">()</span>
+                <span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="nf">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+                <span class="nf">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                <span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+                <span class="nf">al_exit</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 
@@ -737,14 +737,14 @@
 
 <span class="c1">#==============================================================</span>
 <span class="c1"># To Support MacOS X</span>
-        <span class="n">al_run_main</span><span class="p">()</span>
+        <span class="nf">al_run_main</span><span class="p">()</span>
         <span class="kd">func</span> <span class="nf">al_game_start</span>      <span class="c1"># Called by al_run_main()</span>
-                <span class="n">main</span><span class="p">()</span>          <span class="c1"># Now we call our main function</span>
+                <span class="nf">main</span><span class="p">()</span>          <span class="c1"># Now we call our main function</span>
 <span class="c1">#==============================================================</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
         <span class="kp">new</span> <span class="nc">TicTacToe3D</span> <span class="p">{</span>
-                <span class="n">start</span><span class="p">()</span>
+                <span class="nf">start</span><span class="p">()</span>
         <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">TicTacToe3D</span> <span class="kd">from</span> <span class="nc">GameLogic</span>
@@ -759,73 +759,73 @@
         <span class="n">oGameInterface</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">GameInterface</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
-                <span class="n">oGameOver</span><span class="o">.</span><span class="n">loadresources</span><span class="p">()</span>
-                <span class="n">oGameSound</span><span class="o">.</span><span class="n">loadresources</span><span class="p">()</span>
-                <span class="n">oBackGround</span><span class="o">.</span><span class="n">loadresources</span><span class="p">()</span>
-                <span class="n">oGameCube</span><span class="o">.</span><span class="n">loadresources</span><span class="p">()</span>
+                <span class="n">oGameOver</span><span class="o">.</span><span class="nf">loadresources</span><span class="p">()</span>
+                <span class="n">oGameSound</span><span class="o">.</span><span class="nf">loadresources</span><span class="p">()</span>
+                <span class="n">oBackGround</span><span class="o">.</span><span class="nf">loadresources</span><span class="p">()</span>
+                <span class="n">oGameCube</span><span class="o">.</span><span class="nf">loadresources</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
-                <span class="n">oGameOver</span><span class="o">.</span><span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">oGameSound</span><span class="o">.</span><span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">oBackGround</span><span class="o">.</span><span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">oGameCube</span><span class="o">.</span><span class="n">destroyResources</span><span class="p">()</span>
+                <span class="n">oGameOver</span><span class="o">.</span><span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="n">oGameSound</span><span class="o">.</span><span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="n">oBackGround</span><span class="o">.</span><span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="n">oGameCube</span><span class="o">.</span><span class="nf">destroyResources</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">drawScene</span>
-                <span class="n">oBackground</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-                <span class="n">oGameInterface</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
+                <span class="n">oBackground</span><span class="o">.</span><span class="nf">update</span><span class="p">()</span>
+                <span class="n">oGameInterface</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">MouseClickEvent</span>
-                <span class="n">oGameInterface</span><span class="o">.</span><span class="n">MouseClickEvent</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
+                <span class="n">oGameInterface</span><span class="o">.</span><span class="nf">MouseClickEvent</span><span class="p">(</span><span class="kp">self</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">GameInterface</span>
 
         <span class="kd">func</span> <span class="nf">Update</span> <span class="n">oGame</span>
-                <span class="n">prepare</span><span class="p">()</span>
-                <span class="n">cubes</span><span class="p">(</span><span class="n">oGame</span><span class="p">)</span>
+                <span class="nf">prepare</span><span class="p">()</span>
+                <span class="nf">cubes</span><span class="p">(</span><span class="n">oGame</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">Prepare</span>
                 <span class="n">w</span> <span class="o">=</span> <span class="mi">1024</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">768</span>
                 <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
-                <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">gluPerspective</span><span class="p">(</span><span class="o">-</span><span class="mi">120</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">120</span><span class="p">)</span>
-                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
-                <span class="n">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
-                <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-                <span class="n">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
-                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
-                <span class="n">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
-                <span class="n">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
+                <span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">gluPerspective</span><span class="p">(</span><span class="o">-</span><span class="mi">120</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">120</span><span class="p">)</span>
+                <span class="nf">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+                <span class="nf">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
+                <span class="nf">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                <span class="nf">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+                <span class="nf">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+                <span class="nf">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
+                <span class="nf">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">Cubes</span> <span class="n">oGame</span>
                 <span class="n">oGame</span><span class="o">.</span><span class="n">oGameCube</span> <span class="p">{</span>
                         <span class="n">aGameMap</span> <span class="o">=</span> <span class="n">oGame</span><span class="o">.</span><span class="n">aGameMap</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="mi">0</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="mi">5</span>  <span class="p">,</span> <span class="mi">1</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="mi">0</span>  <span class="p">,</span> <span class="mi">1</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="mi">1</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="mi">5</span>  <span class="p">,</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="mi">0</span>  <span class="p">,</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">cube</span><span class="p">(</span> <span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
-                        <span class="n">rotate</span><span class="p">()</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="mi">0</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="o">-</span><span class="mi">3</span> <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="mi">5</span>  <span class="p">,</span> <span class="mi">1</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="mi">0</span>  <span class="p">,</span> <span class="mi">1</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="mi">1</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="mi">5</span>  <span class="p">,</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="mi">0</span>  <span class="p">,</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">cube</span><span class="p">(</span> <span class="o">-</span><span class="mi">5</span> <span class="p">,</span> <span class="mi">5</span>  <span class="p">,</span> <span class="o">-</span><span class="mi">5</span>  <span class="p">,</span> <span class="n">aGameMap</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+                        <span class="nf">rotate</span><span class="p">()</span>
                 <span class="p">}</span>
 
         <span class="kd">func</span> <span class="nf">MouseClickEvent</span> <span class="n">oGame</span>
                 <span class="n">oGame</span> <span class="p">{</span>
-                        <span class="n">aBtn</span> <span class="o">=</span> <span class="n">Point2Button</span><span class="p">(</span><span class="n">Mouse_X</span><span class="p">,</span><span class="n">Mouse_Y</span><span class="p">)</span>
+                        <span class="n">aBtn</span> <span class="o">=</span> <span class="nf">Point2Button</span><span class="p">(</span><span class="n">Mouse_X</span><span class="p">,</span><span class="n">Mouse_Y</span><span class="p">)</span>
                         <span class="n">nRow</span> <span class="o">=</span> <span class="n">aBtn</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
                         <span class="n">nCol</span> <span class="o">=</span> <span class="n">aBtn</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                         <span class="k">if</span> <span class="n">nRow</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nCol</span> <span class="o">!=</span> <span class="mi">0</span>
                                 <span class="k">if</span> <span class="n">aGameMap</span><span class="p">[</span><span class="n">nRow</span><span class="p">][</span><span class="n">nCol</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:n</span>
                                         <span class="n">aGameMap</span><span class="p">[</span><span class="n">nRow</span><span class="p">][</span><span class="n">nCol</span><span class="p">]</span> <span class="o">=</span> <span class="n">cActivePlayer</span>
-                                        <span class="n">ChangeActivePlayer</span><span class="p">()</span>
-                                        <span class="n">CheckGameOver</span><span class="p">()</span>
+                                        <span class="nf">ChangeActivePlayer</span><span class="p">()</span>
+                                        <span class="nf">CheckGameOver</span><span class="p">()</span>
                                 <span class="k">ok</span>
                         <span class="k">ok</span>
                 <span class="p">}</span>
@@ -901,16 +901,16 @@
                                 <span class="k">on</span> <span class="ss">:n</span>   <span class="n">item</span> <span class="o">=</span> <span class="mi">0</span>
                         <span class="k">off</span>
                 <span class="k">next</span>
-                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">CheckWinner</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="nf">CheckWinner</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">nStatus</span>
                         <span class="n">oGameOver</span> <span class="p">{</span>
                                 <span class="k">Switch</span> <span class="n">nStatus</span>
-                                        <span class="k">on</span> <span class="mi">1</span> <span class="n">Player1Win</span><span class="p">(</span><span class="kp">this</span><span class="p">)</span>
-                                        <span class="k">on</span> <span class="mi">2</span> <span class="n">Player2Win</span><span class="p">(</span><span class="kp">this</span><span class="p">)</span>
-                                        <span class="k">on</span> <span class="mi">3</span> <span class="n">NoOneWin</span><span class="p">(</span><span class="kp">this</span><span class="p">)</span>
+                                        <span class="k">on</span> <span class="mi">1</span> <span class="nf">Player1Win</span><span class="p">(</span><span class="kp">this</span><span class="p">)</span>
+                                        <span class="k">on</span> <span class="mi">2</span> <span class="nf">Player2Win</span><span class="p">(</span><span class="kp">this</span><span class="p">)</span>
+                                        <span class="k">on</span> <span class="mi">3</span> <span class="nf">NoOneWin</span><span class="p">(</span><span class="kp">this</span><span class="p">)</span>
                                 <span class="k">off</span>
                         <span class="p">}</span>
-                        <span class="n">refreshGame</span><span class="p">()</span>
+                        <span class="nf">refreshGame</span><span class="p">()</span>
                 <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">refreshGame</span>
@@ -959,38 +959,38 @@
         <span class="n">font</span> <span class="n">bitmap</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
-                <span class="n">font</span> <span class="o">=</span> <span class="n">al_load_ttf_font</span><span class="p">(</span><span class="s2">&quot;font/pirulen.ttf&quot;</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span>
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/ballon.png&quot;</span><span class="p">)</span>
+                <span class="n">font</span> <span class="o">=</span> <span class="nf">al_load_ttf_font</span><span class="p">(</span><span class="s2">&quot;font/pirulen.ttf&quot;</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/ballon.png&quot;</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
-                <span class="n">al_destroy_font</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="nf">al_destroy_font</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">Player1Win</span> <span class="n">oGame</span>
-                <span class="n">showMsg</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">430</span><span class="p">,</span><span class="s2">&quot;Good job X you won!&quot;</span><span class="p">)</span>
+                <span class="nf">showMsg</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">430</span><span class="p">,</span><span class="s2">&quot;Good job X you won!&quot;</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">Player2Win</span> <span class="n">oGame</span>
-                <span class="n">showMsg</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">430</span><span class="p">,</span><span class="s2">&quot;Good job O you won!&quot;</span><span class="p">)</span>
+                <span class="nf">showMsg</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">430</span><span class="p">,</span><span class="s2">&quot;Good job O you won!&quot;</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">NoOneWin</span> <span class="n">oGame</span>
-                <span class="n">showMsg</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">430</span><span class="p">,</span><span class="s2">&quot;Oh no it&#39;s a tie!&quot;</span><span class="p">)</span>
+                <span class="nf">showMsg</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">430</span><span class="p">,</span><span class="s2">&quot;Oh no it&#39;s a tie!&quot;</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">ShowMsg</span> <span class="n">oGame</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">cMsg</span>
                 <span class="n">oGame</span> <span class="p">{</span>
-                        <span class="n">drawScene</span><span class="p">()</span>
-                        <span class="n">al_flip_display</span><span class="p">()</span>
-                        <span class="n">al_rest</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-                        <span class="n">newdisplay</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
-                        <span class="n">al_set_window_title</span><span class="p">(</span><span class="n">newdisplay</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
-                        <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
-                        <span class="n">al_draw_bitmap</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">bitmap</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-                        <span class="n">al_draw_text</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">font</span><span class="p">,</span>
-                                 <span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span>
+                        <span class="nf">drawScene</span><span class="p">()</span>
+                        <span class="nf">al_flip_display</span><span class="p">()</span>
+                        <span class="nf">al_rest</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+                        <span class="n">newdisplay</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
+                        <span class="nf">al_set_window_title</span><span class="p">(</span><span class="n">newdisplay</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
+                        <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+                        <span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">bitmap</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="nf">al_draw_text</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">font</span><span class="p">,</span>
+                                 <span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span>
                                  <span class="n">ALLEGRO_ALIGN_LEFT</span><span class="p">,</span><span class="n">cMsg</span><span class="p">)</span>
-                        <span class="n">al_flip_display</span><span class="p">()</span>
-                        <span class="n">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-                        <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">newdisplay</span><span class="p">)</span>
-                        <span class="n">al_set_target_backbuffer</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+                        <span class="nf">al_flip_display</span><span class="p">()</span>
+                        <span class="nf">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                        <span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">newdisplay</span><span class="p">)</span>
+                        <span class="nf">al_set_target_backbuffer</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
                 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">GameCube</span>
@@ -1003,35 +1003,35 @@
         <span class="n">zrot</span> <span class="o">=</span> <span class="mf">0.0</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/o.png&quot;</span><span class="p">)</span>
-                <span class="n">textureO</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
-                <span class="n">bitmap2</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/x.png&quot;</span><span class="p">)</span>
-                <span class="n">textureX</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
-                <span class="n">bitmap3</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/empty.png&quot;</span><span class="p">)</span>
-                <span class="n">textureN</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/o.png&quot;</span><span class="p">)</span>
+                <span class="n">textureO</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="n">bitmap2</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/x.png&quot;</span><span class="p">)</span>
+                <span class="n">textureX</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
+                <span class="n">bitmap3</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/empty.png&quot;</span><span class="p">)</span>
+                <span class="n">textureN</span> <span class="o">=</span> <span class="nf">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap2</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap3</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">nTexture</span><span class="p">)</span>
-                <span class="n">glLoadIdentity</span><span class="p">()</span>
-                <span class="n">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
-                <span class="n">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">setCubeTexture</span><span class="p">(</span><span class="n">nTexture</span><span class="p">)</span>
-                <span class="n">drawCube</span><span class="p">()</span>
+                <span class="nf">glLoadIdentity</span><span class="p">()</span>
+                <span class="nf">glTranslatef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">)</span>
+                <span class="nf">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">setCubeTexture</span><span class="p">(</span><span class="n">nTexture</span><span class="p">)</span>
+                <span class="nf">drawCube</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">setCubeTexture</span> <span class="n">cTexture</span>
                 <span class="k">switch</span> <span class="n">cTexture</span>
                         <span class="k">on</span> <span class="ss">:x</span>
-                                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureX</span><span class="p">)</span>
+                                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureX</span><span class="p">)</span>
                         <span class="k">on</span> <span class="ss">:o</span>
-                                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureO</span><span class="p">)</span>
+                                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureO</span><span class="p">)</span>
                         <span class="k">on</span> <span class="ss">:n</span>
-                                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureN</span><span class="p">)</span>
+                                <span class="nf">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureN</span><span class="p">)</span>
                 <span class="k">off</span>
 
         <span class="kd">func</span> <span class="nf">Rotate</span>
@@ -1040,40 +1040,40 @@
                 <span class="n">zrot</span> <span class="o">+=</span> <span class="mf">0.4</span> <span class="o">*</span> <span class="mi">5</span>
 
         <span class="kd">func</span> <span class="nf">drawcube</span>
-                <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                <span class="nf">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
                         <span class="c1">// Front Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Back Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Top Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
                         <span class="c1">// Bottom Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
 
                         <span class="c1">// Right face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
 
                         <span class="c1">// Left Face</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
-                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
-                <span class="n">glEnd</span><span class="p">()</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="nf">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="nf">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="nf">glEnd</span><span class="p">()</span>
 
 
 <span class="kd">class</span> <span class="nc">GameBackground</span>
@@ -1097,11 +1097,11 @@
         <span class="n">bitmap</span>
 
         <span class="kd">func</span> <span class="nf">Update</span>
-                <span class="n">draw</span><span class="p">()</span>
-                <span class="n">motion</span><span class="p">()</span>
+                <span class="nf">draw</span><span class="p">()</span>
+                <span class="nf">motion</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">draw</span>
-                <span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">,</span><span class="n">nBackX</span><span class="p">,</span><span class="n">nBackY</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                <span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">,</span><span class="n">nBackX</span><span class="p">,</span><span class="n">nBackY</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">motion</span>
                 <span class="n">nBackX</span> <span class="o">+=</span> <span class="n">nBackDiffx</span>
@@ -1116,10 +1116,10 @@
                 <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">loadResources</span>
-                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/back.jpg&quot;</span><span class="p">)</span>
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;image/back.jpg&quot;</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
-                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+                <span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
 
 
 <span class="kd">class</span> <span class="nc">GameSound</span>
@@ -1127,13 +1127,13 @@
         <span class="n">sample</span> <span class="n">sampleid</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
-                <span class="n">sample</span> <span class="o">=</span> <span class="n">al_load_sample</span><span class="p">(</span> <span class="s2">&quot;sound/music1.wav&quot;</span> <span class="p">)</span>
-                <span class="n">sampleid</span> <span class="o">=</span> <span class="n">al_new_allegro_sample_id</span><span class="p">()</span>
-                <span class="n">al_play_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ALLEGRO_PLAYMODE_LOOP</span><span class="p">,</span><span class="n">sampleid</span><span class="p">)</span>
+                <span class="n">sample</span> <span class="o">=</span> <span class="nf">al_load_sample</span><span class="p">(</span> <span class="s2">&quot;sound/music1.wav&quot;</span> <span class="p">)</span>
+                <span class="n">sampleid</span> <span class="o">=</span> <span class="nf">al_new_allegro_sample_id</span><span class="p">()</span>
+                <span class="nf">al_play_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ALLEGRO_PLAYMODE_LOOP</span><span class="p">,</span><span class="n">sampleid</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">destroyResources</span>
-                <span class="n">al_destroy_allegro_sample_id</span><span class="p">(</span><span class="n">sampleid</span><span class="p">)</span>
-                <span class="n">al_destroy_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_sample_id</span><span class="p">(</span><span class="n">sampleid</span><span class="p">)</span>
+                <span class="nf">al_destroy_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 
 
 <span class="kd">class</span> <span class="nc">GraphicsAppBase</span>
@@ -1155,63 +1155,63 @@
         <span class="n">PRINT_MOUSE_XY</span>  <span class="o">=</span> <span class="bp">False</span>
 
         <span class="kd">func</span> <span class="nf">start</span>
-                <span class="n">SetUp</span><span class="p">()</span>
-                <span class="n">loadResources</span><span class="p">()</span>
-                <span class="n">eventsLoop</span><span class="p">()</span>
-                <span class="n">destroy</span><span class="p">()</span>
+                <span class="nf">SetUp</span><span class="p">()</span>
+                <span class="nf">loadResources</span><span class="p">()</span>
+                <span class="nf">eventsLoop</span><span class="p">()</span>
+                <span class="nf">destroy</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">setup</span>
-                <span class="n">al_init</span><span class="p">()</span>
-                <span class="n">al_init_font_addon</span><span class="p">()</span>
-                <span class="n">al_init_ttf_addon</span><span class="p">()</span>
-                <span class="n">al_init_image_addon</span><span class="p">()</span>
-                <span class="n">al_install_audio</span><span class="p">()</span>
-                <span class="n">al_init_acodec_addon</span><span class="p">()</span>
-                <span class="n">al_reserve_samples</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-                <span class="n">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
-                <span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
-                <span class="n">al_set_window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
-                <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">event_queue</span> <span class="o">=</span> <span class="n">al_create_event_queue</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
-                <span class="n">ev</span> <span class="o">=</span> <span class="n">al_new_allegro_event</span><span class="p">()</span>
-                <span class="n">timeout</span> <span class="o">=</span> <span class="n">al_new_allegro_timeout</span><span class="p">()</span>
-                <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                <span class="n">timer</span> <span class="o">=</span> <span class="n">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
-                <span class="n">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_install_mouse</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_mouse_event_source</span><span class="p">())</span>
-                <span class="n">al_install_keyboard</span><span class="p">()</span>
-                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
-                        <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
+                <span class="nf">al_init</span><span class="p">()</span>
+                <span class="nf">al_init_font_addon</span><span class="p">()</span>
+                <span class="nf">al_init_ttf_addon</span><span class="p">()</span>
+                <span class="nf">al_init_image_addon</span><span class="p">()</span>
+                <span class="nf">al_install_audio</span><span class="p">()</span>
+                <span class="nf">al_init_acodec_addon</span><span class="p">()</span>
+                <span class="nf">al_reserve_samples</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="nf">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
+                <span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
+                <span class="nf">al_set_window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
+                <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">event_queue</span> <span class="o">=</span> <span class="nf">al_create_event_queue</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+                <span class="n">ev</span> <span class="o">=</span> <span class="nf">al_new_allegro_event</span><span class="p">()</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="nf">al_new_allegro_timeout</span><span class="p">()</span>
+                <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                <span class="n">timer</span> <span class="o">=</span> <span class="nf">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
+                <span class="nf">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_install_mouse</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_mouse_event_source</span><span class="p">())</span>
+                <span class="nf">al_install_keyboard</span><span class="p">()</span>
+                <span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="nf">al_get_keyboard_event_source</span><span class="p">())</span>
 
         <span class="kd">func</span> <span class="nf">eventsLoop</span>
                 <span class="k">while</span> <span class="bp">true</span>
-                        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-                        <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-                        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                        <span class="nf">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+                        <span class="k">switch</span> <span class="nf">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
-                                <span class="n">CloseEvent</span><span class="p">()</span>
+                                <span class="nf">CloseEvent</span><span class="p">()</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                 <span class="k">if</span> <span class="n">PRINT_MOUSE_XY</span>
                                         <span class="k">see</span> <span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">mouse_x</span> <span class="o">+</span> <span class="bp">nl</span>
                                         <span class="k">see</span> <span class="s2">&quot;y = &quot;</span> <span class="o">+</span> <span class="n">mouse_y</span> <span class="o">+</span> <span class="bp">nl</span>
                                 <span class="k">ok</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
-                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
-                                <span class="n">MouseClickEvent</span><span class="p">()</span>
+                                <span class="nf">MouseClickEvent</span><span class="p">()</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -1222,7 +1222,7 @@
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                                 <span class="k">off</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
-                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
                                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -1235,22 +1235,22 @@
                                                 <span class="k">exit</span>
                                 <span class="k">off</span>
                         <span class="k">off</span>
-                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="nf">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
                                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">false</span>
-                                <span class="n">drawScene</span><span class="p">()</span>
-                                <span class="n">al_flip_display</span><span class="p">()</span>
+                                <span class="nf">drawScene</span><span class="p">()</span>
+                                <span class="nf">al_flip_display</span><span class="p">()</span>
                         <span class="k">ok</span>
                         <span class="nb">callgc</span><span class="p">()</span>
                 <span class="k">end</span>
 
         <span class="kd">func</span> <span class="nf">destroy</span>
-                <span class="n">destroyResources</span><span class="p">()</span>
-                <span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="n">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-                <span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
-                <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
-                <span class="n">al_exit</span><span class="p">()</span>
+                <span class="nf">destroyResources</span><span class="p">()</span>
+                <span class="nf">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="nf">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+                <span class="nf">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                <span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+                <span class="nf">al_exit</span><span class="p">()</span>
 
         <span class="kd">func</span> <span class="nf">loadresources</span>
 

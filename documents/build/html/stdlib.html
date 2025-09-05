@@ -306,14 +306,14 @@
 <span id="index-1"></span><h2>IsAppCompiled() Function<a class="headerlink" href="#isappcompiled-function" title="Permalink to this heading"></a></h2>
 <p>check whether the application has been compiled using Ring2EXE</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsAppCompiled</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsAppCompiled</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test IsAppCompiled()&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">IsAppCompiled</span><span class="p">()</span> <span class="k">see</span> <span class="s2">&quot;Application has been compiled using Ring2EXE&quot;</span>
+<span class="k">if</span> <span class="nf">IsAppCompiled</span><span class="p">()</span> <span class="k">see</span> <span class="s2">&quot;Application has been compiled using Ring2EXE&quot;</span>
 <span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;Application is running under Ring interpreter&quot;</span> <span class="k">ok</span>
 </pre></div>
 </div>
@@ -322,7 +322,7 @@
 <span id="index-2"></span><h2>AppArguments() Function<a class="headerlink" href="#apparguments-function" title="Permalink to this heading"></a></h2>
 <p>Get the effective arguments passed to the Ring script</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">AppArguments</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">arguments</span> <span class="n">as</span> <span class="n">a</span> <span class="n">list</span> <span class="n">of</span> <span class="n">strings</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">AppArguments</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">arguments</span> <span class="n">as</span> <span class="n">a</span> <span class="n">list</span> <span class="n">of</span> <span class="n">strings</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -330,7 +330,7 @@
 
 <span class="c1"># Application Arguments</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test AppArguments()&quot;</span><span class="p">)</span>
-<span class="n">argsList</span> <span class="o">=</span> <span class="n">AppArguments</span><span class="p">()</span>
+<span class="n">argsList</span> <span class="o">=</span> <span class="nf">AppArguments</span><span class="p">()</span>
 <span class="n">argsCount</span> <span class="o">=</span> <span class="nb">Len</span><span class="p">(</span><span class="n">argsList</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">argsCount</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">see</span> <span class="s2">&quot;No arguments passed to the Ring script&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;Ring script arguments = &quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="nb">list2str</span><span class="p">(</span><span class="n">argsList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="k">ok</span>
@@ -341,7 +341,7 @@
 <span id="index-3"></span><h2>AppPath() Function<a class="headerlink" href="#apppath-function" title="Permalink to this heading"></a></h2>
 <p>Get the path of the application folder</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">AppPath</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">path</span> <span class="n">as</span> <span class="n">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">AppPath</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">path</span> <span class="n">as</span> <span class="n">String</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -349,7 +349,7 @@
 
 <span class="c1"># Application Path</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test AppPath()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">AppPath</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="nf">AppPath</span><span class="p">()</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -357,13 +357,13 @@
 <span id="index-4"></span><h2>JustFilePath() Function<a class="headerlink" href="#justfilepath-function" title="Permalink to this heading"></a></h2>
 <p>Get the path of the file, remove the file name.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">JustFilePath</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">path</span> <span class="n">as</span> <span class="n">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">JustFilePath</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">path</span> <span class="n">as</span> <span class="n">String</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="k">see</span>  <span class="n">justfilePath</span><span class="p">(</span><span class="s2">&quot;b:\ring\applications\rnote\rnote.ring&quot;</span><span class="p">)</span>
+<span class="k">see</span>  <span class="nf">justfilePath</span><span class="p">(</span><span class="s2">&quot;b:\ring\applications\rnote\rnote.ring&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -375,13 +375,13 @@
 <span id="index-5"></span><h2>JustFileName() Function<a class="headerlink" href="#justfilename-function" title="Permalink to this heading"></a></h2>
 <p>Get the file, remove the file path.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">JustFileName</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">file</span> <span class="n">name</span> <span class="n">as</span> <span class="n">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">JustFileName</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">file</span> <span class="n">name</span> <span class="n">as</span> <span class="n">String</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="k">see</span> <span class="n">justfileName</span><span class="p">(</span><span class="s2">&quot;b:\ring\applications\rnote\rnote.ring&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="nf">justfileName</span><span class="p">(</span><span class="s2">&quot;b:\ring\applications\rnote\rnote.ring&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -393,14 +393,14 @@
 <span id="index-6"></span><h2>Value() Function<a class="headerlink" href="#value-function" title="Permalink to this heading"></a></h2>
 <p>create a copy from a list or object</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">value</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">new</span> <span class="nc">list</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">value</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">new</span> <span class="nc">list</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
-<span class="nb">del</span><span class="p">(</span><span class="n">value</span><span class="p">(</span><span class="n">aList</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># delete first item</span>
+<span class="nb">del</span><span class="p">(</span><span class="nf">value</span><span class="p">(</span><span class="n">aList</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># delete first item</span>
 <span class="k">see</span> <span class="n">aList</span>           <span class="c1"># print numbers from 1 to 10</span>
 </pre></div>
 </div>
@@ -409,14 +409,14 @@
 <span id="index-7"></span><h2>Times() Function<a class="headerlink" href="#times-function" title="Permalink to this heading"></a></h2>
 <p>Execute a Function nCount times</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Times</span><span class="p">(</span><span class="n">nCount</span><span class="p">,</span><span class="kd">function</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Times</span><span class="p">(</span><span class="n">nCount</span><span class="p">,</span><span class="kd">function</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Times()&quot;</span><span class="p">)</span>
-<span class="n">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="kd">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s2">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">}</span> <span class="p">)</span>
+<span class="nf">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="kd">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s2">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -424,14 +424,14 @@
 <span id="index-8"></span><h2>Map() Function<a class="headerlink" href="#map-function" title="Permalink to this heading"></a></h2>
 <p>Execute a Function on each list item</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="kd">function</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Map</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="kd">function</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Map()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="nf">Map</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -439,14 +439,14 @@
 <span id="index-9"></span><h2>Filter() Function<a class="headerlink" href="#filter-function" title="Permalink to this heading"></a></h2>
 <p>Execute a Function on each list item to filter items</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Filter</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="kd">function</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Filter</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="kd">function</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Filter()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="bp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="bp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
+<span class="k">See</span> <span class="nf">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span> <span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="bp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="bp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -457,14 +457,14 @@ accumulated value xResult</p>
 <p>The input list aList, the optional intial value xInitial and the output xResult, need
 to be the same Type</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Reduce</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFunc</span><span class="p">,</span><span class="n">xInitial</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">final</span> <span class="n">value</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Reduce</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFunc</span><span class="p">,</span><span class="n">xInitial</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">final</span> <span class="n">value</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;Love&quot;</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">],</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span>
+<span class="o">?</span> <span class="nf">Reduce</span><span class="p">(</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="o">?</span> <span class="nf">Reduce</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;Love&quot;</span><span class="p">,</span><span class="s2">&quot;Ring&quot;</span><span class="p">],</span> <span class="kd">func</span> <span class="nf">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -485,14 +485,14 @@ to be the same Type</p>
 <p>To avoid removing all leading and trailing spaces use the SplitMany() function.</p>
 </div>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Split</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiter</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Split</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiter</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Split()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Split</span><span class="p">(</span><span class="s2">&quot;one two three four five&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="nf">Split</span><span class="p">(</span><span class="s2">&quot;one two three four five&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -500,14 +500,14 @@ to be the same Type</p>
 <span id="index-12"></span><h2>SplitMany() Function<a class="headerlink" href="#splitmany-function" title="Permalink to this heading"></a></h2>
 <p>Convert string words to list items. Allow many delimiters.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SplitMany</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiters</span> <span class="n">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="n">list</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">SplitMany</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiters</span> <span class="n">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="n">list</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test SplitMany()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">SplitMany</span><span class="p">(</span><span class="s2">&quot;one,two,three,four and five&quot;</span><span class="p">,</span><span class="s2">&quot; ,&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="nf">SplitMany</span><span class="p">(</span><span class="s2">&quot;one,two,three,four and five&quot;</span><span class="p">,</span><span class="s2">&quot; ,&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -515,14 +515,14 @@ to be the same Type</p>
 <span id="index-13"></span><h2>Capitalized() Function<a class="headerlink" href="#capitalized-function" title="Permalink to this heading"></a></h2>
 <p>Return a copy of a string with the first letter capitalized</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Capitalized</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Capitalized</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Capitalized()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">capitalized</span><span class="p">(</span><span class="s2">&quot;welcome to the Ring Programming Language&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="nf">capitalized</span><span class="p">(</span><span class="s2">&quot;welcome to the Ring Programming Language&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -530,14 +530,14 @@ to be the same Type</p>
 <span id="index-14"></span><h2>IsSpecial() Function<a class="headerlink" href="#isspecial-function" title="Permalink to this heading"></a></h2>
 <p>Check whether a character is special or not</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsSpecial</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsSpecial</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Isspecial()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="s2">&quot;Isspecial  = &quot;</span> <span class="o">+</span> <span class="n">isSpecial</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Isspecial  = &quot;</span> <span class="o">+</span> <span class="nf">isSpecial</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -545,14 +545,14 @@ to be the same Type</p>
 <span id="index-15"></span><h2>IsVowel() Function<a class="headerlink" href="#isvowel-function" title="Permalink to this heading"></a></h2>
 <p>Check whether a character is vowel or not</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsVowel</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsVowel</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Isvowel()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="s2">&quot;Isvowel = &quot;</span> <span class="o">+</span> <span class="n">isVowel</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">See</span> <span class="s2">&quot;Isvowel = &quot;</span> <span class="o">+</span> <span class="nf">isVowel</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -560,14 +560,14 @@ to be the same Type</p>
 <span id="index-16"></span><h2>LineCount() Function<a class="headerlink" href="#linecount-function" title="Permalink to this heading"></a></h2>
 <p>Return the lines count in a text file.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">LineCount</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Lines</span> <span class="n">Count</span> <span class="n">as</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">LineCount</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Lines</span> <span class="n">Count</span> <span class="n">as</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Linecount()&quot;</span><span class="p">)</span>
-<span class="k">See</span> <span class="s2">&quot;the number of lines = &quot;</span> <span class="o">+</span> <span class="n">lineCount</span><span class="p">(</span><span class="s2">&quot;test.ring&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s2">&quot;the number of lines = &quot;</span> <span class="o">+</span> <span class="nf">lineCount</span><span class="p">(</span><span class="s2">&quot;test.ring&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -575,14 +575,14 @@ to be the same Type</p>
 <span id="index-17"></span><h2>Factorial() Function<a class="headerlink" href="#factorial-function" title="Permalink to this heading"></a></h2>
 <p>Return the factorial of a number</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Factorial()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="s2">&quot;6 factorial is : &quot;</span> <span class="o">+</span> <span class="n">Factorial</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;6 factorial is : &quot;</span> <span class="o">+</span> <span class="nf">Factorial</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -590,14 +590,14 @@ to be the same Type</p>
 <span id="index-18"></span><h2>Fibonacci() Function<a class="headerlink" href="#fibonacci-function" title="Permalink to this heading"></a></h2>
 <p>Return the fibonacci number</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Fibonacci</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Fibonacci()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="s2">&quot;6 Fibonacci is : &quot;</span> <span class="o">+</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;6 Fibonacci is : &quot;</span> <span class="o">+</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -605,14 +605,14 @@ to be the same Type</p>
 <span id="index-19"></span><h2>IsPrime() Function<a class="headerlink" href="#isprime-function" title="Permalink to this heading"></a></h2>
 <p>Check whether a number is prime or not</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprime</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">isprime</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Isprime()&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;16 is a prime number&quot;</span>
+<span class="k">if</span> <span class="nf">isPrime</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;16 is a prime number&quot;</span>
 <span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;16 is not a prime number&quot;</span> <span class="k">ok</span>
 </pre></div>
 </div>
@@ -621,14 +621,14 @@ to be the same Type</p>
 <span id="index-20"></span><h2>Sign() Function<a class="headerlink" href="#sign-function" title="Permalink to this heading"></a></h2>
 <p>Returns an integer value indicating the sign of a number.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Sign</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">number</span> <span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">negative</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">(</span><span class="n">positive</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Sign</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">number</span> <span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">negative</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">(</span><span class="n">positive</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Sign()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="s2">&quot;sign of 12 is = &quot;</span> <span class="o">+</span> <span class="n">sign</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;sign of 12 is = &quot;</span> <span class="o">+</span> <span class="nf">sign</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -636,7 +636,7 @@ to be the same Type</p>
 <span id="index-21"></span><h2>List2File() Function<a class="headerlink" href="#list2file-function" title="Permalink to this heading"></a></h2>
 <p>Write list items to text file (each item in new line).</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">List2File</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFileName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">List2File</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFileName</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -644,7 +644,7 @@ to be the same Type</p>
 
 <span class="c1"># Test List2File</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test List2File()&quot;</span><span class="p">)</span>
-<span class="n">list2file</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;myfile.txt&quot;</span><span class="p">)</span>
+<span class="nf">list2file</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;myfile.txt&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -652,7 +652,7 @@ to be the same Type</p>
 <span id="index-22"></span><h2>File2List() Function<a class="headerlink" href="#file2list-function" title="Permalink to this heading"></a></h2>
 <p>Read text file and convert lines to list items</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">File2List</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">File2List</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -660,7 +660,7 @@ to be the same Type</p>
 
 <span class="c1"># Test File2List</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test File2List()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="nb">len</span><span class="p">(</span><span class="n">file2list</span><span class="p">(</span><span class="s2">&quot;myfile.txt&quot;</span><span class="p">))</span>
+<span class="k">see</span> <span class="nb">len</span><span class="p">(</span><span class="nf">file2list</span><span class="p">(</span><span class="s2">&quot;myfile.txt&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
@@ -669,14 +669,14 @@ to be the same Type</p>
 <p>Returns true if the given string starts with the specified substring.</p>
 <p>Leading white spaces are ignored.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">StartsWith</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">StartsWith</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Startswith()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">Startswith</span><span class="p">(</span><span class="s2">&quot;CalmoSoft&quot;</span><span class="p">,</span> <span class="s2">&quot;Calmo&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">Startswith</span><span class="p">(</span><span class="s2">&quot;CalmoSoft&quot;</span><span class="p">,</span> <span class="s2">&quot;Calmo&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -685,14 +685,14 @@ to be the same Type</p>
 <p>Returns true if the given string ends with the specified substring.</p>
 <p>Trailing white spaces are ignored.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Endswith</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Endswith</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Endswith()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">endsWith</span><span class="p">(</span><span class="s2">&quot;CalmoSoft&quot;</span><span class="p">,</span> <span class="s2">&quot;Soft&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">endsWith</span><span class="p">(</span><span class="s2">&quot;CalmoSoft&quot;</span><span class="p">,</span> <span class="s2">&quot;Soft&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -700,14 +700,14 @@ to be the same Type</p>
 <span id="index-25"></span><h2>GCD() Function<a class="headerlink" href="#gcd-function" title="Permalink to this heading"></a></h2>
 <p>Finding of the greatest common divisor of two integers.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Gcd</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Gcd</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Gcd()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">gcd</span> <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">gcd</span> <span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -715,14 +715,14 @@ to be the same Type</p>
 <span id="index-26"></span><h2>LCM() Function<a class="headerlink" href="#lcm-function" title="Permalink to this heading"></a></h2>
 <p>Compute the least common multiple of two integers.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">lcm</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">lcm</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Lcm()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">Lcm</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">36</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">Lcm</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">36</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -730,7 +730,7 @@ to be the same Type</p>
 <span id="index-27"></span><h2>SumList() Function<a class="headerlink" href="#sumlist-function" title="Permalink to this heading"></a></h2>
 <p>Compute the sum of a list of integers.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sumlist</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sumlist</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -738,7 +738,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Sumlist()&quot;</span><span class="p">)</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="k">see</span> <span class="n">Sumlist</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">Sumlist</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -746,7 +746,7 @@ to be the same Type</p>
 <span id="index-28"></span><h2>ProdList() Function<a class="headerlink" href="#prodlist-function" title="Permalink to this heading"></a></h2>
 <p>Compute the product of a list of integers.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">prodlist</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">prodlist</span><span class="p">(</span><span class="n">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -754,7 +754,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Prodlist()&quot;</span><span class="p">)</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="k">see</span> <span class="n">Prodlist</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">Prodlist</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -763,7 +763,7 @@ to be the same Type</p>
 <p>Test whether an integer is even or odd.</p>
 <p>Result of test (1=odd 2=even).</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">evenorodd</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="p">(</span><span class="n">odd</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">2</span> <span class="p">(</span><span class="n">even</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">evenorodd</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="p">(</span><span class="n">odd</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">2</span> <span class="p">(</span><span class="n">even</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -771,7 +771,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Evenorodd()&quot;</span><span class="p">)</span>
 <span class="n">nr</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="k">see</span> <span class="n">Evenorodd</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="nf">Evenorodd</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -779,7 +779,7 @@ to be the same Type</p>
 <span id="index-30"></span><h2>Factors() Function<a class="headerlink" href="#factors-function" title="Permalink to this heading"></a></h2>
 <p>Compute the factors of a positive integer.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">factors</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">list</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">factors</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">list</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -787,7 +787,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Factors()&quot;</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">45</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">factors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="k">see</span> <span class="s2">&quot;Factors of &quot;</span> <span class="o">+</span> <span class="n">n</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span>
 <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
     <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
@@ -799,7 +799,7 @@ to be the same Type</p>
 <span id="index-31"></span><h2>IsPalindrome() Function<a class="headerlink" href="#ispalindrome-function" title="Permalink to this heading"></a></h2>
 <p>Check if a sequence of characters is a palindrome or not.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsPalindrome</span><span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsPalindrome</span><span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -807,7 +807,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test IsPalindrome()&quot;</span><span class="p">)</span>
 <span class="n">cString</span> <span class="o">=</span> <span class="s2">&quot;radar&quot;</span>
-<span class="k">see</span> <span class="n">IsPalindrome</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
+<span class="k">see</span> <span class="nf">IsPalindrome</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -815,7 +815,7 @@ to be the same Type</p>
 <span id="index-32"></span><h2>IsLeapYear() Function<a class="headerlink" href="#isleapyear-function" title="Permalink to this heading"></a></h2>
 <p>Check whether a given year is a leap year in the Gregorian calendar.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Isleapyear</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Isleapyear</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -823,7 +823,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Isleapyear()&quot;</span><span class="p">)</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
-<span class="k">if</span> <span class="n">Isleapyear</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is a leap year.&quot;</span>
+<span class="k">if</span> <span class="nf">Isleapyear</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is a leap year.&quot;</span>
 <span class="k">else</span> <span class="k">see</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot; is not a leap year.&quot;</span> <span class="k">ok</span>
 </pre></div>
 </div>
@@ -832,7 +832,7 @@ to be the same Type</p>
 <span id="index-33"></span><h2>BinaryDigits() Function<a class="headerlink" href="#binarydigits-function" title="Permalink to this heading"></a></h2>
 <p>Compute the sequence of binary digits for a given non-negative integer.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">binarydigits</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">binarydigits</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -840,7 +840,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Binarydigits()&quot;</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">35</span>
-<span class="k">see</span> <span class="s2">&quot;Binary digits of &quot;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span> <span class="o">+</span> <span class="n">Binarydigits</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">see</span> <span class="s2">&quot;Binary digits of &quot;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="s2">&quot; = &quot;</span> <span class="o">+</span> <span class="nf">Binarydigits</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -848,7 +848,7 @@ to be the same Type</p>
 <span id="index-34"></span><h2>MatrixMulti() Function<a class="headerlink" href="#matrixmulti-function" title="Permalink to this heading"></a></h2>
 <p>Multiply two matrices together.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Matrixmulti</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Matrixmulti</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -858,7 +858,7 @@ to be the same Type</p>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Matrixmulti()&quot;</span><span class="p">)</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
 <span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
-<span class="k">see</span> <span class="n">Matrixmulti</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="k">see</span> <span class="nf">Matrixmulti</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -870,7 +870,7 @@ to be the same Type</p>
 <span id="index-35"></span><h2>MatrixTrans() Function<a class="headerlink" href="#matrixtrans-function" title="Permalink to this heading"></a></h2>
 <p>Transpose an arbitrarily sized rectangular Matrix.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Matrixtrans</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Matrixtrans</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -879,7 +879,7 @@ to be the same Type</p>
 <span class="c1"># Transpose an arbitrarily sized rectangular Matrix.</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Matrixtrans()&quot;</span><span class="p">)</span>
 <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">78</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">36</span><span class="p">],</span> <span class="p">[</span><span class="mi">49</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">39</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">29</span><span class="p">]]</span>
-<span class="k">see</span> <span class="n">Matrixtrans</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="k">see</span> <span class="nf">Matrixtrans</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -891,7 +891,7 @@ to be the same Type</p>
 <span id="index-36"></span><h2>DayOfWeek() Function<a class="headerlink" href="#dayofweek-function" title="Permalink to this heading"></a></h2>
 <p>Return the day of the week of given date. (yyyy-mm-dd)</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">dayofweek</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">dayofweek</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -900,7 +900,7 @@ to be the same Type</p>
 <span class="c1"># Return the day of the week of given date.</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Dayofweek()&quot;</span><span class="p">)</span>
 <span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;2016-04-24&quot;</span>
-<span class="k">see</span> <span class="s2">&quot;Data : &quot;</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s2">&quot; - Day : &quot;</span> <span class="o">+</span> <span class="n">Dayofweek</span><span class="p">(</span><span class="n">date</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="k">see</span> <span class="s2">&quot;Data : &quot;</span> <span class="o">+</span> <span class="n">date</span> <span class="o">+</span> <span class="s2">&quot; - Day : &quot;</span> <span class="o">+</span> <span class="nf">Dayofweek</span><span class="p">(</span><span class="n">date</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 </section>
@@ -908,7 +908,7 @@ to be the same Type</p>
 <span id="index-37"></span><h2>Permutation() Function<a class="headerlink" href="#permutation-function" title="Permalink to this heading"></a></h2>
 <p>Generates all permutations of n different numerals.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">permutation</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">permutation</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -922,7 +922,7 @@ to be the same Type</p>
                 <span class="k">see</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
         <span class="k">next</span>
         <span class="k">see</span> <span class="bp">nl</span>
-        <span class="n">Permutation</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+        <span class="nf">Permutation</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
 <span class="k">next</span>
 </pre></div>
 </div>
@@ -931,7 +931,7 @@ to be the same Type</p>
 <span id="index-38"></span><h2>ReadLine() Function<a class="headerlink" href="#readline-function" title="Permalink to this heading"></a></h2>
 <p>Read line from file</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -941,7 +941,7 @@ to be the same Type</p>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Readline()&quot;</span><span class="p">)</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s2">&quot;test.ring&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="nb">feof</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="k">See</span> <span class="n">Readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">end</span>
+<span class="k">See</span> <span class="nf">Readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">end</span>
 <span class="nb">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -950,7 +950,7 @@ to be the same Type</p>
 <span id="index-39"></span><h2>SubString() Function<a class="headerlink" href="#substring-function" title="Permalink to this heading"></a></h2>
 <p>Return a position of a substring starting from a given position in a string.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Substring</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">substr</span><span class="p">,</span><span class="n">npos</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Substring</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">substr</span><span class="p">,</span><span class="n">npos</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -961,7 +961,7 @@ to be the same Type</p>
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;abcxyzqweabc&quot;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="k">see</span> <span class="n">substring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<span class="k">see</span> <span class="nf">substring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -969,7 +969,7 @@ to be the same Type</p>
 <span id="index-40"></span><h2>ChangeString() Function<a class="headerlink" href="#changestring-function" title="Permalink to this heading"></a></h2>
 <p>Change substring from given position to a given position with another substring.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Changestring</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">nPos1</span><span class="p">,</span> <span class="n">nPos2</span><span class="p">,</span> <span class="n">cSubstr</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Changestring</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">nPos1</span><span class="p">,</span> <span class="n">nPos2</span><span class="p">,</span> <span class="n">cSubstr</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -977,7 +977,7 @@ to be the same Type</p>
 
 <span class="c1"># Change substring from given position for given position with a substring.</span>
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Changestring()&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">Changestring</span><span class="p">(</span><span class="s2">&quot;Rmasdg&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;in&quot;</span><span class="p">)</span>     <span class="c1"># Ring</span>
+<span class="k">see</span> <span class="nf">Changestring</span><span class="p">(</span><span class="s2">&quot;Rmasdg&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;in&quot;</span><span class="p">)</span>     <span class="c1"># Ring</span>
 </pre></div>
 </div>
 </section>
@@ -985,7 +985,7 @@ to be the same Type</p>
 <span id="index-41"></span><h2>Sleep() Function<a class="headerlink" href="#sleep-function" title="Permalink to this heading"></a></h2>
 <p>Sleep for the given amount of time.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sleep</span><span class="p">(</span><span class="n">nSeconds</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sleep</span><span class="p">(</span><span class="n">nSeconds</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -993,7 +993,7 @@ to be the same Type</p>
 
 <span class="nb">Puts</span><span class="p">(</span><span class="s2">&quot;Test Sleep()&quot;</span><span class="p">)</span>
 <span class="k">see</span> <span class="s2">&quot;Wait 3 Seconds!&quot;</span>
-<span class="n">Sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nf">Sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">see</span> <span class="bp">nl</span>
 </pre></div>
 </div>
@@ -1002,13 +1002,13 @@ to be the same Type</p>
 <span id="index-42"></span><h2>IsMainSourceFile() Function<a class="headerlink" href="#ismainsourcefile-function" title="Permalink to this heading"></a></h2>
 <p>Check if the current file is the main source file</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMainSourceFile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsMainSourceFile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="k">if</span> <span class="n">ismainsourcefile</span><span class="p">()</span>
+<span class="k">if</span> <span class="nf">ismainsourcefile</span><span class="p">()</span>
         <span class="c1"># code</span>
 <span class="k">ok</span>
 </pre></div>
@@ -1018,7 +1018,7 @@ to be the same Type</p>
 <span id="index-43"></span><h2>MakeDir() Function<a class="headerlink" href="#makedir-function" title="Permalink to this heading"></a></h2>
 <p>Make Directory</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MakeDir</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">MakeDir</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -1026,7 +1026,7 @@ to be the same Type</p>
 
 <span class="c1"># Create Directory</span>
 <span class="nb">puts</span><span class="p">(</span><span class="s2">&quot;create Directory : myfolder&quot;</span><span class="p">)</span>
-<span class="n">makedir</span><span class="p">(</span><span class="s2">&quot;myfolder&quot;</span><span class="p">)</span>
+<span class="nf">makedir</span><span class="p">(</span><span class="s2">&quot;myfolder&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1034,7 +1034,7 @@ to be the same Type</p>
 <span id="index-44"></span><h2>Fsize() Function<a class="headerlink" href="#fsize-function" title="Permalink to this heading"></a></h2>
 <p>The function return the file size in bytes.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">FSize</span><span class="p">(</span><span class="n">File</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">Number</span> <span class="p">(</span><span class="n">File</span> <span class="n">Size</span> <span class="k">in</span> <span class="n">Bytes</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">FSize</span><span class="p">(</span><span class="n">File</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="nb">Number</span> <span class="p">(</span><span class="n">File</span> <span class="n">Size</span> <span class="k">in</span> <span class="n">Bytes</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1042,7 +1042,7 @@ to be the same Type</p>
 <span id="index-45"></span><h2>TrimAll() Function<a class="headerlink" href="#trimall-function" title="Permalink to this heading"></a></h2>
 <p>Remove all spaces and tabs characters from a string</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TrimAll</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c1"># Without Spaces and Tabs</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">TrimAll</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c1"># Without Spaces and Tabs</span>
 </pre></div>
 </div>
 </section>
@@ -1050,7 +1050,7 @@ to be the same Type</p>
 <span id="index-46"></span><h2>TrimLeft() Function<a class="headerlink" href="#trimleft-function" title="Permalink to this heading"></a></h2>
 <p>Remove all spaces and tabs characters from the left side of a string</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TrimLeft</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c1"># Without Spaces and Tabs from the left side</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">TrimLeft</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c1"># Without Spaces and Tabs from the left side</span>
 </pre></div>
 </div>
 </section>
@@ -1058,7 +1058,7 @@ to be the same Type</p>
 <span id="index-47"></span><h2>TrimRight() Function<a class="headerlink" href="#trimright-function" title="Permalink to this heading"></a></h2>
 <p>Remove all spaces and tabs characters from the right side of a string</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TrimRight</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c1"># Without Spaces and Tabs from the right side</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">TrimRight</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c1"># Without Spaces and Tabs from the right side</span>
 </pre></div>
 </div>
 </section>
@@ -1066,11 +1066,11 @@ to be the same Type</p>
 <span id="index-48"></span><h2>EpochTime() Function<a class="headerlink" href="#epochtime-function" title="Permalink to this heading"></a></h2>
 <p>Return the Epoch Time</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">EpochTime</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">cTime</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nEpochTime</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">EpochTime</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">cTime</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nEpochTime</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">EpochTime</span><span class="p">(</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nb">Time</span><span class="p">()</span> <span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nf">EpochTime</span><span class="p">(</span> <span class="nb">Date</span><span class="p">(),</span> <span class="nb">Time</span><span class="p">()</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1078,12 +1078,12 @@ to be the same Type</p>
 <span id="index-49"></span><h2>SystemCmd() Function<a class="headerlink" href="#systemcmd-function" title="Permalink to this heading"></a></h2>
 <p>We can execute system commands using the SystemCmd() function that outputs to a variable</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SystemCmd</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">SystemCmd</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span>  <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>        <span class="c1"># User Name logged in is output a variable</span>
-<span class="n">cThem</span> <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s2">&quot;dir c:\Users&quot;</span><span class="p">)</span>  <span class="c1"># Directory List is output to a variable</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span>  <span class="o">=</span> <span class="nf">SystemCmd</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">)</span>        <span class="c1"># User Name logged in is output a variable</span>
+<span class="n">cThem</span> <span class="o">=</span> <span class="nf">SystemCmd</span><span class="p">(</span><span class="s2">&quot;dir c:\Users&quot;</span><span class="p">)</span>  <span class="c1"># Directory List is output to a variable</span>
 </pre></div>
 </div>
 </section>
@@ -1091,17 +1091,17 @@ to be the same Type</p>
 <span id="index-50"></span><h2>ListAllFiles() Function<a class="headerlink" href="#listallfiles-function" title="Permalink to this heading"></a></h2>
 <p>Using this function we can quickly do a process on a group of files in a folder and it’s sub folders.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ListAllFiles</span><span class="p">(</span><span class="n">cFolder</span><span class="p">,</span><span class="n">cExtension</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">Files</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">ListAllFiles</span><span class="p">(</span><span class="n">cFolder</span><span class="p">,</span><span class="n">cExtension</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">Files</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">ListAllFiles</span><span class="p">(</span><span class="s2">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s2">&quot;ring&quot;</span><span class="p">)</span> <span class="c1"># *.ring only</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="nf">ListAllFiles</span><span class="p">(</span><span class="s2">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s2">&quot;ring&quot;</span><span class="p">)</span> <span class="c1"># *.ring only</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 <span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">listallfiles</span><span class="p">(</span><span class="s2">&quot;b:/ring/libraries/weblib&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># All Files</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nf">listallfiles</span><span class="p">(</span><span class="s2">&quot;b:/ring/libraries/weblib&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># All Files</span>
 </pre></div>
 </div>
 </section>
@@ -1109,7 +1109,7 @@ to be the same Type</p>
 <span id="index-51"></span><h2>SystemSilent() Function<a class="headerlink" href="#systemsilent-function" title="Permalink to this heading"></a></h2>
 <p>We can execute system commands using the SystemSilent() function to avoid displaying the output!</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SystemSilent</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">SystemSilent</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1117,7 +1117,7 @@ to be the same Type</p>
 <span id="index-52"></span><h2>OSCreateOpenFolder() Function<a class="headerlink" href="#oscreateopenfolder-function" title="Permalink to this heading"></a></h2>
 <p>Create folder then change the current folder to this new folder</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSCreateOpenFolder</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSCreateOpenFolder</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1126,12 +1126,12 @@ to be the same Type</p>
 <p>Copy folder to the current folder</p>
 <p>Parameters : The path to the parent folder and the folder name to copy</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSCopyFolder</span><span class="p">(</span><span class="n">cParentFolder</span><span class="p">,</span><span class="n">cFolderName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSCopyFolder</span><span class="p">(</span><span class="n">cParentFolder</span><span class="p">,</span><span class="n">cFolderName</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example</p>
 <p>To copy the folder b:\ring\ringlibs\stdlib to the current folder</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSCopyFolder</span><span class="p">(</span><span class="s2">&quot;b:\ring\ringlibs\&quot;</span><span class="p">,</span><span class="s2">&quot;stdlib&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSCopyFolder</span><span class="p">(</span><span class="s2">&quot;b:\ring\ringlibs\&quot;</span><span class="p">,</span><span class="s2">&quot;stdlib&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1139,7 +1139,7 @@ to be the same Type</p>
 <span id="index-54"></span><h2>OSDeleteFolder() Function<a class="headerlink" href="#osdeletefolder-function" title="Permalink to this heading"></a></h2>
 <p>Delete Folder in the current Directory</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSDeleteFolder</span><span class="p">(</span><span class="n">cFolderName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSDeleteFolder</span><span class="p">(</span><span class="n">cFolderName</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1147,7 +1147,7 @@ to be the same Type</p>
 <span id="index-55"></span><h2>OSCopyFile() Function<a class="headerlink" href="#oscopyfile-function" title="Permalink to this heading"></a></h2>
 <p>Copy File to the current directory</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSCopyFile</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSCopyFile</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1155,7 +1155,7 @@ to be the same Type</p>
 <span id="index-56"></span><h2>OSDeleteFile() Function<a class="headerlink" href="#osdeletefile-function" title="Permalink to this heading"></a></h2>
 <p>Delete File</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSDeleteFile</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSDeleteFile</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1163,7 +1163,7 @@ to be the same Type</p>
 <span id="index-57"></span><h2>OSRenameFile() Function<a class="headerlink" href="#osrenamefile-function" title="Permalink to this heading"></a></h2>
 <p>Rename File</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSRenameFile</span><span class="p">(</span><span class="n">cOldFileName</span><span class="p">,</span><span class="n">cNewFileName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">OSRenameFile</span><span class="p">(</span><span class="n">cOldFileName</span><span class="p">,</span><span class="n">cNewFileName</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1174,7 +1174,7 @@ to be the same Type</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
-<span class="o">?</span> <span class="n">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1189,7 +1189,7 @@ to be the same Type</p>
 <p>Convert a string of bytes to a list of numbers where each item represent
 the ASCII code of one byte in the string.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Str2ASCIIList</span><span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">numbers</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Str2ASCIIList</span><span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">List</span> <span class="n">of</span> <span class="n">numbers</span>
 </pre></div>
 </div>
 </section>
@@ -1198,7 +1198,7 @@ the ASCII code of one byte in the string.</p>
 <p>Convert a list of numbers where each item represent
 the ASCII code of one byte to a string of bytes.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ASCIIList2Str</span><span class="p">(</span><span class="n">List</span> <span class="n">of</span> <span class="n">numbers</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">ASCIIList2Str</span><span class="p">(</span><span class="n">List</span> <span class="n">of</span> <span class="n">numbers</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">String</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -1206,10 +1206,10 @@ the ASCII code of one byte to a string of bytes.</p>
 
 <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;MmMm&quot;</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="n">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">aList</span>
 
-<span class="n">cStr2</span> <span class="o">=</span> <span class="n">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="n">cStr2</span> <span class="o">=</span> <span class="nf">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">cStr2</span>
 <span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr2</span><span class="p">)</span>
 </pre></div>
@@ -1229,14 +1229,14 @@ MmMm
 <span id="index-61"></span><h2>StringToBase64() Function<a class="headerlink" href="#stringtobase64-function" title="Permalink to this heading"></a></h2>
 <p>Convert a string to base64 encoded string.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">StringToBase64</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">base64</span> <span class="n">encoded</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">StringToBase64</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">base64</span> <span class="n">encoded</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
-<span class="k">see</span> <span class="n">StringToBase64</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>        <span class="c1"># Output: SGVsbG8gV29ybGQ=</span>
+<span class="k">see</span> <span class="nf">StringToBase64</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>        <span class="c1"># Output: SGVsbG8gV29ybGQ=</span>
 </pre></div>
 </div>
 </section>
@@ -1244,50 +1244,50 @@ MmMm
 <span id="index-62"></span><h2>Base64ToString() Function<a class="headerlink" href="#base64tostring-function" title="Permalink to this heading"></a></h2>
 <p>Convert a base64 encoded string back to original string.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Base64ToString</span><span class="p">(</span><span class="n">base64string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">decoded</span> <span class="n">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">Base64ToString</span><span class="p">(</span><span class="n">base64string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">decoded</span> <span class="n">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
 <span class="n">cBase64</span> <span class="o">=</span> <span class="s2">&quot;SGVsbG8gV29ybGQ=&quot;</span>
-<span class="k">see</span> <span class="n">Base64ToString</span><span class="p">(</span><span class="n">cBase64</span><span class="p">)</span>     <span class="c1"># Output: Hello World</span>
+<span class="k">see</span> <span class="nf">Base64ToString</span><span class="p">(</span><span class="n">cBase64</span><span class="p">)</span>     <span class="c1"># Output: Hello World</span>
 </pre></div>
 </div>
 </section>
 <section id="islistcontainsitems-function">
 <span id="index-63"></span><h2>IsListContainsItems() Function<a class="headerlink" href="#islistcontainsitems-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aParent</span><span class="p">,</span><span class="n">aChild</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsListContainsItems</span><span class="p">(</span><span class="n">aParent</span><span class="p">,</span><span class="n">aChild</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="n">aList1</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="o">:</span><span class="s2">&quot;z&quot;</span>
 <span class="n">aList2</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:h</span><span class="p">,</span><span class="ss">:l</span><span class="p">,</span><span class="ss">:p</span><span class="p">,</span><span class="ss">:u</span><span class="p">]</span>
-<span class="o">?</span> <span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="isbetween-function">
 <span id="index-64"></span><h2>IsBetween() Function<a class="headerlink" href="#isbetween-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsBetween</span><span class="p">(</span><span class="n">nNumber</span><span class="p">,</span><span class="n">nMin</span><span class="p">,</span><span class="n">nMax</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">IsBetween</span><span class="p">(</span><span class="n">nNumber</span><span class="p">,</span><span class="n">nMin</span><span class="p">,</span><span class="n">nMax</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="bp">True</span><span class="o">/</span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
-<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="timeinfo-function">
 <span id="index-65"></span><h2>TimeInfo() Function<a class="headerlink" href="#timeinfo-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeInfo</span><span class="p">(</span><span class="n">cInformation</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="n">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">TimeInfo</span><span class="p">(</span><span class="n">cInformation</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="n">String</span>
 </pre></div>
 </div>
 <p>The cInformation value could be</p>
@@ -1316,9 +1316,9 @@ MmMm
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:date</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:time</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:hour_12</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:date</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:time</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:hour_12</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1331,7 +1331,7 @@ MmMm
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-<span class="o">?</span> <span class="n">RandomList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">RandomList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1345,7 +1345,7 @@ MmMm
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-<span class="o">?</span> <span class="n">RandomItem</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">RandomItem</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1364,7 +1364,7 @@ Return 1 if both items are equal and 0 otherwise</p>
 <span class="n">aList1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
 <span class="n">aList2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">aList2</span> <span class="o">+</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="o">?</span> <span class="n">CheckEquality</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">CheckEquality</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1375,13 +1375,13 @@ Return 1 if both items are equal and 0 otherwise</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2 abc&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s2">&quot;What&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
-<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="kp">new</span> <span class="nc">point</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;10.2 abc&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="s2">&quot;What&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
+<span class="o">?</span> <span class="nf">numorzero</span><span class="p">(</span><span class="kp">new</span> <span class="nc">point</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">point</span>
 </pre></div>

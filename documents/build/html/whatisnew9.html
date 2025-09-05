@@ -296,7 +296,7 @@
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
-<span class="o">?</span> <span class="n">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -316,10 +316,10 @@ the ASCII code of one byte in the string.</p>
 
 <span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;MmMm&quot;</span>
 
-<span class="n">aList</span> <span class="o">=</span> <span class="n">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">aList</span>
 
-<span class="n">cStr2</span> <span class="o">=</span> <span class="n">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="n">cStr2</span> <span class="o">=</span> <span class="nf">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">cStr2</span>
 <span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr2</span><span class="p">)</span>
 </pre></div>
@@ -428,35 +428,35 @@ Power of big number:
 <span class="n">conninfo</span> <span class="o">=</span> <span class="s2">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
 
 <span class="n">exit_nicely</span> <span class="o">=</span> <span class="kd">func</span> <span class="nf">conn</span> <span class="p">{</span>
-        <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="nf">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
         <span class="nb">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="nf">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
-        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="nf">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="nf">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k">call</span> <span class="nf">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
 <span class="k">ok</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="nf">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
 <span class="s2">        DROP DATABASE mahdb;</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">if</span> <span class="nf">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="nf">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
-<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="nf">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nf">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="nf">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
 
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="nf">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
 <span class="s2">CREATE TABLE COMPANY (</span>
 <span class="s2">                 ID INT PRIMARY KEY     NOT NULL,</span>
 <span class="s2">                 NAME           TEXT    NOT NULL,</span>
@@ -464,52 +464,52 @@ Power of big number:
 <span class="s2">                 ADDRESS        CHAR(50),</span>
 <span class="s2">                 SALARY         REAL );</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">if</span> <span class="nf">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="nf">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
-<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="nf">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
 <span class="s2">                INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)</span>
 <span class="s2">                VALUES  (1, &#39;Mahmoud&#39; , 31, &#39;Jeddah&#39;, 10.00 ),</span>
 <span class="s2">                                (2, &#39;Ahmed&#39;   , 27, &#39;Jeddah&#39;, 20.00 ),</span>
 <span class="s2">                                (3, &#39;Mohammed&#39;, 33, &#39;Egypt&#39; , 30.00 ),</span>
 <span class="s2">                                (4, &#39;Ibrahim&#39; , 24, &#39;Egypt &#39;, 40.00 );</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">if</span> <span class="nf">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="nf">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
-<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="nf">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;</span>
 <span class="s2">           select * from COMPANY</span>
 <span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
-        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-        <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">if</span> <span class="nf">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="nb">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="nf">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">call</span> <span class="nf">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
 <span class="k">ok</span>
 
 
-<span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">nFields</span> <span class="o">=</span> <span class="nf">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
-                <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nf">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">next</span>
 
 <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nf">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
-                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+                <span class="k">see</span> <span class="nf">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
         <span class="k">next</span>
         <span class="k">see</span> <span class="bp">nl</span>
 <span class="k">next</span>
 
-<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="nf">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-<span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="nf">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -585,36 +585,36 @@ salary
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
         <span class="n">win1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qwidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Printer Preview Dialog&quot;</span><span class="p">)</span>
-                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">880</span><span class="p">)</span>
+                <span class="nf">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Printer Preview Dialog&quot;</span><span class="p">)</span>
+                <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">880</span><span class="p">)</span>
                 <span class="n">printer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">show</span><span class="p">()</span>
                 <span class="n">oPreview</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrintPreviewDialog</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setParent</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
-                        <span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-                        <span class="n">setPaintrequestedevent</span><span class="p">(</span><span class="s2">&quot;printPreview()&quot;</span><span class="p">)</span>
-                        <span class="n">exec</span><span class="p">()</span>
+                        <span class="nf">setParent</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                        <span class="nf">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+                        <span class="nf">setPaintrequestedevent</span><span class="p">(</span><span class="s2">&quot;printPreview()&quot;</span><span class="p">)</span>
+                        <span class="nf">exec</span><span class="p">()</span>
                 <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">printPreview</span>
         <span class="n">printer1</span>  <span class="p">{</span>
                 <span class="n">painter</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qpainter</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="n">begin</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
+                        <span class="nf">begin</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
                         <span class="n">myfont</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qfont</span><span class="p">(</span><span class="s2">&quot;Times&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="n">setfont</span><span class="p">(</span><span class="n">myfont</span><span class="p">)</span>
-                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;Test - Page (1)&quot;</span><span class="p">)</span>
-                        <span class="n">printer1</span><span class="o">.</span><span class="n">newpage</span><span class="p">()</span>
-                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;Test - Page (2)&quot;</span><span class="p">)</span>
-                        <span class="n">printer1</span><span class="o">.</span><span class="n">newpage</span><span class="p">()</span>
+                        <span class="nf">setfont</span><span class="p">(</span><span class="n">myfont</span><span class="p">)</span>
+                        <span class="nf">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;Test - Page (1)&quot;</span><span class="p">)</span>
+                        <span class="n">printer1</span><span class="o">.</span><span class="nf">newpage</span><span class="p">()</span>
+                        <span class="nf">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s2">&quot;Test - Page (2)&quot;</span><span class="p">)</span>
+                        <span class="n">printer1</span><span class="o">.</span><span class="nf">newpage</span><span class="p">()</span>
                         <span class="n">myfont2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qfont</span><span class="p">(</span><span class="s2">&quot;Times&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="n">setfont</span><span class="p">(</span><span class="n">myfont2</span><span class="p">)</span>
+                        <span class="nf">setfont</span><span class="p">(</span><span class="n">myfont2</span><span class="p">)</span>
                         <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
-                                <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;Number : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+                                <span class="nf">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;Number : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
                         <span class="k">next</span>
-                        <span class="n">endpaint</span><span class="p">()</span>
+                        <span class="nf">endpaint</span><span class="p">()</span>
                 <span class="p">}</span>
         <span class="p">}</span>
 </pre></div>
@@ -630,8 +630,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
-                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="nf">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>For more information about RING_API_RETMANAGEDCPOINTER()</p>
@@ -649,7 +649,7 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>Example:</p>
 <p>The file : qt_module_network.cf in the RingQt Extension</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
-                                <span class="n">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
+                                <span class="nf">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
 <span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
 
 <span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="o">.</span><span class="n">cf</span>

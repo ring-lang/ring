@@ -327,8 +327,8 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 
 <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;Ring Language&quot;</span>
 
-<span class="k">see</span> <span class="n">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="c1">// Output: 1894444853</span>
-<span class="k">see</span> <span class="n">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="c1">// Output: 70eaef35</span>
+<span class="k">see</span> <span class="nf">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="c1">// Output: 1894444853</span>
+<span class="k">see</span> <span class="nf">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="c1">// Output: 70eaef35</span>
 </pre></div>
 </div>
 <p>For more information check the RingMurmurHash chapter in the documentation.</p>
@@ -444,7 +444,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <span id="index-15"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this heading"></a></h2>
 <p>The next example count from 1 to 10 in the same line during 10 seconds</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="bp">cr</span> <span class="k">next</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="nf">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="bp">cr</span> <span class="k">next</span>
 </pre></div>
 </div>
 </section>
@@ -479,25 +479,25 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <li><p>!</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="ow">and</span> <span class="n">two</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nf">one</span><span class="p">()</span> <span class="ow">and</span> <span class="nf">two</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;Test1 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">else</span>
         <span class="k">see</span> <span class="s2">&quot;Test1 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">ok</span>
 
-<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="ow">or</span> <span class="n">one</span><span class="p">()</span>
+<span class="k">if</span> <span class="nf">two</span><span class="p">()</span> <span class="ow">or</span> <span class="nf">one</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;Test2 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">else</span>
         <span class="k">see</span> <span class="s2">&quot;Test2 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">ok</span>
 
-<span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">two</span><span class="p">()</span>
+<span class="k">if</span> <span class="nf">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nf">two</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;Test3 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">else</span>
         <span class="k">see</span> <span class="s2">&quot;Test3 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">ok</span>
 
-<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="o">||</span> <span class="n">one</span><span class="p">()</span>
+<span class="k">if</span> <span class="nf">two</span><span class="p">()</span> <span class="o">||</span> <span class="nf">one</span><span class="p">()</span>
         <span class="k">see</span> <span class="s2">&quot;Test4 - Pass&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">else</span>
         <span class="k">see</span> <span class="s2">&quot;Test4 - Fail&quot;</span> <span class="o">+</span> <span class="bp">nl</span>

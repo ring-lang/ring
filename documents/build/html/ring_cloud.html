@@ -335,15 +335,15 @@
 <span class="c1"># Main Execution Block</span>
 <span class="n">oServer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Server</span> <span class="p">{</span>
     <span class="c1"># Route for the root path</span>
-    <span class="n">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="ss">:mainRoute</span><span class="p">)</span>
+    <span class="nf">route</span><span class="p">(</span><span class="ss">:Get</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="ss">:mainRoute</span><span class="p">)</span>
 
     <span class="c1"># Listen on all available network interfaces on port 8080</span>
-    <span class="n">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+    <span class="nf">listen</span><span class="p">(</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">mainRoute</span>
     <span class="c1"># Set content type to HTML</span>
-    <span class="n">oServer</span><span class="o">.</span><span class="n">setContent</span><span class="p">(</span><span class="s2">&quot;&lt;!DOCTYPE html&gt;</span>
+    <span class="n">oServer</span><span class="o">.</span><span class="nf">setContent</span><span class="p">(</span><span class="s2">&quot;&lt;!DOCTYPE html&gt;</span>
 <span class="s2">&lt;html&gt;</span>
 <span class="s2">&lt;head&gt;&lt;title&gt;Ring HTTPLib App&lt;/title&gt;&lt;/head&gt;</span>
 <span class="s2">&lt;body&gt;</span>

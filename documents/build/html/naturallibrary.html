@@ -308,12 +308,12 @@ I will count Again!
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
 <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="n">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
-        <span class="n">SetCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
-        <span class="n">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
-        <span class="n">RunFile</span><span class="p">(</span><span class="s2">&quot;program.txt&quot;</span><span class="p">)</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
+        <span class="nf">RunFile</span><span class="p">(</span><span class="s2">&quot;program.txt&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -322,7 +322,7 @@ I will count Again!
 <p>We will define two commands, Hello and Count.</p>
 <p>So we must have two files for defining the commands in the CurrentDir()+”/../command” folder</p>
 <p>File: hello.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeyword</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeyword</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:hello</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
@@ -332,7 +332,7 @@ I will count Again!
 </pre></div>
 </div>
 <p>File: count.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeywordNumberNumber</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:count</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
@@ -340,7 +340,7 @@ I will count Again!
                         <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
                         <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="p">}</span>
-                <span class="k">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="k">else</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
@@ -351,10 +351,10 @@ I will count Again!
                 <span class="k">else</span>
                         <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
                         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="n">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="nf">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">}</span>
 <span class="p">])</span>
 </pre></div>
@@ -391,15 +391,15 @@ I will count Again!
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
 <span class="n">MyLanguage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="n">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
-        <span class="n">setCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
-        <span class="n">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Print</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:IWantWindow</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:WindowTitleIs</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:IWantButton</span><span class="p">)</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">setCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Print</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:IWantWindow</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:WindowTitleIs</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:IWantButton</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -411,11 +411,11 @@ the function that will be executed.</p>
 <p>Inside this function we uses the Expr(nExprNumber) function to get the expression value that the
 user will write after the keyword.</p>
 <p>File: print.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeywordExpression</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeywordExpression</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:print</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
-                <span class="k">See</span>  <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">See</span>  <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">}</span>
 <span class="p">])</span>
 </pre></div>
@@ -423,7 +423,7 @@ user will write after the keyword.</p>
 <p>Usage:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
 
-<span class="n">MyLanguage</span><span class="o">.</span><span class="n">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">        print &quot;Hello, World!&quot;</span>
 <span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -434,7 +434,7 @@ user will write after the keyword.</p>
 </div>
 <p>Example (2)</p>
 <p>File: iwantwindow.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsCommand</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;i want window&quot;</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
@@ -446,7 +446,7 @@ user will write after the keyword.</p>
 <p>Usage:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
 
-<span class="n">MyLanguage</span><span class="o">.</span><span class="n">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">        i want window</span>
 <span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -457,11 +457,11 @@ user will write after the keyword.</p>
 </div>
 <p>Example (3)</p>
 <p>File: windowtitleis.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsCommandString</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommandString</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;window title is&quot;</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
-                <span class="k">See</span>  <span class="s2">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+                <span class="k">See</span>  <span class="s2">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="p">}</span>
 <span class="p">])</span>
 </pre></div>
@@ -469,7 +469,7 @@ user will write after the keyword.</p>
 <p>Usage:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
 
-<span class="n">MyLanguage</span><span class="o">.</span><span class="n">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">        I want window and the window title is &quot;Hello World&quot;</span>
 <span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -485,7 +485,7 @@ Command: Window title is Hello World
 <p>In the next example we uses the Count command without using operators</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
 
-<span class="n">MyLanguage</span><span class="o">.</span><span class="n">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
 <span class="s2">        Hello</span>
 <span class="s2">        Count 1 5</span>
 <span class="s2">        Count 5 1</span>
@@ -495,7 +495,7 @@ Command: Window title is Hello World
 <p>We can add more description</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
 
-<span class="n">MyLanguage</span><span class="o">.</span><span class="n">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
 <span class="s2">        Hello, Please   Count from 1 to 5 then count from 5 to 1</span>
 <span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -504,8 +504,8 @@ Command: Window title is Hello World
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
 
 <span class="n">MyLanguage</span> <span class="p">{</span>
-        <span class="n">SetOperators</span><span class="p">(</span><span class="s2">&quot;()&quot;</span><span class="p">)</span>
-        <span class="n">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
+        <span class="nf">SetOperators</span><span class="p">(</span><span class="s2">&quot;()&quot;</span><span class="p">)</span>
+        <span class="nf">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
 <span class="s2">                Here we will play and will try something</span>
 <span class="s2">                that looks like Lisp Syntax</span>
 <span class="s2">                (count  (count 1 5)  (count 20 15))</span>
@@ -540,18 +540,18 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
 <span class="kd">class</span> <span class="nc">Count</span>
 
         <span class="kd">func</span> <span class="nf">Getcount</span>
-                <span class="n">StartCommand</span><span class="p">()</span>
-                <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:name</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Count</span>
-                <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:aExpr</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="nf">StartCommand</span><span class="p">()</span>
+                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:name</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Count</span>
+                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:aExpr</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="kd">func</span> <span class="nf">BraceExprEval_Count</span> <span class="n">nValue</span>
-                <span class="k">if</span> <span class="n">isCommand</span><span class="p">()</span> <span class="ow">and</span> <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:name</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Count</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="nf">isCommand</span><span class="p">()</span> <span class="ow">and</span> <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:name</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Count</span> <span class="p">{</span>
                         <span class="k">if</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">nValue</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span><span class="o">++</span>
-                                <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:aExpr</span><span class="p">]</span> <span class="o">+</span> <span class="n">nValue</span>
-                                <span class="k">if</span> <span class="n">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">{</span>
-                                        <span class="n">Count_Execute</span><span class="p">()</span>
+                                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span><span class="o">++</span>
+                                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:aExpr</span><span class="p">]</span> <span class="o">+</span> <span class="n">nValue</span>
+                                <span class="k">if</span> <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">{</span>
+                                        <span class="nf">Count_Execute</span><span class="p">()</span>
                                 <span class="p">}</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
@@ -564,7 +564,7 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
                         <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
                         <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="p">}</span>
-                <span class="k">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="k">else</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
@@ -575,10 +575,10 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
                 <span class="k">else</span>
                         <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
                         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="n">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="nf">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

@@ -1043,78 +1043,78 @@
 <span class="n">mf</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">frFunctions</span>
 
 <span class="cm">/*----------------------------------------------------------*/</span>
- <span class="o">*</span> <span class="n">frProper</span><span class="p">()</span> <span class="n">samples</span>
+ <span class="o">*</span> <span class="nf">frProper</span><span class="p">()</span> <span class="n">samples</span>
 <span class="cm">/*----------------------------------------------------------*/</span>
 
 <span class="n">lcStr1</span> <span class="o">=</span> <span class="s2">&quot;ring is a good language&quot;</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frProper</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frProper</span><span class="p">(</span><span class="nb">Upper</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">))</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frProper</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frProper</span><span class="p">(</span><span class="nb">Upper</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">))</span>
 
 
 <span class="cm">/*----------------------------------------------------------*/</span>
- <span class="o">*</span> <span class="n">frStuff</span><span class="p">()</span> <span class="n">samples</span>
+ <span class="o">*</span> <span class="nf">frStuff</span><span class="p">()</span> <span class="n">samples</span>
 <span class="cm">/*----------------------------------------------------------*/</span>
 
 <span class="n">lcStr1</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklm&quot;</span>
 <span class="n">lcStr2</span> <span class="o">=</span> <span class="s2">&quot;12345&quot;</span>
 
 <span class="c1">// insert</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
 <span class="c1">// replace</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
 <span class="c1">// delete</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="c1">// replace and insert</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
 <span class="c1">// replace and delete</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">lcStr2</span><span class="p">)</span>
 <span class="c1">// replace, delete rest</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">Len</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">),</span> <span class="n">lcStr2</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frStuff</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">Len</span><span class="p">(</span><span class="n">lcStr1</span><span class="p">),</span> <span class="n">lcStr2</span><span class="p">)</span>
 
 <span class="cm">/*----------------------------------------------------------*/</span>
 
 
 
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frAbs</span><span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frAbs</span><span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frAbs</span><span class="p">(</span><span class="mi">30</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frAbs</span><span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frAbs</span><span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frAbs</span><span class="p">(</span><span class="mi">30</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="n">lcNumber1</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">lcNumber2</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frAbs</span><span class="p">(</span><span class="n">lcNumber2</span><span class="o">-</span><span class="n">lcNumber1</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frAbs</span><span class="p">(</span><span class="n">lcNumber2</span><span class="o">-</span><span class="n">lcNumber1</span><span class="p">)</span>
 
 
 
 
 <span class="n">lcCompletFileName</span> <span class="o">=</span> <span class="s2">&quot;C:\ring\docs\source\contribute.txt&quot;</span>
 
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frFile</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">,</span> <span class="bp">Null</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">mf</span><span class="o">.</span><span class="n">frFile</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">,</span> <span class="bp">Null</span><span class="p">)</span> <span class="p">{</span>
-  <span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frFileToStr</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frFile</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">,</span> <span class="bp">Null</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">mf</span><span class="o">.</span><span class="nf">frFile</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">,</span> <span class="bp">Null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frFileToStr</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
 <span class="k">else</span>
   <span class="o">?</span><span class="s2">&quot;File does not exist&quot;</span>
 <span class="p">}</span>
 
 <span class="n">lcNewPath</span> <span class="o">=</span> <span class="s2">&quot;C:\ring_2\docs\source\&quot;</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frJustExt</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frJustDrive</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frJustStem</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frForcePath</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">,</span> <span class="n">lcNewPath</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frTransform</span><span class="p">(</span><span class="s2">&quot;    Ring is a good language    &quot;</span><span class="p">,</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frJustExt</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frJustDrive</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frJustStem</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frForcePath</span><span class="p">(</span><span class="n">lcCompletFileName</span><span class="p">,</span> <span class="n">lcNewPath</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frTransform</span><span class="p">(</span><span class="s2">&quot;    Ring is a good language    &quot;</span><span class="p">,</span>
                 <span class="s2">&quot;@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frAllTrim</span><span class="p">(</span><span class="s2">&quot;    Ring is a good language    &quot;</span><span class="p">,</span> <span class="bp">Null</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frAllTrim</span><span class="p">(</span><span class="s2">&quot;    Ring is a good language    &quot;</span><span class="p">,</span> <span class="bp">Null</span><span class="p">)</span>
 <span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">_version</span>
 <span class="n">lnValue</span> <span class="o">=</span> <span class="mf">3125.54</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frTransform</span><span class="p">(</span><span class="n">lnValue</span><span class="p">,</span> <span class="s2">&quot;@B&quot;</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;Euros&quot;</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frTransform</span><span class="p">(</span><span class="n">lnValue</span><span class="p">,</span> <span class="s2">&quot;@C 9999,999,999,999.999&quot;</span><span class="p">)</span>
-<span class="n">mf</span><span class="o">.</span><span class="n">frSetSeparatorTo</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frTransform</span><span class="p">(</span><span class="n">lnValue</span><span class="p">,</span> <span class="s2">&quot;9999,999,999,999.999&quot;</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frInt</span><span class="p">(</span><span class="n">lnValue</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frForceExt</span><span class="p">(</span><span class="s2">&quot;teste&quot;</span><span class="p">,</span> <span class="s2">&quot;dbf&quot;</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frTransform</span><span class="p">(</span><span class="n">lnValue</span><span class="p">,</span> <span class="s2">&quot;@B&quot;</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;Euros&quot;</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frTransform</span><span class="p">(</span><span class="n">lnValue</span><span class="p">,</span> <span class="s2">&quot;@C 9999,999,999,999.999&quot;</span><span class="p">)</span>
+<span class="n">mf</span><span class="o">.</span><span class="nf">frSetSeparatorTo</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frTransform</span><span class="p">(</span><span class="n">lnValue</span><span class="p">,</span> <span class="s2">&quot;9999,999,999,999.999&quot;</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frInt</span><span class="p">(</span><span class="n">lnValue</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frForceExt</span><span class="p">(</span><span class="s2">&quot;teste&quot;</span><span class="p">,</span> <span class="s2">&quot;dbf&quot;</span><span class="p">)</span>
 <span class="c1">// Format &quot;@L&quot; Added into frTransform() function</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frTransform</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="s2">&quot;@L 999999&quot;</span><span class="p">)</span>
-<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="n">frTransform</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s2">&quot;@L 999999&quot;</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frTransform</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="s2">&quot;@L 999999&quot;</span><span class="p">)</span>
+<span class="o">?</span><span class="n">mf</span><span class="o">.</span><span class="nf">frTransform</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="s2">&quot;@L 999999&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

@@ -262,14 +262,14 @@
 <p>We can call the function before the function definition and the function code.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">hello</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">hello</span>
         <span class="k">see</span> <span class="s2">&quot;Hello from function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">()</span>  <span class="n">second</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">first</span><span class="p">()</span>  <span class="nf">second</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">first</span>   <span class="k">see</span> <span class="s2">&quot;message from the first function&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
@@ -291,7 +291,7 @@ of identifiers separated by comma.</p>
 <span id="index-4"></span><h2>Send Parameters<a class="headerlink" href="#send-parameters" title="Permalink to this heading"></a></h2>
 <p>To send parameters to function, type the parameters inside () after the function name</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">funcname</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">funcname</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -300,7 +300,7 @@ of identifiers separated by comma.</p>
 <span class="cm">** 3000</span>
 <span class="cm">*/</span>
 
-<span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">sum</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">sum</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="bp">nl</span>
 </pre></div>
@@ -336,7 +336,7 @@ Variables defined outside functions (before any function) are global variables.<
 <span class="kd">func</span> <span class="nf">main</span>
 
         <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>         <span class="c1"># t is a local variable</span>
-                <span class="n">mycounter</span><span class="p">()</span>     <span class="c1"># call function</span>
+                <span class="nf">mycounter</span><span class="p">()</span>     <span class="c1"># call function</span>
         <span class="k">next</span>
 
 <span class="kd">func</span> <span class="nf">mycounter</span>
@@ -369,7 +369,7 @@ to end the function execution without returning any value.</p>
 <p>if the function doesn’t return explicit value, it will return NULL (empty string = “” ).</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="bp">NULL</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nf">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="bp">NULL</span>
         <span class="k">See</span> <span class="s2">&quot;the function doesn&#39;t return a value&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">ok</span>
 
@@ -382,9 +382,9 @@ to end the function execution without returning any value.</p>
 <p>The Ring programming language support <a class="reference external" href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion</a>
 and the function can call itself using different parameters.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># output = 120</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="nf">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># output = 120</span>
 
-<span class="kd">func</span> <span class="nf">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
+<span class="kd">func</span> <span class="nf">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="nf">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
 </pre></div>
 </div>
 </section>

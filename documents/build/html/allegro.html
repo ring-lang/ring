@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Demo Project - Game Engine for 2D Games" href="gameengine.html" />
-    <link rel="prev" title="Deploying Web Applications to Shared Hosting" href="ring_cloud_cgi.html" /> 
+    <link rel="prev" title="Deploying Ring Web Applications to Shared Hosting" href="ring_cloud_cgi.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -247,52 +247,52 @@ loading the DLL/So file.</p>
 input from the keyboard and the mouse.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;gamelib.ring&quot;</span>
 
-<span class="n">al_init</span><span class="p">()</span>
-<span class="n">al_init_image_addon</span><span class="p">()</span>
+<span class="nf">al_init</span><span class="p">()</span>
+<span class="nf">al_init_image_addon</span><span class="p">()</span>
 
-<span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
 
-<span class="n">al_show_native_message_box</span><span class="p">(</span><span class="n">display</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Welcome&quot;</span><span class="p">,</span>
+<span class="nf">al_show_native_message_box</span><span class="p">(</span><span class="n">display</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;Welcome&quot;</span><span class="p">,</span>
                         <span class="s2">&quot;Using Allegro from the Ring programming language&quot;</span><span class="p">,</span>
                         <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
-<span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
 
 <span class="n">BOUNCER_SIZE</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">bouncer_x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">bouncer_y</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">bouncer</span> <span class="o">=</span> <span class="n">al_create_bitmap</span><span class="p">(</span><span class="n">BOUNCER_SIZE</span><span class="p">,</span> <span class="n">BOUNCER_SIZE</span><span class="p">)</span>
-<span class="n">al_set_target_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">)</span>
-<span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="n">bouncer</span> <span class="o">=</span> <span class="nf">al_create_bitmap</span><span class="p">(</span><span class="n">BOUNCER_SIZE</span><span class="p">,</span> <span class="n">BOUNCER_SIZE</span><span class="p">)</span>
+<span class="nf">al_set_target_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">)</span>
+<span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
         <span class="n">bouncer_x</span> <span class="o">+=</span> <span class="n">x</span>
         <span class="n">bouncer_y</span> <span class="o">+=</span> <span class="n">x</span>
-        <span class="n">al_set_target_bitmap</span><span class="p">(</span><span class="n">al_get_backbuffer</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
-        <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-        <span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">,</span> <span class="n">bouncer_x</span><span class="p">,</span> <span class="n">bouncer_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">,</span> <span class="mi">200</span><span class="o">+</span><span class="n">bouncer_x</span><span class="p">,</span><span class="mi">200</span><span class="o">+</span> <span class="n">bouncer_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">al_flip_display</span><span class="p">()</span>
-        <span class="n">al_rest</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="nf">al_set_target_bitmap</span><span class="p">(</span><span class="nf">al_get_backbuffer</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+        <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">,</span> <span class="n">bouncer_x</span><span class="p">,</span> <span class="n">bouncer_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">,</span> <span class="mi">200</span><span class="o">+</span><span class="n">bouncer_x</span><span class="p">,</span><span class="mi">200</span><span class="o">+</span> <span class="n">bouncer_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="nf">al_flip_display</span><span class="p">()</span>
+        <span class="nf">al_rest</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="k">next</span>
 
-<span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;man2.jpg&quot;</span><span class="p">)</span>
-<span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">al_flip_display</span><span class="p">()</span>
-<span class="n">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="n">image</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;man2.jpg&quot;</span><span class="p">)</span>
+<span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">al_flip_display</span><span class="p">()</span>
+<span class="nf">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">event_queue</span> <span class="o">=</span> <span class="n">al_create_event_queue</span><span class="p">()</span>
-<span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+<span class="n">event_queue</span> <span class="o">=</span> <span class="nf">al_create_event_queue</span><span class="p">()</span>
+<span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="nf">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
 
-<span class="n">ev</span> <span class="o">=</span> <span class="n">al_new_allegro_event</span><span class="p">()</span>
-<span class="n">timeout</span> <span class="o">=</span> <span class="n">al_new_allegro_timeout</span><span class="p">()</span>
-<span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+<span class="n">ev</span> <span class="o">=</span> <span class="nf">al_new_allegro_event</span><span class="p">()</span>
+<span class="n">timeout</span> <span class="o">=</span> <span class="nf">al_new_allegro_timeout</span><span class="p">()</span>
+<span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
 
 <span class="n">FPS</span> <span class="o">=</span> <span class="mi">60</span>
-<span class="n">timer</span> <span class="o">=</span> <span class="n">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
-<span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
-<span class="n">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+<span class="n">timer</span> <span class="o">=</span> <span class="nf">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
+<span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="nf">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
+<span class="nf">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
 
 <span class="n">SCREEN_W</span> <span class="o">=</span> <span class="mi">640</span>
@@ -303,11 +303,11 @@ input from the keyboard and the mouse.</p>
 <span class="n">bouncer_dx</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.0</span>
 <span class="n">bouncer_dy</span> <span class="o">=</span> <span class="mf">4.0</span>
 
-<span class="n">al_install_mouse</span><span class="p">()</span>
-<span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">al_get_mouse_event_source</span><span class="p">())</span>
+<span class="nf">al_install_mouse</span><span class="p">()</span>
+<span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="nf">al_get_mouse_event_source</span><span class="p">())</span>
 
-<span class="n">al_install_keyboard</span><span class="p">()</span>
-<span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
+<span class="nf">al_install_keyboard</span><span class="p">()</span>
+<span class="nf">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="nf">al_get_keyboard_event_source</span><span class="p">())</span>
 
 <span class="n">KEY_UP</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">KEY_DOWN</span> <span class="o">=</span> <span class="mi">2</span>
@@ -316,9 +316,9 @@ input from the keyboard and the mouse.</p>
 <span class="n">Key</span> <span class="o">=</span> <span class="p">[</span><span class="bp">false</span><span class="p">,</span><span class="bp">false</span><span class="p">,</span><span class="bp">false</span><span class="p">,</span><span class="bp">false</span><span class="p">]</span>
 
 <span class="k">while</span> <span class="bp">true</span>
-        <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
-        <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+        <span class="nf">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+        <span class="nf">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="k">switch</span> <span class="nf">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
                 <span class="k">exit</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
@@ -352,15 +352,15 @@ input from the keyboard and the mouse.</p>
                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">true</span>
 
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
-                <span class="n">bouncer_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="n">bouncer_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="n">bouncer_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="n">bouncer_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
-                <span class="n">bouncer_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-                <span class="n">bouncer_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="n">bouncer_x</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="n">bouncer_y</span> <span class="o">=</span> <span class="nf">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
                 <span class="k">exit</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
-                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -371,7 +371,7 @@ input from the keyboard and the mouse.</p>
                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_RIGHT</span><span class="p">]</span> <span class="o">=</span> <span class="bp">true</span>
                 <span class="k">off</span>
         <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
-                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="k">switch</span> <span class="nf">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
                                 <span class="n">key</span><span class="p">[</span><span class="n">KEY_UP</span><span class="p">]</span> <span class="o">=</span> <span class="bp">false</span>
                         <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
@@ -384,22 +384,22 @@ input from the keyboard and the mouse.</p>
                                 <span class="k">exit</span>
                 <span class="k">off</span>
         <span class="k">off</span>
-        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="nf">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
                 <span class="n">redraw</span> <span class="o">=</span> <span class="bp">false</span>
-                <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">,</span> <span class="n">bouncer_x</span><span class="p">,</span> <span class="n">bouncer_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">al_flip_display</span><span class="p">()</span>
+                <span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+                <span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">,</span> <span class="n">bouncer_x</span><span class="p">,</span> <span class="n">bouncer_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="nf">al_flip_display</span><span class="p">()</span>
         <span class="k">ok</span>
         <span class="nb">callgc</span><span class="p">()</span>
 <span class="k">end</span>
 
-<span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
-<span class="n">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
-<span class="n">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
-<span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">)</span>
-<span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+<span class="nf">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+<span class="nf">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+<span class="nf">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="nf">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+<span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">bouncer</span><span class="p">)</span>
+<span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -422,20 +422,20 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <p>In this example we will see how to use TrueType Fonts <a href="#id1"><span class="problematic" id="id2">*</span></a>.ttf in our Games using Allegro</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;gamelib.ring&quot;</span>
 
-<span class="n">al_init</span><span class="p">()</span>
-<span class="n">al_init_font_addon</span><span class="p">()</span>
-<span class="n">al_init_ttf_addon</span><span class="p">()</span>
+<span class="nf">al_init</span><span class="p">()</span>
+<span class="nf">al_init_font_addon</span><span class="p">()</span>
+<span class="nf">al_init_ttf_addon</span><span class="p">()</span>
 
-<span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
 
-<span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
-<span class="n">font</span> <span class="o">=</span> <span class="n">al_load_ttf_font</span><span class="p">(</span><span class="s2">&quot;pirulen.ttf&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span>
-<span class="n">al_draw_text</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="n">ALLEGRO_ALIGN_LEFT</span><span class="p">,</span>
+<span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="n">font</span> <span class="o">=</span> <span class="nf">al_load_ttf_font</span><span class="p">(</span><span class="s2">&quot;pirulen.ttf&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span>
+<span class="nf">al_draw_text</span><span class="p">(</span><span class="n">font</span><span class="p">,</span> <span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="n">ALLEGRO_ALIGN_LEFT</span><span class="p">,</span>
          <span class="s2">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span>
-<span class="n">al_flip_display</span><span class="p">()</span>
-<span class="n">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nf">al_flip_display</span><span class="p">()</span>
+<span class="nf">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+<span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -446,26 +446,26 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <p>The next example play a sound file</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;gamelib.ring&quot;</span>
 
-<span class="n">al_init</span><span class="p">()</span>
-<span class="n">al_install_audio</span><span class="p">()</span>
-<span class="n">al_init_acodec_addon</span><span class="p">()</span>
-<span class="n">al_reserve_samples</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nf">al_init</span><span class="p">()</span>
+<span class="nf">al_install_audio</span><span class="p">()</span>
+<span class="nf">al_init_acodec_addon</span><span class="p">()</span>
+<span class="nf">al_reserve_samples</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">sample</span> <span class="o">=</span> <span class="n">al_load_sample</span><span class="p">(</span> <span class="s2">&quot;footstep.wav&quot;</span> <span class="p">)</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="nf">al_load_sample</span><span class="p">(</span> <span class="s2">&quot;footstep.wav&quot;</span> <span class="p">)</span>
 
-<span class="n">sampleid</span> <span class="o">=</span> <span class="n">al_new_allegro_sample_id</span><span class="p">()</span>
-<span class="n">al_play_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ALLEGRO_PLAYMODE_LOOP</span><span class="p">,</span><span class="n">sampleid</span><span class="p">)</span>
+<span class="n">sampleid</span> <span class="o">=</span> <span class="nf">al_new_allegro_sample_id</span><span class="p">()</span>
+<span class="nf">al_play_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ALLEGRO_PLAYMODE_LOOP</span><span class="p">,</span><span class="n">sampleid</span><span class="p">)</span>
 
-<span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
-<span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
-<span class="n">al_flip_display</span><span class="p">()</span>
-<span class="n">al_rest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
+<span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="nf">al_flip_display</span><span class="p">()</span>
+<span class="nf">al_rest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">al_destroy_allegro_sample_id</span><span class="p">(</span><span class="n">sampleid</span><span class="p">)</span>
-<span class="n">al_destroy_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
-<span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+<span class="nf">al_destroy_allegro_sample_id</span><span class="p">(</span><span class="n">sampleid</span><span class="p">)</span>
+<span class="nf">al_destroy_sample</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 
-<span class="n">al_exit</span><span class="p">()</span>
+<span class="nf">al_exit</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -474,22 +474,22 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <p>The next example display and rotate an image</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;gamelib.ring&quot;</span>
 
-<span class="n">al_init</span><span class="p">()</span>
-<span class="n">al_init_image_addon</span><span class="p">()</span>
+<span class="nf">al_init</span><span class="p">()</span>
+<span class="nf">al_init_image_addon</span><span class="p">()</span>
 
-<span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
-<span class="n">al_set_target_bitmap</span><span class="p">(</span><span class="n">al_get_backbuffer</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
-<span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
+<span class="nf">al_set_target_bitmap</span><span class="p">(</span><span class="nf">al_get_backbuffer</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+<span class="nf">al_clear_to_color</span><span class="p">(</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
 
-<span class="n">image</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;man2.jpg&quot;</span><span class="p">)</span>
-<span class="n">al_draw_rotated_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">al_draw_scaled_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;man2.jpg&quot;</span><span class="p">)</span>
+<span class="nf">al_draw_rotated_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">al_draw_scaled_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">al_flip_display</span><span class="p">()</span>
-<span class="n">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nf">al_flip_display</span><span class="p">()</span>
+<span class="nf">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+<span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -500,21 +500,21 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <p>The next example display image with white background on another image</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Load</span> <span class="s2">&quot;gamelib.ring&quot;</span>
 
-<span class="n">al_init</span><span class="p">()</span>
-<span class="n">al_init_image_addon</span><span class="p">()</span>
+<span class="nf">al_init</span><span class="p">()</span>
+<span class="nf">al_init_image_addon</span><span class="p">()</span>
 
-<span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
-<span class="n">imageback</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;palace.jpg&quot;</span><span class="p">)</span>
-<span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">imageback</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">display</span> <span class="o">=</span> <span class="nf">al_create_display</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span><span class="mi">480</span><span class="p">)</span>
+<span class="n">imageback</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;palace.jpg&quot;</span><span class="p">)</span>
+<span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">imageback</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="n">image</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;man4.png&quot;</span><span class="p">)</span>
-<span class="n">al_convert_mask_to_alpha</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
-<span class="n">al_draw_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">al_flip_display</span><span class="p">()</span>
-<span class="n">al_rest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="nf">al_load_bitmap</span><span class="p">(</span><span class="s2">&quot;man4.png&quot;</span><span class="p">)</span>
+<span class="nf">al_convert_mask_to_alpha</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="nf">al_map_rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">))</span>
+<span class="nf">al_draw_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">al_flip_display</span><span class="p">()</span>
+<span class="nf">al_rest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+<span class="nf">al_destroy_bitmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -528,13 +528,13 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">mythreads</span>
 
 <span class="kd">Func</span> <span class="nf">Main</span>
-        <span class="n">al_init</span><span class="p">()</span>
+        <span class="nf">al_init</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
-                <span class="n">al_create_thread</span><span class="p">(</span><span class="s2">&quot;o1.thread1()&quot;</span><span class="p">)</span>
-                <span class="n">al_create_thread</span><span class="p">(</span><span class="s2">&quot;o1.thread2()&quot;</span><span class="p">)</span>
-                <span class="n">al_create_thread</span><span class="p">(</span><span class="s2">&quot;o1.thread3()&quot;</span><span class="p">)</span>
+                <span class="nf">al_create_thread</span><span class="p">(</span><span class="s2">&quot;o1.thread1()&quot;</span><span class="p">)</span>
+                <span class="nf">al_create_thread</span><span class="p">(</span><span class="s2">&quot;o1.thread2()&quot;</span><span class="p">)</span>
+                <span class="nf">al_create_thread</span><span class="p">(</span><span class="s2">&quot;o1.thread3()&quot;</span><span class="p">)</span>
         <span class="k">next</span>
-        <span class="n">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="nf">al_rest</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="kd">Class</span> <span class="nc">Mythreads</span>
 
@@ -565,55 +565,55 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <span class="mi">3</span>
 <span class="mi">4</span>
 <span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">*****</span><span class="mi">1</span>
 <span class="o">*****</span><span class="mi">2</span>
 <span class="o">*****</span><span class="mi">3</span>
 <span class="o">*****</span><span class="mi">4</span>
 <span class="o">*****</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">!!!!</span><span class="mi">1</span>
 <span class="o">!!!!</span><span class="mi">2</span>
 <span class="o">!!!!</span><span class="mi">3</span>
 <span class="o">!!!!</span><span class="mi">4</span>
 <span class="o">!!!!</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
 <span class="mi">4</span>
 <span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">!!!!</span><span class="mi">1</span>
 <span class="o">!!!!</span><span class="mi">2</span>
 <span class="o">!!!!</span><span class="mi">3</span>
 <span class="o">!!!!</span><span class="mi">4</span>
 <span class="o">!!!!</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">*****</span><span class="mi">1</span>
 <span class="o">*****</span><span class="mi">2</span>
 <span class="o">*****</span><span class="mi">3</span>
 <span class="o">*****</span><span class="mi">4</span>
 <span class="o">*****</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">*****</span><span class="mi">1</span>
 <span class="o">*****</span><span class="mi">2</span>
 <span class="o">*****</span><span class="mi">3</span>
 <span class="o">*****</span><span class="mi">4</span>
 <span class="o">*****</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">!!!!</span><span class="mi">1</span>
 <span class="o">!!!!</span><span class="mi">2</span>
 <span class="o">!!!!</span><span class="mi">3</span>
 <span class="o">!!!!</span><span class="mi">4</span>
 <span class="o">!!!!</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="mi">1</span>
 <span class="mi">2</span>
 <span class="mi">3</span>
 <span class="mi">4</span>
 <span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">*****</span><span class="mi">1</span>
 <span class="o">*****</span><span class="mi">2</span>
 <span class="o">*****</span><span class="mi">3</span>
@@ -625,7 +625,7 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <span class="o">*****</span><span class="mi">3</span>
 <span class="mi">1</span>
 <span class="o">!!!!</span><span class="mi">2</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="mi">1</span>
 <span class="o">*****</span><span class="mi">4</span>
 <span class="o">!!!!</span><span class="mi">1</span>
@@ -637,19 +637,19 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
 <span class="mi">3</span>
 <span class="mi">2</span>
 <span class="o">!!!!</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">!!!!</span><span class="mi">3</span>
 <span class="mi">4</span>
 <span class="mi">3</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="o">!!!!</span><span class="mi">4</span>
 <span class="mi">5</span>
 <span class="mi">4</span>
 <span class="o">!!!!</span><span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 <span class="mi">5</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
-<span class="n">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
+<span class="nf">Thread</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">Application</span> <span class="n">Name</span> <span class="o">:</span> <span class="n">Threads</span> <span class="n">Application</span>
 </pre></div>
 </div>
 </section>
@@ -659,7 +659,7 @@ the screen but we can control it using the Mouse and/or the Keyboard</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-left" title="Deploying Web Applications to Shared Hosting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ring_cloud_cgi.html" class="btn btn-neutral float-left" title="Deploying Ring Web Applications to Shared Hosting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="gameengine.html" class="btn btn-neutral float-right" title="Demo Project - Game Engine for 2D Games" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

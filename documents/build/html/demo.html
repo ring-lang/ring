@@ -255,7 +255,7 @@
 
 <span class="n">code</span><span class="o">:&gt;</span> <span class="kd">func</span> <span class="nf">test</span> <span class="k">see</span> <span class="s2">&quot;Hello from test&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
-<span class="n">code</span><span class="o">:&gt;</span> <span class="n">test</span><span class="p">()</span>
+<span class="n">code</span><span class="o">:&gt;</span> <span class="nf">test</span><span class="p">()</span>
 <span class="n">Hello</span> <span class="kd">from</span> <span class="nc">test</span>
 
 <span class="n">code</span><span class="o">:&gt;</span> <span class="k">bye</span>
@@ -284,15 +284,15 @@
         <span class="c1"># we can use Switch-ON-Other-OFF instead of IF-BUT-ELSE-OK</span>
 
         <span class="k">Switch</span> <span class="n">nMenu</span>
-        <span class="k">On</span> <span class="mi">1</span> <span class="n">sayhello</span><span class="p">()</span>
-        <span class="k">On</span> <span class="mi">2</span> <span class="n">Sum</span><span class="p">()</span>
-        <span class="k">On</span> <span class="mi">3</span> <span class="n">Stars</span><span class="p">()</span>
+        <span class="k">On</span> <span class="mi">1</span> <span class="nf">sayhello</span><span class="p">()</span>
+        <span class="k">On</span> <span class="mi">2</span> <span class="nf">Sum</span><span class="p">()</span>
+        <span class="k">On</span> <span class="mi">3</span> <span class="nf">Stars</span><span class="p">()</span>
         <span class="k">On</span> <span class="mi">4</span>
                 <span class="k">see</span> <span class="s2">&quot;Enter Number : &quot;</span> <span class="k">give</span> <span class="n">x</span>
                 <span class="k">see</span> <span class="s2">&quot;Output : &quot;</span>
 
                 <span class="k">Try</span>
-                        <span class="k">see</span> <span class="n">Fact</span><span class="p">(</span><span class="nb">number</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                        <span class="k">see</span> <span class="nf">Fact</span><span class="p">(</span><span class="nb">number</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
                 <span class="k">Catch</span>
                         <span class="k">see</span> <span class="s2">&quot;Error in parameters!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
                 <span class="k">Done</span>
@@ -317,7 +317,7 @@
                 <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">x</span> <span class="k">see</span> <span class="s2">&quot;*&quot;</span> <span class="k">next</span> <span class="k">see</span> <span class="bp">nl</span>
         <span class="k">next</span>
 
-<span class="kd">func</span> <span class="nf">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
+<span class="kd">func</span> <span class="nf">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="nf">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">space</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">x</span> <span class="n">y</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="k">next</span> <span class="k">return</span> <span class="n">y</span>
 </pre></div>

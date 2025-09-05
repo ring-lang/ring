@@ -227,16 +227,16 @@
 <p>Example (TCP Server Code):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
-<span class="n">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">ns</span> <span class="o">=</span> <span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+<span class="n">sock</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
+<span class="nf">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="nf">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
 
-<span class="n">send</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="s2">&quot;Hello Client&quot;</span><span class="p">)</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+<span class="nf">send</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="s2">&quot;Hello Client&quot;</span><span class="p">)</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="nf">recv</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;Client Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
-<span class="n">close</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
-<span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+<span class="nf">close</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+<span class="nf">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;socket connection closed&quot;</span>
 </pre></div>
 </div>
@@ -246,14 +246,14 @@
 <p>Example (TCP Client Code):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-<span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
+<span class="n">sock</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="nf">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
 
-<span class="n">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;Hello Server&quot;</span><span class="p">)</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="n">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+<span class="nf">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;Hello Server&quot;</span><span class="p">)</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="nf">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;Server Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
 
-<span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+<span class="nf">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;socket connection closed&quot;</span>
 </pre></div>
 </div>
@@ -284,16 +284,16 @@ socketsCleanup()
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
-<span class="n">host</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="s2">&quot;google.com&quot;</span><span class="p">)</span>
+<span class="n">host</span> <span class="o">=</span> <span class="nf">gethostbyname</span><span class="p">(</span><span class="s2">&quot;google.com&quot;</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">host</span>
-<span class="n">line</span><span class="p">()</span>
-<span class="o">?</span> <span class="n">gethostbyaddr</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
-<span class="n">line</span><span class="p">()</span>
-<span class="o">?</span> <span class="n">gethostname</span><span class="p">()</span>
-<span class="n">line</span><span class="p">()</span>
-<span class="o">?</span> <span class="n">getservbyname</span><span class="p">(</span><span class="s2">&quot;ftp&quot;</span><span class="p">)</span>
-<span class="n">line</span><span class="p">()</span>
-<span class="o">?</span> <span class="n">getservbyport</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="nf">line</span><span class="p">()</span>
+<span class="o">?</span> <span class="nf">gethostbyaddr</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+<span class="nf">line</span><span class="p">()</span>
+<span class="o">?</span> <span class="nf">gethostname</span><span class="p">()</span>
+<span class="nf">line</span><span class="p">()</span>
+<span class="o">?</span> <span class="nf">getservbyname</span><span class="p">(</span><span class="s2">&quot;ftp&quot;</span><span class="p">)</span>
+<span class="nf">line</span><span class="p">()</span>
+<span class="o">?</span> <span class="nf">getservbyport</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">line</span> <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>

@@ -313,18 +313,18 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span>    <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s2">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
+<span class="nf">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s2">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
 
-<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="nf">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
-        <span class="n">BeginDrawing</span><span class="p">()</span>
-        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
-        <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
-        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="nf">WindowShouldClose</span><span class="p">()</span>
+        <span class="nf">BeginDrawing</span><span class="p">()</span>
+        <span class="nf">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
+        <span class="nf">DrawText</span><span class="p">(</span><span class="s2">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+        <span class="nf">EndDrawing</span><span class="p">()</span>
 <span class="k">end</span>
 
-<span class="n">CloseWindow</span><span class="p">()</span>
+<span class="nf">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -335,40 +335,40 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s2">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
+<span class="nf">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s2">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
 
-<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="nf">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+<span class="k">while</span> <span class="o">!</span><span class="nf">WindowShouldClose</span><span class="p">()</span>
 
-        <span class="n">BeginDrawing</span><span class="p">()</span>
+        <span class="nf">BeginDrawing</span><span class="p">()</span>
 
-        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+        <span class="nf">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        <span class="n">DrawText</span><span class="p">(</span><span class="s2">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
-        <span class="n">DrawCircle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
-        <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
-        <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
-        <span class="n">DrawRectangleGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+        <span class="nf">DrawText</span><span class="p">(</span><span class="s2">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="nf">DrawCircle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="nf">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+        <span class="nf">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
+        <span class="nf">DrawRectangleGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
 
-        <span class="n">DrawTriangle</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
-                         <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
-                         <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">VIOLET</span><span class="p">)</span>
+        <span class="nf">DrawTriangle</span><span class="p">(</span><span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+                         <span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                         <span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">VIOLET</span><span class="p">)</span>
 
-        <span class="n">DrawPoly</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+        <span class="nf">DrawPoly</span><span class="p">(</span><span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
 
-        <span class="n">DrawCircleGradient</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
+        <span class="nf">DrawCircleGradient</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
 
-        <span class="n">DrawLine</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
-        <span class="n">DrawCircleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
-        <span class="n">DrawTriangleLines</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span>
-                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
-                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
-        <span class="n">EndDrawing</span><span class="p">()</span>
+        <span class="nf">DrawLine</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+        <span class="nf">DrawCircleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="nf">DrawTriangleLines</span><span class="p">(</span><span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span>
+                          <span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
+                          <span class="nf">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="nf">EndDrawing</span><span class="p">()</span>
 
 <span class="k">end</span>
 
-<span class="n">CloseWindow</span><span class="p">()</span>
+<span class="nf">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -381,7 +381,7 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;zerolib.ring&quot;</span>
 
 <span class="o">?</span> <span class="s2">&quot;Using List - Index start from 0&quot;</span>
-<span class="n">List</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">List</span> <span class="o">=</span> <span class="nf">Z</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
 <span class="n">List</span><span class="o">.</span><span class="nb">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">List</span><span class="o">.</span><span class="nb">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -391,12 +391,12 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <span class="o">?</span> <span class="n">List</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">nIndex</span> <span class="o">=</span> <span class="n">List</span><span class="o">.</span><span class="nb">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;Find(2) = &quot;</span> <span class="o">+</span> <span class="n">nIndex</span>
-<span class="n">List</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">List</span><span class="o">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;After deleting the first item : List[0]&quot;</span>
 <span class="o">?</span> <span class="s2">&quot;Now List[0] = &quot;</span> <span class="o">+</span> <span class="n">List</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="o">?</span> <span class="s2">&quot;Using String - Index start from 0&quot;</span>
-<span class="n">String</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="s2">&quot;Welcome&quot;</span> <span class="p">)</span>
+<span class="n">String</span> <span class="o">=</span> <span class="nf">Z</span><span class="p">(</span> <span class="s2">&quot;Welcome&quot;</span> <span class="p">)</span>
 <span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="o">?</span> <span class="n">String</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -440,24 +440,24 @@ compose the grid contain all of the digits from 1 to 9.</p>
 <span class="o">?</span> <span class="s2">&quot;Using the IsListContainsItems() function&quot;</span>
 <span class="n">aList1</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="o">:</span><span class="s2">&quot;z&quot;</span>
 <span class="n">aList2</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:h</span><span class="p">,</span><span class="ss">:l</span><span class="p">,</span><span class="ss">:p</span><span class="p">,</span><span class="ss">:u</span><span class="p">]</span>
-<span class="o">?</span> <span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;Using the IsBetween() function&quot;</span>
-<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="o">?</span> <span class="s2">&quot;Using the TimeInfo() function&quot;</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:date</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:year</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:time</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(</span><span class="ss">:hour_12</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:date</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:year</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:time</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">timeInfo</span><span class="p">(</span><span class="ss">:hour_12</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">the</span> <span class="n">IsListContainsItems</span><span class="p">()</span> <span class="kd">function</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">the</span> <span class="nf">IsListContainsItems</span><span class="p">()</span> <span class="kd">function</span>
 <span class="nf">1</span>
-<span class="n">Using</span> <span class="n">the</span> <span class="n">IsBetween</span><span class="p">()</span> <span class="kd">function</span>
+<span class="n">Using</span> <span class="n">the</span> <span class="nf">IsBetween</span><span class="p">()</span> <span class="kd">function</span>
 <span class="nf">0</span>
 <span class="mi">1</span>
-<span class="n">Using</span> <span class="n">the</span> <span class="n">TimeInfo</span><span class="p">()</span> <span class="kd">function</span>
+<span class="n">Using</span> <span class="n">the</span> <span class="nf">TimeInfo</span><span class="p">()</span> <span class="kd">function</span>
 <span class="nf">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">19</span>
 <span class="mi">2019</span>
 <span class="mi">15</span><span class="o">:</span><span class="mi">30</span><span class="o">:</span><span class="mi">33</span>

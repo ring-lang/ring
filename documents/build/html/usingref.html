@@ -266,8 +266,8 @@ like teaching data structures and implementing specific design patterns.</p>
 <section id="ref-reference-function">
 <span id="index-2"></span><h2>ref()/reference() function<a class="headerlink" href="#ref-reference-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ref</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span>       <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c1"># Short name</span>
-<span class="nb">reference</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c1"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">ref</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span>       <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="nf">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c1"># Short name</span>
+<span class="nb">reference</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="nf">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c1"># Long name</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -433,9 +433,9 @@ to the parent object.</p>
         <span class="n">n5</span> <span class="p">{</span> <span class="s2">&quot;No Next Node&quot;</span>  <span class="n">pPrev</span> <span class="o">=</span> <span class="nb">ref</span><span class="p">(</span><span class="n">n4</span><span class="p">)</span>    <span class="p">}</span>
 
         <span class="n">n3</span> <span class="p">{</span>
-                <span class="n">toTheEnd</span><span class="p">()</span>
+                <span class="nf">toTheEnd</span><span class="p">()</span>
                 <span class="o">?</span> <span class="nb">Copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-                <span class="n">toTheStart</span><span class="p">()</span>
+                <span class="nf">toTheStart</span><span class="p">()</span>
         <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">node</span>
@@ -495,11 +495,11 @@ to the parent object.</p>
 
         <span class="n">v1</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>  <span class="n">v2</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;two&quot;</span>
 
-        <span class="n">oCont</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+        <span class="n">oCont</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
 
         <span class="n">v1</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">v2</span> <span class="o">=</span> <span class="mi">20</span>  <span class="o">?</span> <span class="n">v1</span> <span class="o">?</span> <span class="n">v2</span>
 
-        <span class="n">oCont</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+        <span class="n">oCont</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">class</span> <span class="nc">MyClass1</span> <span class="n">value</span> <span class="kd">func</span> <span class="nf">test</span> <span class="o">?</span> <span class="ss">:myclass1</span>
 
@@ -513,7 +513,7 @@ to the parent object.</p>
 
         <span class="kd">func</span> <span class="nf">test</span>
 
-                <span class="n">o1</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>   <span class="n">o2</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+                <span class="n">o1</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>   <span class="n">o2</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
                 <span class="o">?</span> <span class="n">o1</span><span class="o">.</span><span class="n">value</span>  <span class="o">?</span> <span class="n">o2</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
 </div>
@@ -541,7 +541,7 @@ ownership on the list/object variable.</p>
         <span class="o">?</span> <span class="s2">&quot;Hello from Main() function&quot;</span>
         <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
         <span class="o">?</span> <span class="n">aList</span>
-        <span class="n">sub</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="nf">sub</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
         <span class="o">?</span> <span class="s2">&quot;Hello from Main() function (Again)&quot;</span>
         <span class="k">if</span> <span class="o">!</span> <span class="nb">isList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
                 <span class="o">?</span> <span class="s2">&quot;We don&#39;t have a list!&quot;</span>
@@ -570,7 +570,7 @@ instead of sharing it.</p>
         <span class="o">?</span> <span class="s2">&quot;Hello from Main() function&quot;</span>
         <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
         <span class="o">?</span> <span class="n">aList</span>
-        <span class="n">sub</span><span class="p">(</span><span class="nb">Ref</span><span class="p">(</span><span class="n">aList</span><span class="p">))</span>
+        <span class="nf">sub</span><span class="p">(</span><span class="nb">Ref</span><span class="p">(</span><span class="n">aList</span><span class="p">))</span>
         <span class="o">?</span> <span class="s2">&quot;Hello from Main() function (Again)&quot;</span>
         <span class="k">if</span> <span class="o">!</span> <span class="nb">isList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
                 <span class="o">?</span> <span class="s2">&quot;We don&#39;t have a list!&quot;</span>
@@ -707,15 +707,15 @@ done
         <span class="n">observer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">ObserverA</span>
         <span class="n">observer2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">ObserverB</span>
 
-        <span class="n">subject</span><span class="o">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
-        <span class="n">subject</span><span class="o">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="nf">addObserver</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
 
-        <span class="n">subject</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-        <span class="n">subject</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
 
-        <span class="n">subject</span><span class="o">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="nf">removeObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
 
-        <span class="n">subject</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+        <span class="n">subject</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">Subject</span>
 
@@ -733,12 +733,12 @@ done
 
         <span class="kd">func</span> <span class="nf">notify</span><span class="p">()</span>
                 <span class="k">for</span> <span class="n">oObj</span> <span class="k">in</span> <span class="n">aObservers</span>
-                        <span class="n">oObj</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                        <span class="n">oObj</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
                 <span class="k">next</span>
 
         <span class="kd">func</span> <span class="nf">setValue</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span>
-                <span class="n">notify</span><span class="p">()</span>
+                <span class="nf">notify</span><span class="p">()</span>
 
 <span class="kd">class</span> <span class="nc">Observer</span>
 

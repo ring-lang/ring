@@ -242,8 +242,8 @@ very useful for tools like</p>
 <p>The next example will use the Type Hints library</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
-<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">);</span>
+<span class="k">see</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="p">;</span>
+<span class="k">see</span> <span class="nf">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">);</span>
 
 <span class="n">int</span> <span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
@@ -263,7 +263,7 @@ very useful for tools like</p>
 
 <span class="kn">import</span> <span class="nn">mypackage</span>
 
-<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">([</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:three</span><span class="p">])</span> <span class="p">}</span>
+<span class="nf">test</span><span class="p">()</span>  <span class="p">{</span> <span class="nf">main</span><span class="p">([</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:three</span><span class="p">])</span> <span class="p">}</span>
 
 <span class="n">myclass</span> <span class="kd">func</span> <span class="nf">test</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">see</span> <span class="s2">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -287,8 +287,8 @@ very useful for tools like</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
-<span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
+<span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="nf">sayHello</span><span class="p">(</span><span class="s2">&quot;Mahmoud&quot;</span><span class="p">)</span>
 
 <span class="k">see</span> <span class="s2">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="bp">nl</span>
 
@@ -310,8 +310,8 @@ very useful for tools like</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
 <span class="n">o</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyNewLib</span> <span class="p">{</span>
-        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MyLib</span> <span class="p">{</span>

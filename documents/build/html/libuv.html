@@ -254,12 +254,12 @@
 
 <span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">myloop</span> <span class="o">=</span> <span class="n">new_uv_loop_t</span><span class="p">()</span>
-        <span class="n">uv_loop_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="n">myloop</span> <span class="o">=</span> <span class="nf">new_uv_loop_t</span><span class="p">()</span>
+        <span class="nf">uv_loop_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
         <span class="o">?</span> <span class="s2">&quot;Now quitting&quot;</span>
-        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
-        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
-        <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="nf">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="nf">uv_loop_close</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="nf">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -276,18 +276,18 @@
 <span class="n">idler</span> <span class="o">=</span> <span class="bp">NULL</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
-        <span class="n">idler</span> <span class="o">=</span> <span class="n">new_uv_idle_t</span><span class="p">()</span>
-        <span class="n">uv_idle_init</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">idler</span><span class="p">)</span>
-        <span class="n">uv_idle_start</span><span class="p">(</span><span class="n">idler</span><span class="p">,</span> <span class="s2">&quot;wait()&quot;</span><span class="p">)</span>
+        <span class="n">idler</span> <span class="o">=</span> <span class="nf">new_uv_idle_t</span><span class="p">()</span>
+        <span class="nf">uv_idle_init</span><span class="p">(</span><span class="nf">uv_default_loop</span><span class="p">(),</span> <span class="n">idler</span><span class="p">)</span>
+        <span class="nf">uv_idle_start</span><span class="p">(</span><span class="n">idler</span><span class="p">,</span> <span class="s2">&quot;wait()&quot;</span><span class="p">)</span>
         <span class="o">?</span> <span class="s2">&quot;Idling...&quot;</span>
-        <span class="n">uv_run</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
-        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">());</span>
-        <span class="n">destroy_uv_idle_t</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+        <span class="nf">uv_run</span><span class="p">(</span><span class="nf">uv_default_loop</span><span class="p">(),</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
+        <span class="nf">uv_loop_close</span><span class="p">(</span><span class="nf">uv_default_loop</span><span class="p">());</span>
+        <span class="nf">destroy_uv_idle_t</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">wait</span>
         <span class="n">counter</span><span class="o">++</span>
         <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">100000</span>
-                <span class="n">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+                <span class="nf">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
         <span class="k">ok</span>
 </pre></div>
 </div>
@@ -306,58 +306,58 @@
 <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
 <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-<span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+<span class="n">addr</span>    <span class="o">=</span> <span class="nf">new_sockaddr_in</span><span class="p">()</span>
 <span class="n">server</span>  <span class="o">=</span> <span class="bp">NULL</span>
 <span class="n">client</span>  <span class="o">=</span> <span class="bp">NULL</span>
 <span class="n">myloop</span>  <span class="o">=</span> <span class="bp">NULL</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
-        <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
-        <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
-        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
-        <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
-        <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="s2">&quot;newconnection()&quot;</span><span class="p">)</span>
+        <span class="n">myloop</span> <span class="o">=</span> <span class="nf">uv_default_loop</span><span class="p">()</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="nf">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="nf">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+        <span class="nf">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="nf">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="nf">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="s2">&quot;newconnection()&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">r</span>
-                <span class="o">?</span> <span class="s2">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                <span class="o">?</span> <span class="s2">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="nf">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
                 <span class="k">return</span> <span class="mi">1</span>
         <span class="k">ok</span>
-        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
-        <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
-        <span class="n">destroy_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+        <span class="nf">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="nf">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="nf">destroy_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">newconnection</span>
         <span class="o">?</span> <span class="s2">&quot;New Connection&quot;</span>
-        <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
+        <span class="n">aPara</span>   <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
         <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
                 <span class="o">?</span> <span class="s2">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
                 <span class="k">return</span>
         <span class="k">ok</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
-        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-                        <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="s2">&quot;echo_read()&quot;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="nf">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="nf">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nf">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="nf">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="nf">uv_myalloccallback</span><span class="p">(),</span> <span class="s2">&quot;echo_read()&quot;</span><span class="p">)</span>
         <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">echo_read</span>
-        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
         <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
-                <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
-                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
-                <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;echo_write()&quot;</span><span class="p">)</span>
-                <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="nf">new_uv_write_t</span><span class="p">()</span>
+                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="nf">uv_buf_init</span><span class="p">(</span><span class="nf">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                <span class="nf">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;echo_write()&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nf">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
                 <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;message from the server to the client&quot;</span>
-                <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
-                <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
-                <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
-                <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;echo_write()&quot;</span><span class="p">)</span>
+                <span class="n">buf</span> <span class="o">=</span> <span class="nf">new_uv_buf_t</span><span class="p">()</span>
+                <span class="nf">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                <span class="nf">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
+                <span class="nf">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;echo_write()&quot;</span><span class="p">)</span>
         <span class="k">ok</span>
 
 <span class="kd">func</span> <span class="nf">echo_write</span>
-        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
         <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -380,50 +380,50 @@ hello from the client
 <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
 <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-<span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+<span class="n">addr</span>    <span class="o">=</span> <span class="nf">new_sockaddr_in</span><span class="p">()</span>
 <span class="n">connect</span> <span class="o">=</span> <span class="bp">NULL</span>
 <span class="n">buffer</span>  <span class="o">=</span> <span class="bp">null</span>
 <span class="n">socket</span>  <span class="o">=</span> <span class="bp">null</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
-        <span class="n">myloop</span>  <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
-        <span class="n">Socket</span>  <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
-        <span class="n">connect</span> <span class="o">=</span> <span class="n">new_uv_connect_t</span><span class="p">()</span>
-        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
-        <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
-        <span class="n">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;connect()&quot;</span><span class="p">)</span>
-        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
-        <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
-        <span class="n">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="nf">uv_default_loop</span><span class="p">()</span>
+        <span class="n">Socket</span>  <span class="o">=</span> <span class="nf">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">connect</span> <span class="o">=</span> <span class="nf">new_uv_connect_t</span><span class="p">()</span>
+        <span class="nf">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
+        <span class="nf">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="nf">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="s2">&quot;connect()&quot;</span><span class="p">)</span>
+        <span class="nf">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="nf">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+        <span class="nf">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">connect</span>
         <span class="o">?</span> <span class="s2">&quot;Client: Start Connection&quot;</span>
-        <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
+        <span class="n">aPara</span>   <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
         <span class="n">req</span>     <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">nStatus</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="o">?</span> <span class="s2">&quot;Error : on_write_end &quot;</span>
                 <span class="k">return</span>
         <span class="k">ok</span>
-        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="nf">new_uv_buf_t</span><span class="p">()</span>
         <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;hello from the client&quot;</span>
-        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
-        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
-        <span class="n">tcp</span>       <span class="o">=</span> <span class="n">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-        <span class="n">write_req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+        <span class="nf">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+        <span class="nf">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
+        <span class="n">tcp</span>       <span class="o">=</span> <span class="nf">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="n">write_req</span> <span class="o">=</span> <span class="nf">new_uv_write_t</span><span class="p">()</span>
         <span class="n">buf_count</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="s2">&quot;on_write_end()&quot;</span><span class="p">)</span>
+        <span class="nf">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="s2">&quot;on_write_end()&quot;</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">on_write_end</span>
-                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="s2">&quot;echo_read()&quot;</span><span class="p">)</span>
+                <span class="nf">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="nf">uv_myalloccallback</span><span class="p">(),</span> <span class="s2">&quot;echo_read()&quot;</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">echo_read</span>
-        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
         <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
         <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
-                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
-                <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="nf">uv_buf_init</span><span class="p">(</span><span class="nf">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
+                <span class="o">?</span> <span class="nf">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
         <span class="k">ok</span>
 </pre></div>
 </div>
@@ -444,66 +444,66 @@ message from the server to the client
 
 <span class="o">?</span> <span class="s2">&quot;Testing RingLibuv - Server Side - Using Classes&quot;</span>
 
-<span class="n">open_object</span><span class="p">(</span><span class="ss">:MyServer</span><span class="p">)</span>
+<span class="nf">open_object</span><span class="p">(</span><span class="ss">:MyServer</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">MyServer</span> <span class="kd">from</span> <span class="nc">ObjectControllerParent</span>
 
         <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
         <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">addr</span>    <span class="o">=</span> <span class="nf">new_sockaddr_in</span><span class="p">()</span>
         <span class="n">server</span>  <span class="o">=</span> <span class="bp">NULL</span>
         <span class="n">client</span>  <span class="o">=</span> <span class="bp">NULL</span>
         <span class="n">myloop</span>  <span class="o">=</span> <span class="bp">NULL</span>
 
         <span class="kd">func</span> <span class="nf">start</span>
-                <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
-                <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
-                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
-                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
-                <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:newconnection</span><span class="p">)</span> <span class="p">)</span>
+                <span class="n">myloop</span> <span class="o">=</span> <span class="nf">uv_default_loop</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="nf">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="nf">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+                <span class="nf">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="nf">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="nf">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:newconnection</span><span class="p">)</span> <span class="p">)</span>
                 <span class="k">if</span> <span class="n">r</span>
-                        <span class="o">?</span> <span class="s2">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s2">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="nf">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
                         <span class="k">return</span> <span class="mi">1</span>
                 <span class="k">ok</span>
-                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
-                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
-                <span class="n">destroy_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+                <span class="nf">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="nf">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+                <span class="nf">destroy_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">newconnection</span>
                 <span class="o">?</span> <span class="s2">&quot;New Connection&quot;</span>
-                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
                 <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
                         <span class="o">?</span> <span class="s2">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
                         <span class="k">return</span>
                 <span class="k">ok</span>
-                <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
-                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-                                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span>
-                                                        <span class="n">Method</span><span class="p">(</span><span class="ss">:echo_read</span><span class="p">))</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="nf">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="nf">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nf">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="nf">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="nf">uv_myalloccallback</span><span class="p">(),</span>
+                                                        <span class="nf">Method</span><span class="p">(</span><span class="ss">:echo_read</span><span class="p">))</span>
                 <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">echo_read</span>
-                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
                 <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                 <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
-                        <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
-                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
-                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:echo_write</span><span class="p">))</span>
-                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                        <span class="n">req</span> <span class="o">=</span> <span class="nf">new_uv_write_t</span><span class="p">()</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="nf">uv_buf_init</span><span class="p">(</span><span class="nf">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                        <span class="nf">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:echo_write</span><span class="p">))</span>
+                        <span class="o">?</span> <span class="nf">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
                         <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;message from the server to the client&quot;</span>
-                        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
-                        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
-                        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
-                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:echo_write</span><span class="p">))</span>
+                        <span class="n">buf</span> <span class="o">=</span> <span class="nf">new_uv_buf_t</span><span class="p">()</span>
+                        <span class="nf">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                        <span class="nf">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
+                        <span class="nf">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:echo_write</span><span class="p">))</span>
                 <span class="k">ok</span>
 
         <span class="kd">func</span> <span class="nf">echo_write</span>
-                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
                 <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -524,57 +524,57 @@ hello from the client
 
 <span class="o">?</span> <span class="s2">&quot;Testing RingLibuv - Client Side - Using Classes&quot;</span>
 
-<span class="n">open_object</span><span class="p">(</span><span class="ss">:MyClient</span><span class="p">)</span>
+<span class="nf">open_object</span><span class="p">(</span><span class="ss">:MyClient</span><span class="p">)</span>
 
 <span class="kd">Class</span> <span class="nc">MyClient</span> <span class="kd">from</span> <span class="nc">ObjectControllerParent</span>
 
         <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
         <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">addr</span>    <span class="o">=</span> <span class="nf">new_sockaddr_in</span><span class="p">()</span>
         <span class="n">connect</span> <span class="o">=</span> <span class="bp">NULL</span>
         <span class="n">buffer</span>  <span class="o">=</span> <span class="bp">null</span>
         <span class="n">socket</span>  <span class="o">=</span> <span class="bp">null</span>
 
         <span class="kd">func</span> <span class="nf">start</span>
-                <span class="n">myloop</span>  <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
-                <span class="n">Socket</span>  <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
-                <span class="n">connect</span> <span class="o">=</span> <span class="n">new_uv_connect_t</span><span class="p">()</span>
-                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
-                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
-                <span class="n">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:connect</span><span class="p">))</span>
-                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
-                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
-                <span class="n">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">myloop</span>  <span class="o">=</span> <span class="nf">uv_default_loop</span><span class="p">()</span>
+                <span class="n">Socket</span>  <span class="o">=</span> <span class="nf">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">connect</span> <span class="o">=</span> <span class="nf">new_uv_connect_t</span><span class="p">()</span>
+                <span class="nf">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
+                <span class="nf">uv_ip4_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="nf">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:connect</span><span class="p">))</span>
+                <span class="nf">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="nf">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+                <span class="nf">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">connect</span>
                 <span class="o">?</span> <span class="s2">&quot;Client: Start Connection&quot;</span>
-                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="ss">:connect</span><span class="p">)</span>
                 <span class="n">req</span>     <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
                 <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">nStatus</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
                         <span class="o">?</span> <span class="s2">&quot;Error : on_write_end &quot;</span>
                         <span class="k">return</span>
                 <span class="k">ok</span>
-                <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                <span class="n">buf</span> <span class="o">=</span> <span class="nf">new_uv_buf_t</span><span class="p">()</span>
                 <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;hello from the client&quot;</span>
-                <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
-                <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
-                <span class="n">tcp</span>       <span class="o">=</span> <span class="n">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-                <span class="n">write_req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                <span class="nf">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                <span class="nf">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="nb">varptr</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="ss">:char</span><span class="p">))</span>
+                <span class="n">tcp</span>       <span class="o">=</span> <span class="nf">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+                <span class="n">write_req</span> <span class="o">=</span> <span class="nf">new_uv_write_t</span><span class="p">()</span>
                 <span class="n">buf_count</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:on_write_end</span><span class="p">))</span>
+                <span class="nf">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:on_write_end</span><span class="p">))</span>
 
         <span class="kd">func</span> <span class="nf">on_write_end</span>
-                        <span class="n">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:echo_read</span><span class="p">))</span>
+                        <span class="nf">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="nf">uv_myalloccallback</span><span class="p">(),</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:echo_read</span><span class="p">))</span>
 
         <span class="kd">func</span> <span class="nf">echo_read</span>
-                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="nf">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span><span class="ss">:read</span><span class="p">)</span>
                 <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
                 <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
-                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
-                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="nf">uv_buf_init</span><span class="p">(</span><span class="nf">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
+                        <span class="o">?</span> <span class="nf">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
                 <span class="k">ok</span>
 </pre></div>
 </div>
@@ -595,14 +595,14 @@ message from the server to the client
 <span class="o">?</span> <span class="s2">&quot;Testing RingLibuv - Threads&quot;</span>
 
 <span class="kd">func</span> <span class="nf">main</span>
-        <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
-        <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
-        <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="s2">&quot;one()&quot;</span><span class="p">)</span>
-        <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="s2">&quot;two()&quot;</span><span class="p">)</span>
-        <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
-        <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
-        <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
-        <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+        <span class="n">one_id</span> <span class="o">=</span> <span class="nf">new_uv_thread_t</span><span class="p">()</span>
+        <span class="n">two_id</span> <span class="o">=</span> <span class="nf">new_uv_thread_t</span><span class="p">()</span>
+        <span class="nf">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="s2">&quot;one()&quot;</span><span class="p">)</span>
+        <span class="nf">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="s2">&quot;two()&quot;</span><span class="p">)</span>
+        <span class="nf">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+        <span class="nf">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+        <span class="nf">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+        <span class="nf">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">one</span>
         <span class="o">?</span> <span class="s2">&quot;Message from the First Thread!&quot;</span>
@@ -626,19 +626,19 @@ Message from the Second Thread!
 
 <span class="o">?</span> <span class="s2">&quot;Testing RingLibuv - Threads - Using Classes&quot;</span>
 
-<span class="n">open_object</span><span class="p">(</span><span class="ss">:MyThreads</span><span class="p">)</span>
+<span class="nf">open_object</span><span class="p">(</span><span class="ss">:MyThreads</span><span class="p">)</span>
 
 <span class="kd">class</span> <span class="nc">MyThreads</span> <span class="kd">from</span> <span class="nc">ObjectControllerParent</span>
 
         <span class="kd">func</span> <span class="nf">Start</span>
-                <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
-                <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
-                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:One</span><span class="p">))</span>
-                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span><span class="ss">:Two</span><span class="p">))</span>
-                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
-                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
-                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
-                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+                <span class="n">one_id</span> <span class="o">=</span> <span class="nf">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">two_id</span> <span class="o">=</span> <span class="nf">new_uv_thread_t</span><span class="p">()</span>
+                <span class="nf">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:One</span><span class="p">))</span>
+                <span class="nf">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:Two</span><span class="p">))</span>
+                <span class="nf">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="nf">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+                <span class="nf">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="nf">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
 
         <span class="kd">func</span> <span class="nf">one</span>
                 <span class="o">?</span> <span class="s2">&quot;Message from the First Thread!&quot;</span>

@@ -287,7 +287,7 @@ will be done.</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Container</span>
-<span class="n">myobj</span> <span class="o">=</span> <span class="n">o1</span><span class="o">.</span><span class="n">addobj</span><span class="p">()</span>     <span class="c1"># the assignment will create another copy</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="n">o1</span><span class="o">.</span><span class="nf">addobj</span><span class="p">()</span>     <span class="c1"># the assignment will create another copy</span>
 <span class="n">myobj</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">myobj</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">myobj</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
@@ -318,12 +318,12 @@ will be done.</p>
 <p>Example(2):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">main</span>
         <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">screen</span>  <span class="p">{</span>
-                <span class="n">content</span><span class="p">[</span><span class="n">point</span><span class="p">()]</span> <span class="p">{</span>
+                <span class="n">content</span><span class="p">[</span><span class="nf">point</span><span class="p">()]</span> <span class="p">{</span>
                         <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
                         <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
                         <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
                 <span class="p">}</span>
-                <span class="n">content</span><span class="p">[</span><span class="n">point</span><span class="p">()]</span> <span class="p">{</span>
+                <span class="n">content</span><span class="p">[</span><span class="nf">point</span><span class="p">()]</span> <span class="p">{</span>
                         <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
                         <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span>
                         <span class="n">z</span> <span class="o">=</span> <span class="mi">250</span>
@@ -356,12 +356,12 @@ will be done.</p>
 <p>Example(3):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">main</span>
         <span class="n">o1</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">Screen</span>  <span class="p">{</span>
-                <span class="n">point</span><span class="p">()</span> <span class="p">{</span>               <span class="c1"># access the object using reference</span>
+                <span class="nf">point</span><span class="p">()</span> <span class="p">{</span>               <span class="c1"># access the object using reference</span>
                         <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
                         <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
                         <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
                 <span class="p">}</span>
-                <span class="n">point</span><span class="p">()</span> <span class="p">{</span>               <span class="c1"># access the object using reference</span>
+                <span class="nf">point</span><span class="p">()</span> <span class="p">{</span>               <span class="c1"># access the object using reference</span>
                         <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
                         <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span>
                         <span class="n">z</span> <span class="o">=</span> <span class="mi">250</span>
@@ -419,17 +419,17 @@ will be done.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declarative Programming (Nested Structures)</span>
 
-<span class="n">Screen</span><span class="p">()</span>
+<span class="nf">Screen</span><span class="p">()</span>
 <span class="p">{</span>
 
-        <span class="n">point</span><span class="p">()</span>
+        <span class="nf">point</span><span class="p">()</span>
         <span class="p">{</span>
                 <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
                 <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
                 <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
         <span class="p">}</span>
 
-        <span class="n">point</span><span class="p">()</span>
+        <span class="nf">point</span><span class="p">()</span>
         <span class="p">{</span>
                 <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
                 <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span>

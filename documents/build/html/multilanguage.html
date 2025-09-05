@@ -261,9 +261,9 @@
 <p>the next section from the formdesigner/mainwindow/formdesignerview.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the Main Window and use the Mdi Area</span>
         <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qMainwindow</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_FORMDESIGNER</span><span class="p">)</span> <span class="c1"># &quot;Form Designer&quot;</span>
-                <span class="n">setcentralWidget</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">oArea</span><span class="p">)</span>
-                <span class="n">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_FORMDESIGNER</span><span class="p">)</span> <span class="c1"># &quot;Form Designer&quot;</span>
+                <span class="nf">setcentralWidget</span><span class="p">(</span><span class="kp">this</span><span class="o">.</span><span class="n">oArea</span><span class="p">)</span>
+                <span class="nf">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
         <span class="p">}</span>
 </pre></div>
 </div>
@@ -284,14 +284,14 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">selobjectsController</span> <span class="kd">from</span> <span class="nc">windowsControllerParent</span>
 
         <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">selobjectsView</span>  <span class="p">{</span>
-                <span class="n">ListObjects</span><span class="o">.</span><span class="n">setselectionmode</span><span class="p">(</span><span class="n">QAbstractItemView_MultiSelection</span><span class="p">)</span>
-                <span class="n">win</span><span class="o">.</span><span class="n">setwindowmodality</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">ListObjects</span><span class="o">.</span><span class="nf">setselectionmode</span><span class="p">(</span><span class="n">QAbstractItemView_MultiSelection</span><span class="p">)</span>
+                <span class="n">win</span><span class="o">.</span><span class="nf">setwindowmodality</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
                 <span class="c1"># Translation</span>
-                        <span class="n">win</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_TITLE</span><span class="p">)</span>
-                        <span class="n">win</span><span class="o">.</span><span class="n">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
-                        <span class="n">labelobjects</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_OBJECTS</span><span class="p">)</span>
-                        <span class="n">btnSelect</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_SELECT</span><span class="p">)</span>
-                        <span class="n">btnClose</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_CLOSE</span><span class="p">)</span>
+                        <span class="n">win</span><span class="o">.</span><span class="nf">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_TITLE</span><span class="p">)</span>
+                        <span class="n">win</span><span class="o">.</span><span class="nf">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
+                        <span class="n">labelobjects</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_OBJECTS</span><span class="p">)</span>
+                        <span class="n">btnSelect</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_SELECT</span><span class="p">)</span>
+                        <span class="n">btnClose</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_CLOSE</span><span class="p">)</span>
         <span class="p">}</span>
 </pre></div>
 </div>

@@ -288,9 +288,9 @@ You can use the ‘+’ operator for string concatenation and the language is we
 </pre></div>
 </div>
 <p>Call functions before definition</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span>
-<span class="n">two</span><span class="p">()</span>
-<span class="n">three</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">one</span><span class="p">()</span>
+<span class="nf">two</span><span class="p">()</span>
+<span class="nf">three</span><span class="p">()</span>
 <span class="kd">Func</span> <span class="nf">one</span>
         <span class="k">See</span> <span class="s2">&quot;One&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="kd">Func</span> <span class="nf">two</span>
@@ -311,7 +311,7 @@ You can use the ‘+’ operator for string concatenation and the language is we
 The for in loop can update the list items.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">Func</span> <span class="nf">Main</span>
         <span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-        <span class="n">update</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="nf">update</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
         <span class="k">see</span> <span class="n">aList</span>       <span class="c1"># print one two three</span>
 
 <span class="kd">Func</span> <span class="nf">update</span> <span class="n">aList</span>
@@ -566,7 +566,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 
 <span class="kd">Func</span> <span class="nf">Main</span>
 
-  <span class="n">BootStrapWebPage</span><span class="p">()</span>
+  <span class="nf">BootStrapWebPage</span><span class="p">()</span>
   <span class="p">{</span>
         <span class="n">div</span>
         <span class="p">{</span>
@@ -574,7 +574,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
           <span class="n">div</span>
           <span class="p">{</span>
                 <span class="n">classname</span> <span class="o">=</span> <span class="ss">:jumbotron</span>
-                <span class="n">H1</span> <span class="p">{</span>   <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Bootstrap Page&quot;</span><span class="p">)</span>   <span class="p">}</span>
+                <span class="n">H1</span> <span class="p">{</span>   <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Bootstrap Page&quot;</span><span class="p">)</span>   <span class="p">}</span>
           <span class="p">}</span>
           <span class="n">div</span>
           <span class="p">{</span>
@@ -583,8 +583,8 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
                   <span class="n">div</span>
                   <span class="p">{</span>
                     <span class="n">classname</span> <span class="o">=</span> <span class="s2">&quot;col-sm-4&quot;</span>
-                    <span class="n">H3</span> <span class="p">{</span> <span class="n">html</span><span class="p">(</span><span class="s2">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span> <span class="p">}</span>
-                    <span class="n">P</span>  <span class="p">{</span> <span class="n">html</span><span class="p">(</span><span class="s2">&quot;Using a scripting language is very fun!&quot;</span><span class="p">)</span> <span class="p">}</span>
+                    <span class="n">H3</span> <span class="p">{</span> <span class="nf">html</span><span class="p">(</span><span class="s2">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span> <span class="p">}</span>
+                    <span class="n">P</span>  <span class="p">{</span> <span class="nf">html</span><span class="p">(</span><span class="s2">&quot;Using a scripting language is very fun!&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="p">}</span>
                 <span class="k">next</span>
           <span class="p">}</span>
@@ -596,17 +596,17 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">Class</span> <span class="nc">Link</span> <span class="kd">from</span> <span class="nc">ObjsBase</span>
         <span class="n">title</span>  <span class="n">link</span>
         <span class="kd">Func</span> <span class="nf">braceend</span>
-                <span class="n">cOutput</span> <span class="o">=</span> <span class="bp">nl</span><span class="o">+</span><span class="n">GetTabs</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;&lt;a href=&#39;&quot;</span> <span class="o">+</span>
+                <span class="n">cOutput</span> <span class="o">=</span> <span class="bp">nl</span><span class="o">+</span><span class="nf">GetTabs</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;&lt;a href=&#39;&quot;</span> <span class="o">+</span>
                           <span class="n">Link</span> <span class="o">+</span> <span class="s2">&quot;&#39;&gt; &quot;</span><span class="o">+</span> <span class="n">Title</span> <span class="o">+</span> <span class="s2">&quot; &lt;/a&gt; &quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 
 <span class="kd">Class</span> <span class="nc">Div</span> <span class="kd">from</span> <span class="nc">ObjsBase</span>
         <span class="kd">Func</span> <span class="nf">braceend</span>
                 <span class="n">cOutput</span> <span class="o">+=</span> <span class="bp">nl</span><span class="o">+</span><span class="s1">&#39;&lt;div&#39;</span>
-                <span class="n">addattributes</span><span class="p">()</span>
-                <span class="n">AddStyle</span><span class="p">()</span>
-                <span class="n">getobjsdata</span><span class="p">()</span>
+                <span class="nf">addattributes</span><span class="p">()</span>
+                <span class="nf">AddStyle</span><span class="p">()</span>
+                <span class="nf">getobjsdata</span><span class="p">()</span>
                 <span class="n">cOutput</span> <span class="o">+=</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;&lt;/div&gt;&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
-                <span class="n">cOutput</span> <span class="o">=</span> <span class="n">TabMLString</span><span class="p">(</span><span class="n">cOutput</span><span class="p">)</span>
+                <span class="n">cOutput</span> <span class="o">=</span> <span class="nf">TabMLString</span><span class="p">(</span><span class="n">cOutput</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

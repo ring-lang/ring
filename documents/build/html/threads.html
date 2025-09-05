@@ -229,16 +229,16 @@
 
 <span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">t</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
-        <span class="n">thrd_create</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot;Hello()&quot;</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nf">new_thrd_t</span><span class="p">()</span>
+        <span class="nf">thrd_create</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot;Hello()&quot;</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">thrd_join</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="ss">:res</span><span class="p">)</span>
+        <span class="nf">thrd_join</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="ss">:res</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">Hello</span>
 
         <span class="o">?</span> <span class="s2">&quot;Message from the Hello() function&quot;</span>
 
-        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nf">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (2):</p>
@@ -246,15 +246,15 @@
 
 <span class="kd">func</span> <span class="nf">main</span>
 
-        <span class="n">t</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
-        <span class="n">thrd_create</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot;Hello()&quot;</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nf">new_thrd_t</span><span class="p">()</span>
+        <span class="nf">thrd_create</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s2">&quot;Hello()&quot;</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">thrd_join</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="ss">:res</span><span class="p">)</span>
+        <span class="nf">thrd_join</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="ss">:res</span><span class="p">)</span>
 
-        <span class="n">t2</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
-        <span class="n">thrd_create</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="s2">&quot;Hello2()&quot;</span><span class="p">)</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="nf">new_thrd_t</span><span class="p">()</span>
+        <span class="nf">thrd_create</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="s2">&quot;Hello2()&quot;</span><span class="p">)</span>
         <span class="n">res2</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">thrd_join</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="ss">:res2</span><span class="p">)</span>
+        <span class="nf">thrd_join</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="ss">:res2</span><span class="p">)</span>
 
         <span class="o">?</span> <span class="ss">:done</span>
 
@@ -262,13 +262,13 @@
 
         <span class="o">?</span> <span class="s2">&quot;Message from the Hello() function&quot;</span>
 
-        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nf">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">Hello2</span>
 
         <span class="o">?</span> <span class="s2">&quot;Message from the Hello2() function&quot;</span>
 
-        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nf">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (3):</p>
@@ -280,13 +280,13 @@
         <span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nThreads</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
-                <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
-                <span class="n">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s2">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+                <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nf">new_thrd_t</span><span class="p">()</span>
+                <span class="nf">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s2">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
         <span class="k">next</span>
 
         <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
                 <span class="n">res</span><span class="o">=</span> <span class="mi">0</span>
-                <span class="n">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="ss">:res</span><span class="p">)</span>
+                <span class="nf">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="ss">:res</span><span class="p">)</span>
         <span class="k">next</span>
 
         <span class="o">?</span> <span class="ss">:Done</span>
@@ -297,7 +297,7 @@
                 <span class="o">?</span> <span class="s2">&quot;Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;) function&quot;</span>
         <span class="k">next</span>
 
-        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nf">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (4):</p>
@@ -309,14 +309,14 @@
         <span class="n">aList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nThreads</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
-                <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
-                <span class="n">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s2">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+                <span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nf">new_thrd_t</span><span class="p">()</span>
+                <span class="nf">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="s2">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
         <span class="k">next</span>
 
         <span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
                  <span class="o">?</span> <span class="s2">&quot;*** Before join: &quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot; *** &quot;</span>
                  <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-                 <span class="n">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">K</span><span class="p">],</span><span class="ss">:res</span><span class="p">)</span>
+                 <span class="nf">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="n">K</span><span class="p">],</span><span class="ss">:res</span><span class="p">)</span>
                  <span class="o">?</span> <span class="s2">&quot;*** After join: &quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s2">&quot; *** &quot;</span>
         <span class="k">next</span>
 
@@ -328,7 +328,7 @@
                 <span class="o">?</span> <span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="s2">&quot;) Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s2">&quot;) function&quot;</span>
         <span class="k">next</span>
 
-        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nf">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

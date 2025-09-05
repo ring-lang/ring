@@ -228,12 +228,12 @@
 <span id="index-1"></span><h2>Create Zip File<a class="headerlink" href="#create-zip-file" title="Permalink to this heading"></a></h2>
 <p>Example : Create myfile.zip contains 4 files</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
-<span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
-<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;zip.c&quot;</span><span class="p">)</span>
-<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;zip.h&quot;</span><span class="p">)</span>
-<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;miniz.h&quot;</span><span class="p">)</span>
-<span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+<span class="n">oZip</span> <span class="o">=</span> <span class="nf">zip_openfile</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="nf">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
+<span class="nf">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;zip.c&quot;</span><span class="p">)</span>
+<span class="nf">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;zip.h&quot;</span><span class="p">)</span>
+<span class="nf">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s2">&quot;miniz.h&quot;</span><span class="p">)</span>
+<span class="nf">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -241,7 +241,7 @@
 <span id="index-2"></span><h2>Extract Zip File<a class="headerlink" href="#extract-zip-file" title="Permalink to this heading"></a></h2>
 <p>Example : Extract myfile.zip to myfolder folder.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
-<span class="n">zip_extract_allfiles</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s2">&quot;myfolder&quot;</span><span class="p">)</span>
+<span class="nf">zip_extract_allfiles</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s2">&quot;myfolder&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -249,11 +249,11 @@
 <span id="index-3"></span><h2>Print Files in Zip file<a class="headerlink" href="#print-files-in-zip-file" title="Permalink to this heading"></a></h2>
 <p>Example : Print file names in the myfile.zip</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
-<span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
-       <span class="k">see</span> <span class="n">zip_getfilenamebyindex</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="n">oZip</span> <span class="o">=</span> <span class="nf">zip_openfile</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="nf">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+       <span class="k">see</span> <span class="nf">zip_getfilenamebyindex</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="k">next</span>
-<span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+<span class="nf">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -264,14 +264,14 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">Zip</span> <span class="p">{</span>
-        <span class="n">setFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
-        <span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
-        <span class="n">newEntry</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">open</span><span class="p">(</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
-                <span class="n">writefile</span><span class="p">(</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
-                <span class="n">close</span><span class="p">()</span>
+        <span class="nf">setFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="nf">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="nf">newEntry</span><span class="p">()</span> <span class="p">{</span>
+                <span class="nf">open</span><span class="p">(</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
+                <span class="nf">writefile</span><span class="p">(</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
+                <span class="nf">close</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">close</span><span class="p">()</span>
+        <span class="nf">close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -279,13 +279,13 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">Zip</span> <span class="p">{</span>
-        <span class="n">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
-        <span class="n">Open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
-        <span class="n">AddFile</span><span class="p">(</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
-        <span class="n">AddFile</span><span class="p">(</span><span class="s2">&quot;zip.c&quot;</span><span class="p">)</span>
-        <span class="n">AddFile</span><span class="p">(</span><span class="s2">&quot;zip.h&quot;</span><span class="p">)</span>
-        <span class="n">AddFile</span><span class="p">(</span><span class="s2">&quot;miniz.h&quot;</span><span class="p">)</span>
-        <span class="n">Close</span><span class="p">()</span>
+        <span class="nf">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="nf">Open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="nf">AddFile</span><span class="p">(</span><span class="s2">&quot;test.c&quot;</span><span class="p">)</span>
+        <span class="nf">AddFile</span><span class="p">(</span><span class="s2">&quot;zip.c&quot;</span><span class="p">)</span>
+        <span class="nf">AddFile</span><span class="p">(</span><span class="s2">&quot;zip.h&quot;</span><span class="p">)</span>
+        <span class="nf">AddFile</span><span class="p">(</span><span class="s2">&quot;miniz.h&quot;</span><span class="p">)</span>
+        <span class="nf">Close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -293,8 +293,8 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">zip</span> <span class="p">{</span>
-        <span class="n">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
-        <span class="n">ExtractAllFiles</span><span class="p">(</span><span class="s2">&quot;myfolder&quot;</span><span class="p">)</span>
+        <span class="nf">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="nf">ExtractAllFiles</span><span class="p">(</span><span class="s2">&quot;myfolder&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -302,10 +302,10 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">Zip</span> <span class="p">{</span>
-        <span class="n">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
-        <span class="n">Open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-        <span class="k">see</span> <span class="n">FilesCount</span><span class="p">()</span>
-        <span class="n">Close</span><span class="p">()</span>
+        <span class="nf">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="nf">Open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="nf">FilesCount</span><span class="p">()</span>
+        <span class="nf">Close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -313,12 +313,12 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;ziplib.ring&quot;</span>
 
 <span class="kp">new</span> <span class="nc">Zip</span> <span class="p">{</span>
-        <span class="n">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
-        <span class="n">Open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">filescount</span><span class="p">()</span>
-                <span class="k">See</span> <span class="n">GetFileNameByIndex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="nf">SetFileName</span><span class="p">(</span><span class="s2">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="nf">Open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nf">filescount</span><span class="p">()</span>
+                <span class="k">See</span> <span class="nf">GetFileNameByIndex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
         <span class="k">next</span>
-        <span class="n">Close</span><span class="p">()</span>
+        <span class="nf">Close</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>

@@ -296,7 +296,7 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">test</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">test</span> <span class="n">cMsg</span>
 
@@ -327,7 +327,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
-<span class="n">test</span><span class="p">()</span>
+<span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test</span>
         <span class="k">see</span> <span class="s2">&quot;message from test()&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
@@ -410,7 +410,7 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test</span>
         <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
@@ -437,7 +437,7 @@ the program code and we can modify our code during the runtime.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
 
-<span class="n">test</span><span class="p">()</span>
+<span class="nf">test</span><span class="p">()</span>
 
 <span class="kd">func</span> <span class="nf">test</span>
         <span class="k">see</span> <span class="nb">isglobal</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span>
@@ -729,7 +729,7 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Child</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Child</span>  <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">Parent</span>
 <span class="kd">class</span> <span class="nc">Child</span> <span class="kd">from</span> <span class="nc">Parent</span>
@@ -752,7 +752,7 @@ the program code and we can modify our code during the runtime.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">point</span>
 <span class="k">see</span> <span class="nb">objectid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="n">test</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
+<span class="nf">test</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
 
 <span class="kd">func</span> <span class="nf">test</span> <span class="n">v</span>
         <span class="k">see</span> <span class="nb">objectid</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
@@ -992,8 +992,8 @@ This method can be used with any object from the same class.</p>
 <span class="nb">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s2">&quot;show&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
 
 <span class="n">o1</span><span class="o">.</span><span class="nb">print</span><span class="p">()</span>
-<span class="n">o1</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-<span class="n">o1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">o1</span><span class="o">.</span><span class="nf">display</span><span class="p">()</span>
+<span class="n">o1</span><span class="o">.</span><span class="nf">show</span><span class="p">()</span>
 
 <span class="kd">Class</span> <span class="nc">point</span>
         <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
@@ -1085,7 +1085,7 @@ The Find uses the member name, rather than the column number</p>
 <span class="k">next</span>
 
 
-<span class="k">See</span> <span class="n">findclass</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="s2">&quot;MHD&quot;</span><span class="p">,</span> <span class="s2">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span><span class="bp">nl</span>   <span class="c1">### Specify Member class name</span>
+<span class="k">See</span> <span class="nf">findclass</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="s2">&quot;MHD&quot;</span><span class="p">,</span> <span class="s2">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span><span class="bp">nl</span>   <span class="c1">### Specify Member class name</span>
 
 <span class="c1">###---------------------------------------</span>
 
@@ -1167,8 +1167,8 @@ The Find uses the member name, rather than the column number</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">mergemethods</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span><span class="s2">&quot;share&quot;</span><span class="p">)</span>
 <span class="nb">mergemethods</span><span class="p">(</span><span class="s2">&quot;count2&quot;</span><span class="p">,</span><span class="s2">&quot;share&quot;</span><span class="p">)</span>
 
-<span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">count</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
-<span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">count2</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">count</span>  <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">count2</span> <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kd">Class</span> <span class="nc">Share</span>
         <span class="kd">func</span> <span class="nf">one</span>
@@ -1184,18 +1184,18 @@ The Find uses the member name, rather than the column number</p>
 
 <span class="kd">Class</span> <span class="nc">Count</span> <span class="kd">from</span> <span class="nc">Display</span>
         <span class="kd">Func</span> <span class="nf">test</span>
-                <span class="n">printline</span><span class="p">()</span>
-                <span class="n">one</span><span class="p">()</span>
-                <span class="n">two</span><span class="p">()</span>
-                <span class="n">three</span><span class="p">()</span>
-                <span class="n">printline</span><span class="p">()</span>
+                <span class="nf">printline</span><span class="p">()</span>
+                <span class="nf">one</span><span class="p">()</span>
+                <span class="nf">two</span><span class="p">()</span>
+                <span class="nf">three</span><span class="p">()</span>
+                <span class="nf">printline</span><span class="p">()</span>
 
 <span class="kd">Class</span> <span class="nc">Count2</span> <span class="kd">from</span> <span class="nc">Display</span>
         <span class="kd">Func</span> <span class="nf">test</span>
-                <span class="n">three</span><span class="p">()</span>
-                <span class="n">two</span><span class="p">()</span>
-                <span class="n">one</span><span class="p">()</span>
-                <span class="n">printline</span><span class="p">()</span>
+                <span class="nf">three</span><span class="p">()</span>
+                <span class="nf">two</span><span class="p">()</span>
+                <span class="nf">one</span><span class="p">()</span>
+                <span class="nf">printline</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1236,7 +1236,7 @@ The Find uses the member name, rather than the column number</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">importpackage</span><span class="p">(</span><span class="ss">:mypackage</span><span class="p">)</span>
-<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="n">myfunction</span><span class="p">()</span> <span class="p">}</span>
+<span class="kp">new</span> <span class="nc">myclass</span> <span class="p">{</span> <span class="nf">myfunction</span><span class="p">()</span> <span class="p">}</span>
 
 <span class="kn">package</span> <span class="nn">mypackage</span>
         <span class="kd">class</span> <span class="nc">myclass</span>
@@ -1269,7 +1269,7 @@ The output will be Zero.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">optionalFunc</span><span class="p">(</span><span class="ss">:reply</span><span class="p">)</span>
 
 <span class="o">?</span> <span class="s2">&quot;I love Programming, What about you?&quot;</span>
-<span class="n">reply</span><span class="p">()</span>
+<span class="nf">reply</span><span class="p">()</span>
 <span class="o">?</span> <span class="s2">&quot;Ok, Thanks!&quot;</span>
 </pre></div>
 </div>
@@ -1302,7 +1302,7 @@ Ok, Thanks!
 <span class="nb">optionalFunc</span><span class="p">(</span><span class="ss">:three</span><span class="p">)</span>
 
 <span class="o">?</span> <span class="s2">&quot;Call optional functions&quot;</span>
-<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+<span class="nf">one</span><span class="p">()</span> <span class="nf">two</span><span class="p">()</span> <span class="nf">three</span><span class="p">()</span>
 
 <span class="o">?</span> <span class="s2">&quot;Print list of optional functions&quot;</span>
 <span class="o">?</span> <span class="bp">RingOptionalFunctions</span>
@@ -1315,7 +1315,7 @@ Ok, Thanks!
 <span class="sb">`</span><span class="p">)</span>
 
 <span class="o">?</span> <span class="s2">&quot;Call optional functions&quot;</span>
-<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+<span class="nf">one</span><span class="p">()</span> <span class="nf">two</span><span class="p">()</span> <span class="nf">three</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1342,7 +1342,7 @@ Message from three() function
         <span class="ss">:five</span>
 <span class="p">],</span> <span class="bp">True</span><span class="p">)</span>
 
-<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c1"># No Error</span>
+<span class="nf">one</span><span class="p">()</span> <span class="nf">two</span><span class="p">()</span> <span class="nf">three</span><span class="p">()</span> <span class="nf">four</span><span class="p">()</span> <span class="nf">five</span><span class="p">()</span>       <span class="c1"># No Error</span>
 
 <span class="nb">eval</span><span class="p">(</span><span class="sb">`</span>
 <span class="sb">func one   ? 1</span>
@@ -1354,7 +1354,7 @@ Message from three() function
 
 <span class="o">?</span> <span class="bp">RingOptionalFunctions</span>                 <span class="c1"># Print Names</span>
 
-<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c1"># Print Numbers</span>
+<span class="nf">one</span><span class="p">()</span> <span class="nf">two</span><span class="p">()</span> <span class="nf">three</span><span class="p">()</span> <span class="nf">four</span><span class="p">()</span> <span class="nf">five</span><span class="p">()</span>       <span class="c1"># Print Numbers</span>
 </pre></div>
 </div>
 <p>Output:</p>

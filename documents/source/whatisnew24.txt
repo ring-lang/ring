@@ -17,6 +17,7 @@ Ring 1.24 comes with the next features!
 
 * Ring for macOS (Apple silicon)
 * RingPM GUI
+* RingFmt 
 * More RingPM Packages
 * More Samples
 * Better RingLibCurl
@@ -60,6 +61,35 @@ Features:
 .. image:: ringpmgui.png
 	:alt: RingPM GUI
 
+
+.. index:: 
+	pair: What is new in Ring 1.24?; RingFmt
+
+RingFmt
+=======
+
+RingFmt is a source code formatter and beautifier
+
+Usage:
+
+.. code-block:: none
+
+	ringfmt filename.ring [Options]
+
+Options:
+
+.. code-block:: none
+
+	-keywords:lower   : Convert all keywords to lowercase (default setting)
+	-keywords:upper   : Convert all keywords to UPPERCASE
+	-keywords:name    : Convert keywords to NameCase (e.g., Class, From)
+	-indentation:tabs : Use tab characters for indentation (default setting)
+	-indentation:2    : Use 2 spaces per indentation level
+	-indentation:4    : Use 4 spaces per indentation level
+	-indentation:8    : Use 8 spaces per indentation level
+	-output:print     : Print formatted output (default setting)
+	-output:write     : Overwrite the source file with formatted output
+	-output:none      : No output
 
 .. index:: 
 	pair: What is new in Ring 1.24?; More RingPM Packages

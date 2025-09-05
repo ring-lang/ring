@@ -385,11 +385,11 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
         <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -477,7 +477,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 <p>RingQt comes with a simple function : AppFile() that we can use to determine the files that we may</p>
 <p>access on Desktop or Mobile platforms</p>
 <p>The next code from cards.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;cards.jpg&quot;</span><span class="p">))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mypic</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPixmap</span><span class="p">(</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;cards.jpg&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>So all what you need is using AppFile() function around your image files!</p>
@@ -590,34 +590,34 @@ name of the Image files.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nf">CreateToolBar</span>
         <span class="n">aBtns</span> <span class="o">=</span> <span class="p">[</span>
                         <span class="kp">new</span> <span class="nc">qtoolbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;image/new.png&quot;</span><span class="p">))</span>
-                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:NewAction</span><span class="p">))</span>
-                                <span class="n">settooltip</span><span class="p">(</span><span class="s2">&quot;New File&quot;</span><span class="p">)</span>
+                                <span class="nf">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;image/new.png&quot;</span><span class="p">))</span>
+                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:NewAction</span><span class="p">))</span>
+                                <span class="nf">settooltip</span><span class="p">(</span><span class="s2">&quot;New File&quot;</span><span class="p">)</span>
                         <span class="p">}</span> <span class="p">,</span>
                         <span class="kp">new</span> <span class="nc">qtoolbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;image/open.png&quot;</span><span class="p">))</span>
-                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:OpenAction</span><span class="p">))</span>
-                                <span class="n">settooltip</span><span class="p">(</span><span class="s2">&quot;Open File&quot;</span><span class="p">)</span>
+                                <span class="nf">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;image/open.png&quot;</span><span class="p">))</span>
+                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:OpenAction</span><span class="p">))</span>
+                                <span class="nf">settooltip</span><span class="p">(</span><span class="s2">&quot;Open File&quot;</span><span class="p">)</span>
                         <span class="p">}</span> <span class="p">,</span>
                         <span class="kp">new</span> <span class="nc">qtoolbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;image/save.png&quot;</span><span class="p">))</span>
-                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:SaveAction</span><span class="p">))</span>
-                                <span class="n">settooltip</span><span class="p">(</span><span class="s2">&quot;Save&quot;</span><span class="p">)</span>
+                                <span class="nf">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;image/save.png&quot;</span><span class="p">))</span>
+                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:SaveAction</span><span class="p">))</span>
+                                <span class="nf">settooltip</span><span class="p">(</span><span class="s2">&quot;Save&quot;</span><span class="p">)</span>
                          <span class="p">}</span> <span class="p">,</span>
                         <span class="kp">new</span> <span class="nc">qtoolbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;image/saveas.png&quot;</span><span class="p">))</span>
-                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:SaveAsAction</span><span class="p">))</span>
-                                <span class="n">settooltip</span><span class="p">(</span><span class="s2">&quot;Save As&quot;</span><span class="p">)</span>
+                                <span class="nf">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;image/saveas.png&quot;</span><span class="p">))</span>
+                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:SaveAsAction</span><span class="p">))</span>
+                                <span class="nf">settooltip</span><span class="p">(</span><span class="s2">&quot;Save As&quot;</span><span class="p">)</span>
                          <span class="p">}</span> <span class="p">,</span>
                         <span class="kp">new</span> <span class="nc">qtoolbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="n">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="n">AppFile</span><span class="p">(</span><span class="s2">&quot;image/close.png&quot;</span><span class="p">))</span>
-                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(</span><span class="ss">:ExitAction</span><span class="p">))</span>
-                                <span class="n">settooltip</span><span class="p">(</span><span class="s2">&quot;Exit&quot;</span><span class="p">)</span>
+                                <span class="nf">setbtnimage</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="nf">AppFile</span><span class="p">(</span><span class="s2">&quot;image/close.png&quot;</span><span class="p">))</span>
+                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:ExitAction</span><span class="p">))</span>
+                                <span class="nf">settooltip</span><span class="p">(</span><span class="s2">&quot;Exit&quot;</span><span class="p">)</span>
                         <span class="p">}</span>
                 <span class="p">]</span>
 
-        <span class="n">tool1</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="n">addtoolbar</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>  <span class="p">{</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aBtns</span> <span class="p">{</span> <span class="n">addwidget</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">addseparator</span><span class="p">()</span> <span class="p">}</span>
+        <span class="n">tool1</span> <span class="o">=</span> <span class="n">win</span><span class="o">.</span><span class="nf">addtoolbar</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span>  <span class="p">{</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aBtns</span> <span class="p">{</span> <span class="nf">addwidget</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">addseparator</span><span class="p">()</span> <span class="p">}</span>
         <span class="p">}</span>
 </pre></div>
 </div>

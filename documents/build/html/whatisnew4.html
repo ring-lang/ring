@@ -354,12 +354,12 @@ I will count Again!
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
 <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="n">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
-        <span class="n">SetCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
-        <span class="n">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
-        <span class="n">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
-        <span class="n">RunFile</span><span class="p">(</span><span class="s2">&quot;program.txt&quot;</span><span class="p">)</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
+        <span class="nf">RunFile</span><span class="p">(</span><span class="s2">&quot;program.txt&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -368,7 +368,7 @@ I will count Again!
 <p>We will define two commands, Hello and Count.</p>
 <p>So we must have two files for defining the commands in the CurrentDir()+”/../command” folder</p>
 <p>File: hello.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeyword</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeyword</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:hello</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
@@ -378,7 +378,7 @@ I will count Again!
 </pre></div>
 </div>
 <p>File: count.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">([</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeywordNumberNumber</span><span class="p">([</span>
         <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:count</span><span class="p">,</span>
         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
@@ -386,7 +386,7 @@ I will count Again!
                         <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
                         <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="p">}</span>
-                <span class="k">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="k">else</span>
                         <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
@@ -397,10 +397,10 @@ I will count Again!
                 <span class="k">else</span>
                         <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
                         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
-                <span class="n">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="nf">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">}</span>
 <span class="p">])</span>
 </pre></div>
@@ -480,16 +480,16 @@ I will count Again!
 <ul class="simple">
 <li><p>Better Template() function - can accept NULL instead of object as the second parameter.</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">html</span><span class="p">(</span><span class="nf">template</span><span class="p">(</span><span class="s2">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>The Form Class is updated to support the “target” attribute.</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">BootStrapWebPage</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">BootStrapWebPage</span><span class="p">()</span>
 <span class="p">{</span>
         <span class="n">Title</span> <span class="o">=</span> <span class="s2">&quot;The Ring Programming Language&quot;</span>
-        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
+        <span class="nf">html</span><span class="p">(</span><span class="nf">template</span><span class="p">(</span><span class="s2">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
         <span class="n">div</span> <span class="p">{</span>
                 <span class="n">classname</span> <span class="o">=</span> <span class="ss">:container</span>
                 <span class="n">div</span>
@@ -506,17 +506,17 @@ I will count Again!
                                 <span class="n">input</span> <span class="p">{</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;page&quot;</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span> <span class="p">}</span>
                                 <span class="n">Table</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
-                                                <span class="n">stylegradient</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
 
                                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span>
                                                         <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
-                                                         <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Code :&quot;</span><span class="p">)</span>
+                                                         <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Code :&quot;</span><span class="p">)</span>
                                                 <span class="p">}</span>
                                                 <span class="n">TD</span> <span class="p">{</span>
-                                                        <span class="n">html</span><span class="p">(</span><span class="sb">`</span>
+                                                        <span class="nf">html</span><span class="p">(</span><span class="sb">`</span>
 <span class="sb">                                                        &lt;textarea name = &quot;cCode&quot;</span>
 <span class="sb">                                                        rows=&quot;5&quot;</span>
 <span class="sb">                                                        style=&quot;width : 100%; &quot;&gt;</span>
@@ -530,17 +530,17 @@ I will count Again!
                                                 <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;Execute&quot;</span> <span class="p">}</span>
                                 <span class="n">Table</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
-                                                <span class="n">stylegradient</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
 
                                                 <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span>
                                                         <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
-                                                        <span class="n">text</span><span class="p">(</span><span class="s2">&quot;Output :&quot;</span><span class="p">)</span>
+                                                        <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Output :&quot;</span><span class="p">)</span>
                                                 <span class="p">}</span>
                                                 <span class="n">TD</span> <span class="p">{</span>
-                                                <span class="n">html</span><span class="p">(</span><span class="sb">`</span>
+                                                <span class="nf">html</span><span class="p">(</span><span class="sb">`</span>
 <span class="sb">                                                &lt;iframe name=&quot;codeoutput&quot;</span>
 <span class="sb">                                                width=&quot;100%&quot;</span>
 <span class="sb">                                                style=&quot;background-color:white;&quot;&gt;</span>
@@ -553,7 +553,7 @@ I will count Again!
                 <span class="p">}</span>
 
         <span class="p">}</span>
-        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;footer.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
+        <span class="nf">html</span><span class="p">(</span><span class="nf">template</span><span class="p">(</span><span class="s2">&quot;footer.rhtml&quot;</span><span class="p">,</span><span class="bp">NULL</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 </div>

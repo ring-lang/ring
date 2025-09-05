@@ -303,7 +303,7 @@ ringpm run Chess3D-Qt3D
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-<span class="o">?</span> <span class="n">RandomList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">RandomList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -317,7 +317,7 @@ ringpm run Chess3D-Qt3D
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-<span class="o">?</span> <span class="n">RandomItem</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">RandomItem</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -354,18 +354,18 @@ ringpm run Chess3D-Qt3D
 <span class="n">oApp</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qapp</span> <span class="p">{</span>
 
         <span class="n">w</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Using Clipboard - Press CTRL+V&quot;</span><span class="p">)</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="nf">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Using Clipboard - Press CTRL+V&quot;</span><span class="p">)</span>
+                <span class="nf">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
                 <span class="kp">new</span> <span class="nc">qlineedit</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-                        <span class="n">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="nf">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+                        <span class="nf">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">show</span><span class="p">()</span>
+                <span class="nf">show</span><span class="p">()</span>
         <span class="p">}</span>
 
-        <span class="n">oApp</span><span class="o">.</span><span class="n">clipboard</span><span class="p">()</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;I Love Ring Programming!&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">oApp</span><span class="o">.</span><span class="nf">clipboard</span><span class="p">()</span><span class="o">.</span><span class="nf">setText</span><span class="p">(</span><span class="s2">&quot;I Love Ring Programming!&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="n">exec</span><span class="p">()</span>
+        <span class="nf">exec</span><span class="p">()</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -375,11 +375,11 @@ ringpm run Chess3D-Qt3D
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;guilib.ring&quot;</span>
 
 <span class="n">o1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QString2</span><span class="p">()</span>
-<span class="n">o1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Ring&quot;</span><span class="p">)</span>
+<span class="n">o1</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="s2">&quot;Ring&quot;</span><span class="p">)</span>
 
 <span class="n">oChar</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QChar</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">o1</span><span class="o">.</span><span class="n">leftJustified</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">oChar</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">o1</span><span class="o">.</span><span class="n">rightJustified</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">oChar</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">o1</span><span class="o">.</span><span class="nf">leftJustified</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">oChar</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">o1</span><span class="o">.</span><span class="nf">rightJustified</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">oChar</span><span class="p">,</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -396,12 +396,12 @@ ringpm run Chess3D-Qt3D
 <p>Example (From ChessEndGame Application)</p>
 <p>URL: <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/chessendgame/predictionController.ring#L67">https://github.com/ring-lang/ring/blob/master/applications/chessendgame/predictionController.ring#L67</a></p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Header</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="bp">null</span><span class="p">,</span><span class="s1">&#39;accept-encoding: identity&#39;</span><span class="p">)</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;authorization: Bearer &#39;</span> <span class="o">+</span> <span class="n">my_api_key</span> <span class="p">)</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;connection: close&#39;</span><span class="p">)</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;content-length: &#39;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_body</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;content-type: application/json&#39;</span><span class="p">)</span>
-<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nf">curl_slist_append</span><span class="p">(</span><span class="bp">null</span><span class="p">,</span><span class="s1">&#39;accept-encoding: identity&#39;</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nf">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;authorization: Bearer &#39;</span> <span class="o">+</span> <span class="n">my_api_key</span> <span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nf">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;connection: close&#39;</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nf">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;content-length: &#39;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_body</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nf">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s1">&#39;content-type: application/json&#39;</span><span class="p">)</span>
+<span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

@@ -406,7 +406,7 @@ The output will be Zero.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">optionalFunc</span><span class="p">(</span><span class="ss">:reply</span><span class="p">)</span>
 
 <span class="o">?</span> <span class="s2">&quot;I love Programming, What about you?&quot;</span>
-<span class="n">reply</span><span class="p">()</span>
+<span class="nf">reply</span><span class="p">()</span>
 <span class="o">?</span> <span class="s2">&quot;Ok, Thanks!&quot;</span>
 </pre></div>
 </div>
@@ -437,7 +437,7 @@ Ok, Thanks!
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Child</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Child</span>  <span class="p">{</span> <span class="nf">test</span><span class="p">()</span> <span class="p">}</span>
 <span class="kd">class</span> <span class="nc">Parent</span>
 
 <span class="kd">class</span> <span class="nc">Child</span> <span class="kd">from</span> <span class="nc">Parent</span>
@@ -481,8 +481,8 @@ using Bytes2List() and List2Bytes() functions.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;typehints.ring&quot;</span>
 
 <span class="n">o</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyNewLib</span> <span class="p">{</span>
-        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">MyLib</span> <span class="p">{</span>
@@ -515,52 +515,52 @@ Using override
 <section id="better-ringraylib">
 <span id="index-17"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>The next functions are added to the RingRayLib extension</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">vec2</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector2</span>
-<span class="o">*</span> <span class="n">vec2set</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec2getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec2setx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec2gety</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec2sety</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec3</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector3</span>
-<span class="o">*</span> <span class="n">vec3set</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">,</span><span class="n">double</span> <span class="n">z</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec3getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec3setx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec3gety</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec3sety</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec3getz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec3setz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec4</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector4</span>
-<span class="o">*</span> <span class="n">vec4set</span><span class="p">(</span><span class="n">Vector4</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">,</span><span class="n">double</span> <span class="n">z</span><span class="p">,</span><span class="n">double</span> <span class="n">w</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec4getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec4setx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec4gety</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec4sety</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec4getz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec4setz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">vec4getw</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">vec4setw</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dposx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dposx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dposy</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dposy</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dposz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dposz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dtarx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dtarx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dtary</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dtary</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dtarz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dtarz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dupx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dupx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dupy</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dupy</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3dupz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3dupz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3fovy</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3fovy</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">getcamera3type</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
-<span class="o">*</span> <span class="n">setcamera3type</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="nf">vec2</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector2</span>
+<span class="o">*</span> <span class="nf">vec2set</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec2getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec2setx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec2gety</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec2sety</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec3</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector3</span>
+<span class="o">*</span> <span class="nf">vec3set</span><span class="p">(</span><span class="n">Vector3</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">,</span><span class="n">double</span> <span class="n">z</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec3getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec3setx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec3gety</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec3sety</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec3getz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec3setz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec4</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector4</span>
+<span class="o">*</span> <span class="nf">vec4set</span><span class="p">(</span><span class="n">Vector4</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">,</span><span class="n">double</span> <span class="n">z</span><span class="p">,</span><span class="n">double</span> <span class="n">w</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec4getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec4setx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec4gety</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec4sety</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec4getz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec4setz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">vec4getw</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">vec4setw</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dposx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dposx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dposy</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dposy</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dposz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dposz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dtarx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dtarx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dtary</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dtary</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dtarz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dtarz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dupx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dupx</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dupy</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dupy</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3dupz</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3dupz</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3fovy</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3fovy</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
+<span class="o">*</span> <span class="nf">getcamera3type</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
+<span class="o">*</span> <span class="nf">setcamera3type</span><span class="p">(</span><span class="n">double</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -605,7 +605,7 @@ without the need to convert them to Lists.</p>
 
 <span class="c1"># Write the image</span>
 <span class="o">?</span> <span class="s2">&quot;Writing mynewimage.bmp&quot;</span>
-<span class="n">stbi_write_bmp</span><span class="p">(</span><span class="s2">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cData</span><span class="p">)</span>
+<span class="nf">stbi_write_bmp</span><span class="p">(</span><span class="s2">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cData</span><span class="p">)</span>
 <span class="n">t3</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
 
 <span class="o">?</span> <span class="s2">&quot;Time to create the image : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="nb">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span>
