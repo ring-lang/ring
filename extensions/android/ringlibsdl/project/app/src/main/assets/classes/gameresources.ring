@@ -4,10 +4,10 @@ class resources
 	afonts = []
 
 	func checkFile cFileName
-		# if ! fexists(cFileName)
-		# 	? "File doesn't exist: " + cFileName
-		# 	gl_exit()
-		# ok
+		if ! (isAndroid() or fexists(cFileName))
+			? "File doesn't exist: " + cFileName
+			gl_exit()
+		ok
 
 	func loadimage cFileName
 		npos = find(aimages,cFileName,1)
