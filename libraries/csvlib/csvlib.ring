@@ -90,14 +90,14 @@ func List2CSV_Process aList,nStart
 				}
 			}
 		elseif isList(item)
-			if nStart! = 0 { 
+			if nStart != 0 { 
 				cOutput += nl
 			} 
 			cOutput += List2CSV_Process(item,nStart+1)
 		}
 		nIndex++
 	}
-	if nStart! = 0 { 
+	if nStart != 0 { 
 		cOutput += nl
 	} 
 	return cOutput 
