@@ -1,5 +1,5 @@
 rem Building Ring Compiler/VM using Zig
-rem Tested using zig-windows-x86_64-0.12.0-dev.3079+a1b083b66
+rem Tested using zig-x86_64-windows-0.16.0-dev.178+b1189ab03
 rem Add Zig to your path, then run this batch file to build ring.exe
 
 cd ..\src 
