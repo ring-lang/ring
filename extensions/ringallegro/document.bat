@@ -1,2 +1,2 @@
 ring gendoc.ring
-copy ringallegrofuncsdoc.txt ..\..\docs\source\
+copy ringallegrofuncsdoc.txt ..\..\documents\source\

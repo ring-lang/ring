@@ -1,2 +1,2 @@
 ring gendoc.ring
-copy ringlibcurlfuncsdoc.txt ..\..\docs\source\
+copy ringlibcurlfuncsdoc.txt ..\..\documents\source\

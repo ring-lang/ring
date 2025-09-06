@@ -1,2 +1,2 @@
 ring gendoc.ring
-copy ringconsolecolorsfuncsdoc.txt ..\..\docs\source\
+copy ringconsolecolorsfuncsdoc.txt ..\..\documents\source\

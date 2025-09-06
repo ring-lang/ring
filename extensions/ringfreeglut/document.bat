@@ -1,2 +1,2 @@
 ring gendoc.ring
-copy ringfreeglutfuncsdoc.txt ..\..\docs\source\
+copy ringfreeglutfuncsdoc.txt ..\..\documents\source\

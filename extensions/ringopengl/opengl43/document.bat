@@ -1,2 +1,2 @@
 ring gendoc.ring
-copy ringopengl43funcsdoc.txt ..\..\..\docs\source\
+copy ringopengl43funcsdoc.txt ..\..\..\documents\source\
