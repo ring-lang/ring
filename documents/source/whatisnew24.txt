@@ -229,6 +229,7 @@ More Improvements
 * File: marketing/presentation/Ring.pptx - English revision
 * File: ring/extensions - document.bat - Using ring/documents folder
 * File: language/build/buildzig.bat - Updated and tested using Zig 0.16dev
+* File: extensions/codegen/gendoc.ring - Improved function documentation generation
 * RingNotepad: New window icon 
 * FindInFiles: Using setSelectionMode() to enable single-row selection
 * FindInFiles: Using lightguilib.ring instead of guilib.ring
