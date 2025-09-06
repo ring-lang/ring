@@ -228,6 +228,7 @@ More Improvements
 * Better scripts for building Ring (32bit) and Ring (64bit) on Windows
 * File: marketing/presentation/Ring.pptx - English revision
 * File: ring/extensions - document.bat - Using ring/documents folder
+* File: language/build/buildzig.bat - Updated and tested using Zig 0.16dev
 * RingNotepad: New window icon 
 * FindInFiles: Using setSelectionMode() to enable single-row selection
 * FindInFiles: Using lightguilib.ring instead of guilib.ring
