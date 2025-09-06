@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.3",
+	:version = "1.0.4",
 	:ringversion = "1.16",
 	:versions = 	[
 		[
-			:version = "1.0.3",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -32,7 +32,8 @@ aPackageInfo = [
 		"samples/UsingCSVLib/writeNumbersTable.ring",
 		"samples/UsingCSVLib/writeSquaresTable.ring",
 		"samples/UsingCSVLib/BMO.csv",
-		"samples/UsingCSVLib/readBMOTable.ring"
+		"samples/UsingCSVLib/readBMOTable.ring",
+		"samples/UsingCSVLib/usinglist2csv.ring"
 	],
 	:windowsfiles = 	[
 
