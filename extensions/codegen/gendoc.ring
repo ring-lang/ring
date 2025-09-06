@@ -4,7 +4,7 @@
 # Authors:                                                                   #
 #   - Mahmoud Fayed <msfclipper@yahoo.com> (2016-09-22)                      #
 #   - Youssef Saeed <youssefelkholey@gmail.com> (2025-09-06)                 #
-#		Improved Functions Documentation Generation                          #
+#               Improved Functions Documentation Generation                  #
 ##############################################################################
 
 ##############################################################################
