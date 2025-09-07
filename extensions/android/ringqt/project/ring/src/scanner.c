@@ -280,30 +280,35 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 			ring_scanner_addtoken(pScanner, SCANNER_TOKEN_KEYWORD);
 		} else if (nResult == RING_SCANNER_CHANGERINGKEYWORD) {
 			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, "ChangeRingKeyword");
 				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
 			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->cState = SCANNER_STATE_CHANGEKEYWORD;
 		} else if (nResult == RING_SCANNER_CHANGERINGOPERATOR) {
 			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, "ChangeRingOperator");
 				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
 			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->cState = SCANNER_STATE_CHANGEOPERATOR;
 		} else if (nResult == RING_SCANNER_LOADSYNTAX) {
 			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, "LoadSyntax");
 				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
 			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->cState = SCANNER_STATE_LOADSYNTAX;
 		} else if (nResult == RING_SCANNER_ENABLEHASHCOMMENTS) {
 			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, "EnableHashComments");
 				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
 			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->lHashComments = 1;
 		} else if (nResult == RING_SCANNER_DISABLEHASHCOMMENTS) {
 			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, "DisableHashComments");
 				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
 			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
