@@ -48,6 +48,7 @@ RING_API RingState *ring_state_new(void) {
 	pRingState->pRingFileTokens = NULL;
 	pRingState->lNotCaseSensitive = 1;
 	pRingState->lCommentsAsTokens = 0;
+	pRingState->lScannerCommandsAsTokens = 0;
 	pRingState->nScannerError = 0;
 	pRingState->nInstructionsCount = 0;
 	pRingState->lRunFromObjectFile = 0;

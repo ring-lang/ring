@@ -70,7 +70,7 @@ lNotCaseSensitive : 1
 Type: unsigned int
 lCommentsAsTokens : 1
 Type: unsigned int
-lCommentsAsTokens : 1
+lScannerCommandsAsTokens : 1
 Type: unsigned int
 lRunFromObjectFile : 1
 Type: unsigned int
