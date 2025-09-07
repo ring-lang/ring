@@ -113,39 +113,34 @@ func processOptions cOption
 	
 	# Pass dash '-' at the start of any option
 	if left(cOption,1) = "-" cOption = substr(cOption,2) ok
+	# Convert to lower case
+	cOption = lower(cOption)
 
-	switch lower(cOption)
-	on "keywords:lower"
+	if cOption = "keywords:lower"		or cOption = "k:l"
 		cKeywordsStyle	= :lower
-	on "keywords:upper"
+	but cOption ="keywords:upper"		or cOption = "k:u"
 		cKeywordsStyle	= :upper
-	on "keywords:name"
+	but cOption ="keywords:name"		or cOption = "k:n"
 		cKeywordsStyle	= :name
-	on "indentation:tabs"
+	but cOption ="indentation:tabs"		or cOption = "i:t"
 		cIndentation	= :tabs
-	on "indentation:spaces"
+	but cOption ="indentation:spaces"	or cOption = "i:s"
 		cIndentation	= :spaces
-	on "indentation:2spaces"
+	but cOption ="indentation:2spaces"	or cOption = "indentation:2" or cOption = "i:2"
 		cIndentation	= :2spaces
-	on "indentation:4spaces"
+	but cOption ="indentation:4spaces"	or cOption = "indentation:4" or cOption = "i:4"
 		cIndentation	= :4spaces
-	on "indentation:8spaces"
+	but cOption ="indentation:8spaces"	or cOption = "indentation:8" or cOption = "i:8"
 		cIndentation	= :8spaces
-	on "indentation:2"
-		cIndentation	= :2spaces
-	on "indentation:4"
-		cIndentation	= :4spaces
-	on "indentation:8"
-		cIndentation	= :8spaces
-	on "output:print"
-		cOutputType	= :print
-	on "output:write"
-		cOutputType	= :write
-	on "output:none"
+	but cOption ="output:print" 		or cOption = "o:p"
+		cOutputType	= :print 
+	but cOption ="output:write" 		or cOption = "o:w"
+		cOutputType	= :write 
+	but cOption ="output:none" 		or cOption = "o:n"
 		cOutputType	= :none
-	other
+	else
 		return false
-	off	
+	ok	
 	
 	return True
 
@@ -565,16 +560,16 @@ func showhelp
 	line()
 	? "Usage: ringfmt filename.ring [Options]"
 	line()
-	? "-keywords:lower   : Convert all keywords to lowercase (default setting)"
-	? "-keywords:upper   : Convert all keywords to UPPERCASE"
-	? "-keywords:name    : Convert keywords to NameCase (e.g., Class, From)"
-	? "-indentation:tabs : Use tab characters for indentation (default setting)"
-	? "-indentation:2    : Use 2 spaces per indentation level"
-	? "-indentation:4    : Use 4 spaces per indentation level"
-	? "-indentation:8    : Use 8 spaces per indentation level"
-	? "-output:print     : Print formatted output (default setting)"
-	? "-output:write     : Overwrite the source file with formatted output"
-	? "-output:none      : No output"
+	? "-keywords:lower   (-k:l): Convert all keywords to lowercase (default setting)"
+	? "-keywords:upper   (-k:u): Convert all keywords to UPPERCASE"
+	? "-keywords:name    (-k:n): Convert keywords to NameCase (e.g., Class, From)"
+	? "-indentation:tabs (-i:t): Use tab characters for indentation (default setting)"
+	? "-indentation:2    (-i:2): Use 2 spaces per indentation level"
+	? "-indentation:4    (-i:4): Use 4 spaces per indentation level"
+	? "-indentation:8    (-i:8): Use 8 spaces per indentation level"
+	? "-output:print     (-o:p): Print formatted output (default setting)"
+	? "-output:write     (-o:w): Overwrite the source file with formatted output"
+	? "-output:none      (-o:n): No output"
 	line()
 
 func line
