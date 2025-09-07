@@ -288,7 +288,7 @@ cFile
 Type: List *
 pList
 Type: int
-lCase,lComments
+lCase,lComments,lScannerCommands
 ring_vm_generallib_state_stringtokens
 Type: RingState *
 pState
