@@ -401,7 +401,7 @@ func processOperator cOperator
 func getNextToken
 
 	nNextToken = nCurrentToken+1
-	if nNextToken < len(aFileTokens)
+	if nNextToken <= len(aFileTokens)
 		return aFileTokens[nCurrentToken+1]
 	ok
 
