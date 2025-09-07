@@ -279,18 +279,33 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, cStr);
 			ring_scanner_addtoken(pScanner, SCANNER_TOKEN_KEYWORD);
 		} else if (nResult == RING_SCANNER_CHANGERINGKEYWORD) {
+			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->cState = SCANNER_STATE_CHANGEKEYWORD;
 		} else if (nResult == RING_SCANNER_CHANGERINGOPERATOR) {
+			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->cState = SCANNER_STATE_CHANGEOPERATOR;
 		} else if (nResult == RING_SCANNER_LOADSYNTAX) {
+			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->cState = SCANNER_STATE_LOADSYNTAX;
 		} else if (nResult == RING_SCANNER_ENABLEHASHCOMMENTS) {
+			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->lHashComments = 1;
 		} else if (nResult == RING_SCANNER_DISABLEHASHCOMMENTS) {
+			if (pScanner->pRingState->lScannerCommandsAsTokens) {
+				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+			}
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 			pScanner->lHashComments = 0;
 		}
@@ -591,6 +606,12 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 			printf("Keyword :  %s\n", ring_string_get(word1));
 		}
 	}
+	if (pScanner->pRingState->lScannerCommandsAsTokens) {
+		ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, ring_string_get(word1));
+		ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+		ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, ring_string_get(word2));
+		ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+	}
 	/* Delete Strings */
 	ring_string_delete_gc(pScanner->pRingState, word1);
 	ring_string_delete_gc(pScanner->pRingState, word2);
@@ -635,6 +656,12 @@ void ring_scanner_changeoperator(Scanner *pScanner) {
 			puts(RING_WARNING_OPERATORNOTFOUND);
 			printf("Operator :  %s\n", ring_string_get(word1));
 		}
+	}
+	if (pScanner->pRingState->lScannerCommandsAsTokens) {
+		ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, ring_string_get(word1));
+		ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+		ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, ring_string_get(word2));
+		ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
 	}
 	/* Delete Strings */
 	ring_string_delete_gc(pScanner->pRingState, word1);
@@ -684,6 +711,9 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 		return;
 	}
 	nSize = 1;
+	if (pScanner->pRingState->lScannerCommandsAsTokens) {
+		ring_scanner_addtoken(pScanner, SCANNER_TOKEN_IDENTIFIER);
+	}
 	ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 	nLine = pScanner->nLinesCount;
 	/* Set the Line Number (To be 1) */

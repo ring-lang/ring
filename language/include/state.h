@@ -68,6 +68,8 @@ typedef struct RingState {
 	unsigned int lNotCaseSensitive : 1;
 	/* Flag (Comments As Tokens From Scanner) */
 	unsigned int lCommentsAsTokens : 1;
+	/* Flag (Scanner commands as tokens) */
+	unsigned int lScannerCommandsAsTokens : 1;
 	/* Flag to know if we are running from Object File (RINGO file) */
 	unsigned int lRunFromObjectFile : 1;
 	/* Pool Manager Flags */
