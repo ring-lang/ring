@@ -103,9 +103,7 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 		/* Not enough space, so reallocate with a growth strategy */
 		nNewCapacity = pString->nCapacity;
 		/* Common strategy: double the capacity until it's large enough */
-		if (nNewCapacity == 0) {
-			nNewCapacity = 8;
-		}
+		nNewCapacity = RING_STRING_ARRAYSIZE;
 		while ((nRequiredSize + 1) > nNewCapacity) {
 			nNewCapacity *= 2;
 		}
