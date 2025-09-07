@@ -297,7 +297,7 @@ cString
 Type: List *
 pList
 Type: int
-lCase,lComments
+lCase,lComments,lScannerCommands
 ring_vm_generallib_state_scannererror
 Type: RingState *
 pState

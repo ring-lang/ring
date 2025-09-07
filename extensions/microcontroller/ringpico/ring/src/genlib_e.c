@@ -1640,7 +1640,7 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 	RingState *pState;
 	char *cString;
 	List *pList;
-	int lCase, lComments;
+	int lCase, lComments, lScannerCommands;
 	if (RING_API_PARACOUNT < 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1658,12 +1658,20 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 	pState->lOnlyTokens = 1;
 	/* Check the (Comments As Tokens) feature */
 	lComments = 0;
-	if (RING_API_PARACOUNT == 4) {
+	if (RING_API_PARACOUNT >= 4) {
 		if (RING_API_ISNUMBER(4)) {
 			lComments = (int)RING_API_GETNUMBER(4);
 		}
 	}
 	pState->lCommentsAsTokens = lComments;
+	/* Check the (Scanner Commands As Tokens) feature */
+	lScannerCommands = 0;
+	if (RING_API_PARACOUNT == 5) {
+		if (RING_API_ISNUMBER(5)) {
+			lScannerCommands = (int)RING_API_GETNUMBER(5);
+		}
+	}
+	pState->lScannerCommandsAsTokens = lScannerCommands;
 	ring_state_runstring(pState, cString);
 	pState->lNotCaseSensitive = 1;
 	pState->lOnlyTokens = 0;
