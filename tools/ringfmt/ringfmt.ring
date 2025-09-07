@@ -178,7 +178,7 @@ func processFile cFileName
 func loadFileTokens cFileName
 
 	pState  = ring_state_new()
-	aTokens = ring_state_stringtokens(pState,read(cFileName),False,True)
+	aTokens = ring_state_stringtokens(pState,read(cFileName),False,True,True)
 	if ring_state_scannererror(pState) 
 		raise("Ring Scanner Error!")
 	ok
