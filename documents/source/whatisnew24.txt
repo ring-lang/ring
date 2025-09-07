@@ -36,6 +36,9 @@ Build scripts are revised to support both of macOS (Intel) and macOS (Apple sili
 
 Tested using macOS 13 (Intel) and macOS 15 (Apple silicon)
 
+.. image:: ringformacosapplesilicon.png
+	:alt: Ring for macOS (Apple Silicon)
+
 .. index:: 
 	pair: What is new in Ring 1.24?; RingPM GUI
 
