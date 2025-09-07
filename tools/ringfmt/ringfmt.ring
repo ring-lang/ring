@@ -351,7 +351,7 @@ func removeLastTabFromBuffer
 
 func afterTabOrSpaceOrNLInBuffer
 	
-	if len(cOutputBuffer) 
+	if cOutputBuffer 
 		cLastChar = right(cOutputBuffer,1) 
 		return cLastChar = Tab or cLastChar = " " or cLastChar = NL 
 	ok
