@@ -293,4 +293,6 @@ void ring_scanner_addreturn(RingState *pRingState);
 void ring_scanner_addreturn2(RingState *pRingState);
 
 void ring_scanner_addreturn3(RingState *pRingState, int aPara[2]);
+
+void ring_scanner_registertoken(Scanner *pScanner, unsigned int nType, const char *cValue);
 #endif

@@ -321,3 +321,6 @@ pList
 ring_scanner_addreturn3
 Type: List *
 pList
+ring_scanner_registertoken
+Type: List *
+pList
