@@ -402,7 +402,7 @@ func getNextToken
 
 	nNextToken = nCurrentToken+1
 	if nNextToken <= len(aFileTokens)
-		return aFileTokens[nCurrentToken+1]
+		return aFileTokens[nNextToken]
 	ok
 
 	return [-1,-1,-1]
