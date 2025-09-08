@@ -535,7 +535,7 @@ void ring_vm_generallib_str2list(void *pPointer) {
 		if (nSize > nStart) {
 			ring_list_addstring2_gc(((VM *)pPointer)->pRingState, pList, cStr + nStart, nSize - nStart);
 		}
-		RING_API_RETLIST(pList);
+		RING_API_RETLISTBYREF(pList);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -1632,7 +1632,7 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	/* Copy The List */
 	pList = RING_API_NEWLIST;
 	ring_list_copy_tohighlevel_gc(((VM *)pPointer)->pRingState, pList, pState->pRingFileTokens);
-	RING_API_RETLIST(pList);
+	RING_API_RETLISTBYREF(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState, pState->pRingFileTokens);
 }
 
@@ -1679,7 +1679,7 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 	/* Copy The List */
 	pList = RING_API_NEWLIST;
 	ring_list_copy_tohighlevel_gc(((VM *)pPointer)->pRingState, pList, pState->pRingFileTokens);
-	RING_API_RETLIST(pList);
+	RING_API_RETLISTBYREF(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState, pState->pRingFileTokens);
 }
 
@@ -2136,7 +2136,7 @@ void ring_vm_generallib_timelist(void *pPointer) {
 	/* percent sign */
 	strftime(cBuffer, RING_SMALLBUF, "%%", vTimeInfo);
 	ring_list_addstring_gc(((VM *)pPointer)->pRingState, pList, cBuffer);
-	RING_API_RETLIST(pList);
+	RING_API_RETLISTBYREF(pList);
 }
 
 void ring_vm_generallib_date(void *pPointer) {
