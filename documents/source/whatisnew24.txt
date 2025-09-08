@@ -244,6 +244,8 @@ More Improvements
 * RingLibSDL: Better support for Android (Using recent development tools)
 * RingLibuv: Revise the samples to use destroy_sockaddr_in() function 
 * StdLib - isAppCompiled() function: Better implemetation
+* ring_state_filetokens(): Support getting tokens for scanner commands (optional)
+* ring_state_stringtokens(): Support getting tokens for scanner commands (optional)
 * ring_state_stringtokens(): Better performance 
 * Space() function: Don't accept values over UINT_MAX
 * List() function: Don't accept values over UINT_MAX 
