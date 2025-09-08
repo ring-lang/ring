@@ -578,15 +578,13 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 	cStr = ring_string_get(pScanner->pActiveToken);
 	activeword = word1;
 	for (x = 0; x < ring_string_size(pScanner->pActiveToken); x++) {
-		if ((cStr[x] == ' ') || (cStr[x] == '\t')) {
+		if ((cStr[x] == ' ') || (cStr[x] == '\t') || (cStr[x] == '\r')) {
 			if ((activeword == word1) && (ring_string_size(activeword) >= 1)) {
 				activeword = word2;
 			}
 		} else {
-			if (isprint(cStr[x])) {
-				cStr2[0] = cStr[x];
-				ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
-			}
+			cStr2[0] = cStr[x];
+			ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
 		}
 	}
 	/* To Lower Case */
@@ -629,15 +627,13 @@ void ring_scanner_changeoperator(Scanner *pScanner) {
 	cStr = ring_string_get(pScanner->pActiveToken);
 	activeword = word1;
 	for (x = 0; x < ring_string_size(pScanner->pActiveToken); x++) {
-		if ((cStr[x] == ' ') || (cStr[x] == '\t')) {
+		if ((cStr[x] == ' ') || (cStr[x] == '\t') || (cStr[x] == '\r')) {
 			if ((activeword == word1) && (ring_string_size(activeword) >= 1)) {
 				activeword = word2;
 			}
 		} else {
-			if (isprint(cStr[x])) {
-				cStr2[0] = cStr[x];
-				ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
-			}
+			cStr2[0] = cStr[x];
+			ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
 		}
 	}
 	/* To Lower Case */
@@ -678,12 +674,11 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	cFileName = ring_string_get(pScanner->pActiveToken);
 	/* Remove Spaces and " " from file name */
 	x = 0;
-	while (((cFileName[x] == ' ') || (cFileName[x] == '"') || (!isprint(cFileName[x]))) &&
-	       (x <= strlen(cFileName))) {
+	while (((cFileName[x] == ' ') || (cFileName[x] == '"') || (cFileName[x] == '\r')) && (x <= strlen(cFileName))) {
 		cFileName++;
 	}
 	x = strlen(cFileName);
-	while (((cFileName[x - 1] == ' ') || (cFileName[x - 1] == '"') || (!isprint(cFileName[x - 1]))) && (x >= 1)) {
+	while (((cFileName[x - 1] == ' ') || (cFileName[x - 1] == '"') || (cFileName[x - 1] == '\r')) && (x >= 1)) {
 		cFileName[x - 1] = '\0';
 		x--;
 	}
