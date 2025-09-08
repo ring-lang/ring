@@ -9,64 +9,64 @@ load "tokenslib.ring"
 
 # Global Variables (Customization)
 
-cKeywordsStyle		= :lower	# Options :lower, :upper, :name
-cIndentation 		= :tabs		# Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
-cOutputType		= :print	# Just Print the output
+cKeywordsStyle          = :lower    # Options :lower, :upper, :name
+cIndentation            = :tabs     # Options :tabs, :spaces, :2spaces, :4spaces, :8spaces
+cOutputType             = :print    # Just Print the output
 
 # Global Variables (Control)
 
 ## Files and Tokens
-aFilesToProcess		= []
-aFileTokens		= []
-nCurrentToken		= 0
-cOutputBuffer		= ""
-cCurrentFileName	= ""
+aFilesToProcess         = []
+aFileTokens             = []
+nCurrentToken           = 0
+cOutputBuffer           = ""
+cCurrentFileName        = ""
 
 ## Spaces 
-lSpaceBeforeToken	= False
-lSpaceAfterToken	= False
+lSpaceBeforeToken       = False
+lSpaceAfterToken        = False
 
 ## New Lines 
-lNextNLisTwoNLs		= False
-nLastLineNumber		= 0
-nLastTokenInLastLine	= 0
+lNextNLisTwoNLs         = False
+nLastLineNumber         = 0
+nLastTokenInLastLine    = 0
 
 ## Tabs and Indentation
-nTabsCount		= 0
-nPackageTab		= 0
-nClassTab		= 0
-nFuncTab		= 0
-nLastTabsCount		= 0
+nTabsCount              = 0
+nPackageTab             = 0
+nClassTab               = 0
+nFuncTab                = 0
+nLastTabsCount          = 0
 
 ## Configuration Lists
 
-aStartImportant		= [	:package, :class, :func, :def, :function			]
-aEndImportant		= [	:endpackage, :endclass, :endfunc, :end, :endfunction		]
+aStartImportant         = [ :package, :class, :func, :def, :function			        ]
+aEndImportant           = [ :endpackage, :endclass, :endfunc, :end, :endfunction		]
 
-aStartTabs		= [	:for, :foreach, :while, :do, :if, :switch, :try			]
-aEndTabs		= [	:next, :end, :again, :ok, :off, :done,
-				:endif, :endfor, :endswitch, :endtry, :endwhile			]
+aStartTabs              = [ :for, :foreach, :while, :do, :if, :switch, :try			]
+aEndTabs                = [ :next, :end, :again, :ok, :off, :done,
+                            :endif, :endfor, :endswitch, :endtry, :endwhile			]
 
-aStartNL		= [	:package, :else, :elseif, :but, :on, :case, :other, :catch	]
+aStartNL                = [ :package, :else, :elseif, :but, :on, :case, :other, :catch	        ]
 
-aOperatorSpaceBefore	= [	"=","?","{",
-				"+=","-=","*=","/=","%=",
-				"&=","|=","^=","<<=",">>=",
-				"<",">","<=",">=","!=","&&","||"				]
-aOperatorSpaceAfter	= [	"=","?",",","!","{",
-				"+=","-=","*=","/=","%=",
-				"&=","|=","^=","<<=",">>=",
-				"<",">","<=",">=","!=","&&","||"				]
+aOperatorSpaceBefore    = [ "=","?","{",
+                            "+=","-=","*=","/=","%=",
+                            "&=","|=","^=","<<=",">>=",
+                            "<",">","<=",">=","!=","&&","||"				        ]
+aOperatorSpaceAfter     = [ "=","?",",","!","{",
+                            "+=","-=","*=","/=","%=",
+                            "&=","|=","^=","<<=",">>=",
+                            "<",">","<=",">=","!=","&&","||"				        ]
 
-aOperatorSpaceBeforeVar = [	")","]","}",'"',"'","`"						]
+aOperatorSpaceBeforeVar = [ ")","]","}",'"',"'","`"                                             ]
 
-aOperatorBeforeAnonFunc = [	"=", "(", "," ,"[" 						]
+aOperatorBeforeAnonFunc = [ "=", "(", "," ,"["                                                  ]
 
 func main
 
 	decimals(3)
 
-	aPara	   = AppArguments()
+	aPara      = AppArguments()
 
 	nParaCount = len(aPara)
 	if ! nParaCount showHelp() return ok
@@ -116,27 +116,27 @@ func processOptions cOption
 	# Convert to lower case
 	cOption = lower(cOption)
 
-	if cOption = "keywords:lower"		or cOption = "k:l"
+	if cOption = "keywords:lower"       or cOption = "k:l"
 		cKeywordsStyle	= :lower
-	but cOption ="keywords:upper"		or cOption = "k:u"
+	but cOption ="keywords:upper"       or cOption = "k:u"
 		cKeywordsStyle	= :upper
-	but cOption ="keywords:name"		or cOption = "k:n"
+	but cOption ="keywords:name"        or cOption = "k:n"
 		cKeywordsStyle	= :name
-	but cOption ="indentation:tabs"		or cOption = "i:t"
+	but cOption ="indentation:tabs"     or cOption = "i:t"
 		cIndentation	= :tabs
-	but cOption ="indentation:spaces"	or cOption = "i:s"
+	but cOption ="indentation:spaces"   or cOption = "i:s"
 		cIndentation	= :spaces
-	but cOption ="indentation:2spaces"	or cOption = "indentation:2" or cOption = "i:2"
+	but cOption ="indentation:2spaces"  or cOption = "indentation:2" or cOption = "i:2"
 		cIndentation	= :2spaces
-	but cOption ="indentation:4spaces"	or cOption = "indentation:4" or cOption = "i:4"
+	but cOption ="indentation:4spaces"  or cOption = "indentation:4" or cOption = "i:4"
 		cIndentation	= :4spaces
-	but cOption ="indentation:8spaces"	or cOption = "indentation:8" or cOption = "i:8"
+	but cOption ="indentation:8spaces"  or cOption = "indentation:8" or cOption = "i:8"
 		cIndentation	= :8spaces
-	but cOption ="output:print" 		or cOption = "o:p"
+	but cOption ="output:print"         or cOption = "o:p"
 		cOutputType	= :print 
-	but cOption ="output:write" 		or cOption = "o:w"
+	but cOption ="output:write"         or cOption = "o:w"
 		cOutputType	= :write 
-	but cOption ="output:none" 		or cOption = "o:n"
+	but cOption ="output:none"          or cOption = "o:n"
 		cOutputType	= :none
 	else
 		return false
@@ -193,10 +193,10 @@ func processTokens aTokens
 	aFileTokens   = aTokens
 	resetVariables()
 	for aToken in aFileTokens
-		lSpaceBeforeToken	= False
-		lSpaceAfterToken	= False
-		cValue			= aToken[C_TOKENVALUE]
-		cValue 			= processToken(aToken,cValue)
+		lSpaceBeforeToken   = False
+		lSpaceAfterToken    = False
+		cValue              = aToken[C_TOKENVALUE]
+		cValue              = processToken(aToken,cValue)
 		printToken(cValue)
 		nCurrentToken++
 	next
@@ -210,15 +210,15 @@ func processTokens aTokens
 
 func resetVariables
 
-	nCurrentToken		= 1
-	cOutputBuffer		= ""
-	lNextNLisTwoNLs		= False
-	nLastLineNumber		= 0
-	nTabsCount		= 0
-	nPackageTab		= 0
-	nClassTab		= 0
-	nFuncTab		= 0	
-	nLastTabsCount		= 0
+	nCurrentToken       = 1
+	cOutputBuffer       = ""
+	lNextNLisTwoNLs     = False
+	nLastLineNumber     = 0
+	nTabsCount          = 0
+	nPackageTab         = 0
+	nClassTab           = 0
+	nFuncTab            = 0	
+	nLastTabsCount      = 0
 
 func processToken aToken, cValue
 
@@ -278,15 +278,15 @@ func processKeyword cValue
 	# Apply tabs for important sections (package, class & function)
 	lImportantSection	= True
 	if cKeyword = :package
-		nPackageTab	= 1
-		nClassTab	= 0
-		nFuncTab	= 0
-	but cKeyword = :class
-		nClassTab	= 1
-		nFuncTab	= 0
+		nPackageTab = 1
+		nClassTab   = 0
+		nFuncTab    = 0
+	but cKeyword    = :class
+		nClassTab   = 1
+		nFuncTab    = 0
 	but find([:func,:def,:function],cKeyword) 
 		if ! lastTokenIsOperator(aOperatorBeforeAnonFunc)
-			nFuncTab	= 1
+			nFuncTab = 1
 		else
 			# We have anonymous function
 			lSpaceAfterToken = True
@@ -341,8 +341,8 @@ func lastTokenIsOperator aOperators
 
 func removeLastTabFromBuffer
 
-	cTabChars	= getTabChars()
-	nTabCharsSize	= len(cTabChars)
+	cTabChars     = getTabChars()
+	nTabCharsSize = len(cTabChars)
 
 	if ( len(cOutputBuffer) > nTabCharsSize ) and
 		right(cOutputBuffer,nTabCharsSize) = cTabChars
