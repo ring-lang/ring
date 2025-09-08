@@ -152,6 +152,21 @@ The next samples are improved
 * samples/UsingThreads/RingThreads
 * samples/UsingRayLib/more/ex5_wavingcubes_threads.ring
 
+
+The following screenshot shows one of the animation samples (Desktop)
+
+.. image:: libsdlanimation1.png
+	:width: 800px
+	:height: 600px
+	:alt: LibSDLAnimationSample
+
+The following screenshot shows the same animation sample on Android
+
+.. image:: libsdlanimation2.png
+	:width: 260px
+	:height: 400px
+	:alt: LibSDLAnimationSample
+
 .. index:: 
 	pair: What is new in Ring 1.24?; Better RingLibCurl
 
