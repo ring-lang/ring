@@ -280,6 +280,7 @@ More Improvements
 * SubStr() function: Reduce memory usage (improve the performance)
 * Reverse() function: Reduce memory usage (improve the performance)
 * Shutdown() function: Don't terminate Ring Main State when used from Ring Sub State
+* Many functions are updated to use RING_API_NEWLIST and RING_API_RETLISTBYREF
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
 * Ring PM: Better format for output messages
