@@ -584,7 +584,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-		RING_API_RETLIST(pList);
+		RING_API_RETLISTBYREF(pList);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -701,7 +701,7 @@ void ring_vm_listfuncs_reverse(void *pPointer) {
 				}
 			}
 		}
-		RING_API_RETLIST(pList);
+		RING_API_RETLISTBYREF(pList);
 	} else if (RING_API_ISSTRING(1)) {
 		cStr = RING_API_GETSTRING(1);
 		nSize = RING_API_GETSTRINGSIZE(1);
