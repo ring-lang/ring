@@ -583,8 +583,10 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 				activeword = word2;
 			}
 		} else {
-			cStr2[0] = cStr[x];
-			ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
+			if (isprint(cStr[x])) {
+				cStr2[0] = cStr[x];
+				ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
+			}
 		}
 	}
 	/* To Lower Case */
@@ -632,8 +634,10 @@ void ring_scanner_changeoperator(Scanner *pScanner) {
 				activeword = word2;
 			}
 		} else {
-			cStr2[0] = cStr[x];
-			ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
+			if (isprint(cStr[x])) {
+				cStr2[0] = cStr[x];
+				ring_string_add_gc(pScanner->pRingState, activeword, cStr2);
+			}
 		}
 	}
 	/* To Lower Case */
@@ -674,11 +678,12 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	cFileName = ring_string_get(pScanner->pActiveToken);
 	/* Remove Spaces and " " from file name */
 	x = 0;
-	while (((cFileName[x] == ' ') || (cFileName[x] == '"')) && (x <= strlen(cFileName))) {
+	while (((cFileName[x] == ' ') || (cFileName[x] == '"') || (!isprint(cFileName[x]))) &&
+	       (x <= strlen(cFileName))) {
 		cFileName++;
 	}
 	x = strlen(cFileName);
-	while (((cFileName[x - 1] == ' ') || (cFileName[x - 1] == '"')) && (x >= 1)) {
+	while (((cFileName[x - 1] == ' ') || (cFileName[x - 1] == '"') || (!isprint(cFileName[x - 1]))) && (x >= 1)) {
 		cFileName[x - 1] = '\0';
 		x--;
 	}
