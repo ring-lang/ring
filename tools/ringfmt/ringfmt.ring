@@ -40,23 +40,23 @@ nLastTabsCount          = 0
 
 ## Configuration Lists
 
-aStartImportant         = [ :package, :class, :func, :def, :function			        ]
-aEndImportant           = [ :endpackage, :endclass, :endfunc, :end, :endfunction		]
+aStartImportant         = [ :package, :class, :func, :def, :function                            ]
+aEndImportant           = [ :endpackage, :endclass, :endfunc, :end, :endfunction                ]
 
-aStartTabs              = [ :for, :foreach, :while, :do, :if, :switch, :try			]
+aStartTabs              = [ :for, :foreach, :while, :do, :if, :switch, :try                     ]
 aEndTabs                = [ :next, :end, :again, :ok, :off, :done,
-                            :endif, :endfor, :endswitch, :endtry, :endwhile			]
+                            :endif, :endfor, :endswitch, :endtry, :endwhile                     ]
 
-aStartNL                = [ :package, :else, :elseif, :but, :on, :case, :other, :catch	        ]
+aStartNL                = [ :package, :else, :elseif, :but, :on, :case, :other, :catch          ]
 
 aOperatorSpaceBefore    = [ "=","?","{",
                             "+=","-=","*=","/=","%=",
                             "&=","|=","^=","<<=",">>=",
-                            "<",">","<=",">=","!=","&&","||"				        ]
+                            "<",">","<=",">=","!=","&&","||"                                    ]
 aOperatorSpaceAfter     = [ "=","?",",","!","{",
                             "+=","-=","*=","/=","%=",
                             "&=","|=","^=","<<=",">>=",
-                            "<",">","<=",">=","!=","&&","||"				        ]
+                            "<",">","<=",">=","!=","&&","||"                                    ]
 
 aOperatorSpaceBeforeVar = [ ")","]","}",'"',"'","`"                                             ]
 
