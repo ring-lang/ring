@@ -115,6 +115,14 @@ Example:
 	ringpm install webview
 
 
+The following screenshots are samples from the WebView package.
+
+.. image:: webviewsample1.png
+	:alt: WebView Sample 1
+
+.. image:: webviewsample2.png
+	:alt: WebView Sample 2
+
 .. index:: 
 	pair: What is new in Ring  1.24; More Samples
 
