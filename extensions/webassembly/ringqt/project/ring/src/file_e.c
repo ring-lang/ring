@@ -788,7 +788,7 @@ void ring_vm_file_dir(void *pPointer) {
 				}
 			} while (FindNextFile(hFind, &fdFile));
 			FindClose(hFind);
-			RING_API_RETLIST(pList);
+			RING_API_RETLISTBYREF(pList);
 		} else {
 			RING_API_ERROR(RING_API_BADDIRECTORY);
 		}
@@ -817,7 +817,7 @@ void ring_vm_file_dir(void *pPointer) {
 				}
 			}
 			closedir(pDir);
-			RING_API_RETLIST(pList);
+			RING_API_RETLISTBYREF(pList);
 			chdir(cCurrentDir);
 		} else {
 			RING_API_ERROR(RING_API_BADDIRECTORY);
