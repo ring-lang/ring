@@ -834,5 +834,9 @@ aPackagesRegistry = [
 	[ :name = "ringpmgui",
           :description = "Ring Package Manager GUI using RingQt",
           :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "yaml",
+          :description = "A YAML parser for the Ring programming language",
+          :ProviderUserName = "ysdragon"
 	]
 ]
