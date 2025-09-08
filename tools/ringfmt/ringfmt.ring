@@ -1,7 +1,7 @@
 /*
-**        Name: RingFmt Tool
-**      Author: Mahmoud Fayed
-** Prototyping: Bert Mariani & Azzeddine Remmal
+**        Project: RingFmt (Source code formatter and beautifier)
+**         Author: Mahmoud Fayed
+**    Prototyping: Bert Mariani & Azzeddine Remmal
 */ 
 
 load "stdlibcore.ring"
