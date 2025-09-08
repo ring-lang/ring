@@ -107,6 +107,7 @@ The following packages have been added to the RingPM registry.
 * Worm: Simple example about Map generation in Ring Game Engine for 2D Games
 * TicTacToePlus: An implementation for the TicTacToe game (large board) using RingQt
 * Ring-JWT: JWT library for the Ring programming language
+* YAML: A YAML parser for the Ring programming language
 
 Example:
 
