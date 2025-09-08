@@ -36,7 +36,7 @@ Build scripts are revised to support both of macOS (Intel) and macOS (Apple sili
 
 Tested using macOS 13 (Intel) and macOS 15 (Apple silicon)
 
-.. image:: ringformacosapplesilicon.png
+.. image:: ringformacosapplesilicon2.png
 	:alt: Ring for macOS (Apple Silicon)
 
 .. index:: 
