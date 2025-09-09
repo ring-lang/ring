@@ -442,7 +442,7 @@ void ring_vm_copyscopestolist(VM *pVM, List *pList) {
 int ring_vm_notusingvarduringdef(VM *pVM) {
 	int nCont;
 	nCont = RING_TRUE;
-	if ((pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER) {
+	if ((pVM->nBeforeEqual == OP_EQUAL) && (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER) {
 		if (RING_VM_STACK_ISASSIGNMENTDEST) {
 			nCont = RING_FALSE;
 			/* Clear the Assignment Pointer */

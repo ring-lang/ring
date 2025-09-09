@@ -477,6 +477,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			ring_parser_icg_newoperation(pParser, ICO_ASSIGNMENTPOINTER);
 			ring_parser_icg_newoperandint(pParser, RING_FALSE);
 			pAssignmentPointerPos = ring_parser_icg_getactiveoperation(pParser);
+			ring_parser_icg_beforeequal(pParser, nBeforeEqual);
 			RING_PARSER_IGNORENEWLINE;
 			pParser->lNewObject = 0;
 			pParser->lAssignmentFlag = 0;
@@ -504,6 +505,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 						ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_LISTEND;
 				lAfterListEnd =
 				    lAfterListEnd || (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND);
+				lAfterListEnd = lAfterListEnd && (nBeforeEqual == OP_EQUAL);
 				if (lAfterListEnd && (pParser->nBracesCounter == 0)) {
 					if ((lSetProperty == 0) || pParser->lThisOrSelfLoadA) {
 						return x;
