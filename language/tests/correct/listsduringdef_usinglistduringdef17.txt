@@ -1,0 +1,12 @@
+Pass error
+test
+Pass error
+10
+Pass error
+5
+
+Pass error
+x: 100
+y: 200
+z: 300
+
