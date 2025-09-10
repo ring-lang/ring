@@ -14,16 +14,12 @@ ring_vm_call
 ring_vm_call2
 Type: List *
 pList
-Type: int
-x
 Type: FuncCall *
 pFuncCall
 ring_vm_preparecallmethod
 Type: List *
 pList
 ring_vm_return
-Type: List *
-pList
 Type: FuncCall *
 pFuncCall
 Type: void *
@@ -36,7 +32,7 @@ ring_vm_newfunc
 Type: int
 x,nSP,nMax,lFreeParameter
 Type: List *
-pList,*aRefList,*pVar,*pRef
+aRefList,*pVar,*pRef
 Type: char *
 pParameter
 Type: const char *

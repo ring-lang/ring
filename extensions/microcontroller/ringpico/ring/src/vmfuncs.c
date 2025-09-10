@@ -197,7 +197,6 @@ void ring_vm_call(VM *pVM) {
 
 RING_API void ring_vm_call2(VM *pVM) {
 	List *pList;
-	int x;
 	FuncCall *pFuncCall;
 	pFuncCall = RING_VM_LASTFUNCCALL;
 	pFuncCall->nStatus = RING_FUNCSTATUS_CALL;
@@ -319,7 +318,6 @@ void ring_vm_preparecallmethod(VM *pVM) {
 }
 
 void ring_vm_return(VM *pVM) {
-	List *pList;
 	FuncCall *pFuncCall;
 	void *pThisObject, *pCallerThisObject;
 	int lThisCheck;
@@ -448,7 +446,7 @@ void ring_vm_returnnull(VM *pVM) {
 
 void ring_vm_newfunc(VM *pVM) {
 	int x, nSP, nMax, lFreeParameter;
-	List *pList, *aRefList, *pVar, *pRef;
+	List *aRefList, *pVar, *pRef;
 	char *pParameter;
 	const char *cParameters;
 	char cPara[RING_FUNCPARA_EXPECTEDSIZE];
@@ -710,7 +708,7 @@ void ring_vm_anonymous(VM *pVM) {
 }
 
 List *ring_vm_prevtempmem(VM *pVM) {
-	List *pList, *pTemp;
+	List *pTemp;
 	FuncCall *pFuncCall;
 	int x;
 	/* We use the general temp. memory as the default parent */
@@ -811,7 +809,6 @@ void ring_vm_freetemplists(VM *pVM) {
 }
 
 void ring_vm_retitemref(VM *pVM) {
-	List *pList;
 	FuncCall *pFuncCall;
 	/* Check if we don't have item pointer */
 	if (!RING_VM_STACK_ISPOINTER) {
