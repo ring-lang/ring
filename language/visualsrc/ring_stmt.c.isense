@@ -1,16 +1,16 @@
 ring_parser_class
 Type: List *
 pList,*pList2,*pList3,*pMark,*pNewClass
-Type: int
+Type: unsigned int
 x
 Type: String *
 pString
 ring_parser_stmt
-Type: int
+Type: unsigned int
 x,nMark1,nMark2,nMark3,nStart,nEnd,nDiff,lFastLen
-Type: int
+Type: unsigned int
 nLoadPackage,lLoopOrExitCommand,nLoadAgain,nForInVarsCount
-Type: int
+Type: unsigned int
 nVar,nLine,nLine2,lRetItemRef
 Type: String *
 pString

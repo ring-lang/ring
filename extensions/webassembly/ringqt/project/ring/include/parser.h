@@ -248,7 +248,7 @@ int ring_parser_class(Parser *pParser);
 
 int ring_parser_stmt(Parser *pParser);
 
-int ring_parser_step(Parser *pParser, int *nMark1);
+int ring_parser_step(Parser *pParser, unsigned int *nMark1);
 
 int ring_parser_paralist(Parser *pParser);
 

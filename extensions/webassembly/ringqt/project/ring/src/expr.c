@@ -384,8 +384,9 @@ int ring_parser_range(Parser *pParser) {
 }
 
 int ring_parser_factor(Parser *pParser, int *nFlag) {
-	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nToken, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
+	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
 	    lAfterListEnd;
+	unsigned int nToken;
 	List *pList, *pMark, *pAssignmentPointerPos;
 	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative;
 	char cFuncName[RING_MEDIUMBUF];

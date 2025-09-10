@@ -4,7 +4,7 @@
 
 int ring_parser_class(Parser *pParser) {
 	List *pList, *pList2, *pList3, *pMark, *pNewClass;
-	int x;
+	unsigned int x;
 	String *pString;
 	/* Statement --> Class Identifier  [ From|:|< Identifier ] */
 	if (ring_parser_iskeyword(pParser, K_CLASS)) {
@@ -244,9 +244,9 @@ int ring_parser_class(Parser *pParser) {
 }
 
 int ring_parser_stmt(Parser *pParser) {
-	int x, nMark1, nMark2, nMark3, nStart, nEnd, nDiff, lFastLen;
-	int nLoadPackage, lLoopOrExitCommand, nLoadAgain, nForInVarsCount;
-	int nVar, nLine, nLine2, lRetItemRef;
+	unsigned int x, nMark1, nMark2, nMark3, nStart, nEnd, nDiff, lFastLen;
+	unsigned int nLoadPackage, lLoopOrExitCommand, nLoadAgain, nForInVarsCount;
+	unsigned int nVar, nLine, nLine2, lRetItemRef;
 	String *pString;
 	List *pMark, *pMark2, *pMark3, *pMark4, *pList2;
 	char cStr[RING_MEDIUMBUF];
@@ -1339,7 +1339,7 @@ int ring_parser_namedotname(Parser *pParser) {
 	}
 }
 
-int ring_parser_step(Parser *pParser, int *nMark1) {
+int ring_parser_step(Parser *pParser, unsigned int *nMark1) {
 	/* Step <expr> */
 	pParser->lInsertFlag = 1;
 	pParser->nInsertCounter = *nMark1 - 1 - pParser->pRingState->nInstructionsCount;
