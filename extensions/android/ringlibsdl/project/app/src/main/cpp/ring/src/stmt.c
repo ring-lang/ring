@@ -253,9 +253,7 @@ int ring_parser_stmt(Parser *pParser) {
 	char cFileName[RING_PATHSIZE];
 	char cCurrentDir[RING_PATHSIZE];
 	nLoadPackage = 0;
-	lLoopOrExitCommand = 0;
 	nLoadAgain = 0;
-	nLine2 = 0;
 	/* Statement --> Load Literal */
 	if (ring_parser_iskeyword(pParser, K_LOAD)) {
 		ring_parser_nexttoken(pParser);
@@ -586,7 +584,6 @@ int ring_parser_stmt(Parser *pParser) {
 					nEnd = ring_parser_icg_instructionslistsize(pParser);
 					/* Check if we can avoid pushing the Variable to the Stack and avoid string copy
 					 */
-					lFastLen = 0;
 					nDiff = nEnd - nStart;
 					lFastLen =
 					    (nDiff == 1) &&
@@ -869,7 +866,6 @@ int ring_parser_stmt(Parser *pParser) {
 				ring_parser_icg_newoperation(pParser, ICO_JUMPZERO);
 				pMark = ring_parser_icg_getactiveoperation(pParser);
 				/* Generate Code */
-				nMark3 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser, ICO_JUMP);
 				ring_parser_icg_newoperandint(pParser, nMark1);
 				nMark2 = ring_parser_icg_newlabel(pParser);
