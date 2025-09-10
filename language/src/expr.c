@@ -386,7 +386,7 @@ int ring_parser_range(Parser *pParser) {
 int ring_parser_factor(Parser *pParser, int *nFlag) {
 	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nToken, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
 	    lAfterListEnd;
-	List *pLoadAPos, *pLoadAMark, *pList, *pMark, *pAssignmentPointerPos;
+	List *pLoadAMark, *pList, *pMark, *pAssignmentPointerPos;
 	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative;
 	char cFuncName[RING_MEDIUMBUF];
 	char cKeyword[RING_MEDIUMBUF];
@@ -463,15 +463,10 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			/* Check if the Assignment after object attribute name */
 			lThisOrSelfLoadA = pParser->lThisOrSelfLoadA;
 			lThisLoadA = pParser->lThisLoadA;
-			pLoadAPos = NULL;
 			if (nLastOperation == ICO_LOADSUBADDRESS) {
 				lSetProperty = 1;
 			} else {
 				lSetProperty = 0;
-				/* When the assignment is after LoadAddress */
-				if (nLastOperation == ICO_LOADADDRESS) {
-					pLoadAPos = pLoadAMark;
-				}
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser, ICO_ASSIGNMENTPOINTER);
