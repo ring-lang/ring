@@ -312,7 +312,7 @@ pRingState
 ring_vm_generallib_see
 Type: char *
 cString
-Type: int
+Type: unsigned int
 x
 cStr
 Type: List *
@@ -365,8 +365,6 @@ nSize
 ring_vm_generallib_getchar
 Type: char
 cStr[RING_CHARBUF]
-Type: int
-nOutput
 ring_vm_generallib_clock
 Type: clock_t
 nNum1

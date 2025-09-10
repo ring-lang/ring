@@ -446,7 +446,7 @@ void ring_vm_generallib_str2hex(void *pPointer) {
 }
 
 unsigned char ring_vm_generallib_hex2str_hex2nibble(char cVal) {
-	unsigned char bVal = 0;
+	unsigned char bVal;
 	if (cVal >= '0' && cVal <= '9') {
 		bVal = cVal - '0';
 	} else if (cVal >= 'a' && cVal <= 'f') {
@@ -1097,7 +1097,6 @@ void ring_vm_generallib_filename(void *pPointer) {
 	pVM = (VM *)pPointer;
 	/* Get the current file name */
 	cOldFile = NULL;
-	cFile = NULL;
 	lFunctionCall = 0;
 	for (x = RING_VM_FUNCCALLSCOUNT; x >= 1; x--) {
 		pFuncCall = RING_VM_GETFUNCCALL(x);
@@ -1766,7 +1765,7 @@ void ring_vm_generallib_state_resume(void *pPointer) {
 
 void ring_vm_generallib_see(void *pPointer) {
 	char *cString;
-	int x;
+	unsigned int x;
 	char cStr[RING_MEDIUMBUF];
 	List *pList;
 	VM *pVM;
@@ -1981,7 +1980,6 @@ void ring_vm_generallib_customprint(void *pPointer, const char *cCommand) {
 			case '\'':
 				ring_string_add_gc(pVM->pRingState, pRingCode, "+`'`");
 				continue;
-				break;
 			}
 		}
 		ring_string_add_gc(pVM->pRingState, pRingCode, "+'");
