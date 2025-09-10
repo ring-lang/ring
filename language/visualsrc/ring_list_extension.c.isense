@@ -3,8 +3,6 @@ ring_vm_list_loadfunctions
 ring_vm_listfuncs_add
 Type: List *
 pList,*pList2
-Type: Item *
-pItem
 Type: int
 lMerge,x
 Type: VM *
@@ -29,11 +27,7 @@ ring_vm_listfuncs_list
 Type: List *
 pList, *pList2
 Type: unsigned int
-x,y,nSize,nSize2
-Type: Items *
-pItems
-Type: Item *
-pItem
+x,nSize,nSize2
 Type: VM *
 pVM
 ring_vm_listfuncs_find

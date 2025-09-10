@@ -24,7 +24,6 @@ void ring_vm_list_loadfunctions(RingState *pRingState) {
 
 void ring_vm_listfuncs_add(void *pPointer) {
 	List *pList, *pList2;
-	Item *pItem;
 	int lMerge, x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
@@ -167,10 +166,8 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 }
 
 void ring_vm_listfuncs_list(void *pPointer) {
-	List *pList, *pList2;
-	unsigned int x, y, nSize, nSize2;
-	Items *pItems;
-	Item *pItem;
+	List *pList;
+	unsigned int x, nSize, nSize2;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT == 1) {
