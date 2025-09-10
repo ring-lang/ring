@@ -48,7 +48,7 @@ cClassName,*cClassName2
 Type: int
 x,nLimit,nClassPC,nType
 Type: List *
-pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis
+pList,*pList2,*pList3,*pList4,*pVar,*pSelf
 Type: Item *
 pItem
 ring_vm_oop_parentinit
@@ -163,7 +163,7 @@ pGetSetItem
 Type: String *
 pString, *pString2
 Type: RING_VM_IR_ITEMTYPE *
-pItem, *pItem2
+pItem
 Type: int
 nIns
 ring_vm_oop_setproperty

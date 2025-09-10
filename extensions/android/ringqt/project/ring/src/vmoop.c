@@ -21,7 +21,7 @@
 void ring_vm_oop_newobj(VM *pVM) {
 	const char *cClassName, *cClassName2;
 	int x, nLimit, nClassPC, nType;
-	List *pList, *pList2, *pList3, *pList4, *pList5, *pVar, *pSelf, *pThis;
+	List *pList, *pList2, *pList3, *pList4, *pVar, *pSelf;
 	Item *pItem;
 	pList2 = NULL;
 	pVar = NULL;
@@ -130,10 +130,10 @@ void ring_vm_oop_newobj(VM *pVM) {
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
-				pList5 = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-				ring_list_addpointer_gc(pVM->pRingState, pList5, pList3);
-				ring_list_addpointer_gc(pVM->pRingState, pList5, NULL);
-				ring_list_addpointer_gc(pVM->pRingState, pList5, pList);
+				pList4 = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
+				ring_list_addpointer_gc(pVM->pRingState, pList4, pList3);
+				ring_list_addpointer_gc(pVM->pRingState, pList4, NULL);
+				ring_list_addpointer_gc(pVM->pRingState, pList4, pList);
 				/* Create the Super Virtual Object */
 				ring_vm_oop_newsuperobj(pVM, pList3, pList);
 				/* Enable NULL variables (To be class attributes) */
@@ -752,7 +752,7 @@ void ring_vm_oop_setget(VM *pVM, List *pVar) {
 	List *pList, *pList2;
 	Item *pGetSetItem;
 	String *pString, *pString2;
-	RING_VM_IR_ITEMTYPE *pItem, *pItem2;
+	RING_VM_IR_ITEMTYPE *pItem;
 	int nIns;
 	RING_VM_BYTECODE_START;
 	/* Check Setter & Getter for Public Attributes */
@@ -804,8 +804,8 @@ void ring_vm_oop_setget(VM *pVM, List *pVar) {
 				/* Use the Byte Code */
 				RING_VM_BYTECODE_END;
 				/* Note: Reallocation may change mem. locations */
-				pItem2 = RING_VM_IR_ITEMATINS(nIns, RING_VM_IR_REG2);
-				RING_VM_IR_ITEMSETINT(pItem2, pVM->nPC);
+				pItem = RING_VM_IR_ITEMATINS(nIns, RING_VM_IR_REG2);
+				RING_VM_IR_ITEMSETINT(pItem, pVM->nPC);
 			} else {
 				ring_vm_blockflag2(pVM, pVM->nPC);
 				pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2);
@@ -1023,7 +1023,7 @@ Item *ring_vm_oop_objitemfromobjlist(VM *pVM, List *pList) {
 
 void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, int nType, const char *cStr2, double nNum1,
 				     void *pPointer, int nPointerType) {
-	List *pList2, *pIns;
+	List *pList2;
 	Item *pItem;
 	int nObjType, nIns;
 	RING_VM_BYTECODE_START;
