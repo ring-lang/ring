@@ -62,9 +62,9 @@ void ring_parser_icg_deletelastoperation(Parser *pParser) {
 	}
 }
 
-void ring_parser_icg_duplicate(Parser *pParser, int nStart, int nEnd) {
+void ring_parser_icg_duplicate(Parser *pParser, unsigned int nStart, unsigned int nEnd) {
 	List *pList, *pList2;
-	int x;
+	unsigned int x;
 	if ((nStart <= nEnd) && (nEnd <= ring_list_getsize(pParser->pGenCode))) {
 		for (x = nStart; x <= nEnd; x++) {
 			pList = ring_list_newlist_gc(NULL, pParser->pGenCode);

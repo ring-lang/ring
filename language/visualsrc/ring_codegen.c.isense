@@ -161,7 +161,7 @@ ring_parser_icg_deletelastoperation
 ring_parser_icg_duplicate
 Type: List *
 pList,*pList2
-Type: int
+Type: unsigned int
 x
 ring_parser_icg_newlabel2
 ring_parser_icg_setopcode
@@ -190,11 +190,7 @@ ring_parser_icg_gensetglobalscope
 Type: int
 nGlobalScope
 ring_parser_icg_math
-Type: int
-nLastOperation
 ring_parser_icg_returnn
-Type: int
-nLastOperation
 ring_parser_icg_gencallbracemethod
 Type: int
 nMark1

@@ -323,7 +323,7 @@ void ring_parser_icg_addoperandpointer(Parser *pParser, List *pList, void *pValu
 
 void ring_parser_icg_deletelastoperation(Parser *pParser);
 
-void ring_parser_icg_duplicate(Parser *pParser, int nStart, int nEnd);
+void ring_parser_icg_duplicate(Parser *pParser, unsigned int nStart, unsigned int nEnd);
 
 int ring_parser_icg_newlabel2(Parser *pParser);
 
