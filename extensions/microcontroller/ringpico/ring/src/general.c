@@ -362,8 +362,7 @@ RING_API char *ring_general_numtostring(double nNum1, char *cStr, int nDecimals)
 }
 
 RING_API void ring_general_word(const char *cStr, unsigned int nIndex, char *cOutput) {
-	char *cString;
-	unsigned int x, nStart, nEnd, nSize, nWord, nOutIndex;
+	unsigned int nStart, nEnd, nSize, nWord, nOutIndex;
 	/* This function will return a specific word from a string using the word index */
 	nSize = strlen(cStr);
 	/* Determine the start of the word */
