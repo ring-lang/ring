@@ -384,7 +384,7 @@ ring_state_willunregisterblock
 Type: int
 x, x2, x3
 Type: List *
-pList, *pVar, *pList2
+pList, *pVar
 Type: Item *
 pItem, *pNewItem
 Type: Item

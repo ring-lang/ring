@@ -852,9 +852,6 @@ RING_API void *ring_state_calloc(void *pState, size_t nItems, size_t nSize) {
 RING_API void *ring_state_realloc(void *pState, void *pPointer, size_t nAllocatedSize, size_t nSize) {
 #if RING_USEPOOLMANAGER
 	void *pMemory;
-	PoolData *pPoolData;
-	PoolDataL2 *pPoolDataL2;
-	PoolDataL3 *pPoolDataL3;
 	int nLevel, nUseMalloc;
 	size_t x;
 	nUseMalloc = 0;
@@ -863,7 +860,6 @@ RING_API void *ring_state_realloc(void *pState, void *pPointer, size_t nAllocate
 			nLevel = ring_poolmanager_find((RingState *)pState, pPointer);
 			/* Level 1 */
 			if (nLevel == RING_POOLMANAGER_LEVEL1) {
-				pPoolData = (PoolData *)pPointer;
 				if (nSize <= sizeof(PoolData)) {
 					/*
 					**  The Pointer belong to memory pool and new size less than
@@ -878,7 +874,6 @@ RING_API void *ring_state_realloc(void *pState, void *pPointer, size_t nAllocate
 			}
 			/* Level 2 */
 			else if (nLevel == RING_POOLMANAGER_LEVEL2) {
-				pPoolDataL2 = (PoolDataL2 *)pPointer;
 				if (nSize <= sizeof(PoolDataL2)) {
 					return pPointer;
 				} else {
@@ -887,7 +882,6 @@ RING_API void *ring_state_realloc(void *pState, void *pPointer, size_t nAllocate
 			}
 			/* Level 3 */
 			else if (nLevel == RING_POOLMANAGER_LEVEL3) {
-				pPoolDataL3 = (PoolDataL3 *)pPointer;
 				if (nSize <= sizeof(PoolDataL3)) {
 					return pPointer;
 				} else {
