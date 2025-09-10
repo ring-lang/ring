@@ -221,8 +221,6 @@ VM *ring_vm_new(RingState *pRingState) {
 
 VM *ring_vm_delete(VM *pVM) {
 	int x;
-	List *pRecord;
-	Item *pItem;
 	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState, pVM->pNestedLists);
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState, pVM->pPCBlockFlag);
 	pVM->pTempMem = ring_list_delete_gc(pVM->pRingState, pVM->pTempMem);
@@ -561,8 +559,6 @@ void ring_vm_tobytecode(VM *pVM, int nIns) {
 }
 
 void ring_vm_deletebytecode(VM *pVM, int nIns) {
-	int x;
-	ByteCode *pByteCode;
 	pVM->pByteCodeIR = pVM->pByteCode + nIns - 1;
 	ring_vm_clearregisterstring(pVM, RING_VM_IR_REG1);
 	ring_vm_clearregisterstring(pVM, RING_VM_IR_REG2);
