@@ -234,7 +234,7 @@ int ring_parser_isidentifier(Parser *pParser);
 
 int ring_parser_isendline(Parser *pParser);
 
-int ring_parser_settoken(Parser *pParser, int nToken);
+int ring_parser_settoken(Parser *pParser, unsigned int nToken);
 
 int ring_parser_isanykeyword(Parser *pParser);
 

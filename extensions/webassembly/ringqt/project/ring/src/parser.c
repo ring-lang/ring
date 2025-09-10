@@ -121,7 +121,7 @@ int ring_parser_isidentifier(Parser *pParser) { return (pParser->nTokenType == S
 
 int ring_parser_isendline(Parser *pParser) { return (pParser->nTokenType == SCANNER_TOKEN_ENDLINE); }
 
-int ring_parser_settoken(Parser *pParser, int nToken) {
+int ring_parser_settoken(Parser *pParser, unsigned int nToken) {
 	if ((nToken >= 1) && (nToken <= pParser->nTokensCount)) {
 		pParser->nActiveToken = nToken;
 		ring_parser_loadtoken(pParser);
@@ -133,7 +133,7 @@ int ring_parser_settoken(Parser *pParser, int nToken) {
 int ring_parser_isanykeyword(Parser *pParser) { return (pParser->nTokenType == SCANNER_TOKEN_KEYWORD); }
 
 int ring_parser_isoperator2(Parser *pParser, SCANNER_OPERATOR nType) {
-	return (pParser->nTokenType == SCANNER_TOKEN_OPERATOR) && (pParser->nTokenIndex == (int)nType);
+	return (pParser->nTokenType == SCANNER_TOKEN_OPERATOR) && (pParser->nTokenIndex == (unsigned int)nType);
 }
 /* Display Errors */
 
