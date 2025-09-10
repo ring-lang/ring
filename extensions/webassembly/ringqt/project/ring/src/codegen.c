@@ -216,7 +216,6 @@ void ring_parser_icg_gensetglobalscope(Parser *pParser) {
 }
 
 void ring_parser_icg_math(Parser *pParser, IC_OPERATIONS nOPCode, IC_OPERATIONS nOPCodeV) {
-	int nLastOperation;
 	if ((pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN)) {
 		ring_parser_icg_setlastoperation(pParser, nOPCodeV);
 		return;
@@ -225,7 +224,6 @@ void ring_parser_icg_math(Parser *pParser, IC_OPERATIONS nOPCode, IC_OPERATIONS 
 }
 
 void ring_parser_icg_returnn(Parser *pParser) {
-	int nLastOperation;
 	if ((pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN)) {
 		ring_parser_icg_setlastoperation(pParser, ICO_RETURNN);
 		return;
