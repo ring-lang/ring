@@ -9,7 +9,6 @@ RING_API void ring_vm_loadcfunctions(RingState *pRingState) {
 }
 
 RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *)) {
-	List *pList;
 	CFunction *pCFunc;
 #if RING_LOWMEM
 	pCFunc = (CFunction *)ring_state_malloc(NULL, sizeof(CFunction));
@@ -96,8 +95,6 @@ RING_API List *ring_vm_api_getlist(void *pPointer, int nPara) {
 
 RING_API int ring_vm_api_islist(void *pPointer, int nPara) {
 	int nType;
-	VM *pVM;
-	pVM = (VM *)pPointer;
 	if (ring_vm_api_isptr(pPointer, nPara)) {
 		nType = RING_API_GETPOINTERTYPE(nPara);
 		if (nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM) {
@@ -367,8 +364,7 @@ RING_API void ring_vm_api_retcpointer(void *pPointer, void *pGeneral, const char
 }
 
 RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
-	int nType;
-	List *pRealList, *pTempMem, *pVariableList, *pObjectVariable;
+	List *pRealList, *pTempMem, *pVariableList;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	/* Check Output Mode */
@@ -431,10 +427,8 @@ RING_API void ring_vm_api_floatvalue(void *pPointer, const char *cStr) {
 
 RING_API List *ring_vm_api_newlist(void *pPointer) {
 	List *pList;
-	FuncCall *pFuncCall;
 	VM *pVM;
 	pVM = (VM *)pPointer;
-	pFuncCall = RING_VM_LASTFUNCCALL;
 	pList = ring_list_newlist_gc(pVM->pRingState, ring_vm_prevtempmem(pVM));
 	return pList;
 }

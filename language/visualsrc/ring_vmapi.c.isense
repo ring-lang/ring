@@ -77,8 +77,6 @@ RING_API_CALLERSCOPE
 RING_API_SCOPESCOUNT
 ring_vm_loadcfunctions
 ring_vm_funcregister2
-Type: List *
-pList
 Type: CFunction *
 pCFunc
 ring_vm_api_isstring
@@ -118,8 +116,6 @@ pList
 ring_vm_api_islist
 Type: int
 nType
-Type: VM *
-pVM
 ring_vm_api_islistornull
 Type: int
 nType
