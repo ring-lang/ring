@@ -1,6 +1,4 @@
 ring_vm_pushv
-Type: List *
-pList
 ring_vm_checknull
 Type: List *
 pVar
@@ -12,8 +10,6 @@ pVar, *pList
 ring_vm_loadaddress
 Type: int
 x,lFound
-Type: FuncCall *
-pFuncCall
 ring_vm_assignment
 Type: List *
 pVar,*pList, *pList2

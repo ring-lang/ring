@@ -3,7 +3,6 @@
 #include "ring.h"
 
 void ring_vm_pushv(VM *pVM) {
-	List *pList;
 	if (pVM->nSP <= pVM->nFuncSP) {
 		/*
 		**  Happens after using EVAL() in this case we avoid PUSHV
@@ -98,7 +97,6 @@ void ring_vm_varpushv(VM *pVM) {
 
 void ring_vm_loadaddress(VM *pVM) {
 	int x, lFound;
-	FuncCall *pFuncCall;
 	lFound = ring_vm_findvar(pVM, RING_VM_IR_READC);
 	if (lFound == 0) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
@@ -152,7 +150,7 @@ void ring_vm_loadaddress(VM *pVM) {
 }
 
 void ring_vm_assignment(VM *pVM) {
-	List *pVar, *pList, *pList2;
+	List *pVar, *pList;
 	String *pStr1, *pString;
 	double nNum1;
 	Item *pItem;

@@ -451,7 +451,6 @@ void ring_vm_refmeta_methods(void *pPointer) {
 
 void ring_vm_refmeta_isattribute(void *pPointer) {
 	List *pList;
-	int x;
 	char *cStr;
 	VM *pVM;
 	pVM = (VM *)pPointer;
