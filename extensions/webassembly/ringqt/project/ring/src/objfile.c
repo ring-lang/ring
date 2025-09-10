@@ -174,7 +174,7 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		printf(RING_OBJFILEWRONGTYPE);
 		return RING_FALSE;
 	}
-	c = getc(fObj);
+	getc(fObj);
 	fread(cFileType, 1, RING_OBJFILE_VERSIONSTRINGSIZE, fObj);
 	cFileType[RING_OBJFILE_VERSIONSTRINGSIZE] = '\0';
 	if (strcmp(cFileType, RING_OBJFILE_VERSION) != 0) {
@@ -319,7 +319,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 		printf(RING_OBJFILEWRONGTYPE);
 		return RING_FALSE;
 	}
-	c = ring_objfile_getc(pRingState, &cData);
+	ring_objfile_getc(pRingState, &cData);
 	ring_objfile_readc(pRingState, &cData, cFileType, RING_OBJFILE_VERSIONSTRINGSIZE);
 	cFileType[RING_OBJFILE_VERSIONSTRINGSIZE] = '\0';
 	if (strcmp(cFileType, RING_OBJFILE_VERSION) != 0) {
