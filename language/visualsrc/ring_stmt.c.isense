@@ -11,13 +11,11 @@ x,nMark1,nMark2,nMark3,nStart,nEnd,nDiff,lFastLen,nFlag
 Type: int
 nLoadPackage,lLoopOrExitCommand,nLoadAgain,nForInVarsCount
 Type: int
-nVar,nLine,nLine2,lRetItemRef,nFactorFlag
+nVar,nLine,nLine2,lRetItemRef
 Type: String *
 pString
 Type: List *
 pMark,*pMark2,*pMark3,*pMark4,*pList2
-Type: double
-nNum1
 cStr
 Type: char
 cFileName[RING_PATHSIZE]

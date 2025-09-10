@@ -244,12 +244,11 @@ int ring_parser_class(Parser *pParser) {
 }
 
 int ring_parser_stmt(Parser *pParser) {
-	int x, nMark1, nMark2, nMark3, nStart, nEnd, nDiff, lFastLen, nFlag;
+	int x, nMark1, nMark2, nMark3, nStart, nEnd, nDiff, lFastLen;
 	int nLoadPackage, lLoopOrExitCommand, nLoadAgain, nForInVarsCount;
-	int nVar, nLine, nLine2, lRetItemRef, nFactorFlag;
+	int nVar, nLine, nLine2, lRetItemRef;
 	String *pString;
 	List *pMark, *pMark2, *pMark3, *pMark4, *pList2;
-	double nNum1;
 	char cStr[RING_MEDIUMBUF];
 	char cFileName[RING_PATHSIZE];
 	char cCurrentDir[RING_PATHSIZE];
