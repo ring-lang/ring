@@ -63,7 +63,7 @@ Type: char *
 cStr
 ring_vm_prevtempmem
 Type: List *
-pList, *pTemp
+pTemp
 Type: FuncCall *
 pFuncCall
 Type: int
@@ -78,8 +78,6 @@ x,x2,lFound,nStart,lListsDeleted
 Type: FuncCall *
 pFuncCall
 ring_vm_retitemref
-Type: List *
-pList
 Type: FuncCall *
 pFuncCall
 ring_vm_funccallnew

@@ -376,7 +376,7 @@ void ring_vm_return(VM *pVM) {
 			**  So when we return an object we can access it directly using { }
 			*/
 			if (ring_vm_isstackpointertoobjstate(pVM) == 0) {
-				ring_vm_movetoprevscope(pVM, RING_FUNCTYPE_SCRIPT);
+				ring_vm_movetoprevscope(pVM);
 			}
 		} else {
 			lThisCheck = RING_FALSE;
@@ -573,7 +573,7 @@ void ring_vm_removeblockflag(VM *pVM) {
 	ring_list_deleteitem_gc(pVM->pRingState, pVM->pPCBlockFlag, ring_list_getsize(pVM->pPCBlockFlag));
 }
 
-void ring_vm_movetoprevscope(VM *pVM, int nFuncType) {
+void ring_vm_movetoprevscope(VM *pVM) {
 	Item *pItem;
 	List *pList, *pList2, *pList3;
 	/*
@@ -746,7 +746,6 @@ void ring_vm_freetemplists(VM *pVM) {
 	int x, x2, lFound, nStart, lListsDeleted;
 	FuncCall *pFuncCall;
 	lListsDeleted = 0;
-	nStart = 1;
 	/* Clear lists inside pDeleteLater */
 	for (x = ring_list_getsize(pVM->pDeleteLater); x >= 1; x--) {
 		pList = (List *)ring_list_getpointer(pVM->pDeleteLater, x);

@@ -822,7 +822,7 @@ void ring_vm_blockflag2(VM *pVM, int nPC);
 
 void ring_vm_removeblockflag(VM *pVM);
 
-void ring_vm_movetoprevscope(VM *pVM, int nFuncType);
+void ring_vm_movetoprevscope(VM *pVM);
 
 void ring_vm_createtemplist(VM *pVM);
 
