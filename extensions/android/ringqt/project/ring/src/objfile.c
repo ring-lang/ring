@@ -216,7 +216,7 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 			c = getc(fObj);
 			switch (c) {
 			case 'S':
-				c = getc(fObj);
+				getc(fObj);
 				nOutput = fscanf(fObj, "[%d]", &nValue);
 				if (nOutput == 0) {
 					printf(RING_FSCANFERROR);
@@ -231,7 +231,7 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 				ring_state_free(pRingState, cString);
 				break;
 			case 'I':
-				c = getc(fObj);
+				getc(fObj);
 				nOutput = fscanf(fObj, "%d", &nValue);
 				if (nOutput == 0) {
 					printf(RING_FSCANFERROR);
@@ -361,7 +361,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			c = ring_objfile_getc(pRingState, &cData);
 			switch (c) {
 			case 'S':
-				c = ring_objfile_getc(pRingState, &cData);
+				ring_objfile_getc(pRingState, &cData);
 				nOutput = sscanf(cData, "[%d]", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
@@ -381,7 +381,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				ring_state_free(pRingState, cString);
 				break;
 			case 'I':
-				c = ring_objfile_getc(pRingState, &cData);
+				ring_objfile_getc(pRingState, &cData);
 				nOutput = sscanf(cData, "%d", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
