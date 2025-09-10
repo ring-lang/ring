@@ -294,7 +294,6 @@ void ring_vm_pow(VM *pVM) {
 void ring_vm_equal(VM *pVM) {
 	String *pStr1, *pStr2;
 	double nNum1, nNum2;
-	char cStr3[RING_MEDIUMBUF];
 	RING_LIST_CHECKOPERATIONONSUBLIST;
 	pVM->lSubStringToNumError = 0;
 	if (RING_VM_STACK_ISSTRING) {
@@ -534,7 +533,6 @@ void ring_vm_greaterequal(VM *pVM) {
 void ring_vm_notequal(VM *pVM) {
 	String *pStr1, *pStr2;
 	double nNum1, nNum2;
-	char cStr3[RING_MEDIUMBUF];
 	RING_LIST_CHECKOPERATIONONSUBLIST;
 	pVM->lSubStringToNumError = 0;
 	if (RING_VM_STACK_ISSTRING) {
@@ -1220,7 +1218,6 @@ void ring_vm_exprspoo(VM *pVM, const char *cStr, const char *pStr2, unsigned int
 
 void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 	List *pList3, *pList4;
-	List TempList;
 	Item *pItem;
 	/*
 	**  Here we are going to copy the list pList to the list pList2
