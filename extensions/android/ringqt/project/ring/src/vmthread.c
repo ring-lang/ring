@@ -220,7 +220,7 @@ RING_API void ring_vm_deletethreadstate(VM *pVM, RingState *pState) {
 }
 
 RING_API void ring_vm_bytecodefornewthread(VM *pVM, VM *pOldVM) {
-	int x, y, nSize, nType;
+	unsigned int x, y, nSize, nType;
 	ByteCode *pByteCode;
 	char *pString;
 	/* Get the Instructions Count */
