@@ -122,7 +122,6 @@ RING_API List *ring_state_newvar(RingState *pRingState, const char *cStr) {
 
 RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 	Scanner *pScanner;
-	VM *pVM;
 	RING_FILE pFile;
 	char cStartup[RING_SMALLBUF];
 	char cFileName2[RING_PATHSIZE];
@@ -345,7 +344,6 @@ RING_API void ring_state_runbytecode(RingState *pRingState) {
 
 RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 	Scanner *pScanner;
-	VM *pVM;
 	const char *cFileName = "runstring";
 	int x, lCont, lRunVM, lFreeFilesList, nFileSize;
 	signed char c;
