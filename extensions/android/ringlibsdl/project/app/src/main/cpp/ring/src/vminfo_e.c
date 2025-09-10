@@ -155,8 +155,6 @@ void ring_vm_info_ringvmtracefunc(void *pPointer) {
 }
 
 void ring_vm_info_ringvmscopescount(void *pPointer) {
-	VM *pVM;
-	pVM = (VM *)pPointer;
 	/* We the current scope of this function */
 	RING_API_RETNUMBER(RING_API_SCOPESCOUNT);
 }
@@ -288,8 +286,6 @@ void ring_vm_info_ringvminfo(void *pPointer) {
 }
 
 void ring_vm_info_ringvmgenarray(void *pPointer) {
-	VM *pVM;
-	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;

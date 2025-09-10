@@ -38,10 +38,8 @@ void ring_vm_refmeta_loadfunctions(RingState *pRingState) {
 }
 
 void ring_vm_refmeta_locals(void *pPointer) {
-	VM *pVM;
 	int x;
 	List *pList, *pList2, *pList3;
-	pVM = (VM *)pPointer;
 	/* We skip the current scope of the locals() function */
 	pList = RING_API_CALLERSCOPE;
 	pList2 = RING_API_NEWLIST;
@@ -98,7 +96,6 @@ void ring_vm_refmeta_cfunctions(void *pPointer) {
 }
 
 void ring_vm_refmeta_islocal(void *pPointer) {
-	VM *pVM;
 	int x;
 	List *pList, *pList2;
 	char *cStr;
@@ -107,7 +104,6 @@ void ring_vm_refmeta_islocal(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISSTRING(1)) {
-		pVM = (VM *)pPointer;
 		cStr = ring_general_lower(RING_API_GETSTRING(1));
 		/* We skip the current scope of the locals() function */
 		pList = RING_API_CALLERSCOPE;

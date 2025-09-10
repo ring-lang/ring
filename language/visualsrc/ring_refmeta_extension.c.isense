@@ -141,8 +141,6 @@ pVM
 ring_vm_refmeta_isattribute
 Type: List *
 pList
-Type: int
-x
 Type: char *
 cStr
 Type: VM *
