@@ -5,7 +5,6 @@
 void ring_vm_savestate(VM *pVM, List *pList) {
 	List *pThis;
 	VMState *pVMState;
-	Item *pItem;
 	/* Using VMState */
 	pVMState = ring_vmstate_new(pVM->pRingState);
 	/* Save the state as Managed C Pointer */
@@ -191,7 +190,6 @@ void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
 VMState *ring_vm_savestateformethods(VM *pVM) {
 	List *pThis;
 	VMState *pVMState;
-	Item *pItem;
 	/* Using VMState */
 	pVMState = ring_vmstate_new(pVM->pRingState);
 	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
@@ -283,7 +281,6 @@ void ring_vm_restorestateformethods(VM *pVM, VMState *pVMState) {
 void ring_vm_savestatefornewobjects(VM *pVM) {
 	List *pThis;
 	VMState *pVMState;
-	Item *pItem;
 	/* Using VMState */
 	pVMState = ring_vmstate_new(pVM->pRingState);
 	/* Save the state as Managed C Pointer */

@@ -1721,7 +1721,6 @@ void ring_vm_generallib_state_runcodeatins(void *pPointer) {
 
 void ring_vm_generallib_state_resume(void *pPointer) {
 	RingState *pRingState;
-	int nPC;
 	if (RING_API_PARACOUNT < 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
