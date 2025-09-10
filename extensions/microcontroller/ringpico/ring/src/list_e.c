@@ -24,7 +24,7 @@ void ring_vm_list_loadfunctions(RingState *pRingState) {
 
 void ring_vm_listfuncs_add(void *pPointer) {
 	List *pList, *pList2;
-	int lMerge, x;
+	unsigned int lMerge, x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT < 2) {

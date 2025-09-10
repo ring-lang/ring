@@ -59,8 +59,6 @@ ring_vm_info_ringvmtracefunc
 Type: VM *
 pVM
 ring_vm_info_ringvmscopescount
-Type: VM *
-pVM
 ring_vm_info_ringvmevalinscope
 Type: VM *
 pVM
@@ -89,8 +87,6 @@ pVM
 Type: List *
 pList
 ring_vm_info_ringvmgenarray
-Type: VM *
-pVM
 ring_vm_info_ringvmcodelist
 Type: VM *
 pVM

@@ -603,10 +603,6 @@ pActiveMem
 ring_vm_delete
 Type: int
 x
-Type: List *
-pRecord
-Type: Item *
-pItem
 ring_vm_start
 ring_vm_towardsmainloop
 Type: VM *
@@ -649,10 +645,6 @@ pItem
 Type: String *
 pString
 ring_vm_deletebytecode
-Type: int
-x
-Type: ByteCode *
-pByteCode
 ring_vm_clearregisterstring
 ring_vm_setreg1topointerfromstack
 ring_vm_showbytecode

@@ -38,7 +38,7 @@ void ring_vm_info_ringvmfileslist(void *pPointer) {
 void ring_vm_info_ringvmcalllist(void *pPointer) {
 	VM *pVM;
 	List *pList, *pList2;
-	int x;
+	unsigned int x;
 	FuncCall *pFuncCall;
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;

@@ -25,7 +25,7 @@ Type: VM *
 pVM
 ring_vm_listfuncs_list
 Type: List *
-pList, *pList2
+pList
 Type: unsigned int
 x,nSize,nSize2
 Type: VM *

@@ -86,7 +86,7 @@ void ring_vm_dll_closelib(void *pPointer) {
 }
 
 void ring_vm_dll_closealllibs(void *pPointer) {
-	int x;
+	unsigned int x;
 	LpHandleType pHandle;
 	VM *pVM;
 	pVM = (VM *)pPointer;
