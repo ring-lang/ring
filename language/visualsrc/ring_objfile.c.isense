@@ -18,7 +18,7 @@ cFileName[RING_HUGEBUF]
 ring_objfile_writelist
 Type: List *
 pList2
-Type: int
+Type: unsigned int
 x,x2,lCont
 Type: char *
 cString
@@ -84,7 +84,7 @@ nSize,x,nFunction
 ring_objfile_writelistcode
 Type: List *
 pList2
-Type: int
+Type: unsigned int
 x,x2,x3,nMax
 Type: char
 cList[RING_SMALLBUF]

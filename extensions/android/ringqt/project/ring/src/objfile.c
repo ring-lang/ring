@@ -33,7 +33,7 @@ RING_API void ring_objfile_writefile(RingState *pRingState) {
 
 RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pList) {
 	List *pList2;
-	int x, x2, lCont;
+	unsigned int x, x2, lCont;
 	char *cString;
 	char cKey[RING_OBJFILE_KEYSTRSIZE];
 	strcpy(cKey, RING_OBJFILE_KEYSTRING);
@@ -557,7 +557,7 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 RING_API int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List *pList, int nList, int lSeparate,
 					int nFunction, int nItemsPerFunction) {
 	List *pList2;
-	int x, x2, x3, nMax;
+	unsigned int x, x2, x3, nMax;
 	char cList[RING_SMALLBUF];
 	char *cString;
 	char cFileName[RING_HUGEBUF];
@@ -626,7 +626,7 @@ RING_API int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List
 }
 
 RING_API void ring_objfile_writebytecode(RingState *pRingState, FILE *fCode, List *pList) {
-	int x, x2, nReg, x3, nMax;
+	unsigned int x, x2, nReg, x3, nMax;
 	List *pIns;
 	char *cString;
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
