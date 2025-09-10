@@ -2004,7 +2004,7 @@ void ring_vm_generallib_customprint(void *pPointer, const char *cCommand) {
 void ring_vm_generallib_input(void *pPointer) {
 	char cInput[RING_LARGEBUF];
 	char *cLine;
-	int nSize, nOutput;
+	int nSize;
 	if (RING_API_PARACOUNT == 0) {
 		ring_general_readline(cInput, RING_LARGEBUF);
 		RING_API_RETSTRING(cInput);
@@ -2027,7 +2027,7 @@ void ring_vm_generallib_input(void *pPointer) {
 		RING_API_RETSTRINGSIZE(nSize);
 		cLine = ring_string_get(RING_API_GETSTRINGRAW);
 		/* Get Input From the User and save it in the variable */
-		nOutput = RING_SETBINARY;
+		RING_SETBINARY;
 		fread(cLine, sizeof(char), nSize, stdin);
 	} else {
 		RING_API_ERROR(RING_API_BADPARARANGE);
@@ -2036,8 +2036,7 @@ void ring_vm_generallib_input(void *pPointer) {
 
 void ring_vm_generallib_getchar(void *pPointer) {
 	char cStr[RING_CHARBUF];
-	int nOutput;
-	nOutput = RING_SETBINARY;
+	RING_SETBINARY;
 	cStr[0] = getchar();
 	RING_API_RETSTRING2(cStr, RING_ONE);
 }

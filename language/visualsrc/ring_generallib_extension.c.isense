@@ -309,8 +309,6 @@ nPC
 ring_vm_generallib_state_resume
 Type: RingState *
 pRingState
-Type: int
-nPC
 ring_vm_generallib_see
 Type: char *
 cString
@@ -363,7 +361,7 @@ cInput[RING_LARGEBUF]
 Type: char *
 cLine
 Type: int
-nSize,nOutput
+nSize
 ring_vm_generallib_getchar
 Type: char
 cStr[RING_CHARBUF]
