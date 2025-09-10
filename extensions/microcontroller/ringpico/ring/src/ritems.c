@@ -35,7 +35,7 @@ RING_API Items *ring_items_delete_gc(void *pState, Items *pItems) {
 	pMem = (char *)pItems;
 	pMem = pMem - sizeof(Item);
 	pItem = (Item *)pMem;
-	pItem = ring_item_delete_gc(pState, pItem);
+	ring_item_delete_gc(pState, pItem);
 	return NULL;
 }
 

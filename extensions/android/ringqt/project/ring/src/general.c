@@ -10,8 +10,6 @@ RING_API RING_FILE ring_general_fopen(const char *cFileName, const char *cMode) 
 	wchar_t cPath[MAX_PATH];
 	wchar_t cWMode[MAX_PATH];
 	/* Set Variables */
-	nLen1 = RING_ZERO;
-	nLen2 = RING_ZERO;
 	nFileNameSize = strlen(cFileName);
 	nModeSize = strlen(cMode);
 	if ((nFileNameSize == RING_ZERO) || (nModeSize == RING_ZERO)) {
@@ -221,7 +219,7 @@ RING_API void ring_general_addosfileseparator(char *cFileName) {
 }
 
 RING_API void ring_general_readline(char *cLine, unsigned int nSize) {
-	int x;
+	unsigned int x;
 	fgets(cLine, nSize, stdin);
 	/* Remove New Line */
 	for (x = 0; x < nSize; x++) {

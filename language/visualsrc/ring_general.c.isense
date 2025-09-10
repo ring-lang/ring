@@ -89,7 +89,7 @@ Type: RING_LONGLONG
 nVal
 ring_general_word
 Type: unsigned int
-x,nStart,nEnd,nSize,nWord,nOutIndex
+nStart,nEnd,nSize,nWord,nOutIndex
 ring_general_looksempty
 Type: unsigned int
 x
