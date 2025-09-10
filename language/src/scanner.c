@@ -33,7 +33,6 @@ void ring_scanner_readchar(Scanner *pScanner, char c) {
 	char cStr[RING_CHARBUF];
 	List *pList;
 	String *pString;
-	const char *cLastToken;
 	int nTokenIndex;
 	/* Set Variables */
 	cStr[0] = c;

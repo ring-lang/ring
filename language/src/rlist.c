@@ -1284,7 +1284,6 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 
 RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void *pValue,
 						void (*pFreeFunc)(void *, void *)) {
-	List *pPointerList;
 	Item *pItem;
 	ring_list_addpointer_gc(pState, pList, pValue);
 	pItem = ring_list_getitem_gc(pState, pList, ring_list_getsize(pList));
