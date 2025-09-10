@@ -287,7 +287,6 @@ RING_API int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar) {
 
 RING_API void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
 	int x;
-	List *pList;
 	for (x = nStart; x <= ring_list_getsize(pNestedLists); x++) {
 		ring_vm_gc_removelistprotectionat(pVM, pNestedLists, x);
 	}
@@ -942,7 +941,7 @@ RING_API void ring_state_unregisterblock(void *pState, void *pStart) {
 
 RING_API void ring_state_willunregisterblock(void *pState, void *pStart) {
 	int x, x2, x3;
-	List *pList, *pVar, *pList2;
+	List *pList, *pVar;
 	Item *pItem, *pNewItem;
 	Item vTempItem;
 	RingState *pRingState;

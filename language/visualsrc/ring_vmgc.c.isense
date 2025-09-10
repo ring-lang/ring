@@ -244,8 +244,6 @@ ring_vm_gc_checkbeforeassignment
 ring_vm_gc_removelistprotection
 Type: int
 x
-Type: List *
-pList
 ring_vm_gc_removelistprotectionat
 Type: List *
 pList
