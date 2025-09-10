@@ -1,6 +1,6 @@
 cd ..\src
 set path=%path%;c:\pwct19\ssbuild\borland\bcc55\bin\
-bcc32 -tWM -d -6 -O2 -OS -Ov -Oi -Oc -I"../include" ring.c  ^
+bcc32 -tWM -d -6 -O2 -OS -Ov -Oi -Oc -w-8057 -I"../include" ring.c  ^
 rstring.c rlist.c ritem.c ritems.c rhtable.c general.c state.c scanner.c parser.c hashlib.c vmgc.c ^
 stmt.c expr.c codegen.c vm.c vmerror.c vmeval.c vmthread.c vmexpr.c vmvars.c ^
 vmlists.c vmfuncs.c ringapi.c vmoop.c  ^
