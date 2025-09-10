@@ -81,7 +81,6 @@ RING_API void ring_vm_shutdown(VM *pVM, int nExitCode) {
 RING_API void ring_vm_showerrormessage(VM *pVM, const char *cStr) {
 	int x, lFunctionCall, nRecursion, nPos;
 	char *cStr2, *cStr3;
-	List *pList2;
 	const char *cFile, *cFile2;
 	const char *cOldFile;
 	FuncCall *pFuncCall, *pFuncCall2;
