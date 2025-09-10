@@ -386,13 +386,12 @@ int ring_parser_range(Parser *pParser) {
 int ring_parser_factor(Parser *pParser, int *nFlag) {
 	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nToken, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
 	    lAfterListEnd;
-	List *pLoadAMark, *pList, *pMark, *pAssignmentPointerPos;
+	List *pList, *pMark, *pAssignmentPointerPos;
 	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative;
 	char cFuncName[RING_MEDIUMBUF];
 	char cKeyword[RING_MEDIUMBUF];
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
 	*nFlag = 0;
-	pAssignmentPointerPos = NULL;
 	/* Factor --> Identifier  {mixer} [ '=' Expr ] */
 	if (ring_parser_isidentifier(pParser)) {
 		/* Generate Code */
@@ -427,7 +426,6 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		**  Save State before changes by Check Operator
 		*/
 		nLastOperation = ring_parser_icg_getlastoperation(pParser);
-		pLoadAMark = ring_parser_icg_getactiveoperation(pParser);
 		/* Check Operator */
 		lequal = 1;
 		if (ring_parser_isoperator2(pParser, OP_EQUAL)) {
