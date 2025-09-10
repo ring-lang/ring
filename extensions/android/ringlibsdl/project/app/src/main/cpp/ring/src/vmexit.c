@@ -33,7 +33,7 @@ void ring_vm_popexitmark(VM *pVM) {
 
 void ring_vm_exit(VM *pVM, int nType) {
 	List *pList, *pActiveList;
-	int x, y, nStep;
+	unsigned int x, y, nStep;
 	nStep = 0;
 	/* Get the Number from the Stack */
 	if (RING_VM_STACK_ISNUMBER) {
@@ -50,14 +50,12 @@ void ring_vm_exit(VM *pVM, int nType) {
 		pActiveList = pVM->pLoopMark;
 	}
 	if (ring_list_getsize(pActiveList) > 0) {
-		x = ring_list_getsize(pActiveList);
 		/* Do Operation */
 		if ((nStep > 0) && (nStep <= ring_list_getsize(pActiveList))) {
 			/* Using commands like (loop 2) is just an implicit (exit 1) then (loop) */
 			if ((nStep > 1) && (nType == RING_COMMANDTYPE_LOOP)) {
 				nStep--;
 				pVM->lOptionalLoop = 1;
-				nType = RING_COMMANDTYPE_EXIT;
 				pActiveList = pVM->pExitMark;
 				pVM->lExitFlag = 1;
 			}
