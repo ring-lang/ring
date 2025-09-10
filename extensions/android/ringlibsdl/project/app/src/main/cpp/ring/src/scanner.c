@@ -733,10 +733,6 @@ void ring_scanner_setandgenendofline(Scanner *pScanner, unsigned int nLine) {
 void ring_scanner_readtwoparameters(Scanner *pScanner, const char *cStr) {
 	unsigned int x, nSize, nSpaces;
 	char *cString;
-	/* Set Variables */
-	x = 0;
-	nSize = 0;
-	nSpaces = 0;
 	cString = ring_string_get(pScanner->pActiveToken);
 	nSize = strlen(cString);
 	if (nSize > 0) {

@@ -204,8 +204,6 @@ Type: List *
 pList
 Type: String *
 pString
-Type: const char *
-cLastToken
 Type: int
 nTokenIndex
 ring_scanner_keywords
