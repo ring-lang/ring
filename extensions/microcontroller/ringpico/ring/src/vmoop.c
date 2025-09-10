@@ -1206,7 +1206,6 @@ void ring_vm_oop_setthethisvariableinclassregion(VM *pVM) {
 int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMethods) {
 	List *pList, *pThis, *pClass, *pVar;
 	Item *pItem;
-	pItem = NULL;
 	if (pVM->nInClassRegion != 0) {
 		pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
 		if (pThis == NULL) {

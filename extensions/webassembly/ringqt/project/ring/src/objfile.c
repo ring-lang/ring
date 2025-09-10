@@ -240,7 +240,7 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 				ring_list_addint_gc(pRingState, pList, nValue);
 				break;
 			case 'D':
-				c = getc(fObj);
+				getc(fObj);
 				nOutput = fscanf(fObj, "%lf", &dValue);
 				if (nOutput == 0) {
 					printf(RING_FSCANFERROR);
@@ -396,7 +396,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				ring_list_addint_gc(pRingState, pList, nValue);
 				break;
 			case 'D':
-				c = ring_objfile_getc(pRingState, &cData);
+				ring_objfile_getc(pRingState, &cData);
 				nOutput = sscanf(cData, "%lf", &dValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
