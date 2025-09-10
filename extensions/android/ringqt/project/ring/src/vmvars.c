@@ -60,7 +60,6 @@ void ring_vm_newscopeid(VM *pVM) {
 
 void ring_vm_deletescope(VM *pVM) {
 	List *pList;
-	ListBlocks *pArg;
 	int x;
 	if (RING_VM_SCOPESCOUNT < 2) {
 		ring_vm_error(pVM, RING_NOSCOPE);

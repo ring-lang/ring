@@ -83,8 +83,6 @@ void ring_vm_liststart(VM *pVM) {
 }
 
 void ring_vm_listitem(VM *pVM) {
-	String *pStr1;
-	double nNum1;
 	List *pList, *pList2, *pList3, *pList4;
 	Item *pItem;
 	pList = (List *)ring_list_getpointer(pVM->pNestedLists, ring_list_getsize(pVM->pNestedLists));
