@@ -254,7 +254,7 @@ Type: unsigned int
 nFirst,nMid,nLast
 ring_list_binarysearchstr_gc
 Type: unsigned int
-nFirst,nMid,nLast,nRes
+nFirst,nMid,nLast
 ring_list_swap_gc
 Type: Item *
 pItem
@@ -344,8 +344,6 @@ nPos
 Type: static char
 nullstring[]
 ring_list_addcustomringpointer_gc
-Type: List *
-pPointerList
 Type: Item *
 pItem
 ring_list_addringpointer_gc

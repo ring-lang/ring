@@ -869,7 +869,8 @@ RING_API unsigned int ring_list_binarysearchnum_gc(void *pState, List *pList, do
 
 RING_API unsigned int ring_list_binarysearchstr_gc(void *pState, List *pList, const char *cFind, unsigned int nColumn,
 						   const char *cAttribute) {
-	unsigned int nFirst, nMid, nLast, nRes;
+	unsigned int nFirst, nMid, nLast;
+	int nRes;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);
 	while (nFirst <= nLast) {
