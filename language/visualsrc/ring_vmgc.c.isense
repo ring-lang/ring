@@ -356,12 +356,6 @@ nTotal
 ring_state_realloc
 Type: void *
 pMemory
-Type: PoolData *
-pPoolData
-Type: PoolDataL2 *
-pPoolDataL2
-Type: PoolDataL3 *
-pPoolDataL3
 Type: int
 nLevel, nUseMalloc
 Type: size_t

@@ -556,7 +556,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 		pList = ring_list_delete_gc(pState, pList);
 	}
 	/* Delete the List */
-	aProcess = ring_list_delete_gc(pState, aProcess);
+	ring_list_delete_gc(pState, aProcess);
 	return pList;
 }
 
@@ -582,7 +582,7 @@ RING_API int ring_list_containssublist_gc(void *pState, List *pList, List *pChec
 			}
 		}
 	}
-	aProcess = ring_list_delete_gc(pState, aProcess);
+	ring_list_delete_gc(pState, aProcess);
 	return lFound;
 }
 
@@ -1107,7 +1107,6 @@ RING_API void ring_poolmanager_newblock(RingState *pRingState) {
 
 RING_API void *ring_poolmanager_allocate(RingState *pRingState, size_t nSize) {
 	void *pMemory;
-	pMemory = NULL;
 	/* If No memory - Create new block */
 	if ((pRingState->vPoolManager.pCurrentItem == NULL) && (pRingState->vPoolManager.pBlockStart == NULL) &&
 	    (pRingState->lStartPoolManager) && (pRingState->lOnlyTokens == 0)) {
