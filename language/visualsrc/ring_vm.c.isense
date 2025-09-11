@@ -112,12 +112,12 @@ Type: unsigned int
 nNestedLists
 Type: unsigned int
 nParaCount
-Type: char
-nType
-Type: char
-nStatus
-Type: char
-nLoadAddressScope
+Type: unsigned int
+nType: 8
+Type: unsigned int
+nStatus: 8
+Type: unsigned int
+nLoadAddressScope: 8
 Type: char
 lMethod
 END:
@@ -266,8 +266,8 @@ Type: unsigned int
 nTraceEvent: 8
 Type: unsigned int
 nEvalInScope: 8
-Type: unsigned char
-nNoSetterMethod
+Type: unsigned int
+nNoSetterMethod: 8
 Type: unsigned int
 lActiveCatch: 1
 Type: unsigned int

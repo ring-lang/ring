@@ -79,10 +79,10 @@ typedef struct FuncCall {
 	unsigned int nActiveScopeID;
 	unsigned int nNestedLists;
 	unsigned int nParaCount;
-	char nType;
-	char nStatus;
-	char nLoadAddressScope;
-	char lMethod;
+	unsigned int nType : 8;
+	unsigned int nStatus : 8;
+	unsigned int nLoadAddressScope : 8;
+	unsigned int lMethod : 8;
 } FuncCall;
 typedef struct VM {
 	RingState *pRingState;
