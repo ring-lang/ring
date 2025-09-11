@@ -127,9 +127,9 @@ RING_API void ring_list_disableerroronassignment2_gc(void *pState, List *pList);
 RING_API int ring_list_iserroronassignment2_gc(void *pState, List *pList);
 /* Argument Type */
 
-RING_API void ring_list_setlisttype_gc(void *pState, List *pList, int nType);
+RING_API void ring_list_setlisttype_gc(void *pState, List *pList, unsigned int nType);
 
-RING_API int ring_list_getlisttype_gc(void *pState, List *pList);
+RING_API unsigned int ring_list_getlisttype_gc(void *pState, List *pList);
 
 RING_API int ring_list_isargcache_gc(void *pState, List *pList);
 

@@ -719,9 +719,9 @@ RING_API int ring_list_iserroronassignment2_gc(void *pState, List *pList) { retu
 RING_API void ring_list_disableerroronassignment2_gc(void *pState, List *pList) { pList->vGC.lErrorOnAssignment2 = 0; }
 /* Argument Type */
 
-RING_API void ring_list_setlisttype_gc(void *pState, List *pList, int nType) { pList->vGC.nListType = nType; }
+RING_API void ring_list_setlisttype_gc(void *pState, List *pList, unsigned int nType) { pList->vGC.nListType = nType; }
 
-RING_API int ring_list_getlisttype_gc(void *pState, List *pList) { return pList->vGC.nListType; }
+RING_API unsigned int ring_list_getlisttype_gc(void *pState, List *pList) { return pList->vGC.nListType; }
 
 RING_API int ring_list_isargcache_gc(void *pState, List *pList) { return pList->vGC.lArgCache; }
 
