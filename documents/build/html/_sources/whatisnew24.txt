@@ -20,6 +20,7 @@ Ring 1.24 comes with the next features!
 * RingFmt 
 * More RingPM Packages
 * More Samples
+* Better StdLib
 * Better RingLibCurl
 * Better RingHTTPLib
 * Better Support for Threads
@@ -156,7 +157,6 @@ The next samples are added:
 * samples/General/SmallExamples/TicTacToePlus/tictactoeplus.ring
 * samples/UsingFormDesigner/verticalprogressbar
 
-
 The next samples are improved
 
 * samples/UsingThreads/RingThreads
@@ -176,6 +176,36 @@ The following screenshot shows the same animation sample on Android
 	:width: 260px
 	:height: 400px
 	:alt: LibSDLAnimationSample
+
+.. index:: 
+	pair: What is new in Ring  1.24; Better StdLib
+
+Better StdLib
+=============
+
+The next functions are added to StdLib:
+
+* StringToBase32(cString) ---> cBase32
+* Base32ToString(cBase32) ---> cString
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
+	cStr = "Hello World"
+	? StringToBase32(cStr)	
+
+	cBase32 = "JBSWY3DPEBLW64TMMQ======"
+	? Base32ToString(cBase32)	
+
+Output:
+
+.. code-block:: none
+	
+	JBSWY3DPEBLW64TMMQ======
+	Hello World
 
 .. index:: 
 	pair: What is new in Ring 1.24?; Better RingLibCurl
