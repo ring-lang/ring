@@ -4,6 +4,7 @@
 # 2016-2019, CalmoSoft <calmosoft@gmail.com>
 # 2020, Bert Mariani (Matrix Multiplication)
 # 2023, Dan Campbell (Reduce function)
+# 2025, Youssef Saeed (Base32 and Base64 functions)
 
 Load "stdlib.rh"
 Load "stdfunctions.ring"
@@ -1072,115 +1073,168 @@ func ASCIIList2Str aList
 	return cStr 
 
 /*
-	Function Name	: StringToBase64 
-	Usage		: Convert a string to base64 encoded string
-	Parameters	: String to encode
-	Output		: Base64 encoded string
+	Function Name  : StringToBase32
+	Usage	       : Convert a string to a Base32 encoded string
+	Parameters	   : String to encode
+	Output		   : Base32 encoded string
 */
-func StringToBase64 cInputString
-    cBase64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-    cOutputString = ""
-    nInputLen = len(cInputString)
+func StringToBase32 cInputString
+	# Base32 chars
+	cBase32Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
 
-    if nInputLen = 0
-        return NULL
-    ok
+	# Bit buffer
+	cOutputString = NULL
+	nBuffer = 0
+	nBitsLeft = 0
 
-    nInputIndex = 1
-    while nInputIndex <= nInputLen
-        nByte1 = ascii(cInputString[nInputIndex])
-        nInputIndex++
-        
-        nByte2 = NULL
-        if nInputIndex <= nInputLen
-            nByte2 = ascii(cInputString[nInputIndex])
-            nInputIndex++
-        ok
-        
-        nByte3 = NULL
-        if nInputIndex <= nInputLen
-            nByte3 = ascii(cInputString[nInputIndex])
-            nInputIndex++
-        ok
+	for cChar in cInputString
+		nBuffer = (nBuffer << 8) | ascii(cChar)
+		nBitsLeft += 8
+		
+		while nBitsLeft >= 5
+			nBitsLeft -= 5
+			nIndex = (nBuffer >> nBitsLeft) & 31
+			cOutputString += cBase32Chars[nIndex + 1]
 
-        nEnc1 = nByte1 >> 2
-        cOutputString += cBase64Chars[nEnc1 + 1]
+			nBuffer = nBuffer & ((1 << nBitsLeft) - 1)
+		end
+	next
 
-        nEnc2 = (nByte1 & 3) << 4
-        if not isNull(nByte2)
-            nEnc2 = nEnc2 | (nByte2 >> 4)
-        ok
-        cOutputString += cBase64Chars[nEnc2 + 1]
+	if nBitsLeft > 0
+		nBuffer = nBuffer << (5 - nBitsLeft)
+		nIndex = nBuffer & 31
+		cOutputString += cBase32Chars[nIndex + 1]
+	ok
 
-        if not isNull(nByte2)
-            nEnc3 = (nByte2 & 15) << 2
-            if not isNull(nByte3)
-                nEnc3 = nEnc3 | (nByte3 >> 6)
-            ok
-            cOutputString += cBase64Chars[nEnc3 + 1]
-        else 
-            cOutputString += "="
-        ok
-        
-        if not isNull(nByte3)
-            nEnc4 = nByte3 & 63
-            cOutputString += cBase64Chars[nEnc4 + 1]
-        else
-            cOutputString += "="
-        ok
-    end
+	while len(cOutputString) % 8 != 0
+		cOutputString += "="
+	end
 
-    return cOutputString
+	return cOutputString
 
 /*
-	Function Name	: Base64ToString
-	Usage		: Convert a base64 encoded string back to original string
-	Parameters	: Base64 encoded string to decode
-	Output		: Decoded string
+	Function Name	: Base32ToString
+	Usage		    : Convert a Base32 encoded string back to original string
+	Parameters	    : Base32 encoded string to decode
+	Output		    : Decoded string
+*/
+func Base32ToString cInputString
+	# Base32 chars
+	cBase32Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
+
+	# Build lookup list
+	aLookup = list(256)
+	for nI = 1 to 256 aLookup[nI] = -1 next
+	for nI = 1 to len(cBase32Chars)
+		aLookup[ascii(cBase32Chars[nI])] = nI - 1
+	next
+
+	# Bit buffer
+	cOutputString = NULL
+	nBuffer = 0
+	nBitsLeft = 0
+	
+	# Clean input
+	cCleanInput = upper(cInputString)
+
+	for cChar in cCleanInput
+		nValue = aLookup[ascii(cChar)]
+		# Skip invalid characters
+		if nValue = -1 continue ok
+
+		nBuffer = (nBuffer << 5) | nValue
+		nBitsLeft += 5
+
+		if nBitsLeft >= 8
+			nBitsLeft -= 8
+			nByte = (nBuffer >> nBitsLeft) & 255
+			cOutputString += char(nByte)
+
+			nBuffer = nBuffer & ((1 << nBitsLeft) - 1)
+		ok
+	next
+	
+	return cOutputString
+
+/*
+	Function Name   : StringToBase64
+	Usage           : Convert a string to a Base64 encoded string
+	Parameters      : String to encode
+	Output          : Base64 encoded string
+*/
+func StringToBase64 cInputString
+	# Base64 chars
+	cBase64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+
+	# Bit buffer
+	cOutputString = NULL
+	nBuffer = 0
+	nBitsLeft = 0
+
+	for cChar in cInputString
+		nBuffer = (nBuffer << 8) | ascii(cChar)
+		nBitsLeft += 8
+		
+		while nBitsLeft >= 6
+			nBitsLeft -= 6
+			nIndex = (nBuffer >> nBitsLeft) & 63
+			cOutputString += cBase64Chars[nIndex + 1]
+			nBuffer = nBuffer & ((1 << nBitsLeft) - 1)
+		end
+	next
+
+	# Handle any leftover bits
+	if nBitsLeft > 0
+		nBuffer = nBuffer << (6 - nBitsLeft)
+		nIndex = nBuffer & 63
+		cOutputString += cBase64Chars[nIndex + 1]
+	ok
+
+	# Add padding
+	while len(cOutputString) % 4 != 0
+		cOutputString += "="
+	end
+
+	return cOutputString
+
+/*
+	Function Name   : Base64ToString
+	Usage           : Convert a Base64 encoded string back to original string
+	Parameters      : Base64 encoded string to decode
+	Output          : Decoded string
 */
 func Base64ToString cInputString
-    cBase64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-    cOutputString = NULL
+	# Base64 chars
+	cBase64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 
-    cCleanInput = NULL
-    for i = 1 to len(cInputString)
-        if substr(cBase64Chars, cInputString[i]) > 0 or cInputString[i] = "="
-            cCleanInput += cInputString[i]
-        ok
-    next
+	# Build lookup list
+	aLookup = list(256)
+	for nI = 1 to 256 aLookup[nI] = -1 next
+	for nI = 1 to len(cBase64Chars)
+		aLookup[ascii(cBase64Chars[nI])] = nI - 1
+	next
 
-    nInputLen = len(cCleanInput)
-    
-    if nInputLen % 4 != 0
-        return NULL
-    ok
-    
-    nInputIndex = 1
-    while nInputIndex <= nInputLen
-        nEnc1 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
-        nInputIndex++
-        nEnc2 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
-        nInputIndex++
-        nEnc3 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
-        nInputIndex++
-        nEnc4 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
-        nInputIndex++
-        
-        nByte1 = (nEnc1 << 2) | (nEnc2 >> 4)
-        cOutputString += char(nByte1)
-        
-        if cInputString[nInputIndex - 2] != "="
-            nByte2 = ((nEnc2 & 15) << 4) | (nEnc3 >> 2)
-            cOutputString += char(nByte2)
-        ok
-        
-        if cInputString[nInputIndex - 1] != "="
-            nByte3 = ((nEnc3 & 3) << 6) | nEnc4
-            cOutputString += char(nByte3)
-        ok
-    end
-    
-    return cOutputString
+	cOutputString = NULL
+	nBuffer = 0
+	nBitsLeft = 0
+
+	for cChar in cInputString
+		nValue = aLookup[ascii(cChar)]
+		# Skip invalid characters
+		if nValue = -1 continue ok
+
+		nBuffer = (nBuffer << 6) | nValue
+		nBitsLeft += 6
+
+		if nBitsLeft >= 8
+			nBitsLeft -= 8
+			nByte = (nBuffer >> nBitsLeft) & 255
+			cOutputString += char(nByte)
+			nBuffer = nBuffer & ((1 << nBitsLeft) - 1)
+		ok
+	next
+	
+	return cOutputString
 
 /*
 	Get Item from time information list
