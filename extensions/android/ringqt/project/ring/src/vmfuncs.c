@@ -445,7 +445,7 @@ void ring_vm_returnnull(VM *pVM) {
 }
 
 void ring_vm_newfunc(VM *pVM) {
-	int x, nSP, nMax, lFreeParameter;
+	unsigned int x, nSP, nMax, lFreeParameter;
 	List *aRefList, *pVar, *pRef;
 	char *pParameter;
 	const char *cParameters;
@@ -652,7 +652,8 @@ void ring_vm_movetoprevscope(VM *pVM) {
 
 void ring_vm_createtemplist(VM *pVM) {
 	List *pList, *pList2;
-	int x, lFound, nID;
+	int nID;
+	unsigned int x, lFound;
 	/*
 	**  Get the Parent List
 	**  Create the list in the TempMem related to the function
@@ -743,7 +744,7 @@ int ring_vm_timetofreetemplists(VM *pVM) {
 
 void ring_vm_freetemplists(VM *pVM) {
 	List *pTempMem, *pList, *pList2;
-	int x, x2, lFound, nStart, lListsDeleted;
+	unsigned int x, x2, lFound, nStart, lListsDeleted;
 	FuncCall *pFuncCall;
 	lListsDeleted = 0;
 	/* Clear lists inside pDeleteLater */

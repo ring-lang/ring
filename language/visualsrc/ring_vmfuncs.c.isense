@@ -29,7 +29,7 @@ lThisCheck
 ring_vm_returnn
 ring_vm_returnnull
 ring_vm_newfunc
-Type: int
+Type: unsigned int
 x,nSP,nMax,lFreeParameter
 Type: List *
 aRefList,*pVar,*pRef
@@ -56,8 +56,8 @@ pList,*pList2,*pList3
 ring_vm_createtemplist
 Type: List *
 pList, *pList2
-Type: int
-x, lFound, nID
+Type: unsigned int
+x, lFound
 ring_vm_anonymous
 Type: char *
 cStr
@@ -73,7 +73,7 @@ ring_vm_timetofreetemplists
 ring_vm_freetemplists
 Type: List *
 pTempMem, *pList, *pList2
-Type: int
+Type: unsigned int
 x,x2,lFound,nStart,lListsDeleted
 Type: FuncCall *
 pFuncCall
