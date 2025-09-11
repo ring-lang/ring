@@ -4,7 +4,7 @@
 
 void ring_vm_newnestedlists(VM *pVM) { pVM->nListStart = 0; }
 
-void ring_vm_restorenestedlists(VM *pVM, int nListStart, int nNestedLists) {
+void ring_vm_restorenestedlists(VM *pVM, unsigned int nListStart, unsigned int nNestedLists) {
 	pVM->nListStart = nListStart;
 	if (ring_list_getsize(pVM->pNestedLists) > nNestedLists) {
 		ring_vm_gc_removelistprotection(pVM, pVM->pNestedLists, nNestedLists + 1);
@@ -14,7 +14,7 @@ void ring_vm_restorenestedlists(VM *pVM, int nListStart, int nNestedLists) {
 
 void ring_vm_liststart(VM *pVM) {
 	List *pVar, *pList, *pNewList;
-	int nType, nCont;
+	unsigned int nType, nCont;
 	Item *pItem;
 	pVar = NULL;
 	pNewList = NULL;
@@ -313,7 +313,7 @@ void ring_vm_listpushv(VM *pVM) {
 	}
 }
 
-void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
+void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 	Item *pItem;
 	String *pStr1, *pString;
 	double nNum1;
@@ -405,7 +405,7 @@ void ring_vm_listassignment(VM *pVM, int nBeforeEqual) {
 }
 
 void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
-	int x;
+	unsigned int x;
 	List *pList;
 	Item *pItem;
 	const char *cStr2;
@@ -439,7 +439,7 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 }
 
 void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
-	int x, nMax;
+	unsigned int x, nMax;
 	List *pNewList2, *pSourceList;
 	Item *pItem;
 	/* Copy Items */
@@ -493,8 +493,8 @@ void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList) {
 	}
 }
 
-int ring_vm_isoperationaftersublist(VM *pVM) {
-	int nOPCode;
+unsigned int ring_vm_isoperationaftersublist(VM *pVM) {
+	unsigned int nOPCode;
 	List *pParent, *pSub, *pVar;
 	if (pVM->nListStart > 0) {
 		nOPCode = RING_VM_IR_OPCODEVALUE(pVM->nPC - 3);

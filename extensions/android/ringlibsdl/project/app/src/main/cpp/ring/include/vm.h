@@ -771,7 +771,7 @@ void ring_vm_jumpone2(VM *pVM);
 
 void ring_vm_newnestedlists(VM *pVM);
 
-void ring_vm_restorenestedlists(VM *pVM, int nListStart, int nNestedLists);
+void ring_vm_restorenestedlists(VM *pVM, unsigned int nListStart, unsigned int nNestedLists);
 
 void ring_vm_liststart(VM *pVM);
 
@@ -787,11 +787,11 @@ void ring_vm_loadindexaddress(VM *pVM);
 
 void ring_vm_listpushv(VM *pVM);
 
-void ring_vm_listassignment(VM *pVM, int nBeforeEqual);
+void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual);
 
 void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr);
 
-int ring_vm_isoperationaftersublist(VM *pVM);
+unsigned int ring_vm_isoperationaftersublist(VM *pVM);
 
 void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);
 /* Functions */
