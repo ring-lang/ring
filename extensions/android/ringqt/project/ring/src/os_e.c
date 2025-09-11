@@ -199,12 +199,12 @@ void ring_vm_os_sysget(void *pPointer) {
 	#ifdef _WIN32
 
 int setenv(const char *name, const char *value, int overwrite) {
-	int errcode = 0;
-	size_t envsize = 0;
 		#ifdef __BORLANDC__
 	puts(RING_VM_UNSUPPORTEDFUNCTION);
 	return RING_FALSE;
 		#else
+	int errcode = 0;
+	size_t envsize = 0;
 	if (!overwrite) {
 		errcode = getenv_s(&envsize, NULL, 0, name);
 		if (errcode || envsize) {
