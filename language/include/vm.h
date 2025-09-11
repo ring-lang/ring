@@ -910,9 +910,9 @@ void ring_vm_optionalloop(VM *pVM);
 
 void ring_vm_savestate(VM *pVM, List *pList);
 
-void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag);
+void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int nFlag);
 
-void ring_vm_backstate(VM *pVM, List *pList, int nToSize);
+void ring_vm_backstate(VM *pVM, List *pList, unsigned int nToSize);
 
 VMState *ring_vm_savestateformethods(VM *pVM);
 
@@ -926,7 +926,7 @@ void ring_vm_savestateforbraces(VM *pVM, List *pObjState);
 
 void ring_vm_restorestateforbraces(VM *pVM, List *pList);
 
-int ring_vm_newobjectstackpointer(VM *pVM);
+unsigned int ring_vm_newobjectstackpointer(VM *pVM);
 
 List *ring_vm_savestack(VM *pVM);
 

@@ -50,10 +50,10 @@ void ring_vm_savestate(VM *pVM, List *pList) {
 	pVMState->aPointers[7] = ring_list_getpointer(pThis, RING_VAR_VALUE);
 }
 
-void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
+void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int nFlag) {
 	List *pThis;
 	VMState *pVMState, *pVMStateForFunc, *pVMStateForObj;
-	int x;
+	unsigned int x;
 	List *aListsToDelete, *pListPointer;
 	FuncCall *pFuncCall;
 	/* Using VMState */
@@ -453,7 +453,7 @@ void ring_vm_restorestatefornewobjects(VM *pVM) {
 	ring_list_deleteitem_gc(pVM->pRingState, pVM->pScopeNewObj, ring_list_getsize(pVM->pScopeNewObj));
 }
 
-int ring_vm_newobjectstackpointer(VM *pVM) {
+unsigned int ring_vm_newobjectstackpointer(VM *pVM) {
 	VMState *pVMState;
 	pVMState = (VMState *)ring_list_getpointer(pVM->pScopeNewObj, ring_list_getsize(pVM->pScopeNewObj));
 	return pVMState->aNumbers[RING_SCOPENEWOBJ_SP];
@@ -526,7 +526,7 @@ void ring_vm_restorestateforbraces(VM *pVM, List *pList) {
 	pVM->lInsideBraceFlag = (ring_list_getsize(pVM->pBraceObjects) > 0);
 }
 
-void ring_vm_backstate(VM *pVM, List *pList, int nToSize) {
+void ring_vm_backstate(VM *pVM, List *pList, unsigned int nToSize) {
 	while (ring_list_getsize(pList) > nToSize) {
 		ring_list_deleteitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 	}
@@ -557,7 +557,7 @@ List *ring_vm_savestack(VM *pVM) {
 }
 
 void ring_vm_restorestack(VM *pVM, List *pList) {
-	int x;
+	unsigned int x;
 	Item *pItem;
 	pVM->nSP = RING_ZERO;
 	if (ring_list_getsize(pList) == RING_ZERO) {

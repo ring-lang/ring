@@ -3,14 +3,12 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
-Type: Item *
-pItem
 ring_vm_restorestate
 Type: List *
 pThis
 Type: VMState *
 pVMState, *pVMStateForFunc, *pVMStateForObj
-Type: int
+Type: unsigned int
 x
 Type: List *
 aListsToDelete, *pListPointer
@@ -21,8 +19,6 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
-Type: Item *
-pItem
 ring_vm_restorestateformethods
 Type: List *
 pThis
@@ -31,8 +27,6 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
-Type: Item *
-pItem
 ring_vm_restorestatefornewobjects
 Type: List *
 pThis
@@ -58,7 +52,7 @@ pList
 Type: Item *
 pItem
 ring_vm_restorestack
-Type: int
+Type: unsigned int
 x
 Type: Item *
 pItem
