@@ -58,7 +58,7 @@ typedef struct PoolDataL3 {
 	struct PoolDataL3 *pNext;
 } PoolDataL3;
 typedef struct VMState {
-	int aNumbers[RING_VM_STATE_NUMBERS_COUNT];
+	unsigned int aNumbers[RING_VM_STATE_NUMBERS_COUNT];
 	void *aPointers[RING_VM_STATE_POINTERS_COUNT];
 } VMState;
 typedef struct PoolDataStateLevel {
