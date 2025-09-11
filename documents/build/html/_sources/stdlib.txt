@@ -1441,6 +1441,52 @@ Output:
 	MmMm
 	4
 
+.. index:: 
+	pair: Stdlib Functions; StringToBase32() Function
+
+StringToBase32() Function
+=========================
+
+Convert a string to base32 encoded string.
+
+Syntax:
+
+.. code-block:: ring
+
+	StringToBase32(string) ---> base32 encoded string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlibcore.ring"
+
+	cStr = "Hello World"
+	see StringToBase32(cStr)	# Output: JBSWY3DPEBLW64TMMQ======
+
+
+.. index:: 
+	pair: Stdlib Functions; Base32ToString() Function
+
+Base32ToString() Function
+=========================
+
+Convert a base32 encoded string back to original string.
+
+Syntax:
+
+.. code-block:: ring
+
+	Base32ToString(base32string) ---> decoded string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlibcore.ring"
+
+	cBase32 = "JBSWY3DPEBLW64TMMQ======"
+	see Base32ToString(cBase32)	# Output: Hello World
 
 .. index:: 
 	pair: Stdlib Functions; StringToBase64() Function
