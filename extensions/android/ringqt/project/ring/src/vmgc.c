@@ -286,7 +286,7 @@ RING_API int ring_vm_gc_checkbeforeassignment(VM *pVM, List *pVar) {
 }
 
 RING_API void ring_vm_gc_removelistprotection(VM *pVM, List *pNestedLists, int nStart) {
-	int x;
+	unsigned int x;
 	for (x = nStart; x <= ring_list_getsize(pNestedLists); x++) {
 		ring_vm_gc_removelistprotectionat(pVM, pNestedLists, x);
 	}
@@ -457,7 +457,7 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 
 RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 	List *aProcess, *pActiveList, *pSubList;
-	int x, y, lDelete;
+	unsigned int x, y, lDelete;
 	Item *pItem;
 	/* Be sure that we have a circular list */
 	if (!ring_list_iscircular_gc(pState, pList)) {
@@ -562,7 +562,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 
 RING_API int ring_list_containssublist_gc(void *pState, List *pList, List *pCheck) {
 	List *aProcess, *pActiveList, *pSubList;
-	int x, y, lFound;
+	unsigned int x, y, lFound;
 	/* Check if the List is a circular reference */
 	lFound = 0;
 	aProcess = ring_list_new_gc(pState, RING_ZERO);
@@ -667,7 +667,6 @@ RING_API int ring_list_islnewref_gc(void *pState, List *pList) {
 	int lNewRef;
 	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
 	lNewRef = pList->vGC.lNewRef;
-	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
 	return lNewRef;
 }
 
@@ -791,7 +790,7 @@ RING_API void ring_state_free(void *pState, void *pMemory) {
 	void *pBlockStart;
 	void *pBlockEnd;
 	List *pBlocks, *pBlock;
-	int x, lFound;
+	unsigned int x, lFound;
 	RingState *pRingState;
 	pRingState = (RingState *)pState;
 #if RING_USEPOOLMANAGER
@@ -915,7 +914,7 @@ RING_API void ring_state_registerblock(void *pState, void *pStart, void *pEnd) {
 }
 
 RING_API void ring_state_unregisterblock(void *pState, void *pStart) {
-	int x;
+	unsigned int x;
 	List *pList;
 	RingState *pRingState;
 	void *pBlockStart;
@@ -934,7 +933,7 @@ RING_API void ring_state_unregisterblock(void *pState, void *pStart) {
 }
 
 RING_API void ring_state_willunregisterblock(void *pState, void *pStart) {
-	int x, x2, x3;
+	unsigned int x, x2, x3;
 	List *pList, *pVar;
 	Item *pItem, *pNewItem;
 	Item vTempItem;
@@ -1028,7 +1027,7 @@ RING_API void ring_poolmanager_newblock(RingState *pRingState) {
 	PoolDataL2 *pMemoryL2;
 	PoolDataL3 *pMemoryL3;
 	PoolDataStateLevel *pMemoryStateLevel;
-	int x;
+	unsigned int x;
 	/*
 	**  Level 1
 	**  Get Block Memory

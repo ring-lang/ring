@@ -122,7 +122,7 @@ Type: PoolDataL3
 Mark: ->
 PoolDataL3 *
 Parent: VMState
-Type: int
+Type: unsigned int
 aNumbers[RING_VM_STATE_NUMBERS_COUNT]
 Type: void *
 aPointers[RING_VM_STATE_POINTERS_COUNT]
@@ -242,7 +242,7 @@ Type: List *
 pList
 ring_vm_gc_checkbeforeassignment
 ring_vm_gc_removelistprotection
-Type: int
+Type: unsigned int
 x
 ring_vm_gc_removelistprotectionat
 Type: List *
@@ -283,7 +283,7 @@ pItem
 ring_list_containssublist_gc
 Type: List *
 aProcess, *pActiveList, *pSubList
-Type: int
+Type: unsigned int
 x,y,lFound
 ring_list_iscircular_gc
 ring_list_checkrefinleftside_gc
@@ -344,7 +344,7 @@ Type: void *
 pBlockEnd
 Type: List *
 pBlocks, *pBlock
-Type: int
+Type: unsigned int
 x, lFound
 Type: RingState *
 pRingState
@@ -366,7 +366,7 @@ pList
 Type: RingState *
 pRingState
 ring_state_unregisterblock
-Type: int
+Type: unsigned int
 x
 Type: List *
 pList
@@ -375,7 +375,7 @@ pRingState
 Type: void *
 pBlockStart
 ring_state_willunregisterblock
-Type: int
+Type: unsigned int
 x, x2, x3
 Type: List *
 pList, *pVar
@@ -397,7 +397,7 @@ Type: PoolDataL3 *
 pMemoryL3
 Type: PoolDataStateLevel *
 pMemoryStateLevel
-Type: int
+Type: unsigned int
 x
 ring_poolmanager_allocate
 Type: void *
