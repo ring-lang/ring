@@ -62,7 +62,7 @@ void ring_vm_oop_newobj(VM *pVM);
 
 void ring_vm_oop_property(VM *pVM);
 
-int ring_vm_oop_isobject(VM *pVM, List *pList);
+unsigned int ring_vm_oop_isobject(VM *pVM, List *pList);
 
 List *ring_vm_oop_getobj(VM *pVM);
 
@@ -76,7 +76,7 @@ void ring_vm_oop_setscope(VM *pVM);
 
 void ring_vm_oop_printobj(VM *pVM, List *pList);
 
-int ring_vm_oop_parentinit(VM *pVM, List *pList);
+unsigned int ring_vm_oop_parentinit(VM *pVM, List *pList);
 
 void ring_vm_oop_parentmethods(VM *pVM, List *pList);
 
@@ -104,34 +104,34 @@ void ring_vm_oop_import2(VM *pVM, const char *cPackage);
 
 void ring_vm_oop_import3(VM *pVM, List *pList);
 
-int ring_vm_oop_visibleclassescount(VM *pVM);
+unsigned int ring_vm_oop_visibleclassescount(VM *pVM);
 
-List *ring_vm_oop_visibleclassitem(VM *pVM, int nIndex);
+List *ring_vm_oop_visibleclassitem(VM *pVM, unsigned int nIndex);
 
 void ring_vm_oop_pushclasspackage(VM *pVM, List *pList);
 
-void ring_vm_oop_deletepackagesafter(VM *pVM, int nIndex);
+void ring_vm_oop_deletepackagesafter(VM *pVM, unsigned int nIndex);
 
-int ring_vm_oop_callmethodinsideclass(VM *pVM);
+unsigned int ring_vm_oop_callmethodinsideclass(VM *pVM);
 
 void ring_vm_oop_setget(VM *pVM, List *pVar);
 
 void ring_vm_oop_setproperty(VM *pVM);
 
-void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, int nType, const char *cStr2, double nNum1,
-				     void *pPointer, int nPointerType);
+void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, unsigned int nType, const char *cStr2,
+				     double nNum1, void *pPointer, unsigned int nPointerType);
 
 List *ring_vm_oop_objvarfromobjlist(VM *pVM, List *pList);
 
-int ring_vm_oop_objtypefromobjlist(VM *pVM, List *pList);
+unsigned int ring_vm_oop_objtypefromobjlist(VM *pVM, List *pList);
 
 Item *ring_vm_oop_objitemfromobjlist(VM *pVM, List *pList);
 
 void ring_vm_oop_callmethodfrombrace(VM *pVM);
 
-int ring_vm_oop_ismethod(VM *pVM, List *pList, const char *cStr);
+unsigned int ring_vm_oop_ismethod(VM *pVM, List *pList, const char *cStr);
 
-void ring_vm_oop_updateselfpointer(VM *pVM, List *pObj, int nType, void *pContainer);
+void ring_vm_oop_updateselfpointer(VM *pVM, List *pObj, unsigned int nType, void *pContainer);
 
 void ring_vm_oop_movetobeforeobjstate(VM *pVM);
 
@@ -139,7 +139,7 @@ void ring_vm_oop_setthethisvariable(VM *pVM);
 
 void ring_vm_oop_setthethisvariableinclassregion(VM *pVM);
 
-int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMethods);
+unsigned int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMethods);
 
 void ring_vm_oop_callclassinit(VM *pVM);
 
@@ -147,9 +147,9 @@ void ring_vm_oop_checkbracemethod(VM *pVM);
 
 void ring_vm_oop_preparecallmethodfrombrace(VM *pVM);
 
-int ring_vm_oop_isattribute(VM *pVM, List *pList, const char *cStr);
+unsigned int ring_vm_oop_isattribute(VM *pVM, List *pList, const char *cStr);
 
-int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr);
+unsigned int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr);
 
 void ring_vm_oop_cleansetpropertylist(VM *pVM);
 #endif
