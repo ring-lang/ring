@@ -147,17 +147,17 @@ typedef struct VM {
 	unsigned int nPC;
 	unsigned int nPausePC;
 	unsigned int nArgCacheCount;
-	unsigned char nInsideEval;
-	unsigned char nInClassRegion;
-	unsigned char nGetSetObjType;
-	unsigned char nBeforeEqual;
-	unsigned char nDecimals;
-	unsigned char nRetItemRef;
-	unsigned char nCallClassInit;
-	unsigned char nRunCode;
-	unsigned char nTraceEvent;
-	unsigned char nEvalInScope;
-	unsigned char nNoSetterMethod;
+	unsigned int nInsideEval : 8;
+	unsigned int nInClassRegion : 8;
+	unsigned int nGetSetObjType : 8;
+	unsigned int nBeforeEqual : 8;
+	unsigned int nDecimals : 8;
+	unsigned int nRetItemRef : 8;
+	unsigned int nCallClassInit : 8;
+	unsigned int nRunCode : 8;
+	unsigned int nTraceEvent : 8;
+	unsigned int nEvalInScope : 8;
+	unsigned int nNoSetterMethod : 8;
 	unsigned int lActiveCatch : 1;
 	unsigned int lCallMainFunction : 1;
 	unsigned int lCheckOverFlow : 1;
@@ -834,7 +834,7 @@ void ring_vm_retitemref(VM *pVM);
 
 List *ring_vm_prevtempmem(VM *pVM);
 
-void ring_vm_cleanevalcode(VM *pVM, int nCodeSize);
+void ring_vm_cleanevalcode(VM *pVM, unsigned int nCodeSize);
 
 FuncCall *ring_vm_funccallnew(VM *pVM);
 
@@ -991,7 +991,7 @@ void ring_vm_traceevent(VM *pVM, char nEvent);
 RING_API void ring_vm_callfunction(VM *pVM, char *cFuncName);
 /* Fast Function Call for Ring VM (Without Eval) */
 
-RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, int lMethod);
+RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, unsigned int lMethod);
 /* Custom Global Scope */
 
 void ring_vm_newglobalscope(VM *pVM);

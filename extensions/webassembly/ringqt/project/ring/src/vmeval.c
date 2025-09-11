@@ -3,8 +3,8 @@
 #include "ring.h"
 /* Fast Function Call for Ring VM (Without Eval) */
 
-RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, int lMethod) {
-	int nPC;
+RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, unsigned int lMethod) {
+	unsigned int nPC;
 	nPC = pVM->nPC;
 	/* Load the function and call it */
 	ring_vm_loadfunc2(pVM, cFunc, RING_FALSE);
@@ -26,7 +26,7 @@ RING_API void ring_vm_callfuncwithouteval(VM *pVM, const char *cFunc, int lMetho
 /* Fast Function Call for Extensions (Without Eval) */
 
 RING_API void ring_vm_callfunction(VM *pVM, char *cFuncName) {
-	int nCurrentFuncCall;
+	unsigned int nCurrentFuncCall;
 	/* Lower Case and pass () in the end */
 	ring_general_lower(cFuncName);
 	/* Prepare (Remove effects of the current function) */
@@ -46,7 +46,8 @@ RING_API void ring_vm_callfunction(VM *pVM, char *cFuncName) {
 /* Execute Code for Extensions (Using Eval) */
 
 RING_API void ring_vm_runcode(VM *pVM, const char *cStr) {
-	int nEvalReturnPC, lEvalReallocationFlag, nPC, nRunVM, nSP, nFuncSP, nCFuncSP, nCFuncParaCount, nLineNumber;
+	unsigned int nEvalReturnPC, lEvalReallocationFlag, nPC, nRunVM, nSP, nFuncSP, nCFuncSP, nCFuncParaCount,
+	    nLineNumber;
 	List *pStackList;
 	/* Save state to take in mind nested events execution */
 	pVM->nRunCode++;
@@ -92,9 +93,9 @@ RING_API void ring_vm_runcode(VM *pVM, const char *cStr) {
 /* Eval Functions */
 
 int ring_vm_eval(VM *pVM, const char *cStr) {
-	int nPC, nCont, nLastPC, nRunVM, x, nSize, nMark, nIns, lUpdate;
+	unsigned int nPC, nCont, nLastPC, nRunVM, x, nSize, nMark, nIns, lUpdate;
+	unsigned int aPara[2];
 	Scanner *pScanner;
-	int aPara[2];
 	List *pIR;
 	nSize = strlen(cStr);
 	if (nSize == 0) {
@@ -211,7 +212,7 @@ int ring_vm_eval(VM *pVM, const char *cStr) {
 }
 
 void ring_vm_returneval(VM *pVM) {
-	int aPara[2];
+	unsigned int aPara[2];
 	/* This function will always be called after each eval() execution */
 	ring_vm_return(pVM);
 	ring_vm_mutexlock(pVM);
@@ -244,7 +245,8 @@ void ring_vm_returneval(VM *pVM) {
 }
 
 void ring_vm_mainloopforeval(VM *pVM) {
-	int nDontDelete, nType, nOut, nSP, nFuncSP, nCFuncSP, nCFuncParaCount, nInClassRegion, nInsideEval, nStartPC;
+	unsigned int nDontDelete, nType, nOut, nSP, nFuncSP, nCFuncSP, nCFuncParaCount, nInClassRegion, nInsideEval,
+	    nStartPC;
 	List *pStackList;
 	double nNumber;
 	String *pString;
@@ -337,7 +339,7 @@ void ring_vm_mainloopforeval(VM *pVM) {
 	}
 }
 
-void ring_vm_cleanevalcode(VM *pVM, int nCodeSize) {
+void ring_vm_cleanevalcode(VM *pVM, unsigned int nCodeSize) {
 	if (pVM->lRetEvalDontDelete || (RING_VM_INSTRUCTIONSCOUNT <= nCodeSize)) {
 		return;
 	}
@@ -353,7 +355,7 @@ void ring_vm_cleanevalcode(VM *pVM, int nCodeSize) {
 }
 
 void ring_vm_useextrabytecode(VM *pVM) {
-	int x;
+	unsigned int x;
 	/* Prepare the Jump */
 	ring_vm_blockflag2(pVM, pVM->nPC);
 	pVM->nPC = RING_VM_INSTRUCTIONSCOUNT + 1;

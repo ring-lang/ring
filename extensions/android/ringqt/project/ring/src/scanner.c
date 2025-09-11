@@ -852,7 +852,7 @@ void ring_scanner_addreturn2(RingState *pRingState) {
 	ring_list_addint_gc(pRingState, pList, ICO_RETURN);
 }
 
-void ring_scanner_addreturn3(RingState *pRingState, int aPara[2]) {
+void ring_scanner_addreturn3(RingState *pRingState, unsigned int aPara[2]) {
 	List *pList;
 	/* Push Empty String */
 	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);

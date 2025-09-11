@@ -246,26 +246,26 @@ Type: unsigned int
 nPausePC
 Type: unsigned int
 nArgCacheCount
-Type: unsigned char
-nInsideEval
-Type: unsigned char
-nInClassRegion
-Type: unsigned char
-nGetSetObjType
-Type: unsigned char
-nBeforeEqual
-Type: unsigned char
-nDecimals
-Type: unsigned char
-nRetItemRef
-Type: unsigned char
-nCallClassInit
-Type: unsigned char
-nRunCode
-Type: unsigned char
-nTraceEvent
-Type: unsigned char
-nEvalInScope
+Type: unsigned int
+nInsideEval: 8
+Type: unsigned int
+nInClassRegion: 8
+Type: unsigned int
+nGetSetObjType: 8
+Type: unsigned int
+nBeforeEqual: 8
+Type: unsigned int
+nDecimals: 8
+Type: unsigned int
+nRetItemRef: 8
+Type: unsigned int
+nCallClassInit: 8
+Type: unsigned int
+nRunCode: 8
+Type: unsigned int
+nTraceEvent: 8
+Type: unsigned int
+nEvalInScope: 8
 Type: unsigned char
 nNoSetterMethod
 Type: unsigned int

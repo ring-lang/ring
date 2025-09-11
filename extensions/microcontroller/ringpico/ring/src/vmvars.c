@@ -124,7 +124,7 @@ unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
 					continue;
 				}
 				/* Pass Braces for Class Init() method */
-				if ((ring_list_getsize(pVM->pObjState) > ((unsigned int)pVM->nCallClassInit)) &&
+				if ((ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) &&
 				    (pVM->nCallClassInit)) {
 					pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState) -
 										      pVM->nCallClassInit);
@@ -221,7 +221,7 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 				if (ring_vm_oop_callmethodinsideclass(pVM) == 0) {
 					lPrivateError = 1;
 					/* Pass Braces for Class Init() to be sure we are inside a method or not */
-					if ((ring_list_getsize(pVM->pObjState) > ((unsigned int)pVM->nCallClassInit)) &&
+					if ((ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) &&
 					    (pVM->nCallClassInit)) {
 						pList = ring_list_getlist(pVM->pObjState,
 									  ring_list_getsize(pVM->pObjState) -
