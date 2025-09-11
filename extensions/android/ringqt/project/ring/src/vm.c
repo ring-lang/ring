@@ -4,7 +4,7 @@
 
 VM *ring_vm_new(RingState *pRingState) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pActiveMem;
 	pVM = (VM *)ring_state_malloc(pRingState, sizeof(VM));
 	/* Ring State */
@@ -220,7 +220,7 @@ VM *ring_vm_new(RingState *pRingState) {
 }
 
 VM *ring_vm_delete(VM *pVM) {
-	int x;
+	unsigned int x;
 	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState, pVM->pNestedLists);
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState, pVM->pPCBlockFlag);
 	pVM->pTempMem = ring_list_delete_gc(pVM->pRingState, pVM->pTempMem);
@@ -300,7 +300,7 @@ void ring_vm_towardsmainloop(RingState *pRingState) {
 void ring_vm_init(RingState *pRingState) {
 	Scanner *pScanner;
 	VM *pVM;
-	int nRunVM, nFreeFilesList = 0;
+	unsigned int nRunVM, nFreeFilesList = 0;
 	/* Check file */
 	if (pRingState->pRingFilesList == NULL) {
 		pRingState->pRingFilesList = ring_list_new_gc(pRingState, RING_ZERO);
@@ -359,7 +359,7 @@ void ring_vm_defragmentation(RingState *pRingState, VM *pVM) {
 }
 
 void ring_vm_updateclassespointers(RingState *pRingState) {
-	int x, x2, x3, x4, lFound;
+	unsigned int x, x2, x3, x4, lFound;
 	List *pList, *pList2, *pList3, *pPackageList;
 	const char *cString;
 	char cPackageName[RING_HUGEBUF];
@@ -385,7 +385,9 @@ void ring_vm_updateclassespointers(RingState *pRingState) {
 			/* Avoid large names */
 			continue;
 		}
-		for (x2 = ring_list_getstringsize(pList, RING_CLASSMAP_CLASSNAME) - 1; x2 >= 0; x2--) {
+		x2 = ring_list_getstringsize(pList, RING_CLASSMAP_CLASSNAME);
+		while (x2 > 0) {
+			x2--;
 			if (cString[x2] == '.') {
 				/*
 				**  Now we have a class name stored as packagename.classname
@@ -462,7 +464,7 @@ void ring_vm_deletecfunctions(VM *pVM) {
 }
 
 RING_API void ring_vm_loadcode(VM *pVM) {
-	int x, nSize;
+	unsigned int x, nSize;
 /*
 **  We may allocate larger than the size that we need to avoid reallocation when we use eval()
 **  eval() will check if there is a need to reallocation or not
@@ -484,7 +486,7 @@ RING_API void ring_vm_loadcode(VM *pVM) {
 
 void ring_vm_tobytecode(VM *pVM, int nIns) {
 	List *pIR;
-	int x, nType;
+	unsigned int x, nType;
 	ByteCode *pByteCode;
 	Item *pItem;
 	String *pString;
@@ -591,7 +593,7 @@ void ring_vm_setreg1topointerfromstack(VM *pVM) {
 }
 
 RING_API void ring_vm_showbytecode(VM *pVM) {
-	int x, y, nCount, nType;
+	unsigned int x, y, nCount, nType;
 	ByteCode *pByteCode;
 	/* Print Header */
 	printf("\n\n");
@@ -639,7 +641,7 @@ RING_API void ring_vm_showbytecode(VM *pVM) {
 }
 
 void ring_vm_bytecode2list(VM *pVM, List *pOutput) {
-	int x, y, nCount, nType;
+	unsigned int x, y, nCount, nType;
 	ByteCode *pByteCode;
 	List *pIns;
 	nCount = RING_VM_INSTRUCTIONSCOUNT;
@@ -678,7 +680,7 @@ void ring_vm_bytecode2list(VM *pVM, List *pOutput) {
 }
 
 void ring_vm_afterscopeidoverflow(VM *pVM) {
-	int x, y, nCount;
+	unsigned int x, y, nCount;
 	ByteCode *pByteCode;
 	nCount = RING_VM_INSTRUCTIONSCOUNT;
 	for (x = 1; x <= nCount; x++) {
@@ -703,7 +705,7 @@ void ring_vm_afterscopeidoverflow(VM *pVM) {
 }
 
 void ring_vm_deleteallbytecode(VM *pVM) {
-	int x;
+	unsigned int x;
 	for (x = 1; x <= RING_VM_INSTRUCTIONSCOUNT; x++) {
 		ring_vm_deletebytecode(pVM, x);
 	}

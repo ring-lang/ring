@@ -596,12 +596,12 @@ RING_VM_MAXNESTEDEVAL
 ring_vm_new
 Type: VM *
 pVM
-Type: int
+Type: unsigned int
 x
 Type: List *
 pActiveMem
 ring_vm_delete
-Type: int
+Type: unsigned int
 x
 ring_vm_start
 ring_vm_towardsmainloop
@@ -612,12 +612,13 @@ Type: Scanner *
 pScanner
 Type: VM *
 pVM
+Type: unsigned int
 nRunVM,nFreeFilesList
 ring_vm_defragmentation
 Type: List *
 pRingFilesList
 ring_vm_updateclassespointers
-Type: int
+Type: unsigned int
 x,x2,x3,x4,lFound
 Type: List *
 pList, *pList2, *pList3, *pPackageList
@@ -631,12 +632,12 @@ ring_vm_deletecfunctions
 Type: CFunction *
 pCFunc
 ring_vm_loadcode
-Type: int
+Type: unsigned int
 x,nSize
 ring_vm_tobytecode
 Type: List *
 pIR
-Type: int
+Type: unsigned int
 x,nType
 Type: ByteCode *
 pByteCode
@@ -648,24 +649,24 @@ ring_vm_deletebytecode
 ring_vm_clearregisterstring
 ring_vm_setreg1topointerfromstack
 ring_vm_showbytecode
-Type: int
+Type: unsigned int
 x,y,nCount,nType
 Type: ByteCode *
 pByteCode
 ring_vm_bytecode2list
-Type: int
+Type: unsigned int
 x,y,nCount,nType
 Type: ByteCode *
 pByteCode
 Type: List *
 pIns
 ring_vm_afterscopeidoverflow
-Type: int
+Type: unsigned int
 x,y,nCount
 Type: ByteCode *
 pByteCode
 ring_vm_deleteallbytecode
-Type: int
+Type: unsigned int
 x
 ring_vm_mainloop
 ring_vm_fetch
