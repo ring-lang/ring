@@ -8,18 +8,18 @@ ring_vm_varpushv
 Type: List *
 pVar, *pList
 ring_vm_loadaddress
-Type: int
+Type: unsigned int
 x,lFound
 ring_vm_assignment
 Type: List *
-pVar,*pList, *pList2
+pVar,*pList
 Type: String *
 pStr1, *pString
 Type: double
 nNum1
 Type: Item *
 pItem
-Type: int
+Type: unsigned int
 nBeforeEqual
 ring_vm_inc
 Type: List *
@@ -27,12 +27,12 @@ pVar
 ring_vm_loadapushv
 ring_vm_newline
 ring_vm_freestack
-Type: int
+Type: unsigned int
 nSP
 ring_vm_setreference
 Type: List *
 pList
-Type: int
+Type: unsigned int
 nType
 Type: void *
 pPointer
@@ -65,12 +65,12 @@ Type: List *
 pList, *pList2
 Type: Item *
 pItem
-Type: int
+Type: unsigned int
 x, lCont
 ring_vm_freeloadaddressscope
 ring_vm_loadaddressfirst
 ring_vm_printstack
-Type: int
+Type: unsigned int
 x,nSP
 ring_vm_len
 Type: int

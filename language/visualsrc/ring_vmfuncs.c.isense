@@ -93,7 +93,7 @@ pFuncCall
 ring_vm_funccallparacount
 Type: FuncCall *
 pFuncCall
-Type: int
+Type: unsigned int
 x
 ring_vm_optionalfunc
 Type: VM *

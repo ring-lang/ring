@@ -96,7 +96,7 @@ void ring_vm_varpushv(VM *pVM) {
 }
 
 void ring_vm_loadaddress(VM *pVM) {
-	int x, lFound;
+	unsigned int x, lFound;
 	lFound = ring_vm_findvar(pVM, RING_VM_IR_READC);
 	if (lFound == 0) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
@@ -154,7 +154,7 @@ void ring_vm_assignment(VM *pVM) {
 	String *pStr1, *pString;
 	double nNum1;
 	Item *pItem;
-	int nBeforeEqual;
+	unsigned int nBeforeEqual;
 	nBeforeEqual = pVM->nBeforeEqual;
 	pVM->nBeforeEqual = OP_EQUAL;
 	switch (RING_VM_STACK_PREVOBJTYPE) {
@@ -318,7 +318,7 @@ void ring_vm_newline(VM *pVM) {
 }
 
 void ring_vm_freestack(VM *pVM) {
-	int nSP;
+	unsigned int nSP;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL;
 	/* Clear Load Address Scope Information */
@@ -359,7 +359,7 @@ void ring_vm_freestack(VM *pVM) {
 
 void ring_vm_setreference(VM *pVM) {
 	List *pList;
-	int nType;
+	unsigned int nType;
 	void *pPointer;
 	/*
 	**  Check if we have value (string/number) not variable
@@ -554,7 +554,7 @@ void ring_vm_minusminus(VM *pVM) {
 void ring_vm_assignmentpointer(VM *pVM) {
 	List *pList, *pList2;
 	Item *pItem;
-	int x, lCont;
+	unsigned int x, lCont;
 	/* Check Instruction Parameters */
 	if (RING_VM_IR_READI == 1) {
 		/*
@@ -621,7 +621,7 @@ void ring_vm_loadaddressfirst(VM *pVM) {
 }
 
 void ring_vm_printstack(VM *pVM) {
-	int x, nSP;
+	unsigned int x, nSP;
 	printf("\n*****************************************\n");
 	printf("Stack Size %u \n", pVM->nSP);
 	nSP = pVM->nSP;
@@ -649,7 +649,7 @@ void ring_vm_printstack(VM *pVM) {
 }
 
 void ring_vm_len(VM *pVM) {
-	int nSize;
+	unsigned int nSize;
 	List *pVar, *pList;
 	Item *pItem;
 	String *pString;

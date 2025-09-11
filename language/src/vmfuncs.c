@@ -894,9 +894,9 @@ int ring_vm_funccallbeforecall(VM *pVM) {
 	return RING_FALSE;
 }
 
-int ring_vm_funccallparacount(VM *pVM) {
+unsigned int ring_vm_funccallparacount(VM *pVM) {
 	FuncCall *pFuncCall;
-	int x;
+	unsigned int x;
 	if (RING_VM_FUNCCALLSCOUNT) {
 		for (x = RING_VM_FUNCCALLSCOUNT; x >= 1; x--) {
 			pFuncCall = RING_VM_GETFUNCCALL(x);

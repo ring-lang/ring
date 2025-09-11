@@ -844,7 +844,7 @@ void ring_vm_funccalluseloadfuncp(VM *pVM, FuncCall *pFuncCall, int nPerformance
 
 int ring_vm_funccallbeforecall(VM *pVM);
 
-int ring_vm_funccallparacount(VM *pVM);
+unsigned int ring_vm_funccallparacount(VM *pVM);
 
 void ring_vm_newscopeid(VM *pVM);
 
