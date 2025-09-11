@@ -4,6 +4,7 @@
 # 2016-2019, CalmoSoft <calmosoft@gmail.com>
 # 2020, Bert Mariani (Matrix Multiplication)
 # 2023, Dan Campbell (Reduce function)
+# 2025, Youssef Saeed (Base32 and Base64 functions)
 
 Load "stdlib.rh"
 Load "stdfunctions.ring"
@@ -1070,6 +1071,90 @@ func ASCIIList2Str aList
 		cStr += char(nNum)
 	next 
 	return cStr 
+
+/*
+	Function Name  : StringToBase32
+	Usage	       : Convert a string to a Base32 encoded string
+	Parameters	   : String to encode
+	Output		   : Base32 encoded string
+*/
+func StringToBase32 cInputString
+	# Base32 chars
+	cBase32Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
+
+	# Bit buffer
+	cOutputString = NULL
+	nBuffer = 0
+	nBitsLeft = 0
+
+	for cChar in cInputString
+		nBuffer = (nBuffer << 8) | ascii(cChar)
+		nBitsLeft += 8
+		
+		while nBitsLeft >= 5
+			nBitsLeft -= 5
+			nIndex = (nBuffer >> nBitsLeft) & 31
+			cOutputString += cBase32Chars[nIndex + 1]
+
+			nBuffer = nBuffer & ((1 << nBitsLeft) - 1)
+		end
+	next
+
+	if nBitsLeft > 0
+		nBuffer = nBuffer << (5 - nBitsLeft)
+		nIndex = nBuffer & 31
+		cOutputString += cBase32Chars[nIndex + 1]
+	ok
+
+	while len(cOutputString) % 8 != 0
+		cOutputString += "="
+	end
+
+	return cOutputString
+
+/*
+	Function Name	: Base32ToString
+	Usage		    : Convert a Base32 encoded string back to original string
+	Parameters	    : Base32 encoded string to decode
+	Output		    : Decoded string
+*/
+func Base32ToString cInputString
+	# Base32 chars
+	cBase32Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
+
+	# Build lookup list
+	aLookup = list(256)
+	for nI = 1 to 256 aLookup[nI] = -1 next
+	for nI = 1 to len(cBase32Chars)
+		aLookup[ascii(cBase32Chars[nI])] = nI - 1
+	next
+
+	# Bit buffer
+	cOutputString = NULL
+	nBuffer = 0
+	nBitsLeft = 0
+	
+	# Clean input
+	cCleanInput = upper(cInputString)
+
+	for cChar in cCleanInput
+		nValue = aLookup[ascii(cChar)]
+		# Skip invalid characters
+		if nValue = -1 continue ok
+
+		nBuffer = (nBuffer << 5) | nValue
+		nBitsLeft += 5
+
+		if nBitsLeft >= 8
+			nBitsLeft -= 8
+			nByte = (nBuffer >> nBitsLeft) & 255
+			cOutputString += char(nByte)
+
+			nBuffer = nBuffer & ((1 << nBitsLeft) - 1)
+		ok
+	next
+	
+	return cOutputString
 
 /*
 	Function Name   : StringToBase64
