@@ -38,7 +38,7 @@ void ring_vm_refmeta_loadfunctions(RingState *pRingState) {
 }
 
 void ring_vm_refmeta_locals(void *pPointer) {
-	int x;
+	unsigned int x;
 	List *pList, *pList2, *pList3;
 	/* We skip the current scope of the locals() function */
 	pList = RING_API_CALLERSCOPE;
@@ -53,7 +53,7 @@ void ring_vm_refmeta_locals(void *pPointer) {
 
 void ring_vm_refmeta_globals(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2, *pList3;
 	pVM = (VM *)pPointer;
 	pList = ring_vm_getglobalscope(pVM);
@@ -69,7 +69,7 @@ void ring_vm_refmeta_globals(void *pPointer) {
 
 void ring_vm_refmeta_functions(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
@@ -96,7 +96,7 @@ void ring_vm_refmeta_cfunctions(void *pPointer) {
 }
 
 void ring_vm_refmeta_islocal(void *pPointer) {
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
@@ -122,7 +122,7 @@ void ring_vm_refmeta_islocal(void *pPointer) {
 
 void ring_vm_refmeta_isglobal(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
@@ -148,7 +148,7 @@ void ring_vm_refmeta_isglobal(void *pPointer) {
 
 void ring_vm_refmeta_isfunction(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
@@ -200,7 +200,7 @@ void ring_vm_refmeta_iscfunction(void *pPointer) {
 
 void ring_vm_refmeta_packages(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
@@ -214,7 +214,7 @@ void ring_vm_refmeta_packages(void *pPointer) {
 
 void ring_vm_refmeta_ispackage(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
@@ -240,7 +240,7 @@ void ring_vm_refmeta_ispackage(void *pPointer) {
 
 void ring_vm_refmeta_classes(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
@@ -254,7 +254,7 @@ void ring_vm_refmeta_classes(void *pPointer) {
 
 void ring_vm_refmeta_isclass(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
@@ -280,7 +280,7 @@ void ring_vm_refmeta_isclass(void *pPointer) {
 
 void ring_vm_refmeta_packageclasses(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2, *pList3;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
@@ -315,7 +315,7 @@ void ring_vm_refmeta_packageclasses(void *pPointer) {
 
 void ring_vm_refmeta_ispackageclass(void *pPointer) {
 	VM *pVM;
-	int x;
+	unsigned int x;
 	List *pList, *pList2;
 	char *cStr, *cStr2;
 	if (RING_API_PARACOUNT != 2) {
@@ -391,7 +391,7 @@ void ring_vm_refmeta_objectid(void *pPointer) {
 
 void ring_vm_refmeta_attributes(void *pPointer) {
 	List *pList, *pList2;
-	int x;
+	unsigned int x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
@@ -418,7 +418,7 @@ void ring_vm_refmeta_attributes(void *pPointer) {
 
 void ring_vm_refmeta_methods(void *pPointer) {
 	List *pList, *pList2;
-	int x;
+	unsigned int x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
@@ -493,7 +493,7 @@ void ring_vm_refmeta_ismethod(void *pPointer) {
 
 void ring_vm_refmeta_isprivateattribute(void *pPointer) {
 	List *pList;
-	int x;
+	unsigned int x;
 	char *cStr;
 	VM *pVM;
 	pVM = (VM *)pPointer;
@@ -528,7 +528,7 @@ void ring_vm_refmeta_isprivateattribute(void *pPointer) {
 
 void ring_vm_refmeta_isprivatemethod(void *pPointer) {
 	List *pList;
-	int x;
+	unsigned int x;
 	char *cStr;
 	VM *pVM;
 	pVM = (VM *)pPointer;
@@ -559,7 +559,7 @@ void ring_vm_refmeta_isprivatemethod(void *pPointer) {
 void ring_vm_refmeta_addattribute(void *pPointer) {
 	List *pList, *pList2;
 	char *cStr;
-	int x;
+	unsigned int x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 2) {
@@ -600,7 +600,7 @@ void ring_vm_refmeta_addattribute(void *pPointer) {
 void ring_vm_refmeta_addmethod(void *pPointer) {
 	List *pList, *pList2, *pList3;
 	char *cStr;
-	int x;
+	unsigned int x;
 	VM *pVM;
 	/* Parameters : Object, MethodName, Anonymous Function */
 	pVM = (VM *)pPointer;
@@ -654,7 +654,7 @@ void ring_vm_refmeta_addmethod(void *pPointer) {
 void ring_vm_refmeta_getattribute(void *pPointer) {
 	List *pList;
 	char *cStr;
-	int x;
+	unsigned int x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 2) {
@@ -694,7 +694,7 @@ void ring_vm_refmeta_getattribute(void *pPointer) {
 void ring_vm_refmeta_setattribute(void *pPointer) {
 	List *pList;
 	char *cStr;
-	int x;
+	unsigned int x;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 3) {
@@ -739,7 +739,7 @@ void ring_vm_refmeta_setattribute(void *pPointer) {
 }
 
 void ring_vm_refmeta_mergemethods(void *pPointer) {
-	int x;
+	unsigned int x;
 	List *pList, *pList2, *pList3;
 	VM *pVM;
 	char *cStr, *cStr2;
