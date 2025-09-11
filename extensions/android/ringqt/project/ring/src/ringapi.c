@@ -435,7 +435,7 @@ RING_API List *ring_vm_api_newlist(void *pPointer) {
 
 RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize, unsigned int nSize2) {
 	List *pList, *pList2, *pList3, *pSubLists;
-	int x, y, lUseBlocks;
+	unsigned int x, y, lUseBlocks;
 	Items *pItems;
 	Item *pItem;
 	VM *pVM;

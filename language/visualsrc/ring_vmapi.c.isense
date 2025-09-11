@@ -163,10 +163,8 @@ Type: Item *
 pItem
 ring_vm_api_retcpointer
 ring_vm_api_retlist2
-Type: int
-nType
 Type: List *
-pRealList,*pTempMem,*pVariableList, *pObjectVariable
+pRealList,*pTempMem,*pVariableList
 Type: VM *
 pVM
 ring_vm_api_intvalue
@@ -174,8 +172,6 @@ ring_vm_api_floatvalue
 ring_vm_api_newlist
 Type: List *
 pList
-Type: FuncCall *
-pFuncCall
 Type: VM *
 pVM
 ring_vm_api_newlistusingblocks
