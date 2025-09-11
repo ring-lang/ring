@@ -708,13 +708,13 @@ int ring_vm_stringtologicvalue(VM *pVM, const char *cStr);
 int ring_vm_listtologicvalue(VM *pVM, List *pList);
 /* Variables */
 
-int ring_vm_newscope(VM *pVM);
+unsigned int ring_vm_newscope(VM *pVM);
 
 void ring_vm_deletescope(VM *pVM);
 
-int ring_vm_findvar(VM *pVM, const char *cStr);
+unsigned int ring_vm_findvar(VM *pVM, const char *cStr);
 
-int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr);
+unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const char *cStr);
 
 void ring_vm_newvar(VM *pVM, const char *cStr);
 
@@ -724,7 +724,7 @@ void ring_vm_addnewnumbervar(VM *pVM, const char *cStr, double nNumber);
 
 void ring_vm_addnewstringvar(VM *pVM, const char *cStr, const char *cStr2);
 
-void ring_vm_addnewpointervar(VM *pVM, const char *cStr, void *pPointer, int nType);
+void ring_vm_addnewpointervar(VM *pVM, const char *cStr, void *pPointer, unsigned int nType);
 
 List *ring_vm_addnewlistvar(VM *pVM, const char *cStr);
 
@@ -734,15 +734,15 @@ void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, unsi
 
 void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const char *cStr2);
 
-void ring_vm_setvarprivateflag(VM *pVM, List *pVar, int nFlag);
+void ring_vm_setvarprivateflag(VM *pVM, List *pVar, unsigned int nFlag);
 
-int ring_vm_getvarprivateflag(VM *pVM, List *pVar);
+unsigned int ring_vm_getvarprivateflag(VM *pVM, List *pVar);
 
 void ring_vm_copyscopestolist(VM *pVM, List *pList);
 
 void ring_vm_addvarpointertoscopehash(VM *pVM, List *pParent, const char *cVar, List *pList);
 
-int ring_vm_notusingvarduringdef(VM *pVM);
+unsigned int ring_vm_notusingvarduringdef(VM *pVM);
 /* Parameters */
 
 void ring_vm_newargcache(VM *pVM);
@@ -753,7 +753,7 @@ List *ring_vm_addstringarg(VM *pVM, const char *cVar, const char *cStr, unsigned
 
 List *ring_vm_addnumberarg(VM *pVM, const char *cVar, double nNumber);
 
-List *ring_vm_addpointerarg(VM *pVM, const char *cVar, void *pPointer, int nType);
+List *ring_vm_addpointerarg(VM *pVM, const char *cVar, void *pPointer, unsigned int nType);
 
 List *ring_vm_addlistarg(VM *pVM, const char *cVar);
 /* Jump */

@@ -8,17 +8,15 @@ ring_vm_newscopeid
 ring_vm_deletescope
 Type: List *
 pList
-Type: ListBlocks *
-pArg
-Type: int
+Type: unsigned int
 x
 ring_vm_findvar
-Type: int
+Type: unsigned int
 x,nPos,nMax1
 Type: List *
 pList,*pList2
 ring_vm_findvar2
-Type: int
+Type: unsigned int
 nPC,nType,lPrivateError,nAssignmentPos
 Type: Item *
 pItem
@@ -56,18 +54,18 @@ ring_vm_getvarprivateflag
 ring_vm_copyscopestolist
 Type: List *
 pNewList
-Type: int
+Type: unsigned int
 x
 ring_vm_notusingvarduringdef
 Type: int
 nCont
 ring_vm_newargcache
-Type: int
+Type: unsigned int
 x
 Type: List *
 pList
 ring_vm_deleteargcache
-Type: int
+Type: unsigned int
 x
 ring_vm_addstringarg
 Type: List *

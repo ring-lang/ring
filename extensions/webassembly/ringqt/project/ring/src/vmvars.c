@@ -39,7 +39,7 @@ void ring_vm_addglobalvariables(VM *pVM) {
 **  When we find variable or create new variable we push variable pointer to the stack
 */
 
-int ring_vm_newscope(VM *pVM) {
+unsigned int ring_vm_newscope(VM *pVM) {
 	/* Check scopes count */
 	if (RING_VM_FUNCCALLSCOUNT >= RING_VM_STACK_CHECKOVERFLOW) {
 		ring_vm_error(pVM, RING_VM_ERROR_STACKOVERFLOW);
@@ -60,7 +60,7 @@ void ring_vm_newscopeid(VM *pVM) {
 
 void ring_vm_deletescope(VM *pVM) {
 	List *pList;
-	int x;
+	unsigned int x;
 	if (RING_VM_SCOPESCOUNT < 2) {
 		ring_vm_error(pVM, RING_NOSCOPE);
 		ring_state_exit(pVM->pRingState, RING_EXIT_FAIL);
@@ -93,8 +93,8 @@ void ring_vm_deletescope(VM *pVM) {
 	pVM->pActiveMem = RING_VM_GETLASTSCOPE;
 }
 
-int ring_vm_findvar(VM *pVM, const char *cStr) {
-	int x, nPos, nMax1;
+unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
+	unsigned int x, nPos, nMax1;
 	List *pList, *pList2;
 	pVM->lSelfLoadA = 0;
 	nMax1 = RING_VM_SCOPESCOUNT;
@@ -175,8 +175,8 @@ int ring_vm_findvar(VM *pVM, const char *cStr) {
 	return RING_FALSE;
 }
 
-int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
-	int nPC, nType, lPrivateError, nAssignmentPos;
+unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const char *cStr) {
+	unsigned int nPC, nType, lPrivateError, nAssignmentPos;
 	Item *pItem;
 	List *pList, *pThis;
 	/*
@@ -374,7 +374,7 @@ void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, unsi
 	ring_list_setstring2_gc(pVM->pRingState, pList, RING_VAR_VALUE, cStr2, nStrSize);
 }
 
-void ring_vm_addnewpointervar(VM *pVM, const char *cStr, void *pPointer, int nType) {
+void ring_vm_addnewpointervar(VM *pVM, const char *cStr, void *pPointer, unsigned int nType) {
 	List *pList;
 	pList = ring_vm_newvar2(pVM, cStr, pVM->pActiveMem);
 	ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_POINTER);
@@ -414,7 +414,7 @@ void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const 
 	ring_list_addint_gc(pVM->pRingState, pList2, RING_CPOINTERSTATUS_NOTCOPIED);
 }
 
-void ring_vm_setvarprivateflag(VM *pVM, List *pVar, int nFlag) {
+void ring_vm_setvarprivateflag(VM *pVM, List *pVar, unsigned int nFlag) {
 	if (ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1) {
 		ring_list_addint_gc(pVM->pRingState, pVar, nFlag);
 	} else if (ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG) {
@@ -422,7 +422,7 @@ void ring_vm_setvarprivateflag(VM *pVM, List *pVar, int nFlag) {
 	}
 }
 
-int ring_vm_getvarprivateflag(VM *pVM, List *pVar) {
+unsigned int ring_vm_getvarprivateflag(VM *pVM, List *pVar) {
 	if (ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG) {
 		return ring_list_getint(pVar, RING_VAR_PRIVATEFLAG);
 	}
@@ -431,14 +431,14 @@ int ring_vm_getvarprivateflag(VM *pVM, List *pVar) {
 
 void ring_vm_copyscopestolist(VM *pVM, List *pList) {
 	List *pNewList;
-	int x;
+	unsigned int x;
 	for (x = 1; x <= RING_VM_SCOPESCOUNT; x++) {
 		pNewList = ring_list_newlist_gc(pVM->pRingState, pList);
 		ring_list_copy_gc(pVM->pRingState, pNewList, RING_VM_GETSCOPE(x));
 	}
 }
 
-int ring_vm_notusingvarduringdef(VM *pVM) {
+unsigned int ring_vm_notusingvarduringdef(VM *pVM) {
 	int nCont;
 	nCont = RING_TRUE;
 	if ((pVM->nBeforeEqual == OP_EQUAL) && (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER) {
@@ -459,7 +459,7 @@ int ring_vm_notusingvarduringdef(VM *pVM) {
 }
 
 void ring_vm_newargcache(VM *pVM) {
-	int x;
+	unsigned int x;
 	List *pList;
 	pVM->nArgCacheCount = 0;
 	for (x = 1; x <= RING_VM_ARGCACHE_SIZE; x++) {
@@ -477,7 +477,7 @@ void ring_vm_newargcache(VM *pVM) {
 }
 
 void ring_vm_deleteargcache(VM *pVM) {
-	int x;
+	unsigned int x;
 	for (x = 0; x < RING_VM_ARGCACHE_SIZE; x++) {
 		ring_list_disabledontdelete_gc(pVM->pRingState, pVM->aArgCache[x]);
 		pVM->aArgCache[x] = ring_list_delete_gc(pVM->pRingState, pVM->aArgCache[x]);
@@ -524,7 +524,7 @@ List *ring_vm_addnumberarg(VM *pVM, const char *cVar, double nNumber) {
 	return pList;
 }
 
-List *ring_vm_addpointerarg(VM *pVM, const char *cVar, void *pPointer, int nType) {
+List *ring_vm_addpointerarg(VM *pVM, const char *cVar, void *pPointer, unsigned int nType) {
 	List *pList, *pParent;
 	pParent = pVM->pActiveMem;
 	if (!pVM->nArgCacheCount) {
