@@ -28,6 +28,8 @@ Type: void *
 pPointer
 Type: const char *
 pString
+Type: unsigned int
+uiNumber
 Type: RING_BYTECODEDOUBLE
 dNumber
 END:
@@ -118,8 +120,8 @@ Type: unsigned int
 nStatus: 8
 Type: unsigned int
 nLoadAddressScope: 8
-Type: char
-lMethod
+Type: unsigned int
+lMethod: 8
 END:
 Type: FuncCall
 struct FuncCall
@@ -442,6 +444,7 @@ RING_VM_IR_GETSMALLINTREG
 RING_VM_IR_SETINTREGATINS(nIns,nValue)
 RING_VM_IR_INTATINS(nIns)
 RING_VM_PUSHNTHENJUMP
+RING_VM_IR_READIVALUE(nReg)
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCSTATUS_LOAD

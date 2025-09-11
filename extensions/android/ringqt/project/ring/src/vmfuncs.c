@@ -781,9 +781,9 @@ void ring_vm_freetemplists(VM *pVM) {
 	} else {
 		pTempMem = pVM->pTempMem;
 	}
-	if ((RING_VM_IR_GETINTREG == 0) || (RING_VM_IR_READIVALUE(RING_VM_IR_REG2) != pVM->nActiveScopeID)) {
+	if ((RING_VM_IR_GETINTREG == 0) || (RING_VM_IR_READUIVALUE(RING_VM_IR_REG2) != pVM->nActiveScopeID)) {
 		RING_VM_IR_SETINTREG(ring_list_getsize(pTempMem) + 1);
-		RING_VM_IR_READIVALUE(RING_VM_IR_REG2) = pVM->nActiveScopeID;
+		RING_VM_IR_READUIVALUE(RING_VM_IR_REG2) = pVM->nActiveScopeID;
 	}
 	nStart = RING_VM_IR_GETINTREG;
 	/* Delete Temp. Lists created during the function call */

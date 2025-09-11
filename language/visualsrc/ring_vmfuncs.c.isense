@@ -56,6 +56,8 @@ pList,*pList2,*pList3
 ring_vm_createtemplist
 Type: List *
 pList, *pList2
+Type: int
+nID
 Type: unsigned int
 x, lFound
 ring_vm_anonymous

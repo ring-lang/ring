@@ -41,6 +41,7 @@ typedef union Register {
 	int iNumber;
 	void *pPointer;
 	const char *pString;
+	unsigned int uiNumber;
 	RING_BYTECODEDOUBLE dNumber;
 } Register;
 typedef struct ByteCode {
@@ -301,6 +302,7 @@ typedef struct VM {
 #define RING_VM_IR_READPVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].pPointer
 #define RING_VM_IR_READI pVM->pByteCodeIR->aReg[0].iNumber
 #define RING_VM_IR_READIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].iNumber
+#define RING_VM_IR_READUIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].uiNumber
 #define RING_VM_IR_READD pVM->pByteCodeIR->aReg[0].dNumber
 #define RING_VM_IR_READDVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].dNumber
 #define RING_VM_IR_OPCODE pVM->pByteCodeIR->nOPCode
