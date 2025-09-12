@@ -835,6 +835,11 @@ const char *ring_scanner_getmulticharoperatortext(RingState *pRingState, unsigne
 			return OP_COMPOUND[x].cSecond;
 		}
 	}
+	for (x = 0; OP_MULTI[x].cOperator != NULL; x++) {
+		if (OP_MULTI[x].nToken == nOperator) {
+			return OP_MULTI[x].cSecond;
+		}
+	}
 	return NULL;
 }
 
