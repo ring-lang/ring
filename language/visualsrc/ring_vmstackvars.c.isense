@@ -55,7 +55,9 @@ cStr[RING_MEDIUMBUF]
 Type: int
 nOutput
 Type: List *
-pList, *pObj
+pObj
+Type: const char *
+cOP
 ring_vm_plusplus
 Type: List *
 pList

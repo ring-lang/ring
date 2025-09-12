@@ -453,10 +453,9 @@ void ring_vm_beforeequallist(VM *pVM, List *pVar, double nNum1, int nBeforeEqual
 		   ring_vm_oop_isobject(pVM, ring_list_getlist(pVar, RING_VAR_VALUE))) {
 		pObj = ring_list_getlist(pVar, RING_VAR_VALUE);
 		if (ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
-			RING_VM_SP_INC;
 			cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
-			ring_vm_oop_operatoroverloading(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
-							NULL, RING_OBJTYPE_NOTYPE);
+			ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
+							 NULL, RING_OBJTYPE_NOTYPE);
 		} else {
 			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 		}
@@ -514,10 +513,9 @@ void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqua
 	} else if (ring_item_islist(pItem)) {
 		pObj = ring_item_getlist(pItem);
 		if (ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
-			RING_VM_SP_INC;
 			cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
-			ring_vm_oop_operatoroverloading(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
-							NULL, RING_OBJTYPE_NOTYPE);
+			ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
+							 NULL, RING_OBJTYPE_NOTYPE);
 		} else {
 			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 		}
