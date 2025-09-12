@@ -43,6 +43,10 @@ Type: char
 cStr[RING_MEDIUMBUF]
 Type: int
 nOutput
+Type: List *
+pObj
+Type: const char *
+cOP
 ring_vm_beforeequalitem
 Type: String *
 pString
@@ -73,7 +77,7 @@ ring_vm_printstack
 Type: unsigned int
 x,nSP
 ring_vm_len
-Type: int
+Type: unsigned int
 nSize
 Type: List *
 pVar, *pList
