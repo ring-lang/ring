@@ -20,11 +20,13 @@ nNum1
 Type: Item *
 pItem
 Type: unsigned int
-nBeforeEqual
+nBeforeEqual, nType
 Type: List *
 pObj
 Type: const char *
 cOP
+Type: void *
+pPtr
 ring_vm_inc
 Type: List *
 pVar
