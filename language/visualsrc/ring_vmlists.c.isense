@@ -44,6 +44,12 @@ Type: double
 nNum1
 Type: List *
 pList,*pVar, *pTempList, *pObj
+Type: const char *
+cOP
+Type: void *
+pPtr
+Type: unsigned int
+nType
 ring_vm_listgetvalue
 Type: unsigned int
 x
