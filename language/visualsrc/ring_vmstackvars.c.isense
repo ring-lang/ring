@@ -21,6 +21,10 @@ Type: Item *
 pItem
 Type: unsigned int
 nBeforeEqual
+Type: List *
+pObj
+Type: const char *
+cOP
 ring_vm_inc
 Type: List *
 pVar

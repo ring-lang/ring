@@ -155,6 +155,8 @@ void ring_vm_assignment(VM *pVM) {
 	double nNum1;
 	Item *pItem;
 	unsigned int nBeforeEqual;
+	List *pObj;
+	const char *cOP;
 	nBeforeEqual = pVM->nBeforeEqual;
 	pVM->nBeforeEqual = OP_EQUAL;
 	switch (RING_VM_STACK_PREVOBJTYPE) {
@@ -169,7 +171,7 @@ void ring_vm_assignment(VM *pVM) {
 		ring_vm_listassignment(pVM, nBeforeEqual);
 		break;
 	case RING_OBJTYPE_VARIABLE:
-		if ((RING_VM_STACK_ISSTRING) && (nBeforeEqual <= OP_PLUSEQUAL)) {
+		if (RING_VM_STACK_ISSTRING) {
 			pStr1 = RING_VM_STACK_GETSTRINGRAW;
 			RING_VM_STACK_POP;
 			pVar = (List *)RING_VM_STACK_READP;
@@ -182,7 +184,13 @@ void ring_vm_assignment(VM *pVM) {
 				ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_STRING);
 				ring_list_setstring2_gc(pVM->pRingState, pVar, RING_VAR_VALUE, ring_string_get(pStr1),
 							ring_string_size(pStr1));
-			} else {
+			} else if (ring_vm_varcontainsobjhaveoperatormethod(pVM, pVar)) {
+				pObj = ring_list_getlist(pVar, RING_VAR_VALUE);
+				cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
+				ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_STRING,
+								 ring_string_get(pStr1), RING_NOVALUE, NULL,
+								 RING_OBJTYPE_NOTYPE);
+			} else if (nBeforeEqual == OP_PLUSEQUAL) {
 				/* Check NULL Variable */
 				if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_NULL) {
 					ring_vm_error2(pVM, RING_VM_ERROR_USINGNULLVARIABLE,
