@@ -449,16 +449,11 @@ void ring_vm_beforeequallist(VM *pVM, List *pVar, double nNum1, int nBeforeEqual
 	} else if ((ring_list_isstring(pVar, RING_VAR_VALUE) == 1) && (nBeforeEqual == OP_PLUSEQUAL)) {
 		pString = ring_list_getstringobject(pVar, RING_VAR_VALUE);
 		ring_string_add_gc(pVM->pRingState, pString, ring_vm_numtostring(pVM, nNum1, cStr));
-	} else if (ring_list_islist(pVar, RING_VAR_VALUE) &&
-		   ring_vm_oop_isobject(pVM, ring_list_getlist(pVar, RING_VAR_VALUE))) {
+	} else if (ring_vm_varcontainsobjhaveoperatormethod(pVM, pVar)) {
 		pObj = ring_list_getlist(pVar, RING_VAR_VALUE);
-		if (ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
-			cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
-			ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
-							 NULL, RING_OBJTYPE_NOTYPE);
-		} else {
-			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
-		}
+		cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
+		ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1, NULL,
+						 RING_OBJTYPE_NOTYPE);
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 	}
@@ -510,18 +505,36 @@ void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqua
 	} else if ((ring_item_isstring(pItem) == 1) && (nBeforeEqual == OP_PLUSEQUAL)) {
 		pString = ring_item_getstring(pItem);
 		ring_string_add_gc(pVM->pRingState, pString, ring_vm_numtostring(pVM, nNum1, cStr));
-	} else if (ring_item_islist(pItem)) {
+	} else if (ring_vm_itemcontainsobjhaveoperatormethod(pVM, pItem)) {
 		pObj = ring_item_getlist(pItem);
-		if (ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
-			cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
-			ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
-							 NULL, RING_OBJTYPE_NOTYPE);
-		} else {
-			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
-		}
+		cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
+		ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1, NULL,
+						 RING_OBJTYPE_NOTYPE);
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 	}
+}
+
+unsigned int ring_vm_varcontainsobjhaveoperatormethod(VM *pVM, List *pVar) {
+	List *pObj;
+	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
+		pObj = ring_list_getlist(pVar, RING_VAR_VALUE);
+		if (ring_vm_oop_isobject(pVM, pObj) && ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
+}
+
+unsigned int ring_vm_itemcontainsobjhaveoperatormethod(VM *pVM, Item *pItem) {
+	List *pObj;
+	if (ring_item_islist(pItem)) {
+		pObj = ring_item_getlist(pItem);
+		if (ring_vm_oop_isobject(pVM, pObj) && ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
+			return RING_TRUE;
+		}
+	}
+	return RING_FALSE;
 }
 
 void ring_vm_plusplus(VM *pVM) {

@@ -58,6 +58,12 @@ Type: List *
 pObj
 Type: const char *
 cOP
+ring_vm_varcontainsobjhaveoperatormethod
+Type: List *
+pObj
+ring_vm_itemcontainsobjhaveoperatormethod
+Type: List *
+pObj
 ring_vm_plusplus
 Type: List *
 pList
