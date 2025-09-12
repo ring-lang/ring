@@ -211,6 +211,16 @@ typedef struct OperatorInfo {
 	const char *cSecond;
 	unsigned int nToken;
 } OperatorInfo;
+/* Operators (Compound and Multi-character) */
+static const OperatorInfo OP_COMPOUND[] = {
+    {"+", "+=", OP_PLUSEQUAL},	  {"-", "-=", OP_MINUSEQUAL},  {"*", "*=", OP_MULEQUAL},
+    {"/", "/=", OP_DIVEQUAL},	  {"%", "%=", OP_MODEQUAL},    {"&", "&=", OP_BITANDEQUAL},
+    {"|", "|=", OP_BITOREQUAL},	  {"^", "^=", OP_BITXOREQUAL}, {"<<", "<<=", OP_SHLEQUAL},
+    {">>", ">>=", OP_SHREQUAL},	  {"**", "**=", OP_POWEQUAL},  {"<", "<=", OP_LESSEQUAL},
+    {">", ">=", OP_GREATEREQUAL}, {"!", "!=", OP_NOTEQUAL},    {NULL, NULL, 0}};
+static const OperatorInfo OP_MULTI[] = {{"<", "<<", OP_SHL},	{">", ">>", OP_SHR},   {"*", "**", OP_POW},
+					{"^", "**", OP_POW},	{"+", "++", OP_INC},   {"-", "--", OP_DEC},
+					{"&", "&&", OP_LOGAND}, {"|", "||", OP_LOGOR}, {NULL, NULL, 0}};
 #define RING_SCANNER_TOKENTYPE 1
 #define RING_SCANNER_TOKENVALUE 2
 #define RING_SCANNER_TOKENINDEX 3
@@ -295,4 +305,6 @@ void ring_scanner_addreturn2(RingState *pRingState);
 void ring_scanner_addreturn3(RingState *pRingState, unsigned int aPara[2]);
 
 void ring_scanner_registertoken(Scanner *pScanner, unsigned int nType, const char *cValue);
+
+const char *ring_scanner_getmulticharoperatortext(RingState *pRingState, unsigned int nOperator);
 #endif

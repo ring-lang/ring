@@ -310,6 +310,9 @@ x, lOperatorFound
 Type: const char *
 cLastToken
 ring_scanner_getkeywordtext
+ring_scanner_getmulticharoperatortext
+Type: unsigned int
+x
 ring_scanner_addreturn
 Type: List *
 pList

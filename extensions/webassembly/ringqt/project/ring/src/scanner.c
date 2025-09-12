@@ -796,16 +796,6 @@ const char *ring_scanner_processtoken(Scanner *pScanner, unsigned int nType) {
 unsigned int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, unsigned int nTokenIndex) {
 	unsigned int x, lOperatorFound;
 	const char *cLastToken;
-	/* Operators (Compound and Multi-character) */
-	static const OperatorInfo OP_COMPOUND[] = {
-	    {"+", "+=", OP_PLUSEQUAL},	  {"-", "-=", OP_MINUSEQUAL},  {"*", "*=", OP_MULEQUAL},
-	    {"/", "/=", OP_DIVEQUAL},	  {"%", "%=", OP_MODEQUAL},    {"&", "&=", OP_BITANDEQUAL},
-	    {"|", "|=", OP_BITOREQUAL},	  {"^", "^=", OP_BITXOREQUAL}, {"<<", "<<=", OP_SHLEQUAL},
-	    {">>", ">>=", OP_SHREQUAL},	  {"**", "**=", OP_POWEQUAL},  {"<", "<=", OP_LESSEQUAL},
-	    {">", ">=", OP_GREATEREQUAL}, {"!", "!=", OP_NOTEQUAL},    {NULL, NULL, 0}};
-	static const OperatorInfo OP_MULTI[] = {{"<", "<<", OP_SHL},	{">", ">>", OP_SHR},   {"*", "**", OP_POW},
-						{"^", "**", OP_POW},	{"+", "++", OP_INC},   {"-", "--", OP_DEC},
-						{"&", "&&", OP_LOGAND}, {"|", "||", OP_LOGOR}, {NULL, NULL, 0}};
 	/* Check Multi-character operators */
 	lOperatorFound = 0;
 	cLastToken = ring_scanner_lasttokenvalue(pScanner);
@@ -836,6 +826,16 @@ unsigned int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *
 
 const char *ring_scanner_getkeywordtext(RingState *pRingState, const char *cStr) {
 	return RING_KEYWORDS[atoi(cStr) - 1];
+}
+
+const char *ring_scanner_getmulticharoperatortext(RingState *pRingState, unsigned int nOperator) {
+	unsigned int x;
+	for (x = 0; OP_COMPOUND[x].cOperator != NULL; x++) {
+		if (OP_COMPOUND[x].nToken == nOperator) {
+			return OP_COMPOUND[x].cSecond;
+		}
+	}
+	return NULL;
 }
 
 void ring_scanner_addreturn(RingState *pRingState) {
