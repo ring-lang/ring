@@ -187,6 +187,7 @@ ring_vm_oop_objitemfromobjlist
 Type: Item *
 pItem
 ring_vm_oop_operatoroverloading
+ring_vm_oop_operatoroverloading2
 Type: List *
 pList2
 Type: Item *

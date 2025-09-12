@@ -1023,16 +1023,21 @@ Item *ring_vm_oop_objitemfromobjlist(VM *pVM, List *pList) {
 
 void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, unsigned int nType, const char *cStr2,
 				     double nNum1, void *pPointer, unsigned int nPointerType) {
-	List *pList2;
-	Item *pItem;
-	unsigned int nObjType, nIns;
-	RING_VM_BYTECODE_START;
 	RING_VM_STACK_POP;
 	/* Check Method */
 	if (!ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
 		ring_vm_error(pVM, RING_VM_ERROR_NOOPERATORMETHOD);
 		return;
 	}
+	ring_vm_oop_operatoroverloading2(pVM, pObj, cStr1, nType, cStr2, nNum1, pPointer, nPointerType);
+}
+
+void ring_vm_oop_operatoroverloading2(VM *pVM, List *pObj, const char *cStr1, unsigned int nType, const char *cStr2,
+				      double nNum1, void *pPointer, unsigned int nPointerType) {
+	List *pList2;
+	Item *pItem;
+	unsigned int nObjType, nIns;
+	RING_VM_BYTECODE_START;
 	nObjType = ring_vm_oop_objtypefromobjlist(pVM, pObj);
 	/* Set Variable ring_gettemp_var */
 	pList2 = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_GETTEMPVAR);

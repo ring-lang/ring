@@ -121,6 +121,9 @@ void ring_vm_oop_setproperty(VM *pVM);
 void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, unsigned int nType, const char *cStr2,
 				     double nNum1, void *pPointer, unsigned int nPointerType);
 
+void ring_vm_oop_operatoroverloading2(VM *pVM, List *pObj, const char *cStr1, unsigned int nType, const char *cStr2,
+				      double nNum1, void *pPointer, unsigned int nPointerType);
+
 List *ring_vm_oop_objvarfromobjlist(VM *pVM, List *pList);
 
 unsigned int ring_vm_oop_objtypefromobjlist(VM *pVM, List *pList);
