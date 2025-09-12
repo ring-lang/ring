@@ -469,6 +469,8 @@ void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqua
 	String *pString;
 	char cStr[RING_MEDIUMBUF];
 	int nOutput;
+	List *pObj;
+	const char *cOP;
 	if (ring_item_isdouble(pItem)) {
 		switch (nBeforeEqual) {
 		case OP_PLUSEQUAL:
@@ -509,6 +511,16 @@ void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqua
 	} else if ((ring_item_isstring(pItem) == 1) && (nBeforeEqual == OP_PLUSEQUAL)) {
 		pString = ring_item_getstring(pItem);
 		ring_string_add_gc(pVM->pRingState, pString, ring_vm_numtostring(pVM, nNum1, cStr));
+	} else if (ring_item_islist(pItem)) {
+		pObj = ring_item_getlist(pItem);
+		if (ring_vm_oop_ismethod(pVM, pObj, RING_CSTR_OPERATOR)) {
+			RING_VM_SP_INC;
+			cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
+			ring_vm_oop_operatoroverloading(pVM, pObj, cOP, RING_OOPARA_NUMBER, RING_CSTR_EMPTY, nNum1,
+							NULL, RING_OBJTYPE_NOTYPE);
+		} else {
+			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
+		}
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 		return;
