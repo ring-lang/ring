@@ -521,7 +521,6 @@ void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqua
 		}
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
-		return;
 	}
 }
 
