@@ -43,7 +43,7 @@ pStr1, *pString
 Type: double
 nNum1
 Type: List *
-pList,*pVar, *pTempList
+pList,*pVar, *pTempList, *pObj
 ring_vm_listgetvalue
 Type: unsigned int
 x

@@ -317,9 +317,10 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 	Item *pItem;
 	String *pStr1, *pString;
 	double nNum1;
-	List *pList, *pVar, *pTempList;
+	List *pList, *pVar, *pTempList, *pObj;
+	const char *cOP;
 	pVar = NULL;
-	if ((RING_VM_STACK_ISSTRING) && (nBeforeEqual <= OP_PLUSEQUAL)) {
+	if (RING_VM_STACK_ISSTRING) {
 		pStr1 = RING_VM_STACK_GETSTRINGRAW;
 		RING_VM_STACK_POP;
 		pItem = (Item *)RING_VM_STACK_READP;
@@ -331,7 +332,12 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 		if (nBeforeEqual == OP_EQUAL) {
 			ring_item_setstring2_gc(pVM->pRingState, pItem, ring_string_get(pStr1),
 						ring_string_size(pStr1));
-		} else {
+		} else if (ring_vm_itemcontainsobjhaveoperatormethod(pVM, pItem)) {
+			pObj = ring_item_getlist(pItem);
+			cOP = ring_scanner_getmulticharoperatortext(pVM->pRingState, nBeforeEqual);
+			ring_vm_oop_operatoroverloading2(pVM, pObj, cOP, RING_OOPARA_STRING, ring_string_get(pStr1),
+							 RING_NOVALUE, NULL, RING_OBJTYPE_NOTYPE);
+		} else if (nBeforeEqual == OP_PLUSEQUAL) {
 			if (ring_item_isstring(pItem)) {
 				pString = ring_item_getstring(pItem);
 				ring_string_add2_gc(pVM->pRingState, pString, ring_string_get(pStr1),
