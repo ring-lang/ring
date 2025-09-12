@@ -346,7 +346,11 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 				ring_item_setdouble_gc(pVM->pRingState, pItem,
 						       ring_item_getdouble(pItem) +
 							   ring_vm_stringtonum(pVM, ring_string_get(pStr1)));
+			} else {
+				ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 			}
+		} else {
+			ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 		}
 	} else if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;

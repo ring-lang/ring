@@ -208,6 +208,8 @@ void ring_vm_assignment(VM *pVM) {
 				} else {
 					ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 				}
+			} else {
+				ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 			}
 		} else if (RING_VM_STACK_ISNUMBER) {
 			nNum1 = RING_VM_STACK_READN;
