@@ -20,6 +20,7 @@ Ring 1.24 comes with the next features!
 * RingFmt 
 * More RingPM Packages
 * More Samples
+* Better Operator Overloading
 * Better StdLib
 * Better RingLibCurl
 * Better RingHTTPLib
@@ -176,6 +177,16 @@ The following screenshot shows the same animation sample on Android
 	:width: 260px
 	:height: 400px
 	:alt: LibSDLAnimationSample
+
+.. index:: 
+	pair: What is new in Ring  1.24; Better Operator Overloading
+
+Better Operator Overloading
+===========================
+
+In this release, we’ve extended operator overloading support to include compound assignment 
+operators such as +=, -=, *=, /=, %=, etc.
+
 
 .. index:: 
 	pair: What is new in Ring  1.24; Better StdLib
