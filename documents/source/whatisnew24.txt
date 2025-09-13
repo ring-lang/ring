@@ -187,6 +187,32 @@ Better Operator Overloading
 In this release, we’ve extended operator overloading support to include compound assignment 
 operators such as +=, -=, *=, /=, %=, etc.
 
+Example:
+
+.. code-block:: ring
+
+	p1 = new point { x = 10 y = 20}
+	p1 += 100
+	? p1 
+
+	class point 
+
+		x y 
+
+		func operator cOp, vValue 
+
+			if cOp = "+=" and isNumber(vValue)
+				x += vValue 
+				y += vValue 
+			ok 
+		
+Output:
+
+.. code-block:: none
+
+	x: 110
+	y: 120
+
 
 .. index:: 
 	pair: What is new in Ring  1.24; Better StdLib
