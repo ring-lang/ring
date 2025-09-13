@@ -276,7 +276,7 @@ pRingState
 ring_list_collectcycles_gc
 Type: List *
 aProcess, *pActiveList, *pSubList
-Type: int
+Type: unsigned int
 x,y,lDelete
 Type: Item *
 pItem

@@ -629,18 +629,19 @@ RING_API int ring_list_isrefcontainer_gc(void *pState, List *pList) { return pLi
 
 RING_API void ring_list_clearrefdata_gc(void *pState, List *pList) {
 	pList->vGC.pContainer = NULL;
+	pList->vGC.nReferenceCount = 0;
+	pList->vGC.nTempRC = 0;
 	pList->vGC.lCopyByRef = 0;
 	pList->vGC.lNewRef = 0;
 	pList->vGC.lDontDelete = 0;
 	pList->vGC.lDeleteContainerVariable = 0;
-	pList->vGC.nReferenceCount = 0;
 	pList->vGC.lDontRef = 0;
 	pList->vGC.lErrorOnAssignment = 0;
 	pList->vGC.lErrorOnAssignment2 = 0;
+	pList->vGC.lCheckBeforeAssignmentDone = 0;
 	pList->vGC.lDeletedByParent = 0;
 	pList->vGC.lDontRefAgain = 0;
 	pList->vGC.lTrackedList = 0;
-	pList->vGC.lCheckBeforeAssignmentDone = 0;
 	pList->vGC.lArgCache = 0;
 	pList->vGC.nListType = 0;
 }
@@ -667,6 +668,7 @@ RING_API int ring_list_islnewref_gc(void *pState, List *pList) {
 	int lNewRef;
 	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
 	lNewRef = pList->vGC.lNewRef;
+	ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LNEWREF);
 	return lNewRef;
 }
 
