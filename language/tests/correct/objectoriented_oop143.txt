@@ -1,0 +1,227 @@
+part1
+Operator Overloading
++=
+1
+part1
+Operator Overloading
+-=
+2
+part1
+Operator Overloading
+*=
+3
+part1
+Operator Overloading
+/=
+4
+part1
+Operator Overloading
+%=
+5
+part1
+Operator Overloading
+<<=
+6
+part1
+Operator Overloading
+>>=
+7
+part1
+Operator Overloading
+&=
+8
+part1
+Operator Overloading
+|=
+9
+part1
+Operator Overloading
+^=
+10
+part1
+Operator Overloading
+**=
+11
+part1
+Operator Overloading
+=
+12
+part1
+Operator Overloading
+!=
+13
+part1
+Operator Overloading
+<=
+14
+part1
+Operator Overloading
+>=
+15
+======================================================================
+part2
+Operator Overloading
++=
+test1
+part2
+Operator Overloading
+-=
+test2
+part2
+Operator Overloading
+*=
+test3
+part2
+Operator Overloading
+/=
+test4
+part2
+Operator Overloading
+%=
+test5
+part2
+Operator Overloading
+<<=
+test6
+part2
+Operator Overloading
+>>=
+test7
+part2
+Operator Overloading
+&=
+test8
+part2
+Operator Overloading
+|=
+test9
+part2
+Operator Overloading
+^=
+test10
+part2
+Operator Overloading
+**=
+test11
+part2
+Operator Overloading
+=
+test12
+part2
+Operator Overloading
+!=
+test13
+part2
+Operator Overloading
+<=
+test14
+part2
+Operator Overloading
+>=
+test15
+======================================================================
+part3
+Operator Overloading
++=
+test1
+2025
+nice
+
+part3
+Operator Overloading
+-=
+test2
+2025
+nice
+
+part3
+Operator Overloading
+*=
+test3
+2025
+nice
+
+part3
+Operator Overloading
+/=
+test4
+2025
+nice
+
+part3
+Operator Overloading
+%=
+test5
+2025
+nice
+
+part3
+Operator Overloading
+<<=
+test6
+2025
+nice
+
+part3
+Operator Overloading
+>>=
+test7
+2025
+nice
+
+part3
+Operator Overloading
+&=
+test8
+2025
+nice
+
+part3
+Operator Overloading
+|=
+test9
+2025
+nice
+
+part3
+Operator Overloading
+^=
+test10
+2025
+nice
+
+part3
+Operator Overloading
+**=
+test11
+2025
+nice
+
+part3
+Operator Overloading
+=
+test12
+2025
+nice
+
+part3
+Operator Overloading
+!=
+test13
+2025
+nice
+
+part3
+Operator Overloading
+<=
+test14
+2025
+nice
+
+part3
+Operator Overloading
+>=
+test15
+2025
+nice
+
