@@ -599,7 +599,7 @@ void ring_vm_plusplus(VM *pVM) {
 }
 
 void ring_vm_minusminus(VM *pVM) {
-	List *pList;
+	List *pList, *pObj;
 	Item *pItem;
 	if (RING_VM_STACK_ISPOINTER) {
 		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
@@ -608,11 +608,21 @@ void ring_vm_minusminus(VM *pVM) {
 				ring_list_setdouble_gc(pVM->pRingState, pList, RING_VAR_VALUE,
 						       ring_list_getdouble(pList, RING_VAR_VALUE) - 1);
 				return;
+			} else if (ring_vm_varcontainsobjhaveoperatormethod(pVM, pList)) {
+				pObj = ring_list_getlist(pList, RING_VAR_VALUE);
+				ring_vm_oop_operatoroverloading2(pVM, pObj, "--", RING_OOPARA_NUMBER, RING_CSTR_EMPTY,
+								 RING_ONE, NULL, RING_OBJTYPE_NOTYPE);
+				return;
 			}
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			if (ring_item_isdouble(pItem)) {
 				ring_item_setdouble_gc(pVM->pRingState, pItem, ring_item_getdouble(pItem) - 1);
+				return;
+			} else if (ring_vm_itemcontainsobjhaveoperatormethod(pVM, pItem)) {
+				pObj = ring_item_getlist(pItem);
+				ring_vm_oop_operatoroverloading2(pVM, pObj, "--", RING_OOPARA_NUMBER, RING_CSTR_EMPTY,
+								 RING_ONE, NULL, RING_OBJTYPE_NOTYPE);
 				return;
 			}
 		}

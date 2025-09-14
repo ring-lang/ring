@@ -77,7 +77,7 @@ Type: Item *
 pItem
 ring_vm_minusminus
 Type: List *
-pList
+pList, *pObj
 Type: Item *
 pItem
 ring_vm_assignmentpointer
