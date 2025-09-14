@@ -184,7 +184,7 @@ The following screenshot shows the same animation sample on Android
 Better Operator Overloading
 ===========================
 
-In this release, we’ve extended operator overloading support to include compound assignment 
+In this release, we have extended operator overloading support to include compound assignment 
 operators such as +=, -=, *=, /=, %=, etc.
 
 Example:
@@ -212,6 +212,9 @@ Output:
 
 	x: 110
 	y: 120
+
+
+.. note:: Increment (++) and decrement (\-\-) operators are supported as well
 
 
 .. index:: 
