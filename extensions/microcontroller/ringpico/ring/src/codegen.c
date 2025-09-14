@@ -336,7 +336,7 @@ void ring_parser_icg_showoutput(RingState *pRingState) {
 	ring_general_printline();
 	nCount = ring_list_getsize(pListGenCode);
 	if (nCount > RING_ZERO) {
-		printf("\n %6s  %18s  %19s\n", "PC", "OPCode", "Data");
+		printf("\n %6s  %18s  %19s %19s\n", "PC", "OPCode", "Reg1", "Reg2");
 		for (x = RING_ONE; x <= nCount; x++) {
 			pList = ring_list_getlist(pListGenCode, x);
 			nCount2 = ring_list_getsize(pList);

@@ -603,7 +603,7 @@ RING_API void ring_vm_showbytecode(VM *pVM) {
 	/* Print the ByteCode */
 	nCount = RING_VM_INSTRUCTIONSCOUNT;
 	if (nCount > 0) {
-		printf("\n %6s  %18s  %19s\n", "PC", "OPCode", "Data");
+		printf("\n %6s  %18s  %19s %18s %7s\n", "PC", "OPCode", "Reg1", "Reg2", "IntReg");
 		for (x = 1; x <= nCount; x++) {
 			/* Get the Instruction */
 			pByteCode = pVM->pByteCode + x - 1;
@@ -631,6 +631,7 @@ RING_API void ring_vm_showbytecode(VM *pVM) {
 					break;
 				}
 			}
+			printf(" %7d", pByteCode->nIntReg);
 		}
 		printf("\n");
 	}
