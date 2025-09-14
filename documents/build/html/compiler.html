@@ -649,7 +649,7 @@ also the language provide other options like</p>
  <span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">Before</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
 <span class="o">===========================================================================</span>
 
-     <span class="n">PC</span>              <span class="n">OPCode</span>                 <span class="n">Data</span>
+     <span class="n">PC</span>              <span class="n">OPCode</span>                 <span class="n">Reg1</span>                <span class="n">Reg2</span>
 
       <span class="mi">1</span>          <span class="n">ReturnNull</span>
       <span class="mi">2</span>                <span class="kd">Func</span>
@@ -772,9 +772,9 @@ also the language provide other options like</p>
     <span class="mi">119</span>           <span class="n">FreeStack</span>
     <span class="mi">120</span>             <span class="n">NewLine</span>                   <span class="mi">13</span>
     <span class="mi">121</span>          <span class="n">ReturnNull</span>
-    <span class="mi">122</span>               <span class="kd">Class</span>                <span class="nc">point</span>    <span class="mi">000001934</span><span class="n">ECD9560</span>
+    <span class="mi">122</span>               <span class="kd">Class</span>                <span class="nc">point</span>    <span class="mi">0000027</span><span class="n">BB7BE9DE0</span>
     <span class="mi">123</span>            <span class="n">NewLabel</span>
-    <span class="mi">124</span>            <span class="n">FileName</span>            <span class="n">test</span><span class="o">.</span><span class="n">ring</span>
+    <span class="mi">124</span>            <span class="n">FileName</span>          <span class="n">testbc</span><span class="o">.</span><span class="n">ring</span>
     <span class="mi">125</span>               <span class="n">LoadA</span>                    <span class="n">x</span>
     <span class="mi">126</span>               <span class="n">PushV</span>
     <span class="mi">127</span>           <span class="n">FreeStack</span>
@@ -818,142 +818,142 @@ also the language provide other options like</p>
  <span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">After</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
 <span class="o">===========================================================================</span>
 
-     <span class="n">PC</span>              <span class="n">OPCode</span>                 <span class="n">Data</span>
+     <span class="n">PC</span>              <span class="n">OPCode</span>                 <span class="n">Reg1</span>               <span class="n">Reg2</span>  <span class="n">IntReg</span>
 
-      <span class="mi">1</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-      <span class="mi">2</span>                <span class="kd">Func</span>                    <span class="nf">0</span>                  <span class="mi">0</span>
-      <span class="mi">3</span>             <span class="n">NewLine</span>                    <span class="mi">2</span>                  <span class="mi">0</span>
-      <span class="mi">4</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
-      <span class="mi">5</span>               <span class="n">PushC</span>          <span class="n">Hello</span> <span class="n">World</span>                  <span class="mi">0</span>
-      <span class="mi">6</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>
-      <span class="mi">7</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-      <span class="mi">8</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-      <span class="mi">9</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">10</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">11</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">12</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>                  <span class="mi">0</span>
-     <span class="mi">13</span>           <span class="n">SetOPCode</span>                   <span class="mi">72</span>                 <span class="mi">34</span>
-     <span class="mi">14</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">15</span>          <span class="n">LoadAFirst</span>                    <span class="n">x</span>                  <span class="mi">0</span>
-     <span class="mi">16</span>               <span class="n">PushN</span>             <span class="mf">1.000000</span>                  <span class="mi">0</span>
-     <span class="mi">17</span>          <span class="n">Assignment</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">18</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>                  <span class="mi">0</span>
-     <span class="mi">19</span>         <span class="n">StepFromReg</span>             <span class="mf">1.000000</span>                  <span class="mi">0</span>
-     <span class="mi">20</span>          <span class="n">LoadAPushV</span>                    <span class="n">x</span>                  <span class="mi">0</span>
-     <span class="mi">21</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>                  <span class="mi">0</span>
-     <span class="mi">22</span>             <span class="n">JumpFor</span>                   <span class="mi">35</span>                  <span class="mi">1</span>
-     <span class="mi">23</span>             <span class="n">NewLine</span>                    <span class="mi">4</span>                  <span class="mi">0</span>
-     <span class="mi">24</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
-     <span class="mi">25</span>          <span class="n">PushPLocal</span>                    <span class="n">x</span>   <span class="mi">0000024816180</span><span class="n">C48</span>
-     <span class="mi">26</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">27</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>
-     <span class="mi">28</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">29</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">30</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">31</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">32</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">33</span>             <span class="n">NewLine</span>                    <span class="mi">5</span>                  <span class="mi">0</span>
-     <span class="mi">34</span>      <span class="n">IncLPJumpStep1</span>                    <span class="n">x</span>                 <span class="mi">21</span>
-     <span class="mi">35</span>         <span class="n">NoOperation</span>                    <span class="mi">3</span>   <span class="mi">0000024816180</span><span class="n">DA8</span>
-     <span class="mi">36</span>             <span class="n">PopStep</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">37</span>             <span class="n">NewLine</span>                    <span class="mi">6</span>                  <span class="mi">0</span>
-     <span class="mi">38</span>           <span class="n">LoadFuncP</span>                 <span class="n">test</span>   <span class="mi">0000000000000000</span>
-     <span class="mi">39</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">40</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">41</span>             <span class="n">NewLine</span>                    <span class="mi">8</span>                  <span class="mi">0</span>
-     <span class="mi">42</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">43</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">44</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">45</span>                <span class="kd">Func</span>                    <span class="nf">0</span>                  <span class="mi">0</span>
-     <span class="mi">46</span>             <span class="n">NewLine</span>                    <span class="mi">9</span>                  <span class="mi">0</span>
-     <span class="mi">47</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
-     <span class="mi">48</span>               <span class="n">PushC</span>              <span class="n">welcome</span>                  <span class="mi">0</span>
-     <span class="mi">49</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>
-     <span class="mi">50</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">51</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">52</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">53</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">54</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">55</span>             <span class="n">NewLine</span>                   <span class="mi">10</span>                  <span class="mi">0</span>
-     <span class="mi">56</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>                  <span class="mi">0</span>
-     <span class="mi">57</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                <span class="mi">111</span>
-     <span class="mi">58</span>                 <span class="kp">New</span>                <span class="nc">point</span>                  <span class="mi">0</span>
-     <span class="mi">59</span>            <span class="n">SetScope</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">60</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">61</span>          <span class="n">BraceStart</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">62</span>    <span class="n">CheckBraceMethod</span>           <span class="n">bracestart</span>                  <span class="mi">0</span>
-     <span class="mi">63</span>               <span class="n">JumpZ</span>                   <span class="mi">68</span>                  <span class="mi">0</span>
-     <span class="mi">64</span>            <span class="n">LoadFunc</span>           <span class="n">bracestart</span>                  <span class="mi">0</span>
-     <span class="mi">65</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">66</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">67</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">68</span>               <span class="n">LoadA</span>                    <span class="n">x</span>                  <span class="mi">0</span>
-     <span class="mi">69</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">71</span>
-     <span class="mi">70</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>                  <span class="mi">0</span>
-     <span class="mi">71</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">72</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
-     <span class="mi">73</span>               <span class="n">JumpZ</span>                   <span class="mi">79</span>                  <span class="mi">0</span>
-     <span class="mi">74</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
-     <span class="mi">75</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">76</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">77</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">78</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">79</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">80</span>               <span class="n">LoadA</span>                    <span class="n">y</span>                  <span class="mi">0</span>
-     <span class="mi">81</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">83</span>
-     <span class="mi">82</span>               <span class="n">PushN</span>            <span class="mf">20.000000</span>                  <span class="mi">0</span>
-     <span class="mi">83</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">84</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
-     <span class="mi">85</span>               <span class="n">JumpZ</span>                   <span class="mi">91</span>                  <span class="mi">0</span>
-     <span class="mi">86</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
-     <span class="mi">87</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">88</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">89</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">90</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">91</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">92</span>               <span class="n">LoadA</span>                    <span class="n">z</span>                  <span class="mi">0</span>
-     <span class="mi">93</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">95</span>
-     <span class="mi">94</span>               <span class="n">PushN</span>            <span class="mf">30.000000</span>                  <span class="mi">0</span>
-     <span class="mi">95</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-     <span class="mi">96</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
-     <span class="mi">97</span>               <span class="n">JumpZ</span>                  <span class="mi">103</span>                  <span class="mi">0</span>
-     <span class="mi">98</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>
-     <span class="mi">99</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">100</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">101</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">102</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">103</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">104</span>    <span class="n">CheckBraceMethod</span>             <span class="n">braceend</span>                  <span class="mi">0</span>
-    <span class="mi">105</span>               <span class="n">JumpZ</span>                  <span class="mi">110</span>                  <span class="mi">0</span>
-    <span class="mi">106</span>            <span class="n">LoadFunc</span>             <span class="n">braceend</span>                  <span class="mi">0</span>
-    <span class="mi">107</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">108</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">109</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">110</span>            <span class="n">BraceEnd</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">111</span>          <span class="n">Assignment</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">112</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">113</span>             <span class="n">NewLine</span>                   <span class="mi">11</span>                  <span class="mi">0</span>
-    <span class="mi">114</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFB57B8C640</span>
-    <span class="mi">115</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>                  <span class="mi">0</span>
-    <span class="mi">116</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">117</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">118</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">119</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">120</span>             <span class="n">NewLine</span>                   <span class="mi">13</span>                  <span class="mi">0</span>
-    <span class="mi">121</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">122</span>               <span class="kd">Class</span>                <span class="nc">point</span>   <span class="mi">0000024815</span><span class="n">FA1D50</span>
-    <span class="mi">123</span>            <span class="n">NewLabel</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">124</span>            <span class="n">FileName</span>            <span class="n">test</span><span class="o">.</span><span class="n">ring</span>                  <span class="mi">0</span>
-    <span class="mi">125</span>               <span class="n">LoadA</span>                    <span class="n">x</span>                  <span class="mi">0</span>
-    <span class="mi">126</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">127</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">128</span>               <span class="n">LoadA</span>                    <span class="n">y</span>                  <span class="mi">0</span>
-    <span class="mi">129</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">130</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">131</span>               <span class="n">LoadA</span>                    <span class="n">z</span>                  <span class="mi">0</span>
-    <span class="mi">132</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">133</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
-    <span class="mi">134</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>
+      <span class="mi">1</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">2</span>                <span class="kd">Func</span>                    <span class="nf">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">3</span>             <span class="n">NewLine</span>                    <span class="mi">2</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">4</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFF90A25740</span>       <span class="mi">0</span>
+      <span class="mi">5</span>               <span class="n">PushC</span>          <span class="n">Hello</span> <span class="n">World</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">6</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">7</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">8</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+      <span class="mi">9</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">10</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">11</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">12</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">13</span>           <span class="n">SetOPCode</span>                   <span class="mi">72</span>                 <span class="mi">34</span>       <span class="mi">0</span>
+     <span class="mi">14</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">15</span>          <span class="n">LoadAFirst</span>                    <span class="n">x</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">16</span>               <span class="n">PushN</span>             <span class="mf">1.000000</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">17</span>          <span class="n">Assignment</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">18</span>             <span class="n">NewLine</span>                    <span class="mi">3</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">19</span>         <span class="n">StepFromReg</span>             <span class="mf">1.000000</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">20</span>          <span class="n">LoadAPushV</span>                    <span class="n">x</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">21</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">22</span>             <span class="n">JumpFor</span>                   <span class="mi">35</span>                  <span class="mi">1</span>       <span class="mi">1</span>
+     <span class="mi">23</span>             <span class="n">NewLine</span>                    <span class="mi">4</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">24</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFF90A25740</span>       <span class="mi">0</span>
+     <span class="mi">25</span>          <span class="n">PushPLocal</span>                    <span class="n">x</span>   <span class="mi">0000025985</span><span class="n">AFCF08</span>       <span class="mi">1</span>
+     <span class="mi">26</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">27</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">28</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">29</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">30</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">31</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">32</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">33</span>             <span class="n">NewLine</span>                    <span class="mi">5</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">34</span>      <span class="n">IncLPJumpStep1</span>                    <span class="n">x</span>                 <span class="mi">21</span>       <span class="mi">1</span>
+     <span class="mi">35</span>         <span class="n">NoOperation</span>                    <span class="mi">3</span>   <span class="mi">0000025985</span><span class="n">AFD068</span>       <span class="mi">0</span>
+     <span class="mi">36</span>             <span class="n">PopStep</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">37</span>             <span class="n">NewLine</span>                    <span class="mi">6</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">38</span>           <span class="n">LoadFuncP</span>                 <span class="n">test</span>   <span class="mi">0000000000000000</span>      <span class="mi">45</span>
+     <span class="mi">39</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">40</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">41</span>             <span class="n">NewLine</span>                    <span class="mi">8</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">42</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">43</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">44</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">45</span>                <span class="kd">Func</span>                    <span class="nf">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">46</span>             <span class="n">NewLine</span>                    <span class="mi">9</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">47</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFF90A25740</span>       <span class="mi">0</span>
+     <span class="mi">48</span>               <span class="n">PushC</span>              <span class="n">welcome</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">49</span>               <span class="n">LoadA</span>                   <span class="bp">nl</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">50</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">51</span>                 <span class="n">Sum</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">52</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">53</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">54</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">55</span>             <span class="n">NewLine</span>                   <span class="mi">10</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">56</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">57</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                <span class="mi">111</span>       <span class="mi">0</span>
+     <span class="mi">58</span>                 <span class="kp">New</span>                <span class="nc">point</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">59</span>            <span class="n">SetScope</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">60</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">61</span>          <span class="n">BraceStart</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">62</span>    <span class="n">CheckBraceMethod</span>           <span class="n">bracestart</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">63</span>               <span class="n">JumpZ</span>                   <span class="mi">68</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">64</span>            <span class="n">LoadFunc</span>           <span class="n">bracestart</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">65</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">66</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">67</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">68</span>               <span class="n">LoadA</span>                    <span class="n">x</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">69</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">71</span>       <span class="mi">0</span>
+     <span class="mi">70</span>               <span class="n">PushN</span>            <span class="mf">10.000000</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">71</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">72</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">73</span>               <span class="n">JumpZ</span>                   <span class="mi">79</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">74</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">75</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">76</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">77</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">78</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">79</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">80</span>               <span class="n">LoadA</span>                    <span class="n">y</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">81</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">83</span>       <span class="mi">0</span>
+     <span class="mi">82</span>               <span class="n">PushN</span>            <span class="mf">20.000000</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">83</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">84</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">85</span>               <span class="n">JumpZ</span>                   <span class="mi">91</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">86</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">87</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">88</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">89</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">90</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">91</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">92</span>               <span class="n">LoadA</span>                    <span class="n">z</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">93</span>   <span class="n">AssignmentPointer</span>                    <span class="mi">0</span>                 <span class="mi">95</span>       <span class="mi">0</span>
+     <span class="mi">94</span>               <span class="n">PushN</span>            <span class="mf">30.000000</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">95</span>         <span class="n">SetProperty</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">96</span>    <span class="n">CheckBraceMethod</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">97</span>               <span class="n">JumpZ</span>                  <span class="mi">103</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">98</span>            <span class="n">LoadFunc</span>        <span class="n">braceexpreval</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+     <span class="mi">99</span>                 <span class="n">Dup</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">100</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">101</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">102</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">103</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">104</span>    <span class="n">CheckBraceMethod</span>             <span class="n">braceend</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">105</span>               <span class="n">JumpZ</span>                  <span class="mi">110</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">106</span>            <span class="n">LoadFunc</span>             <span class="n">braceend</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">107</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">108</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">109</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">110</span>            <span class="n">BraceEnd</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">111</span>          <span class="n">Assignment</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">112</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">113</span>             <span class="n">NewLine</span>                   <span class="mi">11</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">114</span>           <span class="n">LoadFuncP</span>           <span class="n">ringvm_see</span>   <span class="mi">00007</span><span class="n">FFF90A25740</span>       <span class="mi">0</span>
+    <span class="mi">115</span>               <span class="n">LoadA</span>                   <span class="n">o1</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">116</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">117</span>                <span class="k">Call</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">118</span>         <span class="n">NoOperation</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">119</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">120</span>             <span class="n">NewLine</span>                   <span class="mi">13</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">121</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">122</span>               <span class="kd">Class</span>                <span class="nc">point</span>   <span class="mi">00000259855</span><span class="n">B91A0</span>       <span class="mi">0</span>
+    <span class="mi">123</span>            <span class="n">NewLabel</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">124</span>            <span class="n">FileName</span>          <span class="n">testbc</span><span class="o">.</span><span class="n">ring</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">125</span>               <span class="n">LoadA</span>                    <span class="n">x</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">126</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">127</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">128</span>               <span class="n">LoadA</span>                    <span class="n">y</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">129</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">130</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">131</span>               <span class="n">LoadA</span>                    <span class="n">z</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">132</span>               <span class="n">PushV</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">133</span>           <span class="n">FreeStack</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
+    <span class="mi">134</span>          <span class="n">ReturnNull</span>                    <span class="mi">0</span>                  <span class="mi">0</span>       <span class="mi">0</span>
 
 <span class="o">===========================================================================</span>
 </pre></div>

@@ -426,9 +426,9 @@ Output:
 	===========================================================================
 	 Byte Code - Before Execution by the VM
 	===========================================================================
-	
-	     PC              OPCode                 Data
-	
+
+	     PC              OPCode                 Reg1                Reg2
+
 	      1          ReturnNull
 	      2                Func
 	      3             NewLine                    2
@@ -550,9 +550,9 @@ Output:
 	    119           FreeStack
 	    120             NewLine                   13
 	    121          ReturnNull
-	    122               Class                point    000001934ECD9560
+	    122               Class                point    0000027BB7BE9DE0
 	    123            NewLabel
-	    124            FileName            test.ring
+	    124            FileName          testbc.ring
 	    125               LoadA                    x
 	    126               PushV
 	    127           FreeStack
@@ -563,7 +563,7 @@ Output:
 	    132               PushV
 	    133           FreeStack
 	    134          ReturnNull
-	
+
 	===========================================================================
 
 .. index:: 
@@ -602,144 +602,144 @@ Output:
 	===========================================================================
 	 Byte Code - After Execution by the VM
 	===========================================================================
-	
-	     PC              OPCode                 Data
-	
-	      1          ReturnNull                    0                  0
-	      2                Func                    0                  0
-	      3             NewLine                    2                  0
-	      4           LoadFuncP           ringvm_see   00007FFB57B8C640
-	      5               PushC          Hello World                  0
-	      6               LoadA                   nl                  0
-	      7               PushV                    0                  0
-	      8                 Sum                    0                  0
-	      9                Call                    0                  0
-	     10         NoOperation                    0                  0
-	     11           FreeStack                    0                  0
-	     12             NewLine                    3                  0
-	     13           SetOPCode                   72                 34
-	     14         NoOperation                    0                  0
-	     15          LoadAFirst                    x                  0
-	     16               PushN             1.000000                  0
-	     17          Assignment                    0                  0
-	     18             NewLine                    3                  0
-	     19         StepFromReg             1.000000                  0
-	     20          LoadAPushV                    x                  0
-	     21               PushN            10.000000                  0
-	     22             JumpFor                   35                  1
-	     23             NewLine                    4                  0
-	     24           LoadFuncP           ringvm_see   00007FFB57B8C640
-	     25          PushPLocal                    x   0000024816180C48
-	     26               PushV                    0                  0
-	     27               LoadA                   nl                  0
-	     28               PushV                    0                  0
-	     29                 Sum                    0                  0
-	     30                Call                    0                  0
-	     31         NoOperation                    0                  0
-	     32           FreeStack                    0                  0
-	     33             NewLine                    5                  0
-	     34      IncLPJumpStep1                    x                 21
-	     35         NoOperation                    3   0000024816180DA8
-	     36             PopStep                    0                  0
-	     37             NewLine                    6                  0
-	     38           LoadFuncP                 test   0000000000000000
-	     39                Call                    0                  0
-	     40         NoOperation                    0                  0
-	     41             NewLine                    8                  0
-	     42               PushV                    0                  0
-	     43           FreeStack                    0                  0
-	     44          ReturnNull                    0                  0
-	     45                Func                    0                  0
-	     46             NewLine                    9                  0
-	     47           LoadFuncP           ringvm_see   00007FFB57B8C640
-	     48               PushC              welcome                  0
-	     49               LoadA                   nl                  0
-	     50               PushV                    0                  0
-	     51                 Sum                    0                  0
-	     52                Call                    0                  0
-	     53         NoOperation                    0                  0
-	     54           FreeStack                    0                  0
-	     55             NewLine                   10                  0
-	     56               LoadA                   o1                  0
-	     57   AssignmentPointer                    0                111
-	     58                 New                point                  0
-	     59            SetScope                    0                  0
-	     60               PushV                    0                  0
-	     61          BraceStart                    0                  0
-	     62    CheckBraceMethod           bracestart                  0
-	     63               JumpZ                   68                  0
-	     64            LoadFunc           bracestart                  0
-	     65                Call                    0                  0
-	     66         NoOperation                    0                  0
-	     67               PushV                    0                  0
-	     68               LoadA                    x                  0
-	     69   AssignmentPointer                    0                 71
-	     70               PushN            10.000000                  0
-	     71         SetProperty                    0                  0
-	     72    CheckBraceMethod        braceexpreval                  0
-	     73               JumpZ                   79                  0
-	     74            LoadFunc        braceexpreval                  0
-	     75                 Dup                    0                  0
-	     76                Call                    0                  0
-	     77         NoOperation                    0                  0
-	     78               PushV                    0                  0
-	     79           FreeStack                    0                  0
-	     80               LoadA                    y                  0
-	     81   AssignmentPointer                    0                 83
-	     82               PushN            20.000000                  0
-	     83         SetProperty                    0                  0
-	     84    CheckBraceMethod        braceexpreval                  0
-	     85               JumpZ                   91                  0
-	     86            LoadFunc        braceexpreval                  0
-	     87                 Dup                    0                  0
-	     88                Call                    0                  0
-	     89         NoOperation                    0                  0
-	     90               PushV                    0                  0
-	     91           FreeStack                    0                  0
-	     92               LoadA                    z                  0
-	     93   AssignmentPointer                    0                 95
-	     94               PushN            30.000000                  0
-	     95         SetProperty                    0                  0
-	     96    CheckBraceMethod        braceexpreval                  0
-	     97               JumpZ                  103                  0
-	     98            LoadFunc        braceexpreval                  0
-	     99                 Dup                    0                  0
-	    100                Call                    0                  0
-	    101         NoOperation                    0                  0
-	    102               PushV                    0                  0
-	    103           FreeStack                    0                  0
-	    104    CheckBraceMethod             braceend                  0
-	    105               JumpZ                  110                  0
-	    106            LoadFunc             braceend                  0
-	    107                Call                    0                  0
-	    108         NoOperation                    0                  0
-	    109               PushV                    0                  0
-	    110            BraceEnd                    0                  0
-	    111          Assignment                    0                  0
-	    112           FreeStack                    0                  0
-	    113             NewLine                   11                  0
-	    114           LoadFuncP           ringvm_see   00007FFB57B8C640
-	    115               LoadA                   o1                  0
-	    116               PushV                    0                  0
-	    117                Call                    0                  0
-	    118         NoOperation                    0                  0
-	    119           FreeStack                    0                  0
-	    120             NewLine                   13                  0
-	    121          ReturnNull                    0                  0
-	    122               Class                point   0000024815FA1D50
-	    123            NewLabel                    0                  0
-	    124            FileName            test.ring                  0
-	    125               LoadA                    x                  0
-	    126               PushV                    0                  0
-	    127           FreeStack                    0                  0
-	    128               LoadA                    y                  0
-	    129               PushV                    0                  0
-	    130           FreeStack                    0                  0
-	    131               LoadA                    z                  0
-	    132               PushV                    0                  0
-	    133           FreeStack                    0                  0
-	    134          ReturnNull                    0                  0
-	
+
+	     PC              OPCode                 Reg1               Reg2  IntReg
+
+	      1          ReturnNull                    0                  0       0
+	      2                Func                    0                  0       0
+	      3             NewLine                    2                  0       0
+	      4           LoadFuncP           ringvm_see   00007FFF90A25740       0
+	      5               PushC          Hello World                  0       0
+	      6               LoadA                   nl                  0       0
+	      7               PushV                    0                  0       0
+	      8                 Sum                    0                  0       0
+	      9                Call                    0                  0       0
+	     10         NoOperation                    0                  0       0
+	     11           FreeStack                    0                  0       0
+	     12             NewLine                    3                  0       0
+	     13           SetOPCode                   72                 34       0
+	     14         NoOperation                    0                  0       0
+	     15          LoadAFirst                    x                  0       0
+	     16               PushN             1.000000                  0       0
+	     17          Assignment                    0                  0       0
+	     18             NewLine                    3                  0       0
+	     19         StepFromReg             1.000000                  0       0
+	     20          LoadAPushV                    x                  0       0
+	     21               PushN            10.000000                  0       0
+	     22             JumpFor                   35                  1       1
+	     23             NewLine                    4                  0       0
+	     24           LoadFuncP           ringvm_see   00007FFF90A25740       0
+	     25          PushPLocal                    x   0000025985AFCF08       1
+	     26               PushV                    0                  0       0
+	     27               LoadA                   nl                  0       0
+	     28               PushV                    0                  0       0
+	     29                 Sum                    0                  0       0
+	     30                Call                    0                  0       0
+	     31         NoOperation                    0                  0       0
+	     32           FreeStack                    0                  0       0
+	     33             NewLine                    5                  0       0
+	     34      IncLPJumpStep1                    x                 21       1
+	     35         NoOperation                    3   0000025985AFD068       0
+	     36             PopStep                    0                  0       0
+	     37             NewLine                    6                  0       0
+	     38           LoadFuncP                 test   0000000000000000      45
+	     39                Call                    0                  0       0
+	     40         NoOperation                    0                  0       0
+	     41             NewLine                    8                  0       0
+	     42               PushV                    0                  0       0
+	     43           FreeStack                    0                  0       0
+	     44          ReturnNull                    0                  0       0
+	     45                Func                    0                  0       0
+	     46             NewLine                    9                  0       0
+	     47           LoadFuncP           ringvm_see   00007FFF90A25740       0
+	     48               PushC              welcome                  0       0
+	     49               LoadA                   nl                  0       0
+	     50               PushV                    0                  0       0
+	     51                 Sum                    0                  0       0
+	     52                Call                    0                  0       0
+	     53         NoOperation                    0                  0       0
+	     54           FreeStack                    0                  0       0
+	     55             NewLine                   10                  0       0
+	     56               LoadA                   o1                  0       0
+	     57   AssignmentPointer                    0                111       0
+	     58                 New                point                  0       0
+	     59            SetScope                    0                  0       0
+	     60               PushV                    0                  0       0
+	     61          BraceStart                    0                  0       0
+	     62    CheckBraceMethod           bracestart                  0       0
+	     63               JumpZ                   68                  0       0
+	     64            LoadFunc           bracestart                  0       0
+	     65                Call                    0                  0       0
+	     66         NoOperation                    0                  0       0
+	     67               PushV                    0                  0       0
+	     68               LoadA                    x                  0       0
+	     69   AssignmentPointer                    0                 71       0
+	     70               PushN            10.000000                  0       0
+	     71         SetProperty                    0                  0       0
+	     72    CheckBraceMethod        braceexpreval                  0       0
+	     73               JumpZ                   79                  0       0
+	     74            LoadFunc        braceexpreval                  0       0
+	     75                 Dup                    0                  0       0
+	     76                Call                    0                  0       0
+	     77         NoOperation                    0                  0       0
+	     78               PushV                    0                  0       0
+	     79           FreeStack                    0                  0       0
+	     80               LoadA                    y                  0       0
+	     81   AssignmentPointer                    0                 83       0
+	     82               PushN            20.000000                  0       0
+	     83         SetProperty                    0                  0       0
+	     84    CheckBraceMethod        braceexpreval                  0       0
+	     85               JumpZ                   91                  0       0
+	     86            LoadFunc        braceexpreval                  0       0
+	     87                 Dup                    0                  0       0
+	     88                Call                    0                  0       0
+	     89         NoOperation                    0                  0       0
+	     90               PushV                    0                  0       0
+	     91           FreeStack                    0                  0       0
+	     92               LoadA                    z                  0       0
+	     93   AssignmentPointer                    0                 95       0
+	     94               PushN            30.000000                  0       0
+	     95         SetProperty                    0                  0       0
+	     96    CheckBraceMethod        braceexpreval                  0       0
+	     97               JumpZ                  103                  0       0
+	     98            LoadFunc        braceexpreval                  0       0
+	     99                 Dup                    0                  0       0
+	    100                Call                    0                  0       0
+	    101         NoOperation                    0                  0       0
+	    102               PushV                    0                  0       0
+	    103           FreeStack                    0                  0       0
+	    104    CheckBraceMethod             braceend                  0       0
+	    105               JumpZ                  110                  0       0
+	    106            LoadFunc             braceend                  0       0
+	    107                Call                    0                  0       0
+	    108         NoOperation                    0                  0       0
+	    109               PushV                    0                  0       0
+	    110            BraceEnd                    0                  0       0
+	    111          Assignment                    0                  0       0
+	    112           FreeStack                    0                  0       0
+	    113             NewLine                   11                  0       0
+	    114           LoadFuncP           ringvm_see   00007FFF90A25740       0
+	    115               LoadA                   o1                  0       0
+	    116               PushV                    0                  0       0
+	    117                Call                    0                  0       0
+	    118         NoOperation                    0                  0       0
+	    119           FreeStack                    0                  0       0
+	    120             NewLine                   13                  0       0
+	    121          ReturnNull                    0                  0       0
+	    122               Class                point   00000259855B91A0       0
+	    123            NewLabel                    0                  0       0
+	    124            FileName          testbc.ring                  0       0
+	    125               LoadA                    x                  0       0
+	    126               PushV                    0                  0       0
+	    127           FreeStack                    0                  0       0
+	    128               LoadA                    y                  0       0
+	    129               PushV                    0                  0       0
+	    130           FreeStack                    0                  0       0
+	    131               LoadA                    z                  0       0
+	    132               PushV                    0                  0       0
+	    133           FreeStack                    0                  0       0
+	    134          ReturnNull                    0                  0       0
+
 	===========================================================================
 
 .. index:: 
