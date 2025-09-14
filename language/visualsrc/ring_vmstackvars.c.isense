@@ -72,7 +72,7 @@ Type: List *
 pObj
 ring_vm_plusplus
 Type: List *
-pList
+pList, *pObj
 Type: Item *
 pItem
 ring_vm_minusminus
