@@ -644,6 +644,7 @@ RING_API void ring_list_clearrefdata_gc(void *pState, List *pList) {
 	pList->vGC.lTrackedList = 0;
 	pList->vGC.lArgCache = 0;
 	pList->vGC.nListType = 0;
+	pList->vGC.lUnusedFlag = 0;
 }
 
 RING_API int ring_list_getrefcount_gc(void *pState, List *pList) {

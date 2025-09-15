@@ -23,5 +23,6 @@ typedef struct ListGCData {
 	unsigned int lTrackedList : 1;
 	unsigned int lArgCache : 1;
 	unsigned int nListType : 3;
+	unsigned int lUnusedFlag : 1;
 } ListGCData;
 #endif

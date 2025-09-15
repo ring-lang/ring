@@ -517,7 +517,7 @@ void ring_vm_tobytecode(VM *pVM, int nIns) {
 	pByteCode->lFlagReg = 0;
 	pByteCode->lFlagReg2 = 0;
 	pByteCode->lLiteral = 0;
-	pByteCode->lUnused = 0;
+	pByteCode->lUnusedFlag = 0;
 	pByteCode->nReg1Type = RING_VM_REGTYPE_DEFAULT;
 	pByteCode->nReg2Type = RING_VM_REGTYPE_DEFAULT;
 	pByteCode->nSmallIntReg = 0;

@@ -49,7 +49,7 @@ typedef struct ByteCode {
 	unsigned int lFlagReg : 1;
 	unsigned int lFlagReg2 : 1;
 	unsigned int lLiteral : 1;
-	unsigned int lUnused : 1;
+	unsigned int lUnusedFlag : 1;
 	unsigned int nReg1Type : 2;
 	unsigned int nReg2Type : 2;
 	unsigned int nSmallIntReg : 16;
