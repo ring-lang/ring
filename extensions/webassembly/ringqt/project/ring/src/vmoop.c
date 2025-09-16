@@ -341,8 +341,8 @@ void ring_vm_oop_property(VM *pVM) {
 		return;
 	}
 	pVM->pActiveMem = pScope;
+	/* Note: We don't set pVM->pGetSetObject to NULL because it could be used by ICO_DUPLICATE */
 	pVM->lGetSetProperty = 0;
-	pVM->pGetSetObject = NULL;
 }
 
 void ring_vm_oop_loadmethod(VM *pVM) { ring_vm_oop_loadmethod2(pVM, RING_VM_IR_READC); }

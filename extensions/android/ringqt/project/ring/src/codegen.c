@@ -297,6 +297,11 @@ void ring_parser_icg_genppmm(Parser *pParser, int nMode, int nValue) {
 		pMark = ring_parser_icg_getactiveoperation(pParser);
 		/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value */
 		ring_parser_icg_newoperation(pParser, ICO_DUPLICATE);
+		if (nMode == RING_PARSER_ICG_USESETPROPERTY) {
+			ring_parser_icg_newoperandint(pParser, RING_PARSER_ICG_USESETPROPERTY);
+		} else {
+			ring_parser_icg_newoperandint(pParser, RING_ONE);
+		}
 		ring_parser_icg_newoperation(pParser, ICO_DUPLICATE);
 		ring_parser_icg_newoperation(pParser, ICO_PUSHV);
 		ring_parser_icg_pushn(pParser, nValue);

@@ -19,6 +19,17 @@ void ring_vm_stackdup(VM *pVM) {
 		nType = RING_VM_STACK_OBJTYPE;
 		RING_VM_STACK_PUSHPVALUE(pPointer);
 		RING_VM_STACK_OBJTYPE = nType;
+		/* Support Calling the Getter Method */
+		if ((RING_VM_IR_READI == RING_ONE) && (pVM->nVarScope == RING_VARSCOPE_OBJSTATE) &&
+		    (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
+			/* When using braces to access the object attribute */
+			ring_vm_oop_setget(pVM, (List *)pPointer);
+		} else if (RING_VM_IR_READI == RING_PARSER_ICG_USESETPROPERTY) {
+			/* When using the dot operator to access the object attribute */
+			pVM->lGetSetProperty = 1;
+			ring_vm_oop_setget(pVM, (List *)pPointer);
+			pVM->lGetSetProperty = 0;
+		}
 	}
 }
 
