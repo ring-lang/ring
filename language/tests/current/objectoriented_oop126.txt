@@ -6,7 +6,9 @@
 Error (R21) : Using operator with values of incorrect type
 Error (R21) : Using operator with values of incorrect type
 Getter
+Getter
 101
+Getter
 Setter
 Getter
 1001
@@ -19,7 +21,9 @@ Getter
 Error (R21) : Using operator with values of incorrect type
 Error (R21) : Using operator with values of incorrect type
 Getter
+Getter
 99
+Getter
 Setter
 Getter
 999

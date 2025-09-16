@@ -1,8 +1,10 @@
+getter
 setter
 nice
 getter
 setter
 good
+getter
 setter
 great
 getter
