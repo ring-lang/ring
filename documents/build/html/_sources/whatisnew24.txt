@@ -22,6 +22,7 @@ Ring 1.24 comes with the next features!
 * More Samples
 * Better Operator Overloading
 * Better StdLib
+* Better Functions
 * Better RingLibCurl
 * Better RingHTTPLib
 * Better Support for Threads
@@ -223,10 +224,14 @@ Output:
 Better StdLib
 =============
 
-The next functions are added to StdLib:
+* isAppCompiled() function: Better implemetation
 
-* StringToBase32(cString) ---> cBase32
-* Base32ToString(cBase32) ---> cString
+* The next functions are added to StdLib:
+
+.. code-block:: none
+
+	StringToBase32(cString) ---> cBase32
+	Base32ToString(cBase32) ---> cString
 
 Example:
 
@@ -246,6 +251,26 @@ Output:
 	
 	JBSWY3DPEBLW64TMMQ======
 	Hello World
+
+.. index:: 
+	pair: What is new in Ring  1.24; Better Functions
+
+Better Functions
+================
+
+* ring_state_filetokens(): Support getting tokens for scanner commands (optional)
+* ring_state_stringtokens(): Support getting tokens for scanner commands (optional)
+* ring_state_stringtokens(): Better performance 
+* Space() function: Don't accept values over UINT_MAX
+* List() function: Don't accept values over UINT_MAX 
+* List() function: Don't use blocks for small 1D lists
+* Read() function: Reduce memory usage (improve the performance)
+* FRead() function: Reduce memory usage (improve the performance)
+* FGets() function: Reduce memory usage (improve the performance)
+* SubStr() function: Reduce memory usage (improve the performance)
+* Reverse() function: Reduce memory usage (improve the performance)
+* Shutdown() function: Don't terminate Ring Main State when used from Ring Sub State
+* Many functions are updated to use RING_API_NEWLIST and RING_API_RETLISTBYREF
 
 .. index:: 
 	pair: What is new in Ring 1.24?; Better RingLibCurl
@@ -338,20 +363,6 @@ More Improvements
 * RingLibSDL: Enable building the extension using recent MSVC compiler
 * RingLibSDL: Better support for Android (Using recent development tools)
 * RingLibuv: Revise the samples to use destroy_sockaddr_in() function 
-* StdLib - isAppCompiled() function: Better implemetation
-* ring_state_filetokens(): Support getting tokens for scanner commands (optional)
-* ring_state_stringtokens(): Support getting tokens for scanner commands (optional)
-* ring_state_stringtokens(): Better performance 
-* Space() function: Don't accept values over UINT_MAX
-* List() function: Don't accept values over UINT_MAX 
-* List() function: Don't use blocks for small 1D lists
-* Read() function: Reduce memory usage (improve the performance)
-* FRead() function: Reduce memory usage (improve the performance)
-* FGets() function: Reduce memory usage (improve the performance)
-* SubStr() function: Reduce memory usage (improve the performance)
-* Reverse() function: Reduce memory usage (improve the performance)
-* Shutdown() function: Don't terminate Ring Main State when used from Ring Sub State
-* Many functions are updated to use RING_API_NEWLIST and RING_API_RETLISTBYREF
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
 * Ring PM: Better format for output messages

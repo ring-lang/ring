@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-operator-overloading">Better Operator Overloading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringhttplib">Better RingHTTPLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-support-for-threads">Better Support for Threads</a></li>
@@ -242,6 +243,7 @@
 <li><p>More Samples</p></li>
 <li><p>Better Operator Overloading</p></li>
 <li><p>Better StdLib</p></li>
+<li><p>Better Functions</p></li>
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better RingHTTPLib</p></li>
 <li><p>Better Support for Threads</p></li>
@@ -383,11 +385,14 @@ y: 120
 </section>
 <section id="better-stdlib">
 <span id="index-8"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this heading"></a></h2>
-<p>The next functions are added to StdLib:</p>
 <ul class="simple">
-<li><p>StringToBase32(cString) —&gt; cBase32</p></li>
-<li><p>Base32ToString(cBase32) —&gt; cString</p></li>
+<li><p>isAppCompiled() function: Better implemetation</p></li>
+<li><p>The next functions are added to StdLib:</p></li>
 </ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>StringToBase32(cString) ---&gt; cBase32
+Base32ToString(cBase32) ---&gt; cString
+</pre></div>
+</div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 
@@ -404,8 +409,26 @@ Hello World
 </pre></div>
 </div>
 </section>
+<section id="better-functions">
+<span id="index-9"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>ring_state_filetokens(): Support getting tokens for scanner commands (optional)</p></li>
+<li><p>ring_state_stringtokens(): Support getting tokens for scanner commands (optional)</p></li>
+<li><p>ring_state_stringtokens(): Better performance</p></li>
+<li><p>Space() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>List() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>List() function: Don’t use blocks for small 1D lists</p></li>
+<li><p>Read() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>FRead() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>FGets() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>SubStr() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>Reverse() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>Shutdown() function: Don’t terminate Ring Main State when used from Ring Sub State</p></li>
+<li><p>Many functions are updated to use RING_API_NEWLIST and RING_API_RETLISTBYREF</p></li>
+</ul>
+</section>
 <section id="better-ringlibcurl">
-<span id="index-9"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
 <p>The next functions are added to the extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* void curl_global_cleanup(void)
 * CURLM *curl_multi_init(void)
@@ -422,7 +445,7 @@ Hello World
 </div>
 </section>
 <section id="better-ringhttplib">
-<span id="index-10"></span><h2>Better RingHTTPLib<a class="headerlink" href="#better-ringhttplib" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better RingHTTPLib<a class="headerlink" href="#better-ringhttplib" title="Permalink to this heading"></a></h2>
 <p>The next changes and improvements are done to the extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* The file httplib.h is updated (Using 0.23.1)
 * Added body() method to HTTPLib_Request class
@@ -432,7 +455,7 @@ Hello World
 </div>
 </section>
 <section id="better-support-for-threads">
-<span id="index-11"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring VM: Better functions for threads support</p></li>
 <li><p>Ring VM: Thread safe reference counting for Ring Lists</p></li>
@@ -446,7 +469,7 @@ Hello World
 </div>
 </section>
 <section id="better-documentation">
-<span id="index-12"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
 <p>The next chapters are added:</p>
 <ul class="simple">
 <li><p>Deploying Ring Web Applications using Docker</p></li>
@@ -462,7 +485,7 @@ Hello World
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better scripts for building Ring (32bit) and Ring (64bit) on Windows</p></li>
 <li><p>File: marketing/presentation/Ring.pptx - English revision</p></li>
@@ -479,20 +502,6 @@ Hello World
 <li><p>RingLibSDL: Enable building the extension using recent MSVC compiler</p></li>
 <li><p>RingLibSDL: Better support for Android (Using recent development tools)</p></li>
 <li><p>RingLibuv: Revise the samples to use destroy_sockaddr_in() function</p></li>
-<li><p>StdLib - isAppCompiled() function: Better implemetation</p></li>
-<li><p>ring_state_filetokens(): Support getting tokens for scanner commands (optional)</p></li>
-<li><p>ring_state_stringtokens(): Support getting tokens for scanner commands (optional)</p></li>
-<li><p>ring_state_stringtokens(): Better performance</p></li>
-<li><p>Space() function: Don’t accept values over UINT_MAX</p></li>
-<li><p>List() function: Don’t accept values over UINT_MAX</p></li>
-<li><p>List() function: Don’t use blocks for small 1D lists</p></li>
-<li><p>Read() function: Reduce memory usage (improve the performance)</p></li>
-<li><p>FRead() function: Reduce memory usage (improve the performance)</p></li>
-<li><p>FGets() function: Reduce memory usage (improve the performance)</p></li>
-<li><p>SubStr() function: Reduce memory usage (improve the performance)</p></li>
-<li><p>Reverse() function: Reduce memory usage (improve the performance)</p></li>
-<li><p>Shutdown() function: Don’t terminate Ring Main State when used from Ring Sub State</p></li>
-<li><p>Many functions are updated to use RING_API_NEWLIST and RING_API_RETLISTBYREF</p></li>
 <li><p>Ring Tests: Add/Use: nIgnoreCount</p></li>
 <li><p>Ring PM: Tests are revised and improved</p></li>
 <li><p>Ring PM: Better format for output messages</p></li>
