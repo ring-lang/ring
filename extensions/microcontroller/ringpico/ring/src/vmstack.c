@@ -29,7 +29,7 @@ void ring_vm_pushv(VM *pVM) {
 	}
 }
 
-int ring_vm_checknull(VM *pVM, int lShowError) {
+unsigned int ring_vm_checknull(VM *pVM, int lShowError) {
 	List *pVar;
 	String *pString;
 	pVar = (List *)RING_VM_STACK_READP;
@@ -794,7 +794,7 @@ void ring_vm_stackswap(VM *pVM, int nSP1, int nSP2) {
 	pVM->aStack[nSP2] = vTempItem;
 }
 
-int ring_vm_isinsideloop(VM *pVM) {
+unsigned int ring_vm_isinsideloop(VM *pVM) {
 	FuncCall *pFuncCall;
 	if (RING_VM_FUNCCALLSCOUNT) {
 		pFuncCall = RING_VM_LASTFUNCCALL;
@@ -803,7 +803,7 @@ int ring_vm_isinsideloop(VM *pVM) {
 	return ring_list_getsize(pVM->pForStep);
 }
 
-int ring_vm_isstackpointertoobjstate(VM *pVM) {
+unsigned int ring_vm_isstackpointertoobjstate(VM *pVM) {
 	/* This check also take in mind RING_VARSCOPE_GLOBAL and RING_VARSCOPE_DEFINEDGLOBALS */
 	return (pVM->nLoadAddressScope >= RING_VARSCOPE_OBJSTATE);
 }

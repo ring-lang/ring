@@ -646,7 +646,7 @@ void ring_vm_loadaddressfirst(VM *pVM);
 
 void ring_vm_varpushv(VM *pVM);
 
-int ring_vm_checknull(VM *pVM, int lShowError);
+unsigned int ring_vm_checknull(VM *pVM, int lShowError);
 
 void ring_vm_pushvfreestack(VM *pVM);
 
@@ -834,7 +834,7 @@ void ring_vm_createtemplist(VM *pVM);
 
 void ring_vm_anonymous(VM *pVM);
 
-int ring_vm_isstackpointertoobjstate(VM *pVM);
+unsigned int ring_vm_isstackpointertoobjstate(VM *pVM);
 
 void ring_vm_retitemref(VM *pVM);
 
@@ -1020,7 +1020,7 @@ void ring_vm_len(VM *pVM);
 
 void ring_vm_setopcode(VM *pVM);
 
-int ring_vm_isinsideloop(VM *pVM);
+unsigned int ring_vm_isinsideloop(VM *pVM);
 
 void ring_vm_sumn(VM *pVM);
 
