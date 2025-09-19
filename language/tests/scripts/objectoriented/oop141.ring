@@ -62,7 +62,7 @@ Class myclass
 		? "oo"
 		? cop 
 		? vvalue 
-
+		return self
 		
 Class myclass2 From myclass 
 
@@ -74,4 +74,5 @@ Class myclass2 From myclass
 		? "oo"
 		? cop 
 		? vvalue 
+		return self
 		

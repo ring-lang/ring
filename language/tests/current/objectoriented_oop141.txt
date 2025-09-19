@@ -1,65 +1,65 @@
 oo
-+=
++
 test1
 2025
 nice
 
 oo
--=
+-
 test2
 2025
 nice
 
 oo
-*=
+*
 test3
 2025
 nice
 
 oo
-/=
+/
 test4
 2025
 nice
 
 oo
-%=
+%
 test5
 2025
 nice
 
 oo
-<<=
+<<
 test6
 2025
 nice
 
 oo
->>=
+>>
 test7
 2025
 nice
 
 oo
-&=
+&
 test8
 2025
 nice
 
 oo
-|=
+|
 test9
 2025
 nice
 
 oo
-^=
+^
 test10
 2025
 nice
 
 oo
-**=
+**
 test11
 2025
 nice
@@ -90,67 +90,67 @@ nice
 
 ======================================================================
 oo
-+=
++
 test1
 2025
 nice
 
 oo
--=
+-
 test2
 2025
 nice
 
 oo
-*=
+*
 test3
 2025
 nice
 
 oo
-/=
+/
 test4
 2025
 nice
 
 oo
-%=
+%
 test5
 2025
 nice
 
 oo
-<<=
+<<
 test6
 2025
 nice
 
 oo
->>=
+>>
 test7
 2025
 nice
 
 oo
-&=
+&
 test8
 2025
 nice
 
 oo
-|=
+|
 test9
 2025
 nice
 
 oo
-^=
+^
 test10
 2025
 nice
 
 oo
-**=
+**
 test11
 2025
 nice
