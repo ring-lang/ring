@@ -63,3 +63,4 @@ class myclass
 		? "Operator Overloading"
 		? cop
 		? vvalue
+		return self
