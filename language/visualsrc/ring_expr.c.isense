@@ -41,7 +41,7 @@ x,x2,x3,x4,nLastOperation,nCount,nNOOP,nMark,nFlag2,lThisOrSelfLoadA,lThisLoadA,
 Type: unsigned int
 nToken
 Type: List *
-pList, *pMark, *pAssignmentPointerPos, *pDupPos0, *pDupPos, *pDupPos2
+pList, *pMark, *pAssignmentPointerPos, *pDupPos, *pPushVPos
 Type: char
 lSetProperty,lequal,nBeforeEqual,lNewAfterEqual,lNegative
 Type: char
