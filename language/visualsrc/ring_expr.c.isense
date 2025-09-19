@@ -37,11 +37,11 @@ Type: int
 x,nFlag
 ring_parser_factor
 Type: int
-x,x2,x3,x4,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,lThisOrSelfLoadA,lThisLoadA,lNewFrom,lAfterListEnd
+x,x2,x3,x4,nLastOperation,nCount,nNOOP,nMark,nFlag2,lThisOrSelfLoadA,lThisLoadA,lNewFrom,lAfterListEnd
 Type: unsigned int
 nToken
 Type: List *
-pList, *pMark,*pAssignmentPointerPos
+pList, *pMark, *pAssignmentPointerPos, *pDupPos
 Type: char
 lSetProperty,lequal,nBeforeEqual,lNewAfterEqual,lNegative
 Type: char

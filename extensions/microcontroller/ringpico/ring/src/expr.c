@@ -387,7 +387,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
 	    lAfterListEnd;
 	unsigned int nToken;
-	List *pList, *pMark, *pAssignmentPointerPos;
+	List *pList, *pMark, *pAssignmentPointerPos, *pDupPos;
 	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative;
 	char cFuncName[RING_MEDIUMBUF];
 	char cKeyword[RING_MEDIUMBUF];
@@ -472,6 +472,12 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			ring_parser_icg_newoperandint(pParser, RING_FALSE);
 			pAssignmentPointerPos = ring_parser_icg_getactiveoperation(pParser);
 			ring_parser_icg_beforeequal(pParser, nBeforeEqual);
+			/* Calling Getter when we have object attribute then compound assignment */
+			if (lSetProperty && (nBeforeEqual > 1)) {
+				ring_parser_icg_newoperation(pParser, ICO_NOOP);
+				ring_parser_icg_newoperandint(pParser, RING_PARSER_ICG_USESETPROPERTY);
+				pDupPos = ring_parser_icg_getactiveoperation(pParser);
+			}
 			RING_PARSER_IGNORENEWLINE;
 			pParser->lNewObject = 0;
 			pParser->lAssignmentFlag = 0;
@@ -533,6 +539,32 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 						ring_parser_icg_newoperation(pParser, ICO_NOOP);
 					}
 				} else {
+					if (nBeforeEqual > OP_EQUAL) {
+						ring_parser_icg_setopcode(pParser, pDupPos, ICO_DUPLICATE);
+						if (nBeforeEqual == OP_PLUSEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_SUM);
+						} else if (nBeforeEqual == OP_MINUSEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_SUB);
+						} else if (nBeforeEqual == OP_MULEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_MUL);
+						} else if (nBeforeEqual == OP_DIVEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_DIV);
+						} else if (nBeforeEqual == OP_MODEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_MOD);
+						} else if (nBeforeEqual == OP_BITANDEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_BITAND);
+						} else if (nBeforeEqual == OP_BITOREQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_BITOR);
+						} else if (nBeforeEqual == OP_BITXOREQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_BITXOR);
+						} else if (nBeforeEqual == OP_SHLEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_BITSHL);
+						} else if (nBeforeEqual == OP_SHREQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_BITSHR);
+						} else if (nBeforeEqual == OP_POWEQUAL) {
+							ring_parser_icg_newoperation(pParser, ICO_POW);
+						}
+					}
 					ring_parser_icg_newoperation(pParser, ICO_SETPROPERTY);
 				}
 				/* Add Assignment position to the LoadAddress Instruction */
