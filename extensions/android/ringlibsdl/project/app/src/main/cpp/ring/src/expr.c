@@ -387,7 +387,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
 	    lAfterListEnd;
 	unsigned int nToken;
-	List *pList, *pMark, *pAssignmentPointerPos, *pDupPos;
+	List *pList, *pMark, *pAssignmentPointerPos, *pDupPos, *pDupPos2;
 	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative;
 	char cFuncName[RING_MEDIUMBUF];
 	char cKeyword[RING_MEDIUMBUF];
@@ -473,10 +473,13 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			pAssignmentPointerPos = ring_parser_icg_getactiveoperation(pParser);
 			ring_parser_icg_beforeequal(pParser, nBeforeEqual);
 			/* Calling Getter when we have object attribute then compound assignment */
-			if (lSetProperty && (nBeforeEqual > 1)) {
+			pDupPos = NULL;
+			if (lSetProperty && (nBeforeEqual > OP_EQUAL)) {
 				ring_parser_icg_newoperation(pParser, ICO_NOOP);
 				ring_parser_icg_newoperandint(pParser, RING_PARSER_ICG_USESETPROPERTY);
 				pDupPos = ring_parser_icg_getactiveoperation(pParser);
+				ring_parser_icg_newoperation(pParser, ICO_NOOP);
+				pDupPos2 = ring_parser_icg_getactiveoperation(pParser);
 			}
 			RING_PARSER_IGNORENEWLINE;
 			pParser->lNewObject = 0;
@@ -539,8 +542,9 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 						ring_parser_icg_newoperation(pParser, ICO_NOOP);
 					}
 				} else {
-					if (nBeforeEqual > OP_EQUAL) {
+					if ((pDupPos != NULL) && (nBeforeEqual > OP_EQUAL)) {
 						ring_parser_icg_setopcode(pParser, pDupPos, ICO_DUPLICATE);
+						ring_parser_icg_setopcode(pParser, pDupPos2, ICO_PUSHV);
 						if (nBeforeEqual == OP_PLUSEQUAL) {
 							ring_parser_icg_newoperation(pParser, ICO_SUM);
 						} else if (nBeforeEqual == OP_MINUSEQUAL) {
