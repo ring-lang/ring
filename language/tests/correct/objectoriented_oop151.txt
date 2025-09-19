@@ -1,0 +1,70 @@
+x: 10
+y: 10
+z: 10
+
+Increment x by 20
+Getter (value + 1000000)
+Setter
+value = 1000030
+Getter (value + 1000000)
+x = 2000030
+Decrement x by 20
+Getter (value + 1000000)
+Setter
+value = 2000010
+Getter (value + 1000000)
+x = 3000010
+Multiply x by 2
+Getter (value + 1000000)
+Setter
+value = 6000020
+Getter (value + 1000000)
+x = 7000020
+Divide x by 2
+Getter (value + 1000000)
+Setter
+value = 3500010
+Getter (value + 1000000)
+x = 4500010
+Remainder x %= 4000000
+Getter (value + 1000000)
+Setter
+value = 500010
+Getter (value + 1000000)
+x = 1500010
+Power Operator ( x ** 2)
+Getter (value + 1000000)
+Setter
+value = 2250030000100
+Getter (value + 1000000)
+x = 2250031000100
+Shift-Left
+Getter (value + 1000000)
+Setter
+value = 9000124000400
+Getter (value + 1000000)
+x = 9000125000400
+Shift-Right
+Getter (value + 1000000)
+Setter
+value = 2250031250100
+Getter (value + 1000000)
+x = 2250032250100
+BitAnd x &= 2250032250000
+Getter (value + 1000000)
+Setter
+value = 2250032250000
+Getter (value + 1000000)
+x = 2250033250000
+BitOr x |= 1
+Getter (value + 1000000)
+Setter
+value = 2250033250001
+Getter (value + 1000000)
+x = 2250034250001
+BitXor x ^= 2250034250001
+Getter (value + 1000000)
+Setter
+value = 0
+Getter (value + 1000000)
+x = 1000000
