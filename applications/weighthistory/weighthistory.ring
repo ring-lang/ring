@@ -45,6 +45,7 @@ class App
 				setrowcount(0)
 				setcolumncount(3)
 				setselectionbehavior(QAbstractItemView_SelectRows)
+				setSelectionMode(QAbstractItemView_SingleSelection)
 				setHorizontalHeaderItem(0, new QTableWidgetItem("Date"))
 				setHorizontalHeaderItem(1, new QTableWidgetItem("Time"))
 				setHorizontalHeaderItem(2, new QTableWidgetItem("Weight"))
