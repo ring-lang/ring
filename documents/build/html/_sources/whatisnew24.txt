@@ -350,7 +350,7 @@ More Improvements
 
 * Better scripts for building Ring (32bit) and Ring (64bit) on Windows
 * FlappyBird3000: Use the same FPS for Desktop/Android
-* Ring for macOS: Execute reviselibsformacos.sh when running bin/install.ssh
+* Ring for macOS: Execute reviselibsformacos.sh when running bin/install.sh
 * File: marketing/presentation/Ring.pptx - English revision
 * File: ring/extensions - document.bat - Using ring/documents folder
 * File: language/build/buildzig.bat - Updated and tested using Zig 0.16dev
