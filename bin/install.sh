@@ -6,6 +6,8 @@
 if [ -f ../lib/libring.dylib ];
 then
 
+./reviselibsformacos.sh
+
 BREW_PREFIX=$(brew --prefix)
 
 ln -sf "`pwd`/ring" $BREW_PREFIX/bin/ring
