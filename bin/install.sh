@@ -6,8 +6,6 @@
 if [ -f ../lib/libring.dylib ];
 then
 
-./reviselibsformacos.sh
-
 BREW_PREFIX=$(brew --prefix)
 
 ln -sf "`pwd`/ring" $BREW_PREFIX/bin/ring
@@ -662,4 +660,12 @@ if [ -f lib/libring_pdfgen.so ];
 then
 sudo ln -sf "`pwd`/lib/libring_pdfgen.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libring_pdfgen.so" /usr/lib64
+fi
+
+# Fix libs for macOS
+
+if [ -f ../lib/libring.dylib ];
+then
+
+./reviselibsformacos.sh
 fi
