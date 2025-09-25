@@ -5,13 +5,8 @@
 
 oGameState = NULL
 
-if isAndroid()
-	GAME_FPS	= 15
-	GAME_FixedFPS	= 180
-else 
-	GAME_FPS	= 60
-	GAME_FixedFPS	= 120
-ok
+GAME_FPS	= 60
+GAME_FixedFPS	= 120
 
 Load "gameengine.ring"
 
