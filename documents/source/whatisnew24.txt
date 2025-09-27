@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.24 comes with the next features!
 
+* PhD Thesis (Ring and PWCT2)
 * Ring for macOS (Apple silicon)
 * RingPM GUI
 * RingFmt 
@@ -28,6 +29,20 @@ Ring 1.24 comes with the next features!
 * Better Support for Threads
 * Better Documentation
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.24?; PhD Thesis (Ring and PWCT2)
+
+PhD Thesis (Ring and PWCT2)
+===========================
+
+Title: Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications
+
+URL: https://arxiv.org/abs/2509.20426
+
+PDF: https://arxiv.org/pdf/2509.20426
+
+Presentation: https://ring-lang.github.io/ref/PhDThesisPresentation.pdf
 
 .. index:: 
 	pair: What is new in Ring 1.24?; Ring for macOS (Apple silicon)
