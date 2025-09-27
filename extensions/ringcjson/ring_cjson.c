@@ -1,6 +1,6 @@
 #include "ring.h"
 
-/* Copyright (c) 2022 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2022-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "lib/cJSON.h"
 #include "lib/cJSON_Utils.h"
@@ -2025,7 +2025,7 @@ RING_FUNC(ring_cJSON_ToRingList)
 {
 	List *pOutputList;
 	cJSON *pJSON ;
-	pOutputList = ring_list_new(0);
+	pOutputList = RING_API_NEWLIST;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -2036,12 +2036,10 @@ RING_FUNC(ring_cJSON_ToRingList)
 		return ;
 	}
 	pJSON = RING_API_GETCPOINTER(1,"cJSON");
-	if (pJSON == NULL) {
-		RING_API_RETLIST(pOutputList);		
-		return ;
+	if (pJSON != NULL) {
+		cJSON_ProcessList(pJSON,pOutputList);
 	}
-	cJSON_ProcessList(pJSON,pOutputList);
-	RING_API_RETLIST(pOutputList);		
+	RING_API_RETLISTBYREF(pOutputList);		
 }
 
 int cJSON_ProcessSimpleType(cJSON *pJSON,List *pOutputList)
