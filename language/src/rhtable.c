@@ -19,7 +19,8 @@ RING_API unsigned int ring_hashtable_hashkey_gc(void *pRingState, HashTable *pHa
 #else
 	nIndex = ring_hashlib_murmurthree32((const char *)cKey, strlen(cKey), RING_HASHTABLE_HASHFUNCSEED);
 #endif
-	nIndex = nIndex % pHashTable->nLinkedLists;
+	/* nLinkedLists is always a power of two (starts at 2 and doubles). Use bit mask instead of modulo for speed. */
+	nIndex = nIndex & (pHashTable->nLinkedLists - 1);
 	return nIndex;
 }
 
