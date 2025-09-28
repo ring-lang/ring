@@ -247,7 +247,7 @@ nMidvalue
 ring_list_sortstr_gc
 Type: unsigned int
 x,y,nMid
-Type: String *
+Type: const char *
 pMidvalue
 ring_list_binarysearchnum_gc
 Type: unsigned int
@@ -255,6 +255,8 @@ nFirst,nMid,nLast
 ring_list_binarysearchstr_gc
 Type: unsigned int
 nFirst,nMid,nLast
+Type: int
+nRes
 ring_list_swap_gc
 Type: Item *
 pItem

@@ -826,12 +826,10 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 	nMid = (x + y) / 2;
 	pMidvalue = ring_list_getstringcolumn_gc(pState, pList, nMid, nColumn, cAttribute);
 	while (x <= y) {
-		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, x, nColumn, cAttribute),
-			      pMidvalue) < 0) {
+		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, x, nColumn, cAttribute), pMidvalue) < 0) {
 			x++;
 		}
-		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, y, nColumn, cAttribute),
-			      pMidvalue) > 0) {
+		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, y, nColumn, cAttribute), pMidvalue) > 0) {
 			y--;
 		}
 		if (x <= y) {
