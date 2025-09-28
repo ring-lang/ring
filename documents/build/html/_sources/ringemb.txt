@@ -254,6 +254,14 @@ Starting from Ring 1.12 we have the ring_state_filetokens() function
 
 Using this function we can get all the tokens in the ring source code file.
 
+Syntax:
+
+.. code-block:: none
+
+	ring_state_filetokens(pState,cFileName,lNotCaseSensitive,lComments,lScannerCommands) --> aTokens	
+
+.. tip:: See ring_state_stringtokens() documentation for more information about the parameters
+
 .. code-block:: ring
 
 	C_FILENAME 	= "test_tokens.ring"
@@ -333,6 +341,29 @@ Output:
 	EndLine
 
 
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_stringtokens() function
+
+ring_state_stringtokens() function
+==================================
+
+Using this function we can get all the tokens in a string that contains Ring source code.
+
+Syntax:
+
+.. code-block:: none
+
+	ring_state_stringtokens(pState,cString,lNotCaseSensitive,lComments,lScannerCommands) --> aTokens	
+
+
+The parameters (lNotCaseSensitive,lComments,lScannerCommands) are optional flags (True/False)
+
+Using lNotCaseSensitive we can enable getting the identifiers in a case identical to the input
+
+Using lComments we can control adding comments to the output
+
+Using lScannerCommands we can enable getting (ChangeRingKeyword, ChangeRingOperator, etc.) in the output
+ 
 .. index:: 
 	pair: Embedding Ring in Ring; ring_state_mainfile() and Ring Object File
 

@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile">ring_state_new() and ring_state_mainfile()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-errors-when-embedding-ring-in-ring">Runtime Errors when Embedding Ring in Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-filetokens-function">ring_state_filetokens() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-state-stringtokens-function">ring_state_stringtokens() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-mainfile-and-ring-object-file">ring_state_mainfile() and Ring Object File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pause-resume-the-ring-vm">Pause/Resume the Ring VM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rules">Rules</a></li>
@@ -418,6 +419,14 @@ End of test!
 <span id="index-6"></span><h2>ring_state_filetokens() function<a class="headerlink" href="#ring-state-filetokens-function" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.12 we have the ring_state_filetokens() function</p>
 <p>Using this function we can get all the tokens in the ring source code file.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring_state_filetokens(pState,cFileName,lNotCaseSensitive,lComments,lScannerCommands) --&gt; aTokens
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See ring_state_stringtokens() documentation for more information about the parameters</p>
+</div>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_FILENAME</span>      <span class="o">=</span> <span class="s2">&quot;test_tokens.ring&quot;</span>
 <span class="n">C_WIDTH</span>         <span class="o">=</span> <span class="mi">12</span>
 
@@ -494,8 +503,20 @@ EndLine
 </pre></div>
 </div>
 </section>
+<section id="ring-state-stringtokens-function">
+<span id="index-7"></span><h2>ring_state_stringtokens() function<a class="headerlink" href="#ring-state-stringtokens-function" title="Permalink to this heading"></a></h2>
+<p>Using this function we can get all the tokens in a string that contains Ring source code.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring_state_stringtokens(pState,cString,lNotCaseSensitive,lComments,lScannerCommands) --&gt; aTokens
+</pre></div>
+</div>
+<p>The parameters (lNotCaseSensitive,lComments,lScannerCommands) are optional flags (True/False)</p>
+<p>Using lNotCaseSensitive we can enable getting the identifiers in a case identical to the input</p>
+<p>Using lComments we can control adding comments to the output</p>
+<p>Using lScannerCommands we can enable getting (ChangeRingKeyword, ChangeRingOperator, etc.) in the output</p>
+</section>
 <section id="ring-state-mainfile-and-ring-object-file">
-<span id="index-7"></span><h2>ring_state_mainfile() and Ring Object File<a class="headerlink" href="#ring-state-mainfile-and-ring-object-file" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>ring_state_mainfile() and Ring Object File<a class="headerlink" href="#ring-state-mainfile-and-ring-object-file" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.20 the ring_state_mainfile() is updated and support Ring Object Files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo)</p>
 <p>So, we can write a group of functions/classes then compile them to Ring Object File, send this file to another programmer who can use the functions/classes inside his program after loading it in isolated embedded Ring State.</p>
 <p>File: mylib.ring</p>
@@ -543,7 +564,7 @@ EndLine
 </div>
 </section>
 <section id="pause-resume-the-ring-vm">
-<span id="index-8"></span><h2>Pause/Resume the Ring VM<a class="headerlink" href="#pause-resume-the-ring-vm" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Pause/Resume the Ring VM<a class="headerlink" href="#pause-resume-the-ring-vm" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.20 we can pause/resume the embedded Ring VM</p>
 <p>To pause the VM, just use the (Bye) command which as expected will end the execution but will store
 the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.</p>
@@ -588,7 +609,7 @@ the nPC value (Program Counter) so using ring_state_resume() we can continue the
 </div>
 </section>
 <section id="rules">
-<span id="index-9"></span><h2>Rules<a class="headerlink" href="#rules" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Rules<a class="headerlink" href="#rules" title="Permalink to this heading"></a></h2>
 <p>These functions are considered advanced functions and exist for specific use-cases.</p>
 <p>If you are going to use these functions, you need to know the next rules.</p>
 <ol class="arabic simple">
