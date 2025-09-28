@@ -820,18 +820,18 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left,
 RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
 				   unsigned int nColumn, const char *cAttribute) {
 	unsigned int x, y, nMid;
-	String *pMidvalue;
+	const char *pMidvalue;
 	x = left;
 	y = right;
 	nMid = (x + y) / 2;
-	pMidvalue = ring_string_new_gc(pState, ring_list_getstringcolumn_gc(pState, pList, nMid, nColumn, cAttribute));
+	pMidvalue = ring_list_getstringcolumn_gc(pState, pList, nMid, nColumn, cAttribute);
 	while (x <= y) {
 		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, x, nColumn, cAttribute),
-			      ring_string_get(pMidvalue)) < 0) {
+			      pMidvalue) < 0) {
 			x++;
 		}
 		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, y, nColumn, cAttribute),
-			      ring_string_get(pMidvalue)) > 0) {
+			      pMidvalue) > 0) {
 			y--;
 		}
 		if (x <= y) {
@@ -840,7 +840,6 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 			y--;
 		}
 	}
-	ring_string_delete_gc(pState, pMidvalue);
 	if (left < y) {
 		ring_list_sortstr_gc(pState, pList, left, y, nColumn, cAttribute);
 	}
