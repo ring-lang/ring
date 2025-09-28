@@ -304,7 +304,7 @@ Functions Count: 255
         ring_give(cVariable)
         ring_see(cMessage)
         ring_state_delete(oState)
-        ring_state_filetokens(oState,cRingFileName) ---> aTokens
+        ring_state_filetokens(oState,cRingFileName,lNotCaseSensitive,lComments,lScannerCommands) ---> aTokens
         ring_state_findvar(oState,cVariableName) ---> aVariableList
         ring_state_init() ---> oState
         ring_state_main(cRingFileName)
@@ -318,8 +318,7 @@ Functions Count: 255
         ring_state_runobjectfile(oState,cRingObjectFileName)
         ring_state_scannererror(oState) ---> nStatus
         ring_state_setvar(oState,cVariableName,Value)
-        ring_state_stringtokens(oState,cRingFileName)
-        ring_state_stringtokens(oState,cRingFileName,lCaseSensitive)
+        ring_state_stringtokens(oState,cRingFileName,lNotCaseSensitive,lComments,lScannerCommands) ---> aTokens
         ringvm_callfunc(cFuncName)
         ringvm_calllist() ---> List
         ringvm_cfunctionslist() ---> List

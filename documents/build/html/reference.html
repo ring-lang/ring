@@ -511,7 +511,7 @@ right(string,count) ---&gt; get characters starting from the right
 ring_give(cVariable)
 ring_see(cMessage)
 ring_state_delete(oState)
-ring_state_filetokens(oState,cRingFileName) ---&gt; aTokens
+ring_state_filetokens(oState,cRingFileName,lNotCaseSensitive,lComments,lScannerCommands) ---&gt; aTokens
 ring_state_findvar(oState,cVariableName) ---&gt; aVariableList
 ring_state_init() ---&gt; oState
 ring_state_main(cRingFileName)
@@ -525,8 +525,7 @@ ring_state_runfile(oState,cRingFileName)
 ring_state_runobjectfile(oState,cRingObjectFileName)
 ring_state_scannererror(oState) ---&gt; nStatus
 ring_state_setvar(oState,cVariableName,Value)
-ring_state_stringtokens(oState,cRingFileName)
-ring_state_stringtokens(oState,cRingFileName,lCaseSensitive)
+ring_state_stringtokens(oState,cRingFileName,lNotCaseSensitive,lComments,lScannerCommands) ---&gt; aTokens
 ringvm_callfunc(cFuncName)
 ringvm_calllist() ---&gt; List
 ringvm_cfunctionslist() ---&gt; List
