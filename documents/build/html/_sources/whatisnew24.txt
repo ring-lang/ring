@@ -355,6 +355,7 @@ The next chapters are improved
 * Using Ring Notepad
 * Using Ring Libuv
 * Using Ring LibCurl
+* Embedding Ring in Ring
 * Building Games For Android
 
 .. index:: 
