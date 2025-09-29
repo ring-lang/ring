@@ -22,6 +22,7 @@ nCurrentToken           = 0
 nTokensCount            = 0
 cOutputBuffer           = ""
 cCurrentFileName        = ""
+C_KEYWORDTEXT           = 4
 
 ## Spaces 
 lSpaceBeforeToken       = False
@@ -293,7 +294,7 @@ func getTabChars
 func processKeyword aToken,cValue
 
 	if len(aToken) > 3
-		cKeyword = lower(aToken[4])
+		cKeyword = lower(aToken[C_KEYWORDTEXT])
 	else
 		nIndex   = 0 + cValue	
 		cKeyword = lower(aKeywords[nIndex]) 
