@@ -22,6 +22,8 @@ typedef struct Scanner {
 	unsigned char lHashComments;
 	/* Multi-Character Operators */
 	unsigned char lMultiCharOperators;
+	/* Enable Tokens Output */
+	unsigned char lEnableTokensOutput;
 } Scanner;
 typedef enum SCANNER_KEYWORD {
 	K_IF = 1,

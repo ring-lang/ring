@@ -26,6 +26,8 @@ Type: unsigned char
 lHashComments
 Type: unsigned char
 lMultiCharOperators
+Type: unsigned char
+lEnableTokensOutput
 END:
 Type: Scanner
 struct Scanner
@@ -290,7 +292,7 @@ Type: RING_FILE
 fp
 c
 Type: unsigned int
-x,nSize,nLine
+x,nSize,nLine,lEnableTokensOutput
 Type: char
 cFileName2[RING_PATHSIZE]
 ring_scanner_setandgenendofline

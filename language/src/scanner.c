@@ -15,6 +15,7 @@ Scanner *ring_scanner_new(RingState *pRingState) {
 	pScanner->nTokenIndex = RING_ZERO;
 	pScanner->lHashComments = RING_TRUE;
 	pScanner->lMultiCharOperators = RING_FALSE;
+	pScanner->lEnableTokensOutput = RING_TRUE;
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
 	return pScanner;
@@ -240,6 +241,10 @@ void ring_scanner_keywords(Scanner *pScanner) {
 
 void ring_scanner_addtoken(Scanner *pScanner, unsigned int nType) {
 	List *pList;
+	if (!pScanner->lEnableTokensOutput) {
+		ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
+		return;
+	}
 	pList = ring_list_newlist_gc(pScanner->pRingState, pScanner->pTokens);
 	/* Add Token Type */
 	ring_list_addint_gc(pScanner->pRingState, pList, nType);
@@ -668,8 +673,9 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	RING_FILE fp;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c;
-	unsigned int x, nSize, nLine;
+	unsigned int x, nSize, nLine, lEnableTokensOutput;
 	char cFileName2[RING_PATHSIZE];
+	lEnableTokensOutput = pScanner->lEnableTokensOutput;
 	cFileName = ring_string_get(pScanner->pActiveToken);
 	/* Remove Spaces and " " from file name */
 	x = 0;
@@ -709,6 +715,7 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 		return;
 	}
 	nSize = 1;
+	pScanner->lEnableTokensOutput = RING_FALSE;
 	ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 	nLine = pScanner->nLinesCount;
 	/* Set the Line Number (To be 1) */
@@ -722,6 +729,7 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	ring_scanner_readchar(pScanner, '\n');
 	/* Restore the Line Number (After loading the file) */
 	ring_scanner_setandgenendofline(pScanner, nLine);
+	pScanner->lEnableTokensOutput = lEnableTokensOutput;
 }
 
 void ring_scanner_setandgenendofline(Scanner *pScanner, unsigned int nLine) {
@@ -872,6 +880,9 @@ void ring_scanner_addreturn3(RingState *pRingState, unsigned int aPara[2]) {
 
 void ring_scanner_registertoken(Scanner *pScanner, unsigned int nType, const char *cValue) {
 	List *pList;
+	if (!pScanner->lEnableTokensOutput) {
+		return;
+	}
 	pList = ring_list_newlist_gc(pScanner->pRingState, pScanner->pTokens);
 	/* Add Token Type */
 	ring_list_addint_gc(pScanner->pRingState, pList, nType);
