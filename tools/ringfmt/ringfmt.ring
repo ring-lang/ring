@@ -415,6 +415,15 @@ func processOperator cOperator
 		removeLastTabFromBuffer()
 	ok
 
+	# Take in mind using ChangeRingOperator (For example changing + to Plus)
+	for cChar in cOperator
+		if isAlNum(cChar)
+			lSpaceBeforeToken = True 
+			lSpaceAfterToken = True 
+			exit
+		ok
+	next
+
 	return cOperator
 
 func getNextToken
