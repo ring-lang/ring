@@ -207,6 +207,9 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 		ring_scanner_readchar(pScanner, c);
 		RING_READCHAR(pFile, c, nSize);
 	}
+	if ((pScanner->cState == SCANNER_STATE_CHANGEKEYWORD) || (pScanner->cState == SCANNER_STATE_CHANGEOPERATOR)) {
+		ring_scanner_readchar(pScanner, '\n');
+	}
 	lCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
@@ -377,6 +380,9 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 	for (x = 0; x < nFileSize; x++) {
 		c = cString[x];
 		ring_scanner_readchar(pScanner, c);
+	}
+	if ((pScanner->cState == SCANNER_STATE_CHANGEKEYWORD) || (pScanner->cState == SCANNER_STATE_CHANGEOPERATOR)) {
+		ring_scanner_readchar(pScanner, '\n');
 	}
 	lCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */

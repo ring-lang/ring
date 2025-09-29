@@ -144,8 +144,6 @@ pList
 ring_state_runfile
 Type: Scanner *
 pScanner
-Type: VM *
-pVM
 Type: RING_FILE
 pFile
 cStartup
@@ -169,8 +167,6 @@ ring_state_runbytecode
 ring_state_runstring
 Type: Scanner *
 pScanner
-Type: VM *
-pVM
 Type: const char *
 cFileName
 Type: int
