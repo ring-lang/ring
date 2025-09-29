@@ -192,10 +192,27 @@ func processTokens aTokens
 
 	aFileTokens   = aTokens
 	resetVariables()
-	for aToken in aFileTokens
+	nMax = len(aFileTokens)
+	for nToken = 1 to nMax
+		aToken = aFileTokens[nToken]
 		lSpaceBeforeToken   = False
 		lSpaceAfterToken    = False
 		cValue              = aToken[C_TOKENVALUE]
+
+		if aToken[C_TOKENTYPE] = C_IDENTIFIER and cValue = "ChangeRingKeyword" and
+			nToken+2 < nMax and aFileTokens[nToken+1][C_TOKENTYPE] = C_IDENTIFIER and
+			aFileTokens[nToken+2][C_TOKENTYPE] = C_IDENTIFIER
+
+			nPos = find(aKeywords,upper(aFileTokens[nToken+1][C_TOKENVALUE]))
+			cNewKeyword = trim(upper(aFileTokens[nToken+2][C_TOKENVALUE]))
+			if nPos
+				if cNewKeyword
+					aKeywords[nPos] = cNewKeyword
+				ok
+			ok
+
+		ok
+
 		cValue              = processToken(aToken,cValue)
 		printToken(cValue)
 		nCurrentToken++
