@@ -19,6 +19,7 @@ cOutputType             = :print    # Just Print the output
 aFilesToProcess         = []
 aFileTokens             = []
 nCurrentToken           = 0
+nTokensCount            = 0
 cOutputBuffer           = ""
 cCurrentFileName        = ""
 
@@ -192,13 +193,13 @@ func processTokens aTokens
 
 	aFileTokens   = aTokens
 	resetVariables()
-	nMax = len(aFileTokens)
-	for nToken = 1 to nMax
+	nTokensCount = len(aFileTokens)
+	for nToken = 1 to nTokensCount
 		aToken = aFileTokens[nToken]
 		lSpaceBeforeToken   = False
 		lSpaceAfterToken    = False
 		cValue              = aToken[C_TOKENVALUE]
-		checkChangingKeywords(nToken,nMax,aToken,cValue,aFileTokens)
+		checkChangingKeywords(nToken,nTokensCount,aToken,cValue,aFileTokens)
 		cValue              = processToken(aToken,cValue)
 		printToken(cValue)
 		nCurrentToken++
@@ -211,10 +212,10 @@ func processTokens aTokens
 		write(cCurrentFileName, cOutputBuffer)
 	ok
 
-func checkChangingKeywords nToken, nMax, aToken, cValue, aFileTokens
+func checkChangingKeywords nToken, nTokensCount, aToken, cValue, aFileTokens
 
 	if aToken[C_TOKENTYPE] = C_IDENTIFIER and cValue = "ChangeRingKeyword" and
-		nToken+2 < nMax and aFileTokens[nToken+1][C_TOKENTYPE] = C_IDENTIFIER and
+		nToken+2 < nTokensCount and aFileTokens[nToken+1][C_TOKENTYPE] = C_IDENTIFIER and
 		aFileTokens[nToken+2][C_TOKENTYPE] = C_IDENTIFIER
 
 		nPos = find(aKeywords,upper(aFileTokens[nToken+1][C_TOKENVALUE]))
@@ -392,6 +393,7 @@ func processOperator cOperator
 		aNextToken = getNextToken()
 		if aNextToken[C_TOKENTYPE] = C_KEYWORD
 			del(aFileTokens,nCurrentToken+1)
+			nTokensCount--
 			cValue	 = aNextToken[C_TOKENVALUE]
 			nIndex   = 0 + cValue	
 			cKeyword = lower(aKeywords[nIndex])	
