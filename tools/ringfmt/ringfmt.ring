@@ -198,21 +198,7 @@ func processTokens aTokens
 		lSpaceBeforeToken   = False
 		lSpaceAfterToken    = False
 		cValue              = aToken[C_TOKENVALUE]
-
-		if aToken[C_TOKENTYPE] = C_IDENTIFIER and cValue = "ChangeRingKeyword" and
-			nToken+2 < nMax and aFileTokens[nToken+1][C_TOKENTYPE] = C_IDENTIFIER and
-			aFileTokens[nToken+2][C_TOKENTYPE] = C_IDENTIFIER
-
-			nPos = find(aKeywords,upper(aFileTokens[nToken+1][C_TOKENVALUE]))
-			cNewKeyword = trim(upper(aFileTokens[nToken+2][C_TOKENVALUE]))
-			if nPos
-				if cNewKeyword
-					aKeywords[nPos] = cNewKeyword
-				ok
-			ok
-
-		ok
-
+		checkChangingKeywords(nToken,nMax,aToken,cValue,aFileTokens)
 		cValue              = processToken(aToken,cValue)
 		printToken(cValue)
 		nCurrentToken++
@@ -223,6 +209,22 @@ func processTokens aTokens
 	but cOutputType = :write
 		? "Write File: " + cCurrentFileName
 		write(cCurrentFileName, cOutputBuffer)
+	ok
+
+func checkChangingKeywords nToken, nMax, aToken, cValue, aFileTokens
+
+	if aToken[C_TOKENTYPE] = C_IDENTIFIER and cValue = "ChangeRingKeyword" and
+		nToken+2 < nMax and aFileTokens[nToken+1][C_TOKENTYPE] = C_IDENTIFIER and
+		aFileTokens[nToken+2][C_TOKENTYPE] = C_IDENTIFIER
+
+		nPos = find(aKeywords,upper(aFileTokens[nToken+1][C_TOKENVALUE]))
+		cNewKeyword = trim(upper(aFileTokens[nToken+2][C_TOKENVALUE]))
+		if nPos
+			if cNewKeyword
+				aKeywords[nPos] = cNewKeyword
+			ok
+		ok
+
 	ok
 
 func resetVariables
