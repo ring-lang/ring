@@ -160,9 +160,6 @@ func processFile cFileName
 	line()	
 	? "Process file: " + cFileName
 	line()
-	cDir     = currentDir()
-	cFileDir = justFilePath(cFileName)
-	if cFileDir chdir(cFileDir) ok
 	try
 		nClock1 = clock()
 		processTokens(loadFileTokens(cFileName))
@@ -175,7 +172,6 @@ func processFile cFileName
 		? cCatchError 
 		line()
 	done
-	chdir(cDir)
 
 func loadFileTokens cFileName
 
