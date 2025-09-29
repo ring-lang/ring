@@ -334,7 +334,8 @@ func processKeyword cValue
 	but find(aEndTabs,lower(cKeyword))
 		if nTabsCount nTabsCount-- ok
 		removeLastTabFromBuffer()
-	but find(aStartImportant,lower(cKeyword))
+	but find(aStartImportant,lower(cKeyword)) and not 
+		(getPrevToken()[C_TOKENTYPE] = C_KEYWORD and getPrevToken()[C_TOKENVALUE] = K_LOAD)
 		cKeyword = nl + getNTabs(nTabsCount-1) + cKeyword
 		lNextNLisTwoNLs = True
 	but find(aEndImportant,lower(cKeyword))
