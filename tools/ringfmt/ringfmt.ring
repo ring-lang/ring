@@ -244,7 +244,7 @@ func processToken aToken, cValue
 
 	switch aToken[C_TOKENTYPE] 
 		on C_KEYWORD 
-			cValue = processKeyword    (cValue) 
+			cValue = processKeyword    (aToken,cValue) 
 		on C_OPERATOR 
 			cValue = processOperator   (cValue)
 		on C_LITERAL 
@@ -290,10 +290,14 @@ func getTabChars
 	off
 	return cTabChars
 
-func processKeyword cValue
+func processKeyword aToken,cValue
 
-	nIndex   = 0 + cValue	
-	cKeyword = lower(aKeywords[nIndex]) 
+	if len(aToken) > 3
+		cKeyword = lower(aToken[4])
+	else
+		nIndex   = 0 + cValue	
+		cKeyword = lower(aKeywords[nIndex]) 
+	ok
 
 	# Apply tabs for important sections (package, class & function)
 	lImportantSection	= True
