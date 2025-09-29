@@ -838,5 +838,9 @@ aPackagesRegistry = [
 	[ :name = "yaml",
           :description = "A YAML parser for the Ring programming language",
           :ProviderUserName = "ysdragon"
+	],
+	[ :name = "simplejson",
+          :description = "Simple Ring bindings for the Jansson JSON library",
+          :ProviderUserName = "ysdragon"
 	]
 ]
