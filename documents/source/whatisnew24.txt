@@ -125,6 +125,7 @@ The following packages have been added to the RingPM registry.
 * Worm: Simple example about Map generation in Ring Game Engine for 2D Games
 * Dialog: Ring bindings for osdialog, a cross-platform library for native OS dialogs
 * TicTacToePlus: An implementation for the TicTacToe game (large board) using RingQt
+* SimpleJSON: Simple Ring extension for the Jansson JSON library
 * WebView: Create beautiful, cross-platform desktop apps using Ring and web technologies
 
 Example:
