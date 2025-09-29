@@ -695,6 +695,7 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	}
 	if (pScanner->pRingState->lScannerCommandsAsTokens) {
 		ring_scanner_registertoken(pScanner, SCANNER_TOKEN_LITERAL, cFileName);
+		pScanner->lEnableTokensOutput = RING_FALSE;
 	}
 	/* Support File Location in Ring/bin Folder */
 	strcpy(cFileName2, cFileName);
@@ -721,7 +722,6 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 		return;
 	}
 	nSize = 1;
-	pScanner->lEnableTokensOutput = RING_FALSE;
 	ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 	nLine = pScanner->nLinesCount;
 	/* Set the Line Number (To be 1) */
