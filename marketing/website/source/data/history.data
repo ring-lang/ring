@@ -1,4 +1,5 @@
 aNews = [
+  ["September 29, 2025",'<a href="https://github.com/ysdragon/simplejson"> RingSimpleJSON Extension</a>'],
   ["September 26, 2025",'<a href="https://arxiv.org/abs/2509.20426"> Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications (PhD Thesis)</a>'],
   ["September 9, 2025",'<a href="https://github.com/ysdragon/yaml"> A YAML parser for Ring</a>'],
   ["September 8, 2025",'<a href="https://github.com/ring-lang/ring/tree/master/tools/ringfmt"> RingFmt (Source code formatter and beautifier)</a>'],
