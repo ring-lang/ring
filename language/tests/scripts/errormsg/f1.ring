@@ -1,1 +1,1 @@
-load "f2.ring"
+load "errormsg/f2.ring"
