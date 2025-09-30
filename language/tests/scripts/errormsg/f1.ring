@@ -1,0 +1,1 @@
+load "f2.ring"

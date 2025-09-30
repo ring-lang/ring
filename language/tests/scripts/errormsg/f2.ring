@@ -1,0 +1,1 @@
+load "f3.ring"
