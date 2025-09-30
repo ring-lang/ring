@@ -392,6 +392,7 @@ More Improvements
 * Ring VM: Clean memory after runtime errors before returning to the operating system
 * Ring VM: Better format when printing the Byte Code
 * Ring VM: ring_vm_afterscopeidoverflow() - Better Code
+* Ring VM: ring_vm_showerrormessage() - Better error message when using a C function
 * Ring Compiler: Spaces inside multi-character operators (like !=, <=, >=) are not allowed
 * Ring Compiler/VM: ring_list_setcache() is renamed to ring_list_setcache_gc()
 * Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()
