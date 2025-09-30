@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.23",
-	:ringversion = "1.23",
+	:version = "1.24",
+	:ringversion = "1.24",
 	:versions = 	[
 		[
-			:version = "1.23",
+			:version = "1.24",
 			:branch = "master"
 		]
 	],
@@ -97,11 +97,11 @@ aPackageInfo = [
 		"language/src/vmstack.c",
 		"language/src/vmstate.c",
 		"language/src/vmstr.c",
-		"language/src/vmthreads.c",
 		"language/src/vmtry.c",
 		"language/src/vmvars.c",
 		"language/src/vminfo_e.c",
-		"language/src/vmthread.c"
+		"language/src/vmthread.c",
+		"language/CMakeLists.txt"
 	],
 	:windowsfiles = 	[
 
