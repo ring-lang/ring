@@ -10,8 +10,6 @@ Type: int
 x,lFunctionCall,nRecursion,nPos
 Type: char *
 cStr2, *cStr3
-Type: List *
-pList2
 Type: const char *
 cFile, *cFile2
 Type: const char *

@@ -153,10 +153,10 @@ RING_API void ring_vm_showerrormessage(VM *pVM, const char *cStr) {
 			printf("%s", cFile);
 			/* Called From */
 			printf("\n\nCalled from line %d ", pFuncCall->nLineNumber);
+			lFunctionCall = 1;
 		} else {
 			printf("In %s() ", pFuncCall->cName);
 		}
-		lFunctionCall = 1;
 	}
 	if (lFunctionCall) {
 		printf("in file %s ", ring_list_getstring(pVM->pRingState->pRingFilesList, RING_ONE));
