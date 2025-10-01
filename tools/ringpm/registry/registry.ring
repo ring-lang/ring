@@ -842,5 +842,9 @@ aPackagesRegistry = [
 	[ :name = "simplejson",
           :description = "Simple Ring bindings for the Jansson JSON library",
           :ProviderUserName = "ysdragon"
+	],
+	[ :name = "ringfmt",
+          :description = "Source code formatter and beautifier",
+          :ProviderUserName = "ringpackages"
 	]
 ]
