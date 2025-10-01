@@ -66,30 +66,31 @@
           </li>	
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Change Log<span class="caret"></span></a>
             <ul class="dropdown-menu">
-		  <li><a href="doc1.23/whatisnew23.html">Ring 1.23</a></li>
-		  <li><a href="doc1.23/whatisnew22.html">Ring 1.22</a></li>
-		  <li><a href="doc1.23/whatisnew21.html">Ring 1.21</a></li>
-		  <li><a href="doc1.23/whatisnew20.html">Ring 1.20</a></li>
-		  <li><a href="doc1.23/whatisnew19.html">Ring 1.19</a></li>
-		  <li><a href="doc1.23/whatisnew18.html">Ring 1.18</a></li>
-		  <li><a href="doc1.23/whatisnew17.html">Ring 1.17</a></li>
-		  <li><a href="doc1.23/whatisnew16.html">Ring 1.16</a></li>
-		  <li><a href="doc1.23/whatisnew15.html">Ring 1.15</a></li>
-		  <li><a href="doc1.23/whatisnew14.html">Ring 1.14</a></li>
-		  <li><a href="doc1.23/whatisnew13.html">Ring 1.13</a></li>
-		  <li><a href="doc1.23/whatisnew12.html">Ring 1.12</a></li>
-		  <li><a href="doc1.23/whatisnew11.html">Ring 1.11</a></li>
-		  <li><a href="doc1.23/whatisnew10.html">Ring 1.10</a></li>
-		  <li><a href="doc1.23/whatisnew9.html">Ring 1.9</a></li>
-		  <li><a href="doc1.23/whatisnew8.html">Ring 1.8</a></li>
-		  <li><a href="doc1.23/whatisnew7.html">Ring 1.7</a></li>
-		  <li><a href="doc1.23/whatisnew6.html">Ring 1.6</a></li>
-		  <li><a href="doc1.23/whatisnew5.html">Ring 1.5</a></li>
-		  <li><a href="doc1.23/whatisnew4.html">Ring 1.4</a></li>
-		  <li><a href="doc1.23/whatisnew3.html">Ring 1.3</a></li>
-		  <li><a href="doc1.23/whatisnew2.html">Ring 1.2</a></li>
-	          <li><a href="doc1.23/whatisnew.html">Ring 1.1</a></li>
-          	  <li><a href="doc1.23/languagedesign.html">Ring 1.0</a></li>
+		  <li><a href="doc1.24/whatisnew24.html">Ring 1.24</a></li>
+		  <li><a href="doc1.24/whatisnew23.html">Ring 1.23</a></li>
+		  <li><a href="doc1.24/whatisnew22.html">Ring 1.22</a></li>
+		  <li><a href="doc1.24/whatisnew21.html">Ring 1.21</a></li>
+		  <li><a href="doc1.24/whatisnew20.html">Ring 1.20</a></li>
+		  <li><a href="doc1.24/whatisnew19.html">Ring 1.19</a></li>
+		  <li><a href="doc1.24/whatisnew18.html">Ring 1.18</a></li>
+		  <li><a href="doc1.24/whatisnew17.html">Ring 1.17</a></li>
+		  <li><a href="doc1.24/whatisnew16.html">Ring 1.16</a></li>
+		  <li><a href="doc1.24/whatisnew15.html">Ring 1.15</a></li>
+		  <li><a href="doc1.24/whatisnew14.html">Ring 1.14</a></li>
+		  <li><a href="doc1.24/whatisnew13.html">Ring 1.13</a></li>
+		  <li><a href="doc1.24/whatisnew12.html">Ring 1.12</a></li>
+		  <li><a href="doc1.24/whatisnew11.html">Ring 1.11</a></li>
+		  <li><a href="doc1.24/whatisnew10.html">Ring 1.10</a></li>
+		  <li><a href="doc1.24/whatisnew9.html">Ring 1.9</a></li>
+		  <li><a href="doc1.24/whatisnew8.html">Ring 1.8</a></li>
+		  <li><a href="doc1.24/whatisnew7.html">Ring 1.7</a></li>
+		  <li><a href="doc1.24/whatisnew6.html">Ring 1.6</a></li>
+		  <li><a href="doc1.24/whatisnew5.html">Ring 1.5</a></li>
+		  <li><a href="doc1.24/whatisnew4.html">Ring 1.4</a></li>
+		  <li><a href="doc1.24/whatisnew3.html">Ring 1.3</a></li>
+		  <li><a href="doc1.24/whatisnew2.html">Ring 1.2</a></li>
+	          <li><a href="doc1.24/whatisnew.html">Ring 1.1</a></li>
+          	  <li><a href="doc1.24/languagedesign.html">Ring 1.0</a></li>
             </ul>
           </li>
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
@@ -103,7 +104,7 @@
     </ul>
 
 	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
-		<form class="search" action="doc1.23/search.html" method="get" style="width:200px" >
+		<form class="search" action="doc1.24/search.html" method="get" style="width:200px" >
 			<div class="input-group">
 				<input name="q" type="text" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
@@ -148,7 +149,7 @@
 				</div>
 				
 				<div class="col-sm-12 col-md-2">
-					<a href="doc1.23/index.html" class="btn btn-default btn-block" style="">Documentation</a>
+					<a href="doc1.24/index.html" class="btn btn-default btn-block" style="">Documentation</a>
 				</div>
 
 				<div class="col-sm-12 col-md-2">
