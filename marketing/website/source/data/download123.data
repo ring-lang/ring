@@ -1,0 +1,45 @@
+﻿aDownload = [
+		["Ring 1.23 All Platforms",[
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_64bit.exe"  >Ring 1.23 For Windows (64bit)</a>',
+							'423 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Ubuntu.zip">Ring 1.23 For Ubuntu Linux (64bit)</a>',
+							'446 MB</a>'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_macOS.zip">Ring 1.23 For macOS (64bit)</a>',
+							'451 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_32bit.exe"  >Ring 1.23 For Windows (32bit)</a>',
+							'414 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/RingDoc_1.23.pdf">Ring 1.23 Documentation (PDF)</a> ',
+							'54.1 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/RingDoc_1.23.chm">Ring 1.23 Documentation (CHM)</a>',
+							'56.9 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/RingDoc_1.23.zip">Ring 1.23 Documentation (HTML)</a>',
+							'57.5 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_LightRelease_Windows_Binary_64bit.zip">Ring 1.23 (Light Release - Windows Binary - 64bit)</a>',
+							'5.99 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_LightRelease_SourceCode.zip">Ring 1.23 (Light Release - Source Code - All Platforms)</a>',
+							'2.87 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_MSDOS.zip">Ring 1.23 For MS-DOS</a>',
+							'500 KB</a>'						
+						 ]
+			]
+		]
+]
