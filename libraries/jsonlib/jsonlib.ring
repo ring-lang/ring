@@ -108,7 +108,7 @@ func List2JSON_processListValue aSubList,nTabs
 	else 
 		cOutput += "[" + nl
 		nTabs++
-		cOutput += List2JSON_process( aSubList, nTabs )
+		cOutput += List2JSON_processSubList( aSubList, nTabs )
 		nTabs--
 		cOutput += Copy(Tab,nTabs) + "]" 
 	ok
