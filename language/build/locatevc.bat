@@ -11,6 +11,25 @@ set ringldflags=
 set ringdebug=0
 set ringsubsystem=5.01
 
+rem compute requested target and short-circuit if already initialized 
+rem requested target is either first arg or second arg when first is "auto"
+set "REQUEST_TARGET=%~1"
+if /I "%REQUEST_TARGET%"=="auto" (
+    if not "%~2"=="" set "REQUEST_TARGET=%~2"
+)
+if "%REQUEST_TARGET%"=="" set "REQUEST_TARGET=x86"
+
+if defined RING_VCVARS_INITIALIZED (
+    if /I "%REQUEST_TARGET%"=="auto" (
+        REM already initialized for some arch so skip re-initialization
+        exit /b
+    ) else (
+        if /I "%RING_VCVARS_TARGET%"=="%REQUEST_TARGET%" (
+            REM already initialized for the requested arch so skip
+            exit /b
+        )
+    )
+)
 
 if /I ["%1"]==["x64"] (
 	set ringbuildtarget=x64
@@ -58,128 +77,166 @@ if %ringdebug% EQU 1 (
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" (
-	call "C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" %ringbuildtarget%
-	exit /b
+    call "C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" %ringbuildtarget%
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" (
-	call "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" %ringbuildtarget%
-	exit /b
+    call "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" %ringbuildtarget%
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" (
-	call "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ringbuildtarget%
-	exit /b
+    call "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ringbuildtarget%
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%" 
-	call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd   
-	exit /b
+    pushd "%cd%" 
+    call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd   
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat" (
-	pushd "%cd%"
-	call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-	popd
-	exit /b
+    pushd "%cd%"
+    call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
 )
