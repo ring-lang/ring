@@ -137,9 +137,11 @@ The next videos demonstrates some of the PWCT 2.0 features:
 
 # 📚Publications
 
+* [Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications](https://arxiv.org/pdf/2509.20426) 
 * [PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion](https://www.mdpi.com/2076-3417/15/3/1521)
 * [Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming](https://www.mdpi.com/2079-9292/13/23/4627)
 * [PWCT: a novel general-purpose visual programming language in support of pervasive application development](https://link.springer.com/article/10.1007/s42486-020-00038-y)
+* [General-purpose visual language and information system with case-studies in developing business applications](https://arxiv.org/pdf/1712.10281)
 * [PWCT: visual language for IoT and cloud computing applications and systems](https://dl.acm.org/doi/10.1145/3018896.3056782)
 
 # 📝License 
