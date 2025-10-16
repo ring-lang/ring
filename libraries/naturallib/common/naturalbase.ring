@@ -6,8 +6,10 @@ load "stdlibcore.ring"
 Class NaturalBase
 
 	aCommandsStack = []
-	nCommandID = 0
 	nCommandsCount = 0
+
+	lPrepareExprEval = True
+	aExprEvalMethods = []
 
 	func BraceStart
 		aMethods = methods(self)	
@@ -18,22 +20,31 @@ Class NaturalBase
 		}
 	
 	func BraceExprEval Value
-		aClassMethods = methods(self)	
-		if isNumber(Value) or isString(Value) {
+
+		if (! lPrepareExprEval) {
+			if aExprEvalMethods and (isNumber(Value) or isString(Value)) { 
+				for cMethod in aExprEvalMethods {
+					call cMethod(Value)
+				}	
+			}
+		else
+			lPrepareExprEval = False
+			aClassMethods = methods(self)	
 			for cMethod in aClassMethods {
 				if left(cMethod,14) = "braceexpreval_" {
-					call cMethod(Value)
+					aExprEvalMethods + cMethod
 				}
 			}
+	
 		}
 
 	func BraceError
 
 	func StartCommand 
-		nCommandID++
-		aCommandsStack + [nCommandID,[/*command data*/]] 
 		nCommandsCount++
-		return nCommandID
+		aCommandsStack + [nCommandsCount,[/*command data*/]] 
+
+		return nCommandsCount
 
 	func EndCommand 
 		del(aCommandsStack,nCommandsCount)
