@@ -266,7 +266,6 @@ class NaturalCommand
 				}
 			} "
 			cCode = substr(cCode,"#{f1}",""+t)
-			cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
 
 			if t = len(aKeywords) {
 				cCode2 = '
@@ -288,6 +287,7 @@ class NaturalCommand
 		GetExpr(nCount,cExprType)
 
 		# Define BraceExecute
+		cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
 		AddMethod(oObject,cExecuteMethod,fFunc)
 
 	func SyntaxIsCommandExpression  aPara
