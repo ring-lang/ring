@@ -22,10 +22,10 @@ Class NaturalBase
 	func BraceExprEval Value
 
 		if (! lPrepareExprEval) {
-			if aExprEvalMethods and (isNumber(Value) or isString(Value)) { 
-				if isString(Value) and value = :NATURAL_NULL {
-					return 
-				}
+			if isString(Value) and value = :NATURAL_NULL {
+				return 
+			}
+			if aExprEvalMethods { 
 				for cMethod in aExprEvalMethods {
 					if call cMethod(Value) { exit }
 				}	
