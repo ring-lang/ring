@@ -69,14 +69,14 @@ class NaturalCommand
 		cCode = SubStr(cCode,"#{f2}",""+nCount)
 		switch cType {
 			case :string
-				cCode = SubStr(cCode,"#{f3}","if isString(ExprValue) and ExprValue != :NATURAL_NULL {")
+				cCode = SubStr(cCode,"#{f3}","if isString(ExprValue) {")
 				cCode = SubStr(cCode,"#{f4}","}")
 			case :number 
 				cCode = SubStr(cCode,"#{f3}","if isNumber(ExprValue) {")
 				cCode = SubStr(cCode,"#{f4}","}")
 			case :any 
-				cCode = SubStr(cCode,"#{f3}","if (isString(ExprValue) and ExprValue != :NATURAL_NULL) or isNumber(ExprValue) {")
-				cCode = SubStr(cCode,"#{f4}","}")
+				cCode = SubStr(cCode,"#{f3}","")
+				cCode = SubStr(cCode,"#{f4}","")
 		}
 		eval(cCode)	
 		AddMethod(oObject,"BraceExprEval_"+cKeyword,f1)
