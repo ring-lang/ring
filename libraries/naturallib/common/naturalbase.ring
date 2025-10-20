@@ -21,7 +21,7 @@ Class NaturalBase
 	
 	func BraceExprEval Value
 
-		if isString(Value) and value = :NATURAL_NULL { return }
+		if isString(Value) and value = :NLNV { return }
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods { 
 				for cMethod in aExprEvalMethods {
