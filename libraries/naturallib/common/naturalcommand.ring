@@ -150,7 +150,7 @@ class NaturalCommand
 					}
 				}
 				for cMethod in aMethods_#{f1} {
-					call cMethod()
+					if call cMethod() { exit }
 				}
 				return :NATURAL_NULL
 			}
@@ -210,6 +210,7 @@ class NaturalCommand
 		cCode = " 	f1 = func { 
 			StartCommand()
 			CommandData()[:nKeyword] = 1
+			return True
 		} "
 		eval(cCode)	
 		AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[1],f1)
@@ -250,6 +251,7 @@ class NaturalCommand
 		cCode = " 	f1 = func { 
 			StartCommand()
 			CommandData()[:nKeyword] = 1
+			return True
 		} "
 		eval(cCode)	
 		AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[1],f1)
