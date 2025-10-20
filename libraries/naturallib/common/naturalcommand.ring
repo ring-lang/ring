@@ -220,6 +220,7 @@ class NaturalCommand
 				if CommandData()[:nKeyword] = #{f1} - 1 {
 					CommandData()[:nKeyword] = #{f1}
 					#{f2}
+					return True
 				}
 			} "
 			cCode = substr(cCode,"#{f1}",""+t)
@@ -261,6 +262,7 @@ class NaturalCommand
 				if CommandData()[:nKeyword] = #{f1} - 1 {
 					CommandData()[:nKeyword] = #{f1}
 					#{f2}
+					return True
 				}
 			} "
 			cCode = substr(cCode,"#{f1}",""+t)
