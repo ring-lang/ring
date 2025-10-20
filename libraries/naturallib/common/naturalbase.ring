@@ -23,6 +23,9 @@ Class NaturalBase
 
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods and (isNumber(Value) or isString(Value)) { 
+				if isString(Value) and value = :NATURAL_NULL {
+					return 
+				}
 				for cMethod in aExprEvalMethods {
 					if call cMethod(Value) { exit }
 				}	
