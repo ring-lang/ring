@@ -6,7 +6,7 @@ load "stdlibcore.ring"
 Class NaturalBase
 
 	aCommandsStack = []
-	nCommandsCount = 0
+	nActiveCommand = 0
 
 	lPrepareExprEval = True
 	aExprEvalMethods = []
@@ -41,23 +41,25 @@ Class NaturalBase
 	func BraceError
 
 	func StartCommand 
-		nCommandsCount++
-		aCommandsStack + [nCommandsCount,[/*command data*/]] 
-
-		return nCommandsCount
+		if len(aCommandsStack) = 16 {
+			del(aCommandsStack,1)
+		}
+		aCommandsStack + [nActiveCommand,[/*command data*/]] 
+		nActiveCommand = len(aCommandsStack)
+		return nActiveCommand
 
 	func EndCommand 
-		del(aCommandsStack,nCommandsCount)
-		nCommandsCount--
+		del(aCommandsStack,nActiveCommand)
+		nActiveCommand = len(aCommandsStack)
 
 	func CommandID
-		return aCommandsStack[nCommandsCount][1]
+		return aCommandsStack[nActiveCommand][1]
 
 	func CommandData
-		return aCommandsStack[nCommandsCount][2]
+		return aCommandsStack[nActiveCommand][2]
 
 	func IsCommand
-		return nCommandsCount
+		return nActiveCommand
 
 	func CommandOutput vValue
 		BraceExprEval(vValue)
@@ -67,4 +69,4 @@ Class NaturalBase
 		BraceExprEval(vValue)
 
 	func Expr nIndex
-		return aCommandsStack[nCommandsCount][2][:aExpr][nIndex]
+		return aCommandsStack[nActiveCommand][2][:aExpr][nIndex]
