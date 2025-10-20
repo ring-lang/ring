@@ -62,6 +62,7 @@ class NaturalCommand
 						BraceExecute_#{f1}()
 					}
 				#{f4}
+				return True
 			}
 		} "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)

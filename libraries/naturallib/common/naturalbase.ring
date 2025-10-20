@@ -24,7 +24,7 @@ Class NaturalBase
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods and (isNumber(Value) or isString(Value)) { 
 				for cMethod in aExprEvalMethods {
-					call cMethod(Value)
+					if call cMethod(Value) { exit }
 				}	
 			}
 		else
