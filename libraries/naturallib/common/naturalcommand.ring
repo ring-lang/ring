@@ -146,7 +146,9 @@ class NaturalCommand
 					aClassMethods = methods(self)	
 					for cMethod in aClassMethods {
 						if right(cMethod,len("getkeyword_#{f1}")) = "getkeyword_#{f1}" {
-							aMethods_#{f1} + cMethod
+							insert(aMethods_#{f1},0,cMethod)
+						elseif right(cMethod,len("getfirstkeyword_#{f1}")) = "getfirstkeyword_#{f1}"
+							aMethods_#{f1} + cMethod						
 						}
 					}
 				}
@@ -214,7 +216,7 @@ class NaturalCommand
 			return True
 		} "
 		eval(cCode)	
-		AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[1],f1)
+		AddMethod(oObject,cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1],f1)
 		for t = 2 to len(aKeywords) {
 			cCode = " 	f1 = func { 
 				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
@@ -256,7 +258,7 @@ class NaturalCommand
 			return True
 		} "
 		eval(cCode)	
-		AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[1],f1)
+		AddMethod(oObject,cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1],f1)
 		for t = 2 to len(aKeywords) {
 			cCode = " 	f1 = func { 
 				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
