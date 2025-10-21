@@ -138,6 +138,10 @@ class NaturalCommand
 		# To be able to share keywords between commands 		
 		if find(aAllKeywords,cKeyword) { return }
 		aAllKeywords + cKeyword 
+		/* 
+			If the keyword is the first keyword in a command, add it to the end of the list()
+			So the same keyword in the middle/end of other commands are executed first
+		*/
 		cCode = '
 			f1 = func {
 				if ! isAttribute(self,"aMethods_#{f1}") {
