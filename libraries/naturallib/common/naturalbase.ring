@@ -11,6 +11,8 @@ Class NaturalBase
 	lPrepareExprEval = True
 	aExprEvalMethods = []
 
+	lPassError = True 
+
 	func BraceStart
 		aMethods = methods(self)	
 		for cMethod in aMethods {
@@ -40,6 +42,8 @@ Class NaturalBase
 		}
 
 	func BraceError
+		if lPassError { return }
+		new NatLibError { raise(cCatchError) }
 
 	func StartCommand 
 		if len(aCommandsStack) = 16 {
@@ -71,3 +75,6 @@ Class NaturalBase
 
 	func Expr nIndex
 		return aCommandsStack[nActiveCommand][2][:aExpr][nIndex]
+
+
+class NatLibError
