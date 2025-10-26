@@ -252,19 +252,18 @@ class NaturalCommand
 
 	func SyntaxIsCommandExpressions_  aPara,cExprType,nCount
 
-		eval(prepareNewCommand(aPara))
+		cCodeBuf = prepareNewCommand(aPara)
 
 		# Command Keywords Methods 
 
-		cCodeBuf = ` 	f1 = func { 
+		cCodeBuf += ` 	func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +` { 
 			StartCommand()
 			CommandData()[:nKeyword] = 1
 			return True
 		} 
-		AddMethod(oObject,cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1],f1)
 		`
 		for t = 2 to len(aKeywords) {
-			cCode = ` 	f#{f1} = func { 
+			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+` { 
 				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
 				if CommandData()[:nKeyword] = #{f1} - 1 {
 					CommandData()[:nKeyword] = #{f1}
@@ -272,7 +271,6 @@ class NaturalCommand
 					return True
 				}
 			}
-			AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[#{f1}],f#{f1}) 
 			`
 			cCode = substr(cCode,"#{f1}",""+t)
 
