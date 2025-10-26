@@ -143,7 +143,7 @@ class NaturalCommand
 			So the same keyword in the middle/end of other commands are executed first
 		*/
 		cCode = '
-			f1 = func {
+			func '+"Get"+cKeyword+' {
 				if ! isAttribute(self,"aMethods_#{f1}") {
 					AddAttribute(self,"aMethods_#{f1}")
 					aMethods_#{f1} = []
@@ -163,8 +163,7 @@ class NaturalCommand
 			}
 		'
 		cCode = substr(cCode,"#{f1}",cKeyword)
-		eval(cCode)
-		AddMethod(oObject,"Get"+cKeyword,f1)
+		return cCode
 
 	func CommandPara2Attributes aPara
 		cPackage = aPara[:Package]
@@ -181,10 +180,10 @@ class NaturalCommand
 		"
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
-		eval(cCode)
+		return cCode
 
 	func DefineCommandAttributes
-		cCode = " 	f1 = func { " + nl
+		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ "{ " + nl
 		for cKeyword in aKeywords {
 			cCode += "
 				if not isAttribute(self,:"+cKeyword+") {
@@ -193,24 +192,26 @@ class NaturalCommand
 			"
 		}
 		cCode += "} "
-		eval(cCode)	
-		AddMethod(oObject,"AddAttributes_"+cCommandNoSpaces,f1)
 
 		# Define keywords 
 
 		for cKeyword in aKeywords {
-			DefineCommandKeyword(oObject,cKeyword)
+			cCode += DefineCommandKeyword(oObject,cKeyword)
 		}
+
+		return cCode 
 
 	func prepareNewCommand aPara
 
 		CommandPara2Attributes(aPara)
 
 		# Create the Class
-		CreateCommandClass()
+		cCode = CreateCommandClass()
 
 		# Add Attributes 
-		DefineCommandAttributes()
+		cCode += DefineCommandAttributes()
+
+		eval(cCode)
 
 	func SyntaxIsCommand  aPara
 
