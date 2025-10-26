@@ -175,13 +175,14 @@ class NaturalCommand
 	func CreateCommandClass 
 		cCode = `
 			oObject = new #{f1}.#{f2}
-			addMethod(oObject,"#{f3}",fFunc)
+			addMethod(oObject,"#{f3}","#{f4}")
 			Package #{f1}
 			Class #{f2}
 		`
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		cCode = substr(cCode,"#{f3}","BraceExecute_"+cCommandNoSpaces)
+		cCode = substr(cCode,"#{f4}",fFunc)
 		return cCode
 
 	func DefineCommandAttributes
