@@ -36,7 +36,7 @@ class NaturalCommand
 		Para2Attributes(aPara)
 		cCode = CreateTheTempClass()
 		cCode += DefineAddAttributes()
-		eval(cCode)
+		return cCode
 
 	func PrepareCommandExpr
 		cCode = " 	f1 = func { 
@@ -92,14 +92,14 @@ class NaturalCommand
 		GetExpr(nCount,:Any)
 
 	func SyntaxIsKeyword  aPara
-		PrepareNewClass(aPara)
+		eval(PrepareNewClass(aPara))
 		AddMethod(oObject,"Get"+cKeyword,fFunc)
 
 	func DefineExecute
 		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
 
 	func SyntaxIsKeywordNumbers aPara,nCount
-		PrepareNewClass(aPara)
+		eval(PrepareNewClass(aPara))
 		PrepareCommandExpr()		
 		GetExprNumbers(nCount)
 		DefineExecute()
@@ -111,7 +111,7 @@ class NaturalCommand
 		SyntaxIsKeywordNumbers(aPara,1)
 
 	func SyntaxIsKeywordStrings aPara,nCount
-		PrepareNewClass(aPara)
+		eval(PrepareNewClass(aPara))
 		PrepareCommandExpr()		
 		GetExprStrings(nCount)
 		DefineExecute()
@@ -123,7 +123,7 @@ class NaturalCommand
 		SyntaxIsKeywordStrings(aPara,1)
 
 	func SyntaxIsKeywordExpressions aPara,nCount
-		PrepareNewClass(aPara)
+		eval(PrepareNewClass(aPara))
 		PrepareCommandExpr()		
 		GetExprAny(nCount)
 		DefineExecute()
