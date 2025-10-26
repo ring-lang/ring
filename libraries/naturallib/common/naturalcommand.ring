@@ -24,18 +24,19 @@ class NaturalCommand
 		"
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cKeyword)
-		eval(cCode)
+		return cCode
 
 	func DefineAddAttributes
-		cCode = " 	f1 = func { if ! isAttribute(self,:#{f1}) AddAttribute(self,:#{f1}) ok } "
+		cCode = " 	func "+ "AddAttributes_"+cKeyword +
+				" { if ! isAttribute(self,:#{f1}) AddAttribute(self,:#{f1}) ok } " + nl
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		eval(cCode)	
-		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
+		return cCode
 
 	func PrepareNewClass aPara 
 		Para2Attributes(aPara)
-		CreateTheTempClass()
-		DefineAddAttributes()
+		cCode = CreateTheTempClass()
+		cCode += DefineAddAttributes()
+		eval(cCode)
 
 	func PrepareCommandExpr
 		cCode = " 	f1 = func { 
