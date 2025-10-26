@@ -203,7 +203,8 @@ class NaturalCommand
 			DefineCommandKeyword(oObject,cKeyword)
 		}
 
-	func SyntaxIsCommand  aPara
+	func prepareNewCommand aPara
+
 		CommandPara2Attributes(aPara)
 
 		# Create the Class
@@ -211,6 +212,10 @@ class NaturalCommand
 
 		# Add Attributes 
 		DefineCommandAttributes()
+
+	func SyntaxIsCommand  aPara
+
+		prepareNewCommand(aPara)
 
 		# Command Keywords Methods 
 
@@ -246,13 +251,7 @@ class NaturalCommand
 
 	func SyntaxIsCommandExpressions_  aPara,cExprType,nCount
 
-		CommandPara2Attributes(aPara)
-
-		# Create the Class
-		CreateCommandClass()
-
-		# Add Attributes 
-		DefineCommandAttributes()
+		prepareNewCommand(aPara)
 
 		# Command Keywords Methods 
 
