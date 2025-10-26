@@ -173,13 +173,15 @@ class NaturalCommand
 		aKeywords = split(cCommand," ")
 
 	func CreateCommandClass 
-		cCode = "
+		cCode = `
 			oObject = new #{f1}.#{f2}
+			addMethod(oObject,"#{f3}",fFunc)
 			Package #{f1}
 			Class #{f2}
-		"
+		`
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
+		cCode = substr(cCode,"#{f3}","BraceExecute_"+cCommandNoSpaces)
 		return cCode
 
 	func DefineCommandAttributes
@@ -247,8 +249,6 @@ class NaturalCommand
 		}
 
 		eval(cCodeBuf)
-		# Define BraceExecute
-		AddMethod(oObject,cExecuteMethod,fFunc)
 
 	func SyntaxIsCommandExpressions_  aPara,cExprType,nCount
 
@@ -293,10 +293,6 @@ class NaturalCommand
 		# Command Expressions
 		cKeyword = cCommandNoSpaces
 		GetExpr(nCount,cExprType)
-
-		# Define BraceExecute
-		cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
-		AddMethod(oObject,cExecuteMethod,fFunc)
 
 	func SyntaxIsCommandExpression  aPara
 		SyntaxIsCommandExpressions_(aPara,:Any,1)
