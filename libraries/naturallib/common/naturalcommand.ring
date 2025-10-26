@@ -54,7 +54,7 @@ class NaturalCommand
 		return cCode	
 
 	func GetExpr nCount,cType
-		cCode = " 	f1 = func ExprValue { 
+		cCode = " 	func "+"BraceExprEval_"+cKeyword+" ExprValue { 
 			if isCommand() and CommandData()[:name] = :#{f1} {
 				#{f3}
 					CommandData()[:nExpr]++   
@@ -65,7 +65,8 @@ class NaturalCommand
 				#{f4}
 				return True
 			}
-		} "
+		} 
+		"
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		cCode = SubStr(cCode,"#{f2}",""+nCount)
 		switch cType {
@@ -79,17 +80,17 @@ class NaturalCommand
 				cCode = SubStr(cCode,"#{f3}","")
 				cCode = SubStr(cCode,"#{f4}","")
 		}
-		eval(cCode)	
-		AddMethod(oObject,"BraceExprEval_"+cKeyword,f1)
+
+		return cCode
 
 	func GetExprNumbers nCount
-		GetExpr(nCount,:Number)
+		return GetExpr(nCount,:Number)
 
 	func GetExprStrings nCount
-		GetExpr(nCount,:String)
+		return GetExpr(nCount,:String)
 
 	func GetExprAny nCount
-		GetExpr(nCount,:Any)
+		return GetExpr(nCount,:Any)
 
 	func SyntaxIsKeyword  aPara
 		eval(PrepareNewClass(aPara))
@@ -101,8 +102,8 @@ class NaturalCommand
 	func SyntaxIsKeywordNumbers aPara,nCount
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()	
+		cCode += GetExprNumbers(nCount)
 		eval(cCode)	
-		GetExprNumbers(nCount)
 		DefineExecute()
 
 	func SyntaxIsKeywordNumberNumber  aPara
@@ -114,8 +115,8 @@ class NaturalCommand
 	func SyntaxIsKeywordStrings aPara,nCount
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()
+		cCode += GetExprStrings(nCount)
 		eval(cCode)		
-		GetExprStrings(nCount)
 		DefineExecute()
 
 	func SyntaxIsKeywordStringString  aPara
@@ -127,8 +128,8 @@ class NaturalCommand
 	func SyntaxIsKeywordExpressions aPara,nCount
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()	
+		cCode += GetExprAny(nCount)
 		eval(cCode)	
-		GetExprAny(nCount)
 		DefineExecute()
 
 	func SyntaxIsKeywordExpressionExpression  aPara
@@ -293,11 +294,11 @@ class NaturalCommand
 			cCodeBuf += cCode
 		}
 
-		eval(cCodeBuf)
-
 		# Command Expressions
 		cKeyword = cCommandNoSpaces
-		GetExpr(nCount,cExprType)
+		cCodeBuf += GetExpr(nCount,cExprType)
+
+		eval(cCodeBuf)
 
 	func SyntaxIsCommandExpression  aPara
 		SyntaxIsCommandExpressions_(aPara,:Any,1)
