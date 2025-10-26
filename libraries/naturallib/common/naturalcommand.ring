@@ -187,11 +187,10 @@ class NaturalCommand
 		cCode = " 	f1 = func { " + nl
 		for cKeyword in aKeywords {
 			cCode += "
-				if not isAttribute(self,:#{f1}) {
-					AddAttribute(self,:#{f1})
+				if not isAttribute(self,:"+cKeyword+") {
+					AddAttribute(self,:"+cKeyword+")
 				}
 			"
-			cCode = SubStr(cCode,"#{f1}",cKeyword)
 		}
 		cCode += "} "
 		eval(cCode)	
