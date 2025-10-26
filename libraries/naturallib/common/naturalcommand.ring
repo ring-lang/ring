@@ -39,7 +39,7 @@ class NaturalCommand
 		return cCode
 
 	func PrepareCommandExpr
-		cCode = " 	f1 = func { 
+		cCode = " 	func "+"Get"+cKeyword+" { 
 			StartCommand()
 			CommandData()[:name] = :#{f1}
 			CommandData()[:nExpr] = 0
@@ -48,10 +48,10 @@ class NaturalCommand
 			# From this function will call braceexpr() !
 			# And we need unique value to avoid it.
 			return :NLNV
-		} "
+		} 
+		"
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		eval(cCode)	
-		AddMethod(oObject,"Get"+cKeyword,f1)
+		return cCode	
 
 	func GetExpr nCount,cType
 		cCode = " 	f1 = func ExprValue { 
@@ -99,8 +99,9 @@ class NaturalCommand
 		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
 
 	func SyntaxIsKeywordNumbers aPara,nCount
-		eval(PrepareNewClass(aPara))
-		PrepareCommandExpr()		
+		cCode = PrepareNewClass(aPara)
+		cCode += PrepareCommandExpr()	
+		eval(cCode)	
 		GetExprNumbers(nCount)
 		DefineExecute()
 
@@ -111,8 +112,9 @@ class NaturalCommand
 		SyntaxIsKeywordNumbers(aPara,1)
 
 	func SyntaxIsKeywordStrings aPara,nCount
-		eval(PrepareNewClass(aPara))
-		PrepareCommandExpr()		
+		cCode = PrepareNewClass(aPara)
+		cCode += PrepareCommandExpr()
+		eval(cCode)		
 		GetExprStrings(nCount)
 		DefineExecute()
 
@@ -123,8 +125,9 @@ class NaturalCommand
 		SyntaxIsKeywordStrings(aPara,1)
 
 	func SyntaxIsKeywordExpressions aPara,nCount
-		eval(PrepareNewClass(aPara))
-		PrepareCommandExpr()		
+		cCode = PrepareNewClass(aPara)
+		cCode += PrepareCommandExpr()	
+		eval(cCode)	
 		GetExprAny(nCount)
 		DefineExecute()
 
