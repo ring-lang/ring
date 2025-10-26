@@ -69,13 +69,13 @@ class NaturalLanguage
 		cCode = `load "#{commandfile}"`
 		cCode = substr(cCode,"#{commandfile}",cCommandFile)
 		eval(cCode)
+		loadCommand(cCommand)
+
+	func loadCommand cCommand 
 		if not cPackageName = NULL {
 			cCode = "import " + cPackageName 
 			eval(cCode)
 		}
-		loadCommand(cCommand)
-
-	func loadCommand cCommand 
 		mergemethods(cLanguageName,cCommand)
 
 
