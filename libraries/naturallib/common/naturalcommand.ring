@@ -133,7 +133,7 @@ class NaturalCommand
 	func SyntaxIsKeywordExpression  aPara
 		SyntaxIsKeywordExpressions(aPara,1)
 
-	func DefineCommandKeyword oObject,cKeyword
+	func DefineCommandKeyword cKeyword
 		# We uses this method
 		# To be able to share keywords between commands 		
 		if find(aAllKeywords,cKeyword) { return }
@@ -199,7 +199,7 @@ class NaturalCommand
 		# Define keywords 
 
 		for cKeyword in aKeywords {
-			cCode += DefineCommandKeyword(oObject,cKeyword)
+			cCode += DefineCommandKeyword(cKeyword)
 		}
 
 		return cCode 
