@@ -258,22 +258,24 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCode = " 	f1 = func { 
+		cCodeBuf = ` 	f1 = func { 
 			StartCommand()
 			CommandData()[:nKeyword] = 1
 			return True
-		} "
-		eval(cCode)	
+		} 
 		AddMethod(oObject,cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1],f1)
+		`
 		for t = 2 to len(aKeywords) {
-			cCode = " 	f1 = func { 
+			cCode = ` 	f#{f1} = func { 
 				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
 				if CommandData()[:nKeyword] = #{f1} - 1 {
 					CommandData()[:nKeyword] = #{f1}
 					#{f2}
 					return True
 				}
-			} "
+			}
+			AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[#{f1}],f#{f1}) 
+			`
 			cCode = substr(cCode,"#{f1}",""+t)
 
 			if t = len(aKeywords) {
@@ -287,9 +289,10 @@ class NaturalCommand
 			else
 				cCode = substr(cCode,"#{f2}","")
 			}
-			eval(cCode)	
-			AddMethod(oObject,cCommandNoSpaces+"_getkeyword_"+aKeywords[t],f1)
+			cCodeBuf += cCode
 		}
+
+		eval(cCodeBuf)
 
 		# Command Expressions
 		cKeyword = cCommandNoSpaces
