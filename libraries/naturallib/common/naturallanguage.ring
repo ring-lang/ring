@@ -73,7 +73,11 @@ class NaturalLanguage
 			cCode = "import " + cPackageName 
 			eval(cCode)
 		}
+		loadCommand(cCommand)
+
+	func loadCommand cCommand 
 		mergemethods(cLanguageName,cCommand)
+
 
 	func SetOperators Operators
 		cOperators = Operators
