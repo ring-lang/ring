@@ -224,11 +224,7 @@ class NaturalCommand
 			` { return getFirstKeyword() } ` + nl
 		for t = 2 to len(aKeywords) {
 			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+
-					` { getSubKeywordBeforeExpr(#{f1},#{f2},:#{f3}) }` + nl
-			cCode = substr(cCode,"#{f1}",""+t)
-			cCode = substr(cCode,"#{f2}",""+len(aKeywords))
-			cCode = substr(cCode,"#{f3}",cCommandNoSpaces)
-
+					" { getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
 			cCodeBuf += cCode
 		}
 
