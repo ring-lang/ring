@@ -115,4 +115,12 @@ Class NaturalBase
 			return True
 		}
 
+	func getSubKeyword nIndex, cMethodName
+		if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
+		if CommandData()[:nKeyword] = nIndex - 1 {
+			CommandData()[:nKeyword] = nIndex
+			if cMethodName { call cMethodName() }
+			return True
+		}
+
 class NatLibError

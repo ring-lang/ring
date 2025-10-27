@@ -201,18 +201,13 @@ class NaturalCommand
 
 		for t = 2 to len(aKeywords) {
 			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +` { 
-				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
-				if CommandData()[:nKeyword] = #{f1} - 1 {
-					CommandData()[:nKeyword] = #{f1}
-					#{f2}
-					return True
-				}
+				return getSubKeyword(#{f1},"#{f2}")
 			} 
 			`
 			cCode = substr(cCode,"#{f1}",""+t)
 			if t = len(aKeywords) {
 				cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
-				cCode = substr(cCode,"#{f2}",cExecuteMethod+"()")
+				cCode = substr(cCode,"#{f2}",cExecuteMethod)
 			else
 				cCode = substr(cCode,"#{f2}","")
 			}
