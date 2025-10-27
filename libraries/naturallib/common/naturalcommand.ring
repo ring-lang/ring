@@ -200,10 +200,8 @@ class NaturalCommand
 					` { return getFirstKeyword() } ` + nl
 
 		for t = 2 to len(aKeywords) {
-			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +` { 
-				return getSubKeyword(#{f1},"#{f2}")
-			} 
-			`
+			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +
+					` { return getSubKeyword(#{f1},"#{f2}") } ` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
 			if t = len(aKeywords) {
 				cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
