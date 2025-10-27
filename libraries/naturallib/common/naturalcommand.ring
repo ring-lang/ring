@@ -28,7 +28,7 @@ class NaturalCommand
 
 	func DefineAddAttributes
 		cCode = " 	func "+ "AddAttributes_"+cKeyword +
-				" { if ! isAttribute(self,:#{f1}) AddAttribute(self,:#{f1}) ok } " + nl
+				" {  defineAttribute(:#{f1}) } " + nl
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		return cCode
 
@@ -193,11 +193,7 @@ class NaturalCommand
 	func DefineCommandAttributes
 		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ "{ " + nl
 		for cKeyword in aKeywords {
-			cCode += "
-				if not isAttribute(self,:"+cKeyword+") {
-					AddAttribute(self,:"+cKeyword+")
-				}
-			"
+			cCode += "defineAttribute(:"+cKeyword+")" + nl
 		}
 		cCode += "} "
 

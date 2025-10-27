@@ -76,5 +76,10 @@ Class NaturalBase
 	func Expr nIndex
 		return aCommandsStack[nActiveCommand][2][:aExpr][nIndex]
 
+	func defineAttribute cAttr
+		if ! isAttribute(self,cAttr) {
+			AddAttribute(self,cAttr)
+		}
+
 
 class NatLibError
