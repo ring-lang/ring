@@ -76,9 +76,17 @@ Class NaturalBase
 	func Expr nIndex
 		return aCommandsStack[nActiveCommand][2][:aExpr][nIndex]
 
-	func defineAttribute cAttr
-		if ! isAttribute(self,cAttr) {
-			AddAttribute(self,cAttr)
+	func defineAttribute vAttr
+		if isString(vAttr) {
+			if ! isAttribute(self,vAttr) {
+				AddAttribute(self,vAttr)
+			}
+		elseif isList(vAttr)
+			for cAttr in vAttr {
+				if ! isAttribute(self,cAttr) {
+					AddAttribute(self,cAttr)
+				}
+			}
 		}
 
 
