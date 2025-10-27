@@ -94,5 +94,11 @@ Class NaturalBase
 		CommandData()[:nKeyword] = 1
 		return True
 
+	func getKeyword cKeyword
+		StartCommand()
+		CommandData()[:name] = cKeyword
+		CommandData()[:nExpr] = 0
+		CommandData()[:aExpr] = []
+		return :NLNV
 
 class NatLibError

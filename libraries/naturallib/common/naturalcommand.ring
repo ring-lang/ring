@@ -42,15 +42,7 @@ class NaturalCommand
 		# We return :NLNV because the values returned
 		# From this function will call braceexpr() !
 		# And we need unique value to avoid it.
-		cCode = " 	func "+"Get"+cKeyword+" { 
-			StartCommand()
-			CommandData()[:name] = :#{f1}
-			CommandData()[:nExpr] = 0
-			CommandData()[:aExpr] = []
-			return :NLNV
-		} 
-		"
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
+		cCode = " 	func "+"Get"+cKeyword+" { return getKeyword(:"+cKeyword+") } " + nl
 		return cCode	
 
 	func GetExpr nCount,cType
