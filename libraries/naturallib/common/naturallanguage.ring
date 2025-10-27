@@ -72,11 +72,11 @@ class NaturalLanguage
 		loadCommand(cCommand)
 
 	func loadCommand cCommand 
+		cSourceClassName = cCommand
 		if not cPackageName = NULL {
-			cCode = "import " + cPackageName 
-			eval(cCode)
+			cSourceClassName = lower(cPackageName+"."+ cCommand)
 		}
-		mergemethods(cLanguageName,cCommand)
+		mergemethods(cLanguageName,cSourceClassName)
 
 
 	func SetOperators Operators
