@@ -39,14 +39,14 @@ class NaturalCommand
 		return cCode
 
 	func PrepareCommandExpr
+		# We return :NLNV because the values returned
+		# From this function will call braceexpr() !
+		# And we need unique value to avoid it.
 		cCode = " 	func "+"Get"+cKeyword+" { 
 			StartCommand()
 			CommandData()[:name] = :#{f1}
 			CommandData()[:nExpr] = 0
 			CommandData()[:aExpr] = []
-			# We return :NLNV because the values returned
-			# From this function will call braceexpr() !
-			# And we need unique value to avoid it.
 			return :NLNV
 		} 
 		"
