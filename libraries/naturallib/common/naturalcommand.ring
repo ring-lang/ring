@@ -47,32 +47,12 @@ class NaturalCommand
 
 	func GetExpr nCount,cType
 		cCode = " 	func "+"BraceExprEval_"+cKeyword+" ExprValue { 
-			if isCommand() and CommandData()[:name] = :#{f1} {
-				#{f3}
-					CommandData()[:nExpr]++   
-					CommandData()[:aExpr] + ExprValue
-					if CommandData()[:nExpr] = #{f2} {
-						BraceExecute_#{f1}()
-					}
-				#{f4}
-				return True
-			}
+				processExprValue(ExprValue,:#{f1},#{f2},:#{f3})
 		} 
 		"
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		cCode = SubStr(cCode,"#{f2}",""+nCount)
-		switch cType {
-			case :string
-				cCode = SubStr(cCode,"#{f3}","if isString(ExprValue) {")
-				cCode = SubStr(cCode,"#{f4}","}")
-			case :number 
-				cCode = SubStr(cCode,"#{f3}","if isNumber(ExprValue) {")
-				cCode = SubStr(cCode,"#{f4}","}")
-			case :any 
-				cCode = SubStr(cCode,"#{f3}","")
-				cCode = SubStr(cCode,"#{f4}","")
-		}
-
+		cCode = SubStr(cCode,"#{f3}",cType)
 		return cCode
 
 	func GetExprNumbers nCount

@@ -101,4 +101,18 @@ Class NaturalBase
 		CommandData()[:aExpr] = []
 		return :NLNV
 
+	func processExprValue ExprValue,cKeyword,nCount,cType
+
+		if isCommand() and CommandData()[:name] = cKeyword {
+			if cType = :String and (! isString(ExprValue)) { return }
+			if cType = :Number and (! isNumber(ExprValue)) { return }
+			CommandData()[:nExpr]++   
+			CommandData()[:aExpr] + ExprValue
+			if CommandData()[:nExpr] = nCount {
+				cMethodName = "BraceExecute_"+cKeyword
+				call cMethodName()
+			}
+			return True
+		}
+
 class NatLibError
