@@ -28,8 +28,7 @@ class NaturalCommand
 
 	func DefineAddAttributes
 		cCode = " 	func "+ "AddAttributes_"+cKeyword +
-				" {  defineAttribute(:#{f1}) } " + nl
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
+				" {  defineAttribute(:"+cKeyword+") } " + nl
 		return cCode
 
 	func PrepareNewClass aPara 
