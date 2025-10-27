@@ -46,12 +46,9 @@ class NaturalCommand
 
 	func GetExpr nCount,cType
 		cCode = " 	func "+"BraceExprEval_"+cKeyword+" ExprValue { 
-				processExprValue(ExprValue,:#{f1},#{f2},:#{f3})
+				processExprValue(ExprValue,:"+cKeyword+","+nCount+",:"+cType+")
 		} 
 		"
-		cCode = SubStr(cCode,"#{f1}",cKeyword)
-		cCode = SubStr(cCode,"#{f2}",""+nCount)
-		cCode = SubStr(cCode,"#{f3}",cType)
 		return cCode
 
 	func GetExprNumbers nCount
