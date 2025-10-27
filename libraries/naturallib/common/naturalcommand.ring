@@ -116,26 +116,13 @@ class NaturalCommand
 			So the same keyword in the middle/end of other commands are executed first
 		*/
 		cCode = '
-			func '+"Get"+cKeyword+' {
-				if ! isAttribute(self,"aMethods_#{f1}") {
-					AddAttribute(self,"aMethods_#{f1}")
-					aMethods_#{f1} = []
-					aClassMethods = methods(self)	
-					for cMethod in aClassMethods {
-						if right(cMethod,len("getkeyword_#{f1}")) = "getkeyword_#{f1}" {
-							insert(aMethods_#{f1},0,cMethod)
-						elseif right(cMethod,len("getfirstkeyword_#{f1}")) = "getfirstkeyword_#{f1}"
-							aMethods_#{f1} + cMethod						
-						}
-					}
-				}
-				for cMethod in aMethods_#{f1} {
-					if call cMethod() { exit }
-				}
-				return :NLNV
+			func '+"Get"+cKeyword+' { 
+				if processCommandKeyword1(:#{f1}) { processCommandKeyword2(:#{f1},#{f2}) }
+				return processCommandKeyword3(#{f2})
 			}
 		'
 		cCode = substr(cCode,"#{f1}",cKeyword)
+		cCode = substr(cCode,"#{f2}","aMethods_" + cKeyword)
 		return cCode
 
 	func CommandPara2Attributes aPara

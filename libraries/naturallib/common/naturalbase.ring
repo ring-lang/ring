@@ -135,4 +135,28 @@ Class NaturalBase
 			return True
 		}
 
+	func processCommandKeyword1 cKeyword
+		cMethodsList = "aMethods_" + cKeyword
+		if ! isAttribute(self,cMethodsList) {
+			addAttribute(self,cMethodsList)
+			setAttribute(self,cMethodsList,[])
+			return True 
+		}
+
+	func processCommandKeyword2 cKeyword, aMethods 
+		aClassMethods = methods(self)	
+		for cMethod in aClassMethods {
+			if right(cMethod,len("getkeyword_"+cKeyword)) = "getkeyword_"+cKeyword {
+				insert(aMethods,0,cMethod)
+			elseif right(cMethod,len("getfirstkeyword_"+cKeyword)) = "getfirstkeyword_"+cKeyword
+				aMethods + cMethod						
+			}
+		}
+
+	func processCommandKeyword3 aMethods 
+		for cMethod in aMethods {
+			if call cMethod() { exit }
+		}
+		return :NLNV
+
 class NatLibError
