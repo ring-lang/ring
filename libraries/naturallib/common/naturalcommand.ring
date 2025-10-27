@@ -228,12 +228,8 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCodeBuf += ` 	func `+ cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +` { 
-			StartCommand()
-			CommandData()[:nKeyword] = 1
-			return True
-		} 
-		`
+		cCodeBuf += ` 	func `+ cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +			
+					` { return getFirstKeyword() } ` + nl
 
 		for t = 2 to len(aKeywords) {
 			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +` { 
@@ -263,12 +259,8 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCodeBuf += ` 	func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +` { 
-			StartCommand()
-			CommandData()[:nKeyword] = 1
-			return True
-		} 
-		`
+		cCodeBuf += ` 	func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +
+			` { return getFirstKeyword() } ` + nl
 		for t = 2 to len(aKeywords) {
 			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+` { 
 				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		

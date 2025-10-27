@@ -89,5 +89,10 @@ Class NaturalBase
 			}
 		}
 
+	func getFirstKeyword
+		StartCommand()
+		CommandData()[:nKeyword] = 1
+		return True
+
 
 class NatLibError
