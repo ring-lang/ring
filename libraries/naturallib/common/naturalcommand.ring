@@ -205,7 +205,7 @@ class NaturalCommand
 			` { return getFirstKeyword() } ` + nl
 		for t = 2 to len(aKeywords) {
 			cCode = ` func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+
-					" { getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
+					" { return getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
 			cCodeBuf += cCode
 		}
 

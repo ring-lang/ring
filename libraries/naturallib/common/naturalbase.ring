@@ -13,6 +13,8 @@ Class NaturalBase
 
 	lPassError = True 
 
+	aClassMethods = []
+
 	func BraceStart
 		aMethods = methods(self)	
 		for cMethod in aMethods {
@@ -32,7 +34,9 @@ Class NaturalBase
 			}
 		else
 			lPrepareExprEval = False
-			aClassMethods = methods(self)	
+			if ! aClassMethods {
+				aClassMethods = methods(self)	
+			}
 			for cMethod in aClassMethods {
 				if left(cMethod,14) = "braceexpreval_" {
 					aExprEvalMethods + cMethod
@@ -92,7 +96,7 @@ Class NaturalBase
 	func getFirstKeyword
 		StartCommand()
 		CommandData()[:nKeyword] = 1
-		return True
+		return :NLNV
 
 	func getKeyword cKeyword
 		StartCommand()
@@ -144,7 +148,9 @@ Class NaturalBase
 		}
 
 	func processCommandKeyword2 cKeyword, aMethods 
-		aClassMethods = methods(self)	
+		if ! aClassMethods {
+			aClassMethods = methods(self)	
+		}
 		for cMethod in aClassMethods {
 			if right(cMethod,len("getkeyword_"+cKeyword)) = "getkeyword_"+cKeyword {
 				insert(aMethods,0,cMethod)
