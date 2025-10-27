@@ -123,4 +123,16 @@ Class NaturalBase
 			return True
 		}
 
+	func getSubKeywordBeforeExpr nIndex, nCount, cCommand
+		if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
+		if CommandData()[:nKeyword] = nIndex - 1 {
+			CommandData()[:nKeyword] = nIndex
+			if nIndex = nCount {
+					CommandData()[:name] = cCommand
+					CommandData()[:nExpr] = 0
+					CommandData()[:aExpr] = []
+			}
+			return True
+		}
+
 class NatLibError

@@ -223,28 +223,12 @@ class NaturalCommand
 		cCodeBuf += ` 	func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +
 			` { return getFirstKeyword() } ` + nl
 		for t = 2 to len(aKeywords) {
-			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+` { 
-				if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
-				if CommandData()[:nKeyword] = #{f1} - 1 {
-					CommandData()[:nKeyword] = #{f1}
-					#{f2}
-					return True
-				}
-			}
-			`
+			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+
+					` { getSubKeywordBeforeExpr(#{f1},#{f2},:#{f3}) }` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
+			cCode = substr(cCode,"#{f2}",""+len(aKeywords))
+			cCode = substr(cCode,"#{f3}",cCommandNoSpaces)
 
-			if t = len(aKeywords) {
-				cCode2 = '
-					CommandData()[:name] = :#{f1}
-					CommandData()[:nExpr] = 0
-					CommandData()[:aExpr] = []
-				'
-				cCode2 = substr(cCode2,"#{f1}",cCommandNoSpaces)
-				cCode = substr(cCode,"#{f2}",cCode2)
-			else
-				cCode = substr(cCode,"#{f2}","")
-			}
 			cCodeBuf += cCode
 		}
 
