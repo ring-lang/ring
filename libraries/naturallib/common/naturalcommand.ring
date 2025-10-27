@@ -17,17 +17,15 @@ class NaturalCommand
 		fFunc = aPara[:Function]
 
 	func CreateTheTempClass
-		cCode = "
-			oObject = new #{f1}.#{f2}
+		cCode = "oObject = new #{f1}.#{f2}
 			Package #{f1}
-			Class #{f2}
-		"
+			Class #{f2}" + nl
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cKeyword)
 		return cCode
 
 	func DefineAddAttributes
-		cCode = " 	func "+ "AddAttributes_"+cKeyword +
+		cCode = " func "+ "AddAttributes_"+cKeyword +
 				" {  defineAttribute(:"+cKeyword+") } " + nl
 		return cCode
 
@@ -41,11 +39,11 @@ class NaturalCommand
 		# We return :NLNV because the values returned
 		# From this function will call braceexpr() !
 		# And we need unique value to avoid it.
-		cCode = " 	func "+"Get"+cKeyword+" { return getKeyword(:"+cKeyword+") } " + nl
+		cCode = " func "+"Get"+cKeyword+" { return getKeyword(:"+cKeyword+") } " + nl
 		return cCode	
 
 	func GetExpr nCount,cType
-		cCode = " 	func "+"BraceExprEval_"+cKeyword+" ExprValue { 
+		cCode = " func "+"BraceExprEval_"+cKeyword+" ExprValue { 
 				processExprValue(ExprValue,:"+cKeyword+","+nCount+",:"+cType+")
 		} 
 		"
@@ -115,12 +113,10 @@ class NaturalCommand
 			If the keyword is the first keyword in a command, add it to the end of the list()
 			So the same keyword in the middle/end of other commands are executed first
 		*/
-		cCode = '
-			func '+"Get"+cKeyword+' { 
+		cCode = ' func '+"Get"+cKeyword+' { 
 				if processCommandKeyword1(:#{f1}) { processCommandKeyword2(:#{f1},#{f2}) }
 				return processCommandKeyword3(#{f2})
-			}
-		'
+			}' + nl
 		cCode = substr(cCode,"#{f1}",cKeyword)
 		cCode = substr(cCode,"#{f2}","aMethods_" + cKeyword)
 		return cCode
@@ -133,12 +129,10 @@ class NaturalCommand
 		aKeywords = split(cCommand," ")
 
 	func CreateCommandClass 
-		cCode = `
-			oObject = new #{f1}.#{f2}
+		cCode = `oObject = new #{f1}.#{f2}
 			addMethod(oObject,"#{f3}","#{f4}")
 			Package #{f1}
-			Class #{f2}
-		`
+			Class #{f2}` + nl
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		cCode = substr(cCode,"#{f3}","BraceExecute_"+cCommandNoSpaces)
@@ -183,11 +177,11 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCodeBuf += ` 	func `+ cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +			
+		cCodeBuf += ` func `+ cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +			
 					` { return getFirstKeyword() } ` + nl
 
 		for t = 2 to len(aKeywords) {
-			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +
+			cCode = ` func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +
 					` { return getSubKeyword(#{f1},"#{f2}") } ` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
 			if t = len(aKeywords) {
@@ -207,10 +201,10 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCodeBuf += ` 	func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +
+		cCodeBuf += ` func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +
 			` { return getFirstKeyword() } ` + nl
 		for t = 2 to len(aKeywords) {
-			cCode = ` 	func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+
+			cCode = ` func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+
 					" { getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
 			cCodeBuf += cCode
 		}
