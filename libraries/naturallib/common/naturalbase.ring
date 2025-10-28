@@ -15,9 +15,14 @@ Class NaturalBase
 
 	aClassMethods = []
 
+	func prepareClassMethods 
+		if ! aClassMethods {
+			aClassMethods = methods(self)	
+		}
+
 	func BraceStart
-		aMethods = methods(self)	
-		for cMethod in aMethods {
+		prepareClassMethods()
+		for cMethod in aClassMethods {
 			if left(cMethod,14) = "addattributes_" {
 				call cMethod()
 			}
@@ -34,9 +39,7 @@ Class NaturalBase
 			}
 		else
 			lPrepareExprEval = False
-			if ! aClassMethods {
-				aClassMethods = methods(self)	
-			}
+			prepareClassMethods()
 			for cMethod in aClassMethods {
 				if left(cMethod,14) = "braceexpreval_" {
 					aExprEvalMethods + cMethod
@@ -148,9 +151,7 @@ Class NaturalBase
 		}
 
 	func processCommandKeyword2 cKeyword, aMethods 
-		if ! aClassMethods {
-			aClassMethods = methods(self)	
-		}
+		prepareClassMethods()
 		for cMethod in aClassMethods {
 			if right(cMethod,len("getkeyword_"+cKeyword)) = "getkeyword_"+cKeyword {
 				insert(aMethods,0,cMethod)
