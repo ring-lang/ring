@@ -15,6 +15,13 @@ Class NaturalBase
 
 	aClassMethods = []
 
+/*
+	We separate the methods to add it using mergemethods() instead of inheritance
+	This gives these methods higher order when searching for methods (Better Performance)
+*/
+
+class NaturalBaseMethods
+
 	func prepareClassMethods 
 		if ! aClassMethods {
 			aClassMethods = methods(self)	

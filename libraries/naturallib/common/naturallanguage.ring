@@ -12,9 +12,10 @@ class NaturalLanguage
 	func SetLanguageName cName
 		if cLanguageName != cName {
 			cLanguageName = cName
-			cCode = "class #{langname} from NaturalBase"
+			cCode = "class #{langname} from NaturalBase"+nl
 			cCode = substr(cCode,"#{langname}",cLanguageName)
 			eval(cCode)
+			mergemethods(cLanguageName,:NaturalBaseMethods)
 		}
 
 	func SetCommandsPath cPath
