@@ -108,8 +108,8 @@ Class NaturalBase
 	func processExprValue ExprValue,cKeyword,nCount,cType
 
 		if isCommand() and CommandData()[:name] = cKeyword {
-			if cType = :String and (! isString(ExprValue)) { return }
-			if cType = :Number and (! isNumber(ExprValue)) { return }
+			if ( cType = :String and (! isString(ExprValue)) ) or
+			   ( cType = :Number and (! isNumber(ExprValue)) ) { return }
 			CommandData()[:nExpr]++   
 			CommandData()[:aExpr] + ExprValue
 			if CommandData()[:nExpr] = nCount {
@@ -120,16 +120,16 @@ Class NaturalBase
 		}
 
 	func getSubKeyword nIndex, cMethodName
-		if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
-		if CommandData()[:nKeyword] = nIndex - 1 {
+		if IsCommand() and isNumber(CommandData()[:nKeyword]) and		
+		   CommandData()[:nKeyword] = nIndex - 1 {
 			CommandData()[:nKeyword] = nIndex
 			if cMethodName { call cMethodName() }
 			return True
 		}
 
 	func getSubKeywordBeforeExpr nIndex, nCount, cCommand
-		if (not IsCommand()) or (not isNumber(CommandData()[:nKeyword])) { return }		
-		if CommandData()[:nKeyword] = nIndex - 1 {
+		if IsCommand() and isNumber(CommandData()[:nKeyword]) and		
+		   CommandData()[:nKeyword] = nIndex - 1 {
 			CommandData()[:nKeyword] = nIndex
 			if nIndex = nCount {
 					CommandData()[:name] = cCommand
