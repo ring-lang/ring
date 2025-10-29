@@ -155,16 +155,22 @@ class NaturalBaseMethods
 
 		if ! aKeywordMethods[cKeyword] {
 			aKeywordMethods[cKeyword] = []
-			prepareClassMethods()
-			for cMethod in aClassMethods {
-				if right(cMethod,len("getkeyword_"+cKeyword)) = "getkeyword_"+cKeyword {
-					insert(aKeywordMethods[cKeyword],0,cMethod)
-				elseif right(cMethod,len("getfirstkeyword_"+cKeyword)) = "getfirstkeyword_"+cKeyword
-					aKeywordMethods[cKeyword] + cMethod						
-				}
+			processCommandKeyword2(cKeyword,aKeywordMethods[cKeyword])
+
+		}
+		return processCommandKeyword3(aKeywordMethods[cKeyword])
+
+	func processCommandKeyword2 cKeyword,aMethods 
+		prepareClassMethods()
+		for cMethod in aClassMethods {
+			if right(cMethod,len("getkeyword_"+cKeyword)) = "getkeyword_"+cKeyword {
+				insert(aMethods,0,cMethod)
+			elseif right(cMethod,len("getfirstkeyword_"+cKeyword)) = "getfirstkeyword_"+cKeyword
+				aMethods + cMethod						
 			}
 		}
-		aMethods = ref(aKeywordMethods[cKeyword])  
+
+	func processCommandKeyword3 aMethods
 		for cMethod in aMethods {
 			if call cMethod() { exit }
 		}
