@@ -15,6 +15,8 @@ Class NaturalBase
 
 	aClassMethods = []
 
+	aKeywordMethods = []
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -150,24 +152,23 @@ class NaturalBaseMethods
 		}
 
 	func processCommandKeyword1 cKeyword
-		cMethodsList = "aMethods_" + cKeyword
-		if ! isAttribute(self,cMethodsList) {
-			addAttribute(self,cMethodsList)
-			setAttribute(self,cMethodsList,[])
-			return True 
+		if ! aKeywordMethods[cKeyword] {
+			aKeywordMethods[cKeyword] = []
+			return True
 		}
 
-	func processCommandKeyword2 cKeyword, aMethods 
+	func processCommandKeyword2 cKeyword 
 		prepareClassMethods()
 		for cMethod in aClassMethods {
 			if right(cMethod,len("getkeyword_"+cKeyword)) = "getkeyword_"+cKeyword {
-				insert(aMethods,0,cMethod)
+				insert(aKeywordMethods[cKeyword],0,cMethod)
 			elseif right(cMethod,len("getfirstkeyword_"+cKeyword)) = "getfirstkeyword_"+cKeyword
-				aMethods + cMethod						
+				aKeywordMethods[cKeyword] + cMethod						
 			}
 		}
 
-	func processCommandKeyword3 aMethods 
+	func processCommandKeyword3 cKeyword
+		aMethods = ref(aKeywordMethods[cKeyword])  
 		for cMethod in aMethods {
 			if call cMethod() { exit }
 		}
