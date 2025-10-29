@@ -136,11 +136,11 @@ class NaturalCommand
 	func DefineCommandAttributes
 		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ "{ " + nl
 		cCode += "defineAttribute(["
-		n = 1
+		n = 0
 		nMax = len(aKeywords)
 		for cKeyword in aKeywords {
 			cCode += ":"+cKeyword
-			if n != nMax { cCode += "," }
+			if n++ != nMax { cCode += "," }
 		}
 		cCode += "])" + nl
 		cCode += "} "
