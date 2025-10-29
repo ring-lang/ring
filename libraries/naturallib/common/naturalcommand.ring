@@ -114,10 +114,8 @@ class NaturalCommand
 			So the same keyword in the middle/end of other commands are executed first
 		*/
 		cCode = ' func '+"Get"+cKeyword+' { 
-				if processCommandKeyword1(:#{f1}) { processCommandKeyword2(:#{f1}) }
-				return processCommandKeyword3(:#{f1})
+				return processCommandKeyword(:'+cKeyword+')
 			}' + nl
-		cCode = substr(cCode,"#{f1}",cKeyword)
 		return cCode
 
 	func CommandPara2Attributes aPara
