@@ -7,12 +7,14 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
-	cPackage cKeyword  fFunc oObject 
+	cPackage cKeyword  fFunc  
 	cCommand cCommandNoSpaces aKeywords
 
 	aAllKeywords = []
 	aAllAttributes = []
 	aAllKeywordsMethods = []
+
+	lSyntaxIsKeyword = False
 
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
@@ -20,11 +22,13 @@ class NaturalCommand
 		fFunc = aPara[:Function]
 
 	func CreateTheTempClass
-		cCode = "oObject = new #{f1}.#{f2}" + nl +
-			"Package #{f1}" + nl +
-			"Class #{f2}" + nl
+		cCode = "Package #{f1}" + nl +
+			"Class #{f2}" + nl +
+			"fFunc = '#{f3}'" + nl +
+			"lSyntaxIsKeyword = " + lSyntaxIsKeyword + nl
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cKeyword)
+		cCode = substr(cCode,"#{f3}",fFunc)
 		return cCode
 
 	func DefineAddAttributes
@@ -64,18 +68,15 @@ class NaturalCommand
 		return GetExpr(nCount,:Any)
 
 	func SyntaxIsKeyword  aPara
+		lSyntaxIsKeyword = True
 		eval(PrepareNewClass(aPara))
-		AddMethod(oObject,"Get"+cKeyword,fFunc)
-
-	func DefineExecute
-		AddMethod(oObject,"BraceExecute_"+cKeyword,fFunc)
+		lSyntaxIsKeyword = False
 
 	func SyntaxIsKeywordNumbers aPara,nCount
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()	
 		cCode += GetExprNumbers(nCount)
 		eval(cCode)	
-		DefineExecute()
 
 	func SyntaxIsKeywordNumberNumber  aPara
 		SyntaxIsKeywordNumbers(aPara,2)
@@ -88,7 +89,6 @@ class NaturalCommand
 		cCode += PrepareCommandExpr()
 		cCode += GetExprStrings(nCount)
 		eval(cCode)		
-		DefineExecute()
 
 	func SyntaxIsKeywordStringString  aPara
 		SyntaxIsKeywordStrings(aPara,2)
@@ -101,7 +101,6 @@ class NaturalCommand
 		cCode += PrepareCommandExpr()	
 		cCode += GetExprAny(nCount)
 		eval(cCode)	
-		DefineExecute()
 
 	func SyntaxIsKeywordExpressionExpression  aPara
 		SyntaxIsKeywordExpressions(aPara,2)
@@ -129,14 +128,13 @@ class NaturalCommand
 		aKeywords = split(cCommand," ")
 
 	func CreateCommandClass 
-		cCode = `oObject = new #{f1}.#{f2}`+nl+
-			`addMethod(oObject,"#{f3}","#{f4}")`+nl+
-			`Package #{f1}` + nl +
-			`Class #{f2}` + nl
+		cCode = `Package #{f1}` + nl +
+			`Class #{f2}` + nl +
+			"fFunc = '#{f3}'" + nl + 
+			"lSyntaxIsKeyword = " + lSyntaxIsKeyword + nl
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
-		cCode = substr(cCode,"#{f3}","BraceExecute_"+cCommandNoSpaces)
-		cCode = substr(cCode,"#{f4}",fFunc)
+		cCode = substr(cCode,"#{f3}",fFunc)
 		return cCode
 
 	func DefineCommandAttributes
