@@ -161,10 +161,12 @@ class NaturalBaseMethods
 
 	func processCommandKeyword2 cKeyword,aMethods 
 		prepareClassMethods()
+		nSize1 = len("getkeywordn_"+cKeyword)
+		nSize2 = len("getkeyword1_"+cKeyword)
 		for cMethod in aClassMethods {
-			if right(cMethod,len("getkeywordn_"+cKeyword)) = "getkeywordn_"+cKeyword {
+			if right(cMethod,nSize1) = "getkeywordn_"+cKeyword {
 				insert(aMethods,0,cMethod)
-			elseif right(cMethod,len("getkeyword1_"+cKeyword)) = "getkeyword1_"+cKeyword
+			elseif right(cMethod,nSize2) = "getkeyword1_"+cKeyword
 				aMethods + cMethod						
 			}
 		}
