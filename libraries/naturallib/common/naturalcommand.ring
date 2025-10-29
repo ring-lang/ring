@@ -7,8 +7,11 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
-	cPackage cKeyword  fFunc oObject aAllKeywords=[]
+	cPackage cKeyword  fFunc oObject 
 	cCommand cCommandNoSpaces aKeywords
+
+	aAllKeywords = []
+	aAllKeywordsMethods = []
 
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
@@ -169,11 +172,17 @@ class NaturalCommand
 		cCodeBuf = prepareNewCommand(aPara)
 
 		# Command Keywords Methods 
-
-		cCodeBuf += ` func `+ cCommandNoSpaces+"_getkeyword1_"+aKeywords[1] +			
+		if ! find(aAllKeywordsMethods,aKeywords[1]+"_1") {
+			aAllKeywordsMethods + (aKeywords[1]+"_1")
+			cCodeBuf += ` func `+ cCommandNoSpaces+"_getkeyword1_"+aKeywords[1] +			
 					` { return getFirstKeyword() } ` + nl
+		}
 
 		for t = 2 to len(aKeywords) {
+			if find(aAllKeywordsMethods,aKeywords[t]+"_"+t) {
+				loop
+			}
+			aAllKeywordsMethods + (aKeywords[t]+"_"+t)
 			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t] +
 					` { return getSubKeyword(#{f1},"#{f2}") } ` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
