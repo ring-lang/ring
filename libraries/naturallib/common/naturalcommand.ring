@@ -134,7 +134,7 @@ class NaturalCommand
 		return cCode
 
 	func DefineCommandAttributes
-		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ "{ " + nl
+		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ "{ "
 		cCode += "defineAttribute(["
 		n = 0
 		nMax = len(aKeywords)
@@ -142,8 +142,7 @@ class NaturalCommand
 			cCode += ":"+cKeyword
 			if n++ != nMax { cCode += "," }
 		}
-		cCode += "])" + nl
-		cCode += "} "
+		cCode += "]) }" + nl
 
 		# Define keywords 
 
