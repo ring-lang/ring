@@ -170,11 +170,11 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCodeBuf += ` func `+ cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +			
+		cCodeBuf += ` func `+ cCommandNoSpaces+"_getkeyword1_"+aKeywords[1] +			
 					` { return getFirstKeyword() } ` + nl
 
 		for t = 2 to len(aKeywords) {
-			cCode = ` func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t] +
+			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t] +
 					` { return getSubKeyword(#{f1},"#{f2}") } ` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
 			if t = len(aKeywords) {
@@ -194,10 +194,10 @@ class NaturalCommand
 
 		# Command Keywords Methods 
 
-		cCodeBuf += ` func `+cCommandNoSpaces+"_getfirstkeyword_"+aKeywords[1] +
+		cCodeBuf += ` func `+cCommandNoSpaces+"_getkeyword1_"+aKeywords[1] +
 			` { return getFirstKeyword() } ` + nl
 		for t = 2 to len(aKeywords) {
-			cCode = ` func `+cCommandNoSpaces+"_getkeyword_"+aKeywords[t]+
+			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t]+
 					" { return getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
 			cCodeBuf += cCode
 		}
