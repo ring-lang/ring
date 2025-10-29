@@ -11,6 +11,7 @@ class NaturalCommand
 	cCommand cCommandNoSpaces aKeywords
 
 	aAllKeywords = []
+	aAllAttributes = []
 	aAllKeywordsMethods = []
 
 	func Para2Attributes aPara
@@ -27,6 +28,8 @@ class NaturalCommand
 		return cCode
 
 	func DefineAddAttributes
+		if find(aAllAttributes,cKeyword) { return }
+		aAllAttributes + cKeyword
 		cCode = " func "+ "AddAttributes_"+cKeyword +
 				" {  defineAttribute(:"+cKeyword+") } " + nl
 		return cCode
@@ -142,6 +145,8 @@ class NaturalCommand
 		n = 0
 		nMax = len(aKeywords)
 		for cKeyword in aKeywords {
+			if find(aAllAttributes,cKeyword) { n++ loop }
+			aAllAttributes + cKeyword
 			cCode += ":"+cKeyword
 			if n++ != nMax { cCode += "," }
 		}
