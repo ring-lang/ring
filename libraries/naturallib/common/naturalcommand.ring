@@ -10,7 +10,6 @@ class NaturalCommand
 	cPackage cKeyword  fFunc oObject aAllKeywords=[]
 	cCommand cCommandNoSpaces aKeywords
 
-
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
 		cKeyword = aPara[:Keyword]
@@ -113,9 +112,7 @@ class NaturalCommand
 			If the keyword is the first keyword in a command, add it to the end of the list()
 			So the same keyword in the middle/end of other commands are executed first
 		*/
-		cCode = ' func '+"Get"+cKeyword+' { 
-				return processCommandKeyword(:'+cKeyword+')
-			}' + nl
+		cCode = ' func '+"Get"+cKeyword+' { return processCommandKeyword(:'+cKeyword+') }' + nl
 		return cCode
 
 	func CommandPara2Attributes aPara

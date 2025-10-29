@@ -152,7 +152,6 @@ class NaturalBaseMethods
 		}
 
 	func processCommandKeyword cKeyword 
-
 		if ! aKeywordMethods[cKeyword] {
 			aKeywordMethods[cKeyword] = []
 			processCommandKeyword2(cKeyword,aKeywordMethods[cKeyword])
