@@ -165,6 +165,7 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 	const char *cStr;
 	int nScope, nSize;
 	VMState *pVMState;
+	List pCurrentScope;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -178,6 +179,8 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 		pVM->pActiveMem = RING_VM_GETSCOPE(nScope);
 		ring_vm_newscopeid(pVM);
 		/* Prepare the current scope */
+		memcpy(&pCurrentScope, RING_VM_GETLASTSCOPE, sizeof(List));
+		ring_list_new2_gc(pVM->pRingState, RING_VM_GETLASTSCOPE, RING_ZERO);
 		nSize = RING_VM_SCOPESCOUNT;
 		RING_VM_SETCURRENTSCOPE(nScope);
 		pVM->nEvalInScope++;
@@ -191,6 +194,8 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 		/* Restore the current scope */
 		RING_VM_SETCURRENTSCOPE(nSize);
 		pVM->pActiveMem = pActiveMem;
+		ring_list_deleteallitems_gc(pVM->pRingState, RING_VM_GETLASTSCOPE);
+		memcpy(RING_VM_GETLASTSCOPE, &pCurrentScope, sizeof(List));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

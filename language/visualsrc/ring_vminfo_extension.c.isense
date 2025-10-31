@@ -11,7 +11,7 @@ Type: VM *
 pVM
 Type: List *
 pList, *pList2
-Type: int
+Type: unsigned int
 x
 Type: FuncCall *
 pFuncCall
@@ -70,6 +70,8 @@ Type: int
 nScope,nSize
 Type: VMState *
 pVMState
+Type: List
+pCurrentScope
 ring_vm_info_ringvmpasserror
 Type: VM *
 pVM
