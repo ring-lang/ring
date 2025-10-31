@@ -8,6 +8,7 @@ class NaturalLanguage
 	cCommandsPath = "../libraries/naturallib/command"
 	cPackageName = ""
 	cOperators = ""
+	oLangObj = NULL
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -33,17 +34,23 @@ class NaturalLanguage
 		cCode = CheckOperators(cCode)
 		RunString(cCode)
 
+	func prepareLanguage
+		if ! oLangObj {
+			oLangObj = new from cLanguageName
+		}
+
 	func RunString cString
+		prepareLanguage()
 		cCode = '
-		loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
-		Talk #{langname} {
+		oLangObj {
+			loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
 			CHANGERINGOPERATOR { _{
 			CHANGERINGOPERATOR } _}
 			#{naturalcode}
 			CHANGERINGOPERATOR _{ {
 			CHANGERINGOPERATOR _} }
+			loadsyntax "#{libpath}/syntax/naturalsyntaxoff.ring"
 		}
-		loadsyntax "#{libpath}/syntax/naturalsyntaxoff.ring"
 		'
 		cCode = substr(cCode,"#{libpath}",cLibraryPath)
 		cCode = substr(cCode,"#{langname}",cLanguageName)
