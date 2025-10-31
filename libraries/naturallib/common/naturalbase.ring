@@ -17,6 +17,8 @@ Class NaturalBase
 
 	aKeywordMethods = []
 
+	lPrepareAttributes = True
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -30,6 +32,8 @@ class NaturalBaseMethods
 		}
 
 	func BraceStart
+		if ! lPrepareAttributes { return }
+		lPrepareAttributes = False
 		prepareClassMethods()
 		for cMethod in aClassMethods {
 			if left(cMethod,14) = "addattributes_" {
