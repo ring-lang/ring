@@ -9,6 +9,8 @@ class NaturalLanguage
 	cPackageName = ""
 	cOperators = ""
 	oLangObj = NULL
+	cBeforeRun = ""
+	cAfterRun = ""
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -38,12 +40,8 @@ class NaturalLanguage
 		if ! oLangObj {
 			oLangObj = new from cLanguageName
 		}
-
-	func RunString cString
-		prepareLanguage()
-		cString = CheckOperators(cString)
-		cCode = '
-		oLangObj {
+		if ! cBeforeRun {
+			cBeforeRun = `
 			changeringkeyword again 		_again
 			changeringkeyword and  			_and
 			changeringkeyword but 			_but
@@ -110,9 +108,10 @@ class NaturalLanguage
 			changeringoperator ,			_,
 			changeringoperator { 			_{
 			changeringoperator } 			_}
-
-			'+cString+'
-
+			`
+		}
+		if ! cAfterRun {
+			cAfterRun  = `
 			changeringkeyword _again 		again
 			changeringkeyword _and  		and
 			changeringkeyword _but 			but
@@ -179,8 +178,16 @@ class NaturalLanguage
 			changeringoperator _,			,
 			changeringoperator _{ 			{
 			changeringoperator _} 			}
+			`
 		}
-		'
+
+	func RunString cString
+		prepareLanguage()
+		cString = CheckOperators(cString)
+		cCode = 'oLangObj {'+nl+
+			cBeforeRun+nl+
+			cString+nl+
+			cAfterRun+nl+'}'
 		eval(cCode)
 
 	func Execute cString
