@@ -49,8 +49,6 @@ changeringkeyword _while 		while
 
 # Enable Operators 
 
-# Disable Operators
-
 changeringoperator _+			+
 changeringoperator _-			-
 changeringoperator _*			*
