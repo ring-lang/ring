@@ -228,6 +228,12 @@ class NaturalLanguage
 	func SetOperators Operators
 		cOperators = Operators
 
+	func setBeforeRun cCode 
+		cBeforeRun = cCode 
+
+	func setAfterRun cCode 
+		cAfterRun = cCode
+
 	private 
 
 		cLibraryPath = "../libraries/naturallib"		
