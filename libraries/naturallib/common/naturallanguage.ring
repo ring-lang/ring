@@ -181,14 +181,17 @@ class NaturalLanguage
 			`
 		}
 
-	func RunString cString
+	func prepareCode cString 
 		prepareLanguage()
 		cString = CheckOperators(cString)
 		cCode = 'oLangObj {'+nl+
 			cBeforeRun+nl+
 			cString+nl+
 			cAfterRun+nl+'}'
-		eval(cCode)
+		return cCode 
+
+	func RunString cString
+		eval(prepareCode(cString))
 
 	func Execute cString
 		runstring(cString)
