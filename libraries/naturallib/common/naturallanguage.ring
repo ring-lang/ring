@@ -41,21 +41,146 @@ class NaturalLanguage
 
 	func RunString cString
 		prepareLanguage()
+		cString = CheckOperators(cString)
 		cCode = '
 		oLangObj {
-			loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
-			CHANGERINGOPERATOR { _{
-			CHANGERINGOPERATOR } _}
-			#{naturalcode}
-			CHANGERINGOPERATOR _{ {
-			CHANGERINGOPERATOR _} }
-			loadsyntax "#{libpath}/syntax/naturalsyntaxoff.ring"
+			changeringkeyword again 		_again
+			changeringkeyword and  			_and
+			changeringkeyword but 			_but
+			changeringkeyword bye 			_bye
+			changeringkeyword call 			_call
+			changeringkeyword case 			_case
+			changeringkeyword catch 		_catch
+			changeringkeyword class 		_class
+			changeringkeyword def 			_def
+			changeringkeyword do 			_do
+			changeringkeyword done 			_done
+			changeringkeyword else 			_else
+			changeringkeyword elseif 		_elseif
+			changeringkeyword end 			_end
+			changeringkeyword exit 			_exit
+			changeringkeyword for 			_for
+			changeringkeyword from 			_from
+			changeringkeyword func 			_func
+			changeringkeyword get 			_get
+			changeringkeyword give 			_give
+			changeringkeyword if 			_if
+			changeringkeyword import 		_import
+			changeringkeyword in 			_in
+			changeringkeyword load 			_load
+			changeringkeyword loop 			_loop
+			changeringkeyword new 			_new
+			changeringkeyword next 			_next
+			changeringkeyword not 			_not
+			changeringkeyword off 			_off
+			changeringkeyword ok 			_ok
+			changeringkeyword on 			_on
+			changeringkeyword or 			_or
+			changeringkeyword other 		_other
+			changeringkeyword package 		_package
+			changeringkeyword private 		_private
+			changeringkeyword put 			_put
+			changeringkeyword return 		_return
+			changeringkeyword see 			_see
+			changeringkeyword step 			_step
+			changeringkeyword switch 		_switch
+			changeringkeyword to 			_to
+			changeringkeyword try 			_try
+			changeringkeyword while 		_while
+			
+			changeringoperator +			_+
+			changeringoperator -			_-
+			changeringoperator *			_*
+			changeringoperator /			_/
+			changeringoperator %			_%
+			changeringoperator =			_=
+			changeringoperator !			_!
+			changeringoperator <			_<
+			changeringoperator >			_>
+			changeringoperator &			_&
+			changeringoperator |			_|
+			changeringoperator ^			_^
+			changeringoperator ~			_~
+			changeringoperator :			_:
+			changeringoperator [			_[
+			changeringoperator ]			_]
+			changeringoperator (			_(
+			changeringoperator )			_)
+			changeringoperator .			_.
+			changeringoperator ,			_,
+			changeringoperator { 			_{
+			changeringoperator } 			_}
+
+			'+cString+'
+
+			changeringkeyword _again 		again
+			changeringkeyword _and  		and
+			changeringkeyword _but 			but
+			changeringkeyword _bye 			bye
+			changeringkeyword _call 		call
+			changeringkeyword _case 		case
+			changeringkeyword _catch 		catch
+			changeringkeyword _class 		class
+			changeringkeyword _def 			def
+			changeringkeyword _do 			do
+			changeringkeyword _done 		done
+			changeringkeyword _else 		else
+			changeringkeyword _elseif 		elseif
+			changeringkeyword _end 			end
+			changeringkeyword _exit 		exit
+			changeringkeyword _for 			for
+			changeringkeyword _from 		from
+			changeringkeyword _func 		func
+			changeringkeyword _get 			get
+			changeringkeyword _give 		give
+			changeringkeyword _if 			if
+			changeringkeyword _import 		import
+			changeringkeyword _in 			in
+			changeringkeyword _load 		load
+			changeringkeyword _loop 		loop
+			changeringkeyword _new 			new
+			changeringkeyword _next 		next
+			changeringkeyword _not 			not
+			changeringkeyword _off 			off
+			changeringkeyword _ok 			ok
+			changeringkeyword _on 			on
+			changeringkeyword _or 			or
+			changeringkeyword _other 		other
+			changeringkeyword _package 		package
+			changeringkeyword _private 		private
+			changeringkeyword _put 			put
+			changeringkeyword _return 		return
+			changeringkeyword _see 			see
+			changeringkeyword _step 		step
+			changeringkeyword _switch 		switch
+			changeringkeyword _to 			to
+			changeringkeyword _try 			try
+			changeringkeyword _while 		while
+			
+			changeringoperator _+			+
+			changeringoperator _-			-
+			changeringoperator _*			*
+			changeringoperator _/			/
+			changeringoperator _%			%
+			changeringoperator _=			=
+			changeringoperator _!			!
+			changeringoperator _<			<
+			changeringoperator _>			>
+			changeringoperator _&			&
+			changeringoperator _|			|
+			changeringoperator _^			^
+			changeringoperator _~			~
+			changeringoperator _:			:
+			changeringoperator _[			[
+			changeringoperator _]			]
+			changeringoperator _(			(
+			changeringoperator _)			)
+			changeringoperator _.			.
+			changeringoperator _,			,
+			changeringoperator _{ 			{
+			changeringoperator _} 			}
 		}
 		'
-		cCode = substr(cCode,"#{libpath}",cLibraryPath)
-		cCode = substr(cCode,"#{langname}",cLanguageName)
-		cCode = substr(cCode,"#{naturalcode}",cString)
-		cCode = CheckOperators(cCode)
 		eval(cCode)
 
 	func Execute cString
