@@ -175,6 +175,11 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 		/* We must get cStr before we change the pVM->pActiveMem */
 		nScope = (int)RING_API_GETNUMBER(1);
 		cStr = RING_API_GETSTRING(2);
+		nSize = RING_VM_SCOPESCOUNT;
+		if ((nScope < 1) || (nScope >= nSize)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
 		/* Save State */
 		pVMState = ring_vm_savestateformethods(pVM);
 		pActiveMem = pVM->pActiveMem;
@@ -183,7 +188,6 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 		/* Prepare the current scope */
 		memcpy(&pCurrentScope, RING_VM_GETLASTSCOPE, sizeof(List));
 		ring_list_new2_gc(pVM->pRingState, RING_VM_GETLASTSCOPE, RING_ZERO);
-		nSize = RING_VM_SCOPESCOUNT;
 		RING_VM_SETCURRENTSCOPE(nScope);
 		pVM->nEvalInScope++;
 		ring_vm_runcode(pVM, cStr);
