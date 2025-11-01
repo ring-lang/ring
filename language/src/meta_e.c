@@ -741,7 +741,7 @@ void ring_vm_refmeta_setattribute(void *pPointer) {
 }
 
 void ring_vm_refmeta_mergemethods(void *pPointer) {
-	unsigned int x;
+	unsigned int x, nSize;
 	List *pList, *pList2, *pList3;
 	VM *pVM;
 	char *cStr, *cStr2;
@@ -797,11 +797,17 @@ void ring_vm_refmeta_mergemethods(void *pPointer) {
 			return;
 		}
 		/* Copy Methods from Source to Dest */
+		nSize = ring_list_getsize(pList2);
 		ring_list_copy_gc(pVM->pRingState, pList2, pList3);
 		/* Refresh the HashTable */
 		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 		if (ring_list_gethashtable(pList2) != NULL) {
-			ring_list_genhashtable2_gc(pVM->pRingState, pList2);
+			for (x = nSize + 1; x <= ring_list_getsize(pList2); x++) {
+				ring_hashtable_newpointer_gc(
+				    pVM->pRingState, ring_list_gethashtable(pList2),
+				    ring_list_getstring(ring_list_getlist(pList2, x), RING_FUNCMAP_NAME),
+				    ring_list_getlist(pList2, x));
+			}
 		}
 		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 	} else {
