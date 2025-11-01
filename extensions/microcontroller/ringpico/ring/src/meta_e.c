@@ -634,7 +634,9 @@ void ring_vm_refmeta_addmethod(void *pPointer) {
 					ring_vm_custmutexlock(pVM,
 							      pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 					if (ring_list_gethashtable(pList) != NULL) {
-						ring_list_genhashtable2_gc(pVM->pRingState, pList);
+						ring_hashtable_newpointer_gc(pVM->pRingState,
+									     ring_list_gethashtable(pList),
+									     RING_API_GETSTRING(2), pList3);
 					}
 					ring_vm_custmutexunlock(pVM,
 								pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);

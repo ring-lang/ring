@@ -203,7 +203,7 @@ x
 Type: VM *
 pVM
 ring_vm_refmeta_mergemethods
-Type: int
+Type: unsigned int
 x
 Type: List *
 pList, *pList2, *pList3
