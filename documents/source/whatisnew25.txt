@@ -1,0 +1,48 @@
+.. index:: 
+	single: What is new in Ring 1.25; Introduction
+
+========================
+What is new in Ring 1.25
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.25 release.
+
+.. index:: 
+	pair: What is new in Ring 1.25?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.25 comes with the next features!
+
+* More RingPM Packages
+* Better Functions
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.25?; More RingPM Packages
+
+More RingPM Packages
+====================
+
+The following packages have been added to the RingPM registry.
+
+* 
+
+.. index:: 
+	pair: What is new in Ring  1.25; Better Functions
+
+Better Functions
+================
+
+* addMethod(): Better Performance (Avoid recreating the HashTable)
+* mergeMethods(): Better Performance (Avoid recreating the HashTable)
+* ringvm_evalinscope(): Check the scope range
+
+.. index:: 
+	pair: What is new in Ring  1.25; More Improvements
+
+More Improvements
+=================
+
+* NaturalLib implementation is revised (Better Performance)
