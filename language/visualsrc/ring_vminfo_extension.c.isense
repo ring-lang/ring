@@ -67,11 +67,11 @@ pActiveMem
 Type: const char *
 cStr
 Type: int
-nScope,nSize
+nScope,nSize,x
 Type: VMState *
 pVMState
 Type: List
-pCurrentScope
+aScopes[RING_VM_STACK_SIZE]
 ring_vm_info_ringvmpasserror
 Type: VM *
 pVM
