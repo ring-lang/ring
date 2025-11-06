@@ -45,4 +45,8 @@ Better Functions
 More Improvements
 =================
 
+* Added: samples/UsingJSONLib/test14.ring
+* Added: samples/UsingJSONLib/test15.ring
+* libraries/jsonlib/jsonlib.ring - Better Code
+* ring/language/build/locatevc.bat - Prevent PATH bloat
 * NaturalLib implementation is revised (Better Performance)
