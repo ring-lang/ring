@@ -38,7 +38,7 @@ class NaturalLanguage
 
 	func prepareLanguage
 		if ! oLangObj {
-			oLangObj = new from cLanguageName
+			eval("oLangObj = new " + cLanguageName)
 		}
 		if ! cBeforeRun {
 			cBeforeRun = `
