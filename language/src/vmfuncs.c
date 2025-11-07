@@ -249,56 +249,62 @@ RING_API void ring_vm_call2(VM *pVM) {
 		pVM->lIgnoreCPointerTypeCheck = 0;
 		/* Call Function */
 		pFuncCall->pFunc(pVM);
-		/* Correct Stack Position */
-		if (pVM->nSP > pFuncCall->nSP + pVM->nCFuncParaCount) {
-			ring_vm_stackswap(pVM, pVM->nSP, pFuncCall->nSP + 1);
-			pVM->nSP = pFuncCall->nSP + 1;
+		/* After calling a C function */
+		ring_vm_aftercfunction(pVM, pFuncCall);
+	}
+}
+
+RING_API void ring_vm_aftercfunction(VM *pVM, FuncCall *pFuncCall) {
+	/*
+	**  After Calling C Function
+	**  Correct Stack Position
+	*/
+	if (pVM->nSP > pFuncCall->nSP + pVM->nCFuncParaCount) {
+		ring_vm_stackswap(pVM, pVM->nSP, pFuncCall->nSP + 1);
+		pVM->nSP = pFuncCall->nSP + 1;
+	} else {
+		pVM->nSP = pFuncCall->nSP;
+		/*
+		**  Function Output
+		**  IgnoreNULL is Used by len(object) to get output from operator overloading method
+		*/
+		if (pVM->lIgnoreNULL == 0) {
+			RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
 		} else {
-			pVM->nSP = pFuncCall->nSP;
-			/*
-			**  Function Output
-			**  IgnoreNULL is Used by len(object) to get output from operator overloading method
-			*/
-			if (pVM->lIgnoreNULL == 0) {
-				RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
-			} else {
-				pVM->lIgnoreNULL = 0;
-			}
+			pVM->lIgnoreNULL = 0;
 		}
-		/* Trace */
-		RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_AFTERCFUNC);
-		/* Check for function termination by try/catch */
-		if (pVM->lActiveCatch == 1) {
-			/*
-			**  We don't remove the function from call list because ring_vm_catch() do when restore state
-			**  We don't delete the scope because ring_vm_catch() will do when restore state
-			**  We don't restore pActiveMem because it's managed correctly by state functions (Save/Restore)
-			*for Try/Catch
-			**  Avoiding the pActiveMem restore here is important when we have raise() function called after
-			*try/catch
-			*/
-			return;
-		}
-		/* Return (Delete Function Call List) */
-		RING_VM_DELETELASTFUNCCALL;
-		/* Restore nFuncSP value */
-		if (RING_VM_FUNCCALLSCOUNT > 0) {
-			pFuncCall = RING_VM_LASTFUNCCALL;
-			pVM->nFuncSP = pFuncCall->nSP;
-		} else {
-			pVM->nFuncSP = 0;
-		}
-		/* if eval() is called, start the main loop again */
-		if (pVM->lEvalCalledFromRingCode == 1) {
-			pVM->lEvalCalledFromRingCode = 0;
-			/*
-			**  We use Stack POP to remove the empty string that we return after functions
-			**  This enable the code generated from eval() to be able to return any value
-			**  Using the return command
-			*/
-			RING_VM_STACK_POP;
-			ring_vm_mainloopforeval(pVM);
-		}
+	}
+	/* Trace */
+	RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_AFTERCFUNC);
+	/* Check for function termination by try/catch */
+	if (pVM->lActiveCatch == 1) {
+		/*
+		**  We don't remove the function from call list because ring_vm_catch() do when restore state
+		**  We don't delete the scope because ring_vm_catch() will do when restore state
+		**  We don't restore pActiveMem because it's managed correctly by state functions (Save/Restore) for T
+		**  Avoiding the pActiveMem restore here is important when we have raise() function called after try/cat
+		*/
+		return;
+	}
+	/* Return (Delete Function Call List) */
+	RING_VM_DELETELASTFUNCCALL;
+	/* Restore nFuncSP value */
+	if (RING_VM_FUNCCALLSCOUNT > 0) {
+		pFuncCall = RING_VM_LASTFUNCCALL;
+		pVM->nFuncSP = pFuncCall->nSP;
+	} else {
+		pVM->nFuncSP = 0;
+	}
+	/* if eval() is called, start the main loop again */
+	if (pVM->lEvalCalledFromRingCode == 1) {
+		pVM->lEvalCalledFromRingCode = 0;
+		/*
+		**  We use Stack POP to remove the empty string that we return after functions
+		**  This enable the code generated from eval() to be able to return any value
+		**  Using the return command
+		*/
+		RING_VM_STACK_POP;
+		ring_vm_mainloopforeval(pVM);
 	}
 }
 

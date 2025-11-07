@@ -16,6 +16,7 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
+ring_vm_aftercfunction
 ring_vm_preparecallmethod
 Type: List *
 pList

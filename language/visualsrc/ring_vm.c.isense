@@ -665,7 +665,7 @@ Type: List *
 pIns
 ring_vm_afterscopeidoverflow
 Type: unsigned int
-x,y,nCount
+x,nCount
 Type: ByteCode *
 pByteCode
 ring_vm_deleteallbytecode

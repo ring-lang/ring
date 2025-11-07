@@ -810,6 +810,8 @@ void ring_vm_call(VM *pVM);
 
 RING_API void ring_vm_call2(VM *pVM);
 
+RING_API void ring_vm_aftercfunction(VM *pVM, FuncCall *pFuncCall);
+
 void ring_vm_preparecallmethod(VM *pVM);
 
 void ring_vm_return(VM *pVM);
