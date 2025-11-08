@@ -50,3 +50,4 @@ More Improvements
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * NaturalLib implementation is revised (Better Performance)
+* Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
