@@ -213,7 +213,11 @@ int ring_vm_eval(VM *pVM, const char *cStr) {
 
 void ring_vm_returneval(VM *pVM) {
 	unsigned int aPara[2];
-	/* This function will always be called after each eval() execution */
+	/*
+	**  This function will always be called after each eval() execution
+	**  We replace the instruction with ICO_RETURN to avoid executing it in nested Eval
+	*/
+	RING_VM_IR_OPCODE = ICO_RETURN;
 	ring_vm_return(pVM);
 	ring_vm_mutexlock(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(RING_VM_IR_REG1);

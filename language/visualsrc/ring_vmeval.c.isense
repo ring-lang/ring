@@ -34,5 +34,5 @@ Type: void *
 pPointer, *pAssignment
 ring_vm_cleanevalcode
 ring_vm_useextrabytecode
-Type: int
+Type: unsigned int
 x
