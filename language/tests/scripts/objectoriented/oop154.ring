@@ -1,15 +1,10 @@
-
 myo = new myclass 
-t1= clock()
 
 myo {
 	for t=1 to 1000
 		i1 want1 window1
 	next
 }
-
-? clock()-t1
-
 
 class MyClass 
 
