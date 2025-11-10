@@ -846,5 +846,17 @@ aPackagesRegistry = [
 	[ :name = "ringfmt",
           :description = "Source code formatter and beautifier",
           :ProviderUserName = "ringpackages"
+	],
+	[ :name = "argon2",
+          :description = "Argon2 password hashing algorithm extension for the Ring programming language",
+          :ProviderUserName = "ysdragon"
+	],
+	[ :name = "bcrypt",
+          :description = "Bcrypt password hashing algorithm extension for the Ring programming language",
+          :ProviderUserName = "ysdragon"
+	],
+	[ :name = "ftp",
+          :description = "FTP/FTPS client extension for the Ring programming language",
+          :ProviderUserName = "ysdragon"
 	]
 ]
