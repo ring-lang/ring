@@ -27,7 +27,9 @@ More RingPM Packages
 
 The following packages have been added to the RingPM registry.
 
-* 
+* Argon2: Ring binding for Argon2 hashing algorithm
+* Bcrypt: Ring binding for the bcrypt password hashing algorithm
+* FTP: A comprehensive FTP client library
 
 .. index:: 
 	pair: What is new in Ring  1.25; Better Functions
