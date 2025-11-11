@@ -322,19 +322,19 @@ in a fraction of time.
 Articles:-
 
 * Natural Language Programming Library : 
-https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP
+https://www.codeproject.com/articles/Using-the-Natural-Language-Programming-Library-NLP
 
 * Natural Language Programming : 
-https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi
+https://www.codeproject.com/articles/Natural-Language-Programming-in-the-Ring-Programmi
 
 * The Declarative Approach :
-https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l
+https://www.codeproject.com/articles/The-Declarative-Approach-of-the-Ring-Programming-L
 
 * Syntax Flexibility : 
-https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag
+https://www.codeproject.com/articles/Syntax-Flexibility-in-the-Ring-Programming-Languag
 
 * The Ring Programming Language : 
-https://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language
+https://www.codeproject.com/articles/The-Ring-Programming-Language
 
 .. index:: 
 	pair: Applications developed in a few hours; Practical
