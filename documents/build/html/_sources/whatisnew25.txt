@@ -51,5 +51,6 @@ More Improvements
 * Added: samples/UsingJSONLib/test15.ring
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
+* Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
