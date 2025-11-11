@@ -534,7 +534,7 @@ aTests = [
 	[ :name = "General Tests (Part 123)", :Command = "ring general/test123.ring" , :Condition = IsWindows()],
 	[ :name = "General Tests (Part 124)", :Command = "ring general/test124.ring" ],
 	[ :name = "General Tests (Part 125)", :Command = "ring general/test125.ring" ],
-	[ :name = "General Tests (Part 126)", :Command = "ring general/test126.ring" ],
+	[ :name = "General Tests (Part 126)", :Command = "ring general/test126.ring", :Condition = IsWindows() and (exefolder()="B:\ring\language\tests\")  ],
 	[ :name = "General Tests (Part 127)", :Command = "ring general/test127.ring" ],
 	[ :name = "General Tests (Part 128)", :Command = "ring general/test128.ring" ],
 	[ :name = "General Tests (Part 129)", :Command = "ring general/test129.ring" ],
