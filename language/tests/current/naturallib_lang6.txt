@@ -1,0 +1,12 @@
+Testing EvalInScope
+Command: I want window
+Command: Window title is great
+Command: I want window
+Command: Window title is Hello, World!
+welcome
+2025
+Command: I want window
+Command: Window title is I Love Programming
+welcome
+2025
+done..
