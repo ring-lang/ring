@@ -37,7 +37,7 @@ MyLang = New NaturalLanguage {
 test()
 
 func test
-	t1= clock()
+
 	MyLang.execute('
 		for t=1 towards 1000
 	 		i want window 
@@ -48,6 +48,6 @@ func test
 			ok
 		next
 	')
-	? clock()-t1
+
 
 
