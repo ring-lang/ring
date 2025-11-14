@@ -36,6 +36,7 @@ The next samples are added:
 * ‎samples/UsingNaturalLib/advanced/lang4.ring
 * ‎samples/UsingNaturalLib/advanced/lang5.ring
 * ‎samples/UsingNaturalLib/advanced/lang6.ring
+* samples/UsingNaturalLib/tests/largecode.ring
 
 .. index:: 
 	pair: What is new in Ring 1.25?; More RingPM Packages
