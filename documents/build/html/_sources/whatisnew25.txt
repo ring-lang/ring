@@ -37,6 +37,10 @@ The next samples are added:
 * ‎samples/UsingNaturalLib/advanced/lang5.ring
 * ‎samples/UsingNaturalLib/advanced/lang6.ring
 * samples/UsingNaturalLib/tests/largecode.ring
+* samples/General/ListFunctions/ListFunctions.ring
+* samples/General/Orbital/Obital-Solar-Eclipse.ring
+* samples/General/Orbital/Obital-Lunar-Full-Moon-Meesus.ring
+
 
 .. index:: 
 	pair: What is new in Ring 1.25?; More RingPM Packages
