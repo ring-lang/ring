@@ -15,9 +15,27 @@ List of changes and new features
 
 Ring 1.25 comes with the next features!
 
+* More Samples
 * More RingPM Packages
 * Better Functions
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.25?; More Samples
+
+More Samples
+============
+
+The next samples are added:
+
+* samples/UsingJSONLib/test14.ring
+* samples/UsingJSONLib/test15.ring
+* ‎samples/UsingNaturalLib/advanced/lang1.ring
+* ‎samples/UsingNaturalLib/advanced/lang2.ring
+* ‎samples/UsingNaturalLib/advanced/lang3.ring
+* ‎samples/UsingNaturalLib/advanced/lang4.ring
+* ‎samples/UsingNaturalLib/advanced/lang5.ring
+* ‎samples/UsingNaturalLib/advanced/lang6.ring
 
 .. index:: 
 	pair: What is new in Ring 1.25?; More RingPM Packages
@@ -39,7 +57,7 @@ Better Functions
 
 * addMethod(): Better Performance (Avoid recreating the HashTable)
 * mergeMethods(): Better Performance (Avoid recreating the HashTable)
-* ringvm_evalinscope(): Check the scope range
+* ringvm_evalinscope(): Check the scope range before changing the scope
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
@@ -47,8 +65,6 @@ Better Functions
 More Improvements
 =================
 
-* Added: samples/UsingJSONLib/test14.ring
-* Added: samples/UsingJSONLib/test15.ring
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
