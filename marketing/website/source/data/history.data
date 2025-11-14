@@ -1,4 +1,5 @@
 aNews = [
+  ["November 14, 2025",'<a href="https://github.com/idrassi/LunarEclipseCalendarGenerator-Ring"> Lunar Eclipse Calendar Generator</a>'],
   ["November 10, 2025",'<a href="https://github.com/ysdragon/ftp"> FTP Extension</a>'],
   ["November 9, 2025",'<a href="https://github.com/ysdragon/bcrypt"> Bcrypt Extension</a>'],
   ["November 8, 2025",'<a href="https://github.com/ysdragon/argon2"> Argon2 Extension</a>'],
