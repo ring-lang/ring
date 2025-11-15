@@ -858,5 +858,9 @@ aPackagesRegistry = [
 	[ :name = "ftp",
           :description = "FTP/FTPS client extension for the Ring programming language",
           :ProviderUserName = "ysdragon"
-	]
+	],
+	[ :name = "ring-libsql",
+          :description = "LibSQL client extension for the Ring programming language",
+          :ProviderUserName = "ysdragon"
+	]	
 ]
