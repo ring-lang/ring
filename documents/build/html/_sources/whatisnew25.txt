@@ -75,4 +75,5 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
+* Ring Compiler – Accept commas as line separators (similar to semicolons)
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
