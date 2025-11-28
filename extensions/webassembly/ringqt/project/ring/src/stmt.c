@@ -1133,6 +1133,11 @@ int ring_parser_stmt(Parser *pParser) {
 	if (ring_parser_epsilon(pParser)) {
 		return RING_PARSER_OK;
 	}
+	/* Statement --> Comma */
+	if (ring_parser_isoperator2(pParser, OP_COMMA)) {
+		ring_parser_nexttoken(pParser);
+		return RING_PARSER_OK;
+	}
 	/* Statement --> Expr */
 	if (ring_parser_expr(pParser)) {
 		RING_STATE_PRINTRULE(RING_RULE_EXPR);
