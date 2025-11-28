@@ -49,9 +49,6 @@
 					'<a href="https://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" >Using Ring in PWCT 2.0 development</a>'
 				],
 				[
-					'<a href="https://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1/" >Introducing Ring by Researchers Website</a>'
-				],
-				[
 					'<a href="http://ring-lang.github.io/ref/ArabicBook_YourWayToProgramming_TalkAboutRing.pdf" >Book: Your way to programming (talk about Ring)</a>'
 				],
 				[
@@ -70,13 +67,16 @@
 					'<a href="https://idrassi.github.io/MonoRing/" >MonoRing (Monolithic Distribution)</a>'
 				],
 				[
-					'<a href="https://simple-lang.sourceforge.io/home/" >Simple programming language</a>'
+					'<a href="https://github.com/theratioproject/simple" >Simple programming language</a>'
 				],
 				[
 					'<a href="https://github.com/Ilir-Liburn/Ring2A" >Ring2A (Accelerated Ring VM)</a>'
 				],
 				[
 					'<a href="https://www.dragon-lang.org/" >Dragon programming language</a>'
+				],
+				[
+					'<a href="https://github.com/PWCT/PWCT2" >Programming Without Coding Technology 2.0</a>'
 				]
 			]
 	     ]
