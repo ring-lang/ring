@@ -372,6 +372,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" >Gold Magic 800 Level Editor</a>',
 				'<img src="images/gm800le.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/ringpmgui" >Ring Package Manager (GUI)</a>',
+				'<img src="images/ringpmgui.png" width="100%">'
 			]
 		]
 	],
