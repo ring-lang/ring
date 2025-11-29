@@ -88,6 +88,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" >Typing Quiz</a>',
 				'<img src="images/typingquiz.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/samples/Algorithms/path_finding_bfs_usingref.ring" >Path Finding</a>',
+				'<img src="images/findpath.png" width="100%">'
 			]
 		]
 	],
