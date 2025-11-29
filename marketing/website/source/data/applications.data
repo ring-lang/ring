@@ -318,6 +318,10 @@ aApplications = [
 				'<img src="images/getquotesmac.png" width="100%">'
 			],
 			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/customers" >Customers</a>',
+				'<img src="images/customers.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" >Erlang B Formula</a>',
 				'<img src="images/erlangbformula.png" width="100%">'
 			],
