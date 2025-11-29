@@ -392,6 +392,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/idrassi/DirSize" >Calculate directory sizes</a>',
 				'<img src="images/dirsize.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringfmt" >RingFmt</a>',
+				'<img src="images/ringfmt.png" width="100%">'
 			]
 		]
 	],
