@@ -12,6 +12,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/mohannad-aldulaimi/quran_ring" >Listen to Quran</a>',
 				'<img src="images/listentoquran.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/mohannad-aldulaimi/Adhkar_Ring_App" > Adhkar (WebAssembly)</a>',
+				'<img src="images/adhkarapp.png" width="100%">'
 			]
 		]
 	],
