@@ -290,6 +290,10 @@ aApplications = [
 	["Web Applications",
 		[
 			[
+				'<a href="https://github.com/ysdragon/DistroMap" >DistroMap API</a>',
+				'<img src="images/distromapapi.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" >MyCoffee (Web Application)</a>',
 				'<img src="images/mycoffee.png" width="100%">'
 			],
@@ -297,7 +301,6 @@ aApplications = [
 				'<a href="https://github.com/ring-lang/ring/tree/master/marketing/website" >Ring Website (Generated HTML Files)</a>',
 				'<img src="images/ringwebsite.png" width="100%">'
 			]
-
 		]
 	],
 	["General Applications",
