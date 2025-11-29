@@ -1,6 +1,9 @@
 ﻿aResources = [ 
 	["English Resources",[
 				[
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.24/RingDoc_1.24.pdf" >The Complete Reference (Version 1.24)</a>'
+				],
+				[
 					'<a href="https://www.apress.com/gp/book/9781484258323" >Apress: Beginning Ring Programming</a>'
 				],
 				[
@@ -29,7 +32,17 @@
 				],
 				[
 					'<a href="http://ring-wincreg.sourceforge.net/docs/" >Ring_WinCReg’s documentation</a>'
+				],
+				[
+					'<a href="https://www.mdpi.com/2079-9292/13/23/4627" >Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming</a>'
+				],
+				[
+					'<a href="https://www.mdpi.com/2076-3417/15/3/1521" >PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion</a>'
+				],
+				[
+					'<a href="https://arxiv.org/pdf/2509.20426" >Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications</a>'
 				]
+
 			]
 	     ],
 	     ["Arabic Resources",[
