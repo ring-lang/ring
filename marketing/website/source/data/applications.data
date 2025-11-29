@@ -419,6 +419,10 @@ aApplications = [
 				[
 					'<a href="web/formdesigner/project.html" >The Form Designer</a>',
 					'<img src="images/wasm_formdesigner.png" width="100%">'
+				],
+				[
+					'<a href="web/tryringonline/project.html" >Try Ring Online</a>',
+					'<img src="images/tryringonline.png" width="100%">'
 				]
 	]
 	]
