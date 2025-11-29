@@ -288,6 +288,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle" >Sixteen Puzzle</a>',
 				'<img src="images/sixteenpuzzle.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/snakesandladders2" >Snakes and Ladders 2</a>',
+				'<img src="images/sal2.png" width="100%">'
 			]
 		]
 	],
