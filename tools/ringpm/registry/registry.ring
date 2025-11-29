@@ -862,5 +862,9 @@ aPackagesRegistry = [
 	[ :name = "ring-libsql",
           :description = "LibSQL client extension for the Ring programming language",
           :ProviderUserName = "ysdragon"
-	]	
+	],
+	[ :name = "uuid",
+          :description = "UUID extension for the Ring Programming Language",
+          :ProviderUserName = "ysdragon"
+	]
 ]
