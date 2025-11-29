@@ -344,6 +344,14 @@ aApplications = [
 			[
 				'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" >Convert Numbers To String</a>',
 				'<img src="images/numtostr.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/hourscounter" >Hours Counter application</a>',
+				'<img src="images/hourscounter.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/lecturestracker" >Lectures Tracker application</a>',
+				'<img src="images/lecturestracker.png" width="100%">'
 			]
 		]
 	],
