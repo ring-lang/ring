@@ -21,6 +21,8 @@ func checkRingCode aPara
 		aOperators = "?(){}."
 	}
 
+	aSafeOperators = aPara[:safeoperators]
+
 	for aToken in aCodeTokens {
 		switch aToken[C_TOKENTYPE] {
 		case C_KEYWORD 
@@ -29,7 +31,9 @@ func checkRingCode aPara
 				exit
 			}
 		case C_OPERATOR 
-			if substr(aOperators,aToken[C_TOKENVALUE]) {
+			cOp = aToken[C_TOKENVALUE]
+			if substr(aSafeOperators,cOp) { loop }
+			if substr(aOperators,cOp) {
 				lPass=False
 				exit
 			}
