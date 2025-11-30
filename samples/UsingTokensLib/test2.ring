@@ -20,7 +20,6 @@ func main
 	? checkRingCode([:code = cCode])	// 0 (False)
 	? checkRingCode([:code = cCode, :safeoperators="?"])	// 1 (True)
 
-
 	cCode = `test(1)`
 	? checkRingCode([:code = cCode])	// 0 (False)
 	? checkRingCode([:code = cCode, :safeoperators="()"])	// 1 (True)
@@ -31,3 +30,8 @@ func main
 
 	cCode = `see 'hi'`
 	? checkRingCode([:code = cCode])	// 0 (False)
+	? checkRingCode([:code = cCode, :safekeywords=[:see]])	// 1 (True)
+
+	cCode = `see new point { x=10 }`
+	? checkRingCode([:code = cCode])	// 0 (False)
+	? checkRingCode([:code = cCode, :safeoperators="{}", :safekeywords=[:see, :new]])	// 1 (True)
