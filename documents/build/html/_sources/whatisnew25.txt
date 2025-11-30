@@ -18,6 +18,7 @@ Ring 1.25 comes with the next features!
 * More Samples
 * More RingPM Packages
 * Better Functions
+* Better TokensLib
 * More Improvements
 
 .. index:: 
@@ -66,6 +67,60 @@ Better Functions
 * addMethod(): Better Performance (Avoid recreating the HashTable)
 * mergeMethods(): Better Performance (Avoid recreating the HashTable)
 * ringvm_evalinscope(): Check the scope range before changing the scope
+
+.. index:: 
+	pair: What is new in Ring  1.25; TokensLib
+
+Better TokensLib
+================
+
+The library is updated to include the checkRingCode() function which is used for security.
+
+Syntax:
+
+.. code-block:: none
+
+	checkRingCode(aPara) ---> 1/0 (True/False)
+
+It is expected to be called before eval() when the input is just a Ring List.
+
+The function does not accept code that contains Ring keywords or specific operators such as (), {}, ., ?
+
+In other words: no statements, no function calls, no object access, and no output using the ? operator.
+
+The function support options like safe keywords and safe operators.
+
+Example:
+
+.. code-block:: ring
+
+	load "tokenslib.ring"
+
+	func main
+
+		cCode = `mylist = [1,2,3,:one,:two,:three]`
+		? checkRingCode([:code = cCode])			// 1 (True)
+
+		cCode = `? "hello world"`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="?"])	// 1 (True)
+
+		cCode = `test(1)`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="()"])	// 1 (True)
+
+		cCode = `myobj { x=10 }`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="{}"])	// 1 (True)
+
+		cCode = `see 'hi'`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safekeywords=[:see]])	// 1 (True)
+
+		cCode = `see new point { x=10 }`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="{}", 
+			 	 :safekeywords=[:see, :new]])		// 1 (True)
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
