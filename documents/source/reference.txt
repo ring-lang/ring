@@ -567,7 +567,7 @@ Statement ---> 'loop'|'continue'
 
 Statement ---> <Expr>
 
-Statement ---> epsilon
+Statement ---> epsilon | ';' | ','
 
 ParaList ---> epsilon
 

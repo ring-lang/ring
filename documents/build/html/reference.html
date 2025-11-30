@@ -743,7 +743,7 @@ write(cFileName,cString)
 <p>Statement —&gt; ‘exit’|’break’</p>
 <p>Statement —&gt; ‘loop’|’continue’</p>
 <p>Statement —&gt; &lt;Expr&gt;</p>
-<p>Statement —&gt; epsilon</p>
+<p>Statement —&gt; epsilon | ‘;’ | ‘,’</p>
 <p>ParaList —&gt; epsilon</p>
 <p>ParaList —&gt; [‘(’] &lt;Identifier&gt; [{ ‘,’ &lt;Identifier&gt; }] [‘)’]</p>
 <p>Expr —&gt; &lt;LogicNot&gt; [{ ‘and’|’or’ &lt;LogicNot&gt; }]</p>
