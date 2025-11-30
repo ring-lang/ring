@@ -30,6 +30,7 @@ The next samples are added:
 
 * samples/UsingJSONLib/test14.ring
 * samples/UsingJSONLib/test15.ring
+* samples/UsingTokensLib/test2.ring
 * ‎samples/UsingNaturalLib/advanced/lang1.ring
 * ‎samples/UsingNaturalLib/advanced/lang2.ring
 * ‎samples/UsingNaturalLib/advanced/lang3.ring
