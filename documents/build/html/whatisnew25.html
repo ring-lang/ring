@@ -188,6 +188,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tokenslib">Better TokensLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -233,6 +234,7 @@
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Functions</p></li>
 <li><p>Better TokensLib</p></li>
+<li><p>Flexible Statement Separation</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -316,14 +318,42 @@
 </pre></div>
 </div>
 </section>
+<section id="flexible-statement-separation">
+<span id="index-6"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<p>In this release, the language introduces support for using commas (,) as an alternative
+to semicolons (;) when separating statements.</p>
+<p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span>
+<span class="o">?</span> <span class="n">x</span><span class="p">,</span> <span class="o">?</span> <span class="n">y</span><span class="p">,</span> <span class="o">?</span> <span class="n">z</span>
+
+<span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+<span class="o">?</span> <span class="n">x</span><span class="p">;</span> <span class="o">?</span> <span class="n">y</span><span class="p">;</span> <span class="o">?</span> <span class="n">z</span>
+
+<span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span>
+<span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+10
+20
+30
+100
+200
+300
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
 <li><p>Documentation - Revise links for CodeProject articles</p></li>
 <li><p>NaturalLib implementation is revised (Better Performance)</p></li>
-<li><p>Ring Compiler – Accept commas as line separators (similar to semicolons)</p></li>
 <li><p>Ring VM - ICO_RETFROMEVAL instruction - Better Implementation</p></li>
 </ul>
 </section>

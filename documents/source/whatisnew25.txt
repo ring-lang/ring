@@ -19,6 +19,7 @@ Ring 1.25 comes with the next features!
 * More RingPM Packages
 * Better Functions
 * Better TokensLib
+* Flexible Statement Separation 
 * More Improvements
 
 .. index:: 
@@ -122,6 +123,45 @@ Example:
 		? checkRingCode([:code = cCode, :safeoperators="{}", 
 			 	 :safekeywords=[:see, :new]])		// 1 (True)
 
+
+.. index:: 
+	pair: What is new in Ring  1.25; Flexible Statement Separation
+
+Flexible Statement Separation
+=============================
+
+In this release, the language introduces support for using commas (,) as an alternative 
+to semicolons (;) when separating statements. 
+
+Importantly, semicolons themselves are optional, so you can write code in three different styles
+
+Example:
+
+.. code-block:: ring
+
+	x=1, y=2, z=3
+	? x, ? y, ? z
+
+	x=10; y=20; z=30
+	? x; ? y; ? z
+
+	x=100 y=200 z=300
+	? x ? y ? z
+
+Output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+	10
+	20
+	30
+	100
+	200
+	300
+
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
 
@@ -132,5 +172,4 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
-* Ring Compiler – Accept commas as line separators (similar to semicolons)
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
