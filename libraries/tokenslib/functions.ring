@@ -5,9 +5,13 @@
 
 func checkRingCode aPara
 
-	oTokens = new RingTokens {
-		fromString(aPara[:Code])
-		aCodeTokens = getTokens()
+	try {
+		oTokens = new RingTokens {
+			fromString(aPara[:Code])
+			aCodeTokens = getTokens()
+		}
+	catch 
+		return False
 	}
 
 	lPass = True 
