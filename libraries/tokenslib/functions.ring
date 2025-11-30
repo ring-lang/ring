@@ -23,10 +23,15 @@ func checkRingCode aPara
 
 	aSafeOperators = aPara[:safeoperators]
 
+	aSafeKeywords  = aPara[:safekeywords]
+	if ! isList(aSafeKeywords) { aSafeKeywords = [] }
+
 	for aToken in aCodeTokens {
 		switch aToken[C_TOKENTYPE] {
 		case C_KEYWORD 
 			if ! aPara[:keywords] {
+				cKeyword = lower(aKeywords[0+aToken[C_TOKENVALUE]])
+				if find(aSafeKeywords,cKeyword) { loop }
 				lPass=False
 				exit
 			}
