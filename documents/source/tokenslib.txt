@@ -67,6 +67,67 @@ Output:
 	Number      : 1
 	EndLine
 
+
+.. index:: 
+	pair: Using TokensLib; checkRingCode() function
+
+checkRingCode() function
+========================
+
+The library comes with the checkRingCode() function which is used for security.
+
+Syntax:
+
+.. code-block:: none
+
+	checkRingCode(aPara) ---> 1/0 (True/False)
+
+It is expected to be called before eval() when the input is just a Ring List.
+
+The function does not accept code that contains Ring keywords or specific operators such as (), {}, ., ?
+
+In other words: no statements, no function calls, no object access, and no output using the ? operator.
+
+The function support options like safe keywords and safe operators.
+
+aPara is a key/value list which support the next keys
+
+* code: Ring source code as string
+* safeoperators: Operators to accept (if they are not allowed)
+* safekeywords: Keywords to accept 
+
+Example:
+
+.. code-block:: ring
+
+	load "tokenslib.ring"
+
+	func main
+
+		cCode = `mylist = [1,2,3,:one,:two,:three]`
+		? checkRingCode([:code = cCode])			// 1 (True)
+
+		cCode = `? "hello world"`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="?"])	// 1 (True)
+
+		cCode = `test(1)`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="()"])	// 1 (True)
+
+		cCode = `myobj { x=10 }`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="{}"])	// 1 (True)
+
+		cCode = `see 'hi'`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safekeywords=[:see]])	// 1 (True)
+
+		cCode = `see new point { x=10 }`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="{}", 
+			 	 :safekeywords=[:see, :new]])		// 1 (True)
+
 .. index:: 
 	pair: Using TokensLib; Constants
 

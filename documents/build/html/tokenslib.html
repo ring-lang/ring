@@ -131,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringtokens-class">RingTokens Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkringcode-function">checkRingCode() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
 </ul>
 </li>
@@ -265,8 +266,56 @@ EndLine
 </pre></div>
 </div>
 </section>
+<section id="checkringcode-function">
+<span id="index-4"></span><h2>checkRingCode() function<a class="headerlink" href="#checkringcode-function" title="Permalink to this heading"></a></h2>
+<p>The library comes with the checkRingCode() function which is used for security.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>checkRingCode(aPara) ---&gt; 1/0 (True/False)
+</pre></div>
+</div>
+<p>It is expected to be called before eval() when the input is just a Ring List.</p>
+<p>The function does not accept code that contains Ring keywords or specific operators such as (), {}, ., ?</p>
+<p>In other words: no statements, no function calls, no object access, and no output using the ? operator.</p>
+<p>The function support options like safe keywords and safe operators.</p>
+<p>aPara is a key/value list which support the next keys</p>
+<ul class="simple">
+<li><p>code: Ring source code as string</p></li>
+<li><p>safeoperators: Operators to accept (if they are not allowed)</p></li>
+<li><p>safekeywords: Keywords to accept</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tokenslib.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`mylist = [1,2,3,:one,:two,:three]`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`? &quot;hello world&quot;`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">])</span>    <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`test(1)`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;()&quot;</span><span class="p">])</span>   <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`myobj { x=10 }`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;{}&quot;</span><span class="p">])</span>   <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`see &#39;hi&#39;`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safekeywords</span><span class="o">=</span><span class="p">[</span><span class="ss">:see</span><span class="p">]])</span>  <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`see new point { x=10 }`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;{}&quot;</span><span class="p">,</span>
+                         <span class="ss">:safekeywords</span><span class="o">=</span><span class="p">[</span><span class="ss">:see</span><span class="p">,</span> <span class="ss">:new</span><span class="p">]])</span>           <span class="c1">// 1 (True)</span>
+</pre></div>
+</div>
+</section>
 <section id="constants">
-<span id="index-4"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
 <p>When loading the library, We have access to the next constants</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Tokens Table
         C_TOKENTYPE     = 1
