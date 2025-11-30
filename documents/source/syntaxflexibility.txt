@@ -276,6 +276,44 @@ Output:
 	three
 
 .. index:: 
+	pair: Syntax Flexibility; Flexible Statement Separation
+
+Flexible Statement Separation
+=============================
+
+The language support using commas (,) as an alternative to semicolons (;) when separating statements. 
+
+Importantly, semicolons themselves are optional, so you can write code in three different styles
+
+Example:
+
+.. code-block:: ring
+
+	x=1, y=2, z=3
+	? x, ? y, ? z
+
+	x=10; y=20; z=30
+	? x; ? y; ? z
+
+	x=100 y=200 z=300
+	? x ? y ? z
+
+Output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+	10
+	20
+	30
+	100
+	200
+	300
+
+
+.. index:: 
 	pair: Syntax Flexibility; Using $ and @ in the start of the variable name
 
 Using $ and @ in the start of the variable name
