@@ -5,3 +5,4 @@
 
 load "globals.ring"
 load "ringtokens.ring"
+load "functions.ring"
