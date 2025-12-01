@@ -15,12 +15,28 @@ List of changes and new features
 
 Ring 1.25 comes with the next features!
 
+* Stock Analysis application
 * More Samples
 * More RingPM Packages
 * Better Functions
 * Better TokensLib
 * Flexible Statement Separation 
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.25?; Stock Analysis application
+
+Stock Analysis application
+==========================
+
+Stock analysis and simulation tool that fetches historical price data from 
+Yahoo Finance, parses it into usable time series, calculates momentum-based returns, and 
+simulates portfolio performance against a benchmark (QQQ).
+
+The application is developed using Ring, RingQt, RingLibCurl & RingJSONLib
+
+.. image:: stockanalysis.png
+	:alt: Stock Analysis
 
 .. index:: 
 	pair: What is new in Ring 1.25?; More Samples
