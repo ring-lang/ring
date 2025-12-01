@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.25 comes with the next features!
 
 * Stock Analysis application
+* DistroMap API
 * More Samples
 * More RingPM Packages
 * Better Functions
@@ -37,6 +38,20 @@ The application is developed using Ring, RingQt, RingLibCurl & RingJSONLib
 
 .. image:: stockanalysis.png
 	:alt: Stock Analysis
+
+.. index:: 
+	pair: What is new in Ring 1.25?; DistroMap API
+
+DistroMap API
+=============
+
+A lightweight web API server built with Ring that provides Linux distribution and release 
+information based on codenames.
+
+URL: https://github.com/ysdragon/DistroMap
+
+.. image:: distromapapi.png
+	:alt: DistroMapAPI
 
 .. index:: 
 	pair: What is new in Ring 1.25?; More Samples
