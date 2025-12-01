@@ -13,3 +13,10 @@ Author: Azzeddine Remmal
 
 ![stockanalysis](https://raw.githubusercontent.com/ring-lang/ring/master/applications/stockanalysis/stockanalysis.png)
 
+# Install
+
+	ringpm install stockanalysis from ringpackages
+
+# Run
+
+	ringpm run stockanalysis
