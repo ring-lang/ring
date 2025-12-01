@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.21",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -26,7 +26,9 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"bin/load/tokenslib.ring",
 		"libraries/tokenslib/globals.ring",
-		"libraries/tokenslib/tokenslib.ring"
+		"libraries/tokenslib/tokenslib.ring",
+		"libraries/tokenslib/functions.ring",
+		"libraries/tokenslib/ringtokens.ring"
 	],
 	:windowsfiles = 	[
 
