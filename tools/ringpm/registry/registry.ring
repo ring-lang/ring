@@ -866,5 +866,9 @@ aPackagesRegistry = [
 	[ :name = "uuid",
           :description = "UUID extension for the Ring Programming Language",
           :ProviderUserName = "ysdragon"
+	],
+	[ :name = "stockanalysis",
+	  :description = "Stock Analysis application developed using the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
