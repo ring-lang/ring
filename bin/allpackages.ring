@@ -22,7 +22,8 @@ aAllPackagesInfo = [
 	:ringcurl = 	[
 		"internetlib",
 		"stdlib",
-		"CitationsPrediction"
+		"CitationsPrediction",
+		"stockanalysis"
 	],
 	:ringzip = 	[
 		"ringqt",
@@ -139,7 +140,8 @@ aAllPackagesInfo = [
 		"hourscounter",
 		"imagepixel",
 		"snakesandladders2",
-		"trianglecalculator"
+		"trianglecalculator",
+		"stockanalysis"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -231,7 +233,8 @@ aAllPackagesInfo = [
 		"hourscounter",
 		"imagepixel",
 		"snakesandladders2",
-		"trianglecalculator"
+		"trianglecalculator",
+		"stockanalysis"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -338,7 +341,8 @@ aAllPackagesInfo = [
 	:jsonlib = 	[
 		"CitationsPrediction",
 		"RandomUser",
-		"randomuser"
+		"randomuser",
+		"stockanalysis"
 	],
 	:weblib = 	[
 		"httplib",
