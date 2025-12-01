@@ -360,6 +360,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/lecturestracker" >Lectures Tracker application</a>',
 				'<img src="images/lecturestracker.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/stockanalysis" >Stock Analysis application</a>',
+				'<img src="images/stockanalysis.png" width="100%">'
 			]
 		]
 	],
