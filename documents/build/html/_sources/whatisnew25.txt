@@ -286,6 +286,9 @@ Output:
 More Improvements
 =================
 
+* GoldMagic800 game - Use checkRingCode()
+* GoldMagic800 Levels Designer - Use checkRingCode()
+* Lectures Tracker application - Use checkRingCode()
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
