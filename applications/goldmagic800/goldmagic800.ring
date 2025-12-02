@@ -5,6 +5,7 @@
 # Load Libraries
 
 	load "stdlibcore.ring"
+	load "tokenslib.ring"
 	load "gamelib.ring"
 	load "opengl21lib.ring"
 

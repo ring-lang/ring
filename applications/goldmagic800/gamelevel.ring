@@ -44,7 +44,12 @@ class GameLevel
 		if nLevel = 1  nScore = 0 ok
 		cFileName = "levels/level"+nLevel+".level"
 		if ! fexists(cFileName) return ok
-		eval(read(cFileName))
+		cLevelCode = read(cFileName)
+		if ! checkRingCode([:code = cLevelCode])
+			? "Sorry, the file " + cFileName + " doesn't pass the security check!"
+			return 
+		ok
+		eval(cLevelCode)
 		aLevel=aLevelData
 		nActiveDoor = 0
 		nDoorsCount = 0
