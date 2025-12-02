@@ -2,6 +2,7 @@
 
 load "libcurl.ring"
 load "jsonlib.ring"
+load "guilib.ring" 
 
 class StockFetcher
     func fetch(cSymbol, cInterval, cRange)
@@ -10,15 +11,23 @@ class StockFetcher
         
         # Build cURL command with User-Agent to bypass blocking
         # Using -s (silent), -A (browser spoofing), and -o (save to file)
-        cCmd = 'curl -s -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" "' + cUrl + '" -o ' + cTempFile
-        
-        # Execute the command
-        system(cCmd)
+
+		new qProcess(NULL) {
+			aArg = new qStringList() {
+				Append("-s")
+				Append("-A")
+				Append("Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
+				Append(cUrl)
+				Append("-o")
+				Append(cTempFile)
+			}
+			start("curl",aArg,QIODevice_ReadWrite)
+		}
         
         cOutput = ""
         if fexists(cTempFile)
             cOutput = read(cTempFile)
-            system("del " + cTempFile)
+            remove(cTempFile)
         ok
         
         return cOutput
