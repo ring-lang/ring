@@ -5,6 +5,7 @@
 
 load "editorView.ring"
 load "editorConstants.ring"
+load "tokenslib.ring"
 
 import System.GUI
 
@@ -123,9 +124,14 @@ class editorController from windowsControllerParent
 		UpdateGoldMarkCount()
 
 	func LoadLevelFile cName
+		cLevelCode = read(cName)
+		if ! checkRingCode([:code = cLevelCode])
+			msginfo(:Sorry,"The file " + cName + " doesn't pass the security check!")
+			return 
+		ok
 		this.oView.lblFile.setText("File : " + JustFileName(cName))
 		this.cCurrentFileName = cName
-		eval(read(cName))
+		eval(cLevelCode)
 		this.aLevel = aLevelData 
 		for y = 1 to C_ROWS
 			for x = 1 to C_COLS
