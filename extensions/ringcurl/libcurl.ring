@@ -16,6 +16,12 @@ func curl_easy_setopt p1,p2,p3
 	if isnumber(p3)
 		curl_easy_setopt_1(p1,p2,p3)
 	but isstring(p3)
+		if p2 = CURLOPT_WRITEFUNCTION or p2 = CURLOPT_READFUNCTION or p2 = CURLOPT_HEADERFUNCTION or p2 = CURLOPT_XFERINFOFUNCTION
+			if not substr(p3, "()")
+				p3 = p3 + "()"
+			ok
+			return curl_setopt_callback(p1,p2,p3)
+		ok
 		curl_easy_setopt_2(p1,p2,p3)
 	but ispointer(p3)
 		if type(p3) = "void"
