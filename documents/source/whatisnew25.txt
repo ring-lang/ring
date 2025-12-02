@@ -290,4 +290,5 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
+* RingLibCurl - Support Curl callbacks
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
