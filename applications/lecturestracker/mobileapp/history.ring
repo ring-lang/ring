@@ -7,7 +7,12 @@
 func readHistoryFile 
 
 	if fexists(historyFileName()) 
-		eval(read(historyFileName()))
+		cHistoryFileContent = read(historyFileName())
+		if ! checkRingCode([:code = cHistoryFileContent])
+			msginfo("Sorry","The file " + historyFileName() + " doesn't pass the security check!")
+			return 
+		ok
+		eval(cHistoryFileContent)
 	ok
 
 func writeHistoryFile 
