@@ -416,6 +416,7 @@ static List *pRingCurlCallbacks = NULL;
 void ring_curl_register_callback(CURL *pCurl, int nOption, RingCurlData *pData) {
 	List *pList;
 	int x;
+	ring_vm_mutexlock(pData->pVM);
 	if (pRingCurlCallbacks == NULL) {
 		pRingCurlCallbacks = ring_list_new(0);
 	}
@@ -429,6 +430,7 @@ void ring_curl_register_callback(CURL *pCurl, int nOption, RingCurlData *pData) 
 			ring_state_free(pData->pVM->pRingState, pOldData);
 			// Update
 			ring_list_setpointer(pList, 3, pData);
+			ring_vm_mutexunlock(pData->pVM);
 			return;
 		}
 	}
@@ -437,12 +439,17 @@ void ring_curl_register_callback(CURL *pCurl, int nOption, RingCurlData *pData) 
 	ring_list_addpointer(pList, pCurl);
 	ring_list_adddouble(pList, (double)nOption);
 	ring_list_addpointer(pList, pData);
+	ring_vm_mutexunlock(pData->pVM);
 }
 
-void ring_curl_unregister_callback(CURL *pCurl) {
+void ring_curl_unregister_callback(CURL *pCurl, VM *pVM) {
 	List *pList;
 	int x;
-	if (pRingCurlCallbacks == NULL) return;
+	ring_vm_mutexlock(pVM);
+	if (pRingCurlCallbacks == NULL) {
+		ring_vm_mutexunlock(pVM);
+		return;
+	}
 	for(x=ring_list_getsize(pRingCurlCallbacks); x>=1; x--) {
 		pList = ring_list_getlist(pRingCurlCallbacks, x);
 		if (ring_list_getpointer(pList, 1) == pCurl) {
@@ -453,6 +460,7 @@ void ring_curl_unregister_callback(CURL *pCurl) {
 			ring_list_deleteitem(pRingCurlCallbacks, x);
 		}
 	}
+	ring_vm_mutexunlock(pVM);
 }
 
 size_t ring_curl_write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {
@@ -603,11 +611,13 @@ RING_FUNC(ring_curl_setopt_callback) {
 }
 
 RING_FUNC(ring_curl_set_read_data) {
+	VM *pVM = (VM *) pPointer;
 	if (RING_API_PARACOUNT != 1 || !RING_API_ISSTRING(1)) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
 	
+	ring_vm_mutexlock(pVM);
 	if (pRingCurlCallbacks != NULL) {
 		int x;
 		List *pList;
@@ -625,6 +635,7 @@ RING_FUNC(ring_curl_set_read_data) {
 					pData->pReadDataBuffer = (char *) malloc(pData->nReadDataSize);
 					if (pData->pReadDataBuffer == NULL) {
 						RING_API_ERROR(RING_OOM);
+						ring_vm_mutexunlock(pVM);
 						return;
 					}
 					memcpy(pData->pReadDataBuffer, RING_API_GETSTRING(1), pData->nReadDataSize);
@@ -632,14 +643,18 @@ RING_FUNC(ring_curl_set_read_data) {
 				} else {
 					pData->pReadData = NULL;
 				}
+				ring_vm_mutexunlock(pVM);
 				return;
 			}
 		}
 	}
+	ring_vm_mutexunlock(pVM);
 }
 
 RING_FUNC(ring_curl_get_progress_info) {
+	VM *pVM = (VM *) pPointer;
 	List *pList = RING_API_NEWLIST;
+	ring_vm_mutexlock(pVM);
 	if (pRingCurlCallbacks != NULL) {
 		int x;
 		List *pList2;
@@ -651,11 +666,13 @@ RING_FUNC(ring_curl_get_progress_info) {
 				ring_list_adddouble(pList, pData->dlnow);
 				ring_list_adddouble(pList, pData->ultotal);
 				ring_list_adddouble(pList, pData->ulnow);
+				ring_vm_mutexunlock(pVM);
 				RING_API_RETLIST(pList);
 				return;
 			}
 		}
 	}
+	ring_vm_mutexunlock(pVM);
 	ring_list_adddouble(pList, 0.0);
 	ring_list_adddouble(pList, 0.0);
 	ring_list_adddouble(pList, 0.0);
@@ -664,10 +681,12 @@ RING_FUNC(ring_curl_get_progress_info) {
 }
 
 RING_FUNC(ring_curl_set_progress_result) {
+	VM *pVM = (VM *) pPointer;
 	if (RING_API_PARACOUNT != 1 || !RING_API_ISNUMBER(1)) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
+	ring_vm_mutexlock(pVM);
 	if (pRingCurlCallbacks != NULL) {
 		int x;
 		List *pList;
@@ -676,10 +695,12 @@ RING_FUNC(ring_curl_set_progress_result) {
 			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
 			if (pData->pVM == (VM *) pPointer && pData->lActive) {
 				pData->progress_result = (int)RING_API_GETNUMBER(1);
+				ring_vm_mutexunlock(pVM);
 				return;
 			}
 		}
 	}
+	ring_vm_mutexunlock(pVM);
 }
 
 RING_FUNC(ring_curl_easy_cleanup)
@@ -693,7 +714,7 @@ RING_FUNC(ring_curl_easy_cleanup)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	ring_curl_unregister_callback((CURL *) RING_API_GETCPOINTER(1,"CURL"));
+	ring_curl_unregister_callback((CURL *) RING_API_GETCPOINTER(1,"CURL"), (VM *) pPointer);
 	curl_easy_cleanup((CURL *) RING_API_GETCPOINTER(1,"CURL"));
 }
 
@@ -705,6 +726,8 @@ RING_FUNC(ring_curl_global_cleanup)
 	}
 	RING_API_IGNORECPOINTERTYPE ;
 	
+	VM *pVM = (VM *) pPointer;
+	ring_vm_mutexlock(pVM);
 	if (pRingCurlCallbacks != NULL) {
 		List *pList;
 		int x;
@@ -717,11 +740,14 @@ RING_FUNC(ring_curl_global_cleanup)
 		ring_list_delete(pRingCurlCallbacks);
 		pRingCurlCallbacks = NULL;
 	}
+	ring_vm_mutexunlock(pVM);
 
 	curl_global_cleanup();
 }
 
 RING_FUNC(ring_curl_get_data) {
+	VM *pVM = (VM *) pPointer;
+	ring_vm_mutexlock(pVM);
 	if (pRingCurlCallbacks != NULL) {
 		int x;
 		List *pList;
@@ -734,10 +760,12 @@ RING_FUNC(ring_curl_get_data) {
 				} else {
 					RING_API_RETSTRING("");
 				}
+				ring_vm_mutexunlock(pVM);
 				return;
 			}
 		}
 	}
+	ring_vm_mutexunlock(pVM);
 	RING_API_RETSTRING("");
 }
 </code>
