@@ -374,6 +374,8 @@ aNumberTypes + "CURLoption"
 aNumberTypes + "long"
 aEnumTypes + "CURLINFO"
 aEnumTypes + "CURLformoption"
+aEnumTypes + "CURLcode"
+aEnumTypes + "CURLMcode"
 </runcode>
 
 CURLcode curl_global_init(long flags)
@@ -783,6 +785,8 @@ CURLcode curl_simple_getinfo@3(CURL *handle, CURLINFO info)
 
 char *curl_version(void)
 time_t curl_getdate(char * datestring , time_t *now )
+const char *curl_easy_strerror(CURLcode)
+const char *curl_multi_strerror(CURLMcode)
 
 <comment>
 CURLFORMcode curl_formadd(struct curl_httppost ** firstitem, struct curl_httppost ** lastitem, ...)
