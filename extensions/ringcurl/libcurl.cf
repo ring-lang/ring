@@ -398,24 +398,22 @@ size_t ring_getcurldata ( void *buffer, size_t size, size_t nmemb, void *pString
 typedef struct {
 	VM *pVM;
 	char cCode[256];
-} RingCurlWriteData;
-
-static char *pCurrentCurlData = NULL;
-static size_t nCurrentCurlDataSize = 0;
-
-static char *pReadData = NULL;
-static size_t nReadDataSize = 0;
-static char *pReadDataBuffer = NULL;
-
-static double g_dltotal = 0;
-static double g_dlnow = 0;
-static double g_ultotal = 0;
-static double g_ulnow = 0;
-static int g_progress_result = 0;
+	double dltotal;
+	double dlnow;
+	double ultotal;
+	double ulnow;
+	int progress_result;
+	int lActive;
+	char *pCurrentCurlData;
+	size_t nCurrentCurlDataSize;
+	char *pReadData;
+	size_t nReadDataSize;
+	char *pReadDataBuffer;
+} RingCurlData;
 
 static List *pRingCurlCallbacks = NULL;
 
-void ring_curl_register_callback(CURL *pCurl, int nOption, RingCurlWriteData *pData) {
+void ring_curl_register_callback(CURL *pCurl, int nOption, RingCurlData *pData) {
 	List *pList;
 	int x;
 	if (pRingCurlCallbacks == NULL) {
@@ -426,7 +424,9 @@ void ring_curl_register_callback(CURL *pCurl, int nOption, RingCurlWriteData *pD
 		pList = ring_list_getlist(pRingCurlCallbacks, x);
 		if (ring_list_getpointer(pList, 1) == pCurl && (int)ring_list_getdouble(pList, 2) == nOption) {
 			// Free old data
-			ring_state_free(pData->pVM->pRingState, ring_list_getpointer(pList, 3));
+			RingCurlData *pOldData = (RingCurlData *) ring_list_getpointer(pList, 3);
+			if (pOldData->pReadDataBuffer) free(pOldData->pReadDataBuffer);
+			ring_state_free(pData->pVM->pRingState, pOldData);
 			// Update
 			ring_list_setpointer(pList, 3, pData);
 			return;
@@ -447,7 +447,8 @@ void ring_curl_unregister_callback(CURL *pCurl) {
 		pList = ring_list_getlist(pRingCurlCallbacks, x);
 		if (ring_list_getpointer(pList, 1) == pCurl) {
 			// Free data
-			RingCurlWriteData *pData = (RingCurlWriteData *) ring_list_getpointer(pList, 3);
+			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
+			if (pData->pReadDataBuffer) free(pData->pReadDataBuffer);
 			ring_state_free(pData->pVM->pRingState, pData);
 			ring_list_deleteitem(pRingCurlCallbacks, x);
 		}
@@ -455,33 +456,37 @@ void ring_curl_unregister_callback(CURL *pCurl) {
 }
 
 size_t ring_curl_write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {
-	RingCurlWriteData *pData = (RingCurlWriteData *)userdata;
+	RingCurlData *pData = (RingCurlData *)userdata;
 	size_t nTotal = size * nmemb;
-	pCurrentCurlData = ptr;
-	nCurrentCurlDataSize = nTotal;
+	pData->pCurrentCurlData = ptr;
+	pData->nCurrentCurlDataSize = nTotal;
+	pData->lActive = 1;
 	ring_vm_runcode(pData->pVM, pData->cCode);
-	pCurrentCurlData = NULL;
-	nCurrentCurlDataSize = 0;
+	pData->lActive = 0;
+	pData->pCurrentCurlData = NULL;
+	pData->nCurrentCurlDataSize = 0;
 	return nTotal;
 }
 
 size_t ring_curl_read_callback(char *buffer, size_t size, size_t nitems, void *userdata) {
-	RingCurlWriteData *pData = (RingCurlWriteData *)userdata;
+	RingCurlData *pData = (RingCurlData *)userdata;
 	size_t nMax = size * nitems;
 	
-	pReadData = NULL;
-	nReadDataSize = 0;
-	if (pReadDataBuffer) { free(pReadDataBuffer); pReadDataBuffer = NULL; }
+	pData->pReadData = NULL;
+	pData->nReadDataSize = 0;
+	if (pData->pReadDataBuffer) { free(pData->pReadDataBuffer); pData->pReadDataBuffer = NULL; }
 	
+	pData->lActive = 1;
 	ring_vm_runcode(pData->pVM, pData->cCode);
+	pData->lActive = 0;
 	
-	if (nReadDataSize > 0 && pReadDataBuffer) {
-		size_t nCopy = (nReadDataSize < nMax) ? nReadDataSize : nMax;
-		memcpy(buffer, pReadDataBuffer, nCopy);
+	if (pData->nReadDataSize > 0 && pData->pReadDataBuffer) {
+		size_t nCopy = (pData->nReadDataSize < nMax) ? pData->nReadDataSize : nMax;
+		memcpy(buffer, pData->pReadDataBuffer, nCopy);
 		
-		free(pReadDataBuffer);
-		pReadDataBuffer = NULL;
-		pReadData = NULL;
+		free(pData->pReadDataBuffer);
+		pData->pReadDataBuffer = NULL;
+		pData->pReadData = NULL;
 		
 		return nCopy;
 	}
@@ -493,17 +498,20 @@ size_t ring_curl_header_callback(char *buffer, size_t size, size_t nitems, void 
 }
 
 int ring_curl_progress_callback(void *clientp, curl_off_t dltotal, curl_off_t dlnow, curl_off_t ultotal, curl_off_t ulnow) {
-	RingCurlWriteData *pData = (RingCurlWriteData *)clientp;
+	RingCurlData *pData = (RingCurlData *)clientp;
 	
-	g_dltotal = (double)dltotal;
-	g_dlnow = (double)dlnow;
-	g_ultotal = (double)ultotal;
-	g_ulnow = (double)ulnow;
-	g_progress_result = 0;
+	pData->dltotal = (double)dltotal;
+	pData->dlnow = (double)dlnow;
+	pData->ultotal = (double)ultotal;
+	pData->ulnow = (double)ulnow;
+	pData->progress_result = 0;
+	pData->lActive = 1;
 	
 	ring_vm_runcode(pData->pVM, pData->cCode);
+
+	pData->lActive = 0;
 	
-	return g_progress_result;
+	return pData->progress_result;
 }
 
 RING_FUNC(ring_curl_easy_perform_silent)
@@ -529,7 +537,7 @@ RING_FUNC(ring_curl_easy_perform_silent)
 }
 
 RING_FUNC(ring_curl_setopt_callback) {
-	RingCurlWriteData *pData;
+	RingCurlData *pData;
 	int nOption;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -550,10 +558,21 @@ RING_FUNC(ring_curl_setopt_callback) {
 	
 	nOption = (int) RING_API_GETNUMBER(2);
 	
-	pData = (RingCurlWriteData *) RING_API_MALLOC(sizeof(RingCurlWriteData));
+	pData = (RingCurlData *) RING_API_MALLOC(sizeof(RingCurlData));
 	pData->pVM = (VM *) pPointer;
 	strncpy(pData->cCode, RING_API_GETSTRING(3), 255);
 	pData->cCode[255] = '\0';
+	pData->dltotal = 0;
+	pData->dlnow = 0;
+	pData->ultotal = 0;
+	pData->ulnow = 0;
+	pData->progress_result = 0;
+	pData->lActive = 0;
+	pData->pCurrentCurlData = NULL;
+	pData->nCurrentCurlDataSize = 0;
+	pData->pReadData = NULL;
+	pData->nReadDataSize = 0;
+	pData->pReadDataBuffer = NULL;
 	
 	ring_curl_register_callback((CURL *) RING_API_GETCPOINTER(1,"CURL"), nOption, pData);
 
@@ -589,31 +608,58 @@ RING_FUNC(ring_curl_set_read_data) {
 		return;
 	}
 	
-	if (pReadDataBuffer) {
-		free(pReadDataBuffer);
-		pReadDataBuffer = NULL;
-	}
-	
-	nReadDataSize = RING_API_GETSTRINGSIZE(1);
-	if (nReadDataSize > 0) {
-		pReadDataBuffer = (char *) malloc(nReadDataSize);
-		if (pReadDataBuffer == NULL) {
-			RING_API_ERROR(RING_OOM);
-			return;
+	if (pRingCurlCallbacks != NULL) {
+		int x;
+		List *pList;
+		for(x=1; x<=ring_list_getsize(pRingCurlCallbacks); x++) {
+			pList = ring_list_getlist(pRingCurlCallbacks, x);
+			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
+			if (pData->pVM == (VM *) pPointer && pData->lActive) {
+				if (pData->pReadDataBuffer) {
+					free(pData->pReadDataBuffer);
+					pData->pReadDataBuffer = NULL;
+				}
+				
+				pData->nReadDataSize = RING_API_GETSTRINGSIZE(1);
+				if (pData->nReadDataSize > 0) {
+					pData->pReadDataBuffer = (char *) malloc(pData->nReadDataSize);
+					if (pData->pReadDataBuffer == NULL) {
+						RING_API_ERROR(RING_OOM);
+						return;
+					}
+					memcpy(pData->pReadDataBuffer, RING_API_GETSTRING(1), pData->nReadDataSize);
+					pData->pReadData = pData->pReadDataBuffer;
+				} else {
+					pData->pReadData = NULL;
+				}
+				return;
+			}
 		}
-		memcpy(pReadDataBuffer, RING_API_GETSTRING(1), nReadDataSize);
-		pReadData = pReadDataBuffer;
-	} else {
-		pReadData = NULL;
 	}
 }
 
 RING_FUNC(ring_curl_get_progress_info) {
 	List *pList = RING_API_NEWLIST;
-	ring_list_adddouble(pList, g_dltotal);
-	ring_list_adddouble(pList, g_dlnow);
-	ring_list_adddouble(pList, g_ultotal);
-	ring_list_adddouble(pList, g_ulnow);
+	if (pRingCurlCallbacks != NULL) {
+		int x;
+		List *pList2;
+		for(x=1; x<=ring_list_getsize(pRingCurlCallbacks); x++) {
+			pList2 = ring_list_getlist(pRingCurlCallbacks, x);
+			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList2, 3);
+			if (pData->pVM == (VM *) pPointer && pData->lActive) {
+				ring_list_adddouble(pList, pData->dltotal);
+				ring_list_adddouble(pList, pData->dlnow);
+				ring_list_adddouble(pList, pData->ultotal);
+				ring_list_adddouble(pList, pData->ulnow);
+				RING_API_RETLIST(pList);
+				return;
+			}
+		}
+	}
+	ring_list_adddouble(pList, 0.0);
+	ring_list_adddouble(pList, 0.0);
+	ring_list_adddouble(pList, 0.0);
+	ring_list_adddouble(pList, 0.0);
 	RING_API_RETLIST(pList);
 }
 
@@ -622,7 +668,18 @@ RING_FUNC(ring_curl_set_progress_result) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	g_progress_result = (int)RING_API_GETNUMBER(1);
+	if (pRingCurlCallbacks != NULL) {
+		int x;
+		List *pList;
+		for(x=1; x<=ring_list_getsize(pRingCurlCallbacks); x++) {
+			pList = ring_list_getlist(pRingCurlCallbacks, x);
+			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
+			if (pData->pVM == (VM *) pPointer && pData->lActive) {
+				pData->progress_result = (int)RING_API_GETNUMBER(1);
+				return;
+			}
+		}
+	}
 }
 
 RING_FUNC(ring_curl_easy_cleanup)
@@ -653,27 +710,35 @@ RING_FUNC(ring_curl_global_cleanup)
 		int x;
 		for(x=1; x<=ring_list_getsize(pRingCurlCallbacks); x++) {
 			pList = ring_list_getlist(pRingCurlCallbacks, x);
-			RingCurlWriteData *pData = (RingCurlWriteData *) ring_list_getpointer(pList, 3);
+			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
+			if (pData->pReadDataBuffer) free(pData->pReadDataBuffer);
 			ring_state_free(pData->pVM->pRingState, pData);
 		}
 		ring_list_delete(pRingCurlCallbacks);
 		pRingCurlCallbacks = NULL;
 	}
 
-	if (pReadDataBuffer) {
-		free(pReadDataBuffer);
-		pReadDataBuffer = NULL;
-	}
-
 	curl_global_cleanup();
 }
 
 RING_FUNC(ring_curl_get_data) {
-	if (pCurrentCurlData) {
-		RING_API_RETSTRING2(pCurrentCurlData, nCurrentCurlDataSize);
-	} else {
-		RING_API_RETSTRING("");
+	if (pRingCurlCallbacks != NULL) {
+		int x;
+		List *pList;
+		for(x=1; x<=ring_list_getsize(pRingCurlCallbacks); x++) {
+			pList = ring_list_getlist(pRingCurlCallbacks, x);
+			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
+			if (pData->pVM == (VM *) pPointer && pData->lActive) {
+				if (pData->pCurrentCurlData) {
+					RING_API_RETSTRING2(pData->pCurrentCurlData, pData->nCurrentCurlDataSize);
+				} else {
+					RING_API_RETSTRING("");
+				}
+				return;
+			}
+		}
 	}
+	RING_API_RETSTRING("");
 }
 </code>
 
