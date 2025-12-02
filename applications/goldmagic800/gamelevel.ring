@@ -46,7 +46,7 @@ class GameLevel
 		if ! fexists(cFileName) return ok
 		cLevelCode = read(cFileName)
 		if ! checkRingCode([:code = cLevelCode])
-			? "Sorry, the file " + cFileName + " doesn't pass the security check!"
+			CheckFatalError(NULL,"Sorry, the file " + cFileName + " doesn't pass the security check!")
 			return 
 		ok
 		eval(cLevelCode)
