@@ -3,7 +3,7 @@ func main
 	? copy("=",C_LINESIZE)
 	? "StockAnalysis Package"
 	? copy("=",C_LINESIZE)
-	? "Cards package for the Ring programming language"
+	? "StockAnalysis package for the Ring programming language"
 	? "See the folder : ring/applications/stockanalysis"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
