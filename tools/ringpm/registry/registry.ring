@@ -870,5 +870,9 @@ aPackagesRegistry = [
 	[ :name = "stockanalysis",
 	  :description = "Stock Analysis application developed using the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "lecturestracker",
+	  :description = "Lectures Tracker application developed using the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
