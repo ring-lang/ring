@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "stockanalysis",
 		:branch = "master",
-		:version = "1.0.2",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -143,6 +143,20 @@ aLockInfo = [
 		:name = "jsonlib",
 		:branch = "master",
 		:version = "1.0.21",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringcurl",
+		:branch = "master",
+		:version = "1.0.16",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.15",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
