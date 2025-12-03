@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.4",
+	:version = "1.0.5",
 	:ringversion = "1.22",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -21,6 +21,11 @@ aPackageInfo = [
 		],
 		[
 			:name = "ringopengl21",
+			:version = "1.0",
+			:providerusername = ""
+		],
+		[
+			:name = "tokenslib",
 			:version = "1.0",
 			:providerusername = ""
 		]

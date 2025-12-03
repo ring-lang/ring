@@ -330,7 +330,8 @@ aAllPackagesInfo = [
 
 	],
 	:tokenslib = 	[
-		"jsonlib"
+		"jsonlib",
+		"goldmagic800"
 	],
 	:libdepwin_allegro524 = 	[
 
