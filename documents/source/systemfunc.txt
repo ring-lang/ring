@@ -396,6 +396,11 @@ Output
 	9
 	10
 
+
+.. note:: It is recommended to use AppArguments() to avoid including the executable name and script file name, which are stored in SysArgv
+
+.. tip:: In Ring, the AppArguments() function is provided by the stdlibcore.ring library.
+
 .. index:: 
 	pair: System Functions; Get Active Source File Name
 
