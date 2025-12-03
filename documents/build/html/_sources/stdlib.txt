@@ -84,6 +84,76 @@ Example:
 	else see "Ring script arguments = " + nl + list2str(argsList) + nl ok
 
 .. index:: 
+	pair: Stdlib Functions; AppArguments() vs SysArgv
+
+AppArguments() vs SysArgv
+=========================
+
+Program Name: ``apparg.ring``
+
+.. code-block:: ring
+
+   load "stdlibcore.ring"
+
+   ? sysargv
+   ? "******"
+   ? apparguments()
+   ? "******"
+
+Test 1
+------
+
+Run:
+
+.. code-block:: bash
+
+   ring apparg.ring para1 para2
+
+Output:
+
+.. code-block:: text
+
+   ring
+   apparg.ring
+   para1
+   para2
+
+   ******
+   para1
+   para2
+   ******
+
+Explanation:
+   Using ``appArguments()`` we only get ``para1`` and ``para2`` — the arguments we care about.
+
+
+Test 2
+------
+
+Run:
+
+.. code-block:: bash
+
+   ring2exe apparg.ring -static
+   apparg para1 para2
+
+Output:
+
+.. code-block:: text
+
+   apparg
+   para1
+   para2
+
+   ******
+   para1
+   para2
+   ******
+
+Explanation:
+   Again, ``appArguments()`` returns only ``para1`` and ``para2`` — the relevant arguments.
+
+.. index:: 
 	pair: Stdlib Functions; apppath() Function
 
 AppPath() Function
