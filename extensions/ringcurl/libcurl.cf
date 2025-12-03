@@ -755,18 +755,14 @@ RING_FUNC(ring_curl_get_data) {
 			pList = ring_list_getlist(pRingCurlCallbacks, x);
 			RingCurlData *pData = (RingCurlData *) ring_list_getpointer(pList, 3);
 			if (pData->pVM == (VM *) pPointer && pData->lActive) {
-				if (pData->pCurrentCurlData) {
+				if (pData->pCurrentCurlData) 
 					RING_API_RETSTRING2(pData->pCurrentCurlData, pData->nCurrentCurlDataSize);
-				} else {
-					RING_API_RETSTRING("");
-				}
 				ring_vm_mutexunlock(pVM);
 				return;
 			}
 		}
 	}
 	ring_vm_mutexunlock(pVM);
-	RING_API_RETSTRING("");
 }
 </code>
 
@@ -807,11 +803,8 @@ RING_FUNC(ring_curl_simple_getinfo_1)
 		return ;
 	}
 	res = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO) (int) RING_API_GETNUMBER(2), &sValue);
-	if (res == CURLE_OK && sValue != NULL) {
+	if (res == CURLE_OK && sValue != NULL) 
 		RING_API_RETSTRING(sValue);
-	} else {
-		RING_API_RETSTRING("");
-	}
 }
 
 
