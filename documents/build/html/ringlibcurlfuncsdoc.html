@@ -131,7 +131,11 @@
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RingLibCurl Functions Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -222,362 +226,378 @@
 <span id="index-0"></span><h1>RingLibCurl Functions Reference<a class="headerlink" href="#ringlibcurl-functions-reference" title="Permalink to this heading"></a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
-<p>In this chapter we have a list of the supported functions by this extension</p>
+<p>In this chapter we have a list of the supported functions and constants by this extension.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
+<section id="constants">
+<h3>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>CURL_GLOBAL_ALL</p></li>
-<li><p>CURL_GLOBAL_SSL</p></li>
-<li><p>CURL_GLOBAL_WIN32</p></li>
-<li><p>CURL_GLOBAL_NOTHING</p></li>
-<li><p>CURL_GLOBAL_DEFAULT</p></li>
-<li><p>CURL_GLOBAL_ACK_EINTR</p></li>
-<li><p>CURLOPT_VERBOSE</p></li>
-<li><p>CURLOPT_HEADER</p></li>
-<li><p>CURLOPT_NOPROGRESS</p></li>
-<li><p>CURLOPT_NOSIGNAL</p></li>
-<li><p>CURLOPT_WILDCARDMATCH</p></li>
-<li><p>CURLOPT_WRITEFUNCTION</p></li>
-<li><p>CURLOPT_WRITEDATA</p></li>
-<li><p>CURLOPT_READFUNCTION</p></li>
-<li><p>CURLOPT_READDATA</p></li>
-<li><p>CURLOPT_IOCTLFUNCTION</p></li>
-<li><p>CURLOPT_IOCTLDATA</p></li>
-<li><p>CURLOPT_SEEKFUNCTION</p></li>
-<li><p>CURLOPT_SEEKDATA</p></li>
-<li><p>CURLOPT_SOCKOPTFUNCTION</p></li>
-<li><p>CURLOPT_SOCKOPTDATA</p></li>
-<li><p>CURLOPT_OPENSOCKETFUNCTION</p></li>
-<li><p>CURLOPT_OPENSOCKETDATA</p></li>
-<li><p>CURLOPT_CLOSESOCKETFUNCTION</p></li>
-<li><p>CURLOPT_CLOSESOCKETDATA</p></li>
-<li><p>CURLOPT_PROGRESSFUNCTION</p></li>
-<li><p>CURLOPT_PROGRESSDATA</p></li>
-<li><p>CURLOPT_HEADERFUNCTION</p></li>
-<li><p>CURLOPT_HEADERDATA</p></li>
-<li><p>CURLOPT_DEBUGFUNCTION</p></li>
-<li><p>CURLOPT_DEBUGDATA</p></li>
-<li><p>CURLOPT_SSL_CTX_FUNCTION</p></li>
-<li><p>CURLOPT_SSL_CTX_DATA</p></li>
-<li><p>CURLOPT_CONV_TO_NETWORK_FUNCTION</p></li>
-<li><p>CURLOPT_CONV_FROM_NETWORK_FUNCTION</p></li>
-<li><p>CURLOPT_CONV_FROM_UTF8_FUNCTION</p></li>
-<li><p>CURLOPT_INTERLEAVEFUNCTION</p></li>
-<li><p>CURLOPT_INTERLEAVEDATA</p></li>
-<li><p>CURLOPT_CHUNK_BGN_FUNCTION</p></li>
-<li><p>CURLOPT_CHUNK_END_FUNCTION</p></li>
-<li><p>CURLOPT_CHUNK_DATA</p></li>
-<li><p>CURLOPT_FNMATCH_FUNCTION</p></li>
-<li><p>CURLOPT_FNMATCH_DATA</p></li>
-<li><p>CURLOPT_ERRORBUFFER</p></li>
-<li><p>CURLOPT_STDERR</p></li>
-<li><p>CURLOPT_FAILONERROR</p></li>
-<li><p>CURLOPT_URL</p></li>
-<li><p>CURLOPT_PROTOCOLS</p></li>
-<li><p>CURLOPT_REDIR_PROTOCOLS</p></li>
-<li><p>CURLOPT_PROXY</p></li>
-<li><p>CURLOPT_PROXYPORT</p></li>
-<li><p>CURLOPT_PROXYTYPE</p></li>
-<li><p>CURLOPT_NOPROXY</p></li>
-<li><p>CURLOPT_HTTPPROXYTUNNEL</p></li>
-<li><p>CURLOPT_SOCKS5_GSSAPI_SERVICE</p></li>
-<li><p>CURLOPT_SOCKS5_GSSAPI_NEC</p></li>
-<li><p>CURLOPT_INTERFACE</p></li>
-<li><p>CURLOPT_LOCALPORT</p></li>
-<li><p>CURLOPT_LOCALPORTRANGE</p></li>
-<li><p>CURLOPT_DNS_CACHE_TIMEOUT</p></li>
-<li><p>CURLOPT_DNS_USE_GLOBAL_CACHE</p></li>
-<li><p>CURLOPT_BUFFERSIZE</p></li>
-<li><p>CURLOPT_PORT</p></li>
-<li><p>CURLOPT_TCP_NODELAY</p></li>
-<li><p>CURLOPT_ADDRESS_SCOPE</p></li>
-<li><p>CURLOPT_NETRC</p></li>
-<li><p>CURLOPT_NETRC_FILE</p></li>
-<li><p>CURLOPT_USERPWD</p></li>
-<li><p>CURLOPT_PROXYUSERPWD</p></li>
-<li><p>CURLOPT_USERNAME</p></li>
-<li><p>CURLOPT_PASSWORD</p></li>
-<li><p>CURLOPT_PROXYUSERNAME</p></li>
-<li><p>CURLOPT_PROXYPASSWORD</p></li>
-<li><p>CURLOPT_HTTPAUTH</p></li>
-<li><p>CURLOPT_TLSAUTH_USERNAME</p></li>
-<li><p>CURLOPT_TLSAUTH_PASSWORD</p></li>
-<li><p>CURLOPT_TLSAUTH_TYPE</p></li>
-<li><p>CURLOPT_PROXYAUTH</p></li>
-<li><p>CURLOPT_AUTOREFERER</p></li>
-<li><p>CURLOPT_ACCEPT_ENCODING</p></li>
-<li><p>CURLOPT_TRANSFER_ENCODING</p></li>
-<li><p>CURLOPT_FOLLOWLOCATION</p></li>
-<li><p>CURLOPT_UNRESTRICTED_AUTH</p></li>
-<li><p>CURLOPT_MAXREDIRS</p></li>
-<li><p>CURLOPT_POSTREDIR</p></li>
-<li><p>CURLOPT_PUT</p></li>
-<li><p>CURLOPT_POST</p></li>
-<li><p>CURLOPT_POSTFIELDS</p></li>
-<li><p>CURLOPT_POSTFIELDSIZE</p></li>
-<li><p>CURLOPT_POSTFIELDSIZE_LARGE</p></li>
-<li><p>CURLOPT_COPYPOSTFIELDS</p></li>
-<li><p>CURLOPT_HTTPPOST</p></li>
-<li><p>CURLOPT_REFERER</p></li>
-<li><p>CURLOPT_USERAGENT</p></li>
-<li><p>CURLOPT_HTTPHEADER</p></li>
-<li><p>CURLOPT_HTTP200ALIASES</p></li>
-<li><p>CURLOPT_COOKIE</p></li>
-<li><p>CURLOPT_COOKIEFILE</p></li>
-<li><p>CURLOPT_COOKIEJAR</p></li>
-<li><p>CURLOPT_COOKIESESSION</p></li>
-<li><p>CURLOPT_COOKIELIST</p></li>
-<li><p>CURLOPT_HTTPGET</p></li>
-<li><p>CURLOPT_HTTP_VERSION</p></li>
-<li><p>CURLOPT_IGNORE_CONTENT_LENGTH</p></li>
-<li><p>CURLOPT_HTTP_CONTENT_DECODING</p></li>
-<li><p>CURLOPT_HTTP_TRANSFER_DECODING</p></li>
-<li><p>CURLOPT_MAIL_FROM</p></li>
-<li><p>CURLOPT_MAIL_RCPT</p></li>
-<li><p>CURLOPT_TFTP_BLKSIZE</p></li>
-<li><p>CURLOPT_FTPPORT</p></li>
-<li><p>CURLOPT_QUOTE</p></li>
-<li><p>CURLOPT_POSTQUOTE</p></li>
-<li><p>CURLOPT_PREQUOTE</p></li>
-<li><p>CURLOPT_APPEND</p></li>
-<li><p>CURLOPT_FTP_USE_EPRT</p></li>
-<li><p>CURLOPT_FTP_USE_EPSV</p></li>
-<li><p>CURLOPT_FTP_USE_PRET</p></li>
-<li><p>CURLOPT_FTP_CREATE_MISSING_DIRS</p></li>
-<li><p>CURLOPT_FTP_RESPONSE_TIMEOUT</p></li>
-<li><p>CURLOPT_FTP_ALTERNATIVE_TO_USER</p></li>
-<li><p>CURLOPT_FTP_SKIP_PASV_IP</p></li>
-<li><p>CURLOPT_FTPSSLAUTH</p></li>
-<li><p>CURLOPT_FTP_SSL_CCC</p></li>
-<li><p>CURLOPT_FTP_ACCOUNT</p></li>
-<li><p>CURLOPT_FTP_FILEMETHOD</p></li>
-<li><p>CURLOPT_RTSP_REQUEST</p></li>
-<li><p>CURLOPT_RTSP_SESSION_ID</p></li>
-<li><p>CURLOPT_RTSP_STREAM_URI</p></li>
-<li><p>CURLOPT_RTSP_TRANSPORT</p></li>
-<li><p>CURLOPT_RTSP_CLIENT_CSEQ</p></li>
-<li><p>CURLOPT_RTSP_SERVER_CSEQ</p></li>
-<li><p>CURLOPT_TRANSFERTEXT</p></li>
-<li><p>CURLOPT_PROXY_TRANSFER_MODE</p></li>
-<li><p>CURLOPT_CRLF</p></li>
-<li><p>CURLOPT_RANGE</p></li>
-<li><p>CURLOPT_RESUME_FROM</p></li>
-<li><p>CURLOPT_RESUME_FROM_LARGE</p></li>
-<li><p>CURLOPT_CUSTOMREQUEST</p></li>
-<li><p>CURLOPT_FILETIME</p></li>
-<li><p>CURLOPT_DIRLISTONLY</p></li>
-<li><p>CURLOPT_NOBODY</p></li>
-<li><p>CURLOPT_INFILESIZE</p></li>
-<li><p>CURLOPT_INFILESIZE_LARGE</p></li>
-<li><p>CURLOPT_UPLOAD</p></li>
-<li><p>CURLOPT_MAXFILESIZE</p></li>
-<li><p>CURLOPT_MAXFILESIZE_LARGE</p></li>
-<li><p>CURLOPT_TIMECONDITION</p></li>
-<li><p>CURLOPT_TIMEVALUE</p></li>
-<li><p>CURLOPT_TIMEOUT</p></li>
-<li><p>CURLOPT_TIMEOUT_MS</p></li>
-<li><p>CURLOPT_LOW_SPEED_LIMIT</p></li>
-<li><p>CURLOPT_LOW_SPEED_TIME</p></li>
-<li><p>CURLOPT_MAX_SEND_SPEED_LARGE</p></li>
-<li><p>CURLOPT_MAX_RECV_SPEED_LARGE</p></li>
-<li><p>CURLOPT_MAXCONNECTS</p></li>
-<li><p>CURLOPT_FRESH_CONNECT</p></li>
-<li><p>CURLOPT_FORBID_REUSE</p></li>
-<li><p>CURLOPT_CONNECTTIMEOUT</p></li>
-<li><p>CURLOPT_CONNECTTIMEOUT_MS</p></li>
-<li><p>CURLOPT_IPRESOLVE</p></li>
-<li><p>CURLOPT_CONNECT_ONLY</p></li>
-<li><p>CURLOPT_USE_SSL</p></li>
-<li><p>CURLOPT_RESOLVE</p></li>
-<li><p>CURLOPT_SSLCERT</p></li>
-<li><p>CURLOPT_SSLCERTTYPE</p></li>
-<li><p>CURLOPT_SSLKEY</p></li>
-<li><p>CURLOPT_SSLKEYTYPE</p></li>
-<li><p>CURLOPT_KEYPASSWD</p></li>
-<li><p>CURLOPT_SSLENGINE</p></li>
-<li><p>CURLOPT_SSLENGINE_DEFAULT</p></li>
-<li><p>CURLOPT_SSLVERSION</p></li>
-<li><p>CURLOPT_SSL_VERIFYHOST</p></li>
-<li><p>CURLOPT_SSL_VERIFYPEER</p></li>
-<li><p>CURLOPT_CAINFO</p></li>
-<li><p>CURLOPT_ISSUERCERT</p></li>
-<li><p>CURLOPT_CAPATH</p></li>
-<li><p>CURLOPT_CRLFILE</p></li>
-<li><p>CURLOPT_CERTINFO</p></li>
-<li><p>CURLOPT_RANDOM_FILE</p></li>
-<li><p>CURLOPT_EGDSOCKET</p></li>
-<li><p>CURLOPT_SSL_CIPHER_LIST</p></li>
-<li><p>CURLOPT_SSL_SESSIONID_CACHE</p></li>
-<li><p>CURLOPT_KRBLEVEL</p></li>
-<li><p>CURLOPT_GSSAPI_DELEGATION</p></li>
-<li><p>CURLOPT_SSH_AUTH_TYPES</p></li>
-<li><p>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</p></li>
-<li><p>CURLOPT_SSH_PUBLIC_KEYFILE</p></li>
-<li><p>CURLOPT_SSH_PRIVATE_KEYFILE</p></li>
-<li><p>CURLOPT_SSH_KNOWNHOSTS</p></li>
-<li><p>CURLOPT_SSH_KEYFUNCTION</p></li>
-<li><p>CURLOPT_SSH_KEYDATA</p></li>
-<li><p>CURLOPT_PRIVATE</p></li>
-<li><p>CURLOPT_SHARE</p></li>
-<li><p>CURLOPT_NEW_FILE_PERMS</p></li>
-<li><p>CURLOPT_NEW_DIRECTORY_PERMS</p></li>
-<li><p>CURLOPT_TELNETOPTIONS</p></li>
-<li><p>CURLE_OK</p></li>
-<li><p>CURLE_UNKNOWN_OPTION</p></li>
-<li><p>CURLE_NOT_BUILT_IN</p></li>
-<li><p>CURLE_AGAIN</p></li>
-<li><p>CURLINFO_EFFECTIVE_URL</p></li>
-<li><p>CURLINFO_RESPONSE_CODE</p></li>
-<li><p>CURLINFO_HTTP_CONNECTCODE</p></li>
-<li><p>CURLINFO_FILETIME</p></li>
-<li><p>CURLINFO_TOTAL_TIME</p></li>
-<li><p>CURLINFO_NAMELOOKUP_TIME</p></li>
-<li><p>CURLINFO_CONNECT_TIME</p></li>
-<li><p>CURLINFO_APPCONNECT_TIME</p></li>
-<li><p>CURLINFO_PRETRANSFER_TIME</p></li>
-<li><p>CURLINFO_STARTTRANSFER_TIME</p></li>
-<li><p>CURLINFO_REDIRECT_TIME</p></li>
-<li><p>CURLINFO_REDIRECT_COUNT</p></li>
-<li><p>CURLINFO_REDIRECT_URL</p></li>
-<li><p>CURLINFO_SIZE_UPLOAD</p></li>
-<li><p>CURLINFO_SIZE_DOWNLOAD</p></li>
-<li><p>CURLINFO_SPEED_DOWNLOAD</p></li>
-<li><p>CURLINFO_SPEED_UPLOAD</p></li>
-<li><p>CURLINFO_HEADER_SIZE</p></li>
-<li><p>CURLINFO_REQUEST_SIZE</p></li>
-<li><p>CURLINFO_SSL_VERIFYRESULT</p></li>
-<li><p>CURLINFO_SSL_ENGINES</p></li>
-<li><p>CURLINFO_CONTENT_LENGTH_DOWNLOAD</p></li>
-<li><p>CURLINFO_CONTENT_LENGTH_UPLOAD</p></li>
-<li><p>CURLINFO_CONTENT_TYPE</p></li>
-<li><p>CURLINFO_PRIVATE</p></li>
-<li><p>CURLINFO_HTTPAUTH_AVAIL</p></li>
-<li><p>CURLINFO_PROXYAUTH_AVAIL</p></li>
-<li><p>CURLINFO_OS_ERRNO</p></li>
-<li><p>CURLINFO_NUM_CONNECTS</p></li>
-<li><p>CURLINFO_PRIMARY_IP</p></li>
-<li><p>CURLINFO_PRIMARY_PORT</p></li>
-<li><p>CURLINFO_LOCAL_IP</p></li>
-<li><p>CURLINFO_LOCAL_PORT</p></li>
-<li><p>CURLINFO_COOKIELIST</p></li>
-<li><p>CURLINFO_LASTSOCKET</p></li>
-<li><p>CURLINFO_FTP_ENTRY_PATH</p></li>
-<li><p>CURLINFO_CERTINFO</p></li>
-<li><p>CURLINFO_CONDITION_UNMET</p></li>
-<li><p>CURLINFO_RTSP_SESSION_ID</p></li>
-<li><p>CURLINFO_RTSP_CLIENT_CSEQ</p></li>
-<li><p>CURLINFO_RTSP_SERVER_CSEQ</p></li>
-<li><p>CURLINFO_RTSP_CSEQ_RECV</p></li>
-<li><p>CURLFORM_COPYNAME</p></li>
-<li><p>CURLFORM_PTRNAME</p></li>
-<li><p>CURLFORM_COPYCONTENTS</p></li>
-<li><p>CURLFORM_PTRCONTENTS</p></li>
-<li><p>CURLFORM_CONTENTSLENGTH</p></li>
-<li><p>CURLFORM_FILECONTENT</p></li>
-<li><p>CURLFORM_FILE</p></li>
-<li><p>CURLFORM_CONTENTTYPE</p></li>
-<li><p>CURLFORM_FILENAME</p></li>
-<li><p>CURLFORM_BUFFER</p></li>
-<li><p>CURLFORM_BUFFERPTR</p></li>
-<li><p>CURLFORM_BUFFERLENGTH</p></li>
-<li><p>CURLFORM_STREAM</p></li>
-<li><p>CURLFORM_ARRAY</p></li>
-<li><p>CURLFORM_CONTENTHEADER</p></li>
-<li><p>curl_getResponseCode(CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>handle)</p></li>
-<li><p>curl_getContentType(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle)</p></li>
-<li><p>curl_getContentLength(CURL <a href="#id5"><span class="problematic" id="id6">*</span></a>handle)</p></li>
-<li><p>curl_getEffectiveUrl(CURL <a href="#id7"><span class="problematic" id="id8">*</span></a>handle)</p></li>
-<li><p>curl_getRedirectUrl(CURL <a href="#id9"><span class="problematic" id="id10">*</span></a>handle)</p></li>
-<li><p>curl_getRedirectCount(CURL <a href="#id11"><span class="problematic" id="id12">*</span></a>handle)</p></li>
-<li><p>curl_getTotalTime(CURL <a href="#id13"><span class="problematic" id="id14">*</span></a>handle)</p></li>
-<li><p>curl_getNameLookupTime(CURL <a href="#id15"><span class="problematic" id="id16">*</span></a>handle)</p></li>
-<li><p>curl_getConnectTime(CURL <a href="#id17"><span class="problematic" id="id18">*</span></a>handle)</p></li>
-<li><p>curl_getRequestSize(CURL <a href="#id19"><span class="problematic" id="id20">*</span></a>handle)</p></li>
-<li><p>curl_getHeaderSize(CURL <a href="#id21"><span class="problematic" id="id22">*</span></a>handle)</p></li>
-<li><p>curl_getSpeedDownload(CURL <a href="#id23"><span class="problematic" id="id24">*</span></a>handle)</p></li>
-<li><p>curl_getSpeedUpload(CURL <a href="#id25"><span class="problematic" id="id26">*</span></a>handle)</p></li>
-<li><p>curl_getSSLVerifyResult(CURL <a href="#id27"><span class="problematic" id="id28">*</span></a>handle)</p></li>
-<li><p>curl_getPrimaryIP(CURL <a href="#id29"><span class="problematic" id="id30">*</span></a>handle)</p></li>
-<li><p>curl_getPrimaryPort(CURL <a href="#id31"><span class="problematic" id="id32">*</span></a>handle)</p></li>
-<li><p>curl_getLocalIP(CURL <a href="#id33"><span class="problematic" id="id34">*</span></a>handle)</p></li>
-<li><p>curl_getLocalPort(CURL <a href="#id35"><span class="problematic" id="id36">*</span></a>handle)</p></li>
-<li><p>curl_getContentLengthUpload(CURL <a href="#id37"><span class="problematic" id="id38">*</span></a>handle)</p></li>
-<li><p>curl_getDownloadSize(CURL <a href="#id39"><span class="problematic" id="id40">*</span></a>handle)</p></li>
-<li><p>curl_getUploadSize(CURL <a href="#id41"><span class="problematic" id="id42">*</span></a>handle)</p></li>
-<li><p>curl_getFiletime(CURL <a href="#id43"><span class="problematic" id="id44">*</span></a>handle)</p></li>
-<li><p>curl_getAppConnectTime(CURL <a href="#id45"><span class="problematic" id="id46">*</span></a>handle)</p></li>
-<li><p>curl_getContentLengthHeader(CURL <a href="#id47"><span class="problematic" id="id48">*</span></a>handle)</p></li>
-<li><p>curl_getStartTransferTime(CURL <a href="#id49"><span class="problematic" id="id50">*</span></a>handle)</p></li>
-<li><p>curl_getPreTransferTime(CURL <a href="#id51"><span class="problematic" id="id52">*</span></a>handle)</p></li>
-<li><p>CURLM_CALL_MULTI_PERFORM</p></li>
-<li><p>CURLM_OK</p></li>
-<li><p>CURLM_BAD_HANDLE</p></li>
-<li><p>CURLM_BAD_EASY_HANDLE</p></li>
-<li><p>CURLM_OUT_OF_MEMORY</p></li>
-<li><p>CURLM_INTERNAL_ERROR</p></li>
-<li><p>CURLM_BAD_SOCKET</p></li>
-<li><p>CURLM_UNKNOWN_OPTION</p></li>
-<li><p>CURLM_ADDED_ALREADY</p></li>
-<li><p>CURLM_RECURSIVE_API_CALL</p></li>
-<li><p>CURLM_BAD_FUNCTION_ARGUMENT</p></li>
-<li><p>CURLM_ABORTED_BY_CALLBACK</p></li>
-<li><p>CURLM_LAST</p></li>
-<li><p>CURLMSG_DONE</p></li>
-<li><p>CURLOPT_WS_OPTIONS</p></li>
-<li><p>CURLWS_RAW_MODE</p></li>
-<li><p>CURLWS_NOAUTOPONG</p></li>
-<li><p>CURLWS_TEXT</p></li>
-<li><p>CURLWS_BINARY</p></li>
-<li><p>CURLWS_CONT</p></li>
-<li><p>CURLWS_CLOSE</p></li>
-<li><p>CURLWS_PING</p></li>
-<li><p>CURLWS_OFFSET</p></li>
-<li><p>CURLWS_PONG</p></li>
-<li><p>CURLcode curl_global_init(long flags)</p></li>
-<li><p>void curl_global_cleanup(void)</p></li>
-<li><p>CURL <a href="#id53"><span class="problematic" id="id54">*</span></a>curl_easy_init(void)</p></li>
-<li><p>void curl_easy_cleanup(CURL * handle )</p></li>
-<li><p>CURLcode curl_easy_setopt_1(CURL <a href="#id55"><span class="problematic" id="id56">*</span></a>handle, CURLoption option, int)</p></li>
-<li><p>CURLcode curl_easy_setopt_2(CURL <a href="#id57"><span class="problematic" id="id58">*</span></a>handle, CURLoption option, const char <a href="#id59"><span class="problematic" id="id60">*</span></a>)</p></li>
-<li><p>CURLcode curl_easy_setopt_3(CURL <a href="#id61"><span class="problematic" id="id62">*</span></a>handle, CURLoption option, void <a href="#id63"><span class="problematic" id="id64">*</span></a>)</p></li>
-<li><p>CURLcode curl_easy_setopt_4(CURL <a href="#id65"><span class="problematic" id="id66">*</span></a>handle, CURLoption option, CURLLIST <a href="#id67"><span class="problematic" id="id68">*</span></a>)</p></li>
-<li><p>CURLcode curl_easy_perform(CURL * easy_handle )</p></li>
-<li><p>String <a href="#id69"><span class="problematic" id="id70">*</span></a>curl_easy_perform_silent(CURL * easy_handle )</p></li>
-<li><p>CURLcode curl_easy_getinfo_1(CURL <a href="#id71"><span class="problematic" id="id72">*</span></a>handle, CURLINFO info, char <a href="#id73"><span class="problematic" id="id74">**</span></a>urlp)</p></li>
-<li><p>CURLcode curl_easy_getinfo_2(CURL <a href="#id75"><span class="problematic" id="id76">*</span></a>handle, CURLINFO info, long <a href="#id77"><span class="problematic" id="id78">*</span></a>codep)</p></li>
-<li><p>CURLcode curl_easy_getinfo_3(CURL <a href="#id79"><span class="problematic" id="id80">*</span></a>handle, CURLINFO info, double <a href="#id81"><span class="problematic" id="id82">*</span></a>timep)</p></li>
-<li><p>CURLcode curl_easy_getinfo_4(CURL <a href="#id83"><span class="problematic" id="id84">*</span></a>handle, CURLINFO info, CURLLIST <a href="#id85"><span class="problematic" id="id86">**</span></a>engine_list)</p></li>
-<li><p>CURLcode curl_easy_getinfo_5(CURL <a href="#id87"><span class="problematic" id="id88">*</span></a>handle, CURLINFO info, struct curl_certinfo <a href="#id89"><span class="problematic" id="id90">*</span></a>chainp)</p></li>
-<li><p>CURLcode curl_easy_getinfo_6(CURL <a href="#id91"><span class="problematic" id="id92">*</span></a>handle, CURLINFO info, struct curl_tlssessioninfo <a href="#id93"><span class="problematic" id="id94">**</span></a>session)</p></li>
-<li><p>CURLcode curl_simple_getinfo_1(CURL <a href="#id95"><span class="problematic" id="id96">*</span></a>handle, CURLINFO info)</p></li>
-<li><p>CURLcode curl_simple_getinfo_2(CURL <a href="#id97"><span class="problematic" id="id98">*</span></a>handle, CURLINFO info)</p></li>
-<li><p>CURLcode curl_simple_getinfo_3(CURL <a href="#id99"><span class="problematic" id="id100">*</span></a>handle, CURLINFO info)</p></li>
-<li><p>char <a href="#id101"><span class="problematic" id="id102">*</span></a>curl_version(void)</p></li>
-<li><p>time_t curl_getdate(char * datestring , time_t <a href="#id103"><span class="problematic" id="id104">*</span></a>now )</p></li>
-<li><p>CURLFORMcode curl_formadd_1(struct curl_httppost <a href="#id105"><span class="problematic" id="id106">**</span></a>firstitem, struct curl_httppost <a href="#id107"><span class="problematic" id="id108">**</span></a>lastitem, CURLformoption, const char <a href="#id109"><span class="problematic" id="id110">*</span></a>, CURLformoption, const char <a href="#id111"><span class="problematic" id="id112">*</span></a>, CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_2(struct curl_httppost <a href="#id113"><span class="problematic" id="id114">**</span></a>firstitem, struct curl_httppost <a href="#id115"><span class="problematic" id="id116">**</span></a>lastitem, CURLformoption, const char <a href="#id117"><span class="problematic" id="id118">*</span></a>, CURLformoption, const char <a href="#id119"><span class="problematic" id="id120">*</span></a>,CURLformoption, const char <a href="#id121"><span class="problematic" id="id122">*</span></a>, CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_3(struct curl_httppost <a href="#id123"><span class="problematic" id="id124">**</span></a>firstitem, struct curl_httppost <a href="#id125"><span class="problematic" id="id126">**</span></a>lastitem, CURLformoption, const char <a href="#id127"><span class="problematic" id="id128">*</span></a>, CURLformoption, void <a href="#id129"><span class="problematic" id="id130">*</span></a>, CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_4(struct curl_httppost <a href="#id131"><span class="problematic" id="id132">**</span></a>firstitem, struct curl_httppost <a href="#id133"><span class="problematic" id="id134">**</span></a>lastitem, CURLformoption, const char <a href="#id135"><span class="problematic" id="id136">*</span></a>, CURLformoption, void <a href="#id137"><span class="problematic" id="id138">*</span></a>,CURLformoption, long , CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_5(struct curl_httppost <a href="#id139"><span class="problematic" id="id140">**</span></a>firstitem, struct curl_httppost <a href="#id141"><span class="problematic" id="id142">**</span></a>lastitem, CURLformoption, const char <em>, CURLformoption, void *,CURLformoption, long , CURLformoption, const char</em> , CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_6(struct curl_httppost <a href="#id143"><span class="problematic" id="id144">**</span></a>firstitem, struct curl_httppost <a href="#id145"><span class="problematic" id="id146">**</span></a>lastitem, CURLformoption, const char <a href="#id147"><span class="problematic" id="id148">*</span></a>, CURLformoption, const char <a href="#id149"><span class="problematic" id="id150">*</span></a>,CURLformoption, void * , CURLformoption, long , CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_7(struct curl_httppost <a href="#id151"><span class="problematic" id="id152">**</span></a>firstitem, struct curl_httppost <a href="#id153"><span class="problematic" id="id154">**</span></a>lastitem, CURLformoption, const char <a href="#id155"><span class="problematic" id="id156">*</span></a>, CURLformoption,  struct curl_forms <a href="#id157"><span class="problematic" id="id158">*</span></a>, CURLformoption)</p></li>
-<li><p>void curl_formfree(struct curl_httppost * form)</p></li>
-<li><p>CURLLIST <a href="#id159"><span class="problematic" id="id160">*</span></a>curl_slist_append(CURLLIST * list, const char * string )</p></li>
-<li><p>void curl_slist_free_all(CURLLIST * list)</p></li>
-<li><p>char <a href="#id161"><span class="problematic" id="id162">*</span></a>curl_easy_escape( CURL * curl , const char * string , int length )</p></li>
-<li><p>char <a href="#id163"><span class="problematic" id="id164">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</p></li>
-<li><p>CURLM <a href="#id165"><span class="problematic" id="id166">*</span></a>curl_multi_init(void)</p></li>
-<li><p>CURLMcode curl_multi_cleanup(CURLM <a href="#id167"><span class="problematic" id="id168">*</span></a>multi_handle)</p></li>
-<li><p>CURLMcode curl_multi_add_handle(CURLM <a href="#id169"><span class="problematic" id="id170">*</span></a>multi_handle, CURL <a href="#id171"><span class="problematic" id="id172">*</span></a>curl_handle)</p></li>
-<li><p>CURLMcode curl_multi_remove_handle(CURLM <a href="#id173"><span class="problematic" id="id174">*</span></a>multi_handle, CURL <a href="#id175"><span class="problematic" id="id176">*</span></a>curl_handle)</p></li>
-<li><p>List* curl_multi_perform(CURLM <a href="#id177"><span class="problematic" id="id178">*</span></a>multi_handle)</p></li>
-<li><p>List* curl_multi_wait(CURLM* multi_handle, double timeout_ms)</p></li>
-<li><p>List* curl_multi_info_read(CURLM <a href="#id179"><span class="problematic" id="id180">*</span></a>multi_handle)</p></li>
-<li><p>List* curl_ws_send(CURL <a href="#id181"><span class="problematic" id="id182">*</span></a>curl, const char <a href="#id183"><span class="problematic" id="id184">*</span></a>buffer, double fragsize, int flags)</p></li>
-<li><p>List* curl_ws_recv(CURL <a href="#id185"><span class="problematic" id="id186">*</span></a>curl, double buflen)</p></li>
-<li><p>List* curl_ws_meta(CURL <a href="#id187"><span class="problematic" id="id188">*</span></a>curl)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL_GLOBAL_ALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL_GLOBAL_SSL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL_GLOBAL_WIN32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL_GLOBAL_NOTHING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL_GLOBAL_DEFAULT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL_GLOBAL_ACK_EINTR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_VERBOSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HEADER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NOPROGRESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NOSIGNAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_WILDCARDMATCH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_WRITEFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_WRITEDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_READFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_READDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_IOCTLFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_IOCTLDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SEEKFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SEEKDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SOCKOPTFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SOCKOPTDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_OPENSOCKETFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_OPENSOCKETDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CLOSESOCKETFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CLOSESOCKETDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROGRESSFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROGRESSDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HEADERFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HEADERDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_DEBUGFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_DEBUGDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSL_CTX_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSL_CTX_DATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CONV_TO_NETWORK_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CONV_FROM_NETWORK_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CONV_FROM_UTF8_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_INTERLEAVEFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_INTERLEAVEDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CHUNK_BGN_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CHUNK_END_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CHUNK_DATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FNMATCH_FUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FNMATCH_DATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_ERRORBUFFER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_STDERR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FAILONERROR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_URL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROTOCOLS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_REDIR_PROTOCOLS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXYPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXYTYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NOPROXY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTPPROXYTUNNEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SOCKS5_GSSAPI_SERVICE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SOCKS5_GSSAPI_NEC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_INTERFACE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_LOCALPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_LOCALPORTRANGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_DNS_CACHE_TIMEOUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_DNS_USE_GLOBAL_CACHE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_BUFFERSIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TCP_NODELAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_ADDRESS_SCOPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NETRC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NETRC_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_USERPWD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXYUSERPWD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_USERNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PASSWORD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXYUSERNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXYPASSWORD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTPAUTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TLSAUTH_USERNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TLSAUTH_PASSWORD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TLSAUTH_TYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXYAUTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_AUTOREFERER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_ACCEPT_ENCODING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TRANSFER_ENCODING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FOLLOWLOCATION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_UNRESTRICTED_AUTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAXREDIRS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_POSTREDIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_POST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_POSTFIELDS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_POSTFIELDSIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_POSTFIELDSIZE_LARGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_COPYPOSTFIELDS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTPPOST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_REFERER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_USERAGENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTPHEADER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTP200ALIASES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_COOKIE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_COOKIEFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_COOKIEJAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_COOKIESESSION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_COOKIELIST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTPGET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTP_VERSION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_IGNORE_CONTENT_LENGTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTP_CONTENT_DECODING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_HTTP_TRANSFER_DECODING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAIL_FROM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAIL_RCPT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TFTP_BLKSIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTPPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_QUOTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_POSTQUOTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PREQUOTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_APPEND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_USE_EPRT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_USE_EPSV</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_USE_PRET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_CREATE_MISSING_DIRS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_RESPONSE_TIMEOUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_ALTERNATIVE_TO_USER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_SKIP_PASV_IP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTPSSLAUTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_SSL_CCC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_ACCOUNT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FTP_FILEMETHOD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RTSP_REQUEST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RTSP_SESSION_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RTSP_STREAM_URI</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RTSP_TRANSPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RTSP_CLIENT_CSEQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RTSP_SERVER_CSEQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TRANSFERTEXT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PROXY_TRANSFER_MODE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CRLF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RANGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RESUME_FROM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RESUME_FROM_LARGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CUSTOMREQUEST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FILETIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_DIRLISTONLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NOBODY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_INFILESIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_INFILESIZE_LARGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_UPLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAXFILESIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAXFILESIZE_LARGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TIMECONDITION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TIMEVALUE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TIMEOUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TIMEOUT_MS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_LOW_SPEED_LIMIT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_LOW_SPEED_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAX_SEND_SPEED_LARGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAX_RECV_SPEED_LARGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_MAXCONNECTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FRESH_CONNECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_FORBID_REUSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CONNECTTIMEOUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CONNECTTIMEOUT_MS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_IPRESOLVE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CONNECT_ONLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_USE_SSL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RESOLVE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLCERT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLCERTTYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLKEY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLKEYTYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_KEYPASSWD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLENGINE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLENGINE_DEFAULT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSLVERSION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSL_VERIFYHOST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSL_VERIFYPEER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CAINFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_ISSUERCERT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CAPATH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CRLFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_CERTINFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_RANDOM_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_EGDSOCKET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSL_CIPHER_LIST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSL_SESSIONID_CACHE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_KRBLEVEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_GSSAPI_DELEGATION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_AUTH_TYPES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_PUBLIC_KEYFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_PRIVATE_KEYFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_KNOWNHOSTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_KEYFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SSH_KEYDATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_PRIVATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_SHARE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NEW_FILE_PERMS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_NEW_DIRECTORY_PERMS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_TELNETOPTIONS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_WS_OPTIONS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_XFERINFODATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLOPT_XFERINFOFUNCTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLE_OK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLE_UNKNOWN_OPTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLE_NOT_BUILT_IN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLE_AGAIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_EFFECTIVE_URL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_RESPONSE_CODE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_HTTP_CONNECTCODE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_FILETIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_TOTAL_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_NAMELOOKUP_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_CONNECT_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_APPCONNECT_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_PRETRANSFER_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_STARTTRANSFER_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_REDIRECT_TIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_REDIRECT_COUNT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_REDIRECT_URL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_SIZE_UPLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_SIZE_DOWNLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_SPEED_DOWNLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_SPEED_UPLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_HEADER_SIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_REQUEST_SIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_SSL_VERIFYRESULT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_SSL_ENGINES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_CONTENT_LENGTH_DOWNLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_CONTENT_LENGTH_UPLOAD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_CONTENT_TYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_PRIVATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_HTTPAUTH_AVAIL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_PROXYAUTH_AVAIL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_OS_ERRNO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_NUM_CONNECTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_PRIMARY_IP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_PRIMARY_PORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_LOCAL_IP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_LOCAL_PORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_COOKIELIST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_LASTSOCKET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_FTP_ENTRY_PATH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_CERTINFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_CONDITION_UNMET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_RTSP_SESSION_ID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_RTSP_CLIENT_CSEQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_RTSP_SERVER_CSEQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLINFO_RTSP_CSEQ_RECV</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_COPYNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_PTRNAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_COPYCONTENTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_PTRCONTENTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_CONTENTSLENGTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_FILECONTENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_CONTENTTYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_FILENAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_BUFFER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_BUFFERPTR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_BUFFERLENGTH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_STREAM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_ARRAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORM_CONTENTHEADER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_CALL_MULTI_PERFORM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_OK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_BAD_HANDLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_BAD_EASY_HANDLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_OUT_OF_MEMORY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_INTERNAL_ERROR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_BAD_SOCKET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_UNKNOWN_OPTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_ADDED_ALREADY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_RECURSIVE_API_CALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_BAD_FUNCTION_ARGUMENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_ABORTED_BY_CALLBACK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM_LAST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLMSG_DONE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_RAW_MODE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_TEXT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_BINARY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_CONT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_CLOSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_PING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_OFFSET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLWS_PONG</span></code></p></li>
 </ul>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_global_init(long</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURL</span> <span class="pre">*curl_easy_init(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_setopt_1(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLoption</span> <span class="pre">option,</span> <span class="pre">int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_setopt_2(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLoption</span> <span class="pre">option,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_setopt_3(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLoption</span> <span class="pre">option,</span> <span class="pre">void</span> <span class="pre">*)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_setopt_4(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLoption</span> <span class="pre">option,</span> <span class="pre">CURLLIST</span> <span class="pre">*)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_perform(CURL</span> <span class="pre">*</span> <span class="pre">easy_handle</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">*curl_easy_perform_silent(CURL</span> <span class="pre">*</span> <span class="pre">easy_handle</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_setopt_callback(CURL</span> <span class="pre">*handle,</span> <span class="pre">int</span> <span class="pre">option,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*cCode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">curl_set_read_data(const</span> <span class="pre">char</span> <span class="pre">*cData)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List</span> <span class="pre">*curl_get_progress_info(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">curl_set_progress_result(int</span> <span class="pre">nResult)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*curl_get_data(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">curl_easy_cleanup(CURL</span> <span class="pre">*</span> <span class="pre">handle</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">curl_global_cleanup(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_getinfo_1(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info,</span> <span class="pre">char</span> <span class="pre">**urlp)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_getinfo_2(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info,</span> <span class="pre">long</span> <span class="pre">*codep)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_getinfo_3(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info,</span> <span class="pre">double</span> <span class="pre">*timep)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_getinfo_4(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info,</span> <span class="pre">CURLLIST</span> <span class="pre">**engine_list)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_getinfo_5(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info,</span> <span class="pre">struct</span> <span class="pre">curl_certinfo</span> <span class="pre">*chainp)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_easy_getinfo_6(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info,</span> <span class="pre">struct</span> <span class="pre">curl_tlssessioninfo</span> <span class="pre">**session)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_simple_getinfo_1(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_simple_getinfo_2(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLcode</span> <span class="pre">curl_simple_getinfo_3(CURL</span> <span class="pre">*handle,</span> <span class="pre">CURLINFO</span> <span class="pre">info)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*curl_version(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_t</span> <span class="pre">curl_getdate(char</span> <span class="pre">*</span> <span class="pre">datestring</span> <span class="pre">,</span> <span class="pre">time_t</span> <span class="pre">*now</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*curl_easy_strerror(CURLcode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*curl_multi_strerror(CURLMcode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_1(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_2(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_3(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span> <span class="pre">void</span> <span class="pre">*,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_4(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span> <span class="pre">void</span> <span class="pre">*,CURLformoption,</span> <span class="pre">long</span> <span class="pre">,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_5(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span> <span class="pre">void</span> <span class="pre">*,CURLformoption,</span> <span class="pre">long</span> <span class="pre">,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char*</span> <span class="pre">,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_6(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,CURLformoption,</span> <span class="pre">void</span> <span class="pre">*</span> <span class="pre">,</span> <span class="pre">CURLformoption,</span> <span class="pre">long</span> <span class="pre">,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLFORMcode</span> <span class="pre">curl_formadd_7(struct</span> <span class="pre">curl_httppost</span> <span class="pre">**firstitem,</span> <span class="pre">struct</span> <span class="pre">curl_httppost</span> <span class="pre">**lastitem,</span> <span class="pre">CURLformoption,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*,</span> <span class="pre">CURLformoption,</span>&#160; <span class="pre">struct</span> <span class="pre">curl_forms</span> <span class="pre">*,</span> <span class="pre">CURLformoption)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">curl_formfree(struct</span> <span class="pre">curl_httppost</span> <span class="pre">*</span> <span class="pre">form)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLLIST</span> <span class="pre">*curl_slist_append(CURLLIST</span> <span class="pre">*</span> <span class="pre">list,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">string</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">curl_slist_free_all(CURLLIST</span> <span class="pre">*</span> <span class="pre">list)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*curl_easy_escape(</span> <span class="pre">CURL</span> <span class="pre">*</span> <span class="pre">curl</span> <span class="pre">,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">string</span> <span class="pre">,</span> <span class="pre">int</span> <span class="pre">length</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*curl_easy_unescape(</span> <span class="pre">CURL</span> <span class="pre">*</span> <span class="pre">curl</span> <span class="pre">,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">url</span> <span class="pre">,</span> <span class="pre">int</span> <span class="pre">inlength</span> <span class="pre">,</span> <span class="pre">int</span> <span class="pre">*</span> <span class="pre">outlength</span> <span class="pre">)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLM</span> <span class="pre">*curl_multi_init(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLMcode</span> <span class="pre">curl_multi_cleanup(CURLM</span> <span class="pre">*multi_handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLMcode</span> <span class="pre">curl_multi_add_handle(CURLM</span> <span class="pre">*multi_handle,</span> <span class="pre">CURL</span> <span class="pre">*curl_handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CURLMcode</span> <span class="pre">curl_multi_remove_handle(CURLM</span> <span class="pre">*multi_handle,</span> <span class="pre">CURL</span> <span class="pre">*curl_handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List*</span> <span class="pre">curl_multi_perform(CURLM</span> <span class="pre">*multi_handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List*</span> <span class="pre">curl_multi_wait(CURLM*</span> <span class="pre">multi_handle,</span> <span class="pre">double</span> <span class="pre">timeout_ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List*</span> <span class="pre">curl_multi_info_read(CURLM</span> <span class="pre">*multi_handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List*</span> <span class="pre">curl_ws_send(CURL</span> <span class="pre">*curl,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*buffer,</span> <span class="pre">double</span> <span class="pre">fragsize,</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List*</span> <span class="pre">curl_ws_recv(CURL</span> <span class="pre">*curl,</span> <span class="pre">double</span> <span class="pre">buflen)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List*</span> <span class="pre">curl_ws_meta(CURL</span> <span class="pre">*curl)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getResponseCode(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getContentType(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getContentLength(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getEffectiveUrl(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getRedirectUrl(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getRedirectCount(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getTotalTime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getNameLookupTime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getConnectTime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getRequestSize(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getHeaderSize(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getSpeedDownload(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getSpeedUpload(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getSSLVerifyResult(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getPrimaryIP(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getPrimaryPort(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getLocalIP(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getLocalPort(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getContentLengthUpload(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getDownloadSize(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getUploadSize(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getFiletime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getAppConnectTime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getContentLengthHeader(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getStartTransferTime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl_getPreTransferTime(CURL</span> <span class="pre">*handle)</span></code></p></li>
+</ul>
+</section>
 </section>
 </section>
 
