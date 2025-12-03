@@ -295,3 +295,4 @@ More Improvements
 * NaturalLib implementation is revised (Better Performance)
 * RingLibCurl - Support Curl callbacks
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
+* Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
