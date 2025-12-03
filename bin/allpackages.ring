@@ -141,7 +141,8 @@ aAllPackagesInfo = [
 		"imagepixel",
 		"snakesandladders2",
 		"trianglecalculator",
-		"stockanalysis"
+		"stockanalysis",
+		"lecturestracker"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -234,7 +235,8 @@ aAllPackagesInfo = [
 		"imagepixel",
 		"snakesandladders2",
 		"trianglecalculator",
-		"stockanalysis"
+		"stockanalysis",
+		"lecturestracker"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -331,7 +333,8 @@ aAllPackagesInfo = [
 	],
 	:tokenslib = 	[
 		"jsonlib",
-		"goldmagic800"
+		"goldmagic800",
+		"lecturestracker"
 	],
 	:libdepwin_allegro524 = 	[
 
@@ -352,7 +355,8 @@ aAllPackagesInfo = [
 	],
 	:httplib = 	[
 		"RandomUser",
-		"randomuser"
+		"randomuser",
+		"lecturestracker"
 	],
 	:libdepwin_allegro5271 = 	[
 
