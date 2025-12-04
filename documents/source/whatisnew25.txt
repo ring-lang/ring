@@ -17,6 +17,7 @@ Ring 1.25 comes with the next features!
 
 * Stock Analysis application
 * DistroMap API
+* Im2ANSI Tool
 * MyCTiger Tool
 * More Samples
 * More RingPM Packages
@@ -54,6 +55,28 @@ URL: https://github.com/ysdragon/DistroMap
 
 .. image:: distromapapi.png
 	:alt: DistroMapAPI
+
+.. index:: 
+	pair: What is new in Ring 1.25?; Im2ANSI Tool
+
+Im2ANSI Tool
+============
+
+Convert images into beautiful ANSI/ASCII art
+
+Developed using Ring, RingStbImage and RingFastPro
+
+URL: https://github.com/ysdragon/im2ansi
+
+Features:
+
+* Multiple Formats (Export to ANSI, ASCII, SVG, or HTML)
+* Flexible Sizing (Control width and/or height independently)
+* Color Inversion (Invert brightness for different backgrounds)
+* Custom Characters (Use your own character sets for unique art)
+* ASCII Ramps (12 built-in grayscale character ramps)
+* Reproducible Output (Set a seed for consistent results)
+* Cross-Platform	(Works on Linux, macOS, and Windows)
 
 .. index:: 
 	pair: What is new in Ring 1.25?; MyCTiger Tool

@@ -186,6 +186,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stock-analysis-application">Stock Analysis application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#distromap-api">DistroMap API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#im2ansi-tool">Im2ANSI Tool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#myctiger-tool">MyCTiger Tool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
@@ -236,6 +237,7 @@
 <ul class="simple">
 <li><p>Stock Analysis application</p></li>
 <li><p>DistroMap API</p></li>
+<li><p>Im2ANSI Tool</p></li>
 <li><p>MyCTiger Tool</p></li>
 <li><p>More Samples</p></li>
 <li><p>More RingPM Packages</p></li>
@@ -261,8 +263,24 @@ information based on codenames.</p>
 <p>URL: <a class="reference external" href="https://github.com/ysdragon/DistroMap">https://github.com/ysdragon/DistroMap</a></p>
 <img alt="DistroMapAPI" src="_images/distromapapi.png" />
 </section>
+<section id="im2ansi-tool">
+<span id="index-4"></span><h2>Im2ANSI Tool<a class="headerlink" href="#im2ansi-tool" title="Permalink to this heading"></a></h2>
+<p>Convert images into beautiful ANSI/ASCII art</p>
+<p>Developed using Ring, RingStbImage and RingFastPro</p>
+<p>URL: <a class="reference external" href="https://github.com/ysdragon/im2ansi">https://github.com/ysdragon/im2ansi</a></p>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Multiple Formats (Export to ANSI, ASCII, SVG, or HTML)</p></li>
+<li><p>Flexible Sizing (Control width and/or height independently)</p></li>
+<li><p>Color Inversion (Invert brightness for different backgrounds)</p></li>
+<li><p>Custom Characters (Use your own character sets for unique art)</p></li>
+<li><p>ASCII Ramps (12 built-in grayscale character ramps)</p></li>
+<li><p>Reproducible Output (Set a seed for consistent results)</p></li>
+<li><p>Cross-Platform        (Works on Linux, macOS, and Windows)</p></li>
+</ul>
+</section>
 <section id="myctiger-tool">
-<span id="index-4"></span><h2>MyCTiger Tool<a class="headerlink" href="#myctiger-tool" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>MyCTiger Tool<a class="headerlink" href="#myctiger-tool" title="Permalink to this heading"></a></h2>
 <p>Use the Ring programming language for generating and building C programs.</p>
 <p>URL: <a class="reference external" href="https://github.com/ringpackages/myctiger">https://github.com/ringpackages/myctiger</a></p>
 <p>Usage:</p>
@@ -330,7 +348,7 @@ int main(int argc, char *argv[])
 </div>
 </section>
 <section id="more-samples">
-<span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>The next samples are added:</p>
 <ul class="simple">
 <li><p>samples/UsingJSONLib/test14.ring</p></li>
@@ -349,7 +367,7 @@ int main(int argc, char *argv[])
 </ul>
 </section>
 <section id="more-ringpm-packages">
-<span id="index-6"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>Argon2: Ring binding for Argon2 hashing algorithm</p></li>
@@ -360,7 +378,7 @@ int main(int argc, char *argv[])
 </ul>
 </section>
 <section id="better-functions">
-<span id="index-7"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>addMethod(): Better Performance (Avoid recreating the HashTable)</p></li>
 <li><p>mergeMethods(): Better Performance (Avoid recreating the HashTable)</p></li>
@@ -368,7 +386,7 @@ int main(int argc, char *argv[])
 </ul>
 </section>
 <section id="better-ringlibcurl">
-<span id="index-8"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
 <p>RingLibCurl is updated to supports using callbacks for different operations like handling the
 response data, headers, progress information and reading data for upload.</p>
 <p>We can set the callback function using <code class="docutils literal notranslate"><span class="pre">curl_easy_setopt</span></code> and the option name.
@@ -404,7 +422,7 @@ Received Data Size: 11363
 </div>
 </section>
 <section id="better-tokenslib">
-<span id="index-9"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
 <p>The library is updated to include the checkRingCode() function which is used for security.</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>checkRingCode(aPara) ---&gt; 1/0 (True/False)
@@ -446,7 +464,7 @@ Received Data Size: 11363
 </div>
 </section>
 <section id="flexible-statement-separation">
-<span id="index-10"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
 <p>In this release, the language introduces support for using commas (,) as an alternative
 to semicolons (;) when separating statements.</p>
 <p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
@@ -475,7 +493,7 @@ to semicolons (;) when separating statements.</p>
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Use checkRingCode() before using the settings file</p></li>
 <li><p>RingPM GUI - Use checkRingCode() before using the package file</p></li>
