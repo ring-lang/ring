@@ -46,7 +46,12 @@ class RNoteSettings
 
 	func LoadSettings
 		if fexists(cSettingsFile)
-			eval(read(cSettingsFile))
+			cSettingsFileContent = read(cSettingsFile)
+			if ! checkRingCode([:code = cSettingsFileContent])
+				? "The file " + cSettingsFile + " doesn't pass the security check!"
+				bye
+			ok
+			eval(cSettingsFileContent)
 		ok
 
 	func RestoreSettings
