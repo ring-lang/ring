@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "ringnotepad",
 		:branch = "master",
-		:version = "1.0.28",
+		:version = "1.0.29",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -136,6 +136,13 @@ aLockInfo = [
 		:name = "qt515qmlruntime",
 		:branch = "master",
 		:version = "1.0.2",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "tokenslib",
+		:branch = "master",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],

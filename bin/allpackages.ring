@@ -337,7 +337,8 @@ aAllPackagesInfo = [
 		"jsonlib",
 		"goldmagic800",
 		"lecturestracker",
-		"ringpmgui"
+		"ringpmgui",
+		"ringnotepad"
 	],
 	:libdepwin_allegro524 = 	[
 
