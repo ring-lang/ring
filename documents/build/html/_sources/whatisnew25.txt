@@ -78,6 +78,9 @@ Features:
 * Reproducible Output (Set a seed for consistent results)
 * Cross-Platform	(Works on Linux, macOS, and Windows)
 
+.. image:: im2ansi.png
+	:alt: im2ansi
+
 .. index:: 
 	pair: What is new in Ring 1.25?; MyCTiger Tool
 
