@@ -143,7 +143,8 @@ aAllPackagesInfo = [
 		"trianglecalculator",
 		"stockanalysis",
 		"lecturestracker",
-		"ringpmgui"
+		"ringpmgui",
+		"ring2exe"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -338,7 +339,8 @@ aAllPackagesInfo = [
 		"goldmagic800",
 		"lecturestracker",
 		"ringpmgui",
-		"ringnotepad"
+		"ringnotepad",
+		"ring2exe"
 	],
 	:libdepwin_allegro524 = 	[
 
