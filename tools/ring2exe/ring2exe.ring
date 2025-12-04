@@ -89,6 +89,7 @@
 */
 
 load "stdlibcore.ring"
+load "tokenslib.ring"
 
 # Load Libraries information
 	aLibsInfo = []
@@ -97,7 +98,12 @@ load "stdlibcore.ring"
 func LoadLibrariesInfo
 	aLibsFiles = ListAllFiles(exefolder()+"/../tools/ring2exe/libs","ring")
 	for cLibFile in aLibsFiles 
-		eval(read(cLibFile))
+		cLibFileContent = read(cLibFile)
+		if ! checkRingCode([:code = cLibFileContent])
+			? "The file " + cLibFile + " doesn't pass the security check!"
+			loop
+		ok
+		eval(cLibFileContent)
 		aLibsInfo + aLibrary 
 	next 
 
