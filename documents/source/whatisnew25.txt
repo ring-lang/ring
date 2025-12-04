@@ -21,6 +21,7 @@ Ring 1.25 comes with the next features!
 * More Samples
 * More RingPM Packages
 * Better Functions
+* Better RingLibCurl
 * Better TokensLib
 * Flexible Statement Separation 
 * More Improvements
@@ -188,6 +189,53 @@ Better Functions
 * ringvm_evalinscope(): Check the scope range before changing the scope
 
 .. index:: 
+	pair: What is new in Ring  1.25; Better RingLibCurl
+
+Better RingLibCurl
+==================
+
+RingLibCurl is updated to supports using callbacks for different operations like handling the 
+response data, headers, progress information and reading data for upload.
+
+We can set the callback function using ``curl_easy_setopt`` and the option name.
+The callback function can get the data using ``curl_get_data()`` or ``curl_get_progress_info()``.
+
+Example: Using the Write Callback
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	func main
+		curl = curl_easy_init()
+		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.net")
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, :write_callback)
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+		curl_easy_perform(curl)
+		curl_easy_cleanup(curl)
+
+	func write_callback
+		cData = curl_get_data()
+		? "Received Data Size: " + len(cData)
+
+
+Output:
+
+.. code-block:: none
+
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 16384
+	Received Data Size: 2604
+	Received Data Size: 16384
+	Received Data Size: 16384
+	Received Data Size: 11363
+
+
+.. index:: 
 	pair: What is new in Ring  1.25; TokensLib
 
 Better TokensLib
@@ -293,6 +341,5 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
-* RingLibCurl - Support Curl callbacks
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 

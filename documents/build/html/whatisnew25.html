@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tokenslib">Better TokensLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -239,6 +240,7 @@
 <li><p>More Samples</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Functions</p></li>
+<li><p>Better RingLibCurl</p></li>
 <li><p>Better TokensLib</p></li>
 <li><p>Flexible Statement Separation</p></li>
 <li><p>More Improvements</p></li>
@@ -365,8 +367,44 @@ int main(int argc, char *argv[])
 <li><p>ringvm_evalinscope(): Check the scope range before changing the scope</p></li>
 </ul>
 </section>
+<section id="better-ringlibcurl">
+<span id="index-8"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<p>RingLibCurl is updated to supports using callbacks for different operations like handling the
+response data, headers, progress information and reading data for upload.</p>
+<p>We can set the callback function using <code class="docutils literal notranslate"><span class="pre">curl_easy_setopt</span></code> and the option name.
+The callback function can get the data using <code class="docutils literal notranslate"><span class="pre">curl_get_data()</span></code> or <code class="docutils literal notranslate"><span class="pre">curl_get_progress_info()</span></code>.</p>
+<p>Example: Using the Write Callback</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+        <span class="n">curl</span> <span class="o">=</span> <span class="nf">curl_easy_init</span><span class="p">()</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.net&quot;</span><span class="p">)</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_WRITEFUNCTION</span><span class="p">,</span> <span class="ss">:write_callback</span><span class="p">)</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+        <span class="nf">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">write_callback</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="nf">curl_get_data</span><span class="p">()</span>
+        <span class="o">?</span> <span class="s2">&quot;Received Data Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">cData</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 16384
+Received Data Size: 2604
+Received Data Size: 16384
+Received Data Size: 16384
+Received Data Size: 11363
+</pre></div>
+</div>
+</section>
 <section id="better-tokenslib">
-<span id="index-8"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
 <p>The library is updated to include the checkRingCode() function which is used for security.</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>checkRingCode(aPara) ---&gt; 1/0 (True/False)
@@ -408,7 +446,7 @@ int main(int argc, char *argv[])
 </div>
 </section>
 <section id="flexible-statement-separation">
-<span id="index-9"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
 <p>In this release, the language introduces support for using commas (,) as an alternative
 to semicolons (;) when separating statements.</p>
 <p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
@@ -437,7 +475,7 @@ to semicolons (;) when separating statements.</p>
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>GoldMagic800 game - Use checkRingCode()</p></li>
 <li><p>GoldMagic800 Levels Designer - Use checkRingCode()</p></li>
@@ -446,7 +484,6 @@ to semicolons (;) when separating statements.</p>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
 <li><p>Documentation - Revise links for CodeProject articles</p></li>
 <li><p>NaturalLib implementation is revised (Better Performance)</p></li>
-<li><p>RingLibCurl - Support Curl callbacks</p></li>
 <li><p>Ring VM - ICO_RETFROMEVAL instruction - Better Implementation</p></li>
 <li><p>Documentation - StdLib chapter - Added: AppArguments() vs SysArgv</p></li>
 </ul>
