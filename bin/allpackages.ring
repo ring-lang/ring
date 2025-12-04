@@ -142,7 +142,8 @@ aAllPackagesInfo = [
 		"snakesandladders2",
 		"trianglecalculator",
 		"stockanalysis",
-		"lecturestracker"
+		"lecturestracker",
+		"ringpmgui"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -236,7 +237,8 @@ aAllPackagesInfo = [
 		"snakesandladders2",
 		"trianglecalculator",
 		"stockanalysis",
-		"lecturestracker"
+		"lecturestracker",
+		"ringpmgui"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -334,7 +336,8 @@ aAllPackagesInfo = [
 	:tokenslib = 	[
 		"jsonlib",
 		"goldmagic800",
-		"lecturestracker"
+		"lecturestracker",
+		"ringpmgui"
 	],
 	:libdepwin_allegro524 = 	[
 
