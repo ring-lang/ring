@@ -4,6 +4,7 @@
 # Description : GUI interface for Ring Package Manager
 
 load "ringpmguiView.ring"
+load "tokenslib.ring"
 
 if isMainSourceFile() { 
 	new qApp
@@ -211,7 +212,11 @@ class ringpmguiController from WindowsControllerParent
 		
 		try
 			cContent = read(cPackageFile)
-			eval(cContent)
+			if ! checkRingCode([:code = cContent])
+				? "The file " + cPackageFile + " doesn't pass the security check!"
+			else 
+				eval(cContent)
+			ok
 
 			# Extract package information (assuming aPackageInfo is defined in the file)
 			if islocal(:aPackageInfo) and len(aPackageInfo) > 0
