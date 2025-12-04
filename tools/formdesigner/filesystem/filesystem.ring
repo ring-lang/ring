@@ -310,9 +310,14 @@ class FormDesignerFileSystem from ObjectsParent
 		# Create New Form 
 			PrepareTheForm(oDesigner)
 		# Load the Form Data
-			eval(read(FileNameEncoding(cFileName)))
-		# Create Objects
-			CreateFormObjects(oDesigner,aObjectsList)
+			cFormFileContent = read(FileNameEncoding(cFileName))
+			if ! checkRingCode([:code = cFormFileContent]) {
+				? "Sorry, The file: " + cFileName +  " doesn't pass the security check!"
+			else 
+				eval(cFormFileContent)
+			# Create Objects
+				CreateFormObjects(oDesigner,aObjectsList)
+			}
 		# Enable Updates
 			oDesigner.oView.oSub.setupdatesenabled(True)
 			oDesigner.oView.oSub.blocksignals(False)

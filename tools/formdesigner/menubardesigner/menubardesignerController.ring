@@ -156,6 +156,10 @@ class MenubarDesignerController from windowsControllerParent
 	func String2Tree cString
 		cString = Trim(cString)
 		if cString = NULL { return }
+		if ! checkRingCode([:code = cString]) {
+			? "Sorry, the menu code doesn't pass the security check!"
+			return
+		}
 		eval(cString)
 		AddChildren(oRoot,aMenuData[:Children])
 
