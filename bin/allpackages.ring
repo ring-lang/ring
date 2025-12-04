@@ -340,7 +340,8 @@ aAllPackagesInfo = [
 		"lecturestracker",
 		"ringpmgui",
 		"ringnotepad",
-		"ring2exe"
+		"ring2exe",
+		"formdesigner"
 	],
 	:libdepwin_allegro524 = 	[
 

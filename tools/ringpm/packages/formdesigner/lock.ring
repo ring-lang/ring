@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "formdesigner",
 		:branch = "master",
-		:version = "1.0.20",
+		:version = "1.0.21",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.21",
+		:version = "1.0.22",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -23,7 +23,7 @@ aLockInfo = [
 	[
 		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.12",
+		:version = "1.0.15",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -38,6 +38,13 @@ aLockInfo = [
 		:name = "internetlib",
 		:branch = "master",
 		:version = "1.0.8",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringcurl",
+		:branch = "master",
+		:version = "1.0.12",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -72,7 +79,7 @@ aLockInfo = [
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.37",
+		:version = "1.0.38",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -86,14 +93,14 @@ aLockInfo = [
 	[
 		:name = "ringqtruntime",
 		:branch = "master",
-		:version = "1.0.25",
+		:version = "1.0.28",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "guilib",
 		:branch = "master",
-		:version = "1.0.23",
+		:version = "1.0.24",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -129,6 +136,13 @@ aLockInfo = [
 		:name = "qt515qmlruntime",
 		:branch = "master",
 		:version = "1.0.2",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "tokenslib",
+		:branch = "master",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
