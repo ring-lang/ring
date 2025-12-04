@@ -334,10 +334,11 @@ Output:
 More Improvements
 =================
 
-* RingPM GUI - Use checkRingCode()
-* GoldMagic800 game - Use checkRingCode()
-* GoldMagic800 Levels Designer - Use checkRingCode()
-* Lectures Tracker application - Use checkRingCode()
+* Ring Notepad - Use checkRingCode() before using the settings file 
+* RingPM GUI - Use checkRingCode() before using the package file
+* GoldMagic800 game - Use checkRingCode() before using the level file
+* GoldMagic800 Levels Designer - Use checkRingCode() before using the level file
+* Lectures Tracker application - Use checkRingCode() before using the lectures file
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * Documentation - Revise links for CodeProject articles
