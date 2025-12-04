@@ -334,6 +334,7 @@ Output:
 More Improvements
 =================
 
+* RingPM GUI - Use checkRingCode()
 * GoldMagic800 game - Use checkRingCode()
 * GoldMagic800 Levels Designer - Use checkRingCode()
 * Lectures Tracker application - Use checkRingCode()
