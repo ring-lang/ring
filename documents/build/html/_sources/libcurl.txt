@@ -343,7 +343,7 @@ Example (1): Using the Write Callback
 
 	func main
 		curl = curl_easy_init()
-		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.net")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io")
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, :write_callback)
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 		curl_easy_perform(curl)
@@ -361,7 +361,7 @@ Example (2): Using the Progress Callback
 
 	func main
 		curl = curl_easy_init()
-		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.net")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io")
 		curl_easy_setopt(curl, CURLOPT_XFERINFOFUNCTION, :progress_callback)
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 		curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 0) 
@@ -386,7 +386,7 @@ Example (3): Using the Header Callback
 
 	func main
 		curl = curl_easy_init()
-		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.net")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io")
 		curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, :header_callback)
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 		curl_easy_setopt(curl, CURLOPT_NOBODY, 1)

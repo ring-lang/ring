@@ -208,7 +208,7 @@ Example: Using the Write Callback
 
 	func main
 		curl = curl_easy_init()
-		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.net")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io")
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, :write_callback)
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 		curl_easy_perform(curl)

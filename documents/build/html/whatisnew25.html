@@ -378,7 +378,7 @@ The callback function can get the data using <code class="docutils literal notra
 
 <span class="kd">func</span> <span class="nf">main</span>
         <span class="n">curl</span> <span class="o">=</span> <span class="nf">curl_easy_init</span><span class="p">()</span>
-        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.net&quot;</span><span class="p">)</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.github.io&quot;</span><span class="p">)</span>
         <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_WRITEFUNCTION</span><span class="p">,</span> <span class="ss">:write_callback</span><span class="p">)</span>
         <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="nf">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
