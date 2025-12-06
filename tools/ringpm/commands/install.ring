@@ -350,7 +350,7 @@ class InstallCommand
 		return cFileContent
 
 	func InstallFromRegistry cPackageName 
-		eval(read(C_REGISTRYFILE))
+		eval(checkBeforeEval(C_REGISTRYFILE,read(C_REGISTRYFILE)))
 		# Now we have aPackagesRegistry
 		for aPackage in aPackagesRegistry	
 			if lower(aPackage[:name]) = lower(cPackageName)

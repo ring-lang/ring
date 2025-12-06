@@ -36,7 +36,7 @@ func GetLocalPackageFile cPackageName
 func CheckPackageFile cPackageInfo
 	if cPackageInfo = "" return [False,[]] ok
 	try
-		eval( cPackageInfo )
+		eval(checkBeforeEval("package.ring",cPackageInfo))
 	catch
 		see nl
 		? C_ERROR_PACKAGEINFOISNOTCORRECT
@@ -56,3 +56,9 @@ func DisplayOperationDone
 
 func AddTimeStamp cURL
 	return cURL + "?ts="+EpochTime(date(),time())
+
+func checkBeforeEval cFile,cCode 
+	if ! checkRingCode([:code = cContent])
+		raise("The file " + cFile + " doesn't pass the security check!")
+	ok
+	return cCode 

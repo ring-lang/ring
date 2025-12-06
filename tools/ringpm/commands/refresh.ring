@@ -5,7 +5,7 @@
 */
 
 func UpdateTheRegistry
-	eval(read(exefolder()+"../tools/ringpm/registry/version.ring"))
+	eval(checkBeforeEval("version.ring",read(exefolder()+"../tools/ringpm/registry/version.ring")))
 	aLocalRegistryData =  [
 		:nRegistryRev  		= nRegistryRev,
 		:cRegistryLastUpdate 	= cRegistryLastUpdate,
@@ -18,7 +18,7 @@ func UpdateTheRegistry
 		? C_ERROR_CANTDOWNLOADTHEVERSIONFILE
 		return 
 	ok
-	eval(cRemoteVersionFile)
+	eval(checkBeforeEval("version.ring",cRemoteVersionFile))
 	aRemoteRegistryData =  [
 		:nRegistryRev  		= nRegistryRev,
 		:cRegistryLastUpdate 	= cRegistryLastUpdate,

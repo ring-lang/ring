@@ -23,7 +23,7 @@ func PrintInstalledPackages
 		next
 	# Print Packages 
 		for cFile in aPackagesInfoFiles 
-			eval(read(cFile))
+			eval(checkBeforeEval(cFile,read(cFile)))
 			see Style(Width("("+aPackageInfo[:folder]+") ",30),:YellowBlack)+": " +
 				 Width(aPackageInfo[:name] + " [" + aPackageInfo[:branch] + "]",50) +
 				 " -- " +
@@ -51,7 +51,7 @@ func CheckUpdates aLocalPackageInfo
 	cPackageInfo = GetPackageFile(cPackageName,cBranchName,cProviderUserName,cProviderWebsite)
 	if cPackageInfo = "" ? C_ERROR_PACKAGENOTFOUND return ok
 	try
-		eval( cPackageInfo )
+		eval( checkBeforeEval("package.ring",cPackageInfo) )
 	catch
 		? C_ERROR_PACKAGEINFOISNOTCORRECT
 		? cPackageInfo

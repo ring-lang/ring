@@ -23,7 +23,7 @@ func RemovePackage cPackageName
 		ok
 	# Get the Package Information 
 		if ! fexists(cPath) return ok
-		eval(read(cPath))
+		eval(checkBeforeEval(cPath,read(cPath)))
 	# Update All Packages Info 
 		oAllPackagesInfo.RemovePackage(cPackageName)
 	# Delete the Related Package 
@@ -41,7 +41,7 @@ func RemovePackage cPackageName
 
 func DeletePackageFiles cFolder 
 	# Load the Package File (To Be Used Later)
-		eval(read(cFolder+"/package.ring"))
+		eval(checkBeforeEval("package.ring",read(cFolder+"/package.ring")))
 	RunRemoveScripts(aPackageInfo,cFolder)
 	OSDeleteFolder(cFolder)
 	# Delete the loader file in ring/bin folder 

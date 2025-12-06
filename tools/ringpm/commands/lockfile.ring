@@ -26,7 +26,7 @@ func WriteLockFile aPackageInfo,oInstall
 				? C_ERROR_LOCKFILEDOESNOTEXIST + " : " + cSubLockFile 
 				return 
 			ok
-			eval(read(cSubLockFile))
+			eval(checkBeforeEval(cSubLockFile,read(cSubLockFile)))
 			for aSubPackage in aLockInfo
 				# Don't repeat the Packages 
 					for aPackageInLock in aLockFile

@@ -6,6 +6,7 @@
 
 # Load Global Libraries 
 	load "stdlibcore.ring"
+	load "tokenslib.ring"		# checkRingCode() Function
 	load "internetlib.ring"		# Download() Function
 	load "consolecolors.ring"
 	

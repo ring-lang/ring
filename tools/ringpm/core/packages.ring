@@ -18,7 +18,7 @@ class AllPackagesInfo
 	func LoadInfo 
 		if ! fexists(cAllPackagesFile) SaveInfo() return ok
 		cAllPackagesInfo = read(cAllPackagesFile)
-		eval(cAllPackagesInfo)
+		eval(checkBeforeEval("package.ring",cAllPackagesInfo))
 	
 	func AddPackage  cPackageName 
 		if find(aAllPackagesInfo,cPackageName,1) return ok

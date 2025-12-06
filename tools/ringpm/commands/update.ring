@@ -8,7 +8,7 @@ func UpdatePackage cPackageName
 	# Get Branch Name
 		cLocalPackageFile  = GetLocalPackageFile(cPackageName)
 		if cLocalPackageFile = NULL return ok
-		eval(cLocalPackageFile)
+		eval(checkBeforeEval("package.ring",cLocalPackageFile))
 		cBranchName = aPackageInfo[:branch]
 		cProviderUserName = aPackageInfo[:ProviderUserName]
 		cProviderWebsite  = aPackageInfo[:ProviderWebsite]
@@ -28,7 +28,7 @@ func CheckPackageUpdate cPackageName
 	# Get Package File (Local & Remote) ---> Compare 
 		cLocalPackageFile  = GetLocalPackageFile(cPackageName)
 		if cLocalPackageFile = NULL return False ok
-		eval(cLocalPackageFile)
+		eval(checkBeforeEval("package.ring",cLocalPackageFile))
 		cLocalVersion  = aPackageInfo[:version]
 		cBranchName = aPackageInfo[:branch]
 		# Remove branch name from package name 
@@ -37,7 +37,7 @@ func CheckPackageUpdate cPackageName
 						aPackageInfo[:ProviderUserName],
 						aPackageInfo[:ProviderWebsite])
 		if cRemotePackageFile = "" ? C_ERROR_PACKAGENOTFOUND return False ok		
-		eval(cRemotePackageFile)
+		eval(checkBeforeEval("package.ring",cRemotePackageFile))
 		cRemoteVersion = aPackageInfo[:version]
 	# Check if no updates (---> Return)
 		if cLocalVersion = cRemoteVersion
