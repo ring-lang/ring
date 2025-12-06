@@ -59,6 +59,8 @@ func AddTimeStamp cURL
 
 func checkBeforeEval cFile,cCode 
 	if ! checkRingCode([:code = cCode])
-		raise("The file " + cFile + " doesn't pass the security check!")
+		? "Processing File: " + cFile
+		? C_ERROR_FILEDOESNOTPASSTHESECURITYCHECK
+		bye
 	ok
 	return cCode 
