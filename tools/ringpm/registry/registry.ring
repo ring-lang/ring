@@ -874,5 +874,9 @@ aPackagesRegistry = [
 	[ :name = "lecturestracker",
 	  :description = "Lectures Tracker application developed using the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring2exe-plus",
+	  :description = "Ring2EXE Plus package for the Ring programming language",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
