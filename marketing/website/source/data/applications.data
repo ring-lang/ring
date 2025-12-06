@@ -428,7 +428,11 @@ aApplications = [
 			[
 				'<a href="https://github.com/ysdragon/im2ansi" >im2ansi</a>',
 				'<img src="images/im2ansi.png" width="100%">'
-			]
+			],
+			[
+				'<a href="https://github.com/ysdragon/ring2exe-plus" >Ring2EXE (Plus)</a>',
+				'<img src="images/ring2exeplus.png" width="100%">'
+			],
 		]
 	],
 	["Online Applications (WebAssembly)",[
