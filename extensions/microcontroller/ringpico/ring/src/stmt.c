@@ -1045,6 +1045,7 @@ int ring_parser_stmt(Parser *pParser) {
 	}
 	/* Statement --> Switch  Expr { ON|CASE Expr {Statement} } OFF */
 	if (ring_parser_iskeyword(pParser, K_SWITCH)) {
+		pParser->nSwitchCounter++;
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
 		pParser->lAssignmentFlag = 0;
@@ -1119,6 +1120,7 @@ int ring_parser_stmt(Parser *pParser) {
 		} else {
 			ring_parser_error(pParser, RING_PARSER_ERROR_SWITCHEXPR);
 		}
+		pParser->nSwitchCounter--;
 	}
 	/* Statement --> Import Identifier { '.' Identifier } */
 	if (ring_parser_iskeyword(pParser, K_IMPORT)) {

@@ -10,6 +10,12 @@ int ring_parser_expr(Parser *pParser) {
 	    ring_parser_iskeyword(pParser, K_FROM) || ring_parser_iskeyword(pParser, K_STEP)) {
 		ring_parser_keywordtoidentifier(pParser);
 	}
+	if (pParser->nSwitchCounter == 0) {
+		if (ring_parser_iskeyword(pParser, K_ON) || ring_parser_iskeyword(pParser, K_OFF) ||
+		    ring_parser_iskeyword(pParser, K_CASE)) {
+			ring_parser_keywordtoidentifier(pParser);
+		}
+	}
 	/* Expr --> LogicAnd { or LogicAnd } */
 	if (ring_parser_logicand(pParser)) {
 		x = 1;
