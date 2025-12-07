@@ -1113,6 +1113,7 @@ int ring_parser_stmt(Parser *pParser) {
 				ring_list_delete_gc(pParser->pRingState, pList2);
 				ring_parser_icg_freestack(pParser);
 				RING_STATE_PRINTRULE(RING_RULE_OFF);
+				pParser->nSwitchCounter--;
 				return RING_PARSER_OK;
 			} else {
 				ring_parser_error(pParser, RING_PARSER_ERROR_SWITCHOFF);
