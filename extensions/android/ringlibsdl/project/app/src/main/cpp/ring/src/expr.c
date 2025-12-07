@@ -7,8 +7,8 @@ int ring_parser_expr(Parser *pParser) {
 	List *pMark;
 	/*
 	**  Change some keywords to identifiers (Useful for Natural Commands using Classes/Braces)
-	**  The next if statements could be converted to one if statement but I feel that the current implementation is
-	*more readable
+	**  The next if statements could be converted to one if statement
+	**  But I feel that the current implemention is more readable
 	**  Check keywords that are in the middle of instructions
 	*/
 	if (ring_parser_iskeyword(pParser, K_TO) || ring_parser_iskeyword(pParser, K_IN) ||
