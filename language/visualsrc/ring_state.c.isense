@@ -182,5 +182,7 @@ cStr
 ring_state_execute
 Type: RingState *
 pRingState
+Type: unsigned int
+lCont
 ring_state_segfaultaction
 ring_state_usageinfo
