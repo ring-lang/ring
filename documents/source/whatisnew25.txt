@@ -385,6 +385,7 @@ The next keywords could be used as identifiers (variables/attributes/etc.)
 More Improvements
 =================
 
+* Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
 * Ring Notepad - Use checkRingCode() before using the settings file 
 * Form Designer - Use checkRingCode() before loading the form file
 * RingPM GUI - Use checkRingCode() before using the package file
@@ -398,4 +399,4 @@ More Improvements
 * Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
-* Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
+* Ring Compiler - ring_state_execute() function - check ring_state_runfile() output
