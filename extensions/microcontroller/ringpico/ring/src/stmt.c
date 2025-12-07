@@ -854,6 +854,7 @@ int ring_parser_stmt(Parser *pParser) {
 		/* Free Temp Lists */
 		ring_parser_icg_genfreetemplists(pParser);
 		RING_STATE_PRINTRULE(RING_RULE_DOAGAINLOOP);
+		pParser->nDoAgainCounter++;
 		ring_parser_nexttoken(pParser);
 		/* Save Loop|Exit commands status */
 		lLoopOrExitCommand = pParser->lLoopOrExitCommand;
@@ -891,11 +892,13 @@ int ring_parser_stmt(Parser *pParser) {
 				ring_parser_icg_newoperation(pParser, ICO_POPSTEP);
 				pParser->lAssignmentFlag = 1;
 				RING_STATE_PRINTRULE(RING_RULE_AGAINEXPR);
+				pParser->nDoAgainCounter--;
 				return RING_PARSER_OK;
 			}
 		} else {
 			ring_parser_error(pParser, RING_PARSER_ERROR_AGAIN);
 		}
+		pParser->nDoAgainCounter--;
 		return RING_PARSER_FAIL;
 	}
 	/* Statement --> Return Expr */

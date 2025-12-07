@@ -64,6 +64,7 @@ Parser *ring_parser_new(RingState *pRingState, List *pTokens) {
 	pParser->nIfCounter = 0;
 	pParser->nSwitchCounter = 0;
 	pParser->nTryCatchCounter = 0;
+	pParser->nDoAgainCounter = 0;
 	pParser->lInsertFlag = 0;
 	pParser->nInsertCounter = 0;
 	pParser->lNewObject = 0;

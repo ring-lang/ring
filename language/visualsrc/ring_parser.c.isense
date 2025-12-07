@@ -29,6 +29,8 @@ nSwitchCounter
 Type: unsigned int
 nTryCatchCounter
 Type: unsigned int
+nDoAgainCounter
+Type: unsigned int
 nActiveToken
 Type: unsigned int
 nTokensCount

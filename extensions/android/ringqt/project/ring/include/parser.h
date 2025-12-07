@@ -27,6 +27,7 @@ typedef struct Parser {
 	unsigned int nIfCounter;
 	unsigned int nSwitchCounter;
 	unsigned int nTryCatchCounter;
+	unsigned int nDoAgainCounter;
 	/* Active Token */
 	unsigned int nActiveToken;
 	unsigned int nTokensCount;

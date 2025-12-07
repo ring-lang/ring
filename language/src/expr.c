@@ -23,6 +23,8 @@ int ring_parser_expr(Parser *pParser) {
 	     /* Check keywrods related to Try-Catch-Done statement */
 	     ((!pParser->nTryCatchCounter) &&
 	      (ring_parser_iskeyword(pParser, K_CATCH) || ring_parser_iskeyword(pParser, K_DONE))) ||
+	     /* Check the Again keyword */
+	     ((!pParser->nDoAgainCounter) && (ring_parser_iskeyword(pParser, K_AGAIN))) ||
 	     /* Check keywords shared by if-statement and switch-statement */
 	     ((!pParser->nIfCounter) && (pParser->nSwitchCounter == 0) &&
 	      (ring_parser_iskeyword(pParser, K_ELSE) || ring_parser_iskeyword(pParser, K_OTHER)))))
