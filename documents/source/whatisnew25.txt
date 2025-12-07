@@ -24,7 +24,8 @@ Ring 1.25 comes with the next features!
 * Better Functions
 * Better RingLibCurl
 * Better TokensLib
-* Flexible Statement Separation 
+* Flexible Statement Separation
+* Using Keywords as Identifiers 
 * More Improvements
 
 .. index:: 
@@ -354,6 +355,29 @@ Output:
 	100
 	200
 	300
+
+.. index:: 
+	pair: What is new in Ring  1.25; Using Keywords as Identifiers
+
+Using Keywords as Identifiers
+=============================
+
+The next keywords could be used as identifiers (variables/attributes/etc.)
+
+* Again
+* But
+* Case
+* Catch
+* Done
+* Else
+* From
+* In
+* Off
+* Ok
+* On
+* Other
+* Step
+* To
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
