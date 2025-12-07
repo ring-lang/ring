@@ -183,6 +183,7 @@ aTests = [
 	[ :name = "Object Oriented Programming (Part 157)", :Command = "ring objectoriented/oop157.ring" ],
 	[ :name = "Object Oriented Programming (Part 158)", :Command = "ring objectoriented/oop158.ring" ],
 	[ :name = "Object Oriented Programming (Part 159)", :Command = "ring objectoriented/oop159.ring" ],
+	[ :name = "Object Oriented Programming (Part 160)", :Command = "ring objectoriented/oop160.ring" ],
 	[ :name = "Object Attribute Setter (Part 1)", :Command = "ring setter/setter.ring" ],
 	[ :name = "Object Attribute Setter (Part 2)", :Command = "ring setter/setter2.ring" ],
 	[ :name = "Object Attribute Setter (Part 3)", :Command = "ring setter/setter3.ring" ],
