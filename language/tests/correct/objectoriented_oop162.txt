@@ -1,0 +1,18 @@
+1
+0
+10
+********************
+one
+********************
+getON()
+getOFF()
+getCASE()
+on: NULL
+off: NULL
+case: NULL
+
+geton
+getoff
+getcase
+
+********************
