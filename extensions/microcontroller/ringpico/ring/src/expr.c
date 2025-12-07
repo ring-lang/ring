@@ -28,6 +28,11 @@ int ring_parser_expr(Parser *pParser) {
 			ring_parser_keywordtoidentifier(pParser);
 		}
 	}
+	if ((pParser->nIfCounter == 0) && (pParser->nSwitchCounter == 0)) {
+		if (ring_parser_iskeyword(pParser, K_ELSE) || ring_parser_iskeyword(pParser, K_OTHER)) {
+			ring_parser_keywordtoidentifier(pParser);
+		}
+	}
 	/* Expr --> LogicAnd { or LogicAnd } */
 	if (ring_parser_logicand(pParser)) {
 		x = 1;
