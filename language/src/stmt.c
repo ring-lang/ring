@@ -1138,6 +1138,11 @@ int ring_parser_stmt(Parser *pParser) {
 		ring_parser_nexttoken(pParser);
 		return RING_PARSER_OK;
 	}
+	/* Change some keywords to identifiers (Useful for Natural Commands using Classes/Braces) */
+	if (ring_parser_iskeyword(pParser, K_TO) || ring_parser_iskeyword(pParser, K_IN) ||
+	    ring_parser_iskeyword(pParser, K_FROM)) {
+		ring_parser_keywordtoidentifier(pParser);
+	}
 	/* Statement --> Expr */
 	if (ring_parser_expr(pParser)) {
 		RING_STATE_PRINTRULE(RING_RULE_EXPR);
