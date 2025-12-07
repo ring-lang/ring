@@ -198,10 +198,37 @@ File : UseStyleBasic.ring
 
 .. tip:: Using LoadSyntax command is optional, See the (Automatic loading for syntax files) section.
 	
-Using "()" around the function parameters
-=========================================
 
-We can use () around the function parameters (optional).
+.. index:: 
+	pair: Syntax Flexibility; Using Keywords as Identifiers
+
+Using Keywords as Identifiers
+=============================
+
+The next keywords could be used as identifiers (variables/attributes/etc.)
+
+* Again
+* But
+* Case
+* Catch
+* Done
+* Else
+* From
+* In
+* Off
+* Ok
+* On
+* Other
+* Step
+* To
+
+.. index:: 
+	pair: Syntax Flexibility; Using Parentheses around the function parameters
+
+Using Parentheses around the function parameters
+================================================
+
+We can use Parentheses around the function parameters (optional).
 
 Example:
 
