@@ -14,7 +14,7 @@ func main
 	test()
 
 func test
-	new mytest { Again self ? methods(self) }
+	new mytest { Again ? self ? methods(self) }
 	? copy("*",20)
 
 	new mytest {
