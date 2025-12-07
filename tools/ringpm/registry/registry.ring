@@ -878,5 +878,9 @@ aPackagesRegistry = [
 	[ :name = "ring2exe-plus",
 	  :description = "Ring2EXE Plus package for the Ring programming language",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "im2ansi",
+	  :description = "Image to ANSI/ASCII Art Converter",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
