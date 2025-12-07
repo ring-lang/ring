@@ -1,4 +1,4 @@
-# Using the AGAIN as identifiers (variables/attributes)
+# Using the AGAIN keyword as identifier (variables/attributes)
 
 func main
 
