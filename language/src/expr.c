@@ -7,7 +7,7 @@ int ring_parser_expr(Parser *pParser) {
 	List *pMark;
 	/* Change some keywords to identifiers (Useful for Natural Commands using Classes/Braces) */
 	if (ring_parser_iskeyword(pParser, K_TO) || ring_parser_iskeyword(pParser, K_IN) ||
-	    ring_parser_iskeyword(pParser, K_FROM)) {
+	    ring_parser_iskeyword(pParser, K_FROM) || ring_parser_iskeyword(pParser, K_STEP)) {
 		ring_parser_keywordtoidentifier(pParser);
 	}
 	/* Expr --> LogicAnd { or LogicAnd } */
