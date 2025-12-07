@@ -1,0 +1,17 @@
+1
+2
+one
+********************
+getBut()
+getOk()
+but: NULL
+ok: NULL
+
+getbut
+getok
+braceerror
+
+********************
+getBut()
+getOk()
+********************
