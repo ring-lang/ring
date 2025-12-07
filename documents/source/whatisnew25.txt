@@ -67,7 +67,11 @@ Convert images into beautiful ANSI/ASCII art
 
 Developed using Ring, RingStbImage and RingFastPro
 
-URL: https://github.com/ysdragon/im2ansi
+Install:
+
+.. code-block:: none
+
+	ringpm install im2ansi
 
 Features:
 
