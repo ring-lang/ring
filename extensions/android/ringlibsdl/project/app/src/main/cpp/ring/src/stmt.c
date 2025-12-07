@@ -701,6 +701,7 @@ int ring_parser_stmt(Parser *pParser) {
 	}
 	/* Statement --> IF Expr Statements OK */
 	if (ring_parser_iskeyword(pParser, K_IF)) {
+		pParser->nIfCounter++;
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
 		pParser->lAssignmentFlag = 0;
@@ -766,12 +767,14 @@ int ring_parser_stmt(Parser *pParser) {
 				ring_list_delete_gc(pParser->pRingState, pList2);
 				ring_parser_nexttoken(pParser);
 				RING_STATE_PRINTRULE(RING_RULE_OK);
+				pParser->nIfCounter--;
 				return RING_PARSER_OK;
 			} else {
 				ring_parser_error(pParser, RING_PARSER_ERROR_OK);
 				ring_list_delete_gc(pParser->pRingState, pList2);
 			}
 		}
+		pParser->nIfCounter--;
 		return RING_PARSER_FAIL;
 	}
 	/* Statement --> WHILE Expr Statements END */
@@ -946,6 +949,7 @@ int ring_parser_stmt(Parser *pParser) {
 	}
 	/* Statement --> Try {Statement} Catch {Statement} Done */
 	if (ring_parser_iskeyword(pParser, K_TRY)) {
+		pParser->nTryCatchCounter++;
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
 		if (ring_parser_isoperator2(pParser, OP_BRACEOPEN)) {
@@ -981,6 +985,7 @@ int ring_parser_stmt(Parser *pParser) {
 				ring_parser_icg_newoperation(pParser, ICO_DONE);
 				nMark3 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pParser, pMark3, nMark3);
+				pParser->nTryCatchCounter--;
 				return RING_PARSER_OK;
 			} else {
 				ring_parser_error(pParser, RING_PARSER_ERROR_NODONE);
@@ -988,6 +993,8 @@ int ring_parser_stmt(Parser *pParser) {
 		} else {
 			ring_parser_error(pParser, RING_PARSER_ERROR_NOCATCH);
 		}
+		pParser->nTryCatchCounter--;
+		return RING_PARSER_FAIL;
 	}
 	/* Statement --> Bye (Close the Program) */
 	if (ring_parser_iskeyword(pParser, K_BYE)) {
@@ -1122,6 +1129,7 @@ int ring_parser_stmt(Parser *pParser) {
 			ring_parser_error(pParser, RING_PARSER_ERROR_SWITCHEXPR);
 		}
 		pParser->nSwitchCounter--;
+		return RING_PARSER_FAIL;
 	}
 	/* Statement --> Import Identifier { '.' Identifier } */
 	if (ring_parser_iskeyword(pParser, K_IMPORT)) {

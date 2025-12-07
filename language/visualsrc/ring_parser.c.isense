@@ -23,7 +23,11 @@ nClassMark
 Type: unsigned int
 nBracesCounter
 Type: unsigned int
-nInsideSwitch
+nIfCounter
+Type: unsigned int
+nSwitchCounter
+Type: unsigned int
+nTryCatchCounter
 Type: unsigned int
 nActiveToken
 Type: unsigned int

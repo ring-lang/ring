@@ -23,8 +23,10 @@ typedef struct Parser {
 	unsigned int nClassMark;
 	/* Counter to know if we are inside { } or not */
 	unsigned int nBracesCounter;
-	/* Counter to know if we are inside SWTICH statement */
+	/* Counter to know if we are inside specific control structure */
+	unsigned int nIfCounter;
 	unsigned int nSwitchCounter;
+	unsigned int nTryCatchCounter;
 	/* Active Token */
 	unsigned int nActiveToken;
 	unsigned int nTokensCount;

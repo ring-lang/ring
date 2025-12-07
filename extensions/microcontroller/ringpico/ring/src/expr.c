@@ -10,9 +10,21 @@ int ring_parser_expr(Parser *pParser) {
 	    ring_parser_iskeyword(pParser, K_FROM) || ring_parser_iskeyword(pParser, K_STEP)) {
 		ring_parser_keywordtoidentifier(pParser);
 	}
+	if (pParser->nIfCounter == 0) {
+		if (ring_parser_iskeyword(pParser, K_BUT) || ring_parser_iskeyword(pParser, K_ELSEIF) ||
+		    ring_parser_iskeyword(pParser, K_OK) || ring_parser_iskeyword(pParser, K_ENDIF)) {
+			ring_parser_keywordtoidentifier(pParser);
+		}
+	}
 	if (pParser->nSwitchCounter == 0) {
-		if (ring_parser_iskeyword(pParser, K_ON) || ring_parser_iskeyword(pParser, K_OFF) ||
-		    ring_parser_iskeyword(pParser, K_CASE)) {
+		if (ring_parser_iskeyword(pParser, K_ON) || ring_parser_iskeyword(pParser, K_CASE) ||
+		    ring_parser_iskeyword(pParser, K_OFF) || ring_parser_iskeyword(pParser, K_ENDSWITCH)) {
+			ring_parser_keywordtoidentifier(pParser);
+		}
+	}
+	if (pParser->nTryCatchCounter == 0) {
+		if (ring_parser_iskeyword(pParser, K_CATCH) || ring_parser_iskeyword(pParser, K_DONE) ||
+		    ring_parser_iskeyword(pParser, K_ENDTRY)) {
 			ring_parser_keywordtoidentifier(pParser);
 		}
 	}
