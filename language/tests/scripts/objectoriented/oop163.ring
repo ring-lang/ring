@@ -37,14 +37,12 @@ func main
 	test()
 
 func test
-	new mytest { Catch Done Other Else ElseIf EndIf EndSwitch EndTry ? self ? methods(self) }
+	new mytest { Catch Done Other Else ? self ? methods(self) }
 	? copy("*",20)
 
 class mytest
 
 	Catch Done Other Else
-
-	ElseIf EndIf EndSwitch EndTry 
 
 	func getCatch
 		? "getCatch()"
@@ -58,14 +56,3 @@ class mytest
 	func getElse
 		? "getElse()"
 
-	func getElseIf
-		? "getElseIf()"
-
-	func getEndIf
-		? "getEndIf()"
-
-	func getEndSwitch
-		? "getEndSwitch()"
-
-	func getEndTry
-		? "getEndTry()"

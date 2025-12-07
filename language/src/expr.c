@@ -15,16 +15,14 @@ int ring_parser_expr(Parser *pParser) {
 	     ring_parser_iskeyword(pParser, K_FROM) || ring_parser_iskeyword(pParser, K_STEP) ||
 	     /* Check keywords releated to if-statement */
 	     ((!pParser->nIfCounter) &&
-	      (ring_parser_iskeyword(pParser, K_BUT) || ring_parser_iskeyword(pParser, K_ELSEIF) ||
-	       ring_parser_iskeyword(pParser, K_OK) || ring_parser_iskeyword(pParser, K_ENDIF))) ||
+	      (ring_parser_iskeyword(pParser, K_BUT) || ring_parser_iskeyword(pParser, K_OK))) ||
 	     /* Check keywords related to Switch-statement */
 	     ((!pParser->nSwitchCounter) &&
 	      (ring_parser_iskeyword(pParser, K_ON) || ring_parser_iskeyword(pParser, K_CASE) ||
-	       ring_parser_iskeyword(pParser, K_OFF) || ring_parser_iskeyword(pParser, K_ENDSWITCH))) ||
+	       ring_parser_iskeyword(pParser, K_OFF))) ||
 	     /* Check keywrods related to Try-Catch-Done statement */
 	     ((!pParser->nTryCatchCounter) &&
-	      (ring_parser_iskeyword(pParser, K_CATCH) || ring_parser_iskeyword(pParser, K_DONE) ||
-	       ring_parser_iskeyword(pParser, K_ENDTRY))) ||
+	      (ring_parser_iskeyword(pParser, K_CATCH) || ring_parser_iskeyword(pParser, K_DONE))) ||
 	     /* Check keywords shared by if-statement and switch-statement */
 	     ((!pParser->nIfCounter) && (pParser->nSwitchCounter == 0) &&
 	      (ring_parser_iskeyword(pParser, K_ELSE) || ring_parser_iskeyword(pParser, K_OTHER)))))

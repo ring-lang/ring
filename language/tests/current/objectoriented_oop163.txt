@@ -12,26 +12,14 @@ getCatch()
 getDone()
 getOther()
 getElse()
-getElseIf()
-getEndIf()
-getEndSwitch()
-getEndTry()
 catch: NULL
 done: NULL
 other: NULL
 else: NULL
-elseif: NULL
-endif: NULL
-endswitch: NULL
-endtry: NULL
 
 getcatch
 getdone
 getother
 getelse
-getelseif
-getendif
-getendswitch
-getendtry
 
 ********************
