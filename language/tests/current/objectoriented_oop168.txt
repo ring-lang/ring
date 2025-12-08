@@ -1,0 +1,31 @@
+********************
+Again - 1
+But - 2
+Case - 3
+Catch - 4
+Done - 5
+Else - 6
+From - 7
+In - 8
+Off - 9
+Ok - 10
+On - 11
+Other - 12
+Step - 13
+To - 14
+********************
+Again - 1
+But - 2
+Case - 3
+Catch - 4
+Done - 5
+Else - 6
+From - 7
+In - 8
+Off - 9
+Ok - 10
+On - 11
+Other - 12
+Step - 13
+To - 14
+********************
