@@ -5,7 +5,6 @@
 int ring_parser_expr(Parser *pParser) {
 	int x, nMark;
 	List *pMark;
-	ring_parser_processkeywords(pParser);
 	/* Expr --> LogicAnd { or LogicAnd } */
 	if (ring_parser_logicand(pParser)) {
 		x = 1;
@@ -1068,7 +1067,6 @@ int ring_parser_objattributes(Parser *pParser) {
 	while (ring_parser_isoperator2(pParser, OP_DOT)) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
-		ring_parser_processkeywords(pParser);
 		/* we support literal to be able to call methods contains operators in the name */
 		if (ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser)) {
 			/* Prevent Accessing the self reference from outside the object */
@@ -1089,31 +1087,4 @@ int ring_parser_objattributes(Parser *pParser) {
 		}
 	}
 	return RING_PARSER_OK;
-}
-
-void ring_parser_processkeywords(Parser *pParser) {
-	/*
-	**  Change some keywords to identifiers (Useful for Natural Commands using Classes/Braces)
-	**  Check if we have a keyword
-	*/
-	if (ring_parser_isanykeyword(pParser) &&
-	    /* Check keywords that are in the middle of instructions */
-	    (ring_parser_iskeyword(pParser, K_TO) || ring_parser_iskeyword(pParser, K_IN) ||
-	     ring_parser_iskeyword(pParser, K_FROM) || ring_parser_iskeyword(pParser, K_STEP) ||
-	     /* Check keywords releated to if-statement */
-	     ((!pParser->nIfCounter) &&
-	      (ring_parser_iskeyword(pParser, K_BUT) || ring_parser_iskeyword(pParser, K_OK))) ||
-	     /* Check keywords related to Switch-statement */
-	     ((!pParser->nSwitchCounter) &&
-	      (ring_parser_iskeyword(pParser, K_ON) || ring_parser_iskeyword(pParser, K_CASE) ||
-	       ring_parser_iskeyword(pParser, K_OFF))) ||
-	     /* Check keywrods related to Try-Catch-Done statement */
-	     ((!pParser->nTryCatchCounter) &&
-	      (ring_parser_iskeyword(pParser, K_CATCH) || ring_parser_iskeyword(pParser, K_DONE))) ||
-	     /* Check the Again keyword */
-	     ((!pParser->nDoAgainCounter) && (ring_parser_iskeyword(pParser, K_AGAIN))) ||
-	     /* Check keywords shared by if-statement and switch-statement */
-	     ((!pParser->nIfCounter) && (pParser->nSwitchCounter == 0) &&
-	      (ring_parser_iskeyword(pParser, K_ELSE) || ring_parser_iskeyword(pParser, K_OTHER)))))
-		ring_parser_keywordtoidentifier(pParser);
 }

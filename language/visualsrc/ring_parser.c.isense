@@ -236,6 +236,7 @@ ring_parser_isoperator2
 ring_parser_keywordtoidentifier
 Type: List *
 pList
+ring_parser_processkeywords
 ring_parser_error
 Type: int
 nRingActiveFile
