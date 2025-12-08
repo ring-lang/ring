@@ -882,5 +882,9 @@ aPackagesRegistry = [
 	[ :name = "im2ansi",
 	  :description = "Image to ANSI/ASCII Art Converter",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "distromap",
+	  :description = "A lightweight web API server (Linux distribution and release information)",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
