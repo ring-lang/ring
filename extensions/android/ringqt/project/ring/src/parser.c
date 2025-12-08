@@ -180,7 +180,7 @@ void ring_parser_processkeywords(Parser *pParser) {
 	     /* Check the Again keyword */
 	     ((!pParser->nDoAgainCounter) && (ring_parser_iskeyword(pParser, K_AGAIN))) ||
 	     /* Check keywords shared by if-statement and switch-statement */
-	     ((!pParser->nIfCounter) && (pParser->nSwitchCounter == 0) &&
+	     ((!pParser->nIfCounter) && (!pParser->nSwitchCounter) &&
 	      (ring_parser_iskeyword(pParser, K_ELSE) || ring_parser_iskeyword(pParser, K_OTHER)))))
 		ring_parser_keywordtoidentifier(pParser, RING_FALSE);
 	/* Check keywords related to classes identifiers */
