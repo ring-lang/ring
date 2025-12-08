@@ -200,12 +200,12 @@ File : UseStyleBasic.ring
 	
 
 .. index:: 
-	pair: Syntax Flexibility; Using Keywords as Variables
+	pair: Syntax Flexibility; Using Keywords as Identifiers
 
-Using Keywords as Variables
-===========================
+Using Keywords as Identifiers
+=============================
 
-The next keywords could be used as variables/attributes.
+The next keywords could be used as variables/attributes/etc.
 
 This is useful when creating domain-specific languages that uses these keywords in the commands.
 
