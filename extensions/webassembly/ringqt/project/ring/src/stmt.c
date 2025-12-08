@@ -131,6 +131,7 @@ int ring_parser_class(Parser *pParser) {
 	    ring_parser_iskeyword(pParser, K_DEF)) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
+		ring_parser_processkeywords(pParser);
 		if (ring_parser_isidentifier(pParser)) {
 			/*
 			**  Generate Code
