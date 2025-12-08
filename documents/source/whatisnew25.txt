@@ -406,10 +406,10 @@ This is useful when creating domain-specific languages that uses these keywords 
 More Improvements
 =================
 
-* Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
-* Documentation - Revise links for CodeProject articles
 * NaturalLib implementation is revised (Better Performance)
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
-* Ring Compiler - ring_state_execute() function - check ring_state_runfile() output
+* ring_state_execute() - check ring_state_runfile() output
+* Documentation - Revise links for CodeProject articles
+* Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
