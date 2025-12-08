@@ -245,7 +245,7 @@ int ring_parser_isanykeyword(Parser *pParser);
 
 int ring_parser_isoperator2(Parser *pParser, SCANNER_OPERATOR nType);
 
-void ring_parser_keywordtoidentifier(Parser *pParser);
+void ring_parser_keywordtoidentifier(Parser *pParser, unsigned int lIdentifier);
 /* Display Errors */
 
 void ring_parser_error(Parser *pParser, const char *cStr);
