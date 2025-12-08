@@ -304,4 +304,6 @@ int ring_parser_objattributes(Parser *pParser);
 int ring_parser_bracesandend(Parser *pParser, int lClass, SCANNER_KEYWORD nKeyword);
 
 int ring_parser_ringvmsee(Parser *pParser);
+
+void ring_parser_processkeywords(Parser *pParser);
 #endif

@@ -55,3 +55,4 @@ ring_parser_ppmm
 Type: int
 nLastOperation,nMode,nValue
 ring_parser_objattributes
+ring_parser_processkeywords
