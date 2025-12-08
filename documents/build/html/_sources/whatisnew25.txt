@@ -25,7 +25,7 @@ Ring 1.25 comes with the next features!
 * Better RingLibCurl
 * Better TokensLib
 * Flexible Statement Separation
-* Using Keywords as Identifiers 
+* Using Keywords as Variables  
 * More Improvements
 
 .. index:: 
@@ -361,12 +361,14 @@ Output:
 	300
 
 .. index:: 
-	pair: What is new in Ring  1.25; Using Keywords as Identifiers
+	pair: What is new in Ring  1.25; Using Keywords as Variables
 
-Using Keywords as Identifiers
-=============================
+Using Keywords as Variables
+===========================
 
-The next keywords could be used as identifiers (variables/attributes/etc.)
+The next keywords could be used as variables/attributes.
+
+This is useful when creating domain-specific languages that uses these keywords in the commands.
 
 * Again
 * But
