@@ -1068,6 +1068,7 @@ int ring_parser_objattributes(Parser *pParser) {
 	while (ring_parser_isoperator2(pParser, OP_DOT)) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
+		ring_parser_processkeywords(pParser);
 		/* we support literal to be able to call methods contains operators in the name */
 		if (ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser)) {
 			/* Prevent Accessing the self reference from outside the object */
