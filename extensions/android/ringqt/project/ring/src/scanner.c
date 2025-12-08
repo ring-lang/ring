@@ -283,11 +283,9 @@ void ring_scanner_checktoken(Scanner *pScanner) {
 			sprintf(cStr, "%d", nResult);
 			ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, cStr);
 			ring_scanner_addtoken(pScanner, SCANNER_TOKEN_KEYWORD);
-			if (pScanner->pRingState->lScannerCommandsAsTokens) {
-				pList = ring_list_getlist(pScanner->pTokens, ring_list_getsize(pScanner->pTokens));
-				ring_list_addstring_gc(pScanner->pRingState, pList,
-						       ring_list_getstring(pScanner->pKeywords, nResult));
-			}
+			pList = ring_list_getlist(pScanner->pTokens, ring_list_getsize(pScanner->pTokens));
+			ring_list_addstring_gc(pScanner->pRingState, pList,
+					       ring_list_getstring(pScanner->pKeywords, nResult));
 		} else if (nResult == RING_SCANNER_CHANGERINGKEYWORD) {
 			if (pScanner->pRingState->lScannerCommandsAsTokens) {
 				ring_scanner_registertoken(pScanner, SCANNER_TOKEN_IDENTIFIER, "ChangeRingKeyword");

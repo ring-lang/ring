@@ -144,9 +144,7 @@ void ring_parser_keywordtoidentifier(Parser *pParser) {
 	List *pList;
 	pList = ring_list_getlist(pParser->pTokens, pParser->nActiveToken);
 	ring_list_setint(pList, RING_SCANNER_TOKENTYPE, SCANNER_TOKEN_IDENTIFIER);
-	ring_list_setstring(pList, RING_SCANNER_TOKENVALUE,
-			    RING_KEYWORDS[((unsigned int)atoi(pParser->cTokenText)) - 1]);
-	ring_general_lower(ring_list_getstring(pList, RING_SCANNER_TOKENVALUE));
+	ring_list_setstring(pList, RING_SCANNER_TOKENVALUE, ring_list_getstring(pList, RING_SCANNER_TOKENOPTIONALSTR));
 	ring_parser_loadtoken(pParser);
 }
 /* Display Errors */
