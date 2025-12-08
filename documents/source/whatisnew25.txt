@@ -52,7 +52,11 @@ DistroMap API
 A lightweight web API server built with Ring that provides Linux distribution and release 
 information based on codenames.
 
-URL: https://github.com/ysdragon/DistroMap
+Install:
+
+.. code-block:: none
+
+	ringpm install distromap
 
 .. image:: distromapapi.png
 	:alt: DistroMapAPI
