@@ -25,7 +25,8 @@ Ring 1.25 comes with the next features!
 * Better RingLibCurl
 * Better TokensLib
 * Flexible Statement Separation
-* Using Keywords as Identifiers  
+* Using Keywords as Identifiers
+* Translating Internal Identifiers  
 * More Improvements
 
 .. index:: 
@@ -405,6 +406,98 @@ This is useful when creating domain-specific languages that uses these keywords 
 * Other
 * Step
 * To
+
+
+.. index:: 
+	pair: What is new in Ring  1.25; Translating Internal Identifiers
+
+Translating Internal Identifiers
+================================
+
+Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
+This allows translation without breaking existing code that relies on English identifiers.
+
+The identifiers that can be translated are:
+
+* This
+* Self
+* Super
+* Main
+* Init
+* Operator
+* BraceStart
+* BraceExprEval
+* BraceError
+* BraceEnd
+
+Example:
+
+.. code-block:: ring
+
+	new point { x=10 y=20 z=30 ? self }
+
+	ChangeRingKeyword self my
+
+	new point { x=10 y=20 z=30 ? my }
+
+	# Since self is an identifier (not a real keyword)
+	# We can use (self) or (my) at the same time
+
+	new point { x=100 y=200 z=300 ? my ? self }
+
+	new point { x=1000 y=2000 z=3000 test()}
+
+	class parent 
+
+		func test 
+
+			? "Parent - Test()"
+
+	class point from parent x y z 
+
+		func test
+
+			ChangeRingKeyword this mypoint
+			
+			? this
+			? mypoint
+		
+			ChangeRingKeyword super father
+				
+			super.test()
+
+			father.test()
+
+Output:
+
+.. code-block:: none
+
+	x: 10
+	y: 20
+	z: 30
+	
+	x: 10
+	y: 20
+	z: 30
+	
+	x: 100
+	y: 200
+	z: 300
+	
+	x: 100
+	y: 200
+	z: 300
+	
+	x: 1000
+	y: 2000
+	z: 3000
+	
+	x: 1000
+	y: 2000
+	z: 3000
+	
+	Parent - Test()
+	Parent - Test()
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements

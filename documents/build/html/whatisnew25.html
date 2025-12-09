@@ -195,6 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-tokenslib">Better TokensLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -247,6 +248,7 @@
 <li><p>Better TokensLib</p></li>
 <li><p>Flexible Statement Separation</p></li>
 <li><p>Using Keywords as Identifiers</p></li>
+<li><p>Translating Internal Identifiers</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -538,8 +540,91 @@ to semicolons (;) when separating statements.</p>
 <li><p>To</p></li>
 </ul>
 </section>
+<section id="translating-internal-identifiers">
+<span id="index-13"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
+<p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
+This allows translation without breaking existing code that relies on English identifiers.</p>
+<p>The identifiers that can be translated are:</p>
+<ul class="simple">
+<li><p>This</p></li>
+<li><p>Self</p></li>
+<li><p>Super</p></li>
+<li><p>Main</p></li>
+<li><p>Init</p></li>
+<li><p>Operator</p></li>
+<li><p>BraceStart</p></li>
+<li><p>BraceExprEval</p></li>
+<li><p>BraceError</p></li>
+<li><p>BraceEnd</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
+
+<span class="cp">ChangeRingKeyword</span> <span class="kp">self</span> <span class="n">my</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="n">my</span> <span class="p">}</span>
+
+<span class="c1"># Since self is an identifier (not a real keyword)</span>
+<span class="c1"># We can use (self) or (my) at the same time</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span> <span class="o">?</span> <span class="n">my</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">1000</span> <span class="n">y</span><span class="o">=</span><span class="mi">2000</span> <span class="n">z</span><span class="o">=</span><span class="mi">3000</span> <span class="nf">test</span><span class="p">()}</span>
+
+<span class="kd">class</span> <span class="nc">parent</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+
+                <span class="o">?</span> <span class="s2">&quot;Parent - Test()&quot;</span>
+
+<span class="kd">class</span> <span class="nc">point</span> <span class="kd">from</span> <span class="nc">parent</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+
+                <span class="n">ChangeRingKeyword</span> <span class="kp">this</span> <span class="n">mypoint</span>
+
+                <span class="o">?</span> <span class="kp">this</span>
+                <span class="o">?</span> <span class="n">mypoint</span>
+
+                <span class="n">ChangeRingKeyword</span> <span class="kp">super</span> <span class="n">father</span>
+
+                <span class="kp">super</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
+
+                <span class="n">father</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 10
+y: 20
+z: 30
+
+x: 10
+y: 20
+z: 30
+
+x: 100
+y: 200
+z: 300
+
+x: 100
+y: 200
+z: 300
+
+x: 1000
+y: 2000
+z: 3000
+
+x: 1000
+y: 2000
+z: 3000
+
+Parent - Test()
+Parent - Test()
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
