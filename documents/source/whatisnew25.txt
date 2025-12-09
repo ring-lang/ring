@@ -430,6 +430,8 @@ The identifiers that can be translated are:
 * BraceError
 * BraceEnd
 
+.. note:: Ring defines keywords that act as wrappers for these identifiers (i.e., when the Ring Parser encounters such a keyword, it is converted into the corresponding identifier).
+
 Example:
 
 .. code-block:: ring
