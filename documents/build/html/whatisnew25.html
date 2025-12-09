@@ -529,6 +529,33 @@ to semicolons (;) when separating statements.</p>
 <li><p>Step</p></li>
 <li><p>To</p></li>
 </ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Love</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">will</span> <span class="n">say</span> <span class="n">it</span> <span class="k">Again</span> <span class="ow">and</span> <span class="k">Again</span>
+        <span class="n">YOU</span> <span class="n">ARE</span> <span class="n">MY</span> <span class="n">LOVE</span>
+        <span class="n">Come</span> <span class="n">with</span> <span class="n">me</span> <span class="k">To</span> <span class="n">the</span> <span class="n">Sky</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Love</span>
+
+        <span class="k">To</span> <span class="k">Again</span>
+
+        <span class="kd">func</span> <span class="nf">getTo</span>
+                <span class="o">?</span> <span class="s2">&quot;Where?&quot;</span>
+
+        <span class="kd">func</span> <span class="nf">getAgain</span>
+                <span class="o">?</span> <span class="s2">&quot;Really?&quot;</span>
+                <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="kd">func</span> <span class="nf">braceError</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Really?
+Really?
+Where?
+</pre></div>
+</div>
 </section>
 <section id="translating-internal-identifiers">
 <span id="index-12"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>

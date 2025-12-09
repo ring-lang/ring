@@ -396,6 +396,37 @@ This is useful when creating domain-specific languages that uses these keywords 
 * Step
 * To
 
+Example:
+
+.. code-block:: ring
+
+	new Love {
+		I will say it Again and Again
+		YOU ARE MY LOVE
+		Come with me To the Sky
+	}
+
+	class Love
+
+		To Again
+
+		func getTo
+			? "Where?"
+	
+		func getAgain
+			? "Really?"
+			return True
+
+		func braceError
+
+
+Output:
+
+.. code-block:: none
+
+	Really?
+	Really?
+	Where?
 
 .. index:: 
 	pair: What is new in Ring  1.25; Translating Internal Identifiers
