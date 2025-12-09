@@ -186,9 +186,11 @@ void ring_parser_processkeywords(Parser *pParser) {
 	/* Check keywords related to classes identifiers */
 	else if (ring_parser_isanykeyword(pParser) &&
 		 (ring_parser_iskeyword(pParser, K_THIS) || ring_parser_iskeyword(pParser, K_SELF) ||
-		  ring_parser_iskeyword(pParser, K_SUPER))) {
+		  ring_parser_iskeyword(pParser, K_SUPER) || ring_parser_iskeyword(pParser, K_MAIN) ||
+		  ring_parser_iskeyword(pParser, K_INIT) || ring_parser_iskeyword(pParser, K_OPERATOR) ||
+		  ring_parser_iskeyword(pParser, K_BRACESTART) || ring_parser_iskeyword(pParser, K_BRACEEXPREVAL) ||
+		  ring_parser_iskeyword(pParser, K_BRACEERROR) || ring_parser_iskeyword(pParser, K_BRACEEND)))
 		ring_parser_keywordtoidentifier(pParser, RING_TRUE);
-	}
 }
 /* Display Errors */
 
