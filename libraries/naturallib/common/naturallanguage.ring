@@ -11,6 +11,8 @@ class NaturalLanguage
 	oLangObj = NULL
 	cBeforeRun = ""
 	cAfterRun = ""
+	cStartKeywordsWith = "_"
+	lMaskOperators = True
 
 	func SetLanguageName cName
 		if cLanguageName != cName {
@@ -85,7 +87,10 @@ class NaturalLanguage
 			changeringkeyword to 			_to
 			changeringkeyword try 			_try
 			changeringkeyword while 		_while
-			
+			`
+
+			if lMaskOperators {
+			cBeforeRun += `
 			changeringoperator +			_+
 			changeringoperator -			_-
 			changeringoperator *			_*
@@ -109,6 +114,7 @@ class NaturalLanguage
 			changeringoperator { 			_{
 			changeringoperator } 			_}
 			`
+			}
 		}
 		if ! cAfterRun {
 			cAfterRun  = `
@@ -155,7 +161,9 @@ class NaturalLanguage
 			changeringkeyword _to 			to
 			changeringkeyword _try 			try
 			changeringkeyword _while 		while
-			
+			`
+			if lMaskOperators {
+			cAfterRun += `
 			changeringoperator _+			+
 			changeringoperator _-			-
 			changeringoperator _*			*
@@ -179,6 +187,11 @@ class NaturalLanguage
 			changeringoperator _{ 			{
 			changeringoperator _} 			}
 			`
+			}
+		}
+		if cStartKeywordsWith != "_" {
+			cBeforeRun = substr(cBeforeRun,"_",cStartKeywordsWith)
+			cAfterRun = substr(cAfterRun,"_",cStartKeywordsWith)
 		}
 
 	func prepareCode cString 
