@@ -199,6 +199,7 @@ The next samples are added:
 * ‎samples/UsingNaturalLib/advanced/lang4.ring
 * ‎samples/UsingNaturalLib/advanced/lang5.ring
 * ‎samples/UsingNaturalLib/advanced/lang6.ring
+* ‎samples/UsingNaturalLib/advanced/lang7.ring
 * samples/UsingNaturalLib/tests/largecode.ring
 * samples/General/ListFunctions/ListFunctions.ring
 * samples/General/Orbital/Obital-Solar-Eclipse.ring
