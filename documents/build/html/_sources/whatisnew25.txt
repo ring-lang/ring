@@ -410,6 +410,7 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * NaturalLib implementation is revised (Better Performance)
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
+* Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
 * ring_state_execute() - check ring_state_runfile() output
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
