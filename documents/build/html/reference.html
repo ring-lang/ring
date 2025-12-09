@@ -190,6 +190,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Language Specification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#scanner-commands">Scanner Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#language-keywords">Language Keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alias-keywords">Alias Keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#language-functions">Language Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-errors">Compiler Errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-errors">Runtime Errors</a></li>
@@ -230,6 +231,7 @@
 <ul class="simple">
 <li><p>Scanner Commands</p></li>
 <li><p>Language keywords</p></li>
+<li><p>Alias Keywords</p></li>
 <li><p>Language Functions</p></li>
 <li><p>Compiler Errors</p></li>
 <li><p>Runtime Errors</p></li>
@@ -318,8 +320,25 @@ Command ---&gt; &#39;loadsyntax&#39; &lt;Literal&gt;
 <li><p>continue</p></li>
 </ul>
 </section>
+<section id="alias-keywords">
+<span id="index-3"></span><h2>Alias Keywords<a class="headerlink" href="#alias-keywords" title="Permalink to this heading"></a></h2>
+<p>Alias Keywords Count: 10</p>
+<p>Ring defines wrapper keywords (to enable translation) around the following internal identifiers</p>
+<ul class="simple">
+<li><p>This</p></li>
+<li><p>Self</p></li>
+<li><p>Super</p></li>
+<li><p>Main</p></li>
+<li><p>Init</p></li>
+<li><p>Operator</p></li>
+<li><p>BraceStart</p></li>
+<li><p>BraceExprEval</p></li>
+<li><p>BraceError</p></li>
+<li><p>BraceEnd</p></li>
+</ul>
+</section>
 <section id="language-functions">
-<span id="index-3"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this heading"></a></h2>
 <p>Functions Count: 255</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -599,7 +618,7 @@ write(cFileName,cString)
 </div>
 </section>
 <section id="compiler-errors">
-<span id="index-4"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (C1)  : Error in parameters list, expected identifier</p></li>
 <li><p>Error (C2)  : Error in class name</p></li>
@@ -644,7 +663,7 @@ write(cFileName,cString)
 </ul>
 </section>
 <section id="runtime-errors">
-<span id="index-5"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (R1)  : Can’t divide by zero</p></li>
 <li><p>Error (R2)  : Array Access (Index out of range)</p></li>
@@ -703,7 +722,7 @@ write(cFileName,cString)
 </ul>
 </section>
 <section id="environment-errors">
-<span id="index-6"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (E1)  : Caught SegFault</p></li>
 <li><p>Error (E2)  : Out of Memory</p></li>
@@ -721,7 +740,7 @@ write(cFileName,cString)
 </ul>
 </section>
 <section id="language-grammar">
-<span id="index-7"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this heading"></a></h2>
 <p>Program —&gt; {statement}</p>
 <p>Statement —&gt; ‘package’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; } [‘{’ {statement} ‘}’] [‘end’|’endpackage’]</p>
 <p>Statement —&gt; ‘class’ &lt;Identifier&gt; [ ‘from’|’:’|’&lt;’ &lt;Identifier&gt; ] [‘{’ {statement} ‘}’][‘end’|’endclass’]</p>
@@ -775,7 +794,7 @@ write(cFileName,cString)
 <p>AnonymousFunction —&gt; ‘func’|’def’|’function’ [&lt;ParaList&gt;] ‘{’ {Statement} ‘}’</p>
 </section>
 <section id="virtual-machine-vm-instructions">
-<span id="index-8"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this heading"></a></h2>
 <p>Definitions :-</p>
 <ul class="simple">
 <li><p>VM: Virtual Machine</p></li>

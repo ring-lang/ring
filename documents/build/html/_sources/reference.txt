@@ -9,6 +9,7 @@ In this chapter we will learn about
 
 * Scanner Commands
 * Language keywords
+* Alias Keywords
 * Language Functions
 * Compiler Errors
 * Runtime Errors
@@ -104,6 +105,27 @@ Keywords Count: 56
 * endfunction
 * break
 * continue
+
+.. index:: 
+	pair: Language Specification; Alias Keywords
+
+Alias Keywords
+==============
+
+Alias Keywords Count: 10
+
+Ring defines wrapper keywords (to enable translation) around the following internal identifiers
+
+* This
+* Self
+* Super
+* Main
+* Init
+* Operator
+* BraceStart
+* BraceExprEval
+* BraceError
+* BraceEnd
 
 .. index:: 
 	pair: Language Specification; Language Functions
