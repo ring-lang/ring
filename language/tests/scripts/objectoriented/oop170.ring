@@ -21,7 +21,9 @@ class parent
 
 		? "Parent - Test()"
 
-class point from parent x y z 
+class point from parent 
+
+	x y z 
 
 	func test
 
