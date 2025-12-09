@@ -33,6 +33,7 @@ void ring_vm_oop_newobj(VM *pVM) {
 			pVar = (List *)RING_VM_STACK_READP;
 			if (ring_list_isstring(pVar, RING_VAR_VALUE)) {
 				if (strcmp(ring_list_getstring(pVar, RING_VAR_VALUE), RING_CSTR_EMPTY) != 0) {
+					ring_string_tolower(ring_list_getstringobject(pVar, RING_VAR_VALUE));
 					cClassName = ring_list_getstring(pVar, RING_VAR_VALUE);
 				} else {
 					ring_vm_error(pVM, RING_VM_ERROR_USINGNULLVARIABLE);
