@@ -1,4 +1,4 @@
-﻿![Ring](http://ring-lang.sf.net/thering.jpg)
+﻿![Ring](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/thering.jpg)
 
 <div dir="rtl"> 
 <h1> تعلم لغة البرمجة رينج عن بعد </h1> 
