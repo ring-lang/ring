@@ -40,6 +40,12 @@ simulates portfolio performance against a benchmark (QQQ).
 
 The application is developed using Ring, RingQt, RingLibCurl & RingJSONLib
 
+Install:
+
+.. code-block:: none
+
+	ringpm install stockanalysis
+
 .. image:: stockanalysis.png
 	:alt: Stock Analysis
 
