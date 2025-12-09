@@ -21,7 +21,6 @@ Ring 1.25 comes with the next features!
 * MyCTiger Tool
 * More Samples
 * More RingPM Packages
-* Better Functions
 * Better RingLibCurl
 * Better TokensLib
 * Flexible Statement Separation
@@ -220,16 +219,6 @@ The following packages have been added to the RingPM registry.
 * Ring-LibSQL: LibSQL client extension for the Ring language
 * UUID: Extension for Universally Unique Identifier generation and validation
 * Ring2EXE-Plus: Modern Packaging Options and Enhanced Compiler Control
-
-.. index:: 
-	pair: What is new in Ring  1.25; Better Functions
-
-Better Functions
-================
-
-* addMethod(): Better Performance (Avoid recreating the HashTable)
-* mergeMethods(): Better Performance (Avoid recreating the HashTable)
-* ringvm_evalinscope(): Check the scope range before changing the scope
 
 .. index:: 
 	pair: What is new in Ring  1.25; Better RingLibCurl
@@ -510,8 +499,11 @@ More Improvements
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * NaturalLib implementation is revised (Better Performance)
+* AddMethod(): Better Performance (Avoid recreating the HashTable)
+* MergeMethods(): Better Performance (Avoid recreating the HashTable)
+* RingVM_EvalInScope(): Check the scope range before changing the scope
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
 * Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
-* ring_state_execute() - check ring_state_runfile() output
+* Ring Compiler - ring_state_execute() implementation - check ring_state_runfile() output
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
