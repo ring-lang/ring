@@ -701,11 +701,11 @@ aPackagesRegistry = [
 	],
 	[ :name = "dogapi",
 	  :description = "Dog API client",
-	  :ProviderUserName = "thexxiv"
+	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "regex",
 	  :description = "An easy to use pattern matching",
-	  :ProviderUserName = "thexxiv"
+	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "stzlib",
 	  :description = "Softanza Library for the Ring programming language",
