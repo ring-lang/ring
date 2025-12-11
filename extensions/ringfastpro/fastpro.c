@@ -562,7 +562,7 @@ RING_FUNC(ring_updatelist)
             else if ( RING_API_ISNUMBER(4) ) {
                 nOPCode = 6 ;
               //pList   = RING_API_GETLIST(1) ;
-                nValue  = (int) RING_API_GETNUMBER(4) ;  // Scalar-nValue , 0=BAD          
+                nValue  = (double) RING_API_GETNUMBER(4) ;  // Scalar-nValue
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -788,6 +788,9 @@ RING_FUNC(ring_updatelist)
     
     else if ( strcmp(cOperation,"mandelbrot") == 0 ) {
         nOPCode += 4400 ;
+    }
+    else if ( strcmp(cOperation,"emul") == 0 ) {
+        nOPCode += 4500 ;
     }
      
     else {
@@ -1731,13 +1734,15 @@ RING_FUNC(ring_updatelist)
 
 
             for (hB = 1; hB <= nEnd; hB++)      // Cols hB j
-            {   for (vA = 1; vA <= nRow; vA++)   // Rows vA i
-                {
-                     pSubList  = ring_list_getlist(pList, hB) ;
-                     valueA    = ring_list_getdouble( pSubList, vA ) ;
+            {   
+                pSubListC = ring_list_getlist(pListC, hB); // Row of C
 
-                     pSubListC = ring_list_getlist(pListC, vA ) ;
-                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueA );
+                for (vA = 1; vA <= nRow; vA++)   // Rows vA i
+                {
+                     pSubList  = ring_list_getlist(pList, vA) ; // Row of A
+                     valueA    = ring_list_getdouble( pSubList, hB ) ; // Col of A
+
+                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, vA, valueA ); // Col of C
                 }
             }
 
@@ -1750,7 +1755,7 @@ RING_FUNC(ring_updatelist)
         case 1506 :
             /* Scalar Matrix-A  * K ==> MatriX-C */
            
-            k  = RING_API_GETNUMBER(4);
+            // k  = RING_API_GETNUMBER(4);
            
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -1770,7 +1775,7 @@ RING_FUNC(ring_updatelist)
 
                   pSubList  = ring_list_getlist(pList, vA) ;        // Row
                   valueA    = ring_list_getdouble( pSubList, hB ) ; // Col
-                  valueC    = valueA * k;
+                  valueC    = valueA * nValue;
 
                   pSubListC = ring_list_getlist(pListC, vA ) ;
                   ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueC );
@@ -1876,7 +1881,7 @@ RING_FUNC(ring_updatelist)
         case 1706 :
             /* Fill Matrix-A  with k nValue */
            
-            k  = RING_API_GETNUMBER(4);           // Fill with nValue
+            // k  = RING_API_GETNUMBER(4);           // Fill with nValue
            
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -1890,7 +1895,7 @@ RING_FUNC(ring_updatelist)
                   pSubList  = ring_list_getlist(pList, vA) ;                // Row
                               ring_list_getdouble( pSubList, hB ) ;         // Col 
                
-                  ring_list_setdouble_gc(pVM->pRingState,pSubList, hB, k);  // Set R-C = k
+                  ring_list_setdouble_gc(pVM->pRingState,pSubList, hB, nValue);  // Set R-C = k
                 }
             }       
         
@@ -1975,6 +1980,7 @@ RING_FUNC(ring_updatelist)
                             ring_list_setdouble_gc(pVM->pRingState,pSubList, v, 1);  // Set R-C=1      
             }
 
+            RING_API_RETLIST(pList);
             //----------------
             break ;
 
@@ -2001,6 +2007,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
 
+         RING_API_RETLIST(pList);
          //----------------
          break ;
 
@@ -2495,26 +2502,70 @@ RING_FUNC(ring_updatelist)
       //===End 3206 ==============================  
 
         case 3306 :
-         /* SoftMax Matrix-A   Can NOT self call updateList()*/ 
-         // NOT IMPLEMENTED -- Use FastProSoftMax() Function 
-         
-         nRow   = ring_list_getsize(pList);           //  Row-A  5x5
-         pRow   = ring_list_getlist(pList,nRow);
-         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+        /* Softmax Matrix-A */    
 
-         //--- CREATE Output List-C - Outside Dims.-----
-         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( 1, nEnd) ; // 1x5  
+        nRow   = ring_list_getsize(pList);           //  Row-A
+        pRow   = ring_list_getlist(pList,nRow);
+        nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
 
-         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
-         pRowC   = ring_list_getlist(pListC,nRowC);                
-         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+        //--- CREATE Output List-C - Same Dims.-----
+        pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
+
+        nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+        pRowC   = ring_list_getlist(pListC,nRowC);                
+        nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
          
         //-------------------
- 
-         RING_API_ERROR("SoftMAx: NOT IMPLEMENTED -- Use FastProSoftMax() Function "); 
-        
+
+        for( v = 1; v <= nRow; v++ ) 
+        {  
+            // 1. Find Max Value in the Row (For Numerical Stability)
+            pSubList = ring_list_getlist(pList, v); // Row Input
+            double maxVal = -1.0e300; // Very small number
+            
+            for ( h = 1; h <= nEnd; h++) {
+                valueA = ring_list_getdouble(pSubList, h);
+                if (valueA > maxVal) {
+                    maxVal = valueA;
+                }
+            }
+
+            // 2. Calculate Exponentials and Sum
+            double rowSum = 0.0;
+            pSubListC = ring_list_getlist(pListC, v); // Row Output
+            
+            for ( h = 1; h <= nEnd; h++) {
+                valueA = ring_list_getdouble(pSubList, h);
+                // exp(x - max) prevents overflow
+                valueC = exp(valueA - maxVal); 
+                
+                // Store temporarily in output list
+                ring_list_setdouble_gc(pVM->pRingState, pSubListC, h, valueC);
+                
+                rowSum += valueC;
+            }
+
+            // 3. Normalize (Divide by Sum)
+            for ( h = 1; h <= nEnd; h++) {
+                // Retrieve the exp value we just stored
+                valueC = ring_list_getdouble(pSubListC, h);
+                
+                // Divide by sum to get probability
+                if (rowSum != 0) {
+                    valueC = valueC / rowSum;
+                } else {
+                    valueC = 0.0; // Should not happen with exp
+                }
+                
+                ring_list_setdouble_gc(pVM->pRingState, pSubListC, h, valueC);
+            }
+        }
+         
+        RING_API_RETLISTBYREF( pListC );
+         
         //----------
         break ;
+
 
       //===End 3306 ==============================             
 
@@ -2522,7 +2573,7 @@ RING_FUNC(ring_updatelist)
         case 3406 :
             /* ScalarDiv Matrix-A / K  ==> MatriX-C */
            
-            k  = RING_API_GETNUMBER(4);           // DivideBy nValue
+            // k  = RING_API_GETNUMBER(4);           // DivideBy nValue
            
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -2544,7 +2595,7 @@ RING_FUNC(ring_updatelist)
                 for( hB = 1; hB <= nEnd; hB++)
                 {   
                   valueA    = ring_list_getdouble( pSubList, hB ) ; // Col
-                  valueC    = valueA / k;
+                  valueC    = valueA / nValue;
 
                   pSubListC = ring_list_getlist(pListC, vA ) ;
                   ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueC );
@@ -3019,6 +3070,44 @@ RING_FUNC(ring_updatelist)
 
          //----------
          break ;
+
+        case 4506 :
+            /* Element-Wise Mul Matrix A .* B => C */
+            
+            pListB = RING_API_GETLIST(4) ;
+
+            nRow   = ring_list_getsize(pList);      // Row-A
+            pRow   = ring_list_getlist(pList, nRow);
+            nEnd   = ring_list_getsize(pRow) ;      // Col-A
+
+            nRowB   = ring_list_getsize(pListB) ;
+            pRowB   = ring_list_getlist(pListB, nRowB);
+            nEndB   = ring_list_getsize(pRowB) ;
+
+            if ( (nRow != nRowB) || (nEnd != nEndB) ) {
+                RING_API_ERROR("Element-Wise Mul: Matrices must have same dimensions");
+                return ;
+            }
+
+            //--- CREATE Output List - Same Dims.-----
+            pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
+
+            for ( vA = 1 ; vA <= nRow ; vA++ ) {
+                pSubList  = ring_list_getlist(pList, vA) ;
+                pSubListB = ring_list_getlist(pListB, vA) ;
+                pSubListC = ring_list_getlist(pListC, vA) ;
+
+                for ( hB = 1 ; hB <= nEnd ; hB++ ) {
+                     valueA = ring_list_getdouble(pSubList, hB);
+                     valueB = ring_list_getdouble(pSubListB, hB);
+                     valueC = valueA * valueB;
+
+                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueC);
+                }
+            }
+
+            RING_API_RETLISTBYREF( pListC );
+            break ;
         
 
       //===End 4406 ==============================  
