@@ -3,7 +3,7 @@ func ضبط_الدوال obj
 	aMethods = methods(obj)
 	for cAttr in aAttributes
 		cGetterMethod = "معرفة_قيمة_"+cAttr
-		if isMethod(obj,cGetterMethod)
+		if isMethod(obj,cGetterMethod) and ! isMethod(obj,"get"+cAttr)
 			cCode = `
 				fFunc = func {
 					return `+cGetterMethod+`()
@@ -13,7 +13,7 @@ func ضبط_الدوال obj
 			addMethod(obj,"get"+cAttr, fFunc)
 		ok
 		cSetterMethod = "اسناد_قيمة_"+cAttr
-		if isMethod(obj,cSetterMethod)
+		if isMethod(obj,cSetterMethod) and ! isMethod(obj,"set"+cAttr)
 			cCode = `
 				fFunc = func value {
 					return `+cSetterMethod+`(value)
