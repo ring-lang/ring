@@ -552,16 +552,13 @@ RING_FUNC(ring_updatelist)
             if ( RING_API_PARACOUNT == 3) {
                    nOPCode = 6 ;
                    nValue  = 1;
-                 //pList   = RING_API_GETLIST(1) ;     // Transpose
             }
             else if ( RING_API_ISLIST(4) ) {
                 nOPCode = 6 ;
-              //pList   = RING_API_GETLIST(1) ;
                 pListB  = RING_API_GETLIST(4) ;
             }   
             else if ( RING_API_ISNUMBER(4) ) {
                 nOPCode = 6 ;
-              //pList   = RING_API_GETLIST(1) ;
                 nValue  = (double) RING_API_GETNUMBER(4) ;  // Scalar-nValue
             }
             else {
@@ -921,7 +918,6 @@ RING_FUNC(ring_updatelist)
         case 206 :
             /* Add Matrix 5X5  aList + aListB => aListC */
 
-            //  pListA = RING_API_GETLIST(1) ;
                 pListB = RING_API_GETLIST(4) ;
 
                 nStart = 1 ;
@@ -1046,7 +1042,6 @@ RING_FUNC(ring_updatelist)
         case 306 :
             /* Sub Matrix 5X5  aList - aListB => aListC */
 
-            //  pList  = RING_API_GETLIST(1) ;
                 pListB = RING_API_GETLIST(4) ;
 
                 nStart = 1 ;
@@ -1204,10 +1199,11 @@ RING_FUNC(ring_updatelist)
                     Sum = 0;
 
                     for (k = 1; k <=  nEnd; k++)
-                    {   // Sum += A[vA][k] * B[k][hB]
+                    {   
+			// Sum += A[vA][k] * B[k][hB]
                         //          R   C      R  C
                         
-						pSubListB = ring_list_getlist(pListB, k) ;       // Row-B k 4x4
+			pSubListB = ring_list_getlist(pListB, k) ;       // Row-B k 4x4
 						
                         valueA  = ring_list_getdouble( pSubList, k ) ;   // Col-A  k
                         valueB  = ring_list_getdouble( pSubListB, hB ) ; // Col-B   hB
@@ -1755,8 +1751,6 @@ RING_FUNC(ring_updatelist)
         case 1506 :
             /* Scalar Matrix-A  * K ==> MatriX-C */
            
-            // k  = RING_API_GETNUMBER(4);
-           
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
             nEnd   = ring_list_getsize(pRow) ;           //  Col-A
@@ -1771,7 +1765,9 @@ RING_FUNC(ring_updatelist)
            
             for( vA = 1; vA <= nRow ; vA++)
             {   for( hB = 1; hB <= nEnd; hB++)
-                { // aListC[vA][hB] = k * (aList[vA][hB])  
+                { 
+
+                  // aListC[vA][hB] = k * (aList[vA][hB])  
 
                   pSubList  = ring_list_getlist(pList, vA) ;        // Row
                   valueA    = ring_list_getdouble( pSubList, hB ) ; // Col
@@ -1880,9 +1876,7 @@ RING_FUNC(ring_updatelist)
         
         case 1706 :
             /* Fill Matrix-A  with k nValue */
-           
-            // k  = RING_API_GETNUMBER(4);           // Fill with nValue
-           
+                     
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
             nEnd   = ring_list_getsize(pRow) ;           //  Col-A
