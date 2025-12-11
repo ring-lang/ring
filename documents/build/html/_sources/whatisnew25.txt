@@ -569,9 +569,10 @@ More Improvements
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * NaturalLib implementation is revised (Better Performance)
-* AddMethod(): Better Performance (Avoid recreating the HashTable)
-* MergeMethods(): Better Performance (Avoid recreating the HashTable)
-* RingVM_EvalInScope(): Check the scope range before changing the scope
+* RingFastPro - Added Softmax 
+* AddMethod() - Better Performance (Avoid recreating the HashTable)
+* MergeMethods() - Better Performance (Avoid recreating the HashTable)
+* RingVM_EvalInScope() - Check the scope range before changing the scope
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
 * Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
 * Ring Compiler - ring_state_execute() implementation - check ring_state_runfile() output
