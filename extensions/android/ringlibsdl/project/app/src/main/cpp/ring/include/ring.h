@@ -186,6 +186,7 @@
 #define RING_CSTR_MAIN "main"
 #define RING_CSTR_RINGVMSEE "ringvm_see"
 #define RING_CSTR_RINGVMGIVE "ringvm_give"
+#define RING_CSTR_RINGVMERRORHANDLER "ringvm_errorhandler"
 #define RING_CSTR_ANONFUNC "_ring_anonymous_func_"
 #define RING_CSTR_INIT "init"
 #define RING_CSTR_THIS "this"

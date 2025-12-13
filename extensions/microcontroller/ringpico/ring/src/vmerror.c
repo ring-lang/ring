@@ -32,6 +32,17 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 	}
 	pVM->lCheckBraceError = 1;
 	if (ring_list_getsize(pVM->pTry) == 0) {
+		ring_list_setstring_gc(pVM->pRingState,
+				       ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG),
+				       RING_VAR_VALUE, cStr);
+		if (ring_list_findstring_gc(pVM->pRingState, pVM->pFunctionsMap, RING_CSTR_RINGVMERRORHANDLER,
+					    RING_FUNCMAP_NAME)) {
+			ring_vm_callfuncwithouteval(pVM, RING_CSTR_RINGVMERRORHANDLER, RING_FALSE);
+			if (pVM->lPassError == 1) {
+				pVM->lPassError = 0;
+				return;
+			}
+		}
 		if (pVM->lHideErrorMsg == 0) {
 			ring_vm_showerrormessage(pVM, cStr);
 		}
