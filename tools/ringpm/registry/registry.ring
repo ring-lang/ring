@@ -886,5 +886,9 @@ aPackagesRegistry = [
 	[ :name = "distromap",
 	  :description = "A lightweight web API server (Linux distribution and release information)",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "ring-html",
+	  :description = "A high-performance HTML5 parser library with CSS selectors and DOM manipulation for the Ring programming language",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
