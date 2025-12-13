@@ -183,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-the-trace-library">Example - The Trace Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-see-function">ringvm_see() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">ringvm_errorhandler() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-codelist-function">ringvm_codelist() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-info-function">ringvm_info() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ismempool-function">ringvm_ismempool() function</a></li>
@@ -288,9 +289,11 @@
 * ringvm_callfunc()
 * ringvm_see()
 * ringvm_give()
+* ringvm_errorhandler()
+* ringvm_codelist()
 * ringvm_info()
 * ringvm_ismempool()
-* ringvm_codelist()
+* ringvm_runcode()
 </pre></div>
 </div>
 <section id="callgc-function">
@@ -1576,19 +1579,43 @@ z: 30.000000
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="o">:</span> <span class="n">Mahmoud</span>
-<span class="n">Hello</span> <span class="n">Mahmoud</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Name: Mahmoud
+Hello Mahmoud
+</pre></div>
+</div>
+</section>
+<section id="ringvm-errorhandler-function">
+<span id="index-33"></span><h2>ringvm_errorhandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<p>If this function is defined in Ring code, it will be called when an error occurs, provided
+the error is not handled by try/catch/done.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="o">?</span> <span class="ss">:done</span>
+
+<span class="kd">func</span> <span class="nf">ringvm_errorhandler</span>
+
+        <span class="o">?</span> <span class="s2">&quot;we have an error!&quot;</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Error msg: &quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span>
+
+        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>we have an error!
+Error msg: Error (R1) : Can&#39;t divide by zero
+done
 </pre></div>
 </div>
 </section>
 <section id="ringvm-codelist-function">
-<span id="index-33"></span><h2>ringvm_codelist() function<a class="headerlink" href="#ringvm-codelist-function" title="Permalink to this heading"></a></h2>
+<span id="index-34"></span><h2>ringvm_codelist() function<a class="headerlink" href="#ringvm-codelist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list contains the Byte Code of the current program.</p>
 <p>Each item is a sub list that represent an instruction</p>
 <p>This sub list starts with the operation code (A Number) then the parameters</p>
 </section>
 <section id="ringvm-info-function">
-<span id="index-34"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this heading"></a></h2>
+<span id="index-35"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this heading"></a></h2>
 <p>The ringvm_info() is an internal function that return a list of information about the Ring VM structure.</p>
 <p>It’s used only by the Ring Team in advanced tests to check the VM status.</p>
 <p>Syntax:</p>
@@ -1597,7 +1624,7 @@ z: 30.000000
 </div>
 </section>
 <section id="ringvm-ismempool-function">
-<span id="index-35"></span><h2>ringvm_ismempool() function<a class="headerlink" href="#ringvm-ismempool-function" title="Permalink to this heading"></a></h2>
+<span id="index-36"></span><h2>ringvm_ismempool() function<a class="headerlink" href="#ringvm-ismempool-function" title="Permalink to this heading"></a></h2>
 <p>Check if we still have items in the memory pool or not</p>
 <p>This function is used to write tests that could detect a memory leak</p>
 <p>Syntax:</p>
@@ -1606,7 +1633,7 @@ z: 30.000000
 </div>
 </section>
 <section id="ringvm-runcode-function">
-<span id="index-36"></span><h2>ringvm_runcode() function<a class="headerlink" href="#ringvm-runcode-function" title="Permalink to this heading"></a></h2>
+<span id="index-37"></span><h2>ringvm_runcode() function<a class="headerlink" href="#ringvm-runcode-function" title="Permalink to this heading"></a></h2>
 <p>Similar to the Eval() function</p>
 <p>1 - Used for GUI events like RingQt applications</p>
 <p>2 - Execute the Main Loop (i.e. Eval + MainLoop in one function)</p>

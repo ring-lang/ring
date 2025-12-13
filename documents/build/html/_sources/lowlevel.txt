@@ -45,9 +45,11 @@ We expect from those developers to know about pointers and dynamic memory manage
 	* ringvm_callfunc()
 	* ringvm_see()
 	* ringvm_give()
+	* ringvm_errorhandler()
+	* ringvm_codelist()
 	* ringvm_info()
 	* ringvm_ismempool()
-	* ringvm_codelist()
+	* ringvm_runcode()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1601,10 +1603,43 @@ Example:
 
 Output:
 
-.. code-block:: ring
+.. code-block:: none
 
 	Name: Mahmoud
 	Hello Mahmoud
+
+
+.. index:: 
+	pair: Low Level Functions; ringvm_errorhandler() function
+
+ringvm_errorhandler() function
+==============================
+
+If this function is defined in Ring code, it will be called when an error occurs, provided 
+the error is not handled by try/catch/done.
+
+Example:
+
+.. code-block:: ring
+
+	1 / 0
+	? :done
+
+	func ringvm_errorhandler
+
+		? "we have an error!"
+
+		? "Error msg: " + cCatchError
+
+		ringvm_passerror()
+
+Output:
+
+.. code-block:: none
+
+	we have an error!
+	Error msg: Error (R1) : Can't divide by zero
+	done
 
 .. index:: 
 	pair: Low Level Functions; RingVM_CodeList()
