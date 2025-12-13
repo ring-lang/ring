@@ -148,8 +148,6 @@ void ring_vm_refmeta_isglobal(void *pPointer) {
 
 void ring_vm_refmeta_isfunction(void *pPointer) {
 	VM *pVM;
-	unsigned int x;
-	List *pList, *pList2;
 	char *cStr;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -158,15 +156,8 @@ void ring_vm_refmeta_isfunction(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		pVM = (VM *)pPointer;
 		cStr = ring_general_lower(RING_API_GETSTRING(1));
-		pList = pVM->pFunctionsMap;
-		for (x = 1; x <= ring_list_getsize(pList); x++) {
-			pList2 = ring_list_getlist(pList, x);
-			if (strcmp(ring_list_getstring(pList2, RING_FUNCMAP_NAME), cStr) == 0) {
-				RING_API_RETNUMBER(1);
-				return;
-			}
-		}
-		RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(
+		    ring_list_findstring_gc(pVM->pRingState, pVM->pFunctionsMap, cStr, RING_FUNCMAP_NAME));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
