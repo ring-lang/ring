@@ -571,6 +571,7 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * NaturalLib implementation is revised (Better Performance)
 * RingFastPro - Added Softmax 
+* IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
 * MergeMethods() - Better Performance (Avoid recreating the HashTable)
 * RingVM_EvalInScope() - Check the scope range before changing the scope
