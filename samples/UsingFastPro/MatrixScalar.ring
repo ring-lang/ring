@@ -45,7 +45,7 @@ aListA = [1:5,
   See "FastPro   Scalar Matrix  A*k => C "  MatrixPrint(aListA)
   See nl+">>> FastPro Scalar Matrix >>>>>>>>>>>>>>>> " +nl
   
-  aListC = updateList(aListA,:scalar,:matrix )  // <<<<<===
+  aListC = updateList(aListA,:scalar,:matrix,K)  // <<<<<===
  
   See "RESULT FastPro Scalar Matrix A*k => C "  MatrixPrint(aListC) 
   
