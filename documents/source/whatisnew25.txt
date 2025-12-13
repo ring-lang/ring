@@ -25,7 +25,8 @@ Ring 1.25 comes with the next features!
 * Better TokensLib
 * Flexible Statement Separation
 * Using Keywords as Identifiers
-* Translating Internal Identifiers  
+* Translating Internal Identifiers
+* RingVM_ErrorHandler() function  
 * More Improvements
 
 .. index:: 
@@ -560,6 +561,38 @@ Output:
 	
 	Parent - Test()
 	Parent - Test()
+
+.. index:: 
+	pair: What is new in Ring  1.25; ringvm_errorhandler() function
+
+ringvm_errorhandler() function
+==============================
+
+If this function is defined in Ring code, it will be called when an error occurs, provided 
+the error is not handled by try/catch/done.
+
+Example:
+
+.. code-block:: ring
+
+	1 / 0
+	? :done
+
+	func ringvm_errorhandler
+
+		? "we have an error!"
+
+		? "Error msg: " + cCatchError
+
+		ringvm_passerror()
+
+Output:
+
+.. code-block:: none
+
+	we have an error!
+	Error msg: Error (R1) : Can't divide by zero
+	done
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
