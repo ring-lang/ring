@@ -563,9 +563,9 @@ Output:
 	Parent - Test()
 
 .. index:: 
-	pair: What is new in Ring  1.25; ringvm_errorhandler() function
+	pair: What is new in Ring  1.25; RingVM_ErrorHandler() function
 
-ringvm_errorhandler() function
+RingVM_ErrorHandler() function
 ==============================
 
 If this function is defined in Ring code, it will be called when an error occurs, provided 
