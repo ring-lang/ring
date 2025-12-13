@@ -708,6 +708,7 @@ aTests = [
 	[ :name = "Error Message (Part 11)", :Command = "ring errormsg/call4.ring" ],
 	[ :name = "Error Message (Part 12)", :Command = "ring errormsg/call5.ring" ],
 	[ :name = "Error Message (Part 13)", :Command = "ring errormsg/f1.ring", :Condition = IsWindows() and (exefolder()="B:\ring\language\tests\")  ],
+	[ :name = "Error Message (Part 14)", :Command = "ring errormsg/errorhandler.ring" ],
 	[ :name = "Using References (Part 1)", :Command = "ring references/pointer.ring" ],
 	[ :name = "Using References (Part 2)", :Command = "ring references/pointer2.ring" ],
 	[ :name = "Using References (Part 3)", :Command = "ring references/tree.ring" ],
