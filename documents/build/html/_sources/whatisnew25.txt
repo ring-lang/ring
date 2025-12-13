@@ -580,9 +580,9 @@ Example:
 
 	func ringvm_errorhandler
 
-		? "we have an error!"
+		? "We have an error!"
 
-		? "Error msg: " + cCatchError
+		? "Message: " + cCatchError
 
 		ringvm_passerror()
 
@@ -590,8 +590,8 @@ Output:
 
 .. code-block:: none
 
-	we have an error!
-	Error msg: Error (R1) : Can't divide by zero
+	We have an error!
+	Message: Error (R1) : Can't divide by zero
 	done
 
 .. index:: 

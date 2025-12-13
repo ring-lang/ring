@@ -691,16 +691,16 @@ the error is not handled by try/catch/done.</p>
 
 <span class="kd">func</span> <span class="nf">ringvm_errorhandler</span>
 
-        <span class="o">?</span> <span class="s2">&quot;we have an error!&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;We have an error!&quot;</span>
 
-        <span class="o">?</span> <span class="s2">&quot;Error msg: &quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span>
+        <span class="o">?</span> <span class="s2">&quot;Message: &quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span>
 
         <span class="nb">ringvm_passerror</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>we have an error!
-Error msg: Error (R1) : Can&#39;t divide by zero
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We have an error!
+Message: Error (R1) : Can&#39;t divide by zero
 done
 </pre></div>
 </div>
