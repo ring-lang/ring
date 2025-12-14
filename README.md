@@ -2,7 +2,7 @@
 
 # 💍Ring Programming Language
 
-## 📦A simple, lightweight, flexible, embeddable, portable, multi-paradigm dynamic programming language for developing applications, tools, and domain-specific languages
+## 📦A simple, lightweight, flexible, embeddable, portable and multi-paradigm dynamic programming language for developing applications, tools, and domain-specific languages
 
 # 📖Contents:
 
