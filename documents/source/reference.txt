@@ -112,7 +112,7 @@ Keywords Count: 56
 Alias Keywords
 ==============
 
-Alias Keywords Count: 10
+Alias Keywords Count: 13
 
 Ring defines wrapper keywords (to enable translation) around the following internal identifiers
 
@@ -126,6 +126,9 @@ Ring defines wrapper keywords (to enable translation) around the following inter
 * BraceExprEval
 * BraceError
 * BraceEnd
+* RingVM_See
+* RingVM_Give
+* RingVM_ErrorHandler
 
 .. index:: 
 	pair: Language Specification; Language Functions

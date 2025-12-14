@@ -278,6 +278,9 @@ The identifiers that can be translated are:
 * BraceExprEval
 * BraceError
 * BraceEnd
+* RingVM_See
+* RingVM_Give
+* RingVM_ErrorHandler
 
 .. note:: Ring defines keywords that act as wrappers for these identifiers (i.e., when the Ring Parser encounters such a keyword, it is converted into the corresponding identifier).
 
