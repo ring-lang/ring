@@ -154,7 +154,7 @@ This is better for threads and concurrency (More Faster!)
 
 ## 🚀Fast Enough For Many Applications
 
-Ring is designed to be a simple, small, and flexible language in the first place, but also it is fast enough for many applications.
+Ring is designed to be a simple, lightweight, flexible and embeddable language in the first place, but also it is fast enough for many applications.
 
 Also, when we need more speed we can use C/C++ extensions! 
 
