@@ -19,7 +19,7 @@ aApplications = [
 			]
 		]
 	],
-	["GUI for Machine Learning Models",
+	["GUI for ML Models",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" >Chess Endgame Application</a>',
@@ -31,7 +31,7 @@ aApplications = [
 			]
 		]
 	],
-	["Using Ring Game Engine for 2D Games",
+	["Using Ring Game Engine",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/starsfighter" >Stars Fighter Game</a>',
