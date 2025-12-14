@@ -367,7 +367,7 @@ aApplications = [
 			]
 		]
 	],
-	["Development Tools (GUI)",
+	["Tools (GUI)",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" >Ring Notepad</a>',
@@ -403,7 +403,7 @@ aApplications = [
 			]
 		]
 	],
-	["Development Tools (Console)",
+	["Tools (Console)",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringpm" >Ring Package Manager</a>',
@@ -435,7 +435,7 @@ aApplications = [
 			],
 		]
 	],
-	["Online Applications (WebAssembly)",[
+	["WebAssembly Applications",[
 				[
 					'<a href="web/matching/project.html" >The Matching Game</a>',
 					'<img src="images/wasm_matching.png" width="100%">'
