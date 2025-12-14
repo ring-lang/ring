@@ -2,7 +2,7 @@
 
 # 💍Ring Programming Language
 
-## 📦Simple and flexible programming language for applications development
+## 📦Simple and flexible dynamic programming language for applications development
 
 # 📖Contents:
 
@@ -30,13 +30,13 @@
 
 # 📜Welcome to Ring
 
-Ring is a practical general-purpose multi-paradigm language.
+Ring is a practical general-purpose multi-paradigm dynamic language.
 The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.
 
 The language is portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, Microcontrollers, etc.) and can be used to create
 Console, GUI, Web, Games, and Mobile applications. 
 
-The language is designed to be Simple, Small, and Flexible. 
+The language is designed to be Simple, Small, Flexible and Embeddable. 
 
 # 🎉Get Excited
 
