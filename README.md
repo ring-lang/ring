@@ -31,6 +31,7 @@
 # 📜Welcome to Ring
 
 Ring is a practical general-purpose multi-paradigm dynamic programming language for developing applications, tools, and domain-specific languages.
+
 The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.
 
 The language is portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, Microcontrollers, etc.) and can be used to create
