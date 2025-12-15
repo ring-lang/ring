@@ -894,5 +894,9 @@ aPackagesRegistry = [
 	[ :name = "ringml",
           :description = "RingML package using the Ring programming language",
           :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "Stock-Analysis-BM",
+          :description = "Stock Analysis Momentum using Mega Stocks ticker list",
+          :ProviderUserName = "ringpackages"
 	]
 ]
