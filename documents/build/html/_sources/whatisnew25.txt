@@ -650,5 +650,6 @@ More Improvements
 * Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
 * Ring Compiler - Ring_State_Execute() implementation - Check ring_state_runfile() output
+* Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
