@@ -222,6 +222,7 @@ The following packages have been added to the RingPM registry.
 * UUID: Extension for Universally Unique Identifier generation and validation
 * Ring2EXE-Plus: Modern Packaging Options and Enhanced Compiler Control
 * Ring-HTML: HTML5 parser library with CSS selectors and DOM manipulation
+* RingML: Building Neural Networks with Ring
 
 .. index:: 
 	pair: What is new in Ring  1.25; Better RingLibCurl
