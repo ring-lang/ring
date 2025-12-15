@@ -179,7 +179,7 @@ Func std_fopen cFileName,cMode
 Func std_fclose filehandle
 	fclose(filehandle)
 
-Func fflush filehandle
+Func std_fflush filehandle
 	fflush(filehandle)
 
 Func std_freopen cFileName,cMode,FileHandle
