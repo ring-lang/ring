@@ -311,6 +311,10 @@ Type: unsigned int
 x,nSize,nLine,lEnableTokensOutput
 Type: char
 cFileName2[RING_PATHSIZE]
+Type: char
+cCurrentDir[RING_PATHSIZE]
+Type: char
+cFileName3[RING_PATHSIZE]
 ring_scanner_setandgenendofline
 ring_scanner_readtwoparameters
 Type: unsigned int

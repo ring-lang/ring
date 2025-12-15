@@ -679,6 +679,8 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	signed char c;
 	unsigned int x, nSize, nLine, lEnableTokensOutput;
 	char cFileName2[RING_PATHSIZE];
+	char cCurrentDir[RING_PATHSIZE];
+	char cFileName3[RING_PATHSIZE];
 	lEnableTokensOutput = pScanner->lEnableTokensOutput;
 	cFileName = ring_string_get(pScanner->pActiveToken);
 	/* Remove Spaces and " " from file name */
@@ -719,6 +721,11 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 		printf("\n%s %s \n", RING_CANTOPENFILE, cFileName);
 		return;
 	}
+	/* Save current directory */
+	ring_general_currentdir(cCurrentDir);
+	/* Switch to the File Folder */
+	strcpy(cFileName3, cFileName2);
+	ring_general_switchtofilefolder(cFileName3);
 	nSize = 1;
 	ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 	nLine = pScanner->nLinesCount;
@@ -731,6 +738,8 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	}
 	RING_CLOSEFILE(fp);
 	ring_scanner_readchar(pScanner, '\n');
+	/* Restore current directory */
+	ring_general_chdir(cCurrentDir);
 	/* Restore the Line Number (After loading the file) */
 	ring_scanner_setandgenendofline(pScanner, nLine);
 	pScanner->lEnableTokensOutput = lEnableTokensOutput;
