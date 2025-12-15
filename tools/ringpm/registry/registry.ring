@@ -890,5 +890,9 @@ aPackagesRegistry = [
 	[ :name = "ring-html",
 	  :description = "A high-performance HTML5 parser library with CSS selectors and DOM manipulation for the Ring programming language",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "ringml",
+          :description = "RingML package using the Ring programming language",
+          :ProviderUserName = "azzeddine2017"
 	]
 ]
