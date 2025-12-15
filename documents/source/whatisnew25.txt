@@ -648,6 +648,7 @@ More Improvements
 * RingVM_EvalInScope() - Check the scope range before changing the scope
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
 * Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
-* Ring Compiler - ring_state_execute() implementation - check ring_state_runfile() output
+* Ring Compiler - LoadSyntax command - Switch to the file folder 
+* Ring Compiler - Ring_State_Execute() implementation - Check ring_state_runfile() output
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
