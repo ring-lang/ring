@@ -7,8 +7,8 @@ ChangeRingKeyword RingVM_SEE          myPrint
 
 func myErrorHandler
 	
-	? "I don't care about errors!"
-	? "I will act as they doesn't exist"
+	? "I don't care about errors at all!"
+	? "I will act as they don't exist"
 	ringvm_passerror()
 
 func myPrint vValue
