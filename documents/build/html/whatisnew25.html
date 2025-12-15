@@ -689,7 +689,7 @@ Parent - Test()
 <span id="index-13"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
 <p>If this function is defined in Ring code, it will be called when an error occurs, provided
 the error is not handled by try/catch/done.</p>
-<p>Example:</p>
+<p>Example (1):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
 <span class="o">?</span> <span class="ss">:done</span>
 
@@ -706,6 +706,34 @@ the error is not handled by try/catch/done.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We have an error!
 Message: Error (R1) : Can&#39;t divide by zero
 done
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_ErrorHandler</span> <span class="n">myErrorHandler</span>
+<span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_SEE</span>          <span class="n">myPrint</span>
+
+<span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="o">?</span> <span class="s2">&quot;BOOM!&quot;</span>
+
+<span class="kd">func</span> <span class="nf">myErrorHandler</span>
+
+        <span class="o">?</span> <span class="s2">&quot;I don&#39;t care about errors at all!&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;I will act as they don&#39;t exist&quot;</span>
+        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">myPrint</span> <span class="n">vValue</span>
+
+        <span class="k">if</span> <span class="n">vValue</span> <span class="o">=</span> <span class="bp">nl</span> <span class="nb">ring_see</span><span class="p">(</span><span class="bp">nl</span><span class="p">)</span> <span class="k">return</span> <span class="k">ok</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;-*{&quot;</span> <span class="p">)</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;}*-&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-*{I don&#39;t care about errors at all!}*-
+-*{I will act as they don&#39;t exist}*-
+-*{BOOM!}*-
 </pre></div>
 </div>
 </section>

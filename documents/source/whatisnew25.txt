@@ -575,7 +575,7 @@ RingVM_ErrorHandler() function
 If this function is defined in Ring code, it will be called when an error occurs, provided 
 the error is not handled by try/catch/done.
 
-Example:
+Example (1):
 
 .. code-block:: ring
 
@@ -597,6 +597,40 @@ Output:
 	We have an error!
 	Message: Error (R1) : Can't divide by zero
 	done
+
+
+Example (2):
+
+.. code-block:: ring
+
+	ChangeRingKeyword RingVM_ErrorHandler myErrorHandler
+	ChangeRingKeyword RingVM_SEE          myPrint
+	
+	1/0
+	
+	? "BOOM!"
+	
+	func myErrorHandler
+		
+		? "I don't care about errors at all!"
+		? "I will act as they don't exist"
+		ringvm_passerror()
+	
+	func myPrint vValue
+		
+		if vValue = nl ring_see(nl) return ok
+		ring_see( "-*{" )
+		ring_see( vValue )
+		ring_see( "}*-" )
+
+
+Output:
+
+.. code-block:: none
+
+	-*{I don't care about errors at all!}*-
+	-*{I will act as they don't exist}*-
+	-*{BOOM!}*-
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
