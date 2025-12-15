@@ -516,16 +516,16 @@ RING_API void ring_state_main(int nArgc, char *pArgv[]) {
 		ring_general_showtime();
 	}
 	srand(time(NULL));
-	/* Check Startup ring.ring */
-	if (ring_general_fexists(RING_FILES_AUTOLOADSRC) && nArgc == 1) {
-		ring_state_execute((char *)RING_FILES_AUTOLOADSRC, lCGI, lRun, lPrintIC, lPrintICFinal, lTokens, lRules,
-				   lIns, lGenObj, lGenCObj, lWarn, nArgc, pArgv);
-	} else if (ring_general_fexists(RING_FILES_AUTOLOADOBJ) && nArgc == 1) {
-		ring_state_execute((char *)RING_FILES_AUTOLOADOBJ, lCGI, lRun, lPrintIC, lPrintICFinal, lTokens, lRules,
-				   lIns, lGenObj, lGenCObj, lWarn, nArgc, pArgv);
+	/* Check Startup files (ring.ring and ring.ringo) */
+	if (ring_general_fexists(RING_FILES_AUTOLOADSRC) && lSrc == RING_FALSE) {
+		lSrc = RING_TRUE;
+		cStr = RING_FILES_AUTOLOADSRC;
+	} else if (ring_general_fexists(RING_FILES_AUTOLOADOBJ) && lSrc == RING_FALSE) {
+		lSrc = RING_TRUE;
+		cStr = RING_FILES_AUTOLOADOBJ;
 	}
 	/* Print Version */
-	else if ((nArgc == 1) || (cStr == NULL)) {
+	if (((nArgc == 1) && (lSrc == RING_FALSE)) || (cStr == NULL)) {
 		ring_state_usageinfo();
 	}
 	/* Execute source file */
