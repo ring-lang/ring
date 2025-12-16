@@ -11,6 +11,9 @@ RING_API void ring_objfile_writefile(RingState *pRingState) {
 	fprintf(fObj, "# Ring Object File\n");
 	fprintf(fObj, RING_OBJFILE_VERSION);
 	fprintf(fObj, "\n");
+	/* Write Files List */
+	fprintf(fObj, "# Files List\n");
+	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFilesList);
 	/* Write Functions Lists */
 	fprintf(fObj, "# Functions List\n");
 	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFunctionsMap);
@@ -23,9 +26,6 @@ RING_API void ring_objfile_writefile(RingState *pRingState) {
 	/* Write Code */
 	fprintf(fObj, "# Program Code\n");
 	ring_objfile_writelist(pRingState, fObj, pRingState->pRingGenCode);
-	/* Write Files List */
-	fprintf(fObj, "# Files List\n");
-	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFilesList);
 	/* Close File */
 	fprintf(fObj, "# End of File\n");
 	fclose(fObj);
@@ -37,7 +37,7 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 	char *cString;
 	char cKey[RING_OBJFILE_KEYSTRSIZE];
 	strcpy(cKey, RING_OBJFILE_KEYSTRING);
-	fprintf(fObj, "{\n");
+	fprintf(fObj, "{");
 	/* Write List Items */
 	lCont = 1;
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -48,10 +48,10 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 			pList2 = pList;
 			lCont = 0;
 		}
-		fprintf(fObj, "[T]\n");
+		fprintf(fObj, "@T");
 		for (x2 = 1; x2 <= ring_list_getsize(pList2); x2++) {
 			if (ring_list_isstring(pList2, x2)) {
-				fprintf(fObj, "[S][%d]", ring_list_getstringsize(pList2, x2));
+				fprintf(fObj, "@S%d!", ring_list_getstringsize(pList2, x2));
 				/* Encrypt String */
 				cString = ring_list_getstring(pList2, x2);
 				ring_objfile_xorstring(pRingState, cString, ring_list_getstringsize(pList2, x2), cKey,
@@ -60,24 +60,23 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 				/* Decrypt String */
 				ring_objfile_xorstring(pRingState, cString, ring_list_getstringsize(pList2, x2), cKey,
 						       RING_OBJFILE_KEYSIZE);
-				fprintf(fObj, "\n");
 			} else if (ring_list_isint(pList2, x2)) {
-				fprintf(fObj, "[I]%d\n", ring_list_getint(pList2, x2));
+				fprintf(fObj, "@I%d", ring_list_getint(pList2, x2));
 			} else if (ring_list_isdouble(pList2, x2)) {
-				fprintf(fObj, "[D]%f\n", ring_list_getdouble(pList2, x2));
+				fprintf(fObj, "@D%f", ring_list_getdouble(pList2, x2));
 			} else if (ring_list_ispointer(pList2, x2)) {
-				fprintf(fObj, "[P]%p\n", (void *)ring_list_getpointer(pList2, x2));
+				fprintf(fObj, "@P");
 			} else if (ring_list_islist(pList2, x2)) {
-				fprintf(fObj, "[L]\n");
+				fprintf(fObj, "@L");
 				ring_objfile_writelist(pRingState, fObj, ring_list_getlist(pList2, x2));
 			}
 		}
-		fprintf(fObj, "[E]\n");
+		fprintf(fObj, "@E");
 		if (lCont == 0) {
 			break;
 		}
 	}
-	fprintf(fObj, "}\n");
+	fprintf(fObj, "}");
 }
 
 RING_API int ring_objfile_readfile(RingState *pRingState, char *cFileName) {
@@ -208,7 +207,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 	}
 	/* Process Content */
 	c = ring_objfile_getc(pRingState, &cData);
-	while ((c == '#') || (c == '{') || (c == '}') || (c == '[') || (c == '\n')) {
+	while ((c == '#') || (c == '{') || (c == '}') || (c == '@') || (c == '\n')) {
 		/* Check Char */
 		switch (c) {
 		case '#':
@@ -221,35 +220,34 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			nActiveList++;
 			switch (nActiveList) {
 			case 1:
-				pList = pListFunctions;
+				pList = pListFiles;
 				break;
 			case 2:
-				pList = pListClasses;
+				pList = pListFunctions;
 				break;
 			case 3:
-				pList = pListPackages;
+				pList = pListClasses;
 				break;
 			case 4:
-				pList = pListCode;
+				pList = pListPackages;
 				break;
 			case 5:
-				pList = pListFiles;
+				pList = pListCode;
 				break;
 			}
 			break;
-		case '[':
+		case '@':
 			c = ring_objfile_getc(pRingState, &cData);
 			switch (c) {
 			case 'S':
-				ring_objfile_getc(pRingState, &cData);
-				nOutput = sscanf(cData, "[%d]", &nValue);
+				nOutput = sscanf(cData, "%d!", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
 					return RING_FALSE;
 				}
 				/* Pass Letters */
 				c = ' ';
-				while (c != ']') {
+				while (c != '!') {
 					c = ring_objfile_getc(pRingState, &cData);
 				}
 				cString = (char *)ring_state_malloc(pRingState, nValue + 1);
@@ -261,7 +259,6 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				ring_state_free(pRingState, cString);
 				break;
 			case 'I':
-				ring_objfile_getc(pRingState, &cData);
 				nOutput = sscanf(cData, "%d", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
@@ -269,14 +266,13 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				}
 				/* Pass Letters */
 				c = '0';
-				while (isdigit(c) || c == '.') {
+				while (isdigit(c)) {
 					c = ring_objfile_getc(pRingState, &cData);
 				}
 				cData--;
 				ring_list_addint_gc(pRingState, pList, nValue);
 				break;
 			case 'D':
-				ring_objfile_getc(pRingState, &cData);
 				nOutput = sscanf(cData, "%lf", &dValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
@@ -292,26 +288,14 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				break;
 			case 'P':
 				ring_list_addpointer_gc(pRingState, pList, NULL);
-				/* Read Line */
-				while (c != '\n') {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
 				break;
 			case 'T':
 				ring_list_addpointer_gc(pRingState, pListStack, pList);
 				pList = ring_list_newlist_gc(pRingState, pList);
-				/* Read Line */
-				while (c != '\n') {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
 				break;
 			case 'E':
 				pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
 				ring_list_deletelastitem_gc(pRingState, pListStack);
-				/* Read Line */
-				while (c != '\n') {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
 				break;
 			case 'L':
 				/* Read Until { */

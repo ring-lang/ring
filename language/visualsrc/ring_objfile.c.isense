@@ -61,10 +61,6 @@ ring_objfile_readc
 Type: unsigned int
 x
 ring_objfile_getc
-Type: char
-c
-Type: char *
-cData
 ring_objfile_writeCfile
 fCode, *fCode2
 Type: char
