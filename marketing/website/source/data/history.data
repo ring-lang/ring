@@ -1,5 +1,4 @@
 aNews = [
-  ["December 15, 2025",'<a href="https://github.com/azzeddine2017/ringml"> RingML: Building Neural Networks with Ring</a>'],
   ["December 13, 2025",'<a href="https://github.com/ysdragon/ring-html"> Ring-HTML</a>'],
   ["December 6, 2025",'<a href="https://github.com/ysdragon/ring2exe-plus"> Ring2EXE (Plus)</a>'],
   ["December 4, 2025",'<a href="https://github.com/ysdragon/im2ansi"> im2ansi (Convert images into beautiful ANSI/ASCII art)</a>'],
