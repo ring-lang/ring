@@ -351,14 +351,7 @@ RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cD
 	cDest[nCount] = '\0';
 }
 
-RING_API char ring_objfile_getc(RingState *pRingState, char **cSource) {
-	char c;
-	char *cData;
-	cData = *cSource;
-	c = cData[0];
-	*cSource += 1;
-	return c;
-}
+RING_API char ring_objfile_getc(RingState *pRingState, char **cSource) { return *(*cSource)++; }
 
 RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	FILE *fCode, *fCode2;

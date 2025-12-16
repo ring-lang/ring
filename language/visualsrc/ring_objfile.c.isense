@@ -37,7 +37,7 @@ Type: unsigned int
 nSize
 Type: char *
 cBuffer
-Type: int
+Type: unsigned int
 lOutput
 ring_objfile_processstring
 Type: signed char
