@@ -33,20 +33,12 @@ Type: int
 lFail
 ring_objfile_processfile
 fObj
-Type: signed char
-c
-Type: int
-nActiveList,nValue,nBraceEnd,nOutput
-Type: double
-dValue
+Type: long int
+nSize
 Type: char *
-cString
-Type: char
-cKey[RING_OBJFILE_KEYSTRSIZE]
-Type: char
-cFileType[RING_MEDIUMBUF]
-Type: List *
-pList
+cBuffer
+Type: int
+lOutput
 ring_objfile_processstring
 Type: signed char
 c
@@ -93,7 +85,7 @@ cString
 Type: char
 cFileName[RING_HUGEBUF]
 ring_objfile_writebytecode
-Type: int
+Type: unsigned int
 x,x2,nReg,x3,nMax
 Type: List *
 pIns

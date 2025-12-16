@@ -150,148 +150,28 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, i
 RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
 				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack) {
 	FILE *fObj;
-	signed char c;
-	int nActiveList, nValue, nBraceEnd, nOutput;
-	double dValue;
-	char *cString;
-	char cKey[RING_OBJFILE_KEYSTRSIZE];
-	char cFileType[RING_MEDIUMBUF];
-	List *pList;
-	strcpy(cKey, RING_OBJFILE_KEYSTRING);
-	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
-	nActiveList = 0;
-	nBraceEnd = 0;
-	pList = NULL;
+	long int nSize;
+	char *cBuffer;
+	int lOutput;
 	/* Open File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "rb");
 	if (fObj == NULL) {
 		printf("%s %s \n", RING_CANTOPENFILE, cFileName);
 		return RING_FALSE;
 	}
-	fread(cFileType, 1, RING_OBJFILE_FILETYPESTRCOUNT, fObj);
-	cFileType[RING_OBJFILE_FILETYPESTRCOUNT] = '\0';
-	if (strcmp(cFileType, RING_OBJFILE_FILETYPESTR) != 0) {
-		printf(RING_OBJFILEWRONGTYPE);
-		return RING_FALSE;
-	}
-	getc(fObj);
-	fread(cFileType, 1, RING_OBJFILE_VERSIONSTRINGSIZE, fObj);
-	cFileType[RING_OBJFILE_VERSIONSTRINGSIZE] = '\0';
-	if (strcmp(cFileType, RING_OBJFILE_VERSION) != 0) {
-		printf(RING_OBJFILEWRONGVERSION);
-		return RING_FALSE;
-	}
 	/* Process File */
-	c = getc(fObj);
-	while ((c == '#') || (c == '{') || (c == '}') || (c == '[') || (c == '\n')) {
-		/* Check Char */
-		switch (c) {
-		case '#':
-			/* Read Line */
-			while (c != '\n') {
-				c = getc(fObj);
-			}
-			break;
-		case '{':
-			nActiveList++;
-			switch (nActiveList) {
-			case 1:
-				pList = pListFunctions;
-				break;
-			case 2:
-				pList = pListClasses;
-				break;
-			case 3:
-				pList = pListPackages;
-				break;
-			case 4:
-				pList = pListCode;
-				break;
-			case 5:
-				pList = pListFiles;
-				break;
-			}
-			break;
-		case '[':
-			c = getc(fObj);
-			switch (c) {
-			case 'S':
-				getc(fObj);
-				nOutput = fscanf(fObj, "[%d]", &nValue);
-				if (nOutput == 0) {
-					printf(RING_FSCANFERROR);
-					return RING_FALSE;
-				}
-				cString = (char *)ring_state_malloc(pRingState, nValue + 1);
-				fread(cString, 1, nValue, fObj);
-				cString[nValue] = '\0';
-				/* Decrypt String */
-				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
-				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
-				ring_state_free(pRingState, cString);
-				break;
-			case 'I':
-				getc(fObj);
-				nOutput = fscanf(fObj, "%d", &nValue);
-				if (nOutput == 0) {
-					printf(RING_FSCANFERROR);
-					return RING_FALSE;
-				}
-				ring_list_addint_gc(pRingState, pList, nValue);
-				break;
-			case 'D':
-				getc(fObj);
-				nOutput = fscanf(fObj, "%lf", &dValue);
-				if (nOutput == 0) {
-					printf(RING_FSCANFERROR);
-					return RING_FALSE;
-				}
-				ring_list_adddouble_gc(pRingState, pList, dValue);
-				break;
-			case 'P':
-				ring_list_addpointer_gc(pRingState, pList, NULL);
-				/* Read Line */
-				while (c != '\n') {
-					c = getc(fObj);
-				}
-				break;
-			case 'T':
-				ring_list_addpointer_gc(pRingState, pListStack, pList);
-				pList = ring_list_newlist_gc(pRingState, pList);
-				/* Read Line */
-				while (c != '\n') {
-					c = getc(fObj);
-				}
-				break;
-			case 'E':
-				pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
-				ring_list_deletelastitem_gc(pRingState, pListStack);
-				/* Read Line */
-				while (c != '\n') {
-					c = getc(fObj);
-				}
-				break;
-			case 'L':
-				/* Read Until { */
-				while (c != '{') {
-					c = getc(fObj);
-				}
-				ring_list_addpointer_gc(pRingState, pListStack, pList);
-				pList = ring_list_newlist_gc(pRingState, pList);
-				nBraceEnd++;
-				break;
-			}
-			break;
-		case '}':
-			if (nBraceEnd) {
-				pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
-				ring_list_deletelastitem_gc(pRingState, pListStack);
-				nBraceEnd--;
-			}
-			break;
-		}
-		c = getc(fObj);
+	fseek(fObj, 0, SEEK_END);
+	nSize = ftell(fObj);
+	fseek(fObj, 0, SEEK_SET);
+	if (nSize == RING_ZERO) {
+		fclose(fObj);
+		return RING_FALSE;
 	}
+	cBuffer = (char *)ring_state_malloc(pRingState, nSize);
+	fread(cBuffer, 1, nSize, fObj);
+	ring_objfile_processstring(pRingState, cBuffer, pListFunctions, pListClasses, pListPackages, pListCode,
+				   pListFiles, pListStack);
+	ring_state_free(pRingState, cBuffer);
 	/* Close File */
 	fclose(fObj);
 	return RING_TRUE;
