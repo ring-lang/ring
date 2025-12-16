@@ -150,9 +150,9 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, i
 RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
 				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack) {
 	FILE *fObj;
-	long int nSize;
+	unsigned int nSize;
 	char *cBuffer;
-	int lOutput;
+	unsigned int lOutput;
 	/* Open File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "rb");
 	if (fObj == NULL) {
@@ -345,12 +345,8 @@ RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, int n
 }
 
 RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, int nCount) {
-	int x;
-	char *cData;
-	cData = *cSource;
-	for (x = 0; x < nCount; x++) {
-		cDest[x] = cData[x];
-	}
+	unsigned int x;
+	RING_MEMCPY(cDest, *cSource, nCount);
 	*cSource += nCount;
 	cDest[nCount] = '\0';
 }

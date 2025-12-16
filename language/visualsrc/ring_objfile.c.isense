@@ -33,7 +33,7 @@ Type: int
 lFail
 ring_objfile_processfile
 fObj
-Type: long int
+Type: unsigned int
 nSize
 Type: char *
 cBuffer
@@ -58,10 +58,8 @@ ring_objfile_xorstring
 Type: int
 x
 ring_objfile_readc
-Type: int
+Type: unsigned int
 x
-Type: char *
-cData
 ring_objfile_getc
 Type: char
 c
