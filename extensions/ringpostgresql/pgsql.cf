@@ -2,6 +2,7 @@
 /* Copyright (c) 2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "libpq-fe.h"
+#include "libpq-events.h"
 
 </code>
 
@@ -64,16 +65,16 @@ PG_DIAG_SOURCE_FUNCTION
 
 <struct>
 PQconninfoOption {char *keyword,char *envvar, char *compiled, char *val, char *label, char *dispchar,dispsize}
-PQprintOpt {header,align,standard,html3,expanded,pager,char *fieldSep,char *tableOpt,char *caption,char *fieldName}
+PQprintOpt {header,align,standard,html3,expanded,pager,char *fieldSep,char *tableOpt,char *caption,char **fieldName}
 PQArgBlock {len,isint,u.integer,int *u.ptr}
 </struct>
 
-PGconn *PQconnectdbParams(const char **keywords,const char **values,int expand_dbname);
+PGconn *PQconnectdbParams(const char * const *keywords,const char * const *values,int expand_dbname);
 PGconn *PQconnectdb(const char *conninfo)
 PGconn *PQsetdbLogin(const char *pghost,const char *pgport,const char *pgoptions,const char *pgtty,const char *dbName,const char *login,const char *pwd)
 PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,char *pgtty,char *dbName)
 
-PGconn *PQconnectStartParams(const char **keywords,const char **values,int expand_dbname)
+PGconn *PQconnectStartParams(const char * const *keywords,const char * const *values,int expand_dbname)
 PGconn *PQconnectStart(const char *conninfo)
 PostgresPollingStatusType PQconnectPoll(PGconn *conn)
 
@@ -85,7 +86,7 @@ void PQreset(PGconn *conn)
 int PQresetStart(PGconn *conn)
 PostgresPollingStatusType PQresetPoll(PGconn *conn)
 
-PGPing PQpingParams(const char **keywords,const char **values,int expand_dbname)
+PGPing PQpingParams(const char * const *keywords,const char * const *values,int expand_dbname)
 PGPing PQping(const char *conninfo)
 
 char *PQdb(const PGconn *conn)
@@ -115,9 +116,9 @@ void *PQsslStruct(const PGconn *conn, const char *struct_name)
 void *PQgetssl(const PGconn *conn)
 
 PGresult *PQexec(PGconn *conn, const char *command);
-PGresult *PQexecParams(PGconn *conn,const char *command,int nParams,const Oid *paramTypes,const char **paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQexecParams(PGconn *conn,const char *command,int nParams,const Oid *paramTypes,const char * const *paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
 PGresult *PQprepare(PGconn *conn,const char *stmtName,const char *query,int nParams,const Oid *paramTypes)
-PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,int nParams,const char **paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,int nParams,const char * const *paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
 PGresult *PQdescribePrepared(PGconn *conn, const char *stmtName)
 PGresult *PQdescribePortal(PGconn *conn, const char *portalName)
 ExecStatusType PQresultStatus(const PGresult *res)
@@ -158,9 +159,9 @@ unsigned char *PQescapeBytea(const unsigned char *from,size_t from_length,size_t
 unsigned char *PQunescapeBytea(const unsigned char *from, size_t *to_length)
 
 int PQsendQuery(PGconn *conn, const char *command)
-int PQsendQueryParams(PGconn *conn,const char *command,int nParams,const Oid *paramTypes,const char **paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
+int PQsendQueryParams(PGconn *conn,const char *command,int nParams,const Oid *paramTypes,const char * const *paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
 int PQsendPrepare(PGconn *conn,const char *stmtName,const char *query,int nParams,const Oid *paramTypes)
-int PQsendQueryPrepared(PGconn *conn,const char *stmtName,int nParams,const char **paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
+int PQsendQueryPrepared(PGconn *conn,const char *stmtName,int nParams,const char * const *paramValues,const int *paramLengths,const int *paramFormats,int resultFormat)
 int PQsendDescribePrepared(PGconn *conn, const char *stmtName)
 int PQsendDescribePortal(PGconn *conn, const char *portalName)
 PGresult *PQgetResult(PGconn *conn)
