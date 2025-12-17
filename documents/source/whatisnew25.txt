@@ -653,7 +653,7 @@ More Improvements
 * Ring VM - ring_objfile_getc() - Better implementation
 * Ring VM - ring_objfile_readc() - Better implementation
 * Ring VM - ring_objfile_processfile() - Faster by 45% when loading PWCT2
-* Ring VM - Object File Format - Reduce size by 28% for PWCT2
+* Ring VM - Object File Format - Reduce size by 43% for PWCT2
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
 * Ring Compiler - Ring_State_Execute() implementation - Check ring_state_runfile() output
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
