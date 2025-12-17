@@ -27,7 +27,7 @@ RING_API void ring_objfile_writefile(RingState *pRingState) {
 	fprintf(fObj, "# Program Code\n");
 	ring_objfile_writelist(pRingState, fObj, pRingState->pRingGenCode);
 	/* Close File */
-	fprintf(fObj, "# End of File\n");
+	fprintf(fObj, "# End of File\n$");
 	fclose(fObj);
 }
 
@@ -207,8 +207,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 	}
 	/* Process Content */
 	c = ring_objfile_getc(pRingState, &cData);
-	while ((c == '#') || (c == '{') || (c == '}') || (c == 'T') || (c == 'E') || (c == 'S') || (c == 'I') ||
-	       (c == 'D') || (c == 'P') || (c == 'L') || (c == '\n')) {
+	while (c != '$') {
 		/* Check Char */
 		switch (c) {
 		case '#':
