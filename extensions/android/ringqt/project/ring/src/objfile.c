@@ -240,7 +240,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			c = ring_objfile_getc(pRingState, &cData);
 			switch (c) {
 			case 'S':
-				nOutput = sscanf(cData, "%d!", &nValue);
+				nOutput = sscanf(cData, "%d", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
 					return RING_FALSE;
