@@ -37,7 +37,8 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
 					List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
 
-RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, int nStringSize, char *cKey, int nKeySize);
+RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, unsigned int nStringSize, char *cKey,
+				     unsigned int nKeySize);
 
 RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, int nCount);
 

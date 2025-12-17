@@ -320,10 +320,11 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 	return RING_TRUE;
 }
 
-RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, int nStringSize, char *cKey, int nKeySize) {
-	int x;
-	for (x = 1; x <= nStringSize; x++) {
-		cString[x - 1] = cString[x - 1] ^ cKey[(x - 1) % nKeySize];
+RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, unsigned int nStringSize, char *cKey,
+				     unsigned int nKeySize) {
+	unsigned int x;
+	for (x = 0; x < nStringSize; x++) {
+		cString[x] = cString[x] ^ cKey[(x) % nKeySize];
 	}
 }
 
