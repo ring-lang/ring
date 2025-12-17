@@ -240,12 +240,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			c = ring_objfile_getc(pRingState, &cData);
 			switch (c) {
 			case 'S':
-				nValue = 0;
-				nOutput = sscanf(cData, "%d", &nValue);
-				if (nOutput == EOF) {
-					printf(RING_SSCANFERROR);
-					return RING_FALSE;
-				}
+				nValue = atoi(cData);
 				/* Pass Letters */
 				while (c != '!') {
 					c = ring_objfile_getc(pRingState, &cData);
@@ -262,11 +257,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				}
 				break;
 			case 'I':
-				nOutput = sscanf(cData, "%d", &nValue);
-				if (nOutput == EOF) {
-					printf(RING_SSCANFERROR);
-					return RING_FALSE;
-				}
+				nValue = atoi(cData);
 				/* Pass Letters */
 				c = '0';
 				while (isdigit(c)) {
@@ -276,11 +267,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				ring_list_addint_gc(pRingState, pList, nValue);
 				break;
 			case 'D':
-				nOutput = sscanf(cData, "%lf", &dValue);
-				if (nOutput == EOF) {
-					printf(RING_SSCANFERROR);
-					return RING_FALSE;
-				}
+				dValue = atof(cData);
 				/* Pass Letters */
 				c = '0';
 				while (isdigit(c) || c == '.') {
