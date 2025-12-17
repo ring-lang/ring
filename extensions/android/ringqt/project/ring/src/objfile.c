@@ -247,7 +247,6 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 					return RING_FALSE;
 				}
 				/* Pass Letters */
-				c = ' ';
 				while (c != '!') {
 					c = ring_objfile_getc(pRingState, &cData);
 				}
