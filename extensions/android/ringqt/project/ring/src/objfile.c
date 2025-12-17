@@ -332,7 +332,6 @@ RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cD
 	unsigned int x;
 	RING_MEMCPY(cDest, *cSource, nCount);
 	*cSource += nCount;
-	cDest[nCount] = '\0';
 }
 
 RING_API char ring_objfile_getc(RingState *pRingState, char **cSource) { return *(*cSource)++; }
