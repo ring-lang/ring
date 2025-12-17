@@ -240,6 +240,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			c = ring_objfile_getc(pRingState, &cData);
 			switch (c) {
 			case 'S':
+				nValue = 0;
 				nOutput = sscanf(cData, "%d", &nValue);
 				if (nOutput == EOF) {
 					printf(RING_SSCANFERROR);
@@ -250,12 +251,16 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				while (c != '!') {
 					c = ring_objfile_getc(pRingState, &cData);
 				}
-				cString = (char *)ring_state_malloc(pRingState, nValue);
-				ring_objfile_readc(pRingState, &cData, cString, nValue);
-				/* Decrypt String */
-				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
-				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
-				ring_state_free(pRingState, cString);
+				if (nValue > 0) {
+					cString = (char *)ring_state_malloc(pRingState, nValue);
+					ring_objfile_readc(pRingState, &cData, cString, nValue);
+					/* Decrypt String */
+					ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
+					ring_list_addstring2_gc(pRingState, pList, cString, nValue);
+					ring_state_free(pRingState, cString);
+				} else {
+					ring_list_addstring_gc(pRingState, pList, "");
+				}
 				break;
 			case 'I':
 				nOutput = sscanf(cData, "%d", &nValue);
