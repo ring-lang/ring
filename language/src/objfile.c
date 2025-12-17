@@ -250,9 +250,8 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				while (c != '!') {
 					c = ring_objfile_getc(pRingState, &cData);
 				}
-				cString = (char *)ring_state_malloc(pRingState, nValue + 1);
+				cString = (char *)ring_state_malloc(pRingState, nValue);
 				ring_objfile_readc(pRingState, &cData, cString, nValue);
-				cString[nValue] = '\0';
 				/* Decrypt String */
 				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
 				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
