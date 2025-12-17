@@ -48,10 +48,10 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 			pList2 = pList;
 			lCont = 0;
 		}
-		fprintf(fObj, "@T");
+		fprintf(fObj, "T");
 		for (x2 = 1; x2 <= ring_list_getsize(pList2); x2++) {
 			if (ring_list_isstring(pList2, x2)) {
-				fprintf(fObj, "@S%d!", ring_list_getstringsize(pList2, x2));
+				fprintf(fObj, "S%d!", ring_list_getstringsize(pList2, x2));
 				/* Encrypt String */
 				cString = ring_list_getstring(pList2, x2);
 				ring_objfile_xorstring(pRingState, cString, ring_list_getstringsize(pList2, x2), cKey,
@@ -61,17 +61,17 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 				ring_objfile_xorstring(pRingState, cString, ring_list_getstringsize(pList2, x2), cKey,
 						       RING_OBJFILE_KEYSIZE);
 			} else if (ring_list_isint(pList2, x2)) {
-				fprintf(fObj, "@I%d", ring_list_getint(pList2, x2));
+				fprintf(fObj, "I%d", ring_list_getint(pList2, x2));
 			} else if (ring_list_isdouble(pList2, x2)) {
-				fprintf(fObj, "@D%f", ring_list_getdouble(pList2, x2));
+				fprintf(fObj, "D%f", ring_list_getdouble(pList2, x2));
 			} else if (ring_list_ispointer(pList2, x2)) {
-				fprintf(fObj, "@P");
+				fprintf(fObj, "P");
 			} else if (ring_list_islist(pList2, x2)) {
-				fprintf(fObj, "@L");
+				fprintf(fObj, "L");
 				ring_objfile_writelist(pRingState, fObj, ring_list_getlist(pList2, x2));
 			}
 		}
-		fprintf(fObj, "@E");
+		fprintf(fObj, "E");
 		if (lCont == 0) {
 			break;
 		}
@@ -207,7 +207,8 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 	}
 	/* Process Content */
 	c = ring_objfile_getc(pRingState, &cData);
-	while ((c == '#') || (c == '{') || (c == '}') || (c == '@') || (c == '\n')) {
+	while ((c == '#') || (c == '{') || (c == '}') || (c == 'T') || (c == 'E') || (c == 'S') || (c == 'I') ||
+	       (c == 'D') || (c == 'P') || (c == 'L') || (c == '\n')) {
 		/* Check Char */
 		switch (c) {
 		case '#':
@@ -236,74 +237,69 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 				break;
 			}
 			break;
-		case '@':
-			c = ring_objfile_getc(pRingState, &cData);
-			switch (c) {
-			case 'S':
-				nValue = atoi(cData);
-				/* Pass Letters */
-				while (c != '!') {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
-				if (nValue > 0) {
-					cString = (char *)ring_state_malloc(pRingState, nValue);
-					ring_objfile_readc(pRingState, &cData, cString, nValue);
-					/* Decrypt String */
-					ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
-					ring_list_addstring2_gc(pRingState, pList, cString, nValue);
-					ring_state_free(pRingState, cString);
-				} else {
-					ring_list_addstring_gc(pRingState, pList, "");
-				}
-				break;
-			case 'I':
-				nValue = atoi(cData);
-				/* Pass Letters */
-				c = '0';
-				while (isdigit(c)) {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
-				cData--;
-				ring_list_addint_gc(pRingState, pList, nValue);
-				break;
-			case 'D':
-				dValue = atof(cData);
-				/* Pass Letters */
-				c = '0';
-				while (isdigit(c) || c == '.') {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
-				cData--;
-				ring_list_adddouble_gc(pRingState, pList, dValue);
-				break;
-			case 'P':
-				ring_list_addpointer_gc(pRingState, pList, NULL);
-				break;
-			case 'T':
-				ring_list_addpointer_gc(pRingState, pListStack, pList);
-				pList = ring_list_newlist_gc(pRingState, pList);
-				break;
-			case 'E':
-				pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
-				ring_list_deletelastitem_gc(pRingState, pListStack);
-				break;
-			case 'L':
-				/* Read Until { */
-				while (c != '{') {
-					c = ring_objfile_getc(pRingState, &cData);
-				}
-				ring_list_addpointer_gc(pRingState, pListStack, pList);
-				pList = ring_list_newlist_gc(pRingState, pList);
-				nBraceEnd++;
-				break;
-			}
-			break;
 		case '}':
 			if (nBraceEnd) {
 				pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
 				ring_list_deletelastitem_gc(pRingState, pListStack);
 				nBraceEnd--;
 			}
+			break;
+		case 'T':
+			ring_list_addpointer_gc(pRingState, pListStack, pList);
+			pList = ring_list_newlist_gc(pRingState, pList);
+			break;
+		case 'E':
+			pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
+			ring_list_deletelastitem_gc(pRingState, pListStack);
+			break;
+		case 'S':
+			nValue = atoi(cData);
+			/* Pass Letters */
+			while (c != '!') {
+				c = ring_objfile_getc(pRingState, &cData);
+			}
+			if (nValue > 0) {
+				cString = (char *)ring_state_malloc(pRingState, nValue);
+				ring_objfile_readc(pRingState, &cData, cString, nValue);
+				/* Decrypt String */
+				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
+				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
+				ring_state_free(pRingState, cString);
+			} else {
+				ring_list_addstring_gc(pRingState, pList, "");
+			}
+			break;
+		case 'I':
+			nValue = atoi(cData);
+			/* Pass Letters */
+			c = '0';
+			while (isdigit(c)) {
+				c = ring_objfile_getc(pRingState, &cData);
+			}
+			cData--;
+			ring_list_addint_gc(pRingState, pList, nValue);
+			break;
+		case 'D':
+			dValue = atof(cData);
+			/* Pass Letters */
+			c = '0';
+			while (isdigit(c) || c == '.') {
+				c = ring_objfile_getc(pRingState, &cData);
+			}
+			cData--;
+			ring_list_adddouble_gc(pRingState, pList, dValue);
+			break;
+		case 'P':
+			ring_list_addpointer_gc(pRingState, pList, NULL);
+			break;
+		case 'L':
+			/* Read Until { */
+			while (c != '{') {
+				c = ring_objfile_getc(pRingState, &cData);
+			}
+			ring_list_addpointer_gc(pRingState, pListStack, pList);
+			pList = ring_list_newlist_gc(pRingState, pList);
+			nBraceEnd++;
 			break;
 		}
 		c = ring_objfile_getc(pRingState, &cData);
