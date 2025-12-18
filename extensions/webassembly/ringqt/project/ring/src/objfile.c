@@ -211,9 +211,8 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 		/* Check Char */
 		switch (c) {
 		case '#':
-			/* Read Line */
-			while (c != '\n') {
-				c = ring_objfile_getc(pRingState, &cData);
+			while (ring_objfile_getc(pRingState, &cData) != '\n') {
+				/* Read Line */
 			}
 			break;
 		case '{':
@@ -253,9 +252,8 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			break;
 		case 'S':
 			nValue = atoi(cData);
-			/* Pass Letters */
-			while (c != '!') {
-				c = ring_objfile_getc(pRingState, &cData);
+			while (ring_objfile_getc(pRingState, &cData) != '!') {
+				/* Pass digits (string size as int) */
 			}
 			if (nValue > 0) {
 				cString = (char *)ring_state_malloc(pRingState, nValue);
@@ -270,18 +268,16 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			break;
 		case 'I':
 			nValue = atoi(cData);
-			/* Pass Letters */
-			c = '0';
-			while (isdigit(c)) {
-				c = ring_objfile_getc(pRingState, &cData);
+			while (isdigit(ring_objfile_getc(pRingState, &cData))) {
+				/* Pass digits (int) */
 			}
 			cData--;
 			ring_list_addint_gc(pRingState, pList, nValue);
 			break;
 		case 'D':
 			dValue = atof(cData);
-			/* Pass Letters */
-			c = '0';
+			/* Pass the number digits (double) */
+			c = ring_objfile_getc(pRingState, &cData);
 			while (isdigit(c) || c == '.') {
 				c = ring_objfile_getc(pRingState, &cData);
 			}
@@ -292,9 +288,8 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			ring_list_addpointer_gc(pRingState, pList, NULL);
 			break;
 		case 'L':
-			/* Read Until { */
-			while (c != '{') {
-				c = ring_objfile_getc(pRingState, &cData);
+			while (ring_objfile_getc(pRingState, &cData) != '{') {
+				/* Read Until { */
 			}
 			ring_list_addpointer_gc(pRingState, pListStack, pList);
 			pList = ring_list_newlist_gc(pRingState, pList);

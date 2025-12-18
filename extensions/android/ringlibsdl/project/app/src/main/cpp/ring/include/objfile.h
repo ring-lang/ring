@@ -2,8 +2,10 @@
 
 #ifndef ring_objfile_h
 #define ring_objfile_h
-/* Constants */
-/* Object File Source */
+/*
+**  Constants
+**  Object File Source
+*/
 #define RING_OBJFILE_READFROMFILE 1
 #define RING_OBJFILE_READFROMSTRING 2
 /* Embedded Object */
