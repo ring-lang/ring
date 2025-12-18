@@ -43,12 +43,12 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
 		if (ring_list_islist(pList, x)) {
 			pList2 = ring_list_getlist(pList, x);
+			fprintf(fObj, "T");
 		} else {
 			/* For the Files List */
 			pList2 = pList;
 			lCont = 0;
 		}
-		fprintf(fObj, "T");
 		for (x2 = 1; x2 <= ring_list_getsize(pList2); x2++) {
 			if (ring_list_isstring(pList2, x2)) {
 				fprintf(fObj, "S%d!", ring_list_getstringsize(pList2, x2));
@@ -71,10 +71,10 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 				ring_objfile_writelist(pRingState, fObj, ring_list_getlist(pList2, x2));
 			}
 		}
-		fprintf(fObj, "E");
 		if (lCont == 0) {
 			break;
 		}
+		fprintf(fObj, "E");
 	}
 	fprintf(fObj, "}");
 }
@@ -133,12 +133,8 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, i
 	**  Delete the old list (Contains only one file - the *.ringo file name)
 	*/
 	ring_list_deleteallitems_gc(pRingState, pRingState->pRingFilesList);
-	/*
-	**  Add all source code files (*.ring files) in the project
-	**  The List contains sub list - i.e. looks like  [  [ files ] ] - but we need [ files ] only
-	**  So we get the first item using ring_list_getlist() function
-	*/
-	ring_list_copy_gc(pRingState, pRingState->pRingFilesList, ring_list_getlist(pListFiles, RING_ONE));
+	/* Add all source code files (*.ring files) in the project */
+	ring_list_copy_gc(pRingState, pRingState->pRingFilesList, pListFiles);
 	/* Delete pListFiles */
 	ring_list_delete_gc(pRingState, pListFiles);
 	/* Update Classes Pointers */
