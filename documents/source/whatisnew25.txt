@@ -643,7 +643,9 @@ More Improvements
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * StdLib - Rename fflush function to std_fflush
 * NaturalLib - The implementation is revised (Better Performance)
-* RingFastPro - Added Softmax 
+* RingFastPro - Added Softmax
+* RingPostgreSQL - Improve compatibility with newer versions of libpq
+* Code Generator for Extensions - Support (const char * const *) types 
 * IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
 * MergeMethods() - Better Performance (Avoid recreating the HashTable)
