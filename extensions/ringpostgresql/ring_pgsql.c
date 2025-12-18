@@ -3,8 +3,6 @@
 /* Copyright (c) 2018 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "libpq-fe.h"
-#include "libpq-events.h"
-
 RING_FUNC(ring_get_connection_started)
 {
 	RING_API_RETNUMBER(CONNECTION_STARTED);
