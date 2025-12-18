@@ -102,3 +102,10 @@ pList
 ring_vm_info_ringvmruncode
 Type: VM *
 pVM
+ring_vm_info_ringvmringolists
+Type: VM *
+pVM
+Type: List *
+pList
+Type: List *
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack

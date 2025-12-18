@@ -48,4 +48,6 @@ void ring_vm_info_ringvmcodelist(void *pPointer);
 void ring_vm_info_ringvmismempool(void *pPointer);
 
 void ring_vm_info_ringvmruncode(void *pPointer);
+
+void ring_vm_info_ringvmringolists(void *pPointer);
 #endif
