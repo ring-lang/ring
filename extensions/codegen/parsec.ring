@@ -672,7 +672,11 @@ Func GenFuncCodeGetParaValues aList
 					if not IsPointer2Pointer(x)
 						cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
 					else
-						cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
+						if substr(x,"const") 
+							cCode += "(" + x + ") RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'			
+						else 
+							cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
+						ok
 					ok
 				ok
 			on C_TYPE_UNKNOWN
@@ -723,7 +727,7 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 	return cCode
 
 Func IsPointer2Pointer x
-	if substr(x,"**")
+	if substr(x,"**") or substr(x,"* const *")
 		return True
 	ok
 	return false
@@ -929,10 +933,20 @@ Func GenStruct	aFunc
 				C_TABS_1 + "pMyPointer->"+x+" = "+"RING_API_GETNUMBER(2);" + nl +
 				"}" + nl + nl
 		else
-			cPointerType = left(cItem,nPointer)
+			nTypeEnd = nPointer
+			while substr(cItem,nTypeEnd+1,1) = "*" or substr(cItem,nTypeEnd+1,1) = " "
+				nTypeEnd++
+			end
+			cPointerType = left(cItem,nTypeEnd)
 			cPointerTypeRet = trim(substr(cPointerType,"*",""))
 			cItem = substr(cItem,nPointer+1)
+			while left(cItem,1) = "*" or left(cItem,1) = " "
+				cItem = substr(cItem,2)
+			end
 			x = substr(x,nPointer+1)
+			while left(x,1) = "*" or left(x,1) = " "
+				x = substr(x,2)
+			end
 			# Generate Functions to Get Struct Members Values
 			cFuncName = $cFuncStart+"get_"+lower(cStruct)+"_"+cItem
 			$aStructFuncs + cFuncName
