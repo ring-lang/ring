@@ -50,6 +50,7 @@ We expect from those developers to know about pointers and dynamic memory manage
 	* ringvm_info()
 	* ringvm_ismempool()
 	* ringvm_runcode()
+	* ringvm_ringolists()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1707,3 +1708,52 @@ Syntax:
 .. code-block:: ring
 
 	ringvm_runcode(cCode)
+
+.. index:: 
+	pair: Low Level Functions; RingVM_RingoLists() function
+
+RingVM_RingoLists() function
+============================
+
+This function processes a Ring Object File (*.ringo) and returns its contents as Ring lists.
+
+The function's output is a list containing five sublists:
+
+* List of files
+* List of functions
+* List of classes
+* List of packages
+* List of bytecode instructions
+
+Example:
+
+.. code-block:: ring
+
+	C_LINESIZE = 40
+	cFile      = read("pwct.ringo")
+	aList      = ringvm_ringolists(cFile)
+
+	? copy("=",C_LINESIZE)
+	? "List Size: " + len(aList)
+	? copy("=",C_LINESIZE)
+	? "Files count: " + len(aList[1])
+	? "Functions count: " + len(aList[2])
+	? "Classes count: " + len(aList[3])
+	? "Packages count: " + len(aList[4])
+	? "Instructions count: " + len(aList[5])
+	? copy("=",C_LINESIZE)
+
+Output:
+
+.. code-block:: none
+
+	========================================
+	List Size: 5
+	========================================
+	Files count: 1352
+	Functions count: 306
+	Classes count: 1434
+	Packages count: 2
+	Instructions count: 782280
+	========================================
+
