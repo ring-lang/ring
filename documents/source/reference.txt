@@ -136,7 +136,7 @@ Ring defines wrapper keywords (to enable translation) around the following inter
 Language Functions
 ==================
 
-Functions Count: 255
+Functions Count: 256
 
 .. note:: Some functions could be used with different parameters type/count
 
@@ -360,6 +360,7 @@ Functions Count: 255
         ringvm_memorylist() ---> List
         ringvm_packageslist() ---> List
         ringvm_passerror()
+	ringvm_ringolists() ---> List
 	ringvm_runcode(cCode)
         ringvm_scopescount() ---> nScopes
         ringvm_see(cMessage)
