@@ -197,6 +197,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">RingVM_ErrorHandler() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">RingVM_RingoLists() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-object-file-format-update">Ring Object File Format Update</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -251,6 +252,7 @@
 <li><p>Translating Internal Identifiers</p></li>
 <li><p>RingVM_ErrorHandler() function</p></li>
 <li><p>RingVM_RingoLists() function</p></li>
+<li><p>Ring Object File Format Update</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -772,8 +774,48 @@ Instructions count: 782280
 </pre></div>
 </div>
 </section>
+<section id="ring-object-file-format-update">
+<span id="index-15"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<p>The Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) format has been revised to reduce storage
+requirements and improve performance by over 40%.</p>
+<p>Example: PWCT2 Project</p>
+<ul class="simple">
+<li><p>File Size Reduction</p></li>
+</ul>
+<p>pwct.ringo size decreased from 21 MB to 12 MB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can further compress this file to about 2 MB using ZIP compression.</p>
+</div>
+<ul class="simple">
+<li><p>Loading Time Improvement</p></li>
+</ul>
+<p>First, prepare the object file using a specific Ring version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ring -go -norun
+</pre></div>
+</div>
+<p>Then, test the loading performance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ringo -norun -clock
+</pre></div>
+</div>
+<p>Results:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Using Ring 1.24 -&gt; 565 ms
+* Using Ring 1.25 -&gt; 315 ms
+</pre></div>
+</div>
+<p>Key Points About Ring Object Files (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo)</p>
+<ul class="simple">
+<li><p>Portability</p></li>
+</ul>
+<p>The same .ringo file can be loaded on Windows, Linux, macOS, etc.</p>
+<p>In other words: compile once, run everywhere.</p>
+<ul class="simple">
+<li><p>Runtime Loading with Ring State</p></li>
+</ul>
+<p>Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime</p>
+</section>
 <section id="more-improvements">
-<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
@@ -781,7 +823,7 @@ Instructions count: 782280
 <li><p>NaturalLib - The implementation is revised (Better Performance)</p></li>
 <li><p>RingFastPro - Added Softmax</p></li>
 <li><p>RingPostgreSQL - Improve compatibility with newer versions of libpq</p></li>
-<li><p>Code Generator for Extensions - Support (const char * const <a href="#id3"><span class="problematic" id="id4">*</span></a>) types</p></li>
+<li><p>Code Generator for Extensions - Support (const char * const <a href="#id7"><span class="problematic" id="id8">*</span></a>) types</p></li>
 <li><p>IsFunction() - Better Implementation</p></li>
 <li><p>AddMethod() - Better Performance (Avoid recreating the HashTable)</p></li>
 <li><p>MergeMethods() - Better Performance (Avoid recreating the HashTable)</p></li>

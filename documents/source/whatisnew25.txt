@@ -28,6 +28,7 @@ Ring 1.25 comes with the next features!
 * Translating Internal Identifiers
 * RingVM_ErrorHandler() function  
 * RingVM_RingoLists() function
+* Ring Object File Format Update
 * More Improvements
 
 .. index:: 
@@ -673,6 +674,56 @@ Output:
 	Packages count: 2
 	Instructions count: 782280
 	========================================
+
+.. index:: 
+	pair: What is new in Ring  1.25; Ring Object File Format Update
+
+Ring Object File Format Update
+==============================
+
+The Ring Object File (*.ringo) format has been revised to reduce storage 
+requirements and improve performance by over 40%.
+
+Example: PWCT2 Project
+
+* File Size Reduction
+
+pwct.ringo size decreased from 21 MB to 12 MB.
+
+.. note:: You can further compress this file to about 2 MB using ZIP compression.
+
+* Loading Time Improvement
+
+First, prepare the object file using a specific Ring version:
+
+.. code-block:: none
+
+	ring pwct.ring -go -norun
+
+Then, test the loading performance:
+
+.. code-block:: none
+
+	ring pwct.ringo -norun -clock
+
+Results:
+
+.. code-block:: none
+
+	* Using Ring 1.24 -> 565 ms
+	* Using Ring 1.25 -> 315 ms
+
+Key Points About Ring Object Files (*.ringo)
+
+* Portability
+
+The same .ringo file can be loaded on Windows, Linux, macOS, etc.
+
+In other words: compile once, run everywhere.
+
+* Runtime Loading with Ring State
+
+Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime 
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
