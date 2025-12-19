@@ -708,6 +708,8 @@ Then, test the loading performance:
 
 Results:
 
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+
 .. code-block:: none
 
 	* Using Ring 1.24 -> 565 ms
@@ -746,8 +748,6 @@ More Improvements
 * Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
 * Ring VM - ring_objfile_getc() - Better implementation
 * Ring VM - ring_objfile_readc() - Better implementation
-* Ring VM - ring_objfile_processfile() - Faster by 45% when loading PWCT2
-* Ring VM - Object File Format - Reduce size by 43% for PWCT2
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
 * Ring Compiler - Ring_State_Execute() implementation - Check ring_state_runfile() output
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
