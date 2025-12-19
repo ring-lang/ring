@@ -130,11 +130,9 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, i
 	pRingState->pRingGenCode = pListCode;
 	/*
 	**  Update the Files List
-	**  Delete the old list (Contains only one file - the *.ringo file name)
+	**  Get all source code files (*.ring files) in the project
 	*/
-	ring_list_deleteallitems_gc(pRingState, pRingState->pRingFilesList);
-	/* Add all source code files (*.ring files) in the project */
-	ring_list_copy_gc(pRingState, pRingState->pRingFilesList, pListFiles);
+	ring_list_swaptwolists_gc(pRingState, pRingState->pRingFilesList, pListFiles);
 	/* Delete pListFiles */
 	ring_list_delete_gc(pRingState, pListFiles);
 	/* Update Classes Pointers */
