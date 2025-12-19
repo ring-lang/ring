@@ -1,6 +1,6 @@
 C_LINESIZE = 40
 
-cFile = read("app.ringo")
+cFile = read("ringo/app.ringo")
 
 aList = ringvm_ringolists(cFile)
 

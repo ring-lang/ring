@@ -1,0 +1,9 @@
+========================================
+List Size: 5
+========================================
+Files count: 1
+Functions count: 5
+Classes count: 6
+Packages count: 2
+Instructions count: 114
+========================================
