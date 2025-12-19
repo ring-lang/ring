@@ -27,6 +27,7 @@ Ring 1.25 comes with the next features!
 * Using Keywords as Identifiers
 * Translating Internal Identifiers
 * RingVM_ErrorHandler() function  
+* RingVM_RingoLists() function
 * More Improvements
 
 .. index:: 
@@ -632,6 +633,46 @@ Output:
 	-*{I don't care about errors at all!}*-
 	-*{I will act as they don't exist}*-
 	-*{BOOM!}*-
+
+.. index:: 
+	pair: What is new in Ring  1.25; RingVM_RingoLists() function
+
+RingVM_RingoLists() function
+============================
+
+This function processes a Ring Object File (*.ringo) and returns its contents as Ring lists.
+
+Example:
+
+.. code-block:: ring
+
+	C_LINESIZE = 40
+	cFile      = read("pwct.ringo")
+	aList      = ringvm_ringolists(cFile)
+
+	? copy("=",C_LINESIZE)
+	? "List Size: " + len(aList)
+	? copy("=",C_LINESIZE)
+	? "Files count: " + len(aList[1])
+	? "Functions count: " + len(aList[2])
+	? "Classes count: " + len(aList[3])
+	? "Packages count: " + len(aList[4])
+	? "Instructions count: " + len(aList[5])
+	? copy("=",C_LINESIZE)
+
+Output:
+
+.. code-block:: none
+
+	========================================
+	List Size: 5
+	========================================
+	Files count: 1352
+	Functions count: 306
+	Classes count: 1434
+	Packages count: 2
+	Instructions count: 782280
+	========================================
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
