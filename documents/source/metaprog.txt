@@ -186,7 +186,7 @@ Output:
 
 .. code-block:: ring
 
-	Count : 255
+	Count : 256
 	len() 
 	add() 
 	del() 
