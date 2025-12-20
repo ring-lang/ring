@@ -252,6 +252,12 @@ class NaturalLanguage
 	func setAfterRun cCode 
 		cAfterRun = cCode
 
+	func setStartKeywordsWith cStart 
+		cStartKeywordsWith = cStart
+
+	func setMaskOperators lMask	
+		lMaskOperators = lMask
+
 	private 
 
 		cLibraryPath = "../libraries/naturallib"		
