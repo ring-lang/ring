@@ -258,6 +258,19 @@ class NaturalLanguage
 	func setMaskOperators lMask	
 		lMaskOperators = lMask
 
+	func getBeforeRun  
+		return cBeforeRun
+
+	func getAfterRun  
+		return cAfterRun
+
+	func getStartKeywordsWith  
+		return cStartKeywordsWith
+
+	func getMaskOperators 	
+		return lMaskOperators
+
+
 	private 
 
 		cLibraryPath = "../libraries/naturallib"		
