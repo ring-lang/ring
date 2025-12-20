@@ -60,8 +60,16 @@ void ring_vm_mysql_error ( void *pPointer )
 void ring_vm_mysql_real_connect ( void *pPointer )
 {
 	MYSQL *con  ;
+	const char *host, *user, *pass, *db  ;
+	unsigned int port  ;
+	db = NULL ;
+	port = 0 ;
 	if ( RING_API_PARACOUNT < 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( RING_API_PARACOUNT > 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) && RING_API_ISSTRING(4) ) {
@@ -69,20 +77,28 @@ void ring_vm_mysql_real_connect ( void *pPointer )
 		if ( con == NULL ) {
 			return ;
 		}
-		if ( RING_API_PARACOUNT == 4 ) {
-			con = mysql_real_connect(con,RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETSTRING(4), NULL, 0, NULL, CLIENT_MULTI_STATEMENTS);
-		}
-		else if ( RING_API_PARACOUNT == 5 ) {
+		host = RING_API_GETSTRING(2) ;
+		user = RING_API_GETSTRING(3) ;
+		pass = RING_API_GETSTRING(4) ;
+		if ( RING_API_PARACOUNT >= 5 ) {
 			if ( RING_API_ISSTRING(5) ) {
-				con = mysql_real_connect(con,RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETSTRING(4), RING_API_GETSTRING(5), 0, NULL, CLIENT_MULTI_STATEMENTS);
+				db = RING_API_GETSTRING(5) ;
+			} else if ( RING_API_ISNUMBER(5) ) {
+				port = (unsigned int) RING_API_GETNUMBER(5) ;
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
+				return ;
 			}
-		} else {
-			RING_API_ERROR(RING_API_BADPARACOUNT);
-			return ;
 		}
-		if ( con == NULL ) {
+		if ( RING_API_PARACOUNT == 6 ) {
+			if ( RING_API_ISNUMBER(6) ) {
+				port = (unsigned int) RING_API_GETNUMBER(6) ;
+			} else {
+				RING_API_ERROR(RING_API_BADPARATYPE);
+				return ;
+			}
+		}
+		if ( mysql_real_connect(con,host,user,pass,db,port,NULL,CLIENT_MULTI_STATEMENTS) == NULL ) {
 			RING_API_RETNUMBER(0);
 		} else {
 			RING_API_RETNUMBER(1);
