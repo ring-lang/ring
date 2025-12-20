@@ -29,6 +29,7 @@ Ring 1.25 comes with the next features!
 * RingVM_ErrorHandler() function  
 * RingVM_RingoLists() function
 * Ring Object File Format Update
+* Better NaturalLib
 * More Improvements
 
 .. index:: 
@@ -730,6 +731,117 @@ In other words: compile once, run everywhere.
 Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime 
 
 .. index:: 
+	pair: What is new in Ring  1.25; Better NaturalLib
+
+Better NaturalLib
+=================
+
+The NaturalLib is updated to provide
+
+(1) Better Performance
+
+(2) The next methods are added to the NaturalLanguage class
+
+* LoadCommand(cCommandName)
+* Execute(cCode)
+* setBeforeRun(cCode)
+* setAfterRun(cCode)
+* setStartKeywordsWith(cStart)
+* setMaskOperators(lMask) 
+
+.. note:: Check the (Using the Natural Library) chapter for more information about these methods
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand.SyntaxIsCommand([
+		:Package = "MyLanguage.Natural",
+		:Command = "i want window", 
+		:Function = func {
+			?  "Command: I want window"
+		}
+	])
+
+	MyLang = New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		SetPackageName("MyLanguage.Natural")
+		loadCommand("i want window")
+	}
+
+	? copy("=",30)
+
+	GUI = new MyLanguage 
+
+	GUI {
+		i want window	
+	}
+
+	? copy("=",30)
+
+	MyLang.RunString(' I want window ')
+
+	MyLang.Execute(' I want window ')
+
+	? copy("=",30)
+
+	MyLang {
+
+		setBeforeRun(`ChangeRingKeyword to 	towards`+nl)
+		setAfterRun(`ChangeRingKeyword towards	to`+nl)
+	}
+
+	MyLang.execute(`
+		for t=1 towards 5
+			i want window
+		next
+	`)
+
+	? copy("=",30)
+
+	MyLang {
+		setBeforeRun("")		// Disable Before Run
+		setAfterRun("")			// Disable After  Run
+		setStartKeywordsWith("@")
+		setMaskOperators(False) 
+	}
+
+	MyLang.execute('
+
+		@for t=1 @to 3
+			i want window
+		@next
+
+	')
+
+	? copy("=",30)
+
+Output:
+
+.. code-block:: none
+
+	==============================
+	Command: I want window
+	==============================
+	Command: I want window
+	Command: I want window
+	==============================
+	Command: I want window
+	Command: I want window
+	Command: I want window
+	Command: I want window
+	Command: I want window
+	==============================
+	Command: I want window
+	Command: I want window
+	Command: I want window
+	==============================
+
+
+.. index:: 
 	pair: What is new in Ring  1.25; More Improvements
 
 More Improvements
@@ -738,7 +850,6 @@ More Improvements
 * libraries/jsonlib/jsonlib.ring - Better Code
 * ring/language/build/locatevc.bat - Prevent PATH bloat
 * StdLib - Rename fflush function to std_fflush
-* NaturalLib - The implementation is revised (Better Performance)
 * RingFastPro - Added Softmax
 * RingPostgreSQL - Improve compatibility with newer versions of libpq
 * RingMySQL - MySQL_Connect() - Allows passing the port number

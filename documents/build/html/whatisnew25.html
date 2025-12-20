@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">RingVM_ErrorHandler() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">RingVM_RingoLists() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-object-file-format-update">Ring Object File Format Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-naturallib">Better NaturalLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -253,6 +254,7 @@
 <li><p>RingVM_ErrorHandler() function</p></li>
 <li><p>RingVM_RingoLists() function</p></li>
 <li><p>Ring Object File Format Update</p></li>
+<li><p>Better NaturalLib</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -817,13 +819,117 @@ requirements and improve performance by over 40%.</p>
 </ul>
 <p>Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime</p>
 </section>
+<section id="better-naturallib">
+<span id="index-16"></span><h2>Better NaturalLib<a class="headerlink" href="#better-naturallib" title="Permalink to this heading"></a></h2>
+<p>The NaturalLib is updated to provide</p>
+<ol class="arabic simple">
+<li><p>Better Performance</p></li>
+<li><p>The next methods are added to the NaturalLanguage class</p></li>
+</ol>
+<ul class="simple">
+<li><p>LoadCommand(cCommandName)</p></li>
+<li><p>Execute(cCode)</p></li>
+<li><p>setBeforeRun(cCode)</p></li>
+<li><p>setAfterRun(cCode)</p></li>
+<li><p>setStartKeywordsWith(cStart)</p></li>
+<li><p>setMaskOperators(lMask)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Check the (Using the Natural Library) chapter for more information about these methods</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;i want window&quot;</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="s2">&quot;i want window&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyLanguage</span>
+
+<span class="n">GUI</span> <span class="p">{</span>
+        <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+<span class="p">}</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">Execute</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">MyLang</span> <span class="p">{</span>
+
+        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="sb">`ChangeRingKeyword to      towards`</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
+        <span class="nf">setAfterRun</span><span class="p">(</span><span class="sb">`ChangeRingKeyword towards  to`</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">        for t=1 towards 5</span>
+<span class="sb">                i want window</span>
+<span class="sb">        next</span>
+<span class="sb">`</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="n">MyLang</span> <span class="p">{</span>
+        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                <span class="c1">// Disable Before Run</span>
+        <span class="nf">setAfterRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                 <span class="c1">// Disable After  Run</span>
+        <span class="nf">setStartKeywordsWith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+        <span class="nf">setMaskOperators</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="s1">&#39;</span>
+
+<span class="s1">        @for t=1 @to 3</span>
+<span class="s1">                i want window</span>
+<span class="s1">        @next</span>
+
+<span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==============================
+Command: I want window
+==============================
+Command: I want window
+Command: I want window
+==============================
+Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+==============================
+Command: I want window
+Command: I want window
+Command: I want window
+==============================
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-16"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
 <li><p>StdLib - Rename fflush function to std_fflush</p></li>
-<li><p>NaturalLib - The implementation is revised (Better Performance)</p></li>
 <li><p>RingFastPro - Added Softmax</p></li>
 <li><p>RingPostgreSQL - Improve compatibility with newer versions of libpq</p></li>
 <li><p>RingMySQL - MySQL_Connect() - Allows passing the port number</p></li>
