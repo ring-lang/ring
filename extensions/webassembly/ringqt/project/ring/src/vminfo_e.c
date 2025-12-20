@@ -382,7 +382,7 @@ void ring_vm_info_ringvmtranslatecfunction(void *pPointer) {
 	CFunction *pCFunc;
 	const char *cStr, *cStr2;
 	RingState *pRingState;
-	List *pOptionalFunctions;
+	List *pTranslatedCFunctions;
 	pVM = (VM *)pPointer;
 	pRingState = pVM->pRingState;
 	if (RING_API_PARACOUNT != 2) {
@@ -407,8 +407,8 @@ void ring_vm_info_ringvmtranslatecfunction(void *pPointer) {
 		return;
 	}
 	/* Add the function to the optional functions list to have a static literal for the function name */
-	pOptionalFunctions = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
-	ring_list_addstring(pOptionalFunctions, cStr2);
-	cStr2 = ring_list_getstring(pOptionalFunctions, ring_list_getsize(pOptionalFunctions));
+	pTranslatedCFunctions = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_TRANSLATEDCFUNCTIONS);
+	ring_list_addstring(pTranslatedCFunctions, cStr2);
+	cStr2 = ring_list_getstring(pTranslatedCFunctions, ring_list_getsize(pTranslatedCFunctions));
 	RING_API_REGISTER(cStr2, pCFunc->pFunc);
 }

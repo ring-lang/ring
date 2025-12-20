@@ -119,4 +119,4 @@ cStr, *cStr2
 Type: RingState *
 pRingState
 Type: List *
-pOptionalFunctions
+pTranslatedCFunctions
