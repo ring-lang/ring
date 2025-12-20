@@ -30,6 +30,10 @@ next methods :-
 * setAfterRun(cCode)
 * setStartKeywordsWith(cStart)
 * setMaskOperators(lMask) 
+* getBeforeRun() --> cCode
+* getAfterRun() --> cCode
+* getStartKeywordsWith() --> cStart
+* getMaskOperators() --> lMask 
 
 .. index:: 
 	pair: Using the Natural Library; Natural Library - Demo Program

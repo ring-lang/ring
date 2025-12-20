@@ -360,7 +360,11 @@ The NaturalLib is updated to provide
 * setBeforeRun(cCode)
 * setAfterRun(cCode)
 * setStartKeywordsWith(cStart)
-* setMaskOperators(lMask) 
+* setMaskOperators(lMask)
+* getBeforeRun() --> cCode
+* getAfterRun() --> cCode
+* getStartKeywordsWith() --> cStart
+* getMaskOperators() --> lMask  
 
 .. note:: Check the (Using the Natural Library) chapter for more information about these methods
 
