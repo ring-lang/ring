@@ -96,7 +96,7 @@ Syntax:
 
 .. code-block:: ring
 
-	MySQL_Connect(MySQL Handle, cServer, cUserName, cPassword) ---> lStatus
+	MySQL_Connect(MySQL Handle, cServer, cUserName, cPassword [, cDB] [, nPort]) ---> lStatus
 
 .. index:: 
 	pair: MySQL Functions; MySQL_Close()
