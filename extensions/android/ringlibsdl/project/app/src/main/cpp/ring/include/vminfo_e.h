@@ -50,4 +50,6 @@ void ring_vm_info_ringvmismempool(void *pPointer);
 void ring_vm_info_ringvmruncode(void *pPointer);
 
 void ring_vm_info_ringvmringolists(void *pPointer);
+
+void ring_vm_info_ringvmtranslatecfunction(void *pPointer);
 #endif

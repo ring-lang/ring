@@ -25,6 +25,7 @@ void ring_vm_info_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("ringvm_ismempool", ring_vm_info_ringvmismempool);
 	RING_API_REGISTER("ringvm_runcode", ring_vm_info_ringvmruncode);
 	RING_API_REGISTER("ringvm_ringolists", ring_vm_info_ringvmringolists);
+	RING_API_REGISTER("ringvm_translatecfunction", ring_vm_info_ringvmtranslatecfunction);
 }
 
 void ring_vm_info_ringvmfileslist(void *pPointer) {
@@ -374,4 +375,40 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 				   pListCode, pListFiles, pListStack);
 	ring_list_deleteitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 	RING_API_RETLISTBYREF(pList);
+}
+
+void ring_vm_info_ringvmtranslatecfunction(void *pPointer) {
+	VM *pVM;
+	CFunction *pCFunc;
+	const char *cStr, *cStr2;
+	RingState *pRingState;
+	List *pOptionalFunctions;
+	pVM = (VM *)pPointer;
+	pRingState = pVM->pRingState;
+	if (RING_API_PARACOUNT != 2) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if (!(RING_API_ISSTRING(1) && RING_API_ISSTRING(2))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	cStr = RING_API_GETSTRING(1);
+	cStr2 = RING_API_GETSTRING(2);
+	pCFunc = pVM->pCFunction;
+	while (pCFunc != NULL) {
+		if (strcmp(pCFunc->cName, cStr) == 0) {
+			break;
+		}
+		pCFunc = pCFunc->pNext;
+	}
+	if (pCFunc == NULL) {
+		RING_API_ERROR("Can't find the C function!");
+		return;
+	}
+	/* Add the function to the optional functions list to have a static literal for the function name */
+	pOptionalFunctions = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
+	ring_list_addstring(pOptionalFunctions, cStr2);
+	cStr2 = ring_list_getstring(pOptionalFunctions, ring_list_getsize(pOptionalFunctions));
+	RING_API_REGISTER(cStr2, pCFunc->pFunc);
 }

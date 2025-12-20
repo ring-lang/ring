@@ -109,3 +109,14 @@ Type: List *
 pList
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack
+ring_vm_info_ringvmtranslatecfunction
+Type: VM *
+pVM
+Type: CFunction *
+pCFunc
+Type: const char *
+cStr, *cStr2
+Type: RingState *
+pRingState
+Type: List *
+pOptionalFunctions
