@@ -1,0 +1,26 @@
+==============================
+Command: I want window
+Command: I want window
+Command: I want window
+==============================
+Command: I want window
+Command: I want window
+==============================
+Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+==============================
+ChangeRingKeyword to 	towards
+
+ChangeRingKeyword towards	to
+
+==============================
+Command: I want window
+Command: I want window
+Command: I want window
+==============================
+@
+0
+==============================
