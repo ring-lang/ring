@@ -27,6 +27,7 @@ Ring 1.25 comes with the next features!
 * Flexible Statement Separation
 * Using Keywords as Identifiers
 * Translating Internal Identifiers
+* RingVM_TranslateCFunction() function
 * RingVM_ErrorHandler() function  
 * RingVM_RingoLists() function
 * Ring Object File Format Update
@@ -689,6 +690,37 @@ Output:
 	
 	Parent - Test()
 	Parent - Test()
+
+.. index:: 
+	pair: What is new in Ring  1.25; RingVM_TranslateCFunction() function
+
+RingVM_TranslateCFunction() function
+====================================
+
+This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.
+
+This happens at the VM level, not at the script level, so it’s fast and transparent.
+
+Example:
+
+.. code-block:: ring
+
+	RingVM_TranslateCFunction("len","length")
+	RingVM_TranslateCFunction("length","mylength")
+
+	cStr = "welcome"
+
+	? len(cStr)
+	? length(cStr)
+	? mylength(cStr)
+
+Output:
+
+.. code-block:: none
+
+	7
+	7
+	7
 
 .. index:: 
 	pair: What is new in Ring  1.25; RingVM_ErrorHandler() function

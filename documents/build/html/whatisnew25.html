@@ -196,6 +196,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-translatecfunction-function">RingVM_TranslateCFunction() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">RingVM_ErrorHandler() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">RingVM_RingoLists() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-object-file-format-update">Ring Object File Format Update</a></li>
@@ -252,6 +253,7 @@
 <li><p>Flexible Statement Separation</p></li>
 <li><p>Using Keywords as Identifiers</p></li>
 <li><p>Translating Internal Identifiers</p></li>
+<li><p>RingVM_TranslateCFunction() function</p></li>
 <li><p>RingVM_ErrorHandler() function</p></li>
 <li><p>RingVM_RingoLists() function</p></li>
 <li><p>Ring Object File Format Update</p></li>
@@ -807,8 +809,30 @@ Parent - Test()
 </pre></div>
 </div>
 </section>
+<section id="ringvm-translatecfunction-function">
+<span id="index-14"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
+<p>This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.</p>
+<p>This happens at the VM level, not at the script level, so it’s fast and transparent.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RingVM_TranslateCFunction</span><span class="p">(</span><span class="s2">&quot;len&quot;</span><span class="p">,</span><span class="s2">&quot;length&quot;</span><span class="p">)</span>
+<span class="nf">RingVM_TranslateCFunction</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span><span class="s2">&quot;mylength&quot;</span><span class="p">)</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;welcome&quot;</span>
+
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">length</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">mylength</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
+7
+7
+</pre></div>
+</div>
+</section>
 <section id="ringvm-errorhandler-function">
-<span id="index-14"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
 <p>If this function is defined in Ring code, it will be called when an error occurs, provided
 the error is not handled by try/catch/done.</p>
 <p>Example (1):</p>
@@ -860,7 +884,7 @@ done
 </div>
 </section>
 <section id="ringvm-ringolists-function">
-<span id="index-15"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
 <p>This function processes a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) and returns its contents as Ring lists.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
@@ -892,7 +916,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ring-object-file-format-update">
-<span id="index-16"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
 <p>The Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) format has been revised to reduce storage
 requirements and improve performance by over 40%.</p>
 <p>Example: PWCT2 Project</p>
@@ -933,7 +957,7 @@ requirements and improve performance by over 40%.</p>
 <p>Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime</p>
 </section>
 <section id="more-improvements">
-<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
