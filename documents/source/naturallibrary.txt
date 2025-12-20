@@ -25,6 +25,7 @@ next methods :-
 * SetOperators(cOperators)
 * RunFile(cFileName)
 * RunString(cString)
+* Execute(cString)
 
 .. index:: 
 	pair: Using the Natural Library; Natural Library - Demo Program
@@ -502,3 +503,23 @@ Output:
 .. code-block:: none
 
 	Command: I want window
+
+.. index:: 
+	pair: Using the Natural Library; RunString and Execute() Methods
+
+RunString and Execute() Methods
+===============================
+
+Both runString() and Execute()  perform the same task: they execute code provided as a 
+string containing commands defined by our domain‑specific language.
+
+Example:
+
+Assume we have a MyLang object, an instance from the NaturalLanguage class that 
+defines the (I want window) command.
+
+.. code-block:: ring
+
+	MyLang.RunString(' I want window ')
+
+	MyLang.Execute(' I want window ')

@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#natural-library-operators">Natural Library - Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#defining-commands-using-classes">Defining commands using classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loadcommand-method">loadCommand() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runstring-and-execute-methods">RunString and Execute() Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -240,6 +241,7 @@ next methods :-</p>
 <li><p>SetOperators(cOperators)</p></li>
 <li><p>RunFile(cFileName)</p></li>
 <li><p>RunString(cString)</p></li>
+<li><p>Execute(cString)</p></li>
 </ul>
 <section id="natural-library-demo-program">
 <span id="index-1"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this heading"></a></h2>
@@ -629,6 +631,19 @@ want our domain‑specific language to avoid depending on external source files 
 </div>
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="runstring-and-execute-methods">
+<span id="index-6"></span><h2>RunString and Execute() Methods<a class="headerlink" href="#runstring-and-execute-methods" title="Permalink to this heading"></a></h2>
+<p>Both runString() and Execute()  perform the same task: they execute code provided as a
+string containing commands defined by our domain‑specific language.</p>
+<p>Example:</p>
+<p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
+defines the (I want window) command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MyLang</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">Execute</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
