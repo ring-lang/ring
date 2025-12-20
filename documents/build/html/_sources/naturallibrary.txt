@@ -458,6 +458,14 @@ Unlike the useCommand() method, which loads the command's source file at runtime
 allows us to achieve the same goal during compile time. This is useful when we 
 want our domain‑specific language to avoid depending on external source files at runtime
 
+Syntax:
+
+.. code-block:: none
+
+	loadCommand(cCommand)
+
+.. tip:: We can use spaces between the command keywords (optional) 
+
 Example:
 
 .. code-block:: ring
@@ -478,7 +486,7 @@ Example:
 	MyLang = New NaturalLanguage {
 		SetLanguageName(:MyLanguage)
 		SetPackageName("MyLanguage.Natural")
-		loadCommand("iwantwindow")
+		loadCommand("i want window")
 	}
 
 	GUI = new MyLanguage 
