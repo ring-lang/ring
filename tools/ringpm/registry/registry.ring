@@ -898,5 +898,9 @@ aPackagesRegistry = [
 	[ :name = "Stock-Analysis-BM",
           :description = "Stock Analysis Momentum using Mega Stocks ticker list",
           :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringml-using-ringtensor",
+          :description = "high-performance, Deep Learning framework built for the  Ring programming language",
+          :ProviderUserName = "azzeddine2017"
 	]
 ]
