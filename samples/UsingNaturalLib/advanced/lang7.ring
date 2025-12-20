@@ -3,8 +3,8 @@
 
 load "../tests/mylanguage.ring"
 
-MyLanguage.cStartKeywordsWith = "@"
-MyLanguage.lMaskOperators     = False 
+MyLanguage.setStartKeywordsWith("@")
+MyLanguage.setMaskOperators(False) 
 
 MyLanguage.RunString('
 
