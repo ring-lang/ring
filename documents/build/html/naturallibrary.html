@@ -659,6 +659,8 @@ Command: I want window
 <span id="index-7"></span><h2>SetBeforeRun() and SetAfterRun() Methods<a class="headerlink" href="#setbeforerun-and-setafterrun-methods" title="Permalink to this heading"></a></h2>
 <p>Using the setBeforeRun() and setAfterRun() methods, we can specify code to be executed
 before or after running code via the runString() and execute() methods.</p>
+<p>If we don’t use these methods, NaturalLib will automatically transform all Ring
+keywords and operators before executing the code via the runString() and execute() methods.</p>
 <p>Example:</p>
 <p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
 defines the (I want window) command.</p>
