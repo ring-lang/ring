@@ -20,7 +20,9 @@ MyLang = New NaturalLanguage {
 GUI = new MyLanguage 
 
 GUI {
-	i want window	
+	for t=1 to 3
+		i want window	
+	next
 }
 
 ? copy("=",30)
