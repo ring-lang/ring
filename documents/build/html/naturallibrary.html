@@ -94,6 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#defining-commands-using-classes">Defining commands using classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loadcommand-method">loadCommand() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#runstring-and-execute-methods">RunString and Execute() Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setbeforerun-and-setafterrun-methods">SetBeforeRun() and SetAfterRun() Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -240,8 +241,10 @@ next methods :-</p>
 <li><p>LoadCommand(cCommandName)</p></li>
 <li><p>SetOperators(cOperators)</p></li>
 <li><p>RunFile(cFileName)</p></li>
-<li><p>RunString(cString)</p></li>
-<li><p>Execute(cString)</p></li>
+<li><p>RunString(cCode)</p></li>
+<li><p>Execute(cCode)</p></li>
+<li><p>setBeforeRun(cCode)</p></li>
+<li><p>setAfterRun(cCode)</p></li>
 </ul>
 <section id="natural-library-demo-program">
 <span id="index-1"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this heading"></a></h2>
@@ -636,7 +639,7 @@ want our domain‑specific language to avoid depending on external source files 
 </section>
 <section id="runstring-and-execute-methods">
 <span id="index-6"></span><h2>RunString and Execute() Methods<a class="headerlink" href="#runstring-and-execute-methods" title="Permalink to this heading"></a></h2>
-<p>Both runString() and Execute()  perform the same task: they execute code provided as a
+<p>Both runString() and Execute() perform the same task: they execute code provided as a
 string containing commands defined by our domain‑specific language.</p>
 <p>Example:</p>
 <p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
@@ -644,6 +647,42 @@ defines the (I want window) command.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MyLang</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
 
 <span class="n">MyLang</span><span class="o">.</span><span class="nf">Execute</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="setbeforerun-and-setafterrun-methods">
+<span id="index-7"></span><h2>SetBeforeRun() and SetAfterRun() Methods<a class="headerlink" href="#setbeforerun-and-setafterrun-methods" title="Permalink to this heading"></a></h2>
+<p>Using the setBeforeRun() and setAfterRun() methods, we can specify code to be executed
+before or after running code via the runString() and execute() methods.</p>
+<p>Example:</p>
+<p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
+defines the (I want window) command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define commands</span>
+<span class="n">MyLang</span> <span class="p">{</span>
+        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="sb">`ChangeRingKeyword to       towards  `</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
+        <span class="nf">setAfterRun</span><span class="p">(</span><span class="sb">` ChangeRingKeyword towards  to       `</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Usage</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">        for t=1 towards 5</span>
+<span class="sb">                i want window</span>
+<span class="sb">        next</span>
+<span class="sb">`</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
 </pre></div>
 </div>
 </section>
