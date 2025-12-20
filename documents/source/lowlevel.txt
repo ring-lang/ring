@@ -51,6 +51,7 @@ We expect from those developers to know about pointers and dynamic memory manage
 	* ringvm_ismempool()
 	* ringvm_runcode()
 	* ringvm_ringolists()
+	* ringvm_translatecfunction()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1710,9 +1711,9 @@ Syntax:
 	ringvm_runcode(cCode)
 
 .. index:: 
-	pair: Low Level Functions; RingVM_RingoLists() function
+	pair: Low Level Functions; ringvm_ringolists() function
 
-RingVM_RingoLists() function
+ringvm_ringolists() function
 ============================
 
 This function processes a Ring Object File (*.ringo) and returns its contents as Ring lists.
@@ -1757,3 +1758,33 @@ Output:
 	Instructions count: 782280
 	========================================
 
+.. index:: 
+	pair: Low Level Functions; ringvm_translatecfunction() function
+
+ringvm_translatecfunction() function
+====================================
+
+This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.
+
+This happens at the VM level, not at the script level, so it’s fast and transparent.
+
+Example:
+
+.. code-block:: ring
+
+	RingVM_TranslateCFunction("len","length")
+	RingVM_TranslateCFunction("length","mylength")
+
+	cStr = "welcome"
+
+	? len(cStr)
+	? length(cStr)
+	? mylength(cStr)
+
+Output:
+
+.. code-block:: none
+
+	7
+	7
+	7

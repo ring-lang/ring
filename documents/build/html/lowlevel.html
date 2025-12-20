@@ -188,7 +188,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-info-function">ringvm_info() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ismempool-function">ringvm_ismempool() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-runcode-function">ringvm_runcode() function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">RingVM_RingoLists() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">ringvm_ringolists() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-translatecfunction-function">ringvm_translatecfunction() function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -296,6 +297,7 @@
 * ringvm_ismempool()
 * ringvm_runcode()
 * ringvm_ringolists()
+* ringvm_translatecfunction()
 </pre></div>
 </div>
 <section id="callgc-function">
@@ -1647,7 +1649,7 @@ done
 </div>
 </section>
 <section id="ringvm-ringolists-function">
-<span id="index-38"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<span id="index-38"></span><h2>ringvm_ringolists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
 <p>This function processes a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) and returns its contents as Ring lists.</p>
 <p>The function’s output is a list containing five sublists:</p>
 <ul class="simple">
@@ -1683,6 +1685,28 @@ Classes count: 1434
 Packages count: 2
 Instructions count: 782280
 ========================================
+</pre></div>
+</div>
+</section>
+<section id="ringvm-translatecfunction-function">
+<span id="index-39"></span><h2>ringvm_translatecfunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
+<p>This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.</p>
+<p>This happens at the VM level, not at the script level, so it’s fast and transparent.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RingVM_TranslateCFunction</span><span class="p">(</span><span class="s2">&quot;len&quot;</span><span class="p">,</span><span class="s2">&quot;length&quot;</span><span class="p">)</span>
+<span class="nf">RingVM_TranslateCFunction</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span><span class="s2">&quot;mylength&quot;</span><span class="p">)</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;welcome&quot;</span>
+
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">length</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">mylength</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
+7
+7
 </pre></div>
 </div>
 </section>
