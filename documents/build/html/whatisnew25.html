@@ -192,13 +192,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tokenslib">Better TokensLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-naturallib">Better NaturalLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">RingVM_ErrorHandler() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">RingVM_RingoLists() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-object-file-format-update">Ring Object File Format Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-naturallib">Better NaturalLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -248,13 +248,13 @@
 <li><p>More RingPM Packages</p></li>
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better TokensLib</p></li>
+<li><p>Better NaturalLib</p></li>
 <li><p>Flexible Statement Separation</p></li>
 <li><p>Using Keywords as Identifiers</p></li>
 <li><p>Translating Internal Identifiers</p></li>
 <li><p>RingVM_ErrorHandler() function</p></li>
 <li><p>RingVM_RingoLists() function</p></li>
 <li><p>Ring Object File Format Update</p></li>
-<li><p>Better NaturalLib</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -494,333 +494,8 @@ Received Data Size: 11363
 <li><p>Lectures Tracker application - Use checkRingCode() before using the lectures file</p></li>
 </ul>
 </section>
-<section id="flexible-statement-separation">
-<span id="index-10"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
-<p>In this release, the language introduces support for using commas (,) as an alternative
-to semicolons (;) when separating statements.</p>
-<p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
-<p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span>
-<span class="o">?</span> <span class="n">x</span><span class="p">,</span> <span class="o">?</span> <span class="n">y</span><span class="p">,</span> <span class="o">?</span> <span class="n">z</span>
-
-<span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
-<span class="o">?</span> <span class="n">x</span><span class="p">;</span> <span class="o">?</span> <span class="n">y</span><span class="p">;</span> <span class="o">?</span> <span class="n">z</span>
-
-<span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span>
-<span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-10
-20
-30
-100
-200
-300
-</pre></div>
-</div>
-<p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">xBaseUserInterface</span> <span class="p">{</span>
-        <span class="n">@10</span><span class="p">,</span> <span class="mi">10</span> <span class="n">say</span> <span class="s2">&quot;Hello, World!&quot;</span>
-        <span class="n">@11</span><span class="p">,</span> <span class="mi">10</span> <span class="n">say</span> <span class="s2">&quot;I Love Programming!&quot;</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">xBaseUserInterface</span>
-
-        <span class="kd">func</span> <span class="nf">braceError</span>
-                <span class="o">?</span> <span class="nf">getVarName</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">)</span>
-
-        <span class="kd">func</span> <span class="nf">getVarName</span> <span class="n">cError</span>
-                <span class="k">if</span> <span class="nb">left</span><span class="p">(</span><span class="n">cError</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;Error (R24)&quot;</span>
-                        <span class="k">return</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cError</span><span class="p">,</span><span class="mi">45</span><span class="p">)</span>
-                <span class="k">ok</span>
-
-        <span class="kd">func</span> <span class="nf">braceExprEval</span> <span class="n">vValue</span>
-                <span class="k">if</span> <span class="n">vValue</span> <span class="o">?</span> <span class="n">vValue</span> <span class="k">ok</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@10
-10
-say
-Hello, World!
-@11
-10
-say
-I Love Programming!
-</pre></div>
-</div>
-</section>
-<section id="using-keywords-as-identifiers">
-<span id="index-11"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
-<p>The next keywords could be used as variables/attributes/etc.</p>
-<p>This is useful when creating domain-specific languages that uses these keywords in the commands.</p>
-<ul class="simple">
-<li><p>Again</p></li>
-<li><p>But</p></li>
-<li><p>Case</p></li>
-<li><p>Catch</p></li>
-<li><p>Done</p></li>
-<li><p>Else</p></li>
-<li><p>From</p></li>
-<li><p>In</p></li>
-<li><p>Off</p></li>
-<li><p>Ok</p></li>
-<li><p>On</p></li>
-<li><p>Other</p></li>
-<li><p>Step</p></li>
-<li><p>To</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Love</span> <span class="p">{</span>
-        <span class="n">I</span> <span class="n">will</span> <span class="n">say</span> <span class="n">it</span> <span class="k">Again</span> <span class="ow">and</span> <span class="k">Again</span>
-        <span class="n">YOU</span> <span class="n">ARE</span> <span class="n">MY</span> <span class="n">LOVE</span>
-        <span class="n">Come</span> <span class="n">with</span> <span class="n">me</span> <span class="k">To</span> <span class="n">the</span> <span class="n">Sky</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Love</span>
-
-        <span class="k">To</span> <span class="k">Again</span>
-
-        <span class="kd">func</span> <span class="nf">getTo</span>
-                <span class="o">?</span> <span class="s2">&quot;Where?&quot;</span>
-
-        <span class="kd">func</span> <span class="nf">getAgain</span>
-                <span class="o">?</span> <span class="s2">&quot;Really?&quot;</span>
-                <span class="k">return</span> <span class="bp">True</span>
-
-        <span class="kd">func</span> <span class="nf">braceError</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Really?
-Really?
-Where?
-</pre></div>
-</div>
-</section>
-<section id="translating-internal-identifiers">
-<span id="index-12"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
-<p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
-This allows translation without breaking existing code that relies on English identifiers.</p>
-<p>The identifiers that can be translated are:</p>
-<ul class="simple">
-<li><p>This</p></li>
-<li><p>Self</p></li>
-<li><p>Super</p></li>
-<li><p>Main</p></li>
-<li><p>Init</p></li>
-<li><p>Operator</p></li>
-<li><p>BraceStart</p></li>
-<li><p>BraceExprEval</p></li>
-<li><p>BraceError</p></li>
-<li><p>BraceEnd</p></li>
-<li><p>RingVM_See</p></li>
-<li><p>RingVM_Give</p></li>
-<li><p>RingVM_ErrorHandler</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Ring defines keywords that act as wrappers for these identifiers (i.e., when the Ring Parser encounters such a keyword, it is converted into the corresponding identifier).</p>
-</div>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
-
-<span class="cp">ChangeRingKeyword</span> <span class="kp">self</span> <span class="n">my</span>
-
-<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="n">my</span> <span class="p">}</span>
-
-<span class="c1"># Since self is an identifier (not a real keyword)</span>
-<span class="c1"># We can use (self) or (my) at the same time</span>
-
-<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span> <span class="o">?</span> <span class="n">my</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
-
-<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">1000</span> <span class="n">y</span><span class="o">=</span><span class="mi">2000</span> <span class="n">z</span><span class="o">=</span><span class="mi">3000</span> <span class="nf">test</span><span class="p">()}</span>
-
-<span class="kd">class</span> <span class="nc">parent</span>
-
-        <span class="kd">func</span> <span class="nf">test</span>
-
-                <span class="o">?</span> <span class="s2">&quot;Parent - Test()&quot;</span>
-
-<span class="kd">class</span> <span class="nc">point</span> <span class="kd">from</span> <span class="nc">parent</span>
-
-        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-
-        <span class="kd">func</span> <span class="nf">test</span>
-
-                <span class="n">ChangeRingKeyword</span> <span class="kp">this</span> <span class="n">mypoint</span>
-
-                <span class="o">?</span> <span class="kp">this</span>
-                <span class="o">?</span> <span class="n">mypoint</span>
-
-                <span class="n">ChangeRingKeyword</span> <span class="kp">super</span> <span class="n">father</span>
-
-                <span class="kp">super</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
-
-                <span class="n">father</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 10
-y: 20
-z: 30
-
-x: 10
-y: 20
-z: 30
-
-x: 100
-y: 200
-z: 300
-
-x: 100
-y: 200
-z: 300
-
-x: 1000
-y: 2000
-z: 3000
-
-x: 1000
-y: 2000
-z: 3000
-
-Parent - Test()
-Parent - Test()
-</pre></div>
-</div>
-</section>
-<section id="ringvm-errorhandler-function">
-<span id="index-13"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
-<p>If this function is defined in Ring code, it will be called when an error occurs, provided
-the error is not handled by try/catch/done.</p>
-<p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="o">?</span> <span class="ss">:done</span>
-
-<span class="kd">func</span> <span class="nf">ringvm_errorhandler</span>
-
-        <span class="o">?</span> <span class="s2">&quot;We have an error!&quot;</span>
-
-        <span class="o">?</span> <span class="s2">&quot;Message: &quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span>
-
-        <span class="nb">ringvm_passerror</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We have an error!
-Message: Error (R1) : Can&#39;t divide by zero
-done
-</pre></div>
-</div>
-<p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_ErrorHandler</span> <span class="n">myErrorHandler</span>
-<span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_SEE</span>          <span class="n">myPrint</span>
-
-<span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-
-<span class="o">?</span> <span class="s2">&quot;BOOM!&quot;</span>
-
-<span class="kd">func</span> <span class="nf">myErrorHandler</span>
-
-        <span class="o">?</span> <span class="s2">&quot;I don&#39;t care about errors at all!&quot;</span>
-        <span class="o">?</span> <span class="s2">&quot;I will act as they don&#39;t exist&quot;</span>
-        <span class="nb">ringvm_passerror</span><span class="p">()</span>
-
-<span class="kd">func</span> <span class="nf">myPrint</span> <span class="n">vValue</span>
-
-        <span class="k">if</span> <span class="n">vValue</span> <span class="o">=</span> <span class="bp">nl</span> <span class="nb">ring_see</span><span class="p">(</span><span class="bp">nl</span><span class="p">)</span> <span class="k">return</span> <span class="k">ok</span>
-        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;-*{&quot;</span> <span class="p">)</span>
-        <span class="nb">ring_see</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
-        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;}*-&quot;</span> <span class="p">)</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-*{I don&#39;t care about errors at all!}*-
--*{I will act as they don&#39;t exist}*-
--*{BOOM!}*-
-</pre></div>
-</div>
-</section>
-<section id="ringvm-ringolists-function">
-<span id="index-14"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
-<p>This function processes a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) and returns its contents as Ring lists.</p>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">cFile</span>      <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;pwct.ringo&quot;</span><span class="p">)</span>
-<span class="n">aList</span>      <span class="o">=</span> <span class="nf">ringvm_ringolists</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
-
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
-<span class="o">?</span> <span class="s2">&quot;List Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
-<span class="o">?</span> <span class="s2">&quot;Files count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="o">?</span> <span class="s2">&quot;Functions count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="o">?</span> <span class="s2">&quot;Classes count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="o">?</span> <span class="s2">&quot;Packages count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="o">?</span> <span class="s2">&quot;Instructions count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
-List Size: 5
-========================================
-Files count: 1352
-Functions count: 306
-Classes count: 1434
-Packages count: 2
-Instructions count: 782280
-========================================
-</pre></div>
-</div>
-</section>
-<section id="ring-object-file-format-update">
-<span id="index-15"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
-<p>The Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) format has been revised to reduce storage
-requirements and improve performance by over 40%.</p>
-<p>Example: PWCT2 Project</p>
-<ul class="simple">
-<li><p>File Size Reduction</p></li>
-</ul>
-<p>pwct.ringo size decreased from 21 MB to 12 MB.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can further compress this file to about 2 MB using ZIP compression.</p>
-</div>
-<ul class="simple">
-<li><p>Loading Time Improvement</p></li>
-</ul>
-<p>First, prepare the object file using a specific Ring version:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ring -go -norun
-</pre></div>
-</div>
-<p>Then, test the loading performance:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ringo -norun -clock
-</pre></div>
-</div>
-<p>Results:</p>
-<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Using Ring 1.24 -&gt; 565 ms
-* Using Ring 1.25 -&gt; 315 ms
-</pre></div>
-</div>
-<p>Key Points About Ring Object Files (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo)</p>
-<ul class="simple">
-<li><p>Portability</p></li>
-</ul>
-<p>The same .ringo file can be loaded on Windows, Linux, macOS, etc.</p>
-<p>In other words: compile once, run everywhere.</p>
-<ul class="simple">
-<li><p>Runtime Loading with Ring State</p></li>
-</ul>
-<p>Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime</p>
-</section>
 <section id="better-naturallib">
-<span id="index-16"></span><h2>Better NaturalLib<a class="headerlink" href="#better-naturallib" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better NaturalLib<a class="headerlink" href="#better-naturallib" title="Permalink to this heading"></a></h2>
 <p>The NaturalLib is updated to provide</p>
 <ol class="arabic simple">
 <li><p>Better Performance</p></li>
@@ -923,6 +598,331 @@ Command: I want window
 ==============================
 </pre></div>
 </div>
+</section>
+<section id="flexible-statement-separation">
+<span id="index-11"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<p>In this release, the language introduces support for using commas (,) as an alternative
+to semicolons (;) when separating statements.</p>
+<p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span>
+<span class="o">?</span> <span class="n">x</span><span class="p">,</span> <span class="o">?</span> <span class="n">y</span><span class="p">,</span> <span class="o">?</span> <span class="n">z</span>
+
+<span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+<span class="o">?</span> <span class="n">x</span><span class="p">;</span> <span class="o">?</span> <span class="n">y</span><span class="p">;</span> <span class="o">?</span> <span class="n">z</span>
+
+<span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span>
+<span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+10
+20
+30
+100
+200
+300
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">xBaseUserInterface</span> <span class="p">{</span>
+        <span class="n">@10</span><span class="p">,</span> <span class="mi">10</span> <span class="n">say</span> <span class="s2">&quot;Hello, World!&quot;</span>
+        <span class="n">@11</span><span class="p">,</span> <span class="mi">10</span> <span class="n">say</span> <span class="s2">&quot;I Love Programming!&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">xBaseUserInterface</span>
+
+        <span class="kd">func</span> <span class="nf">braceError</span>
+                <span class="o">?</span> <span class="nf">getVarName</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">)</span>
+
+        <span class="kd">func</span> <span class="nf">getVarName</span> <span class="n">cError</span>
+                <span class="k">if</span> <span class="nb">left</span><span class="p">(</span><span class="n">cError</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;Error (R24)&quot;</span>
+                        <span class="k">return</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cError</span><span class="p">,</span><span class="mi">45</span><span class="p">)</span>
+                <span class="k">ok</span>
+
+        <span class="kd">func</span> <span class="nf">braceExprEval</span> <span class="n">vValue</span>
+                <span class="k">if</span> <span class="n">vValue</span> <span class="o">?</span> <span class="n">vValue</span> <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@10
+10
+say
+Hello, World!
+@11
+10
+say
+I Love Programming!
+</pre></div>
+</div>
+</section>
+<section id="using-keywords-as-identifiers">
+<span id="index-12"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
+<p>The next keywords could be used as variables/attributes/etc.</p>
+<p>This is useful when creating domain-specific languages that uses these keywords in the commands.</p>
+<ul class="simple">
+<li><p>Again</p></li>
+<li><p>But</p></li>
+<li><p>Case</p></li>
+<li><p>Catch</p></li>
+<li><p>Done</p></li>
+<li><p>Else</p></li>
+<li><p>From</p></li>
+<li><p>In</p></li>
+<li><p>Off</p></li>
+<li><p>Ok</p></li>
+<li><p>On</p></li>
+<li><p>Other</p></li>
+<li><p>Step</p></li>
+<li><p>To</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Love</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">will</span> <span class="n">say</span> <span class="n">it</span> <span class="k">Again</span> <span class="ow">and</span> <span class="k">Again</span>
+        <span class="n">YOU</span> <span class="n">ARE</span> <span class="n">MY</span> <span class="n">LOVE</span>
+        <span class="n">Come</span> <span class="n">with</span> <span class="n">me</span> <span class="k">To</span> <span class="n">the</span> <span class="n">Sky</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Love</span>
+
+        <span class="k">To</span> <span class="k">Again</span>
+
+        <span class="kd">func</span> <span class="nf">getTo</span>
+                <span class="o">?</span> <span class="s2">&quot;Where?&quot;</span>
+
+        <span class="kd">func</span> <span class="nf">getAgain</span>
+                <span class="o">?</span> <span class="s2">&quot;Really?&quot;</span>
+                <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="kd">func</span> <span class="nf">braceError</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Really?
+Really?
+Where?
+</pre></div>
+</div>
+</section>
+<section id="translating-internal-identifiers">
+<span id="index-13"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
+<p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
+This allows translation without breaking existing code that relies on English identifiers.</p>
+<p>The identifiers that can be translated are:</p>
+<ul class="simple">
+<li><p>This</p></li>
+<li><p>Self</p></li>
+<li><p>Super</p></li>
+<li><p>Main</p></li>
+<li><p>Init</p></li>
+<li><p>Operator</p></li>
+<li><p>BraceStart</p></li>
+<li><p>BraceExprEval</p></li>
+<li><p>BraceError</p></li>
+<li><p>BraceEnd</p></li>
+<li><p>RingVM_See</p></li>
+<li><p>RingVM_Give</p></li>
+<li><p>RingVM_ErrorHandler</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring defines keywords that act as wrappers for these identifiers (i.e., when the Ring Parser encounters such a keyword, it is converted into the corresponding identifier).</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
+
+<span class="cp">ChangeRingKeyword</span> <span class="kp">self</span> <span class="n">my</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="n">my</span> <span class="p">}</span>
+
+<span class="c1"># Since self is an identifier (not a real keyword)</span>
+<span class="c1"># We can use (self) or (my) at the same time</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span> <span class="o">?</span> <span class="n">my</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">1000</span> <span class="n">y</span><span class="o">=</span><span class="mi">2000</span> <span class="n">z</span><span class="o">=</span><span class="mi">3000</span> <span class="nf">test</span><span class="p">()}</span>
+
+<span class="kd">class</span> <span class="nc">parent</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+
+                <span class="o">?</span> <span class="s2">&quot;Parent - Test()&quot;</span>
+
+<span class="kd">class</span> <span class="nc">point</span> <span class="kd">from</span> <span class="nc">parent</span>
+
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+
+                <span class="n">ChangeRingKeyword</span> <span class="kp">this</span> <span class="n">mypoint</span>
+
+                <span class="o">?</span> <span class="kp">this</span>
+                <span class="o">?</span> <span class="n">mypoint</span>
+
+                <span class="n">ChangeRingKeyword</span> <span class="kp">super</span> <span class="n">father</span>
+
+                <span class="kp">super</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
+
+                <span class="n">father</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 10
+y: 20
+z: 30
+
+x: 10
+y: 20
+z: 30
+
+x: 100
+y: 200
+z: 300
+
+x: 100
+y: 200
+z: 300
+
+x: 1000
+y: 2000
+z: 3000
+
+x: 1000
+y: 2000
+z: 3000
+
+Parent - Test()
+Parent - Test()
+</pre></div>
+</div>
+</section>
+<section id="ringvm-errorhandler-function">
+<span id="index-14"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<p>If this function is defined in Ring code, it will be called when an error occurs, provided
+the error is not handled by try/catch/done.</p>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="o">?</span> <span class="ss">:done</span>
+
+<span class="kd">func</span> <span class="nf">ringvm_errorhandler</span>
+
+        <span class="o">?</span> <span class="s2">&quot;We have an error!&quot;</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Message: &quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span>
+
+        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We have an error!
+Message: Error (R1) : Can&#39;t divide by zero
+done
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_ErrorHandler</span> <span class="n">myErrorHandler</span>
+<span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_SEE</span>          <span class="n">myPrint</span>
+
+<span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="o">?</span> <span class="s2">&quot;BOOM!&quot;</span>
+
+<span class="kd">func</span> <span class="nf">myErrorHandler</span>
+
+        <span class="o">?</span> <span class="s2">&quot;I don&#39;t care about errors at all!&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;I will act as they don&#39;t exist&quot;</span>
+        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">myPrint</span> <span class="n">vValue</span>
+
+        <span class="k">if</span> <span class="n">vValue</span> <span class="o">=</span> <span class="bp">nl</span> <span class="nb">ring_see</span><span class="p">(</span><span class="bp">nl</span><span class="p">)</span> <span class="k">return</span> <span class="k">ok</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;-*{&quot;</span> <span class="p">)</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;}*-&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-*{I don&#39;t care about errors at all!}*-
+-*{I will act as they don&#39;t exist}*-
+-*{BOOM!}*-
+</pre></div>
+</div>
+</section>
+<section id="ringvm-ringolists-function">
+<span id="index-15"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<p>This function processes a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) and returns its contents as Ring lists.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">cFile</span>      <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;pwct.ringo&quot;</span><span class="p">)</span>
+<span class="n">aList</span>      <span class="o">=</span> <span class="nf">ringvm_ringolists</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;List Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Files count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Functions count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Classes count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Packages count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Instructions count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
+List Size: 5
+========================================
+Files count: 1352
+Functions count: 306
+Classes count: 1434
+Packages count: 2
+Instructions count: 782280
+========================================
+</pre></div>
+</div>
+</section>
+<section id="ring-object-file-format-update">
+<span id="index-16"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<p>The Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) format has been revised to reduce storage
+requirements and improve performance by over 40%.</p>
+<p>Example: PWCT2 Project</p>
+<ul class="simple">
+<li><p>File Size Reduction</p></li>
+</ul>
+<p>pwct.ringo size decreased from 21 MB to 12 MB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can further compress this file to about 2 MB using ZIP compression.</p>
+</div>
+<ul class="simple">
+<li><p>Loading Time Improvement</p></li>
+</ul>
+<p>First, prepare the object file using a specific Ring version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ring -go -norun
+</pre></div>
+</div>
+<p>Then, test the loading performance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ringo -norun -clock
+</pre></div>
+</div>
+<p>Results:</p>
+<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Using Ring 1.24 -&gt; 565 ms
+* Using Ring 1.25 -&gt; 315 ms
+</pre></div>
+</div>
+<p>Key Points About Ring Object Files (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo)</p>
+<ul class="simple">
+<li><p>Portability</p></li>
+</ul>
+<p>The same .ringo file can be loaded on Windows, Linux, macOS, etc.</p>
+<p>In other words: compile once, run everywhere.</p>
+<ul class="simple">
+<li><p>Runtime Loading with Ring State</p></li>
+</ul>
+<p>Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime</p>
 </section>
 <section id="more-improvements">
 <span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
