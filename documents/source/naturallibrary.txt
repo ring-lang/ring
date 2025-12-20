@@ -21,6 +21,7 @@ next methods :-
 * setCommandsPath(cFolder)
 * SetPackageName(cPackageName)
 * UseCommand(cCommandName)
+* LoadCommand(cCommandName)
 * SetOperators(cOperators)
 * RunFile(cFileName)
 * RunString(cString)
@@ -446,3 +447,50 @@ File: count.ring
 				see nl+x+nl 
 			}
 			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
+
+.. index:: 
+	pair: Using the Natural Library; loadCommand() Method
+
+loadCommand() Method
+====================
+
+Unlike the useCommand() method, which loads the command's source file at runtime, the loadCommand() method 
+allows us to achieve the same goal during compile time. This is useful when we 
+want our domain‑specific language to avoid depending on external source files at runtime
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	# Define Commands
+
+	DefineNaturalCommand.SyntaxIsCommand([
+		:Package = "MyLanguage.Natural",
+		:Command = "i want window", 
+		:Function = func {
+			?  "Command: I want window"
+		}
+	])
+	
+	MyLang = New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		SetPackageName("MyLanguage.Natural")
+		loadCommand("iwantwindow")
+	}
+
+	GUI = new MyLanguage 
+
+	# Usage
+
+	GUI {
+		i want window	
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window

@@ -92,6 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#defining-commands">Defining Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#natural-library-operators">Natural Library - Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#defining-commands-using-classes">Defining commands using classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loadcommand-method">loadCommand() Method</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -235,6 +236,7 @@ next methods :-</p>
 <li><p>setCommandsPath(cFolder)</p></li>
 <li><p>SetPackageName(cPackageName)</p></li>
 <li><p>UseCommand(cCommandName)</p></li>
+<li><p>LoadCommand(cCommandName)</p></li>
 <li><p>SetOperators(cOperators)</p></li>
 <li><p>RunFile(cFileName)</p></li>
 <li><p>RunString(cString)</p></li>
@@ -580,6 +582,45 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
                         <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
                 <span class="p">}</span>
                 <span class="nf">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="loadcommand-method">
+<span id="index-5"></span><h2>loadCommand() Method<a class="headerlink" href="#loadcommand-method" title="Permalink to this heading"></a></h2>
+<p>Unlike the useCommand() method, which loads the command’s source file at runtime, the loadCommand() method
+allows us to achieve the same goal during compile time. This is useful when we
+want our domain‑specific language to avoid depending on external source files at runtime</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="c1"># Define Commands</span>
+
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;i want window&quot;</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="s2">&quot;iwantwindow&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyLanguage</span>
+
+<span class="c1"># Usage</span>
+
+<span class="n">GUI</span> <span class="p">{</span>
+        <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
 </pre></div>
 </div>
 </section>
