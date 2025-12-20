@@ -218,6 +218,7 @@ class NaturalLanguage
 		return cCode
 
 	func UseCommand cCommand
+		cCommand = substr(cCommand," ","")
 		cCommandFile = cCommandsPath+"/"+cCommand+".ring"
 		if not fexists(cCommandFile) and not fexists(exefolder()+cCommandFile) {
 			raise("Error (NaturalLib) : Can't open the command file : " + cCommandFile)
@@ -228,6 +229,7 @@ class NaturalLanguage
 		loadCommand(cCommand)
 
 	func loadCommand cCommand 
+		cCommand = substr(cCommand," ","")
 		cSourceClassName = cCommand
 		if not cPackageName = NULL {
 			cSourceClassName = lower(cPackageName+"."+ cCommand)
