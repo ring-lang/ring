@@ -224,7 +224,8 @@ The following packages have been added to the RingPM registry.
 * UUID: Extension for Universally Unique Identifier generation and validation
 * Ring2EXE-Plus: Modern Packaging Options and Enhanced Compiler Control
 * Ring-HTML: HTML5 parser library with CSS selectors and DOM manipulation
-* RingML: Building Neural Networks with Ring
+* RingML: Building Neural Networks (Using RingFastPro)
+* RingML-using-RingTensor: Building Neural Networks (Using RingTensor)
 * Stock-Analysis-BM: Stock Analysis Momentum using Mega Stocks ticker list
 
 .. index:: 
@@ -739,6 +740,7 @@ More Improvements
 * NaturalLib - The implementation is revised (Better Performance)
 * RingFastPro - Added Softmax
 * RingPostgreSQL - Improve compatibility with newer versions of libpq
+* RingMySQL - MySQL_Connect() - Allows passing the port number
 * Code Generator for Extensions - Support (const char * const *) types 
 * IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
