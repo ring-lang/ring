@@ -28,6 +28,8 @@ next methods :-
 * Execute(cCode)
 * setBeforeRun(cCode)
 * setAfterRun(cCode)
+* setStartKeywordsWith(cStart)
+* setMaskOperators(lMask) 
 
 .. index:: 
 	pair: Using the Natural Library; Natural Library - Demo Program
@@ -560,7 +562,6 @@ defines the (I want window) command.
 	}
 
 	# Usage
-
 	MyLang.execute(`
 		for t=1 towards 5
 			i want window
@@ -577,3 +578,50 @@ Output:
 	Command: I want window
 	Command: I want window
 
+
+.. index:: 
+	pair: Using the Natural Library; SetStartKeywordsWith() and SetMaskOperators() methods
+
+SetStartKeywordsWith() and SetMaskOperators() methods
+=====================================================
+
+If we don’t use SetBeforeRun() and SetAfterRun() methods, NaturalLib will automatically 
+transform all Ring keywords and operators before executing the code via 
+the runString() and execute() methods.
+
+Using SetStartKeywordsWith(), we can specify a symbol that will appear at the beginning of 
+all newly created keyword names.
+
+Using SetMaskOperators() we can enable/disable changing the language operators before code execution.
+
+Example:
+
+Assume we have a MyLang object, an instance from the NaturalLanguage class that 
+defines the (I want window) command.
+
+.. code-block:: ring
+
+	# Define commands
+	MyLang {
+		setBeforeRun("")		// Disable Before Run
+		setAfterRun("")			// Disable After  Run
+		setStartKeywordsWith("@")
+		setMaskOperators(False) 
+	}
+
+	# Usage
+	MyLang.execute('
+	
+		@for t=1 @to 3
+ 			i want window
+		@next
+
+	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window
+	Command: I want window

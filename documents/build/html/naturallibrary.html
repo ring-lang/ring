@@ -95,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#loadcommand-method">loadCommand() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#runstring-and-execute-methods">RunString and Execute() Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setbeforerun-and-setafterrun-methods">SetBeforeRun() and SetAfterRun() Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setstartkeywordswith-and-setmaskoperators-methods">SetStartKeywordsWith() and SetMaskOperators() methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -245,6 +246,8 @@ next methods :-</p>
 <li><p>Execute(cCode)</p></li>
 <li><p>setBeforeRun(cCode)</p></li>
 <li><p>setAfterRun(cCode)</p></li>
+<li><p>setStartKeywordsWith(cStart)</p></li>
+<li><p>setMaskOperators(lMask)</p></li>
 </ul>
 <section id="natural-library-demo-program">
 <span id="index-1"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this heading"></a></h2>
@@ -671,7 +674,6 @@ defines the (I want window) command.</p>
 <span class="p">}</span>
 
 <span class="c1"># Usage</span>
-
 <span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`</span>
 <span class="sb">        for t=1 towards 5</span>
 <span class="sb">                i want window</span>
@@ -683,6 +685,42 @@ defines the (I want window) command.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
 Command: I want window
 Command: I want window
+Command: I want window
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="setstartkeywordswith-and-setmaskoperators-methods">
+<span id="index-8"></span><h2>SetStartKeywordsWith() and SetMaskOperators() methods<a class="headerlink" href="#setstartkeywordswith-and-setmaskoperators-methods" title="Permalink to this heading"></a></h2>
+<p>If we don’t use SetBeforeRun() and SetAfterRun() methods, NaturalLib will automatically
+transform all Ring keywords and operators before executing the code via
+the runString() and execute() methods.</p>
+<p>Using SetStartKeywordsWith(), we can specify a symbol that will appear at the beginning of
+all newly created keyword names.</p>
+<p>Using SetMaskOperators() we can enable/disable changing the language operators before code execution.</p>
+<p>Example:</p>
+<p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
+defines the (I want window) command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define commands</span>
+<span class="n">MyLang</span> <span class="p">{</span>
+        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                <span class="c1">// Disable Before Run</span>
+        <span class="nf">setAfterRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                 <span class="c1">// Disable After  Run</span>
+        <span class="nf">setStartKeywordsWith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+        <span class="nf">setMaskOperators</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Usage</span>
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="s1">&#39;</span>
+
+<span class="s1">        @for t=1 @to 3</span>
+<span class="s1">                i want window</span>
+<span class="s1">        @next</span>
+
+<span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
 Command: I want window
 Command: I want window
 </pre></div>
