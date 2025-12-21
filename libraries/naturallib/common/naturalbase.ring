@@ -19,6 +19,7 @@ Class NaturalBase
 
 	lPrepareAttributes = True
 
+	lTreatIdentifierAsString = True
 	lStringIsIdentifier = False
 
 /*
@@ -63,12 +64,14 @@ class NaturalBaseMethods
 		}
 
 	func BraceError
-		cVarName = getVarName(cCatchError)
-		if cVarName {
-			lStringIsIdentifier = True 
-			BraceExprEval(cVarName)
-			lStringIsIdentifier = False
-			return 
+		if lTreatIdentifierAsString {
+			cVarName = getVarName(cCatchError)
+			if cVarName {
+				lStringIsIdentifier = True 
+				BraceExprEval(cVarName)
+				lStringIsIdentifier = False
+				return 
+			}
 		}
 		if lPassError { return }
 		new NatLibError { raise(cCatchError) }
