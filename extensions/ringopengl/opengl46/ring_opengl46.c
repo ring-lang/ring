@@ -5439,7 +5439,7 @@ RING_FUNC(ring_glAlphaFunc)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glAlphaFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2));
+	glAlphaFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLclampf ) RING_API_GETNUMBER(2));
 }
 
 
@@ -5647,7 +5647,7 @@ RING_FUNC(ring_glBlendColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glBlendColor( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2), (GLclampf )  (int) RING_API_GETNUMBER(3), (GLclampf )  (int) RING_API_GETNUMBER(4));
+	glBlendColor( (GLclampf ) RING_API_GETNUMBER(1), (GLclampf ) RING_API_GETNUMBER(2), (GLclampf ) RING_API_GETNUMBER(3), (GLclampf ) RING_API_GETNUMBER(4));
 }
 
 
@@ -5877,7 +5877,7 @@ RING_FUNC(ring_glClearColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glClearColor( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2), (GLclampf )  (int) RING_API_GETNUMBER(3), (GLclampf )  (int) RING_API_GETNUMBER(4));
+	glClearColor( (GLclampf ) RING_API_GETNUMBER(1), (GLclampf ) RING_API_GETNUMBER(2), (GLclampf ) RING_API_GETNUMBER(3), (GLclampf ) RING_API_GETNUMBER(4));
 }
 
 
@@ -11045,7 +11045,7 @@ RING_FUNC(ring_glMultiDrawElements)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glMultiDrawElements( (GLenum )  (int) RING_API_GETNUMBER(1),(GLsizei *) RING_API_GETCPOINTER(2,"GLsizei"), (GLenum )  (int) RING_API_GETNUMBER(3),(GLvoid **) RING_API_GETCPOINTER2POINTER(4,"GLvoid"), (GLsizei )  (int) RING_API_GETNUMBER(5));
+	glMultiDrawElements( (GLenum )  (int) RING_API_GETNUMBER(1),(GLsizei *) RING_API_GETCPOINTER(2,"GLsizei"), (GLenum )  (int) RING_API_GETNUMBER(3),(const GLvoid ** ) RING_API_GETCPOINTER2POINTER(4,"GLvoid"), (GLsizei )  (int) RING_API_GETNUMBER(5));
 }
 
 
@@ -12915,7 +12915,7 @@ RING_FUNC(ring_glSampleCoverage)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glSampleCoverage( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLboolean ) RING_API_GETNUMBER(2));
+	glSampleCoverage( (GLclampf ) RING_API_GETNUMBER(1), (GLboolean ) RING_API_GETNUMBER(2));
 }
 
 
@@ -13399,7 +13399,7 @@ RING_FUNC(ring_glShaderSource)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glShaderSource( (GLuint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2),(GLchar **) RING_API_GETCPOINTER2POINTER(3,"GLchar"),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
+	glShaderSource( (GLuint ) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2),(const GLchar **) RING_API_GETCPOINTER2POINTER(3,"GLchar"),(GLint *) RING_API_GETCPOINTER(4,"GLint"));
 }
 
 

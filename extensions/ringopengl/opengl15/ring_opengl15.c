@@ -3840,7 +3840,7 @@ RING_FUNC(ring_glAlphaFunc)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glAlphaFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2));
+	glAlphaFunc( (GLenum )  (int) RING_API_GETNUMBER(1), (GLclampf ) RING_API_GETNUMBER(2));
 }
 
 
@@ -4066,7 +4066,7 @@ RING_FUNC(ring_glClearColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glClearColor( (GLclampf )  (int) RING_API_GETNUMBER(1), (GLclampf )  (int) RING_API_GETNUMBER(2), (GLclampf )  (int) RING_API_GETNUMBER(3), (GLclampf )  (int) RING_API_GETNUMBER(4));
+	glClearColor( (GLclampf ) RING_API_GETNUMBER(1), (GLclampf ) RING_API_GETNUMBER(2), (GLclampf ) RING_API_GETNUMBER(3), (GLclampf ) RING_API_GETNUMBER(4));
 }
 
 

@@ -39,11 +39,11 @@ aNumberTypes + "GLubyte"
 aNumberTypes + "GLushort"
 aNumberTypes + "GLulong"
 aNumberTypes + "GLclampd"
+aNumberTypes + "GLclampf"
 
 aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLsizei"
-aEnumTypes + "GLclampf"
 
 aStringTypes + "const GLubyte *"
 aStringTypes + "GLubyte *"
