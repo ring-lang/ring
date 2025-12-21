@@ -893,6 +893,7 @@ More Improvements
 * RingFastPro - Added Softmax
 * RingPostgreSQL - Improve compatibility with newer versions of libpq
 * RingMySQL - MySQL_Connect() - Allows passing the port number
+* RingOpenGL - glClearColor() implementation is revised
 * Code Generator for Extensions - Support (const char * const *) types 
 * IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
