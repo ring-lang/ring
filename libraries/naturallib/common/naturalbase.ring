@@ -19,6 +19,8 @@ Class NaturalBase
 
 	lPrepareAttributes = True
 
+	lStringIsIdentifier = False
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -42,7 +44,6 @@ class NaturalBaseMethods
 		}
 	
 	func BraceExprEval Value
-
 		if isString(Value) and value = :NLNV { return }
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods { 
@@ -62,8 +63,20 @@ class NaturalBaseMethods
 		}
 
 	func BraceError
+		cVarName = getVarName(cCatchError)
+		if cVarName {
+			lStringIsIdentifier = True 
+			BraceExprEval(cVarName)
+			lStringIsIdentifier = False
+			return 
+		}
 		if lPassError { return }
 		new NatLibError { raise(cCatchError) }
+
+	func getVarName cError
+		if left(cError,11) = "Error (R24)" {
+			return substr(cError,45)
+		}
 
 	func StartCommand 
 		if len(aCommandsStack) = 16 {
