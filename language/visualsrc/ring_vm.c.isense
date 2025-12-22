@@ -627,7 +627,7 @@ x,x2,x3,x4,lFound
 Type: List *
 pList, *pList2, *pList3, *pPackageList
 Type: char *
-cString
+cString, *cPackageName, *cClassName
 ring_vm_deletecfunctions
 Type: CFunction *
 pCFunc

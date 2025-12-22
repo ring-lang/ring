@@ -18,6 +18,12 @@ int ring_parser_class(Parser *pParser) {
 			ring_parser_icg_retnull(pParser);
 			ring_parser_icg_newoperation(pParser, ICO_NEWCLASS);
 			ring_parser_icg_newoperand(pParser, pParser->cTokenText);
+			/*
+			**  Add location for the class pointer to the generated code
+			**  We don't add the pointer itself because classes could be moved to another list before code
+			*execution
+			*/
+			ring_parser_icg_newoperandpointer(pParser, NULL);
 			pNewClass = ring_parser_icg_getactiveoperation(pParser);
 			/* Add Class to Classes Table */
 			pList = pParser->pClassesMap;
@@ -36,8 +42,6 @@ int ring_parser_class(Parser *pParser) {
 			pList = ring_list_newlist_gc(pParser->pRingState, pList);
 			ring_list_addstring_gc(pParser->pRingState, pList, pParser->cTokenText);
 			ring_list_addint_gc(pParser->pRingState, pList, ring_parser_icg_instructionscount(pParser));
-			/* Add class pointer to generated code */
-			ring_parser_icg_newoperandpointer(pParser, pList);
 			/* Add the class to the HashTable */
 			if (ring_list_gethashtable(pParser->pClassesMap) != NULL) {
 				ring_hashtable_newpointer_gc(pParser->pRingState,

@@ -417,26 +417,6 @@ void ring_vm_updateclassespointers(RingState *pRingState) {
 			}
 		}
 	}
-	/* Update Class Pointer in Code */
-	for (x = 1; x <= ring_list_getsize(pRingState->pRingGenCode); x++) {
-		pList = ring_list_getlist(pRingState->pRingGenCode, x);
-		if (ring_list_getint(pList, RING_PARSER_ICG_OPERATIONCODE) == ICO_NEWCLASS) {
-			cString = ring_list_getstring(pList, RING_PARSER_ICG_PARA1);
-			lFound = 0;
-			for (x2 = 1; x2 <= ring_list_getsize(pRingState->pRingClassesMap); x2++) {
-				pList2 = ring_list_getlist(pRingState->pRingClassesMap, x2);
-				if (strcmp(cString, ring_list_getstring(pList2, RING_CLASSMAP_CLASSNAME)) == 0) {
-					lFound = 1;
-					ring_list_setpointer(pList, RING_PARSER_ICG_PARA2, pList2);
-					break;
-				}
-			}
-			/* If we can't find the list (the class is inside a package) */
-			if (lFound == 0) {
-				ring_list_setpointer(pList, RING_PARSER_ICG_PARA2, NULL);
-			}
-		}
-	}
 }
 
 void ring_vm_deletecfunctions(VM *pVM) {
