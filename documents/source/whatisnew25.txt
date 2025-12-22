@@ -870,16 +870,9 @@ Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
 Key Points About Ring Object Files (*.ringo)
 
-* Portability
+* Portability (Compile once, run everywhere)
 
-The same .ringo file can be loaded on Windows, Linux, macOS, etc.
-
-In other words: compile once, run everywhere.
-
-* Runtime Loading with Ring State
-
-Using Ring State (Embedded Ring in Ring), you can load a .ringo file during runtime 
-
+* Runtime Loading with Ring State (Embedded Ring in Ring)
 
 .. index:: 
 	pair: What is new in Ring  1.25; More Improvements
