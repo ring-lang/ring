@@ -227,6 +227,9 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			case 5:
 				pList = pListCode;
 				break;
+			default:
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
 			}
 			break;
 		case '}':
@@ -289,6 +292,12 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			pList = ring_list_newlist_gc(pRingState, pList);
 			nBraceEnd++;
 			break;
+		case '\n':
+			/* Ignore new lines */
+			break;
+		default:
+			printf(RING_OBJFILEWRONGTYPE);
+			return RING_FALSE;
 		}
 		c = ring_objfile_getc(pRingState, &cData);
 	}
