@@ -898,6 +898,7 @@ More Improvements
 * Ring VM - ring_objfile_getc() - Better implementation
 * Ring VM - ring_objfile_readc() - Better implementation
 * Ring VM - ring_general_isobjectfile() - Better Implementation
+* Ring VM - ring_vm_updateclassespointers() - Better Performance
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
 * Ring Compiler - Ring_State_Execute() implementation - Check ring_state_runfile() output
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
