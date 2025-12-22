@@ -1,5 +1,4 @@
 RingRayLib 5.0
-==============
 
-This extensions is under development.
+Ring extension for RayLib 5.0.
 
