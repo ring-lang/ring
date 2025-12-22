@@ -113,6 +113,7 @@ typedef struct VM {
 	List *pDeleteLater;
 	List *pDefinedGlobals;
 	List *pTrackedVariables;
+	List *pLiterals;
 	String *pPackageName;
 	String *pTrace;
 	ByteCode *pByteCode;
@@ -282,7 +283,6 @@ typedef struct VM {
 #define RING_GLOBALVARPOS_SETTEMPVAR 7
 #define RING_GLOBALVARPOS_THIS 11
 #define RING_GLOBALVARPOS_OPTIONALFUNCTIONS 15
-#define RING_GLOBALVARPOS_TRANSLATEDCFUNCTIONS 16
 /* Variable Type */
 #define RING_VM_NULL 0
 #define RING_VM_STRING 1

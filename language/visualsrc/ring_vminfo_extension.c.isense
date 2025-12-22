@@ -113,7 +113,7 @@ Type: unsigned int
 nSize
 Type: int
 lOutput
-Type: const char *
+Type: char *
 cBuffer
 ring_vm_info_ringvmtranslatecfunction
 Type: VM *

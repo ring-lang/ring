@@ -32,10 +32,6 @@ void ring_vm_addglobalvariables(VM *pVM) {
 	pList = ring_vm_addnewlistvar(pVM, RING_CSTR_RINGOPTIONALFUNCTIONS);
 	pList = ring_list_getlist(pList, RING_VAR_VALUE);
 	ring_list_enableerroronassignment_gc(pVM->pRingState, pList);
-	/* List of C Functions Translation */
-	pList = ring_vm_addnewlistvar(pVM, RING_CSTR_RINGCFUNCTIONSTRANSLATION);
-	pList = ring_list_getlist(pList, RING_VAR_VALUE);
-	ring_list_enableerroronassignment_gc(pVM->pRingState, pList);
 }
 /*
 **  Memory is a List and each item inside the list is another List (Represent Scope)

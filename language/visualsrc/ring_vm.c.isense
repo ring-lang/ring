@@ -186,6 +186,8 @@ Type: List *
 pDefinedGlobals
 Type: List *
 pTrackedVariables
+Type: List *
+pLiterals
 Type: String *
 pPackageName
 Type: String *

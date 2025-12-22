@@ -214,6 +214,8 @@ VM *ring_vm_new(RingState *pRingState) {
 	pVM->nPausePC = 1;
 	/* Tracked List of Variables - Each variable is a pointer to a List item */
 	pVM->pTrackedVariables = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	/* List of literals - Used when translating C functions */
+	pVM->pLiterals = ring_list_new_gc(pVM->pRingState, RING_ZERO);
 	/* Create Arguments Cache */
 	ring_vm_newargcache(pVM);
 	return pVM;
@@ -265,6 +267,7 @@ VM *ring_vm_delete(VM *pVM) {
 	pVM->pDeleteLater = ring_list_delete_gc(pVM->pRingState, pVM->pDeleteLater);
 	pVM->pDefinedGlobals = ring_list_delete_gc(pVM->pRingState, pVM->pDefinedGlobals);
 	pVM->pTrackedVariables = ring_list_delete_gc(pVM->pRingState, pVM->pTrackedVariables);
+	pVM->pLiterals = ring_list_delete_gc(pVM->pRingState, pVM->pLiterals);
 	/* Delete Arguments Cache */
 	ring_vm_deleteargcache(pVM);
 	/* Delete C Functions */
