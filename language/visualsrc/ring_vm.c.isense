@@ -396,7 +396,7 @@ RING_GLOBALVARPOS_ERRORMSG
 RING_GLOBALVARPOS_SETTEMPVAR
 RING_GLOBALVARPOS_THIS
 RING_GLOBALVARPOS_OPTIONALFUNCTIONS
-RING_GLOBALVARPOS_OPTIONALFUNCTIONS
+RING_GLOBALVARPOS_TRANSLATEDCFUNCTIONS
 RING_VM_NULL
 RING_VM_STRING
 RING_VM_NUMBER
@@ -626,12 +626,8 @@ Type: unsigned int
 x,x2,x3,x4,lFound
 Type: List *
 pList, *pList2, *pList3, *pPackageList
-Type: const char *
+Type: char *
 cString
-Type: char
-cPackageName[RING_HUGEBUF]
-Type: char
-cClassName[RING_HUGEBUF]
 ring_vm_deletecfunctions
 Type: CFunction *
 pCFunc

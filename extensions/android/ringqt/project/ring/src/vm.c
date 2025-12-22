@@ -361,9 +361,7 @@ void ring_vm_defragmentation(RingState *pRingState, VM *pVM) {
 void ring_vm_updateclassespointers(RingState *pRingState) {
 	unsigned int x, x2, x3, x4, lFound;
 	List *pList, *pList2, *pList3, *pPackageList;
-	const char *cString;
-	char cPackageName[RING_HUGEBUF];
-	char cClassName[RING_HUGEBUF];
+	char *cString, *cPackageName, *cClassName;
 	/* Update Package Pointers in Packages Classes */
 	for (x = 1; x <= ring_list_getsize(pRingState->pRingPackagesMap); x++) {
 		pList = ring_list_getlist(pRingState->pRingPackagesMap, x);
@@ -380,29 +378,18 @@ void ring_vm_updateclassespointers(RingState *pRingState) {
 	*/
 	for (x = 1; x <= ring_list_getsize(pRingState->pRingClassesMap); x++) {
 		pList = ring_list_getlist(pRingState->pRingClassesMap, x);
-		cString = ring_list_getstring(pList, RING_CLASSMAP_CLASSNAME);
-		if (ring_list_getstringsize(pList, RING_CLASSMAP_CLASSNAME) > RING_HUGEBUF) {
-			/* Avoid large names */
+		if (ring_list_getsize(pList) != RING_CLASSMAP_IMPORTEDCLASSSIZE) {
 			continue;
 		}
+		cString = ring_list_getstring(pList, RING_CLASSMAP_CLASSNAME);
 		x2 = ring_list_getstringsize(pList, RING_CLASSMAP_CLASSNAME);
 		while (x2 > 0) {
 			x2--;
 			if (cString[x2] == '.') {
-				/*
-				**  Now we have a class name stored as packagename.classname
-				**  Get Package Name
-				*/
-				for (x3 = 0; x3 < x2; x3++) {
-					cPackageName[x3] = cString[x3];
-				}
-				cPackageName[x2] = '\0';
-				/* Get Class Name */
-				for (x3 = x2 + 1; x3 <= ring_list_getstringsize(pList, RING_CLASSMAP_CLASSNAME) - 1;
-				     x3++) {
-					cClassName[x3 - x2 - 1] = cString[x3];
-				}
-				cClassName[ring_list_getstringsize(pList, RING_CLASSMAP_CLASSNAME) - 1 - x2] = '\0';
+				/* Now we have a class name stored as packagename.classname */
+				cString[x2] = '\0';
+				cPackageName = cString;
+				cClassName = cString + x2 + 1;
 				/* Get The Package List */
 				for (x3 = 1; x3 <= ring_list_getsize(pRingState->pRingPackagesMap); x3++) {
 					pPackageList = ring_list_getlist(pRingState->pRingPackagesMap, x3);
@@ -419,16 +406,14 @@ void ring_vm_updateclassespointers(RingState *pRingState) {
 								    pList,
 								    RING_CLASSMAP_POINTERTOLISTOFCLASSINSIDEPACKAGE,
 								    (void *)pList3);
-								/* Update Package Pointer in the Class List */
-								ring_list_setpointer(pList3,
-										     RING_CLASSMAP_POINTERTOPACKAGE,
-										     (void *)pPackageList);
 								break;
 							}
 						}
 						break;
 					}
 				}
+				cString[x2] = '.';
+				break;
 			}
 		}
 	}
