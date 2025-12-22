@@ -27,7 +27,7 @@ RING_API void ring_objfile_writefile(RingState *pRingState) {
 	fprintf(fObj, "# Program Code\n");
 	ring_objfile_writelist(pRingState, fObj, pRingState->pRingGenCode);
 	/* Close File */
-	fprintf(fObj, "# End of File\n$");
+	fprintf(fObj, "# End of File\n$!${$");
 	fclose(fObj);
 }
 
@@ -156,12 +156,14 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 	fseek(fObj, 0, SEEK_END);
 	nSize = ftell(fObj);
 	fseek(fObj, 0, SEEK_SET);
-	if (nSize == RING_ZERO) {
+	cBuffer = (char *)ring_state_malloc(pRingState, nSize + 1);
+	fread(cBuffer, 1, nSize, fObj);
+	cBuffer[nSize] = '\0';
+	if ((nSize == RING_ZERO) || (nSize < RING_OBJFILE_MINSIZE) || (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
+		printf(RING_OBJFILEWRONGTYPE);
 		fclose(fObj);
 		return RING_FALSE;
 	}
-	cBuffer = (char *)ring_state_malloc(pRingState, nSize);
-	fread(cBuffer, 1, nSize, fObj);
 	ring_objfile_processstring(pRingState, cBuffer, pListFunctions, pListClasses, pListPackages, pListCode,
 				   pListFiles, pListStack);
 	ring_state_free(pRingState, cBuffer);

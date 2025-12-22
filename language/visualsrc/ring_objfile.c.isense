@@ -5,6 +5,7 @@ RING_OBJFILE_ITEMSPERFUNCTION
 RING_OBJFILE_ITEMSPERFUNCTION2
 RING_OBJFILE_VERSION
 RING_OBJFILE_VERSIONSTRINGSIZE
+RING_OBJFILE_MINSIZE
 RING_OBJFILE_KEYSIZE
 RING_OBJFILE_KEYSTRSIZE
 RING_OBJFILE_KEYSTRING
@@ -42,7 +43,7 @@ ring_objfile_processstring
 Type: signed char
 c
 Type: int
-nActiveList,nValue,nBraceEnd,nOutput
+nActiveList,nValue,nBraceEnd,nOutput,nSize
 Type: double
 dValue
 Type: char *
