@@ -894,6 +894,7 @@ More Improvements
 * RingPostgreSQL - Improve compatibility with newer versions of libpq
 * RingMySQL - MySQL_Connect() - Allows passing the port number
 * RingOpenGL - glClearColor() implementation is revised
+* RingOpenGL - Added GLEW headers and linker flags
 * Code Generator for Extensions - Support (const char * const *) types 
 * IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
