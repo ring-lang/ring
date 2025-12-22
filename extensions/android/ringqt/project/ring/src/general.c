@@ -149,7 +149,7 @@ RING_API int ring_general_issourcefile(const char *cStr) {
 RING_API int ring_general_isobjectfile(const char *cStr) {
 	int x;
 	x = strlen(cStr) - 1;
-	if (x > 6) {
+	if (x >= 6) {
 		if (tolower(cStr[x]) == 'o' && tolower(cStr[x - 1]) == 'g' && tolower(cStr[x - 2]) == 'n' &&
 		    tolower(cStr[x - 3]) == 'i' && tolower(cStr[x - 4]) == 'r' && cStr[x - 5] == '.') {
 			return RING_TRUE;

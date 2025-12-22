@@ -50,7 +50,7 @@ Type: char
 cFileName2[RING_PATHSIZE]
 ring_general_addosfileseparator
 ring_general_readline
-Type: int
+Type: unsigned int
 x
 ring_general_showtime
 Type: time_t
