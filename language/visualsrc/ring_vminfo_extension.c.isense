@@ -109,6 +109,12 @@ Type: List *
 pList
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack
+Type: unsigned int
+nSize
+Type: int
+lOutput
+Type: const char *
+cBuffer
 ring_vm_info_ringvmtranslatecfunction
 Type: VM *
 pVM

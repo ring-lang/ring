@@ -355,6 +355,9 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 	VM *pVM;
 	List *pList;
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack;
+	unsigned int nSize;
+	int lOutput;
+	char *cBuffer;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -364,6 +367,12 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
+	cBuffer = RING_API_GETSTRING(1);
+	nSize = RING_API_GETSTRINGSIZE(1);
+	if ((nSize == RING_ZERO) || (nSize < RING_OBJFILE_MINSIZE) || (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
+		RING_API_ERROR(RING_OBJFILEWRONGTYPE);
+		return;
+	}
 	pList = RING_API_NEWLIST;
 	pListFiles = ring_list_newlist_gc(pVM->pRingState, pList);
 	pListFunctions = ring_list_newlist_gc(pVM->pRingState, pList);
@@ -371,8 +380,12 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 	pListPackages = ring_list_newlist_gc(pVM->pRingState, pList);
 	pListCode = ring_list_newlist_gc(pVM->pRingState, pList);
 	pListStack = ring_list_newlist_gc(pVM->pRingState, pList);
-	ring_objfile_processstring(pVM->pRingState, RING_API_GETSTRING(1), pListFunctions, pListClasses, pListPackages,
-				   pListCode, pListFiles, pListStack);
+	lOutput = ring_objfile_processstring(pVM->pRingState, cBuffer, pListFunctions, pListClasses, pListPackages,
+					     pListCode, pListFiles, pListStack);
+	if (lOutput == RING_FALSE) {
+		RING_API_ERROR(RING_OBJFILEWRONGTYPE);
+		return;
+	}
 	ring_list_deleteitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 	RING_API_RETLISTBYREF(pList);
 }
