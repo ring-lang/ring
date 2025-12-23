@@ -144,7 +144,11 @@
 <li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">RingLibuv Functions Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
@@ -222,291 +226,517 @@
 <span id="index-0"></span><h1>RingLibuv Functions Reference<a class="headerlink" href="#ringlibuv-functions-reference" title="Permalink to this heading"></a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
-<p>In this chapter we have a list of the supported functions by this extension</p>
+<p>In this chapter we have a list of the supported functions and constants by this extension.</p>
 </section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
+<section id="constants">
+<h3>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>int uv_loop_init(uv_loop_t* loop)</p></li>
-<li><p>int uv_loop_configure(uv_loop_t* loop, uv_loop_option option, int)</p></li>
-<li><p>int uv_loop_close(uv_loop_t* loop)</p></li>
-<li><p>uv_loop_t* uv_default_loop(void)</p></li>
-<li><p>int uv_run(uv_loop_t* loop, uv_run_mode mode)</p></li>
-<li><p>int uv_loop_alive(const uv_loop_t* loop)</p></li>
-<li><p>void uv_stop(uv_loop_t* loop)</p></li>
-<li><p>size_t uv_loop_size(void)</p></li>
-<li><p>int uv_backend_fd(const uv_loop_t* loop)</p></li>
-<li><p>int uv_backend_timeout(const uv_loop_t* loop)</p></li>
-<li><p>uint64_t uv_now(const uv_loop_t* loop)</p></li>
-<li><p>void uv_update_time(uv_loop_t* loop)</p></li>
-<li><p>void uv_walk(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)</p></li>
-<li><p>void uv_walk_2(uv_loop_t* loop, uv_walk_cb walk_cb, void* arg)</p></li>
-<li><p>int uv_loop_fork(uv_loop_t* loop)</p></li>
-<li><p>int uv_is_active(const uv_handle_t* handle)</p></li>
-<li><p>int uv_is_closing(const uv_handle_t* handle)</p></li>
-<li><p>void uv_close(uv_handle_t* handle, uv_close_cb close_cb)</p></li>
-<li><p>void uv_close_2(uv_handle_t* handle, uv_close_cb close_cb)</p></li>
-<li><p>void uv_ref(uv_handle_t* handle)</p></li>
-<li><p>void uv_unref(uv_handle_t* handle)</p></li>
-<li><p>int uv_has_ref(const uv_handle_t* handle)</p></li>
-<li><p>size_t uv_handle_size(uv_handle_type type)</p></li>
-<li><p>int uv_send_buffer_size(uv_handle_t* handle, int* value)</p></li>
-<li><p>int uv_recv_buffer_size(uv_handle_t* handle, int* value)</p></li>
-<li><p>int uv_fileno(const uv_handle_t* handle, uv_os_fd_t* fd)</p></li>
-<li><p>int uv_cancel(uv_req_t* req)</p></li>
-<li><p>size_t uv_req_size(uv_req_type type)</p></li>
-<li><p>int uv_timer_init(uv_loop_t* loop, uv_timer_t* handle)</p></li>
-<li><p>int uv_timer_start(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)</p></li>
-<li><p>int uv_timer_start_2(uv_timer_t* handle, uv_timer_cb cb, uint64_t timeout, uint64_t repeat)</p></li>
-<li><p>int uv_timer_stop(uv_timer_t* handle)</p></li>
-<li><p>int uv_timer_again(uv_timer_t* handle)</p></li>
-<li><p>void uv_timer_set_repeat(uv_timer_t* handle, uint64_t repeat)</p></li>
-<li><p>uint64_t uv_timer_get_repeat(const uv_timer_t* handle)</p></li>
-<li><p>int uv_prepare_init(uv_loop_t* loop, uv_prepare_t* prepare)</p></li>
-<li><p>int uv_prepare_start(uv_prepare_t* prepare, uv_prepare_cb cb)</p></li>
-<li><p>int uv_prepare_start_2(uv_prepare_t* prepare, uv_prepare_cb cb)</p></li>
-<li><p>int uv_prepare_stop(uv_prepare_t* prepare)</p></li>
-<li><p>int uv_check_init(uv_loop_t* loop, uv_check_t* check)</p></li>
-<li><p>int uv_check_start(uv_check_t* check, uv_check_cb cb)</p></li>
-<li><p>int uv_check_start_2(uv_check_t* check, uv_check_cb cb)</p></li>
-<li><p>int uv_check_stop(uv_check_t* check)</p></li>
-<li><p>int uv_idle_init(uv_loop_t* loop, uv_idle_t* idle)</p></li>
-<li><p>int uv_idle_start(uv_idle_t* idle, uv_idle_cb cb)</p></li>
-<li><p>int uv_idle_start_2(uv_idle_t* idle, uv_idle_cb cb)</p></li>
-<li><p>int uv_idle_stop(uv_idle_t* idle)</p></li>
-<li><p>int uv_async_init(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)</p></li>
-<li><p>int uv_async_init_2(uv_loop_t* loop, uv_async_t* async, uv_async_cb async_cb)</p></li>
-<li><p>int uv_async_send(uv_async_t* async)</p></li>
-<li><p>int uv_poll_init(uv_loop_t* loop, uv_poll_t* handle, int fd)</p></li>
-<li><p>int uv_poll_init_socket(uv_loop_t* loop, uv_poll_t* handle, uv_os_sock_t socket)</p></li>
-<li><p>int uv_poll_start(uv_poll_t* handle, int events, uv_poll_cb cb)</p></li>
-<li><p>int uv_poll_start_2(uv_poll_t* handle, int events, uv_poll_cb cb)</p></li>
-<li><p>int uv_poll_stop(uv_poll_t* poll)</p></li>
-<li><p>int uv_signal_init(uv_loop_t* loop, uv_signal_t* signal)</p></li>
-<li><p>int uv_signal_start(uv_signal_t* signal, uv_signal_cb cb, int signum)</p></li>
-<li><p>int uv_signal_start_2(uv_signal_t* signal, uv_signal_cb cb, int signum)</p></li>
-<li><p>int uv_signal_start_oneshot(uv_signal_t* signal, uv_signal_cb cb, int signum)</p></li>
-<li><p>int uv_signal_start_oneshot_2(uv_signal_t* signal, uv_signal_cb cb, int signum)</p></li>
-<li><p>int uv_signal_stop(uv_signal_t* signal)</p></li>
-<li><p>void uv_disable_stdio_inheritance(void)</p></li>
-<li><p>int uv_spawn(uv_loop_t* loop, uv_process_t* handle, const uv_process_options_t* options)</p></li>
-<li><p>int uv_process_kill(uv_process_t* handle, int signum)</p></li>
-<li><p>int uv_kill(int pid, int signum)</p></li>
-<li><p>int uv_shutdown(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)</p></li>
-<li><p>int uv_shutdown_2(uv_shutdown_t* req, uv_stream_t* handle, uv_shutdown_cb cb)</p></li>
-<li><p>int uv_listen(uv_stream_t* stream, int backlog, uv_connection_cb cb)</p></li>
-<li><p>int uv_listen_2(uv_stream_t* stream, int backlog, uv_connection_cb cb)</p></li>
-<li><p>int uv_accept(uv_stream_t* server, uv_stream_t* client)</p></li>
-<li><p>int uv_read_start(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)</p></li>
-<li><p>int uv_read_start_2(uv_stream_t* stream, uv_alloc_cb alloc_cb, uv_read_cb read_cb)</p></li>
-<li><p>int uv_read_stop(uv_stream_t*)</p></li>
-<li><p>int uv_write(uv_write_t* req, uv_stream_t* handle, uv_buf_t <a href="#id1"><span class="problematic" id="id2">*</span></a>bufs, unsigned int nbufs, uv_write_cb cb)</p></li>
-<li><p>int uv_write_2(uv_write_t* req, uv_stream_t* handle, uv_buf_t <a href="#id3"><span class="problematic" id="id4">*</span></a>bufs, unsigned int nbufs, uv_write_cb cb)</p></li>
-<li><p>int uv_write2(uv_write_t* req, uv_stream_t* handle, uv_buf_t <em>bufs, unsigned int nbufs, uv_stream_t</em> send_handle, uv_write_cb cb)</p></li>
-<li><p>int uv_write2_2(uv_write_t* req, uv_stream_t* handle, uv_buf_t <em>bufs, unsigned int nbufs, uv_stream_t</em> send_handle, uv_write_cb cb)</p></li>
-<li><p>int uv_try_write(uv_stream_t* handle, uv_buf_t <a href="#id5"><span class="problematic" id="id6">*</span></a>bufs, unsigned int nbufs)</p></li>
-<li><p>int uv_is_readable(const uv_stream_t* handle)</p></li>
-<li><p>int uv_is_writable(const uv_stream_t* handle)</p></li>
-<li><p>int uv_stream_set_blocking(uv_stream_t* handle, int blocking)</p></li>
-<li><p>int uv_tcp_init(uv_loop_t* loop, uv_tcp_t* handle)</p></li>
-<li><p>int uv_tcp_init_ex(uv_loop_t* loop, uv_tcp_t* handle, unsigned int flags)</p></li>
-<li><p>int uv_tcp_open(uv_tcp_t* handle, uv_os_sock_t sock)</p></li>
-<li><p>int uv_tcp_nodelay(uv_tcp_t* handle, int enable)</p></li>
-<li><p>int uv_tcp_keepalive(uv_tcp_t* handle, int enable, unsigned int delay)</p></li>
-<li><p>int uv_tcp_simultaneous_accepts(uv_tcp_t* handle, int enable)</p></li>
-<li><p>int uv_tcp_bind(uv_tcp_t <a href="#id7"><span class="problematic" id="id8">*</span></a>handle,sockaddr <a href="#id9"><span class="problematic" id="id10">*</span></a>addr,unsigned int flags)</p></li>
-<li><p>int uv_tcp_getsockname(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)</p></li>
-<li><p>int uv_tcp_getpeername(const uv_tcp_t* handle, struct sockaddr* name, int* namelen)</p></li>
-<li><p>int uv_tcp_connect(uv_connect_t* req, uv_tcp_t* handle, sockaddr * addr, uv_connect_cb cb)</p></li>
-<li><p>int uv_tcp_connect_2(uv_connect_t* req, uv_tcp_t* handle, sockaddr * addr, uv_connect_cb cb)</p></li>
-<li><p>int uv_pipe_init(uv_loop_t* loop, uv_pipe_t* handle, int ipc)</p></li>
-<li><p>int uv_pipe_open(uv_pipe_t* handle, uv_file file)</p></li>
-<li><p>int uv_pipe_bind(uv_pipe_t* handle, const char * name)</p></li>
-<li><p>void uv_pipe_connect(uv_connect_t* req, uv_pipe_t* handle, const char * name, uv_connect_cb cb)</p></li>
-<li><p>void uv_pipe_connect_2(uv_connect_t* req, uv_pipe_t* handle, const char * name, uv_connect_cb cb)</p></li>
-<li><p>int uv_pipe_getsockname(const uv_pipe_t* handle, char* buffer, size_t* size)</p></li>
-<li><p>int uv_pipe_getpeername(const uv_pipe_t* handle, char* buffer, size_t* size)</p></li>
-<li><p>void uv_pipe_pending_instances(uv_pipe_t* handle, int count)</p></li>
-<li><p>int uv_pipe_pending_count(uv_pipe_t* handle)</p></li>
-<li><p>uv_handle_type uv_pipe_pending_type(uv_pipe_t* handle)</p></li>
-<li><p>int uv_pipe_chmod(uv_pipe_t* handle, int flags)</p></li>
-<li><p>int uv_tty_init(uv_loop_t* loop, uv_tty_t* handle, uv_file fd, int readable)</p></li>
-<li><p>int uv_tty_set_mode(uv_tty_t* handle, uv_tty_mode_t mode)</p></li>
-<li><p>int uv_tty_reset_mode(void)</p></li>
-<li><p>int uv_tty_get_winsize(uv_tty_t* handle, int* width, int* height)</p></li>
-<li><p>int uv_udp_init(uv_loop_t* loop, uv_udp_t* handle)</p></li>
-<li><p>int uv_udp_init_ex(uv_loop_t* loop, uv_udp_t* handle, unsigned int flags)</p></li>
-<li><p>int uv_udp_open(uv_udp_t* handle, uv_os_sock_t sock)</p></li>
-<li><p>int uv_udp_bind(uv_udp_t* handle, sockaddr * addr, unsigned int flags)</p></li>
-<li><p>int uv_udp_getsockname(const uv_udp_t* handle, struct sockaddr* name, int* namelen)</p></li>
-<li><p>int uv_udp_set_membership(uv_udp_t* handle, const char * multicast_addr, const char * interface_addr, uv_membership membership)</p></li>
-<li><p>int uv_udp_set_multicast_loop(uv_udp_t* handle, int on)</p></li>
-<li><p>int uv_udp_set_multicast_ttl(uv_udp_t* handle, int ttl)</p></li>
-<li><p>int uv_udp_set_multicast_interface(uv_udp_t* handle, const char * interface_addr)</p></li>
-<li><p>int uv_udp_set_broadcast(uv_udp_t* handle, int on)</p></li>
-<li><p>int uv_udp_set_ttl(uv_udp_t* handle, int ttl)</p></li>
-<li><p>int uv_udp_send(uv_udp_send_t* req, uv_udp_t* handle, uv_buf_t <a href="#id11"><span class="problematic" id="id12">*</span></a>bufs, unsigned int nbufs, sockaddr * addr, uv_udp_send_cb send_cb)</p></li>
-<li><p>int uv_udp_send_2(uv_udp_send_t* req, uv_udp_t* handle, uv_buf_t <a href="#id13"><span class="problematic" id="id14">*</span></a>bufs, unsigned int nbufs, sockaddr * addr, uv_udp_send_cb send_cb)</p></li>
-<li><p>int uv_udp_try_send(uv_udp_t* handle, uv_buf_t <a href="#id15"><span class="problematic" id="id16">*</span></a>bufs, unsigned int nbufs, sockaddr * addr)</p></li>
-<li><p>int uv_udp_recv_start(uv_udp_t* handle, uv_alloc_cb alloc_cb, uv_udp_recv_cb recv_cb)</p></li>
-<li><p>int uv_udp_recv_start_2(uv_udp_t* handle, uv_alloc_cb alloc_cb, uv_udp_recv_cb recv_cb)</p></li>
-<li><p>int uv_udp_recv_stop(uv_udp_t* handle)</p></li>
-<li><p>int uv_fs_event_init(uv_loop_t* loop, uv_fs_event_t* handle)</p></li>
-<li><p>int uv_fs_event_start(uv_fs_event_t* handle, uv_fs_event_cb cb, const char * path, unsigned int flags)</p></li>
-<li><p>int uv_fs_event_start_2(uv_fs_event_t* handle, uv_fs_event_cb cb, const char * path, unsigned int flags)</p></li>
-<li><p>int uv_fs_event_stop(uv_fs_event_t* handle)</p></li>
-<li><p>int uv_fs_event_getpath(uv_fs_event_t* handle, char* buffer, size_t* size)</p></li>
-<li><p>int uv_fs_poll_init(uv_loop_t* loop, uv_fs_poll_t* handle)</p></li>
-<li><p>int uv_fs_poll_start(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char * path, unsigned int interval)</p></li>
-<li><p>int uv_fs_poll_start_2(uv_fs_poll_t* handle, uv_fs_poll_cb poll_cb, const char * path, unsigned int interval)</p></li>
-<li><p>int uv_fs_poll_stop(uv_fs_poll_t* handle)</p></li>
-<li><p>int uv_fs_poll_getpath(uv_fs_poll_t* handle, char* buffer, size_t* size)</p></li>
-<li><p>void uv_fs_req_cleanup(uv_fs_t* req)</p></li>
-<li><p>int uv_fs_close(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_open(uv_loop_t* loop, uv_fs_t* req, const char * path, int flags, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_read(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_buf_t <a href="#id17"><span class="problematic" id="id18">*</span></a>bufs, unsigned int nbufs, int64_t offset, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_unlink(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_write(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_buf_t <a href="#id19"><span class="problematic" id="id20">*</span></a>bufs, unsigned int nbufs, int64_t offset, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_mkdir(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_mkdtemp(uv_loop_t* loop, uv_fs_t* req, const char * tpl, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_rmdir(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_scandir(uv_loop_t* loop, uv_fs_t* req, const char * path, int flags, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_scandir_next(uv_fs_t* req, uv_dirent_t* ent)</p></li>
-<li><p>int uv_fs_stat(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fstat(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_lstat(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_rename(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fsync(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fdatasync(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_ftruncate(uv_loop_t* loop, uv_fs_t* req, uv_file file, int64_t offset, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_copyfile(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, int flags, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_sendfile(uv_loop_t* loop, uv_fs_t* req, uv_file out_fd, uv_file in_fd, int64_t in_offset, size_t length, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_access(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_chmod(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fchmod(uv_loop_t* loop, uv_fs_t* req, uv_file file, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_utime(uv_loop_t* loop, uv_fs_t* req, const char * path, double atime, double mtime, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_futime(uv_loop_t* loop, uv_fs_t* req, uv_file file, double atime, double mtime, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_link(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_symlink(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, int flags, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_readlink(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_realpath(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_chown(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fchown(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_close_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_open_2(uv_loop_t* loop, uv_fs_t* req, const char * path, int flags, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_read_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_buf_t <a href="#id21"><span class="problematic" id="id22">*</span></a>bufs, unsigned int nbufs, int64_t offset, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_unlink_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_write_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_buf_t <a href="#id23"><span class="problematic" id="id24">*</span></a>bufs, unsigned int nbufs, int64_t offset, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_mkdir_2(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_mkdtemp_2(uv_loop_t* loop, uv_fs_t* req, const char * tpl, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_rmdir_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_scandir_2(uv_loop_t* loop, uv_fs_t* req, const char * path, int flags, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_stat_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fstat_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_lstat_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_rename_2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fsync_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fdatasync_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_ftruncate_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, int64_t offset, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_copyfile_2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, int flags, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_sendfile_2(uv_loop_t* loop, uv_fs_t* req, uv_file out_fd, uv_file in_fd, int64_t in_offset, size_t length, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_access_2(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_chmod_2(uv_loop_t* loop, uv_fs_t* req, const char * path, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fchmod_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, int mode, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_utime_2(uv_loop_t* loop, uv_fs_t* req, const char * path, double atime, double mtime, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_futime_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, double atime, double mtime, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_link_2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_symlink_2(uv_loop_t* loop, uv_fs_t* req, const char * path, const char * new_path, int flags, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_readlink_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_realpath_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_chown_2(uv_loop_t* loop, uv_fs_t* req, const char * path, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)</p></li>
-<li><p>int uv_fs_fchown_2(uv_loop_t* loop, uv_fs_t* req, uv_file file, uv_uid_t uid, uv_gid_t gid, uv_fs_cb cb)</p></li>
-<li><p>int uv_queue_work(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)</p></li>
-<li><p>int uv_queue_work_2(uv_loop_t* loop, uv_work_t* req, uv_work_cb work_cb, uv_after_work_cb after_work_cb)</p></li>
-<li><p>int uv_getaddrinfo(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb getaddrinfo_cb, const char * node, const char * service, const struct addrinfo* hints)</p></li>
-<li><p>int uv_getaddrinfo_2(uv_loop_t* loop, uv_getaddrinfo_t* req, uv_getaddrinfo_cb getaddrinfo_cb, const char * node, const char * service, const struct addrinfo* hints)</p></li>
-<li><p>void uv_freeaddrinfo(struct addrinfo* ai)</p></li>
-<li><p>int uv_getnameinfo(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, sockaddr * addr, int flags)</p></li>
-<li><p>int uv_getnameinfo_2(uv_loop_t* loop, uv_getnameinfo_t* req, uv_getnameinfo_cb getnameinfo_cb, sockaddr * addr, int flags)</p></li>
-<li><p>int uv_dlopen(const char * filename, uv_lib_t* lib)</p></li>
-<li><p>void uv_dlclose(uv_lib_t* lib)</p></li>
-<li><p>int uv_dlsym(uv_lib_t* lib, const char * name, void** ptr)</p></li>
-<li><p>const char * uv_dlerror(const uv_lib_t* lib)</p></li>
-<li><p>int uv_thread_create(uv_thread_t* tid, uv_thread_cb entry, void* arg)</p></li>
-<li><p>int uv_thread_create_2(uv_thread_t* tid, uv_thread_cb entry, void* arg)</p></li>
-<li><p>uv_thread_t uv_thread_self(void)</p></li>
-<li><p>int uv_thread_join(uv_thread_t <a href="#id25"><span class="problematic" id="id26">*</span></a>tid)</p></li>
-<li><p>int uv_thread_equal(const uv_thread_t* t1, const uv_thread_t* t2)</p></li>
-<li><p>int uv_key_create(uv_key_t* key)</p></li>
-<li><p>void uv_key_delete(uv_key_t* key)</p></li>
-<li><p>void* uv_key_get(uv_key_t* key)</p></li>
-<li><p>void uv_key_set(uv_key_t* key, void* value)</p></li>
-<li><p>int uv_mutex_init(uv_mutex_t* handle)</p></li>
-<li><p>int uv_mutex_init_recursive(uv_mutex_t* handle)</p></li>
-<li><p>void uv_mutex_destroy(uv_mutex_t* handle)</p></li>
-<li><p>void uv_mutex_lock(uv_mutex_t* handle)</p></li>
-<li><p>int uv_mutex_trylock(uv_mutex_t* handle)</p></li>
-<li><p>void uv_mutex_unlock(uv_mutex_t* handle)</p></li>
-<li><p>int uv_rwlock_init(uv_rwlock_t* rwlock)</p></li>
-<li><p>void uv_rwlock_destroy(uv_rwlock_t* rwlock)</p></li>
-<li><p>void uv_rwlock_rdlock(uv_rwlock_t* rwlock)</p></li>
-<li><p>int uv_rwlock_tryrdlock(uv_rwlock_t* rwlock)</p></li>
-<li><p>void uv_rwlock_rdunlock(uv_rwlock_t* rwlock)</p></li>
-<li><p>void uv_rwlock_wrlock(uv_rwlock_t* rwlock)</p></li>
-<li><p>int uv_rwlock_trywrlock(uv_rwlock_t* rwlock)</p></li>
-<li><p>void uv_rwlock_wrunlock(uv_rwlock_t* rwlock)</p></li>
-<li><p>int uv_sem_init(uv_sem_t* sem, unsigned int value)</p></li>
-<li><p>void uv_sem_destroy(uv_sem_t* sem)</p></li>
-<li><p>void uv_sem_post(uv_sem_t* sem)</p></li>
-<li><p>void uv_sem_wait(uv_sem_t* sem)</p></li>
-<li><p>int uv_sem_trywait(uv_sem_t* sem)</p></li>
-<li><p>int uv_cond_init(uv_cond_t* cond)</p></li>
-<li><p>void uv_cond_destroy(uv_cond_t* cond)</p></li>
-<li><p>void uv_cond_signal(uv_cond_t* cond)</p></li>
-<li><p>void uv_cond_broadcast(uv_cond_t* cond)</p></li>
-<li><p>void uv_cond_wait(uv_cond_t* cond, uv_mutex_t* mutex)</p></li>
-<li><p>int uv_cond_timedwait(uv_cond_t* cond, uv_mutex_t* mutex, uint64_t timeout)</p></li>
-<li><p>int uv_barrier_init(uv_barrier_t* barrier, unsigned int count)</p></li>
-<li><p>void uv_barrier_destroy(uv_barrier_t* barrier)</p></li>
-<li><p>int uv_barrier_wait(uv_barrier_t* barrier)</p></li>
-<li><p>uv_handle_type uv_guess_handle(uv_file file)</p></li>
-<li><p>int uv_replace_allocator(uv_malloc_func malloc_func, uv_realloc_func realloc_func, uv_calloc_func calloc_func, uv_free_func free_func)</p></li>
-<li><p>uv_buf_t uv_buf_init(char* base, unsigned int len)</p></li>
-<li><p>char** uv_setup_args(int argc, char** argv)</p></li>
-<li><p>int uv_get_process_title(char* buffer, size_t size)</p></li>
-<li><p>int uv_set_process_title(const char * title)</p></li>
-<li><p>int uv_resident_set_memory(size_t* rss)</p></li>
-<li><p>int uv_uptime(double* uptime)</p></li>
-<li><p>int uv_getrusage(uv_rusage_t* rusage)</p></li>
-<li><p>uv_pid_t uv_os_getpid(void)</p></li>
-<li><p>uv_pid_t uv_os_getppid(void)</p></li>
-<li><p>int uv_cpu_info(uv_cpu_info_t** cpu_infos, int* count)</p></li>
-<li><p>void uv_free_cpu_info(uv_cpu_info_t* cpu_infos, int count)</p></li>
-<li><p>int uv_interface_addresses(uv_interface_address_t** addresses, int* count)</p></li>
-<li><p>void uv_free_interface_addresses(uv_interface_address_t* addresses, int count)</p></li>
-<li><p>int uv_ip6_addr(const char * ip, int port, sockaddr_in6* addr)</p></li>
-<li><p>int uv_ip4_name(sockaddr_in* src, char* dst, size_t size)</p></li>
-<li><p>int uv_ip6_name(sockaddr_in6* src, char* dst, size_t size)</p></li>
-<li><p>int uv_inet_ntop(int af, const void* src, char* dst, size_t size)</p></li>
-<li><p>int uv_inet_pton(int af, const char * src, void* dst)</p></li>
-<li><p>int uv_if_indextoname(unsigned int ifindex, char* buffer, size_t* size)</p></li>
-<li><p>int uv_if_indextoiid(unsigned int ifindex, char* buffer, size_t* size)</p></li>
-<li><p>int uv_exepath(char* buffer, size_t* size)</p></li>
-<li><p>int uv_cwd(char* buffer, size_t* size)</p></li>
-<li><p>int uv_chdir(const char * dir)</p></li>
-<li><p>int uv_os_homedir(char* buffer, size_t* size)</p></li>
-<li><p>int uv_os_tmpdir(char* buffer, size_t* size)</p></li>
-<li><p>int uv_os_get_passwd(uv_passwd_t* pwd)</p></li>
-<li><p>void uv_os_free_passwd(uv_passwd_t* pwd)</p></li>
-<li><p>uint64_t uv_get_total_memory(void)</p></li>
-<li><p>uint64_t uv_hrtime(void)</p></li>
-<li><p>void uv_print_all_handles(uv_loop_t* loop, FILE* stream)</p></li>
-<li><p>void uv_print_active_handles(uv_loop_t* loop, FILE* stream)</p></li>
-<li><p>int uv_os_getenv(const char * name, char* buffer, size_t* size)</p></li>
-<li><p>int uv_os_setenv(const char * name, const char * value)</p></li>
-<li><p>int uv_os_unsetenv(const char * name)</p></li>
-<li><p>int uv_os_gethostname(char* buffer, size_t* size)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_E2BIG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EACCES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EADDRINUSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EADDRNOTAVAIL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAFNOSUPPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAGAIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_ADDRFAMILY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_AGAIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_BADFLAGS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_BADHINTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_CANCELED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_FAIL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_FAMILY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_MEMORY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_NODATA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_NONAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_OVERFLOW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_PROTOCOL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_SERVICE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EAI_SOCKTYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EALREADY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EBADF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EBUSY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ECANCELED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ECHARSET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ECONNABORTED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ECONNREFUSED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ECONNRESET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EDESTADDRREQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EEXIST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EFAULT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EFBIG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EHOSTUNREACH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EINTR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EINVAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EIO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EISCONN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EISDIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ELOOP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EMFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EMSGSIZE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENAMETOOLONG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENETDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENETUNREACH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOBUFS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENODEV</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOMEM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENONET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOPROTOOPT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOSPC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOSYS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOTCONN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOTDIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOTEMPTY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOTSOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENOTSUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EPERM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EPIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EPROTO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EPROTONOSUPPORT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EPROTOTYPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ERANGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EROFS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ESHUTDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ESPIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ESRCH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ETIMEDOUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ETXTBSY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EXDEV</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UNKNOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EOF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ENXIO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_EMLINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_VERSION_MAJOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_VERSION_MINOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_VERSION_PATCH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_VERSION_IS_RELEASE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_VERSION_HEX</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_RUN_DEFAULT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_RUN_ONCE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_RUN_NOWAIT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UNKNOWN_HANDLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_ASYNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_CHECK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_EVENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_POLL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_HANDLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_IDLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_NAMED_PIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_POLL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PREPARE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROCESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_STREAM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_TCP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_TIMER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_TTY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UDP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_SIGNAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_HANDLE_TYPE_MAX</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UNKNOWN_REQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_REQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_CONNECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_WRITE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_SHUTDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UDP_SEND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_WORK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_GETADDRINFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_GETNAMEINFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_REQ_TYPE_MAX</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_READABLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_WRITABLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DISCONNECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PRIORITIZED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROCESS_SETUID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROCESS_SETGID</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROCESS_WINDOWS_VERBATIM_ARGUMENTS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROCESS_DETACHED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_PROCESS_WINDOWS_HIDE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_IGNORE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_CREATE_PIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_INHERIT_FD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_INHERIT_STREAM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_READABLE_PIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_WRITABLE_PIPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_TTY_MODE_NORMAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_TTY_MODE_RAW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_TTY_MODE_IO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UDP_IPV6ONLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UDP_PARTIAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_UDP_REUSEADDR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_LEAVE_GROUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_JOIN_GROUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_RENAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_CHANGE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_EVENT_WATCH_ENTRY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_EVENT_STAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_EVENT_RECURSIVE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_UNKNOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_CUSTOM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_OPEN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_CLOSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_READ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_WRITE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_SENDFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_STAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_LSTAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FSTAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FTRUNCATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_UTIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FUTIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_ACCESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_CHMOD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FCHMOD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FSYNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FDATASYNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_UNLINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_RMDIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_MKDIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_MKDTEMP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_RENAME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_SCANDIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_LINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_SYMLINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_READLINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_CHOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_FCHOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_REALPATH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_COPYFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_UNKNOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_FILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_DIR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_LINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_FIFO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_SOCKET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_CHAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_DIRENT_BLOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_APPEND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_CREAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_DIRECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_DIRECTORY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_DSYNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_EXCL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_EXLOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_NOATIME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_NOCTTY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_NOFOLLOW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_NONBLOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_RANDOM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_RDONLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_RDWR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_SEQUENTIAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_SHORT_LIVED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_SYMLINK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_SYNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_TEMPORARY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_TRUNC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_FS_O_WRONLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UV_IF_NAMESIZE</span></code></p></li>
 </ul>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_callback(void</span> <span class="pre">*pObject,const</span> <span class="pre">char</span> <span class="pre">*cEventName,const</span> <span class="pre">char</span> <span class="pre">*cCode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_eventpara(void</span> <span class="pre">*pObject,const</span> <span class="pre">char</span> <span class="pre">*cEventName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_myalloccallback(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_pointer2string(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_free(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_deletecallbacks(void</span> <span class="pre">*pObject)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_deleteallcallbacks(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_callbackscount(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_deletecallbacksafter(int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">uv_strerror(int</span> <span class="pre">err)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">uv_err_name(int</span> <span class="pre">err)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_translate_sys_error(int</span> <span class="pre">sys_errno)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">uv_version(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">uv_version_string(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_loop_init(uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_loop_configure(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_loop_option</span> <span class="pre">option,</span> <span class="pre">int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_loop_close(uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_loop_t*</span> <span class="pre">uv_default_loop(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_run(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_run_mode</span> <span class="pre">mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_loop_alive(const</span> <span class="pre">uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_stop(uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">uv_loop_size(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_backend_fd(const</span> <span class="pre">uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_backend_timeout(const</span> <span class="pre">uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint64_t</span> <span class="pre">uv_now(const</span> <span class="pre">uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_update_time(uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_walk(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_walk_cb</span> <span class="pre">walk_cb,</span> <span class="pre">void*</span> <span class="pre">arg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_walk_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_walk_cb</span> <span class="pre">walk_cb,</span> <span class="pre">void*</span> <span class="pre">arg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_loop_fork(uv_loop_t*</span> <span class="pre">loop)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_is_active(const</span> <span class="pre">uv_handle_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_is_closing(const</span> <span class="pre">uv_handle_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_close(uv_handle_t*</span> <span class="pre">handle,</span> <span class="pre">uv_close_cb</span> <span class="pre">close_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_close_2(uv_handle_t*</span> <span class="pre">handle,</span> <span class="pre">uv_close_cb</span> <span class="pre">close_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_ref(uv_handle_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_unref(uv_handle_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_has_ref(const</span> <span class="pre">uv_handle_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">uv_handle_size(uv_handle_type</span> <span class="pre">type)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_send_buffer_size(uv_handle_t*</span> <span class="pre">handle,</span> <span class="pre">int*</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_recv_buffer_size(uv_handle_t*</span> <span class="pre">handle,</span> <span class="pre">int*</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fileno(const</span> <span class="pre">uv_handle_t*</span> <span class="pre">handle,</span> <span class="pre">uv_os_fd_t*</span> <span class="pre">fd)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_cancel(uv_req_t*</span> <span class="pre">req)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">uv_req_size(uv_req_type</span> <span class="pre">type)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_timer_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_timer_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_timer_start(uv_timer_t*</span> <span class="pre">handle,</span> <span class="pre">uv_timer_cb</span> <span class="pre">cb,</span> <span class="pre">uint64_t</span> <span class="pre">timeout,</span> <span class="pre">uint64_t</span> <span class="pre">repeat)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_timer_start_2(uv_timer_t*</span> <span class="pre">handle,</span> <span class="pre">uv_timer_cb</span> <span class="pre">cb,</span> <span class="pre">uint64_t</span> <span class="pre">timeout,</span> <span class="pre">uint64_t</span> <span class="pre">repeat)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_timer_stop(uv_timer_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_timer_again(uv_timer_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_timer_set_repeat(uv_timer_t*</span> <span class="pre">handle,</span> <span class="pre">uint64_t</span> <span class="pre">repeat)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint64_t</span> <span class="pre">uv_timer_get_repeat(const</span> <span class="pre">uv_timer_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_prepare_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_prepare_t*</span> <span class="pre">prepare)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_prepare_start(uv_prepare_t*</span> <span class="pre">prepare,</span> <span class="pre">uv_prepare_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_prepare_start_2(uv_prepare_t*</span> <span class="pre">prepare,</span> <span class="pre">uv_prepare_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_prepare_stop(uv_prepare_t*</span> <span class="pre">prepare)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_check_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_check_t*</span> <span class="pre">check)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_check_start(uv_check_t*</span> <span class="pre">check,</span> <span class="pre">uv_check_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_check_start_2(uv_check_t*</span> <span class="pre">check,</span> <span class="pre">uv_check_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_check_stop(uv_check_t*</span> <span class="pre">check)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_idle_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_idle_t*</span> <span class="pre">idle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_idle_start(uv_idle_t*</span> <span class="pre">idle,</span> <span class="pre">uv_idle_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_idle_start_2(uv_idle_t*</span> <span class="pre">idle,</span> <span class="pre">uv_idle_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_idle_stop(uv_idle_t*</span> <span class="pre">idle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_async_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_async_t*</span> <span class="pre">async,</span> <span class="pre">uv_async_cb</span> <span class="pre">async_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_async_init_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_async_t*</span> <span class="pre">async,</span> <span class="pre">uv_async_cb</span> <span class="pre">async_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_async_send(uv_async_t*</span> <span class="pre">async)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_poll_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_poll_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">fd)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_poll_init_socket(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_poll_t*</span> <span class="pre">handle,</span> <span class="pre">uv_os_sock_t</span> <span class="pre">socket)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_poll_start(uv_poll_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">events,</span> <span class="pre">uv_poll_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_poll_start_2(uv_poll_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">events,</span> <span class="pre">uv_poll_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_poll_stop(uv_poll_t*</span> <span class="pre">poll)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_signal_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_signal_t*</span> <span class="pre">signal)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_signal_start(uv_signal_t*</span> <span class="pre">signal,</span> <span class="pre">uv_signal_cb</span> <span class="pre">cb,</span> <span class="pre">int</span> <span class="pre">signum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_signal_start_2(uv_signal_t*</span> <span class="pre">signal,</span> <span class="pre">uv_signal_cb</span> <span class="pre">cb,</span> <span class="pre">int</span> <span class="pre">signum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_signal_start_oneshot(uv_signal_t*</span> <span class="pre">signal,</span> <span class="pre">uv_signal_cb</span> <span class="pre">cb,</span> <span class="pre">int</span> <span class="pre">signum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_signal_start_oneshot_2(uv_signal_t*</span> <span class="pre">signal,</span> <span class="pre">uv_signal_cb</span> <span class="pre">cb,</span> <span class="pre">int</span> <span class="pre">signum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_signal_stop(uv_signal_t*</span> <span class="pre">signal)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_disable_stdio_inheritance(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_spawn(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_process_t*</span> <span class="pre">handle,</span> <span class="pre">const</span> <span class="pre">uv_process_options_t*</span> <span class="pre">options)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_process_kill(uv_process_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">signum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_kill(int</span> <span class="pre">pid,</span> <span class="pre">int</span> <span class="pre">signum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_shutdown(uv_shutdown_t*</span> <span class="pre">req,</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_shutdown_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_shutdown_2(uv_shutdown_t*</span> <span class="pre">req,</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_shutdown_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_listen(uv_stream_t*</span> <span class="pre">stream,</span> <span class="pre">int</span> <span class="pre">backlog,</span> <span class="pre">uv_connection_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_listen_2(uv_stream_t*</span> <span class="pre">stream,</span> <span class="pre">int</span> <span class="pre">backlog,</span> <span class="pre">uv_connection_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_accept(uv_stream_t*</span> <span class="pre">server,</span> <span class="pre">uv_stream_t*</span> <span class="pre">client)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_read_start(uv_stream_t*</span> <span class="pre">stream,</span> <span class="pre">uv_alloc_cb</span> <span class="pre">alloc_cb,</span> <span class="pre">uv_read_cb</span> <span class="pre">read_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_read_start_2(uv_stream_t*</span> <span class="pre">stream,</span> <span class="pre">uv_alloc_cb</span> <span class="pre">alloc_cb,</span> <span class="pre">uv_read_cb</span> <span class="pre">read_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_read_stop(uv_stream_t*)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_write(uv_write_t*</span> <span class="pre">req,</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">uv_write_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_write_2(uv_write_t*</span> <span class="pre">req,</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">uv_write_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_write2(uv_write_t*</span> <span class="pre">req,</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">uv_stream_t*</span> <span class="pre">send_handle,</span> <span class="pre">uv_write_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_write2_2(uv_write_t*</span> <span class="pre">req,</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">uv_stream_t*</span> <span class="pre">send_handle,</span> <span class="pre">uv_write_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_try_write(uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_is_readable(const</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_is_writable(const</span> <span class="pre">uv_stream_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_stream_set_blocking(uv_stream_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">blocking)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_tcp_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_init_ex(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_open(uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_os_sock_t</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_nodelay(uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">enable)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_keepalive(uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">enable,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">delay)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_simultaneous_accepts(uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">enable)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_bind(uv_tcp_t</span> <span class="pre">*handle,sockaddr</span> <span class="pre">*addr,unsigned</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_getsockname(const</span> <span class="pre">uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">struct</span> <span class="pre">sockaddr*</span> <span class="pre">name,</span> <span class="pre">int*</span> <span class="pre">namelen)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_getpeername(const</span> <span class="pre">uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">struct</span> <span class="pre">sockaddr*</span> <span class="pre">name,</span> <span class="pre">int*</span> <span class="pre">namelen)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_connect(uv_connect_t*</span> <span class="pre">req,</span> <span class="pre">uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">uv_connect_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tcp_connect_2(uv_connect_t*</span> <span class="pre">req,</span> <span class="pre">uv_tcp_t*</span> <span class="pre">handle,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">uv_connect_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">ipc)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_open(uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">uv_file</span> <span class="pre">file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_bind(uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_pipe_connect(uv_connect_t*</span> <span class="pre">req,</span> <span class="pre">uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name,</span> <span class="pre">uv_connect_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_pipe_connect_2(uv_connect_t*</span> <span class="pre">req,</span> <span class="pre">uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name,</span> <span class="pre">uv_connect_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_getsockname(const</span> <span class="pre">uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_getpeername(const</span> <span class="pre">uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_pipe_pending_instances(uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_pending_count(uv_pipe_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_handle_type</span> <span class="pre">uv_pipe_pending_type(uv_pipe_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_pipe_chmod(uv_pipe_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tty_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_tty_t*</span> <span class="pre">handle,</span> <span class="pre">uv_file</span> <span class="pre">fd,</span> <span class="pre">int</span> <span class="pre">readable)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tty_set_mode(uv_tty_t*</span> <span class="pre">handle,</span> <span class="pre">uv_tty_mode_t</span> <span class="pre">mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tty_reset_mode(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_tty_get_winsize(uv_tty_t*</span> <span class="pre">handle,</span> <span class="pre">int*</span> <span class="pre">width,</span> <span class="pre">int*</span> <span class="pre">height)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_udp_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_init_ex(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_open(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_os_sock_t</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_bind(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_getsockname(const</span> <span class="pre">uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">struct</span> <span class="pre">sockaddr*</span> <span class="pre">name,</span> <span class="pre">int*</span> <span class="pre">namelen)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_set_membership(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">multicast_addr,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">interface_addr,</span> <span class="pre">uv_membership</span> <span class="pre">membership)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_set_multicast_loop(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">on)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_set_multicast_ttl(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">ttl)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_set_multicast_interface(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">interface_addr)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_set_broadcast(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">on)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_set_ttl(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">int</span> <span class="pre">ttl)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_send(uv_udp_send_t*</span> <span class="pre">req,</span> <span class="pre">uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">uv_udp_send_cb</span> <span class="pre">send_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_send_2(uv_udp_send_t*</span> <span class="pre">req,</span> <span class="pre">uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">uv_udp_send_cb</span> <span class="pre">send_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_try_send(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_recv_start(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_alloc_cb</span> <span class="pre">alloc_cb,</span> <span class="pre">uv_udp_recv_cb</span> <span class="pre">recv_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_recv_start_2(uv_udp_t*</span> <span class="pre">handle,</span> <span class="pre">uv_alloc_cb</span> <span class="pre">alloc_cb,</span> <span class="pre">uv_udp_recv_cb</span> <span class="pre">recv_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_udp_recv_stop(uv_udp_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_event_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_event_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_event_start(uv_fs_event_t*</span> <span class="pre">handle,</span> <span class="pre">uv_fs_event_cb</span> <span class="pre">cb,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_event_start_2(uv_fs_event_t*</span> <span class="pre">handle,</span> <span class="pre">uv_fs_event_cb</span> <span class="pre">cb,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_event_stop(uv_fs_event_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_event_getpath(uv_fs_event_t*</span> <span class="pre">handle,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_poll_init(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_poll_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_poll_start(uv_fs_poll_t*</span> <span class="pre">handle,</span> <span class="pre">uv_fs_poll_cb</span> <span class="pre">poll_cb,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">interval)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_poll_start_2(uv_fs_poll_t*</span> <span class="pre">handle,</span> <span class="pre">uv_fs_poll_cb</span> <span class="pre">poll_cb,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">interval)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_poll_stop(uv_fs_poll_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_poll_getpath(uv_fs_poll_t*</span> <span class="pre">handle,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_fs_req_cleanup(uv_fs_t*</span> <span class="pre">req)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_close(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_open(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_read(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">int64_t</span> <span class="pre">offset,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_unlink(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_write(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">int64_t</span> <span class="pre">offset,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_mkdir(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_mkdtemp(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">tpl,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_rmdir(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_scandir(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_scandir_next(uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_dirent_t*</span> <span class="pre">ent)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_stat(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fstat(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_lstat(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_rename(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fsync(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fdatasync(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_ftruncate(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">int64_t</span> <span class="pre">offset,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_copyfile(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_sendfile(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">out_fd,</span> <span class="pre">uv_file</span> <span class="pre">in_fd,</span> <span class="pre">int64_t</span> <span class="pre">in_offset,</span> <span class="pre">size_t</span> <span class="pre">length,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_access(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_chmod(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fchmod(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_utime(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">double</span> <span class="pre">atime,</span> <span class="pre">double</span> <span class="pre">mtime,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_futime(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">double</span> <span class="pre">atime,</span> <span class="pre">double</span> <span class="pre">mtime,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_link(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_symlink(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_readlink(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_realpath(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_chown(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_uid_t</span> <span class="pre">uid,</span> <span class="pre">uv_gid_t</span> <span class="pre">gid,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fchown(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_uid_t</span> <span class="pre">uid,</span> <span class="pre">uv_gid_t</span> <span class="pre">gid,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_close_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_open_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_read_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">int64_t</span> <span class="pre">offset,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_unlink_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_write_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_buf_t</span> <span class="pre">*bufs,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">nbufs,</span> <span class="pre">int64_t</span> <span class="pre">offset,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_mkdir_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_mkdtemp_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">tpl,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_rmdir_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_scandir_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_stat_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fstat_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_lstat_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_rename_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fsync_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fdatasync_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_ftruncate_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">int64_t</span> <span class="pre">offset,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_copyfile_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_sendfile_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">out_fd,</span> <span class="pre">uv_file</span> <span class="pre">in_fd,</span> <span class="pre">int64_t</span> <span class="pre">in_offset,</span> <span class="pre">size_t</span> <span class="pre">length,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_access_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_chmod_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fchmod_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">int</span> <span class="pre">mode,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_utime_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">double</span> <span class="pre">atime,</span> <span class="pre">double</span> <span class="pre">mtime,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_futime_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">double</span> <span class="pre">atime,</span> <span class="pre">double</span> <span class="pre">mtime,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_link_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_symlink_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">new_path,</span> <span class="pre">int</span> <span class="pre">flags,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_readlink_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_realpath_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_chown_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">path,</span> <span class="pre">uv_uid_t</span> <span class="pre">uid,</span> <span class="pre">uv_gid_t</span> <span class="pre">gid,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_fs_fchown_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_fs_t*</span> <span class="pre">req,</span> <span class="pre">uv_file</span> <span class="pre">file,</span> <span class="pre">uv_uid_t</span> <span class="pre">uid,</span> <span class="pre">uv_gid_t</span> <span class="pre">gid,</span> <span class="pre">uv_fs_cb</span> <span class="pre">cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_os_fd_t</span> <span class="pre">uv_get_osfhandle(int</span> <span class="pre">fd)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_queue_work(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_work_t*</span> <span class="pre">req,</span> <span class="pre">uv_work_cb</span> <span class="pre">work_cb,</span> <span class="pre">uv_after_work_cb</span> <span class="pre">after_work_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_queue_work_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_work_t*</span> <span class="pre">req,</span> <span class="pre">uv_work_cb</span> <span class="pre">work_cb,</span> <span class="pre">uv_after_work_cb</span> <span class="pre">after_work_cb)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_getaddrinfo(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_getaddrinfo_t*</span> <span class="pre">req,</span> <span class="pre">uv_getaddrinfo_cb</span> <span class="pre">getaddrinfo_cb,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">node,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">service,</span> <span class="pre">const</span> <span class="pre">struct</span> <span class="pre">addrinfo*</span> <span class="pre">hints)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_getaddrinfo_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_getaddrinfo_t*</span> <span class="pre">req,</span> <span class="pre">uv_getaddrinfo_cb</span> <span class="pre">getaddrinfo_cb,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">node,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">service,</span> <span class="pre">const</span> <span class="pre">struct</span> <span class="pre">addrinfo*</span> <span class="pre">hints)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_freeaddrinfo(struct</span> <span class="pre">addrinfo*</span> <span class="pre">ai)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_getnameinfo(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_getnameinfo_t*</span> <span class="pre">req,</span> <span class="pre">uv_getnameinfo_cb</span> <span class="pre">getnameinfo_cb,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_getnameinfo_2(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">uv_getnameinfo_t*</span> <span class="pre">req,</span> <span class="pre">uv_getnameinfo_cb</span> <span class="pre">getnameinfo_cb,</span> <span class="pre">sockaddr</span> <span class="pre">*</span> <span class="pre">addr,</span> <span class="pre">int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_dlopen(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">filename,</span> <span class="pre">uv_lib_t*</span> <span class="pre">lib)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_dlclose(uv_lib_t*</span> <span class="pre">lib)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_dlsym(uv_lib_t*</span> <span class="pre">lib,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name,</span> <span class="pre">void**</span> <span class="pre">ptr)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">uv_dlerror(const</span> <span class="pre">uv_lib_t*</span> <span class="pre">lib)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_thread_create(uv_thread_t*</span> <span class="pre">tid,</span> <span class="pre">uv_thread_cb</span> <span class="pre">entry,</span> <span class="pre">void*</span> <span class="pre">arg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_thread_create_2(uv_thread_t*</span> <span class="pre">tid,</span> <span class="pre">uv_thread_cb</span> <span class="pre">entry,</span> <span class="pre">void*</span> <span class="pre">arg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_thread_t</span> <span class="pre">uv_thread_self(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_thread_join(uv_thread_t</span> <span class="pre">*tid)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_thread_equal(const</span> <span class="pre">uv_thread_t*</span> <span class="pre">t1,</span> <span class="pre">const</span> <span class="pre">uv_thread_t*</span> <span class="pre">t2)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_key_create(uv_key_t*</span> <span class="pre">key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_key_delete(uv_key_t*</span> <span class="pre">key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void*</span> <span class="pre">uv_key_get(uv_key_t*</span> <span class="pre">key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_key_set(uv_key_t*</span> <span class="pre">key,</span> <span class="pre">void*</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_mutex_init(uv_mutex_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_mutex_init_recursive(uv_mutex_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_mutex_destroy(uv_mutex_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_mutex_lock(uv_mutex_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_mutex_trylock(uv_mutex_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_mutex_unlock(uv_mutex_t*</span> <span class="pre">handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_rwlock_init(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_rwlock_destroy(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_rwlock_rdlock(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_rwlock_tryrdlock(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_rwlock_rdunlock(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_rwlock_wrlock(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_rwlock_trywrlock(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_rwlock_wrunlock(uv_rwlock_t*</span> <span class="pre">rwlock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_sem_init(uv_sem_t*</span> <span class="pre">sem,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_sem_destroy(uv_sem_t*</span> <span class="pre">sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_sem_post(uv_sem_t*</span> <span class="pre">sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_sem_wait(uv_sem_t*</span> <span class="pre">sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_sem_trywait(uv_sem_t*</span> <span class="pre">sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_cond_init(uv_cond_t*</span> <span class="pre">cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_cond_destroy(uv_cond_t*</span> <span class="pre">cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_cond_signal(uv_cond_t*</span> <span class="pre">cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_cond_broadcast(uv_cond_t*</span> <span class="pre">cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_cond_wait(uv_cond_t*</span> <span class="pre">cond,</span> <span class="pre">uv_mutex_t*</span> <span class="pre">mutex)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_cond_timedwait(uv_cond_t*</span> <span class="pre">cond,</span> <span class="pre">uv_mutex_t*</span> <span class="pre">mutex,</span> <span class="pre">uint64_t</span> <span class="pre">timeout)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_barrier_init(uv_barrier_t*</span> <span class="pre">barrier,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_barrier_destroy(uv_barrier_t*</span> <span class="pre">barrier)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_barrier_wait(uv_barrier_t*</span> <span class="pre">barrier)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_handle_type</span> <span class="pre">uv_guess_handle(uv_file</span> <span class="pre">file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_replace_allocator(uv_malloc_func</span> <span class="pre">malloc_func,</span> <span class="pre">uv_realloc_func</span> <span class="pre">realloc_func,</span> <span class="pre">uv_calloc_func</span> <span class="pre">calloc_func,</span> <span class="pre">uv_free_func</span> <span class="pre">free_func)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_buf_t</span> <span class="pre">uv_buf_init(char*</span> <span class="pre">base,</span> <span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">len)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char**</span> <span class="pre">uv_setup_args(int</span> <span class="pre">argc,</span> <span class="pre">char**</span> <span class="pre">argv)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_get_process_title(char*</span> <span class="pre">buffer,</span> <span class="pre">size_t</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_set_process_title(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">title)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_resident_set_memory(size_t*</span> <span class="pre">rss)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_uptime(double*</span> <span class="pre">uptime)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_getrusage(uv_rusage_t*</span> <span class="pre">rusage)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_pid_t</span> <span class="pre">uv_os_getpid(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv_pid_t</span> <span class="pre">uv_os_getppid(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_cpu_info(uv_cpu_info_t**</span> <span class="pre">cpu_infos,</span> <span class="pre">int*</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_free_cpu_info(uv_cpu_info_t*</span> <span class="pre">cpu_infos,</span> <span class="pre">int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_interface_addresses(uv_interface_address_t**</span> <span class="pre">addresses,</span> <span class="pre">int*</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_free_interface_addresses(uv_interface_address_t*</span> <span class="pre">addresses,</span> <span class="pre">int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_ip4_addr(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">ip,</span> <span class="pre">int</span> <span class="pre">port,</span> <span class="pre">sockaddr_in*</span> <span class="pre">addr)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_ip6_addr(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">ip,</span> <span class="pre">int</span> <span class="pre">port,</span> <span class="pre">sockaddr_in6*</span> <span class="pre">addr)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_ip4_name(sockaddr_in*</span> <span class="pre">src,</span> <span class="pre">char*</span> <span class="pre">dst,</span> <span class="pre">size_t</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_ip6_name(sockaddr_in6*</span> <span class="pre">src,</span> <span class="pre">char*</span> <span class="pre">dst,</span> <span class="pre">size_t</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_inet_ntop(int</span> <span class="pre">af,</span> <span class="pre">const</span> <span class="pre">void*</span> <span class="pre">src,</span> <span class="pre">char*</span> <span class="pre">dst,</span> <span class="pre">size_t</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_inet_pton(int</span> <span class="pre">af,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">src,</span> <span class="pre">void*</span> <span class="pre">dst)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_if_indextoname(unsigned</span> <span class="pre">int</span> <span class="pre">ifindex,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_if_indextoiid(unsigned</span> <span class="pre">int</span> <span class="pre">ifindex,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_exepath(char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_cwd(char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_chdir(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">dir)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_homedir(char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_tmpdir(char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_get_passwd(uv_passwd_t*</span> <span class="pre">pwd)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_os_free_passwd(uv_passwd_t*</span> <span class="pre">pwd)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint64_t</span> <span class="pre">uv_get_total_memory(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint64_t</span> <span class="pre">uv_hrtime(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_print_all_handles(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">FILE*</span> <span class="pre">stream)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">uv_print_active_handles(uv_loop_t*</span> <span class="pre">loop,</span> <span class="pre">FILE*</span> <span class="pre">stream)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_getenv(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name,</span> <span class="pre">char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_setenv(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_unsetenv(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">uv_os_gethostname(char*</span> <span class="pre">buffer,</span> <span class="pre">size_t*</span> <span class="pre">size)</span></code></p></li>
+</ul>
+</section>
 </section>
 </section>
 
