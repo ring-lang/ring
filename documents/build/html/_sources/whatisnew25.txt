@@ -834,10 +834,11 @@ Output:
 Ring Object File Format Update
 ==============================
 
-The Ring Object File (*.ringo) format has been revised to reduce storage 
-requirements and improve performance by over 40%.
+The Ring Object File (*.ringo) format has been revised and improved for better performance and reliability. 
 
 Example: PWCT2 Project
+
+The updates reduce storage overhead by more than 42% and increase performance by over 48%.
 
 * File Size Reduction
 
@@ -866,7 +867,7 @@ Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 .. code-block:: none
 
 	* Using Ring 1.24 -> 565 ms
-	* Using Ring 1.25 -> 315 ms
+	* Using Ring 1.25 -> 290 ms
 
 Key Points About Ring Object Files (*.ringo)
 
