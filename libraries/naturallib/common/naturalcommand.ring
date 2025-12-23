@@ -16,6 +16,9 @@ class NaturalCommand
 
 	lSyntaxIsKeyword = False
 
+	lCacheCommands = False
+	cCommandsCache = ""
+
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
 		cKeyword = aPara[:Keyword]
@@ -69,14 +72,14 @@ class NaturalCommand
 
 	func SyntaxIsKeyword  aPara
 		lSyntaxIsKeyword = True
-		eval(PrepareNewClass(aPara))
+		cmdEval(PrepareNewClass(aPara))
 		lSyntaxIsKeyword = False
 
 	func SyntaxIsKeywordNumbers aPara,nCount
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()	
 		cCode += GetExprNumbers(nCount)
-		eval(cCode)	
+		cmdEval(cCode)	
 
 	func SyntaxIsKeywordNumberNumber  aPara
 		SyntaxIsKeywordNumbers(aPara,2)
@@ -88,7 +91,7 @@ class NaturalCommand
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()
 		cCode += GetExprStrings(nCount)
-		eval(cCode)		
+		cmdEval(cCode)		
 
 	func SyntaxIsKeywordStringString  aPara
 		SyntaxIsKeywordStrings(aPara,2)
@@ -100,7 +103,7 @@ class NaturalCommand
 		cCode = PrepareNewClass(aPara)
 		cCode += PrepareCommandExpr()	
 		cCode += GetExprAny(nCount)
-		eval(cCode)	
+		cmdEval(cCode)	
 
 	func SyntaxIsKeywordExpressionExpression  aPara
 		SyntaxIsKeywordExpressions(aPara,2)
@@ -198,7 +201,7 @@ class NaturalCommand
 			cCodeBuf += cCode
 		}
 
-		eval(cCodeBuf)
+		cmdEval(cCodeBuf)
 
 	func SyntaxIsCommandExpressions_  aPara,cExprType,nCount
 
@@ -225,7 +228,7 @@ class NaturalCommand
 		cKeyword = cCommandNoSpaces
 		cCodeBuf += GetExpr(nCount,cExprType)
 
-		eval(cCodeBuf)
+		cmdEval(cCodeBuf)
 
 	func SyntaxIsCommandExpression  aPara
 		SyntaxIsCommandExpressions_(aPara,:Any,1)
@@ -253,3 +256,18 @@ class NaturalCommand
 
 	func SyntaxIsCommandExpressions  aPara,nCount
 		SyntaxIsCommandExpressions_(aPara,:any,nCount)
+
+	func startCache
+		lCacheCommands = True 
+
+	func endCache
+		lCacheCommands = False
+		eval(cCommandsCache)
+		cCommandsCache = ""
+
+	func cmdEval cCode
+		if lCacheCommands {
+			cCommandsCache += cCode + nl
+		else
+			eval(cCode)
+		} 
