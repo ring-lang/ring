@@ -888,6 +888,7 @@ More Improvements
 * RingMySQL - MySQL_Connect() - Allows passing the port number
 * RingOpenGL - glClearColor() implementation is revised
 * RingOpenGL - Added GLEW headers and linker flags
+* RingLibuv - Added uv_close_cb to the aFunctionCallback list
 * Code Generator for Extensions - Support (const char * const *) types 
 * IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
