@@ -84,6 +84,7 @@ aFunctionCallback + "uv_work_cb"
 aFunctionCallback + "uv_after_work_cb"
 aFunctionCallback + "uv_getaddrinfo_cb"
 aFunctionCallback + "uv_getnameinfo_cb"
+aFunctionCallback + "uv_close_cb"
 </runcode>
 
 <code>
