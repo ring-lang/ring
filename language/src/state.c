@@ -282,7 +282,8 @@ RING_API void ring_state_runobjectfile(RingState *pRingState, char *cFileName) {
 	}
 }
 
-RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, const char *cFileName) {
+RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, unsigned int nSize,
+					 const char *cFileName) {
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new_gc(pRingState, RING_ZERO);
 	pRingState->pRingFilesStack = ring_list_new_gc(pRingState, RING_ZERO);

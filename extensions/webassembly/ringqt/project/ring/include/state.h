@@ -129,7 +129,8 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString);
 
 RING_API void ring_state_runobjectfile(RingState *pRingState, char *cFileName);
 
-RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, const char *cFileName);
+RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, unsigned int nSize,
+					 const char *cFileName);
 
 RING_API void ring_state_runprogram(RingState *pRingState);
 
