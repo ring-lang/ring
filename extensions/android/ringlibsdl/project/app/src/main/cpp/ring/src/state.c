@@ -289,7 +289,7 @@ RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, u
 	pRingState->pRingFilesStack = ring_list_new_gc(pRingState, RING_ZERO);
 	ring_list_addstring_gc(pRingState, pRingState->pRingFilesList, cFileName);
 	ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
-	if (ring_objfile_readstring(pRingState, cString)) {
+	if (ring_objfile_readstring(pRingState, cString, nSize)) {
 		pRingState->lRunFromObjectFile = 1;
 		ring_state_runprogram(pRingState);
 	}

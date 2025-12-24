@@ -30,15 +30,16 @@ RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pL
 
 RING_API int ring_objfile_readfile(RingState *pRingState, char *cFileName);
 
-RING_API int ring_objfile_readstring(RingState *pRingState, char *cString);
+RING_API int ring_objfile_readstring(RingState *pRingState, char *cString, unsigned int nSize);
 
-RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, int nSourceType);
+RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, unsigned int nSize, int nSourceType);
 
 RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
 				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
 
-RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
-					List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
+RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, unsigned int nSize, List *pListFunctions,
+					List *pListClasses, List *pListPackages, List *pListCode, List *pListFiles,
+					List *pListStack);
 
 RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, unsigned int nStringSize, char *cKey,
 				     unsigned int nKeySize);

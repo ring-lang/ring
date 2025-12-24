@@ -380,8 +380,8 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 	pListPackages = ring_list_newlist_gc(pVM->pRingState, pList);
 	pListCode = ring_list_newlist_gc(pVM->pRingState, pList);
 	pListStack = ring_list_newlist_gc(pVM->pRingState, pList);
-	lOutput = ring_objfile_processstring(pVM->pRingState, cBuffer, pListFunctions, pListClasses, pListPackages,
-					     pListCode, pListFiles, pListStack);
+	lOutput = ring_objfile_processstring(pVM->pRingState, cBuffer, nSize, pListFunctions, pListClasses,
+					     pListPackages, pListCode, pListFiles, pListStack);
 	if (lOutput == RING_FALSE) {
 		RING_API_ERROR(RING_OBJFILEWRONGTYPE);
 		return;
