@@ -172,12 +172,12 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		return RING_FALSE;
 	}
 	cBuffer[nSize] = '\0';
-	ring_objfile_processstring(pRingState, cBuffer, pListFunctions, pListClasses, pListPackages, pListCode,
-				   pListFiles, pListStack);
+	lOutput = ring_objfile_processstring(pRingState, cBuffer, pListFunctions, pListClasses, pListPackages,
+					     pListCode, pListFiles, pListStack);
 	ring_state_free(pRingState, cBuffer);
 	/* Close File */
 	fclose(fObj);
-	return RING_TRUE;
+	return lOutput;
 }
 
 RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
