@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORWEBASM_CLEARSCREEN	0
 #define RINGFORWEBASM_WRITERINGOFILE	0
@@ -113,11 +113,10 @@ int main(int argc, char *argv[])
 	oObjectFile.open(QFile::ReadOnly);
 	unsigned int nFileSize = (unsigned int) oObjectFile.size();
         unsigned char *cCode;
-        cCode = (unsigned char *) malloc(nFileSize+1);
+        cCode = (unsigned char *) malloc(nFileSize);
         memcpy(cCode,oObjectFile.readAll().toStdString().c_str(),nFileSize);
-        cCode[nFileSize] = EOF;
         pRingState->nRingInsideRing = 1 ;
-        ring_state_runobjectstring(pRingState,(char *) cCode,"ringapp.ringo");
+        ring_state_runobjectstring(pRingState,(char *) cCode,nFileSize,"ringapp.ringo");
         free(cCode);
 
 	
