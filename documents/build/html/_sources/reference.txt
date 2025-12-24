@@ -545,6 +545,7 @@ Environment Errors
 * Error (E11) : List size overflow!
 * Error (E12) : HashTable size overflow!
 * Error (E13) : Reference count overflow!
+* Error (E14) : Can't read file
 
 .. index:: 
 	pair: Language Specification; Language Grammar
