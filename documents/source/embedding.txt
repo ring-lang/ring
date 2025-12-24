@@ -63,7 +63,7 @@ Also we have functions to create new variables and get variables values.
 	void ring_state_main ( int argc, char *argv[] ) ;
 	int  ring_state_runfile ( RingState *pRingState,const char *cFileName ) ;
 	void ring_state_runobjectfile ( RingState *pRingState,const char *cFileName ) ;
-	void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
+	void ring_state_runobjectstring ( RingState *pRingState,char *cString,unsigned int nSize,const char *cFileName ) ;
 
 .. index:: 
 	pair: Embedding Ring Language in C/C++ Programs; Ring State Variables

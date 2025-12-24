@@ -902,7 +902,8 @@ More Improvements
 * Ring VM - ring_general_isobjectfile() - Better Implementation
 * Ring VM - ring_vm_updateclassespointers() - Better Performance
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
-* Ring Compiler - Ring_State_Execute() implementation - Check ring_state_runfile() output
+* Ring Compiler - ring_state_execute() implementation - Check ring_state_runfile() output
+* Ring Compiler - ring_state_runobjectstring() - Get the file size as parameter
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
