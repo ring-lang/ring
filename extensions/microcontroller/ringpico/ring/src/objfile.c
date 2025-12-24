@@ -250,14 +250,28 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			}
 			break;
 		case 'T':
-			ring_list_addpointer_gc(pRingState, pListStack, pList);
-			pList = ring_list_newlist_gc(pRingState, pList);
+			if (pList != NULL) {
+				ring_list_addpointer_gc(pRingState, pListStack, pList);
+				pList = ring_list_newlist_gc(pRingState, pList);
+			} else {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			break;
 		case 'E':
-			pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
-			ring_list_deletelastitem_gc(pRingState, pListStack);
+			if (ring_list_getsize(pListStack)) {
+				pList = (List *)ring_list_getpointer(pListStack, ring_list_getsize(pListStack));
+				ring_list_deletelastitem_gc(pRingState, pListStack);
+			} else {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			break;
 		case 'S':
+			if (pList == NULL) {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			nValue = atoi(cData);
 			while (ring_objfile_getc(pRingState, &cData) != '!') {
 				/* Pass digits (string size as int) */
@@ -274,6 +288,10 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			}
 			break;
 		case 'I':
+			if (pList == NULL) {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			nValue = atoi(cData);
 			while (isdigit(ring_objfile_getc(pRingState, &cData))) {
 				/* Pass digits (int) */
@@ -282,6 +300,10 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			ring_list_addint_gc(pRingState, pList, nValue);
 			break;
 		case 'D':
+			if (pList == NULL) {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			dValue = atof(cData);
 			/* Pass the number digits (double) */
 			c = ring_objfile_getc(pRingState, &cData);
@@ -292,9 +314,17 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, L
 			ring_list_adddouble_gc(pRingState, pList, dValue);
 			break;
 		case 'P':
+			if (pList == NULL) {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			ring_list_addpointer_gc(pRingState, pList, NULL);
 			break;
 		case 'L':
+			if (pList == NULL) {
+				printf(RING_OBJFILEWRONGTYPE);
+				return RING_FALSE;
+			}
 			while (ring_objfile_getc(pRingState, &cData) != '{') {
 				/* Read Until { */
 			}
