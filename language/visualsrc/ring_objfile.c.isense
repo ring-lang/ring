@@ -33,8 +33,10 @@ Type: int
 lFail
 ring_objfile_processfile
 fObj
-Type: unsigned int
+Type: long int
 nSize
+Type: size_t
+nCount
 Type: char *
 cBuffer
 Type: unsigned int
@@ -43,7 +45,7 @@ ring_objfile_processstring
 Type: signed char
 c
 Type: int
-nActiveList,nValue,nBraceEnd,nOutput,nSize
+nActiveList,nValue,nBraceEnd,nOutput
 Type: double
 dValue
 Type: char *

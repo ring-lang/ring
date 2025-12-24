@@ -143,7 +143,8 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, i
 RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
 				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack) {
 	FILE *fObj;
-	unsigned int nSize;
+	long int nSize;
+	size_t nCount;
 	char *cBuffer;
 	unsigned int lOutput;
 	/* Open File */
@@ -155,15 +156,22 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 	/* Process File */
 	fseek(fObj, 0, SEEK_END);
 	nSize = ftell(fObj);
-	fseek(fObj, 0, SEEK_SET);
-	cBuffer = (char *)ring_state_malloc(pRingState, nSize + 1);
-	fread(cBuffer, 1, nSize, fObj);
-	cBuffer[nSize] = '\0';
-	if ((nSize == RING_ZERO) || (nSize < RING_OBJFILE_MINSIZE) || (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
-		printf(RING_OBJFILEWRONGTYPE);
+	if (nSize == -1) {
+		printf("Can't read the file!");
 		fclose(fObj);
 		return RING_FALSE;
 	}
+	fseek(fObj, 0, SEEK_SET);
+	cBuffer = (char *)ring_state_malloc(pRingState, nSize + 1);
+	nCount = fread(cBuffer, 1, nSize, fObj);
+	if ((nSize == RING_ZERO) || (nCount != nSize) || (nSize < RING_OBJFILE_MINSIZE) ||
+	    (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
+		printf(RING_OBJFILEWRONGTYPE);
+		ring_state_free(pRingState, cBuffer);
+		fclose(fObj);
+		return RING_FALSE;
+	}
+	cBuffer[nSize] = '\0';
 	ring_objfile_processstring(pRingState, cBuffer, pListFunctions, pListClasses, pListPackages, pListCode,
 				   pListFiles, pListStack);
 	ring_state_free(pRingState, cBuffer);
