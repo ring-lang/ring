@@ -126,6 +126,8 @@ Type: FILE *
 pFile
 Type: long int
 nSize
+Type: size_t
+nCount
 Type: char *
 cBuffer
 ring_vm_file_write
