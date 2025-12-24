@@ -171,8 +171,8 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		fclose(fObj);
 		return RING_FALSE;
 	}
-	lOutput = ring_objfile_processstring(pRingState, cBuffer, nSize, pListFunctions, pListClasses, pListPackages,
-					     pListCode, pListFiles, pListStack);
+	lOutput = ring_objfile_processstring(pRingState, cBuffer, (unsigned int)nSize, pListFunctions, pListClasses,
+					     pListPackages, pListCode, pListFiles, pListStack);
 	ring_state_free(pRingState, cBuffer);
 	/* Close File */
 	fclose(fObj);
@@ -276,7 +276,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, u
 			while (ring_objfile_getc(pRingState, &cData) != '!') {
 				/* Pass digits (string size as int) */
 			}
-			if (nValue > 0) {
+			if ((nValue > 0) && (nValue < nSize) && ((cData + nValue) < (cContent + nSize))) {
 				cString = (char *)ring_state_malloc(pRingState, nValue);
 				ring_objfile_readc(pRingState, &cData, cString, nValue);
 				/* Decrypt String */
