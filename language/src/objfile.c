@@ -157,7 +157,7 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 	fseek(fObj, 0, SEEK_END);
 	nSize = ftell(fObj);
 	if (nSize == -1) {
-		printf("Can't read the file!");
+		printf(RING_CANTREADFILE);
 		fclose(fObj);
 		return RING_FALSE;
 	}

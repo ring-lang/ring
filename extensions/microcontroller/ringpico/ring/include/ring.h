@@ -149,6 +149,7 @@
 #define RING_LISTSIZEOVERFLOW "\nError (E11) : List size overflow!\n"
 #define RING_HASHTABLESIZEOVERFLOW "\nError (E12) : HashTable size overflow!\n"
 #define RING_REFCOUNTOVERFLOW "\nError (E13) : Reference count overflow!\n"
+#define RING_CANTREADFILE "\nError (E14) : Can't read file"
 /* Buffer Size */
 #define RING_CHARBUF 2
 #define RING_HEXCHARBUF 3
