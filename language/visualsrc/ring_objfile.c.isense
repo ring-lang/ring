@@ -12,9 +12,10 @@ RING_OBJFILE_KEYSTRING
 RING_OBJFILE_FILETYPESTR
 RING_OBJFILE_FILETYPESTRCOUNT
 ring_objfile_writefile
-fObj
 Type: char
 cFileName[RING_HUGEBUF]
+ring_objfile_writecontent
+fObj
 ring_objfile_writelist
 Type: List *
 pList2

@@ -26,6 +26,9 @@
 
 RING_API void ring_objfile_writefile(RingState *pRingState);
 
+RING_API void ring_objfile_writecontent(RingState *pRingState, char *cFileName, List *pListFiles, List *pListFunctions,
+					List *pListClasses, List *pListPackages, List *pListCode);
+
 RING_API void ring_objfile_writelist(RingState *pRingState, FILE *fObj, List *pList);
 
 RING_API int ring_objfile_readfile(RingState *pRingState, char *cFileName);

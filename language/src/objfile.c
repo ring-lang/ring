@@ -3,29 +3,37 @@
 #include "ring.h"
 
 RING_API void ring_objfile_writefile(RingState *pRingState) {
-	FILE *fObj;
 	char cFileName[RING_HUGEBUF];
-	/* Create File */
+	/* Set the file name */
 	sprintf(cFileName, "%so", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
+	/* Write the file */
+	ring_objfile_writecontent(pRingState, cFileName, pRingState->pRingFilesList, pRingState->pRingFunctionsMap,
+				  pRingState->pRingClassesMap, pRingState->pRingPackagesMap, pRingState->pRingGenCode);
+}
+
+RING_API void ring_objfile_writecontent(RingState *pRingState, char *cFileName, List *pListFiles, List *pListFunctions,
+					List *pListClasses, List *pListPackages, List *pListCode) {
+	FILE *fObj;
+	/* Create File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "w+b");
 	fprintf(fObj, "# Ring Object File\n");
 	fprintf(fObj, RING_OBJFILE_VERSION);
 	fprintf(fObj, "\n");
 	/* Write Files List */
 	fprintf(fObj, "# Files List\n");
-	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFilesList);
+	ring_objfile_writelist(pRingState, fObj, pListFiles);
 	/* Write Functions Lists */
 	fprintf(fObj, "# Functions List\n");
-	ring_objfile_writelist(pRingState, fObj, pRingState->pRingFunctionsMap);
+	ring_objfile_writelist(pRingState, fObj, pListFunctions);
 	/* Write Classes List */
 	fprintf(fObj, "# Classes List\n");
-	ring_objfile_writelist(pRingState, fObj, pRingState->pRingClassesMap);
+	ring_objfile_writelist(pRingState, fObj, pListClasses);
 	/* Write Packages */
 	fprintf(fObj, "# Packages List\n");
-	ring_objfile_writelist(pRingState, fObj, pRingState->pRingPackagesMap);
+	ring_objfile_writelist(pRingState, fObj, pListPackages);
 	/* Write Code */
 	fprintf(fObj, "# Program Code\n");
-	ring_objfile_writelist(pRingState, fObj, pRingState->pRingGenCode);
+	ring_objfile_writelist(pRingState, fObj, pListCode);
 	/* Close File */
 	fprintf(fObj, "# End of File\n$!${$");
 	fclose(fObj);
