@@ -26,6 +26,7 @@ void ring_vm_info_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("ringvm_runcode", ring_vm_info_ringvmruncode);
 	RING_API_REGISTER("ringvm_ringolists", ring_vm_info_ringvmringolists);
 	RING_API_REGISTER("ringvm_translatecfunction", ring_vm_info_ringvmtranslatecfunction);
+	RING_API_REGISTER("ringvm_writeringo", ring_vm_info_ringvmwriteringo);
 }
 
 void ring_vm_info_ringvmfileslist(void *pPointer) {
@@ -424,4 +425,32 @@ void ring_vm_info_ringvmtranslatecfunction(void *pPointer) {
 	ring_list_addstring(pTranslatedCFunctions, cStr2);
 	cStr2 = ring_list_getstring(pTranslatedCFunctions, ring_list_getsize(pTranslatedCFunctions));
 	RING_API_REGISTER(cStr2, pCFunc->pFunc);
+}
+
+void ring_vm_info_ringvmwriteringo(void *pPointer) {
+	VM *pVM;
+	List *pList;
+	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles;
+	pVM = (VM *)pPointer;
+	if (RING_API_PARACOUNT != 2) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if ((!RING_API_ISSTRING(1)) || (!RING_API_ISLIST(2))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	pList = RING_API_GETLIST(2);
+	if ((ring_list_getsize(pList) != 5) || (!ring_list_islist(pList, 1)) || (!ring_list_islist(pList, 2)) ||
+	    (!ring_list_islist(pList, 3)) || (!ring_list_islist(pList, 4)) || (!ring_list_islist(pList, 5))) {
+		RING_API_ERROR("The list must contain five items, and each item must be a sublist.");
+		return;
+	}
+	pListFiles = ring_list_getlist(pList, 1);
+	pListFunctions = ring_list_getlist(pList, 2);
+	pListClasses = ring_list_getlist(pList, 3);
+	pListPackages = ring_list_getlist(pList, 4);
+	pListCode = ring_list_getlist(pList, 5);
+	ring_objfile_writecontent(pVM->pRingState, RING_API_GETSTRING(1), pListFiles, pListFunctions, pListClasses,
+				  pListPackages, pListCode);
 }

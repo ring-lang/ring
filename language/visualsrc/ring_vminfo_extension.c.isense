@@ -126,3 +126,12 @@ Type: RingState *
 pRingState
 Type: List *
 pTranslatedCFunctions
+ring_vm_info_ringvmwriteringo
+Type: VM *
+pVM
+Type: List *
+pList
+Type: List *
+pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles
+Type: int
+x
