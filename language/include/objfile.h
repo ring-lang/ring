@@ -37,11 +37,11 @@ RING_API int ring_objfile_readstring(RingState *pRingState, char *cString, unsig
 
 RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, unsigned int nSize, int nSourceType);
 
-RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
-				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
+RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFiles, List *pListFunctions,
+				      List *pListClasses, List *pListPackages, List *pListCode, List *pListStack);
 
-RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, unsigned int nSize, List *pListFunctions,
-					List *pListClasses, List *pListPackages, List *pListCode, List *pListFiles,
+RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, unsigned int nSize, List *pListFiles,
+					List *pListFunctions, List *pListClasses, List *pListPackages, List *pListCode,
 					List *pListStack);
 
 RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, unsigned int nStringSize, char *cKey,

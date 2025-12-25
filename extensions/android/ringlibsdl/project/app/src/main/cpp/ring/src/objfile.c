@@ -108,13 +108,13 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, u
 	pListStack = ring_list_new_gc(pRingState, RING_ZERO);
 	/* Process Content (File or String) */
 	if (nSource == RING_OBJFILE_READFROMFILE) {
-		if (!ring_objfile_processfile(pRingState, cSource, pListFunctions, pListClasses, pListPackages,
-					      pListCode, pListFiles, pListStack)) {
+		if (!ring_objfile_processfile(pRingState, cSource, pListFiles, pListFunctions, pListClasses,
+					      pListPackages, pListCode, pListStack)) {
 			lFail = RING_TRUE;
 		}
 	} else if (nSource == RING_OBJFILE_READFROMSTRING) {
-		if (!ring_objfile_processstring(pRingState, cSource, nSize, pListFunctions, pListClasses, pListPackages,
-						pListCode, pListFiles, pListStack)) {
+		if (!ring_objfile_processstring(pRingState, cSource, nSize, pListFiles, pListFunctions, pListClasses,
+						pListPackages, pListCode, pListStack)) {
 			lFail = RING_TRUE;
 		}
 	}
@@ -148,8 +148,8 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, u
 	return RING_TRUE;
 }
 
-RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFunctions, List *pListClasses,
-				      List *pListPackages, List *pListCode, List *pListFiles, List *pListStack) {
+RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFiles, List *pListFunctions,
+				      List *pListClasses, List *pListPackages, List *pListCode, List *pListStack) {
 	FILE *fObj;
 	long int nSize;
 	size_t nCount;
@@ -179,16 +179,16 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		fclose(fObj);
 		return RING_FALSE;
 	}
-	lOutput = ring_objfile_processstring(pRingState, cBuffer, (unsigned int)nSize, pListFunctions, pListClasses,
-					     pListPackages, pListCode, pListFiles, pListStack);
+	lOutput = ring_objfile_processstring(pRingState, cBuffer, (unsigned int)nSize, pListFiles, pListFunctions,
+					     pListClasses, pListPackages, pListCode, pListStack);
 	ring_state_free(pRingState, cBuffer);
 	/* Close File */
 	fclose(fObj);
 	return lOutput;
 }
 
-RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, unsigned int nSize, List *pListFunctions,
-					List *pListClasses, List *pListPackages, List *pListCode, List *pListFiles,
+RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, unsigned int nSize, List *pListFiles,
+					List *pListFunctions, List *pListClasses, List *pListPackages, List *pListCode,
 					List *pListStack) {
 	signed char c;
 	int nActiveList, nValue, nBraceEnd, nOutput;
