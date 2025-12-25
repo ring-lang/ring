@@ -229,6 +229,7 @@ The following packages have been added to the RingPM registry.
 * Ring2EXE-Plus: Modern Packaging Options and Enhanced Compiler Control
 * Ring-HTML: HTML5 parser library with CSS selectors and DOM manipulation
 * RingML: Building Neural Networks (Using RingFastPro)
+* RingTensor: Extension designed specifically to accelerate Matrix operations
 * RingML-using-RingTensor: Building Neural Networks (Using RingTensor)
 * Stock-Analysis-BM: Stock Analysis Momentum using Mega Stocks ticker list
 
