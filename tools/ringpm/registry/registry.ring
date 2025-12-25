@@ -900,7 +900,11 @@ aPackagesRegistry = [
           :ProviderUserName = "ringpackages"
 	],
 	[ :name = "ringml-using-ringtensor",
-          :description = "high-performance, Deep Learning framework built for the  Ring programming language",
+          :description = "High-performance, Deep Learning framework built for the  Ring programming language",
+          :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "ringtensor",
+          :description = "Extension designed specifically to accelerate Matrix operations",
           :ProviderUserName = "azzeddine2017"
 	]
 ]
