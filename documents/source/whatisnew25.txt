@@ -30,6 +30,7 @@ Ring 1.25 comes with the next features!
 * RingVM_TranslateCFunction() function
 * RingVM_ErrorHandler() function  
 * RingVM_RingoLists() function
+* RingVM_WriteRingo() function
 * Ring Object File Format Update
 * More Improvements
 
@@ -827,6 +828,37 @@ Output:
 	Packages count: 2
 	Instructions count: 782280
 	========================================
+
+.. index:: 
+	pair: What is new in Ring  1.25; RingVM_WriteRingo() function
+
+RingVM_WriteRingo() function
+============================
+
+This function writes a Ring Object File (*.ringo) from a Ring list.
+
+The list contains five sublists:
+
+* List of files
+* List of functions
+* List of classes
+* List of packages
+* List of bytecode instructions
+
+Example:
+
+.. code-block:: ring
+
+	cFileName    = "pwct.ringo"
+	cFileContent = read(cFileName)
+	cOutputFile  = "mypwct.ringo"
+	
+	? "Read the object file..."
+	aList = ringvm_ringolists(cFileContent)
+	
+	? "Write another object file..."
+	ringvm_writeringo(cOutputFile,aList)
+
 
 .. index:: 
 	pair: What is new in Ring  1.25; Ring Object File Format Update

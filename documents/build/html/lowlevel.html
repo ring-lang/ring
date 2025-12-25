@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-runcode-function">ringvm_runcode() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">ringvm_ringolists() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-translatecfunction-function">ringvm_translatecfunction() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-writeringo-function">ringvm_writeringo() function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -298,6 +299,7 @@
 * ringvm_runcode()
 * ringvm_ringolists()
 * ringvm_translatecfunction()
+* ringvm_writeringo()
 </pre></div>
 </div>
 <section id="callgc-function">
@@ -1659,6 +1661,10 @@ done
 <li><p>List of packages</p></li>
 <li><p>List of bytecode instructions</p></li>
 </ul>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">ringvm_ringolists</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">aList</span>
+</pre></div>
+</div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">cFile</span>      <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;pwct.ringo&quot;</span><span class="p">)</span>
@@ -1707,6 +1713,34 @@ Instructions count: 782280
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
 7
 7
+</pre></div>
+</div>
+</section>
+<section id="ringvm-writeringo-function">
+<span id="index-40"></span><h2>ringvm_writeringo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
+<p>This function writes a Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) from a Ring list.</p>
+<p>The list contains five sublists:</p>
+<ul class="simple">
+<li><p>List of files</p></li>
+<li><p>List of functions</p></li>
+<li><p>List of classes</p></li>
+<li><p>List of packages</p></li>
+<li><p>List of bytecode instructions</p></li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringvm_writeringo(cFileName,aList)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cFileName</span>    <span class="o">=</span> <span class="s2">&quot;pwct.ringo&quot;</span>
+<span class="n">cFileContent</span> <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<span class="n">cOutputFile</span>  <span class="o">=</span> <span class="s2">&quot;mypwct.ringo&quot;</span>
+
+<span class="o">?</span> <span class="s2">&quot;Read the object file...&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">ringvm_ringolists</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s2">&quot;Write another object file...&quot;</span>
+<span class="nf">ringvm_writeringo</span><span class="p">(</span><span class="n">cOutputFile</span><span class="p">,</span><span class="n">aList</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

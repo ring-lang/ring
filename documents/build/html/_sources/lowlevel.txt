@@ -52,6 +52,7 @@ We expect from those developers to know about pointers and dynamic memory manage
 	* ringvm_runcode()
 	* ringvm_ringolists()
 	* ringvm_translatecfunction()
+	* ringvm_writeringo()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1726,6 +1727,12 @@ The function's output is a list containing five sublists:
 * List of packages
 * List of bytecode instructions
 
+Syntax:
+
+.. code-block:: ring
+
+	ringvm_ringolists(cFileContent) --> aList
+
 Example:
 
 .. code-block:: ring
@@ -1788,3 +1795,40 @@ Output:
 	7
 	7
 	7
+
+.. index:: 
+	pair: Low Level Functions; ringvm_writeringo() function
+
+ringvm_writeringo() function
+============================
+
+This function writes a Ring Object File (*.ringo) from a Ring list.
+
+The list contains five sublists:
+
+* List of files
+* List of functions
+* List of classes
+* List of packages
+* List of bytecode instructions
+
+Syntax:
+
+.. code-block:: none
+
+	ringvm_writeringo(cFileName,aList)
+
+Example:
+
+.. code-block:: ring
+
+	cFileName    = "pwct.ringo"
+	cFileContent = read(cFileName)
+	cOutputFile  = "mypwct.ringo"
+	
+	? "Read the object file..."
+	aList = ringvm_ringolists(cFileContent)
+	
+	? "Write another object file..."
+	ringvm_writeringo(cOutputFile,aList)
+
