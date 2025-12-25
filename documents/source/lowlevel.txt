@@ -1717,7 +1717,7 @@ Syntax:
 ringvm_ringolists() function
 ============================
 
-This function processes a Ring Object File (*.ringo) and returns its contents as Ring lists.
+This function parses a Ring Object File (*.ringo) string and returns its contents as Ring lists.
 
 The function's output is a list containing five sublists:
 
