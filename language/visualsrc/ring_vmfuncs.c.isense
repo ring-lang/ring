@@ -67,7 +67,9 @@ cStr
 Type: FuncCall *
 pFuncCall
 Type: char
-lInsideMethod
+lCanCallAsMethod
+Type: List *
+pList
 ring_vm_prevtempmem
 Type: List *
 pTemp

@@ -705,19 +705,27 @@ void ring_vm_createtemplist(VM *pVM) {
 void ring_vm_anonymous(VM *pVM) {
 	char *cStr;
 	FuncCall *pFuncCall;
-	char lInsideMethod;
+	char lCanCallAsMethod;
+	List *pList;
 	if (RING_VM_STACK_ISSTRING) {
-		lInsideMethod = RING_FALSE;
+		lCanCallAsMethod = RING_FALSE;
 		if (RING_VM_FUNCCALLSCOUNT) {
 			pFuncCall = RING_VM_LASTFUNCCALL;
-			lInsideMethod = pFuncCall->lMethod;
+			lCanCallAsMethod = pFuncCall->lMethod;
 		}
 		cStr = RING_VM_STACK_READC;
 		RING_VM_STACK_POP;
 		ring_general_lower(cStr);
 		if (ring_vm_loadfunc2(pVM, cStr, RING_FALSE)) {
 			if (RING_VM_IR_READI && RING_VM_FUNCCALLSCOUNT) {
-				if (lInsideMethod || (pVM->pBraceObject != NULL)) {
+				if (ring_list_getsize(pVM->pObjState) != 0) {
+					pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
+					pList = (List *)ring_list_getpointer(pList, RING_OBJSTATE_SCOPE);
+					if (pList != NULL) {
+						lCanCallAsMethod = RING_TRUE;
+					}
+				}
+				if (lCanCallAsMethod) {
 					pFuncCall = RING_VM_LASTFUNCCALL;
 					pFuncCall->lMethod = RING_TRUE;
 				} else {
