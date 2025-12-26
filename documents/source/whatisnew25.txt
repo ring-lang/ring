@@ -25,7 +25,7 @@ Ring 1.25 comes with the next features!
 * Better RingLibCurl
 * Better TokensLib
 * Better NaturalLib
-* Better Call Command
+* Callable Functions as Methods
 * Flexible Statement Separation
 * Using Keywords as Identifiers
 * Translating Internal Identifiers
@@ -486,10 +486,10 @@ Output:
 	==============================
 
 .. index:: 
-	pair: What is new in Ring  1.25; Better Call Command
+	pair: What is new in Ring  1.25; Callable Functions as Methods
 
-Better Call Command
-===================
+Callable Functions as Methods
+=============================
 
 The Call command has been enhanced to allow invoking a function as an object method.
 
