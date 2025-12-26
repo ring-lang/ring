@@ -881,7 +881,11 @@ void ring_vm_range(VM *pVM);
 List *ring_vm_rangenewlist(VM *pVM);
 /* Faster instructions */
 
+int ring_vm_pushvarptr(VM *pVM);
+
 void ring_vm_pushp(VM *pVM);
+
+void ring_vm_pushplocal(VM *pVM);
 
 void ring_vm_incp(VM *pVM);
 
@@ -892,8 +896,6 @@ void ring_vm_incjump(VM *pVM);
 void ring_vm_incpjump(VM *pVM);
 
 void ring_vm_loadfuncp(VM *pVM);
-
-void ring_vm_pushplocal(VM *pVM);
 
 void ring_vm_pusharg(VM *pVM);
 
