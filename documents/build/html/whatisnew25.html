@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tokenslib">Better TokensLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-naturallib">Better NaturalLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-call-command">Better Call Command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
@@ -253,6 +254,7 @@
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better TokensLib</p></li>
 <li><p>Better NaturalLib</p></li>
+<li><p>Better Call Command</p></li>
 <li><p>Flexible Statement Separation</p></li>
 <li><p>Using Keywords as Identifiers</p></li>
 <li><p>Translating Internal Identifiers</p></li>
@@ -624,8 +626,70 @@ Command: I want window
 </pre></div>
 </div>
 </section>
+<section id="better-call-command">
+<span id="index-12"></span><h2>Better Call Command<a class="headerlink" href="#better-call-command" title="Permalink to this heading"></a></h2>
+<p>The Call command has been enhanced to allow invoking a function as an object method.</p>
+<p>We do this by placing braces after the Call keyword.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Call</span> <span class="p">{</span> <span class="nf">Variable</span><span class="p">([</span><span class="n">Parameters</span><span class="p">])</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fCheck</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;One day, I will no longer remain just a function.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;One day, I will live as a method inside an object.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;That object will have a place in a 3D world.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;And it will have the x, y, and z attributes.&quot;</span>
+        <span class="k">Try</span>
+                <span class="o">?</span> <span class="s2">&quot;X= &quot;</span> <span class="o">+</span> <span class="n">x</span>                             <span class="c1"># Use Attributes</span>
+                <span class="o">?</span> <span class="s2">&quot;Y= &quot;</span> <span class="o">+</span> <span class="n">y</span>
+                <span class="o">?</span> <span class="s2">&quot;Z= &quot;</span> <span class="o">+</span> <span class="n">z</span>
+                <span class="o">?</span> <span class="s2">&quot;The dream has come true.&quot;</span>
+                <span class="nb">print</span><span class="p">()</span>                                 <span class="c1"># Call Method</span>
+        <span class="k">Catch</span>
+                <span class="o">?</span> <span class="s2">&quot;Not yet!&quot;</span>
+        <span class="k">Done</span>
+<span class="p">}</span>
+
+<span class="k">call</span> <span class="nf">fCheck</span><span class="p">()</span>                                           <span class="c1"># Call fCheck as Function</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="k">call</span> <span class="p">{</span><span class="nf">fCheck</span><span class="p">()}</span> <span class="p">}</span>            <span class="c1"># Call fCheck as Method</span>
+
+<span class="kd">class</span> <span class="nc">Point</span>
+
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">print</span>
+
+                <span class="o">?</span> <span class="kp">self</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==================================================
+One day I will not stay as a function
+One day I will live as a method inside an object
+This object will have a place in a 3D world
+And will have the x,y and z attributes
+Not yet!
+==================================================
+==================================================
+One day I will not stay as a function
+One day I will live as a method inside an object
+This object will have a place in a 3D world
+And will have the x,y and z attributes
+X= 10
+Y= 20
+Z= 30
+The dream has come true.
+x: 10
+y: 20
+z: 30
+</pre></div>
+</div>
+</section>
 <section id="flexible-statement-separation">
-<span id="index-12"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
 <p>In this release, the language introduces support for using commas (,) as an alternative
 to semicolons (;) when separating statements.</p>
 <p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
@@ -685,7 +749,7 @@ I Love Programming!
 </div>
 </section>
 <section id="using-keywords-as-identifiers">
-<span id="index-13"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
 <p>The next keywords could be used as variables/attributes/etc.</p>
 <p>This is useful when creating domain-specific languages that uses these keywords in the commands.</p>
 <ul class="simple">
@@ -733,7 +797,7 @@ Where?
 </div>
 </section>
 <section id="translating-internal-identifiers">
-<span id="index-14"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
 <p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
 This allows translation without breaking existing code that relies on English identifiers.</p>
 <p>The identifiers that can be translated are:</p>
@@ -825,7 +889,7 @@ Parent - Test()
 </div>
 </section>
 <section id="ringvm-translatecfunction-function">
-<span id="index-15"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
 <p>This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.</p>
 <p>This happens at the VM level, not at the script level, so it’s fast and transparent.</p>
 <p>Example:</p>
@@ -847,7 +911,7 @@ Parent - Test()
 </div>
 </section>
 <section id="ringvm-errorhandler-function">
-<span id="index-16"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
 <p>If this function is defined in Ring code, it will be called when an error occurs, provided
 the error is not handled by try/catch/done.</p>
 <p>Example (1):</p>
@@ -899,7 +963,7 @@ done
 </div>
 </section>
 <section id="ringvm-ringolists-function">
-<span id="index-17"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
 <p>This function parses a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) string and returns its contents as Ring lists.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
@@ -931,7 +995,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ringvm-writeringo-function">
-<span id="index-18"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
 <p>This function writes a Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) from a Ring list.</p>
 <p>The list contains five sublists:</p>
 <ul class="simple">
@@ -955,7 +1019,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ring-object-file-format-update">
-<span id="index-19"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
 <p>The Ring Object File (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo) format has been revised and improved for better performance and reliability.</p>
 <p>Example: PWCT2 Project</p>
 <p>The updates reduce storage overhead by more than 42% and increase performance by over 48%.</p>
@@ -991,7 +1055,7 @@ Instructions count: 782280
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-20"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-21"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>

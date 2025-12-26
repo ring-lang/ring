@@ -25,6 +25,7 @@ Ring 1.25 comes with the next features!
 * Better RingLibCurl
 * Better TokensLib
 * Better NaturalLib
+* Better Call Command
 * Flexible Statement Separation
 * Using Keywords as Identifiers
 * Translating Internal Identifiers
@@ -483,6 +484,79 @@ Output:
 	Command: I want window
 	Command: I want window
 	==============================
+
+.. index:: 
+	pair: What is new in Ring  1.25; Better Call Command
+
+Better Call Command
+===================
+
+The Call command has been enhanced to allow invoking a function as an object method.
+
+We do this by placing braces after the Call keyword.
+
+Syntax:
+
+.. code-block:: ring
+
+	Call { Variable([Parameters]) }
+
+Example:
+
+.. code-block:: ring
+
+	fCheck = func {
+		? copy("=",50)
+		? "One day, I will no longer remain just a function."
+		? "One day, I will live as a method inside an object."
+		? "That object will have a place in a 3D world."
+		? "And it will have the x, y, and z attributes."
+		Try
+			? "X= " + x 				# Use Attributes
+			? "Y= " + y
+			? "Z= " + z
+			? "The dream has come true."
+			print()					# Call Method
+		Catch
+			? "Not yet!"
+		Done
+	}
+
+	call fCheck()						# Call fCheck as Function
+
+	new point { x=10 y=20 z=30 call {fCheck()} }		# Call fCheck as Method
+
+	class Point
+
+		x y z
+
+		func print
+	
+			? self
+
+Output:
+
+.. code-block:: none
+
+	==================================================
+	One day I will not stay as a function
+	One day I will live as a method inside an object
+	This object will have a place in a 3D world
+	And will have the x,y and z attributes
+	Not yet!
+	==================================================
+	==================================================
+	One day I will not stay as a function
+	One day I will live as a method inside an object
+	This object will have a place in a 3D world
+	And will have the x,y and z attributes
+	X= 10
+	Y= 20
+	Z= 30
+	The dream has come true.
+	x: 10
+	y: 20
+	z: 30
 
 .. index:: 
 	pair: What is new in Ring  1.25; Flexible Statement Separation
