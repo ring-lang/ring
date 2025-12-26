@@ -98,9 +98,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-self-attribute-and-self-method">Using Self.Attribute and Self.Method()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-this-attribute-and-this-method">Using This.Attribute and This.Method()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-this-in-the-class-region-as-self">Using This in the class region as Self</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#default-value-for-object-attributes">Default value for object attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-value-for-object-attributes">Default Value for Object Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-new-from">Command: New From</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-objects-during-definition">Using Objects During Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-call">Command: Call</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
@@ -254,7 +255,10 @@ inside the Ring programming language.</p>
 <li><p>Sort() and List of Objects</p></li>
 <li><p>Using Self.Attribute and Self.Method()</p></li>
 <li><p>Using This.Attribute and This.Method()</p></li>
+<li><p>Default Value for Object Attributes</p></li>
 <li><p>Command: New From</p></li>
+<li><p>Using Objects During Definition</p></li>
+<li><p>Command: Call</p></li>
 </ul>
 <section id="classes-and-objects">
 <span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this heading"></a></h2>
@@ -1185,7 +1189,7 @@ version: 1.0
 </div>
 </section>
 <section id="default-value-for-object-attributes">
-<span id="index-16"></span><h2>Default value for object attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Default Value for Object Attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Permalink to this heading"></a></h2>
 <p>The default value for object attributes is NULL</p>
 <p>In Ring, the NULL value is just an empty string or a string that contains “NULL”</p>
 <p>We can check for NULL values using the isNULL() function</p>
@@ -1259,6 +1263,105 @@ while in the second time, the Assignment is executed to support storing the Oper
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>RingQt samples uses this feature to quickly pass the parent window object to the other widgets.</p>
+</div>
+</section>
+<section id="command-call">
+<span id="index-19"></span><h2>Command: Call<a class="headerlink" href="#command-call" title="Permalink to this heading"></a></h2>
+<p>Using the Call command we can call anonymous functions</p>
+<p>Syntax (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Call</span> <span class="nf">Variable</span><span class="p">([</span><span class="n">Parameters</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Also, we can call the function as a method belongs to the current object</p>
+<p>Syntax (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Call</span> <span class="p">{</span> <span class="nf">Variable</span><span class="p">([</span><span class="n">Parameters</span><span class="p">])</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We added braces to call the function as method</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>                                  <span class="c1"># Global Variables</span>
+
+<span class="n">cFunc</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span> <span class="o">?</span> <span class="ss">:good</span> <span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>  <span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="kp">self</span>
+        <span class="nf">test</span><span class="p">()</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="k">call</span> <span class="nf">cFunc</span><span class="p">()</span>                            <span class="c1"># Call as Function</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="nf">happy</span><span class="p">()</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="k">call</span> <span class="p">{</span> <span class="nf">cFunc</span><span class="p">()</span> <span class="p">}</span>                        <span class="c1"># Call as Method</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="nf">nice</span><span class="p">()</span>
+        <span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">point</span>
+
+        <span class="c1"># We use (self) because we have x,y and z as global variables</span>
+
+        <span class="kp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="kp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="kp">self</span><span class="o">.</span><span class="n">z</span><span class="o">=</span><span class="mi">300</span>        <span class="c1"># Attributes</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+                <span class="o">?</span> <span class="ss">:test</span>
+
+        <span class="kd">func</span> <span class="nf">happy</span>
+                <span class="o">?</span> <span class="ss">:happy</span>
+                <span class="o">?</span> <span class="n">x</span>
+                <span class="o">?</span> <span class="n">y</span>
+                <span class="o">?</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">nice</span>
+                <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+                <span class="o">?</span> <span class="ss">:nice</span>
+                <span class="k">call</span> <span class="nf">cFunc</span><span class="p">()</span>                    <span class="c1"># Call as Function</span>
+                <span class="k">call</span> <span class="p">{</span> <span class="nf">cFunc</span><span class="p">()</span> <span class="p">}</span>                <span class="c1"># Call as Method</span>
+                <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 100
+y: 200
+z: 300
+
+test
+==================================================
+good
+10
+20
+30
+==================================================
+happy
+100
+200
+300
+==================================================
+good
+100
+200
+300
+==================================================
+==================================================
+nice
+good
+10
+20
+30
+good
+100
+200
+300
+==================================================
+100
+200
+300
+</pre></div>
 </div>
 </section>
 </section>

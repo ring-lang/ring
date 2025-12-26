@@ -24,7 +24,10 @@ We will learn about
 * Sort() and List of Objects
 * Using Self.Attribute and Self.Method()
 * Using This.Attribute and This.Method()
+* Default Value for Object Attributes
 * Command: New From
+* Using Objects During Definition
+* Command: Call
 
 
 .. index:: 
@@ -1098,7 +1101,7 @@ Or
 .. index:: 
 	pair: Object Oriented Programming; Default value for object attributes
 
-Default value for object attributes
+Default Value for Object Attributes
 ===================================
 
 The default value for object attributes is NULL
@@ -1197,3 +1200,113 @@ The first Assignment is executed to support (Using objects during definition) wh
 while in the second time, the Assignment is executed to support storing the Operator Overloading output. 
 
 .. note:: RingQt samples uses this feature to quickly pass the parent window object to the other widgets. 
+
+.. index:: 
+	pair: Object Oriented Programming; Command: Call
+
+Command: Call
+=============
+
+Using the Call command we can call anonymous functions
+
+Syntax (1):
+
+.. code-block:: ring
+
+	Call Variable([Parameters])
+
+Also, we can call the function as a method belongs to the current object
+
+Syntax (2):
+
+.. code-block:: ring
+
+	Call { Variable([Parameters]) }
+
+.. note:: We added braces to call the function as method
+
+Example:
+
+.. code-block:: ring
+
+	x=10 y=20 z=30					# Global Variables
+	
+	cFunc = func { ? :good ? x ? y ? z  }
+	
+	func main 
+
+	new point {
+		? self
+		test()
+		? copy("=",50)
+		call cFunc() 				# Call as Function
+		? copy("=",50)
+		happy()
+		? copy("=",50)
+		call { cFunc() }			# Call as Method
+		? copy("=",50)
+		nice()
+		? x ? y ? z
+	}	
+
+	class point
+
+		# We use (self) because we have x,y and z as global variables 
+
+		self.x=100 self.y=200 self.z=300	# Attributes
+
+		func test 
+			? :test
+	
+		func happy
+			? :happy
+			? x
+			? y
+			? z
+
+		func nice
+			? copy("=",50)
+			? :nice
+			call cFunc()			# Call as Function
+			call { cFunc() }		# Call as Method
+			? copy("=",50)
+
+Output:
+
+.. code-block:: none
+
+	x: 100
+	y: 200
+	z: 300
+	
+	test
+	==================================================
+	good
+	10
+	20
+	30
+	==================================================
+	happy
+	100
+	200
+	300
+	==================================================
+	good
+	100
+	200
+	300
+	==================================================
+	==================================================
+	nice
+	good
+	10
+	20
+	30
+	good
+	100
+	200
+	300
+	==================================================
+	100
+	200
+	300

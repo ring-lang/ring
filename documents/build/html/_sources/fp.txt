@@ -88,6 +88,8 @@ Syntax:
 
 	Call Variable([Parameters])
 
+.. note:: See the Object-Oriented Programming chapter to learn how to call a function as a method.
+
 Example:
 
 .. code-block:: ring
