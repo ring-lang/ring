@@ -27,7 +27,7 @@ We will learn about
 * Default Value for Object Attributes
 * Command: New From
 * Using Objects During Definition
-* Command: Call
+* Callable Functions as Methods
 
 
 .. index:: 
@@ -1202,10 +1202,10 @@ while in the second time, the Assignment is executed to support storing the Oper
 .. note:: RingQt samples uses this feature to quickly pass the parent window object to the other widgets. 
 
 .. index:: 
-	pair: Object Oriented Programming; Command: Call
+	pair: Object Oriented Programming; Callable Functions as Methods
 
-Command: Call
-=============
+Callable Functions as Methods
+=============================
 
 Using the Call command we can call anonymous functions
 
@@ -1225,7 +1225,64 @@ Syntax (2):
 
 .. note:: We added braces to call the function as method
 
-Example:
+Example (1):
+
+.. code-block:: ring
+
+	fCheck = func {
+		? copy("=",50)
+		? "One day, I will no longer remain just a function."
+		? "One day, I will live as a method inside an object."
+		? "That object will have a place in a 3D world."
+		? "And it will have the x, y, and z attributes."
+		Try
+			? "X= " + x 				# Use Attributes
+			? "Y= " + y
+			? "Z= " + z
+			? "The dream has come true."
+			print()					# Call Method
+		Catch
+			? "Not yet!"
+		Done
+	}
+
+	call fCheck()						# Call fCheck as Function
+
+	new point { x=10 y=20 z=30 call {fCheck()} }		# Call fCheck as Method
+
+	class Point
+
+		x y z
+
+		func print
+	
+			? self
+
+Output:
+
+.. code-block:: none
+
+	==================================================
+	One day I will not stay as a function
+	One day I will live as a method inside an object
+	This object will have a place in a 3D world
+	And will have the x,y and z attributes
+	Not yet!
+	==================================================
+	==================================================
+	One day I will not stay as a function
+	One day I will live as a method inside an object
+	This object will have a place in a 3D world
+	And will have the x,y and z attributes
+	X= 10
+	Y= 20
+	Z= 30
+	The dream has come true.
+	x: 10
+	y: 20
+	z: 30
+
+Example (2):
 
 .. code-block:: ring
 

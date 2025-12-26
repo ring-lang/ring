@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#default-value-for-object-attributes">Default Value for Object Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-new-from">Command: New From</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-objects-during-definition">Using Objects During Definition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#command-call">Command: Call</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#callable-functions-as-methods">Callable Functions as Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
@@ -258,7 +258,7 @@ inside the Ring programming language.</p>
 <li><p>Default Value for Object Attributes</p></li>
 <li><p>Command: New From</p></li>
 <li><p>Using Objects During Definition</p></li>
-<li><p>Command: Call</p></li>
+<li><p>Callable Functions as Methods</p></li>
 </ul>
 <section id="classes-and-objects">
 <span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this heading"></a></h2>
@@ -1265,8 +1265,8 @@ while in the second time, the Assignment is executed to support storing the Oper
 <p>RingQt samples uses this feature to quickly pass the parent window object to the other widgets.</p>
 </div>
 </section>
-<section id="command-call">
-<span id="index-19"></span><h2>Command: Call<a class="headerlink" href="#command-call" title="Permalink to this heading"></a></h2>
+<section id="callable-functions-as-methods">
+<span id="index-19"></span><h2>Callable Functions as Methods<a class="headerlink" href="#callable-functions-as-methods" title="Permalink to this heading"></a></h2>
 <p>Using the Call command we can call anonymous functions</p>
 <p>Syntax (1):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Call</span> <span class="nf">Variable</span><span class="p">([</span><span class="n">Parameters</span><span class="p">])</span>
@@ -1281,7 +1281,60 @@ while in the second time, the Assignment is executed to support storing the Oper
 <p class="admonition-title">Note</p>
 <p>We added braces to call the function as method</p>
 </div>
-<p>Example:</p>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fCheck</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;One day, I will no longer remain just a function.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;One day, I will live as a method inside an object.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;That object will have a place in a 3D world.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;And it will have the x, y, and z attributes.&quot;</span>
+        <span class="k">Try</span>
+                <span class="o">?</span> <span class="s2">&quot;X= &quot;</span> <span class="o">+</span> <span class="n">x</span>                             <span class="c1"># Use Attributes</span>
+                <span class="o">?</span> <span class="s2">&quot;Y= &quot;</span> <span class="o">+</span> <span class="n">y</span>
+                <span class="o">?</span> <span class="s2">&quot;Z= &quot;</span> <span class="o">+</span> <span class="n">z</span>
+                <span class="o">?</span> <span class="s2">&quot;The dream has come true.&quot;</span>
+                <span class="nb">print</span><span class="p">()</span>                                 <span class="c1"># Call Method</span>
+        <span class="k">Catch</span>
+                <span class="o">?</span> <span class="s2">&quot;Not yet!&quot;</span>
+        <span class="k">Done</span>
+<span class="p">}</span>
+
+<span class="k">call</span> <span class="nf">fCheck</span><span class="p">()</span>                                           <span class="c1"># Call fCheck as Function</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="k">call</span> <span class="p">{</span><span class="nf">fCheck</span><span class="p">()}</span> <span class="p">}</span>            <span class="c1"># Call fCheck as Method</span>
+
+<span class="kd">class</span> <span class="nc">Point</span>
+
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">print</span>
+
+                <span class="o">?</span> <span class="kp">self</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==================================================
+One day I will not stay as a function
+One day I will live as a method inside an object
+This object will have a place in a 3D world
+And will have the x,y and z attributes
+Not yet!
+==================================================
+==================================================
+One day I will not stay as a function
+One day I will live as a method inside an object
+This object will have a place in a 3D world
+And will have the x,y and z attributes
+X= 10
+Y= 20
+Z= 30
+The dream has come true.
+x: 10
+y: 20
+z: 30
+</pre></div>
+</div>
+<p>Example (2):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>                                  <span class="c1"># Global Variables</span>
 
 <span class="n">cFunc</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span> <span class="o">?</span> <span class="ss">:good</span> <span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>  <span class="p">}</span>
