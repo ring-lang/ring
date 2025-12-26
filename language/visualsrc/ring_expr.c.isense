@@ -43,7 +43,7 @@ nToken
 Type: List *
 pList, *pMark, *pAssignmentPointerPos, *pDupPos, *pPushVPos
 Type: char
-lSetProperty,lequal,nBeforeEqual,lNewAfterEqual,lNegative
+lSetProperty,lequal,nBeforeEqual,lNewAfterEqual,lNegative,lCallAsMethod
 Type: char
 cFuncName[RING_MEDIUMBUF]
 Type: char
@@ -55,4 +55,3 @@ ring_parser_ppmm
 Type: int
 nLastOperation,nMode,nValue
 ring_parser_objattributes
-ring_parser_processkeywords

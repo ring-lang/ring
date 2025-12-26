@@ -388,7 +388,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	    lAfterListEnd;
 	unsigned int nToken;
 	List *pList, *pMark, *pAssignmentPointerPos, *pDupPos, *pPushVPos;
-	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative;
+	char lSetProperty, lequal, nBeforeEqual, lNewAfterEqual, lNegative, lCallAsMethod;
 	char cFuncName[RING_MEDIUMBUF];
 	char cKeyword[RING_MEDIUMBUF];
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
@@ -884,6 +884,11 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	/* Factor --> Call Identifier ( parameters ) */
 	if (ring_parser_iskeyword(pParser, K_CALL)) {
 		ring_parser_nexttoken(pParser);
+		lCallAsMethod = RING_FALSE;
+		if (ring_parser_isoperator2(pParser, OP_BRACEOPEN)) {
+			lCallAsMethod = RING_TRUE;
+			ring_parser_nexttoken(pParser);
+		}
 		if (ring_parser_isidentifier(pParser)) {
 			/* Generate Code */
 			ring_parser_icg_loadaddress(pParser, pParser->cTokenText);
@@ -894,10 +899,16 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			}
 			ring_parser_icg_newoperation(pParser, ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser, ICO_ANONYMOUS);
+			if (lCallAsMethod) {
+				ring_parser_icg_newoperandint(pParser, RING_TRUE);
+			}
 			if (ring_parser_isoperator2(pParser, OP_FOPEN)) {
 				if (!ring_parser_mixer(pParser)) {
 					ring_parser_error(pParser, RING_PARSER_ERROR_SYNTAXERROR);
 					return RING_PARSER_FAIL;
+				}
+				if (lCallAsMethod && ring_parser_isoperator2(pParser, OP_BRACECLOSE)) {
+					ring_parser_nexttoken(pParser);
 				}
 				return RING_PARSER_OK;
 			} else {
