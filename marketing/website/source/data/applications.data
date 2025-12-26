@@ -102,6 +102,10 @@ aApplications = [
 				'<img src="images/goldmagic800.png" width="100%">'
 			],
 			[
+				'<a href="https://github.com/ysdragon/RingVaders" >Ring Vaders</a>',
+				'<img src="images/ringvaders.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" >TicTacToe 3D</a>',
 				'<img src="images/tictactoe3d.png" width="100%">'
 			],
