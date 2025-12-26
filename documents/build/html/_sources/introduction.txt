@@ -214,9 +214,12 @@ The Ring language comes with the next features
 * Three different styles for writing the code and you can create your style 
 * Syntax Flexibility (You can change the language keywords and operators)
 * The language keywords can be translated from English to other languages (Arabic, French, etc)
+* Translating Internal Identifiers (Self, Super, Init, BraceStart, BraceEnd, etc.)
 * Compact Syntax, No explicit end for statements (No ; or ENTER is required)
+* Flexible Statement Separation - Optional Use of Comma, Semicolon, or Newline
 * Using braces { } we can access objects and use attributes/methods as variables/functions
 * Using lists/objects during definition
+* Callable Functions as Methods
 * Transparent Implementation (See the Tokens, Grammar, and Byte Code for each program) 
 * Visual Implementation - Developed using Visual Programming (PWCT) 
 * Written in ANSI C (The code is generated + Looks identical to Handwritten Code)
@@ -224,6 +227,7 @@ The Ring language comes with the next features
 	* The Compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code
 	* The other 500,000 lines of code are related to libraries!
 * Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, 32-bit Microcontrollers, etc)
+* Portable Ring Object File Format
 * Comments (One line & Multi-lines)
 * Not Case-Sensitive
 * Dynamic Typing
