@@ -66,6 +66,8 @@ Type: char *
 cStr
 Type: FuncCall *
 pFuncCall
+Type: char
+lInsideMethod
 ring_vm_prevtempmem
 Type: List *
 pTemp
