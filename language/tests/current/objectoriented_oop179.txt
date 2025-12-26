@@ -1,0 +1,19 @@
+==================================================
+One day, I will no longer remain just a function.
+One day, I will live as a method inside an object.
+That object will have a place in a 3D world.
+And it will have the x, y, and z attributes.
+Not yet!
+==================================================
+One day, I will no longer remain just a function.
+One day, I will live as a method inside an object.
+That object will have a place in a 3D world.
+And it will have the x, y, and z attributes.
+X= 10
+Y= 20
+Z= 30
+The dream has come true.
+x: 10
+y: 20
+z: 30
+
