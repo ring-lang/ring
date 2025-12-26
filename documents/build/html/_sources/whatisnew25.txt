@@ -934,6 +934,7 @@ More Improvements
 * Ring VM - ring_objfile_readc() - Better implementation
 * Ring VM - ring_general_isobjectfile() - Better Implementation
 * Ring VM - ring_vm_updateclassespointers() - Better Performance
+* Ring VM - ICO_PUSHP - Keep in mind when the variable is no longer global
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
 * Ring Compiler - ring_state_execute() implementation - Check ring_state_runfile() output
 * Ring Compiler - ring_state_runobjectstring() - Get the file size as parameter
