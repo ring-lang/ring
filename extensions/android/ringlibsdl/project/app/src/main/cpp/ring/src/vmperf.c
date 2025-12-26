@@ -3,7 +3,16 @@
 #include "ring.h"
 
 void ring_vm_pushp(VM *pVM) {
-	RING_VM_STACK_PUSHP;
+	/* Check Scope Life Time */
+	if (RING_VM_IR_GETINTREG != pVM->nActiveScopeID) {
+		/* Reset register used for the pointer */
+		RING_VM_IR_READIVALUE(RING_VM_IR_REG2) = 0;
+		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_INT);
+		RING_VM_IR_OPCODE = ICO_LOADADDRESS;
+		ring_vm_loadaddress(pVM);
+		return;
+	}
+	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(RING_VM_IR_REG2));
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE;
 	ring_vm_updatescopeinfo(pVM, RING_VARSCOPE_GLOBAL);
 }
