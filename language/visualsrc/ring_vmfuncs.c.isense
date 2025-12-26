@@ -64,6 +64,8 @@ x, lFound
 ring_vm_anonymous
 Type: char *
 cStr
+Type: FuncCall *
+pFuncCall
 ring_vm_prevtempmem
 Type: List *
 pTemp

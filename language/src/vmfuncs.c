@@ -704,11 +704,17 @@ void ring_vm_createtemplist(VM *pVM) {
 
 void ring_vm_anonymous(VM *pVM) {
 	char *cStr;
+	FuncCall *pFuncCall;
 	if (RING_VM_STACK_ISSTRING) {
 		cStr = RING_VM_STACK_READC;
 		RING_VM_STACK_POP;
 		ring_general_lower(cStr);
-		ring_vm_loadfunc2(pVM, cStr, RING_FALSE);
+		if (ring_vm_loadfunc2(pVM, cStr, RING_FALSE)) {
+			if (RING_VM_IR_READI && RING_VM_FUNCCALLSCOUNT) {
+				pFuncCall = RING_VM_LASTFUNCCALL;
+				pFuncCall->lMethod = RING_TRUE;
+			}
+		}
 	} else {
 		ring_vm_error(pVM, RING_VM_ERROR_BADCALLPARA);
 	}
