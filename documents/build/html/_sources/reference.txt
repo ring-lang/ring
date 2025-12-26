@@ -642,7 +642,7 @@ Factor ---> 'new' ['from'] <Identifier>
 
 Factor ---> <AnonymousFunction>
 
-Factor ---> 'call' <identifier> { '.' <Identifier> } '(' <Parameters> ')'
+Factor ---> 'call' ['{'] <identifier> { '.' <Identifier> } '(' <Parameters> ')' ['}']
 
 List ---> '[' [ <Expr> { ',' <Expr> } ] ']'
 
