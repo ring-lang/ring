@@ -906,5 +906,9 @@ aPackagesRegistry = [
 	[ :name = "ringtensor",
           :description = "Extension designed specifically to accelerate Matrix operations",
           :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "RingVaders",
+          :description = "A retro arcade shooter game written in Ring using Ring Allegro",
+          :ProviderUserName = "ysdragon"
 	]
 ]
