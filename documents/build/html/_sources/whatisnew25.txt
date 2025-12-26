@@ -15,8 +15,9 @@ List of changes and new features
 
 Ring 1.25 comes with the next features!
 
-* Stock Analysis application
+* Stock Analysis Application
 * DistroMap API
+* RingVaders Game
 * Im2ANSI Tool
 * MyCTiger Tool
 * More Samples
@@ -35,9 +36,9 @@ Ring 1.25 comes with the next features!
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring 1.25?; Stock Analysis application
+	pair: What is new in Ring 1.25?; Stock Analysis Application
 
-Stock Analysis application
+Stock Analysis Application
 ==========================
 
 Stock analysis and simulation tool that fetches historical price data from 
@@ -72,6 +73,25 @@ Install:
 
 .. image:: distromapapi.png
 	:alt: DistroMapAPI
+
+.. index:: 
+	pair: What is new in Ring 1.25?; RingVaders Game
+
+RingVaders Game
+===============
+
+A retro arcade shooter game written in Ring using RingAllegro. 
+
+A clone of the classic Space Invaders.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ringvaders
+
+.. image:: ringvaders.png
+	:alt: RingVaders
 
 .. index:: 
 	pair: What is new in Ring 1.25?; Im2ANSI Tool

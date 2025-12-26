@@ -184,8 +184,9 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.25</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#stock-analysis-application">Stock Analysis application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stock-analysis-application">Stock Analysis Application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#distromap-api">DistroMap API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvaders-game">RingVaders Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#im2ansi-tool">Im2ANSI Tool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#myctiger-tool">MyCTiger Tool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
@@ -242,8 +243,9 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
 <p>Ring 1.25 comes with the next features!</p>
 <ul class="simple">
-<li><p>Stock Analysis application</p></li>
+<li><p>Stock Analysis Application</p></li>
 <li><p>DistroMap API</p></li>
+<li><p>RingVaders Game</p></li>
 <li><p>Im2ANSI Tool</p></li>
 <li><p>MyCTiger Tool</p></li>
 <li><p>More Samples</p></li>
@@ -263,7 +265,7 @@
 </ul>
 </section>
 <section id="stock-analysis-application">
-<span id="index-2"></span><h2>Stock Analysis application<a class="headerlink" href="#stock-analysis-application" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Stock Analysis Application<a class="headerlink" href="#stock-analysis-application" title="Permalink to this heading"></a></h2>
 <p>Stock analysis and simulation tool that fetches historical price data from
 Yahoo Finance, parses it into usable time series, calculates momentum-based returns, and
 simulates portfolio performance against a benchmark (QQQ).</p>
@@ -284,8 +286,18 @@ information based on codenames.</p>
 </div>
 <img alt="DistroMapAPI" src="_images/distromapapi.png" />
 </section>
+<section id="ringvaders-game">
+<span id="index-4"></span><h2>RingVaders Game<a class="headerlink" href="#ringvaders-game" title="Permalink to this heading"></a></h2>
+<p>A retro arcade shooter game written in Ring using RingAllegro.</p>
+<p>A clone of the classic Space Invaders.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ringvaders
+</pre></div>
+</div>
+<img alt="RingVaders" src="_images/ringvaders.png" />
+</section>
 <section id="im2ansi-tool">
-<span id="index-4"></span><h2>Im2ANSI Tool<a class="headerlink" href="#im2ansi-tool" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Im2ANSI Tool<a class="headerlink" href="#im2ansi-tool" title="Permalink to this heading"></a></h2>
 <p>Convert images into beautiful ANSI/ASCII art</p>
 <p>Developed using Ring, RingStbImage and RingFastPro</p>
 <p>Install:</p>
@@ -305,7 +317,7 @@ information based on codenames.</p>
 <img alt="im2ansi" src="_images/im2ansi.png" />
 </section>
 <section id="myctiger-tool">
-<span id="index-5"></span><h2>MyCTiger Tool<a class="headerlink" href="#myctiger-tool" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>MyCTiger Tool<a class="headerlink" href="#myctiger-tool" title="Permalink to this heading"></a></h2>
 <p>Use the Ring programming language for generating and building C programs.</p>
 <p>URL: <a class="reference external" href="https://github.com/ringpackages/myctiger">https://github.com/ringpackages/myctiger</a></p>
 <p>Usage:</p>
@@ -373,7 +385,7 @@ int main(int argc, char *argv[])
 </div>
 </section>
 <section id="more-samples">
-<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>The next samples are added:</p>
 <ul class="simple">
 <li><p>samples/UsingJSONLib/test14.ring</p></li>
@@ -394,7 +406,7 @@ int main(int argc, char *argv[])
 </ul>
 </section>
 <section id="more-ringpm-packages">
-<span id="index-7"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>Argon2: Ring binding for Argon2 hashing algorithm</p></li>
@@ -411,7 +423,7 @@ int main(int argc, char *argv[])
 </ul>
 </section>
 <section id="better-ringlibcurl">
-<span id="index-8"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
 <p>RingLibCurl is updated to supports using callbacks for different operations like handling the
 response data, headers, progress information and reading data for upload.</p>
 <p>We can set the callback function using <code class="docutils literal notranslate"><span class="pre">curl_easy_setopt</span></code> and the option name.
@@ -447,7 +459,7 @@ Received Data Size: 11363
 </div>
 </section>
 <section id="better-tokenslib">
-<span id="index-9"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
 <p>The library is updated to include the checkRingCode() function which is used for security.</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>checkRingCode(aPara) ---&gt; 1/0 (True/False)
@@ -500,7 +512,7 @@ Received Data Size: 11363
 </ul>
 </section>
 <section id="better-naturallib">
-<span id="index-10"></span><h2>Better NaturalLib<a class="headerlink" href="#better-naturallib" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better NaturalLib<a class="headerlink" href="#better-naturallib" title="Permalink to this heading"></a></h2>
 <p>The NaturalLib is updated to provide</p>
 <ol class="arabic simple">
 <li><p>Better Performance</p></li>
@@ -613,7 +625,7 @@ Command: I want window
 </div>
 </section>
 <section id="flexible-statement-separation">
-<span id="index-11"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
 <p>In this release, the language introduces support for using commas (,) as an alternative
 to semicolons (;) when separating statements.</p>
 <p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
@@ -673,7 +685,7 @@ I Love Programming!
 </div>
 </section>
 <section id="using-keywords-as-identifiers">
-<span id="index-12"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
 <p>The next keywords could be used as variables/attributes/etc.</p>
 <p>This is useful when creating domain-specific languages that uses these keywords in the commands.</p>
 <ul class="simple">
@@ -721,7 +733,7 @@ Where?
 </div>
 </section>
 <section id="translating-internal-identifiers">
-<span id="index-13"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
 <p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
 This allows translation without breaking existing code that relies on English identifiers.</p>
 <p>The identifiers that can be translated are:</p>
@@ -813,7 +825,7 @@ Parent - Test()
 </div>
 </section>
 <section id="ringvm-translatecfunction-function">
-<span id="index-14"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
 <p>This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.</p>
 <p>This happens at the VM level, not at the script level, so it’s fast and transparent.</p>
 <p>Example:</p>
@@ -835,7 +847,7 @@ Parent - Test()
 </div>
 </section>
 <section id="ringvm-errorhandler-function">
-<span id="index-15"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
 <p>If this function is defined in Ring code, it will be called when an error occurs, provided
 the error is not handled by try/catch/done.</p>
 <p>Example (1):</p>
@@ -887,7 +899,7 @@ done
 </div>
 </section>
 <section id="ringvm-ringolists-function">
-<span id="index-16"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
 <p>This function parses a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) string and returns its contents as Ring lists.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
@@ -919,7 +931,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ringvm-writeringo-function">
-<span id="index-17"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
 <p>This function writes a Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) from a Ring list.</p>
 <p>The list contains five sublists:</p>
 <ul class="simple">
@@ -943,7 +955,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ring-object-file-format-update">
-<span id="index-18"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
 <p>The Ring Object File (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo) format has been revised and improved for better performance and reliability.</p>
 <p>Example: PWCT2 Project</p>
 <p>The updates reduce storage overhead by more than 42% and increase performance by over 48%.</p>
@@ -979,7 +991,7 @@ Instructions count: 782280
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-19"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
