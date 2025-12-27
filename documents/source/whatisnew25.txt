@@ -487,7 +487,6 @@ Example (2):
 	? copy("=",30)
 
 	MyLang {
-
 		setBeforeRun(`ChangeRingKeyword to 	towards`+nl)
 		setAfterRun(`ChangeRingKeyword towards	to`+nl)
 	}
