@@ -81,6 +81,9 @@ class NaturalBaseMethods
 			return substr(cError,45)
 		}
 
+	func isIdentifier
+		return lStringIsIdentifier
+
 	func StartCommand 
 		if len(aCommandsStack) = 16 {
 			del(aCommandsStack,1)
