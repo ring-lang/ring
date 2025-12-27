@@ -141,9 +141,6 @@ class NaturalCommand
 		fFunc = aPara[:Function]				
 		aKeywords = split(cCommand," ")
 
-	func CreateCommandClass
-		return CreateTheTempClass() 
-
 	func DefineCommandAttributes
 		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ " { "
 		cCode += "defineAttribute(["
@@ -170,7 +167,7 @@ class NaturalCommand
 		CommandPara2Attributes(aPara)
 
 		# Create the Class
-		cCode = CreateCommandClass()
+		cCode = CreateTheTempClass()
 
 		# Add Attributes 
 		cCode += DefineCommandAttributes()
