@@ -84,6 +84,9 @@ class NaturalBaseMethods
 	func isIdentifier nIndex
 		return aCommandsStack[nActiveCommand][2][:aIsIdentifier][nIndex]
 
+	func IdentifierToString lStatus 
+		lTreatIdentifierAsString = lStatus
+
 	func StartCommand 
 		if len(aCommandsStack) = 16 {
 			del(aCommandsStack,1)
