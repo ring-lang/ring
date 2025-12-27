@@ -32,6 +32,17 @@ class NaturalCommand
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cKeyword)
 		cCode = substr(cCode,"#{f3}",fFunc)
+
+		if lSyntaxIsKeyword {
+			cCode += "func Get" +cKeyword + nl +
+					" fMethod = :" + fFunc + nl +
+					"call { fMethod() }" + nl 
+		else
+			cCode += "func BraceExecute_" +cKeyword + nl +
+					" fMethod = :" + fFunc + nl +
+					"call { fMethod() }" + nl 
+		}
+
 		return cCode
 
 	func DefineAddAttributes
@@ -138,6 +149,21 @@ class NaturalCommand
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		cCode = substr(cCode,"#{f3}",fFunc)
+		cCode = prepareCommandMethod(cCode)
+		return cCode 
+
+	func prepareCommandMethod cCode
+
+		if lSyntaxIsKeyword {
+			cCode += "func Get" +cCommandNoSpaces + nl +
+					" fMethod = :" + fFunc + nl +
+					"call { fMethod() }" + nl 
+		else
+			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
+					" fMethod = :" + fFunc + nl +
+					"call { fMethod() }" + nl 
+		}
+
 		return cCode
 
 	func DefineCommandAttributes

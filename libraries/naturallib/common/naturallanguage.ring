@@ -234,14 +234,7 @@ class NaturalLanguage
 		if not cPackageName = NULL {
 			cSourceClassName = lower(cPackageName+"."+ cCommand)
 		}
-		oObject = new from cSourceClassName
-		if oObject.lSyntaxIsKeyword {
-			addMethod(oObject,"Get"+cCommand,oObject.fFunc)
-		else
-			addMethod(oObject,"BraceExecute_"+cCommand,oObject.fFunc)
-		}
 		mergemethods(cLanguageName,cSourceClassName)
-
 
 	func SetOperators Operators
 		cOperators = Operators
