@@ -20,8 +20,13 @@ class NaturalCommand
 	cCommandsCache = ""
 	cGroupName = :ManyCommands
 
+	func setPackage cName
+		cPackage = cName
+
 	func Para2Attributes aPara
-		cPackage = aPara[:Package]
+		if aPara[:Package] {
+			cPackage = aPara[:Package]
+		}
 		cKeyword = aPara[:Keyword]
 		fFunc = aPara[:Function]
 		cCommandNoSpaces = cKeyword
@@ -137,7 +142,9 @@ class NaturalCommand
 		return cCode
 
 	func CommandPara2Attributes aPara
-		cPackage = aPara[:Package]
+		if aPara[:Package] {
+			cPackage = aPara[:Package]
+		}
 		cCommand = aPara[:Command]
 		cCommandNoSpaces = substr(cCommand," ","")
 		fFunc = aPara[:Function]				
