@@ -214,6 +214,14 @@ This object provides the next methods :-
 * EndCache() 
 * SetPackage(cName)
 
+The command passes an anonymous function that becomes a method inside the class 
+representing our domain‑specific language
+
+Inside this anonymous function, we can use the following methods to access the command parameters
+
+* Expr(nPara) --> Value
+* isIdentifier() --> lStatus
+
 File: mylanguage.ring
 
 .. code-block:: ring
