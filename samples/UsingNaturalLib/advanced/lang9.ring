@@ -2,15 +2,14 @@ load "stdlibcore.ring"
 load "naturallib.ring"
 
 DefineNaturalCommand.startCache(:MyDSL)
+DefineNaturalCommand.setPackage("MyLanguage.Natural")
 	DefineNaturalCommand.SyntaxIsCommand([
-		:Package = "MyLanguage.Natural",
 		:Command = "I want window", 
 		:Function = func {
 			?  "Command: I want window" 
 		}
 	])
 	DefineNaturalCommand.SyntaxIsCommand([
-		:Package = "MyLanguage.Natural",
 		:Command = "I want button", 
 		:Function = func {
 			?  "Command: I want button" 
