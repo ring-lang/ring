@@ -231,6 +231,7 @@ The next samples are added:
 * ‎samples/UsingNaturalLib/advanced/lang8.ring
 * ‎samples/UsingNaturalLib/advanced/lang9.ring
 * ‎samples/UsingNaturalLib/advanced/lang10.ring
+* ‎samples/UsingNaturalLib/advanced/lang11.ring
 * samples/UsingNaturalLib/tests/largecode.ring
 * samples/General/ListFunctions/ListFunctions.ring
 * samples/General/Orbital/Obital-Solar-Eclipse.ring
@@ -408,6 +409,49 @@ Example (1):
 	load "stdlibcore.ring"
 	load "naturallib.ring"
 
+	DefineNaturalCommand {
+		setPackage("MyLanguage.Natural")
+		startCache(:MyDSL)
+		SyntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				?  "Command: I want window" 
+			}
+		])
+		SyntaxIsCommand([
+			:Command = "I want button", 
+			:Function = func {
+				?  "Command: I want button" 
+			}
+		])
+		endCache()
+	}
+
+	MyLang = New NaturalLanguage {
+		SetPackageName("MyLanguage.Natural")
+		SetLanguageName(:MyLanguage)
+		loadCommand(:MyDSL)
+	}
+
+	new MyLanguage {
+ 		I want window	
+		I want button
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want button
+
+Example (2):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
 	DefineNaturalCommand.SyntaxIsCommand([
 		:Package = "MyLanguage.Natural",
 		:Command = "i want window", 
@@ -494,48 +538,6 @@ Output:
 	Command: I want window
 	==============================
 
-Example (2):
-
-.. code-block:: ring
-
-	load "stdlibcore.ring"
-	load "naturallib.ring"
-
-	DefineNaturalCommand {
-		setPackage("MyLanguage.Natural")
-		startCache(:MyDSL)
-		SyntaxIsCommand([
-			:Command = "I want window", 
-			:Function = func {
-				?  "Command: I want window" 
-			}
-		])
-		SyntaxIsCommand([
-			:Command = "I want button", 
-			:Function = func {
-				?  "Command: I want button" 
-			}
-		])
-		endCache()
-	}
-
-	MyLang = New NaturalLanguage {
-		SetPackageName("MyLanguage.Natural")
-		SetLanguageName(:MyLanguage)
-		loadCommand(:MyDSL)
-	}
-
-	new MyLanguage {
- 		I want window	
-		I want button
-	}
-
-Output:
-
-.. code-block:: none
-
-	Command: I want window
-	Command: I want button
 
 .. index:: 
 	pair: What is new in Ring  1.25; Callable Functions as Methods
