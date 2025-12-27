@@ -26,9 +26,8 @@ class NaturalCommand
 
 	func CreateTheTempClass
 		cCode = "Package #{f1}" + nl +
-			"Class #{f2}" + nl +
-			"fFunc = '#{f3}'" + nl +
-			"lSyntaxIsKeyword = " + lSyntaxIsKeyword + nl
+			"Class #{f2}" + nl 
+
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cKeyword)
 		cCode = substr(cCode,"#{f3}",fFunc)
@@ -143,17 +142,10 @@ class NaturalCommand
 
 	func CreateCommandClass 
 		cCode = `Package #{f1}` + nl +
-			`Class #{f2}` + nl +
-			"fFunc = '#{f3}'" + nl + 
-			"lSyntaxIsKeyword = " + lSyntaxIsKeyword + nl
+			`Class #{f2}` + nl 
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
-		cCode = substr(cCode,"#{f3}",fFunc)
-		cCode = prepareCommandMethod(cCode)
-		return cCode 
-
-	func prepareCommandMethod cCode
-
+		
 		if lSyntaxIsKeyword {
 			cCode += "func Get" +cCommandNoSpaces + nl +
 					" fMethod = :" + fFunc + nl +
