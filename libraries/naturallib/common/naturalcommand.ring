@@ -27,7 +27,7 @@ class NaturalCommand
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
 		}
-		cKeyword = aPara[:Keyword]
+		cKeyword = lower(aPara[:Keyword])
 		fFunc = aPara[:Function]
 		cCommandNoSpaces = cKeyword
 
@@ -145,7 +145,7 @@ class NaturalCommand
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
 		}
-		cCommand = aPara[:Command]
+		cCommand = lower(aPara[:Command])
 		cCommandNoSpaces = substr(cCommand," ","")
 		fFunc = aPara[:Function]				
 		aKeywords = split(cCommand," ")
