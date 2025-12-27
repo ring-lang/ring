@@ -263,11 +263,12 @@ class NaturalCommand
 	func startCache cName
 		lCacheCommands = True 
 		cGroupName = cName
-		cCommandsCache = "Package " + cPackage + nl +
-			"Class " + cGroupName + nl 
+		cCommandsCache = ""
 
 	func endCache
 		lCacheCommands = False
+		cCommandsCache = "Package " + cPackage + nl +
+			"Class " + cGroupName + nl + cCommandsCache
 		eval(cCommandsCache)
 		cCommandsCache = ""
 
