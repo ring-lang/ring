@@ -209,6 +209,8 @@ Generated C code (test.c)
 	}
 	
 
+.. tip:: Imagine using MyCTiger and NaturalLib to build a domain‑specific language for microcontroller programming — giving you the flexibility of the Ring language and the performance and efficiency of C at the same time.
+
 .. index:: 
 	pair: What is new in Ring 1.25?; More Samples
 
