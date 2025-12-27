@@ -23,21 +23,22 @@ class NaturalCommand
 		cPackage = aPara[:Package]
 		cKeyword = aPara[:Keyword]
 		fFunc = aPara[:Function]
+		cCommandNoSpaces = cKeyword
 
 	func CreateTheTempClass
 		cCode = "Package #{f1}" + nl +
 			"Class #{f2}" + nl 
 
 		cCode = substr(cCode,"#{f1}",cPackage)
-		cCode = substr(cCode,"#{f2}",cKeyword)
+		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		cCode = substr(cCode,"#{f3}",fFunc)
 
 		if lSyntaxIsKeyword {
-			cCode += "func Get" +cKeyword + nl +
+			cCode += "func Get" +cCommandNoSpaces + nl +
 					" fMethod = :" + fFunc + nl +
 					"call { fMethod() }" + nl 
 		else
-			cCode += "func BraceExecute_" +cKeyword + nl +
+			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
 					" fMethod = :" + fFunc + nl +
 					"call { fMethod() }" + nl 
 		}
@@ -140,23 +141,8 @@ class NaturalCommand
 		fFunc = aPara[:Function]				
 		aKeywords = split(cCommand," ")
 
-	func CreateCommandClass 
-		cCode = `Package #{f1}` + nl +
-			`Class #{f2}` + nl 
-		cCode = substr(cCode,"#{f1}",cPackage)
-		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
-		
-		if lSyntaxIsKeyword {
-			cCode += "func Get" +cCommandNoSpaces + nl +
-					" fMethod = :" + fFunc + nl +
-					"call { fMethod() }" + nl 
-		else
-			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
-					" fMethod = :" + fFunc + nl +
-					"call { fMethod() }" + nl 
-		}
-
-		return cCode
+	func CreateCommandClass
+		return CreateTheTempClass() 
 
 	func DefineCommandAttributes
 		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ " { "
