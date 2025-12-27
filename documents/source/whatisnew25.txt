@@ -234,6 +234,7 @@ The next samples are added:
 * ‎samples/UsingNaturalLib/advanced/lang9.ring
 * ‎samples/UsingNaturalLib/advanced/lang10.ring
 * ‎samples/UsingNaturalLib/advanced/lang11.ring
+* ‎samples/UsingNaturalLib/advanced/lang12.ring
 * samples/UsingNaturalLib/tests/largecode.ring
 * samples/General/ListFunctions/ListFunctions.ring
 * samples/General/Orbital/Obital-Solar-Eclipse.ring
