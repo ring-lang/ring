@@ -220,7 +220,7 @@ representing our domain‑specific language
 Inside this anonymous function, we can use the following methods to access the command parameters
 
 * Expr(nPara) --> Value
-* isIdentifier() --> lStatus
+* isIdentifier(nPara) --> lStatus
 
 File: mylanguage.ring
 

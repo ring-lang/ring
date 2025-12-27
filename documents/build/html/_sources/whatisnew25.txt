@@ -402,6 +402,11 @@ The NaturalLib is updated to provide
 * endCache() 
 * setPackage(cName)
 
+(4) The next methods could be used to process parameters by the command
+
+* Expr(nPara) --> Value
+* isIdentifier(nPara) --> lStatus
+
 .. note:: Check the (Using the Natural Library) chapter for more information about these methods
 
 Example (1):
