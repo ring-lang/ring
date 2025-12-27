@@ -11,7 +11,7 @@ load "../command/windowtitleis.ring"
 nDefIns  = 1000
 nInsUsed = 1000
 
-DefineNaturalCommand.startCache(:MySDL)
+DefineNaturalCommand.startCache(:MyDSL)
 for m=1 to nDefIns
 	DefineNaturalCommand.SyntaxIsCommand([
 		:Package = "MyLanguage.Natural",
@@ -31,7 +31,7 @@ MyLang = New NaturalLanguage {
  	loadCommand(:IWantWindow)
 	loadCommand(:IWantButton)
 	
- 	loadCommand(:MySDL)
+ 	loadCommand(:MyDSL)
 	
 }
 
