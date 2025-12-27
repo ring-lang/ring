@@ -395,6 +395,7 @@ The NaturalLib is updated to provide
 * getAfterRun() --> cCode
 * getStartKeywordsWith() --> cStart
 * getMaskOperators() --> lMask  
+* IdentifierToString(lStatus)
 
 (3) The next methods are added to the NaturalCommand class
 

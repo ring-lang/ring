@@ -145,7 +145,6 @@ class NaturalBaseMethods
 		return :NLNV
 
 	func processExprValue ExprValue,cKeyword,nCount,cType
-
 		if isCommand() and CommandData()[:name] = cKeyword {
 			if ( cType = :String and (! isString(ExprValue)) ) or
 			   ( cType = :Number and (! isNumber(ExprValue)) ) { return }

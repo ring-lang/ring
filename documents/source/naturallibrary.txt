@@ -34,6 +34,7 @@ next methods :-
 * GetAfterRun() --> cCode
 * GetStartKeywordsWith() --> cStart
 * GetMaskOperators() --> lMask 
+* IdentifierToString(lStatus)
 
 .. index:: 
 	pair: Using the Natural Library; Natural Library - Demo Program
