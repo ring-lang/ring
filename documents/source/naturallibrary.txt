@@ -18,7 +18,7 @@ After loading the library, We can use the NaturalLanguage class that contains th
 next methods :-
 
 * SetLanguageName(cLanguageName)
-* setCommandsPath(cFolder)
+* SetCommandsPath(cFolder)
 * SetPackageName(cPackageName)
 * UseCommand(cCommandName)
 * LoadCommand(cCommandName)
@@ -26,14 +26,14 @@ next methods :-
 * RunFile(cFileName)
 * RunString(cCode)
 * Execute(cCode)
-* setBeforeRun(cCode)
-* setAfterRun(cCode)
-* setStartKeywordsWith(cStart)
-* setMaskOperators(lMask) 
-* getBeforeRun() --> cCode
-* getAfterRun() --> cCode
-* getStartKeywordsWith() --> cStart
-* getMaskOperators() --> lMask 
+* SetBeforeRun(cCode)
+* SetAfterRun(cCode)
+* SetStartKeywordsWith(cStart)
+* SetMaskOperators(lMask) 
+* GetBeforeRun() --> cCode
+* GetAfterRun() --> cCode
+* GetStartKeywordsWith() --> cStart
+* GetMaskOperators() --> lMask 
 
 .. index:: 
 	pair: Using the Natural Library; Natural Library - Demo Program
@@ -210,6 +210,8 @@ This object provides the next methods :-
 * SyntaxIsCommandExpression(aPara)
 * SyntaxIsCommandExpressionExpression(aPara)
 * SyntaxIsCommandExpressions(aPara,nCount)
+* StartCache(cName)
+* EndCache() 
 
 File: mylanguage.ring
 
@@ -633,3 +635,54 @@ Output:
 	Command: I want window
 	Command: I want window
 	Command: I want window
+
+.. index:: 
+	pair: Using the Natural Library; StartCache() and EndCache() methods
+
+StartCache() and EndCache() methods
+===================================
+
+Using these methods we can get better performance when loading many commands.
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	DefineNaturalCommand.startCache(:MyDSL)
+		DefineNaturalCommand.SyntaxIsCommand([
+			:Package = "MyLanguage.Natural",
+			:Command = "I want window", 
+			:Function = func {
+				?  "Command: I want window" 
+			}
+		])
+		DefineNaturalCommand.SyntaxIsCommand([
+			:Package = "MyLanguage.Natural",
+			:Command = "I want button", 
+			:Function = func {
+				?  "Command: I want button" 
+			}
+		])
+	DefineNaturalCommand.endCache()
+
+	MyLang = New NaturalLanguage {
+
+		SetLanguageName(:MyLanguage)
+		SetPackageName("MyLanguage.Natural")
+	
+ 		loadCommand(:MyDSL)
+	
+	}
+
+	new MyLanguage {
+	 	I want window	
+		I want button
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want button

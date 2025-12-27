@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#runstring-and-execute-methods">RunString and Execute() Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setbeforerun-and-setafterrun-methods">SetBeforeRun() and SetAfterRun() Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setstartkeywordswith-and-setmaskoperators-methods">SetStartKeywordsWith() and SetMaskOperators() methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#startcache-and-endcache-methods">StartCache() and EndCache() methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -236,7 +237,7 @@ that contains a group of commands.</p>
 next methods :-</p>
 <ul class="simple">
 <li><p>SetLanguageName(cLanguageName)</p></li>
-<li><p>setCommandsPath(cFolder)</p></li>
+<li><p>SetCommandsPath(cFolder)</p></li>
 <li><p>SetPackageName(cPackageName)</p></li>
 <li><p>UseCommand(cCommandName)</p></li>
 <li><p>LoadCommand(cCommandName)</p></li>
@@ -244,14 +245,14 @@ next methods :-</p>
 <li><p>RunFile(cFileName)</p></li>
 <li><p>RunString(cCode)</p></li>
 <li><p>Execute(cCode)</p></li>
-<li><p>setBeforeRun(cCode)</p></li>
-<li><p>setAfterRun(cCode)</p></li>
-<li><p>setStartKeywordsWith(cStart)</p></li>
-<li><p>setMaskOperators(lMask)</p></li>
-<li><p>getBeforeRun() –&gt; cCode</p></li>
-<li><p>getAfterRun() –&gt; cCode</p></li>
-<li><p>getStartKeywordsWith() –&gt; cStart</p></li>
-<li><p>getMaskOperators() –&gt; lMask</p></li>
+<li><p>SetBeforeRun(cCode)</p></li>
+<li><p>SetAfterRun(cCode)</p></li>
+<li><p>SetStartKeywordsWith(cStart)</p></li>
+<li><p>SetMaskOperators(lMask)</p></li>
+<li><p>GetBeforeRun() –&gt; cCode</p></li>
+<li><p>GetAfterRun() –&gt; cCode</p></li>
+<li><p>GetStartKeywordsWith() –&gt; cStart</p></li>
+<li><p>GetMaskOperators() –&gt; lMask</p></li>
 </ul>
 <section id="natural-library-demo-program">
 <span id="index-1"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this heading"></a></h2>
@@ -400,6 +401,8 @@ I will count Again!
 <li><p>SyntaxIsCommandExpression(aPara)</p></li>
 <li><p>SyntaxIsCommandExpressionExpression(aPara)</p></li>
 <li><p>SyntaxIsCommandExpressions(aPara,nCount)</p></li>
+<li><p>StartCache(cName)</p></li>
+<li><p>EndCache()</p></li>
 </ul>
 <p>File: mylanguage.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
@@ -731,6 +734,50 @@ defines the (I want window) command.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
 Command: I want window
 Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="startcache-and-endcache-methods">
+<span id="index-9"></span><h2>StartCache() and EndCache() methods<a class="headerlink" href="#startcache-and-endcache-methods" title="Permalink to this heading"></a></h2>
+<p>Using these methods we can get better performance when loading many commands.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">endCache</span><span class="p">()</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want button
 </pre></div>
 </div>
 </section>

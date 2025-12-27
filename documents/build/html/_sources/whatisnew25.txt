@@ -392,6 +392,11 @@ The NaturalLib is updated to provide
 * getStartKeywordsWith() --> cStart
 * getMaskOperators() --> lMask  
 
+(3) The next methods are added to the NaturalCommand class
+
+* startCache(cName)
+* endCache() 
+
 .. note:: Check the (Using the Natural Library) chapter for more information about these methods
 
 Example:
