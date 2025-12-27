@@ -81,8 +81,8 @@ class NaturalBaseMethods
 			return substr(cError,45)
 		}
 
-	func isIdentifier
-		return lStringIsIdentifier
+	func isIdentifier nIndex
+		return aCommandsStack[nActiveCommand][2][:aIsIdentifier][nIndex]
 
 	func StartCommand 
 		if len(aCommandsStack) = 16 {
@@ -138,6 +138,7 @@ class NaturalBaseMethods
 		CommandData()[:name] = cKeyword
 		CommandData()[:nExpr] = 0
 		CommandData()[:aExpr] = []
+		CommandData()[:aIsIdentifier] = []
 		return :NLNV
 
 	func processExprValue ExprValue,cKeyword,nCount,cType
@@ -147,6 +148,7 @@ class NaturalBaseMethods
 			   ( cType = :Number and (! isNumber(ExprValue)) ) { return }
 			CommandData()[:nExpr]++   
 			CommandData()[:aExpr] + ExprValue
+			CommandData()[:aIsIdentifier] + lStringIsIdentifier
 			if CommandData()[:nExpr] = nCount {
 				cMethodName = "BraceExecute_"+cKeyword
 				call cMethodName()
@@ -170,6 +172,7 @@ class NaturalBaseMethods
 					CommandData()[:name] = cCommand
 					CommandData()[:nExpr] = 0
 					CommandData()[:aExpr] = []
+					CommandData()[:aIsIdentifier] = []
 			}
 			return True
 		}
