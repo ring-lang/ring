@@ -18,6 +18,7 @@ class NaturalCommand
 
 	lCacheCommands = False
 	cCommandsCache = ""
+	cGroupName = :ManyCommands
 
 	func Para2Attributes aPara
 		cPackage = aPara[:Package]
@@ -26,9 +27,10 @@ class NaturalCommand
 		cCommandNoSpaces = cKeyword
 
 	func CreateTheTempClass
-		cCode = "Package #{f1}" + nl +
-			"Class #{f2}" + nl 
-
+		cCode = ""
+		if ! lCacheCommands {
+			cCode = "Package #{f1}" + nl + "Class #{f2}" + nl 
+		}
 		cCode = substr(cCode,"#{f1}",cPackage)
 		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
 		cCode = substr(cCode,"#{f3}",fFunc)
@@ -258,8 +260,11 @@ class NaturalCommand
 	func SyntaxIsCommandExpressions  aPara,nCount
 		SyntaxIsCommandExpressions_(aPara,:any,nCount)
 
-	func startCache
+	func startCache cName
 		lCacheCommands = True 
+		cGroupName = cName
+		cCommandsCache = "Package " + cPackage + nl +
+			"Class " + cGroupName + nl 
 
 	func endCache
 		lCacheCommands = False
