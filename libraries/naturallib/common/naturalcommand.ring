@@ -40,7 +40,10 @@ class NaturalCommand
 		if ! aPara[:Keyword] {
 			raise(C_NATLIB_ERROR_PASSKEYWORD)
 		}
-		cKeyword = lower(aPara[:Keyword])
+		cKeyword = lower(trim(aPara[:Keyword]))
+		if substr(cKeyword," ") {
+			raise(C_NATLIB_ERROR_MANYKEYWORDS)
+		}
 		cCommandNoSpaces = cKeyword
 
 	func CommandPara2Attributes aPara
