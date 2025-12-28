@@ -6,3 +6,4 @@ C_NATLIB_ERROR_PASSKEYWORD  = "Error (NaturalLib-2) : Please pass :Keyword as pa
 C_NATLIB_ERROR_PASSFUNCTION = "Error (NaturalLib-3) : Please pass :Function as parameter"
 C_NATLIB_ERROR_PASSCOMMAND  = "Error (NaturalLib-4) : Please pass :Command as parameter"
 C_NATLIB_ERROR_PASSPACKAGE  = "Error (NaturalLib-5) : Please pass :Package as parameter"
+C_NATLIB_ERROR_ONEKEYWORD   = "Error (NaturalLib-6) : Sorry, The command must contains more than one keyword, Use: SyntaxIsKeyword instead of SyntaxIsCommand"

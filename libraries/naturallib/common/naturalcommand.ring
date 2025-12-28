@@ -51,6 +51,9 @@ class NaturalCommand
 		cCommand = lower(aPara[:Command])
 		cCommandNoSpaces = substr(cCommand," ","")				
 		aKeywords = split(cCommand," ")
+		if len(aKeywords) < 2 {
+			raise(C_NATLIB_ERROR_ONEKEYWORD)
+		}
 
 	func CreateTheTempClass
 		cCode = ""
