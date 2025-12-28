@@ -23,19 +23,31 @@ class NaturalCommand
 	func setPackage cName
 		cPackage = cName
 
-	func Para2Attributes aPara
+	func prepareCommandParameters aPara
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
-		}
-		if ! aPara[:Keyword] {
-			raise(C_NATLIB_ERROR_PASSKEYWORD)
 		}
 		if ! aPara[:Function] {
 			raise(C_NATLIB_ERROR_PASSFUNCTION)
 		}
-		cKeyword = lower(aPara[:Keyword])
 		fFunc = aPara[:Function]
+
+	func Para2Attributes aPara
+		prepareCommandParameters(aPara)
+		if ! aPara[:Keyword] {
+			raise(C_NATLIB_ERROR_PASSKEYWORD)
+		}
+		cKeyword = lower(aPara[:Keyword])
 		cCommandNoSpaces = cKeyword
+
+	func CommandPara2Attributes aPara
+		prepareCommandParameters(aPara)
+		if ! aPara[:Command] {
+			raise(C_NATLIB_ERROR_PASSCOMMAND)
+		}
+		cCommand = lower(aPara[:Command])
+		cCommandNoSpaces = substr(cCommand," ","")				
+		aKeywords = split(cCommand," ")
 
 	func CreateTheTempClass
 		cCode = ""
@@ -146,21 +158,6 @@ class NaturalCommand
 		*/
 		cCode = ' func '+"Get"+cKeyword+' { return processCommandKeyword(:'+cKeyword+') }' + nl
 		return cCode
-
-	func CommandPara2Attributes aPara
-		if aPara[:Package] {
-			cPackage = aPara[:Package]
-		}
-		if ! aPara[:Command] {
-			raise(C_NATLIB_ERROR_PASSCOMMAND)
-		}
-		if ! aPara[:Function] {
-			raise(C_NATLIB_ERROR_PASSFUNCTION)
-		}
-		cCommand = lower(aPara[:Command])
-		cCommandNoSpaces = substr(cCommand," ","")
-		fFunc = aPara[:Function]				
-		aKeywords = split(cCommand," ")
 
 	func DefineCommandAttributes
 		cCode = " func "+ "AddAttributes_"+cCommandNoSpaces+ " { "
