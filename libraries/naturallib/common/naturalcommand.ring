@@ -7,7 +7,8 @@ DefineNaturalCommand = new NaturalCommand
 
 class NaturalCommand
 
-	cPackage cKeyword  fFunc  
+	cPackage = ""
+	cKeyword  fFunc  
 	cCommand cCommandNoSpaces aKeywords
 
 	aAllKeywords = []
@@ -26,6 +27,8 @@ class NaturalCommand
 	func prepareCommandParameters aPara
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
+		elseif ! cPackage
+			raise(C_NATLIB_ERROR_PASSPACKAGE) 
 		}
 		if ! aPara[:Function] {
 			raise(C_NATLIB_ERROR_PASSFUNCTION)
