@@ -98,6 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setstartkeywordswith-and-setmaskoperators-methods">SetStartKeywordsWith() and SetMaskOperators() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#startcache-and-endcache-methods">StartCache() and EndCache() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setpackage-method">SetPackage() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expr-and-isidentifier-methods">Expr() and isIdentifier() methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -828,6 +829,54 @@ Command: I want button
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
 Command: I want button
+</pre></div>
+</div>
+</section>
+<section id="expr-and-isidentifier-methods">
+<span id="index-11"></span><h2>Expr() and isIdentifier() methods<a class="headerlink" href="#expr-and-isidentifier-methods" title="Permalink to this heading"></a></h2>
+<p>Using Expr() and isIdentifer() methods, we can process the command parameters.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackage</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">SyntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window backcolor is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span> <span class="s2">&quot;Command: Window backcolor is &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s2">&quot;Is Identifier: &quot;</span> <span class="o">+</span> <span class="nf">isIdentifier</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">window</span> <span class="n">backcolor</span> <span class="n">is</span> <span class="s2">&quot;white&quot;</span>
+        <span class="n">window</span> <span class="n">backcolor</span> <span class="n">is</span> <span class="n">red</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: Window backcolor is white
+Is Identifier: 0
+Command: Window backcolor is red
+Is Identifier: 1
 </pre></div>
 </div>
 </section>
