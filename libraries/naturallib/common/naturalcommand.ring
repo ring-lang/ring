@@ -28,10 +28,10 @@ class NaturalCommand
 			cPackage = aPara[:Package]
 		}
 		if ! aPara[:Keyword] {
-			raise("Please pass :Keyword as parameter")
+			raise(C_NATLIB_ERROR_PASSKEYWORD)
 		}
 		if ! aPara[:Function] {
-			raise("Please pass :Function as parameter")
+			raise(C_NATLIB_ERROR_PASSFUNCTION)
 		}
 		cKeyword = lower(aPara[:Keyword])
 		fFunc = aPara[:Function]
@@ -152,10 +152,10 @@ class NaturalCommand
 			cPackage = aPara[:Package]
 		}
 		if ! aPara[:Command] {
-			raise("Please pass :Command as parameter")
+			raise(C_NATLIB_ERROR_PASSCOMMAND)
 		}
 		if ! aPara[:Function] {
-			raise("Please pass :Function as parameter")
+			raise(C_NATLIB_ERROR_PASSFUNCTION)
 		}
 		cCommand = lower(aPara[:Command])
 		cCommandNoSpaces = substr(cCommand," ","")
