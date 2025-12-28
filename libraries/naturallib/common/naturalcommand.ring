@@ -27,6 +27,12 @@ class NaturalCommand
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
 		}
+		if ! aPara[:Keyword] {
+			raise("Please pass :Keyword as parameter")
+		}
+		if ! aPara[:Function] {
+			raise("Please pass :Function as parameter")
+		}
 		cKeyword = lower(aPara[:Keyword])
 		fFunc = aPara[:Function]
 		cCommandNoSpaces = cKeyword
@@ -144,6 +150,12 @@ class NaturalCommand
 	func CommandPara2Attributes aPara
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
+		}
+		if ! aPara[:Command] {
+			raise("Please pass :Command as parameter")
+		}
+		if ! aPara[:Function] {
+			raise("Please pass :Function as parameter")
 		}
 		cCommand = lower(aPara[:Command])
 		cCommandNoSpaces = substr(cCommand," ","")
