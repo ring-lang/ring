@@ -70,7 +70,7 @@ class NaturalBaseMethods
 				lStringIsIdentifier = True 
 				BraceExprEval(cVarName)
 				lStringIsIdentifier = False
-				return 
+				return :NLNV 
 			}
 		}
 		if lPassError { return }
