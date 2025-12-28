@@ -61,20 +61,17 @@ class NaturalCommand
 	func CreateTheTempClass
 		cCode = ""
 		if ! lCacheCommands {
-			cCode = "Package #{f1}" + nl + "Class #{f2}" + nl 
+			cCode = "Package " + cPackage + nl + "Class " + cCommandNoSpaces + nl 
 		}
-		cCode = substr(cCode,"#{f1}",cPackage)
-		cCode = substr(cCode,"#{f2}",cCommandNoSpaces)
-		cCode = substr(cCode,"#{f3}",fFunc)
 
 		if lSyntaxIsKeyword {
 			cCode += "func Get" +cCommandNoSpaces + nl +
-					" fMethod = :" + fFunc + nl +
-					"call { fMethod() }" + nl 
+					"    fMethod = :" + fFunc + nl +
+					"    return call { fMethod() }" + nl 
 		else
 			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
-					" fMethod = :" + fFunc + nl +
-					"call { fMethod() }" + nl 
+					 "    fMethod = :" + fFunc + nl +
+					 "    return call { fMethod() }" + nl 
 		}
 
 		return cCode
