@@ -299,7 +299,7 @@ class NaturalCommand
 			eval(cCommandsCache)
 		catch 
 			lEvalError = True 
-			write("natlib_error.txt",cCommandsCache+nl+copy("=",50)+nl+nl+"Error Msg: "+nl+cCatchError)
+			write("natlib_error.txt",cCommandsCache+C_NATLIB_BEFORERROR+cCatchError)
 		}
 		if lEvalError {
 			raise(C_NATLIB_ERROR_EVAL)
@@ -309,6 +309,15 @@ class NaturalCommand
 	func cmdEval cCode
 		if lCacheCommands {
 			cCommandsCache += cCode + nl
-		else
+			return
+		}
+		lEvalError = False
+		try {
 			eval(cCode)
-		} 
+		catch 
+			lEvalError = True 
+			write("natlib_error.txt",cCode+C_NATLIB_BEFORERROR+cCatchError)
+		}
+		if lEvalError {
+			raise(C_NATLIB_ERROR_EVAL)
+		}
