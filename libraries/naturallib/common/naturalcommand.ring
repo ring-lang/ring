@@ -299,7 +299,7 @@ class NaturalCommand
 			eval(cCommandsCache)
 		catch 
 			lEvalError = True 
-			write("natlib_error.txt",cCommandsCache)
+			write("natlib_error.txt",cCommandsCache+nl+copy("=",50)+nl+nl+"Error Msg: "+nl+cCatchError)
 		}
 		if lEvalError {
 			raise(C_NATLIB_ERROR_EVAL)
