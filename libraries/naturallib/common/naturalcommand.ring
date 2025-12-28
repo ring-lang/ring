@@ -294,7 +294,16 @@ class NaturalCommand
 		lCacheCommands = False
 		cCommandsCache = "Package " + cPackage + nl +
 			"Class " + cGroupName + nl + cCommandsCache
-		eval(cCommandsCache)
+		lEvalError = False
+		try {
+			eval(cCommandsCache)
+		catch 
+			lEvalError = True 
+			write("natlib_error.txt",cCommandsCache)
+		}
+		if lEvalError {
+			raise(C_NATLIB_ERROR_EVAL)
+		}
 		cCommandsCache = ""
 
 	func cmdEval cCode
