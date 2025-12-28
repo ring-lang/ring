@@ -11,6 +11,7 @@ class NaturalCommand
 	cKeyword  fFunc  
 	cCommand cCommandNoSpaces aKeywords
 
+	aListofCommands = []
 	aAllKeywords = []
 	aAllAttributes = []
 	aAllKeywordsMethods = []
@@ -45,6 +46,7 @@ class NaturalCommand
 			raise(C_NATLIB_ERROR_MANYKEYWORDS)
 		}
 		cCommandNoSpaces = cKeyword
+		checkCommandRedefinition(cCommandNoSpaces)
 
 	func CommandPara2Attributes aPara
 		prepareCommandParameters(aPara)
@@ -57,6 +59,14 @@ class NaturalCommand
 		if len(aKeywords) < 2 {
 			raise(C_NATLIB_ERROR_ONEKEYWORD)
 		}
+		checkCommandRedefinition(cCommandNoSpaces)
+
+	func checkCommandRedefinition cCommand
+		if find(aListofCommands,cCommand) {
+			raise(C_NATLIB_ERROR_CMDEXIST)
+			return 
+		}
+		aListofCommands + cCommand
 
 	func CreateTheTempClass
 		cCode = ""
