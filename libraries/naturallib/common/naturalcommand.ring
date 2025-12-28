@@ -46,14 +46,14 @@ class NaturalCommand
 			raise(C_NATLIB_ERROR_MANYKEYWORDS)
 		}
 		cCommandNoSpaces = cKeyword
-		checkCommandRedefinition(cCommandNoSpaces)
+		checkCommandRedefinition(cKeyword)
 
 	func CommandPara2Attributes aPara
 		prepareCommandParameters(aPara)
 		if ! aPara[:Command] {
 			raise(C_NATLIB_ERROR_PASSCOMMAND)
 		}
-		cCommand = lower(aPara[:Command])
+		cCommand = lower(trim(aPara[:Command]))
 		cCommandNoSpaces = substr(cCommand," ","")				
 		aKeywords = split(cCommand," ")
 		if len(aKeywords) < 2 {
@@ -64,7 +64,6 @@ class NaturalCommand
 	func checkCommandRedefinition cCommand
 		if find(aListofCommands,cCommand) {
 			raise(C_NATLIB_ERROR_CMDEXIST)
-			return 
 		}
 		aListofCommands + cCommand
 
