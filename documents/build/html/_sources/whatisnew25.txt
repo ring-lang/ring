@@ -386,8 +386,8 @@ The NaturalLib is updated to provide
 
 (2) The next methods are added to the NaturalLanguage class
 
-* LoadCommand(cCommandName)
-* Execute(cCode)
+* loadCommand(cCommandName)
+* execute(cCode)
 * setBeforeRun(cCode)
 * setAfterRun(cCode)
 * setStartKeywordsWith(cStart)
@@ -396,18 +396,19 @@ The NaturalLib is updated to provide
 * getAfterRun() --> cCode
 * getStartKeywordsWith() --> cStart
 * getMaskOperators() --> lMask  
-* IdentifierToString(lStatus)
 
 (3) The next methods are added to the NaturalCommand class
 
+* setPackage(cName)
 * startCache(cName)
 * endCache() 
-* setPackage(cName)
 
 (4) The next methods could be used to process parameters by the command
 
-* Expr(nPara) --> Value
+* expr(nPara) --> Value
 * isIdentifier(nPara) --> lStatus
+
+
 
 .. note:: Check the (Using the Natural Library) chapter for more information about these methods
 

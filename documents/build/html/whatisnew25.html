@@ -530,8 +530,8 @@ Received Data Size: 11363
 <li><p>The next methods are added to the NaturalLanguage class</p></li>
 </ol>
 <ul class="simple">
-<li><p>LoadCommand(cCommandName)</p></li>
-<li><p>Execute(cCode)</p></li>
+<li><p>loadCommand(cCommandName)</p></li>
+<li><p>execute(cCode)</p></li>
 <li><p>setBeforeRun(cCode)</p></li>
 <li><p>setAfterRun(cCode)</p></li>
 <li><p>setStartKeywordsWith(cStart)</p></li>
@@ -540,21 +540,20 @@ Received Data Size: 11363
 <li><p>getAfterRun() –&gt; cCode</p></li>
 <li><p>getStartKeywordsWith() –&gt; cStart</p></li>
 <li><p>getMaskOperators() –&gt; lMask</p></li>
-<li><p>IdentifierToString(lStatus)</p></li>
 </ul>
 <ol class="arabic simple" start="3">
 <li><p>The next methods are added to the NaturalCommand class</p></li>
 </ol>
 <ul class="simple">
+<li><p>setPackage(cName)</p></li>
 <li><p>startCache(cName)</p></li>
 <li><p>endCache()</p></li>
-<li><p>setPackage(cName)</p></li>
 </ul>
 <ol class="arabic simple" start="4">
 <li><p>The next methods could be used to process parameters by the command</p></li>
 </ol>
 <ul class="simple">
-<li><p>Expr(nPara) –&gt; Value</p></li>
+<li><p>expr(nPara) –&gt; Value</p></li>
 <li><p>isIdentifier(nPara) –&gt; lStatus</p></li>
 </ul>
 <div class="admonition note">
