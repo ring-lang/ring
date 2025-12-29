@@ -234,10 +234,13 @@ This object provides the next methods :-
 The command passes an anonymous function that becomes a method inside the class 
 representing our domain‑specific language
 
-Inside this anonymous function, we can use the following methods to access the command parameters
+Inside this anonymous function, we can use the following methods to access the 
+command parameters, set the command output, and control NaturalLib’s behavior.
 
 * Expr(nPara) --> Value
 * isIdentifier(nPara) --> lStatus
+* commandReturn(vValue)
+* passThisCommand()
 
 File: mylanguage.ring
 

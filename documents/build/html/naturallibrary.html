@@ -423,10 +423,13 @@ I will count Again!
 </ul>
 <p>The command passes an anonymous function that becomes a method inside the class
 representing our domain‑specific language</p>
-<p>Inside this anonymous function, we can use the following methods to access the command parameters</p>
+<p>Inside this anonymous function, we can use the following methods to access the
+command parameters, set the command output, and control NaturalLib’s behavior.</p>
 <ul class="simple">
 <li><p>Expr(nPara) –&gt; Value</p></li>
 <li><p>isIdentifier(nPara) –&gt; lStatus</p></li>
+<li><p>commandReturn(vValue)</p></li>
+<li><p>passThisCommand()</p></li>
 </ul>
 <p>File: mylanguage.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
