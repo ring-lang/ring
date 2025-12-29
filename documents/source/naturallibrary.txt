@@ -25,11 +25,50 @@ And don’t let that flexibility mislead you into thinking that NaturaLib is lim
 In reality, it is a powerful and elegant system that can be used to implement many 
 useful and expressive DSLs.
 
+To master the concepts in this chapter, you only need to understand the general pattern we follow:
+
+1. Define a group of commands.
+2. Create a DSL that uses this group of commands.
+3. Use the DSL to execute specific commands (our program).
+
+For loading commands, there are two approaches:
+
+* Compile-time loading using the useCommand() method.
+
+* Runtime loading using the loadCommand() methods.
+
+For creating a DSL, we can either register commands one by one or register a whole 
+group of commands at once using a cache.
+
+For executing code written in our DSL, we also have two approaches:
+
+1. Using eval():
+
+* The DSL code is passed as a file or a string.
+* eval() executes it.
+* We can modify the Ring syntax before or after execution.
+* This approach can still use normal Ring code, but it also allows syntax changes.
+
+2. Using object access with braces (no eval):
+
+* We access an object that represents the DSL directly.
+* The DSL is mixed naturally with regular Ring code.
+* No syntax changes are involved.
+
 To start using the library, We need to call naturallib.ring
 
 .. code-block:: ring
 
 	load "naturallib.ring"
+
+.. tip:: To get started quickly, check the section on the loadCommand() method.
+
+
+.. index:: 
+	pair: Using the Natural Library; The NaturalLanguage class
+
+The NaturalLanguage class
+=========================
 
 After loading the library, We can use the NaturalLanguage class that contains the 
 next methods :-
