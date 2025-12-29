@@ -22,6 +22,8 @@ Class NaturalBase
 	lTreatIdentifierAsString = True
 	lStringIsIdentifier = False
 
+	lCommandReturnIsUsed = False 
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -112,6 +114,7 @@ class NaturalBaseMethods
 		BraceExprEval(vValue)
 
 	func CommandReturn vValue
+		lCommandReturnIsUsed = True 
 		EndCommand()
 		BraceExprEval(vValue)
 
