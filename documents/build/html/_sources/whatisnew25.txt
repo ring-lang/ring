@@ -193,22 +193,16 @@ Generated C code (test.c)
 .. code-block:: none
 
 	#include "stdio.h"
-
 	int main(int argc, char *argv[])
 	{
-
 		printf("Hello, World! \n");
-
 		for (int x=1 ; x <= 5 ;x++) {
 			printf("%d\n",x);
 		}
-
 		printf("I am using Windows\n");
-
 		return 0;
 	}
 	
-
 .. tip:: Imagine using MyCTiger and NaturalLib to build a domain‑specific language for microcontroller programming — giving you the flexibility of the Ring language and the performance and efficiency of C at the same time.
 
 .. index:: 
@@ -219,27 +213,12 @@ More Samples
 
 The next samples are added:
 
-* samples/UsingJSONLib/test14.ring
-* samples/UsingJSONLib/test15.ring
 * samples/UsingTokensLib/test2.ring
-* ‎samples/UsingNaturalLib/advanced/concepts.ring
-* ‎samples/UsingNaturalLib/advanced/lang1.ring
-* ‎samples/UsingNaturalLib/advanced/lang2.ring
-* ‎samples/UsingNaturalLib/advanced/lang3.ring
-* ‎samples/UsingNaturalLib/advanced/lang4.ring
-* ‎samples/UsingNaturalLib/advanced/lang5.ring
-* ‎samples/UsingNaturalLib/advanced/lang6.ring
-* ‎samples/UsingNaturalLib/advanced/lang7.ring
-* ‎samples/UsingNaturalLib/advanced/lang8.ring
-* ‎samples/UsingNaturalLib/advanced/lang9.ring
-* ‎samples/UsingNaturalLib/advanced/lang10.ring
-* ‎samples/UsingNaturalLib/advanced/lang11.ring
-* ‎samples/UsingNaturalLib/advanced/lang12.ring
+* samples/UsingJSONLib (test14.ring and test15.ring)
 * samples/UsingNaturalLib/tests/largecode.ring
+* ‎samples/UsingNaturalLib/advanced (concepts.ring, from lang1.ring to lang15.ring)
 * samples/General/ListFunctions/ListFunctions.ring
-* samples/General/Orbital/Obital-Solar-Eclipse.ring
-* samples/General/Orbital/Obital-Lunar-Full-Moon-Meesus.ring
-
+* samples/General/Orbital (Obital-Solar-Eclipse.ring and Obital-Lunar-Full-Moon-Meesus.ring)
 
 .. index:: 
 	pair: What is new in Ring 1.25?; More RingPM Packages
