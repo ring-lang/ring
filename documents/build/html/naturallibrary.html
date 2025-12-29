@@ -229,8 +229,22 @@
              
   <section id="using-the-natural-library">
 <span id="index-0"></span><h1>Using the Natural Library<a class="headerlink" href="#using-the-natural-library" title="Permalink to this heading"></a></h1>
-<p>In this chapter we will learn how to use the Natural Library to quickly define a language
+<p>In this chapter, we will learn how to use the Natural Library to quickly define a language
 that contains a group of commands.</p>
+<p>The Natural Library is written in Ring (about one thousand lines of code) and serves as an
+example of how to build an abstraction layer on top of Ring classes. It demonstrates the use of
+braces, braceStart(), braceEnd(), braceExprEval(), braceError(), and related mechanisms,
+while also showcasing other language features such as Eval(), callable functions as methods,
+and syntax customization.</p>
+<p>This kind of abstraction layer can be implemented in many different ways, each enabling
+different capabilities and supporting different styles of language grammars. Although the
+library can be used in production, it is best viewed as a demonstration of what is
+possible — a direction rather than a complete set of features or methodologies.</p>
+<p>If you ever find yourself fighting against the library’s features, don’t feel constrained
+by what’s provided. Read the source code and adapt it to fit your DSL’s needs.
+And don’t let that flexibility mislead you into thinking that NaturaLib is limited or weak.
+In reality, it is a powerful and elegant system that can be used to implement many
+useful and expressive DSLs.</p>
 <p>To start using the library, We need to call naturallib.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 </pre></div>
