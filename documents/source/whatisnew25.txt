@@ -382,11 +382,13 @@ The NaturalLib is updated to provide
 * startCache(cName)
 * endCache() 
 
-(4) The next methods could be used to process parameters by the command
+(4) We can use the following methods to access the 
+command parameters, set the command output, and control NaturalLib’s behavior.
 
 * expr(nPara) --> Value
 * isIdentifier(nPara) --> lStatus
-
+* commandReturn(vValue)
+* passThisCommand()
 
 
 .. note:: Check the (Using the Natural Library) chapter for more information about these methods
