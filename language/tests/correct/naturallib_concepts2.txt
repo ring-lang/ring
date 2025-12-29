@@ -1,0 +1,5 @@
+Command: I want window
+Command: Window backcolor is white
+Is Identifier: 0
+Command: Window backcolor is red
+Is Identifier: 1
