@@ -22,7 +22,8 @@ Class NaturalBase
 	lTreatIdentifierAsString = True
 	lStringIsIdentifier = False
 
-	lCommandReturnIsUsed = False 
+	lCommandReturnIsUsed = False
+	lPassThisCommand = False	 
 
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
@@ -117,6 +118,9 @@ class NaturalBaseMethods
 		lCommandReturnIsUsed = True 
 		EndCommand()
 		BraceExprEval(vValue)
+
+	func PassThisCommand
+		lPassThisCommand = True 
 
 	func Expr nIndex
 		return aCommandsStack[nActiveCommand][2][:aExpr][nIndex]

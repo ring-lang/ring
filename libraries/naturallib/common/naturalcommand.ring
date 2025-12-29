@@ -81,8 +81,9 @@ class NaturalCommand
 			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
 					 "    fMethod = :" + fFunc + nl +
 					 "    NATLIB_TEMP_OUT = call { fMethod() }" + nl +
-					 "    if ! lCommandReturnIsUsed { EndCommand() }" + nl +
+					 "    if ! lCommandReturnIsUsed and ! lPassThisCommand { EndCommand() }" + nl +
 					 "    lCommandReturnIsUsed = False" + nl + 
+					 "    lPassThisCommand = False" + nl +
 					 "    return NATLIB_TEMP_OUT" + nl
 		}
 
