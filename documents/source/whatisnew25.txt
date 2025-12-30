@@ -214,7 +214,7 @@ More Samples
 The next samples are added:
 
 * samples/UsingTokensLib/test2.ring
-* samples/UsingJSONLib (test14.ring and test15.ring)
+* samples/UsingJSONLib (test14.ring and test16.ring)
 * samples/UsingNaturalLib/tests/largecode.ring
 * ‎samples/UsingNaturalLib/advanced (concepts.ring, from lang1.ring to lang15.ring)
 * samples/General/ListFunctions/ListFunctions.ring
