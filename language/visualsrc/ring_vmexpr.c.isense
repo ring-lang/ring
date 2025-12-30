@@ -42,8 +42,6 @@ Type: String *
 pStr1,*pStr2
 Type: double
 nNum1,nNum2
-Type: char
-cStr3[RING_MEDIUMBUF]
 ring_vm_lessequal
 Type: double
 nNum1=0,nNum2=0
@@ -69,8 +67,6 @@ Type: String *
 pStr1,*pStr2
 Type: double
 nNum1,nNum2
-Type: char
-cStr3[RING_MEDIUMBUF]
 ring_vm_and
 Type: double
 nNum1,nNum2
@@ -147,8 +143,6 @@ pItem
 ring_vm_addlisttolist
 Type: List *
 pList3, *pList4
-Type: List
-TempList
 Type: Item *
 pItem
 ring_vm_checkoverflow

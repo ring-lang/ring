@@ -45,10 +45,6 @@ cStr
 ring_vm_refmeta_isfunction
 Type: VM *
 pVM
-Type: unsigned int
-x
-Type: List *
-pList, *pList2
 Type: char *
 cStr
 ring_vm_refmeta_iscfunction

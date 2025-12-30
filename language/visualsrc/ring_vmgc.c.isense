@@ -35,7 +35,7 @@ lArgCache: 1
 Type: unsigned int
 nListType: 3
 Type: unsigned int
-lUnused: 1
+lUnusedFlag: 1
 END:
 Type: ListGCData
 struct ListGCData

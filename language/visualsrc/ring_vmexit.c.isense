@@ -6,7 +6,7 @@ ring_vm_popexitmark
 ring_vm_exit
 Type: List *
 pList,*pActiveList
-Type: int
+Type: unsigned int
 x,y,nStep
 ring_vm_optionalloop
 ring_vm_stepnumber

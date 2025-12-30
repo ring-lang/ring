@@ -3,7 +3,7 @@ ring_vm_list_loadfunctions
 ring_vm_listfuncs_add
 Type: List *
 pList,*pList2
-Type: int
+Type: unsigned int
 lMerge,x
 Type: VM *
 pVM

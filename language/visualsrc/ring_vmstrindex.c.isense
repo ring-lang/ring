@@ -1,9 +1,9 @@
-ring_vm_string_pushv
+ring_vm_stringpushv
 Type: char *
 cNewStr
 Type: char
 cStr[RING_CHARBUF]
-ring_vm_string_assignment
+ring_vm_stringassignment
 Type: char *
 cNewStr
 Type: char
@@ -12,6 +12,6 @@ Type: int
 nSize
 Type: double
 nNum
-ring_vm_string_index
+ring_vm_stringindex
 Type: char *
 cNewStr

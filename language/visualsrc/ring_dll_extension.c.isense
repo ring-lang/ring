@@ -34,7 +34,7 @@ nIndex
 Type: VM *
 pVM
 ring_vm_dll_closealllibs
-Type: int
+Type: unsigned int
 x
 Type: LpHandleType
 pHandle

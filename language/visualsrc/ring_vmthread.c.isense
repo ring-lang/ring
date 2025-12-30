@@ -32,7 +32,7 @@ pCFunc
 Type: unsigned int
 x
 ring_vm_bytecodefornewthread
-Type: int
+Type: unsigned int
 x,y,nSize,nType
 Type: ByteCode *
 pByteCode
