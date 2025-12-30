@@ -587,7 +587,7 @@ func showhelp
 	line()
 	? "RingFmt (Source code formatter and beautifier)"
 	line()
-	? "2025, Mahmoud Fayed <msfclipper@yahoo.com>"
+	? "2025-2026, Mahmoud Fayed <msfclipper@yahoo.com>"
 	? "Prototyping: Bert Mariani & Azzeddine Remmal"
 	line()
 	? "Usage: ringfmt filename.ring [Options]"
