@@ -1046,11 +1046,20 @@ Syntax:
 ringvm_evalinscope() 
 ====================
 
-The function ringvm_evalinscope() is similar to the eval() function
+This function is similar to the eval() function
 
 Unlike eval() which execute the code in the current scope
 
-Using RingVM_EvalInScope() we can execute the code in a specific scope.
+Using this function we can execute the code in a specific scope.
+
+The code that will be evaluated does not respect try/catch/done. 
+
+Also, we cannot return a value using the return command. 
+
+Instead, we must either use a global variable to pass back a value 
+
+We can use an object that defines braceerror() method and access that object before 
+calling RingVM_EvalInScope() to handle errors.
 
 Syntax:
 

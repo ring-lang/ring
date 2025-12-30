@@ -1082,9 +1082,14 @@ the number of scopes used in the application.</p>
 </section>
 <section id="ringvm-evalinscope">
 <span id="index-25"></span><h2>ringvm_evalinscope()<a class="headerlink" href="#ringvm-evalinscope" title="Permalink to this heading"></a></h2>
-<p>The function ringvm_evalinscope() is similar to the eval() function</p>
+<p>This function is similar to the eval() function</p>
 <p>Unlike eval() which execute the code in the current scope</p>
-<p>Using RingVM_EvalInScope() we can execute the code in a specific scope.</p>
+<p>Using this function we can execute the code in a specific scope.</p>
+<p>The code that will be evaluated does not respect try/catch/done.</p>
+<p>Also, we cannot return a value using the return command.</p>
+<p>Instead, we must either use a global variable to pass back a value</p>
+<p>We can use an object that defines braceerror() method and access that object before
+calling RingVM_EvalInScope() to handle errors.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">RingVM_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
