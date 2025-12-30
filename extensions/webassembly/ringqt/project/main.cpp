@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2026 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORWEBASM_CLEARSCREEN	0
 #define RINGFORWEBASM_WRITERINGOFILE	0
