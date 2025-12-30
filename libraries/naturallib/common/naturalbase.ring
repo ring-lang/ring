@@ -27,6 +27,8 @@ Class NaturalBase
 
 	lUse@BeforeNumbers = False	 
 
+	lEnableBraceExprEval = True
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -51,6 +53,7 @@ class NaturalBaseMethods
 		lUse@BeforeNumbers = isMethod(self,:Get@)
 	
 	func BraceExprEval Value
+		if ! lEnableBraceExprEval { return }
 		if isString(Value) and value = :NLNV { return }
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods { 
@@ -81,6 +84,8 @@ class NaturalBaseMethods
 						BraceExprEval(cNumValue)
 						return :NLNV
 					}
+					nScope = ringvm_scopescount()-1
+					return GetVariableValueFromCallerScope(self,nScope,cVarName)
 				}
 				lStringIsIdentifier = True 
 				BraceExprEval(cVarName)
