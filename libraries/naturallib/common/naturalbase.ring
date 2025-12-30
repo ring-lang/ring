@@ -23,7 +23,9 @@ Class NaturalBase
 	lStringIsIdentifier = False
 
 	lCommandReturnIsUsed = False
-	lPassThisCommand = False	 
+	lPassThisCommand = False
+
+	lUse@BeforeNumbers = False	 
 
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
@@ -46,6 +48,7 @@ class NaturalBaseMethods
 				call cMethod()
 			}
 		}
+		lUse@BeforeNumbers = isMethod(self,:Get@)
 	
 	func BraceExprEval Value
 		if isString(Value) and value = :NLNV { return }
@@ -70,6 +73,12 @@ class NaturalBaseMethods
 		if lTreatIdentifierAsString {
 			cVarName = getVarName(cCatchError)
 			if cVarName {
+				if lUse@BeforeNumbers and left(cVarName,1) = "@" and isDigit(substr(cVarName,2)) {
+					get@()
+					cNumValue = number(substr(cVarName,2))
+					BraceExprEval(cNumValue)
+					return :NLNV
+				}
 				lStringIsIdentifier = True 
 				BraceExprEval(cVarName)
 				lStringIsIdentifier = False
