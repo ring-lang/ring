@@ -239,6 +239,7 @@ The following packages have been added to the RingPM registry.
 * RingTensor: Extension designed specifically to accelerate Matrix operations
 * RingML-using-RingTensor: Building Neural Networks (Using RingTensor)
 * Stock-Analysis-BM: Stock Analysis Momentum using Mega Stocks ticker list
+* RingQML: A library used to interact with QML (Qt Meta-object Language)
 
 .. index:: 
 	pair: What is new in Ring  1.25; Better RingLibCurl
