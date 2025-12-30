@@ -543,7 +543,7 @@ command parameters, set the command output, and control NaturalLib’s behavior.
 <p class="admonition-title">Note</p>
 <p>Check the (Using the Natural Library) chapter for more information about these methods</p>
 </div>
-<p>Example (1):</p>
+<p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
@@ -573,101 +573,17 @@ command parameters, set the command output, and control NaturalLib’s behavior.
 
 <span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
         <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
-        <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+                <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+        <span class="k">next</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
 Command: I want button
-</pre></div>
-</div>
-<p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
-<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
-
-<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
-        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
-        <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;i want window&quot;</span><span class="p">,</span>
-        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
-                <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
-        <span class="p">}</span>
-<span class="p">])</span>
-
-<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
-        <span class="nf">loadCommand</span><span class="p">(</span><span class="s2">&quot;i want window&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-
-<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyLanguage</span>
-
-<span class="n">GUI</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
-                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
-        <span class="k">next</span>
-<span class="p">}</span>
-
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-
-<span class="n">MyLang</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
-
-<span class="n">MyLang</span><span class="o">.</span><span class="nf">Execute</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
-
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-
-<span class="n">MyLang</span> <span class="p">{</span>
-        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="sb">`ChangeRingKeyword to      towards`</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
-        <span class="nf">setAfterRun</span><span class="p">(</span><span class="sb">`ChangeRingKeyword towards  to`</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`</span>
-<span class="sb">        for t=1 towards 5</span>
-<span class="sb">                i want window</span>
-<span class="sb">        next</span>
-<span class="sb">`</span><span class="p">)</span>
-
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-
-<span class="n">MyLang</span> <span class="p">{</span>
-        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                <span class="c1">// Disable Before Run</span>
-        <span class="nf">setAfterRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                 <span class="c1">// Disable After  Run</span>
-        <span class="nf">setStartKeywordsWith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
-        <span class="nf">setMaskOperators</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="s1">&#39;</span>
-
-<span class="s1">        @for t=1 @to 3</span>
-<span class="s1">                i want window</span>
-<span class="s1">        @next</span>
-
-<span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==============================
-Command: I want window
-Command: I want window
-Command: I want window
-==============================
-Command: I want window
-Command: I want window
-==============================
-Command: I want window
-Command: I want window
-Command: I want window
-Command: I want window
-Command: I want window
-==============================
-Command: I want window
-Command: I want window
-Command: I want window
-==============================
+Command: I want button
+Command: I want button
 </pre></div>
 </div>
 </section>

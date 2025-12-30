@@ -391,10 +391,9 @@ command parameters, set the command output, and control NaturalLib’s behavior.
 * commandReturn(vValue)
 * passThisCommand()
 
-
 .. note:: Check the (Using the Natural Library) chapter for more information about these methods
 
-Example (1):
+Example:
 
 .. code-block:: ring
 
@@ -426,8 +425,10 @@ Example (1):
 	}
 
 	new MyLanguage {
- 		I want window	
-		I want button
+ 		I want window
+		for t=1 to 3	
+			I want button
+		next
 	}
 
 Output:
@@ -436,99 +437,8 @@ Output:
 
 	Command: I want window
 	Command: I want button
-
-Example (2):
-
-.. code-block:: ring
-
-	load "stdlibcore.ring"
-	load "naturallib.ring"
-
-	DefineNaturalCommand.SyntaxIsCommand([
-		:Package = "MyLanguage.Natural",
-		:Command = "i want window", 
-		:Function = func {
-			?  "Command: I want window"
-		}
-	])
-
-	MyLang = New NaturalLanguage {
-		SetPackageName("MyLanguage.Natural")
-		SetLanguageName(:MyLanguage)
-		loadCommand("i want window")
-	}
-
-	? copy("=",30)
-
-	GUI = new MyLanguage 
-
-	GUI {
-		for t=1 to 3
-			i want window
-		next	
-	}
-
-	? copy("=",30)
-
-	MyLang.RunString(' I want window ')
-
-	MyLang.Execute(' I want window ')
-
-	? copy("=",30)
-
-	MyLang {
-		setBeforeRun(`ChangeRingKeyword to 	towards`+nl)
-		setAfterRun(`ChangeRingKeyword towards	to`+nl)
-	}
-
-	MyLang.execute(`
-		for t=1 towards 5
-			i want window
-		next
-	`)
-
-	? copy("=",30)
-
-	MyLang {
-		setBeforeRun("")		// Disable Before Run
-		setAfterRun("")			// Disable After  Run
-		setStartKeywordsWith("@")
-		setMaskOperators(False) 
-	}
-
-	MyLang.execute('
-
-		@for t=1 @to 3
-			i want window
-		@next
-
-	')
-
-	? copy("=",30)
-
-Output:
-
-.. code-block:: none
-
-	==============================
-	Command: I want window
-	Command: I want window
-	Command: I want window
-	==============================
-	Command: I want window
-	Command: I want window
-	==============================
-	Command: I want window
-	Command: I want window
-	Command: I want window
-	Command: I want window
-	Command: I want window
-	==============================
-	Command: I want window
-	Command: I want window
-	Command: I want window
-	==============================
-
+	Command: I want button
+	Command: I want button
 
 .. index:: 
 	pair: What is new in Ring  1.25; Callable Functions as Methods
