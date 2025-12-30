@@ -73,11 +73,14 @@ class NaturalBaseMethods
 		if lTreatIdentifierAsString {
 			cVarName = getVarName(cCatchError)
 			if cVarName {
-				if lUse@BeforeNumbers and left(cVarName,1) = "@" and isDigit(substr(cVarName,2)) {
+				if lUse@BeforeNumbers and left(cVarName,1) = "@"  {
 					get@()
-					cNumValue = number(substr(cVarName,2))
-					BraceExprEval(cNumValue)
-					return :NLNV
+					cVarName = substr(cVarName,2)
+					if isDigit(substr(cVarName,2)) {
+						cNumValue = Number(cVarName)
+						BraceExprEval(cNumValue)
+						return :NLNV
+					}
 				}
 				lStringIsIdentifier = True 
 				BraceExprEval(cVarName)
