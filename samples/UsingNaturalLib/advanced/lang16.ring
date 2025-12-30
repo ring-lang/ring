@@ -39,4 +39,15 @@ new MyLanguage {
 	@ x,100
 	@ 100,x
 
+	? copy("=",20)
+	x = 100
+	y = 200
+	@ x,y
+
+	x = 1000				# x is a variable defined in this scope 
+	y = 2000
+	@x,y					# We don't use a space between @ and x
+
+	@m,n					# m,n are variables (not defined)
+
 }
