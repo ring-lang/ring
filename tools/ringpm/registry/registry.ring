@@ -910,5 +910,9 @@ aPackagesRegistry = [
 	[ :name = "RingVaders",
           :description = "A retro arcade shooter game written in Ring using Ring Allegro",
           :ProviderUserName = "ysdragon"
+	],
+	[ :name = "ringqml",
+          :description = "A library used to interact with QML using Ring",
+          :ProviderUserName = "mohannad-aldulaimi"
 	]
 ]
