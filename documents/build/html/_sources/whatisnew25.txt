@@ -1079,3 +1079,4 @@ More Improvements
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
+* Documentation - Low Level Functions chapter - improve RingVM_EvalInScope() documentation
