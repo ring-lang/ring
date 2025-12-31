@@ -233,10 +233,10 @@
 <p>In this chapter, we will learn how to use the Natural Library to quickly define a language
 that contains a group of commands.</p>
 <p>The Natural Library is written in Ring (about one thousand lines of code) and serves as an
-example of how to build an abstraction layer on top of Ring classes. It demonstrates the use of
-braces, braceStart(), braceEnd(), braceExprEval(), braceError(), and related mechanisms,
-while also showcasing other language features such as Eval(), callable functions as methods,
-and syntax customization.</p>
+example of how to build an abstraction layer for developing domain-specific languages on top of Ring classes.
+It demonstrates the use of braces, braceStart(), braceEnd(), braceExprEval(), braceError(), and
+related mechanisms, while also showcasing other language features such as Eval(), callable
+functions as methods, and syntax customization.</p>
 <p>This kind of abstraction layer can be implemented in many different ways, each enabling
 different capabilities and supporting different styles of language grammars. Although the
 library can be used in production, it is best viewed as a demonstration of what is
@@ -275,7 +275,7 @@ group of commands at once using a cache.</p>
 <ul class="simple">
 <li><p>We access an object that represents the DSL directly.</p></li>
 <li><p>The DSL is mixed naturally with regular Ring code.</p></li>
-<li><p>No syntax changes are involved.</p></li>
+<li><p>No implicit syntax changes occur before or after execution.</p></li>
 </ul>
 <p>To start using the library, We need to call naturallib.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
