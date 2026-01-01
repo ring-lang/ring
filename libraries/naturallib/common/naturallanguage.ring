@@ -252,6 +252,9 @@ class NaturalLanguage
 	func setStartKeywordsWith cStart 
 		cStartKeywordsWith = cStart
 
+	func setMaskKeywords lMask	
+		lMaskKeywords = lMask
+
 	func setMaskOperators lMask	
 		lMaskOperators = lMask
 
@@ -263,6 +266,9 @@ class NaturalLanguage
 
 	func getStartKeywordsWith  
 		return cStartKeywordsWith
+
+	func getMaskKeywords
+		return lMaskKeywords
 
 	func getMaskOperators 	
 		return lMaskOperators
