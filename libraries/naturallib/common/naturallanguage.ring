@@ -12,6 +12,7 @@ class NaturalLanguage
 	cBeforeRun = ""
 	cAfterRun = ""
 	cStartKeywordsWith = "_"
+	lMaskKeywords = True
 	lMaskOperators = True
 
 	func SetLanguageName cName
@@ -43,7 +44,8 @@ class NaturalLanguage
 			eval("oLangObj = new " + cLanguageName)
 		}
 		if ! cBeforeRun {
-			cBeforeRun = `
+			if lMaskKeywords {
+			cBeforeRun += `
 			changeringkeyword again 		_again
 			changeringkeyword and  			_and
 			changeringkeyword but 			_but
@@ -88,7 +90,7 @@ class NaturalLanguage
 			changeringkeyword try 			_try
 			changeringkeyword while 		_while
 			`
-
+			}
 			if lMaskOperators {
 			cBeforeRun += `
 			changeringoperator +			_+
@@ -117,7 +119,8 @@ class NaturalLanguage
 			}
 		}
 		if ! cAfterRun {
-			cAfterRun  = `
+			if lMaskKeywords {
+			cAfterRun += `
 			changeringkeyword _again 		again
 			changeringkeyword _and  		and
 			changeringkeyword _but 			but
@@ -162,6 +165,7 @@ class NaturalLanguage
 			changeringkeyword _try 			try
 			changeringkeyword _while 		while
 			`
+			}
 			if lMaskOperators {
 			cAfterRun += `
 			changeringoperator _+			+
@@ -189,7 +193,7 @@ class NaturalLanguage
 			`
 			}
 		}
-		if cStartKeywordsWith != "_" {
+		if lMaskKeywords and (cStartKeywordsWith != "_") {
 			cBeforeRun = substr(cBeforeRun,"_",cStartKeywordsWith)
 			cAfterRun = substr(cAfterRun,"_",cStartKeywordsWith)
 		}
