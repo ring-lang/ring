@@ -11,7 +11,7 @@ func defineDSL
 	DefineNaturalCommand {
 		startCache(:MyDSL)
 		setPackage("MyLanguage.Natural")
-		SyntaxIsKeywordExpressions([
+		syntaxIsKeywordExpressions([
 			:keyword = "replace", 
 			:Function = func {
 				if ! ( isIdentifier(2) && lower(Expr(2)) = :with ) {
@@ -20,14 +20,13 @@ func defineDSL
 				}
 				? Expr(1) + " ===> " + Expr(3)
 			}
-		],3)
-	
+		],3)	
 		endCache()
 	}
 	
 	new NaturalLanguage {
-		SetLanguageName(:MyLanguage)
-		SetPackageName("MyLanguage.Natural")
+		setLanguageName(:MyLanguage)
+		setPackageName("MyLanguage.Natural")
 		loadCommand(:MyDSL)
 	}
 
