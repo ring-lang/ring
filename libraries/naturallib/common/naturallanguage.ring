@@ -1,5 +1,5 @@
 # The Ring Natural Library
-# 2017-2025, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2017-2026, Mahmoud Fayed <msfclipper@yahoo.com>
 
 class NaturalLanguage
 
