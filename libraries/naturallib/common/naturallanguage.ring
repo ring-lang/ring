@@ -62,6 +62,7 @@ class NaturalLanguage
 			changeringkeyword end 			_end
 			changeringkeyword exit 			_exit
 			changeringkeyword for 			_for
+			changeringkeyword foreach		_foreach
 			changeringkeyword from 			_from
 			changeringkeyword func 			_func
 			changeringkeyword get 			_get
@@ -89,6 +90,18 @@ class NaturalLanguage
 			changeringkeyword to 			_to
 			changeringkeyword try 			_try
 			changeringkeyword while 		_while
+			changeringkeyword endfunc 		_endfunc
+			changeringkeyword endclass 		_endclass
+			changeringkeyword endpackage	_endpackage
+			changeringkeyword endif 		_endif
+			changeringkeyword endfor 		_endfor
+			changeringkeyword endwhile 		_endwhile
+			changeringkeyword endswitch 	_endswitch
+			changeringkeyword endtry 		_endtry
+			changeringkeyword function 		_function
+			changeringkeyword endfunction	_endfunction
+			changeringkeyword break 		_break
+			changeringkeyword continue 		_continue
 			`
 			}
 			if lMaskOperators {
@@ -137,6 +150,7 @@ class NaturalLanguage
 			changeringkeyword _end 			end
 			changeringkeyword _exit 		exit
 			changeringkeyword _for 			for
+			changeringkeyword _foreach		foreach
 			changeringkeyword _from 		from
 			changeringkeyword _func 		func
 			changeringkeyword _get 			get
@@ -164,6 +178,19 @@ class NaturalLanguage
 			changeringkeyword _to 			to
 			changeringkeyword _try 			try
 			changeringkeyword _while 		while
+			changeringkeyword _endfunc 		endfunc
+			changeringkeyword _endclass 	endclass
+			changeringkeyword _endpackage	endpackage
+			changeringkeyword _endif 		endif
+			changeringkeyword _endfor 		endfor
+			changeringkeyword _endwhile 	endwhile
+			changeringkeyword _endswitch 	endswitch
+			changeringkeyword _endtry 		endtry
+			changeringkeyword _function 	function
+			changeringkeyword _endfunction	endfunction
+			changeringkeyword _break 		break
+			changeringkeyword _continue 	continue
+
 			`
 			}
 			if lMaskOperators {
