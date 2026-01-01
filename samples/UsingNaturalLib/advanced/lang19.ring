@@ -29,8 +29,6 @@ func defineDSL
 		SetLanguageName(:MyLanguage)
 		SetPackageName("MyLanguage.Natural")
 		loadCommand(:MyDSL)
-		setMaskKeywords(False)
-		setMaskOperators(False)
 	}
 
 func testDSL
