@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#startcache-and-endcache-methods">StartCache() and EndCache() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setpackage-method">SetPackage() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#expr-and-isidentifier-methods">Expr() and isIdentifier() methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands-with-multiple-keywords">Commands with multiple keywords</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
@@ -302,10 +303,12 @@ next methods :-</p>
 <li><p>SetBeforeRun(cCode)</p></li>
 <li><p>SetAfterRun(cCode)</p></li>
 <li><p>SetStartKeywordsWith(cStart)</p></li>
+<li><p>SetMaskKeywords(lMask)</p></li>
 <li><p>SetMaskOperators(lMask)</p></li>
 <li><p>GetBeforeRun() –&gt; cCode</p></li>
 <li><p>GetAfterRun() –&gt; cCode</p></li>
 <li><p>GetStartKeywordsWith() –&gt; cStart</p></li>
+<li><p>GetMaskKeywords() –&gt; lMask</p></li>
 <li><p>GetMaskOperators() –&gt; lMask</p></li>
 </ul>
 </section>
@@ -774,6 +777,7 @@ transform all Ring keywords and operators before executing the code via
 the runString() and execute() methods.</p>
 <p>Using SetStartKeywordsWith(), we can specify a symbol that will appear at the beginning of
 all newly created keyword names.</p>
+<p>Using setMaskKeywords() we can enable/disable changing the language keywords before code execution.</p>
 <p>Using SetMaskOperators() we can enable/disable changing the language operators before code execution.</p>
 <p>Example:</p>
 <p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
@@ -933,6 +937,76 @@ Command: Window backcolor is white
 Is Identifier: 0
 Command: Window backcolor is red
 Is Identifier: 1
+</pre></div>
+</div>
+</section>
+<section id="commands-with-multiple-keywords">
+<span id="index-13"></span><h2>Commands with multiple keywords<a class="headerlink" href="#commands-with-multiple-keywords" title="Permalink to this heading"></a></h2>
+<p>Using isIdentifier(), we can define commands that use multiple keywords.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="nf">defineDSL</span><span class="p">()</span>
+        <span class="nf">testDSL</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">defineDSL</span>
+
+        <span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+                <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+                <span class="nf">setPackage</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+                <span class="nf">syntaxIsKeywordExpressions</span><span class="p">([</span>
+                        <span class="ss">:keyword</span> <span class="o">=</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                                <span class="k">if</span> <span class="o">!</span> <span class="p">(</span> <span class="nf">isIdentifier</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">lower</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">=</span> <span class="ss">:with</span> <span class="p">)</span> <span class="p">{</span>
+                                        <span class="o">?</span> <span class="s2">&quot;WITH keyword is missing!&quot;</span>
+                                        <span class="k">return</span>
+                                <span class="p">}</span>
+                                <span class="o">?</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ===&gt; &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                        <span class="p">}</span>
+                <span class="p">],</span><span class="mi">3</span><span class="p">)</span>
+                <span class="nf">endCache</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+                <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+                <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+                <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">testDSL</span>
+
+        <span class="c1"># Define aLangs as local variable</span>
+
+        <span class="n">aLangs</span> <span class="o">=</span> <span class="p">[</span>      <span class="p">[</span><span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="ss">:year</span> <span class="o">=</span> <span class="mi">1972</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">1972</span><span class="p">],</span>
+                        <span class="p">[</span><span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span><span class="ss">:year</span> <span class="o">=</span> <span class="mi">1990</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">1990</span><span class="p">],</span>
+                        <span class="p">[</span><span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Ring&quot;</span><span class="p">,</span><span class="ss">:year</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span><span class="ss">:age</span> <span class="o">=</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">2016</span><span class="p">]</span>  <span class="p">]</span>
+
+        <span class="c1"># Using our DSL object inside braces enables sharing the local scope</span>
+
+        <span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+
+                <span class="k">for</span> <span class="n">aLang</span> <span class="k">in</span> <span class="n">aLangs</span>
+                        <span class="n">Replace</span> <span class="n">name</span> <span class="n">with</span> <span class="n">aLang</span><span class="p">[</span><span class="ss">:Name</span><span class="p">]</span>
+                        <span class="n">Replace</span> <span class="n">year</span> <span class="n">with</span> <span class="n">aLang</span><span class="p">[</span><span class="ss">:Year</span><span class="p">]</span>
+                        <span class="n">Replace</span> <span class="n">age</span>  <span class="n">with</span> <span class="n">aLang</span><span class="p">[</span><span class="ss">:Age</span><span class="p">]</span>
+                <span class="k">next</span>
+
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name ===&gt; C
+year ===&gt; 1972
+age ===&gt; 54
+name ===&gt; Python
+year ===&gt; 1990
+age ===&gt; 36
+name ===&gt; Ring
+year ===&gt; 2016
+age ===&gt; 10
 </pre></div>
 </div>
 </section>
