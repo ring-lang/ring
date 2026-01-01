@@ -672,7 +672,7 @@ the runString() and execute() methods.
 Using SetStartKeywordsWith(), we can specify a symbol that will appear at the beginning of 
 all newly created keyword names.
 
-Using setMaskKeywords() we can enable/disable changing the language keywords before code execution.
+Using SetMaskKeywords() we can enable/disable changing the language keywords before code execution.
 
 Using SetMaskOperators() we can enable/disable changing the language operators before code execution.
 

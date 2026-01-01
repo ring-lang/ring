@@ -216,7 +216,7 @@ The next samples are added:
 * samples/UsingTokensLib/test2.ring
 * samples/UsingJSONLib (test14.ring and test15.ring)
 * samples/UsingNaturalLib/tests/largecode.ring
-* ‎samples/UsingNaturalLib/advanced (concepts.ring, from lang1.ring to lang17.ring)
+* ‎samples/UsingNaturalLib/advanced (concepts.ring, from lang1.ring to lang19.ring)
 * samples/General/ListFunctions/ListFunctions.ring
 * samples/General/Orbital/Obital-Solar-Eclipse.ring 
 * samples/General/Orbital/Obital-Lunar-Full-Moon-Meesus.ring
@@ -373,10 +373,12 @@ The NaturalLib is updated to provide
 * setBeforeRun(cCode)
 * setAfterRun(cCode)
 * setStartKeywordsWith(cStart)
+* setMaskKeywords(lMask)
 * setMaskOperators(lMask)
 * getBeforeRun() --> cCode
 * getAfterRun() --> cCode
 * getStartKeywordsWith() --> cStart
+* getMaskKeywords() --> lMask
 * getMaskOperators() --> lMask  
 
 (3) The next methods are added to the NaturalCommand class
