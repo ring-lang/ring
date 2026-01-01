@@ -22,7 +22,9 @@ MyLang = New NaturalLanguage {
 	setMaskOperators(false)					// Necessary for using '(', ')' and Comma 
 }
 
-MyLang.runstring(`
+// We can use execute()/runString() to execute commands written in our new DSL
+
+MyLang.execute(`
 
 	@10,10
 	@15,10
