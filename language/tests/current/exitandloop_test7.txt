@@ -1,0 +1,380 @@
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 1
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 2
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 3
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 4
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 5
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 6
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 7
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 8
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 9
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 10
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 11
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 12
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 13
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 14
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 15
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 16
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 17
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 18
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 19
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
+**************************************************Part: 20

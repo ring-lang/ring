@@ -1,0 +1,18 @@
+Input = '', length = 0
+  All characters are the same.
+Input = '   ', length = 3
+  All characters are the same.
+Input = '2', length = 1
+  All characters are the same.
+Input = '333', length = 3
+  All characters are the same.
+Input = '.55', length = 3
+ First difference at position 2, character = '5'
+Input = 'tttTTT', length = 6
+ First difference at position 4, character = 'T'
+Input = '4444 444k', length = 9
+ First difference at position 5, character = ' '
+Input = 'nice', length = 4
+ First difference at position 2, character = 'i'
+Input = '66666', length = 5
+  All characters are the same.
