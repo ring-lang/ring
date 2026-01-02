@@ -384,7 +384,7 @@ The NaturalLib is updated to provide
 
 (3) The next methods are added to the NaturalCommand class
 
-* setPackage(cName) | setPackageName(cName)
+* setPackageName(cName)
 * startCache(cName)
 * endCache() 
 
@@ -403,7 +403,7 @@ Example:
 	load "naturallib.ring"
 
 	DefineNaturalCommand {
-		setPackage("MyLanguage.Natural")
+		setPackageName("MyLanguage.Natural")
 		startCache(:MyDSL)
 		SyntaxIsCommand([
 			:Command = "I want window", 
@@ -421,7 +421,7 @@ Example:
 	}
 
 	MyLang = New NaturalLanguage {
-		SetPackage("MyLanguage.Natural")
+		SetPackageName("MyLanguage.Natural")
 		SetLanguage(:MyLanguage)
 		loadCommand(:MyDSL)
 	}

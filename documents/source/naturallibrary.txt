@@ -73,8 +73,8 @@ The NaturalLanguage class
 After loading the library, We can use the NaturalLanguage class that contains the 
 next methods :-
 
-* SetPackage(cPackageName)   | SetPackageName(cPackageName)
-* SetLanguage(cLanguageName) | SetLanguageName(cLanguageName)
+* SetPackageName(cPackageName)
+* SetLanguageName(cLanguageName)
 * SetCommandsPath(cFolder)
 * UseCommand(cCommandName)
 * LoadCommand(cCommandName)
@@ -248,7 +248,7 @@ To define new command we can use the DefineNaturalCommand object
 
 This object provides the next methods :-
 
-* SetPackage(cName) | SetPackageName(cName)
+* SetPackageName(cName)
 * StartCache(cName)
 * EndCache() 
 * SyntaxIsKeyword(aPara)
@@ -760,12 +760,12 @@ Output:
 	Command: I want button
 
 .. index:: 
-	pair: Using the Natural Library; SetPackage() Method
+	pair: Using the Natural Library; SetPackageName() Method
 
-SetPackage()/SetPackageName() Method
-====================================
+SetPackageName() Method
+=======================
 
-If many commands share the same package we can use the SetPackage()/SetPackageName() method
+If many commands share the same package we can use the SetPackageName() method
 
 Example:
 
