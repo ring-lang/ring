@@ -3,7 +3,7 @@ load "naturallib.ring"
 
 DefineNaturalCommand {
 	startCache(:MyDSL)
-	setPackage("MyLanguage.Natural")
+	setPackageName("MyLanguage.Natural")
 	SyntaxIsKeywordExpressions([
 		:keyword = "replace", 
 		:Function = func {

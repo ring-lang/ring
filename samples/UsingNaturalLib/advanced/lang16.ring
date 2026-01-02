@@ -3,7 +3,7 @@ load "naturallib.ring"
 
 DefineNaturalCommand {
 	startCache(:MyDSL)
-	setPackage("MyLanguage.Natural")
+	setPackageName("MyLanguage.Natural")
 	SyntaxIsKeywordExpressionExpression([
 		:Keyword = "@", 
 		:Function = func {

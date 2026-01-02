@@ -3,7 +3,7 @@ load "naturallib.ring"
 
 DefineNaturalCommand {
 	startCache(:MyDSL)
-	setPackage("MyLanguage.Natural")
+	setPackageName("MyLanguage.Natural")
 	SyntaxIsCommand([
 		:Command = "I want window", 
 		:Function = func {
@@ -20,12 +20,9 @@ DefineNaturalCommand {
 }
 
 MyLang = New NaturalLanguage {
-
 	SetLanguageName(:MyLanguage)
 	SetPackageName("MyLanguage.Natural")
-	
 	loadCommand(:MyDSL)
-
 }
 
 new MyLanguage {

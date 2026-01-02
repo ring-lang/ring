@@ -10,7 +10,7 @@ func defineDSL
 
 	DefineNaturalCommand {
 		startCache(:MyDSL)
-		setPackage("MyLanguage.Natural")
+		setPackageName("MyLanguage.Natural")
 		syntaxIsKeywordExpressions([
 			:keyword = "replace", 
 			:Function = func {
