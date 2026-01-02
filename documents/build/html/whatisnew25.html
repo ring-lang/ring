@@ -532,7 +532,7 @@ Received Data Size: 11363
 <li><p>The next methods are added to the NaturalCommand class</p></li>
 </ol>
 <ul class="simple">
-<li><p>setPackage(cName)</p></li>
+<li><p>setPackage(cName) | setPackageName(cName)</p></li>
 <li><p>startCache(cName)</p></li>
 <li><p>endCache()</p></li>
 </ul>
@@ -568,8 +568,8 @@ Received Data Size: 11363
 <span class="p">}</span>
 
 <span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetPackage</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">SetLanguage</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
         <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
 <span class="p">}</span>
 

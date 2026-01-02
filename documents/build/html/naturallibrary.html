@@ -98,7 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setbeforerun-and-setafterrun-methods">SetBeforeRun() and SetAfterRun() Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setstartkeywordswith-and-setmaskoperators-methods">SetStartKeywordsWith() and SetMaskOperators() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#startcache-and-endcache-methods">StartCache() and EndCache() methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setpackage-method">SetPackage() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setpackage-setpackagename-method">SetPackage()/SetPackageName() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#expr-and-isidentifier-methods">Expr() and isIdentifier() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands-with-multiple-keywords">Commands with multiple keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-art-behind-naturallib">The Art Behind NaturalLib</a></li>
@@ -292,9 +292,9 @@ group of commands at once using a cache.</p>
 <p>After loading the library, We can use the NaturalLanguage class that contains the
 next methods :-</p>
 <ul class="simple">
-<li><p>SetLanguageName(cLanguageName)</p></li>
+<li><p>SetPackage(cPackageName)   | SetPackageName(cPackageName)</p></li>
+<li><p>SetLanguage(cLanguageName) | SetLanguageName(cLanguageName)</p></li>
 <li><p>SetCommandsPath(cFolder)</p></li>
-<li><p>SetPackageName(cPackageName)</p></li>
 <li><p>UseCommand(cCommandName)</p></li>
 <li><p>LoadCommand(cCommandName)</p></li>
 <li><p>SetOperators(cOperators)</p></li>
@@ -440,6 +440,9 @@ I will count Again!
 <p>To define new command we can use the DefineNaturalCommand object</p>
 <p>This object provides the next methods :-</p>
 <ul class="simple">
+<li><p>SetPackage(cName) | SetPackageName(cName)</p></li>
+<li><p>StartCache(cName)</p></li>
+<li><p>EndCache()</p></li>
 <li><p>SyntaxIsKeyword(aPara)</p></li>
 <li><p>SyntaxIsKeywordNumber(aPara)</p></li>
 <li><p>SyntaxIsKeywordNumberNumber(aPara)</p></li>
@@ -460,9 +463,6 @@ I will count Again!
 <li><p>SyntaxIsCommandExpression(aPara)</p></li>
 <li><p>SyntaxIsCommandExpressionExpression(aPara)</p></li>
 <li><p>SyntaxIsCommandExpressions(aPara,nCount)</p></li>
-<li><p>StartCache(cName)</p></li>
-<li><p>EndCache()</p></li>
-<li><p>SetPackage(cName)</p></li>
 </ul>
 <p>The command passes an anonymous function that becomes a method inside the class
 representing our domain‑specific language</p>
@@ -850,15 +850,15 @@ Command: I want button
 </pre></div>
 </div>
 </section>
-<section id="setpackage-method">
-<span id="index-11"></span><h2>SetPackage() Method<a class="headerlink" href="#setpackage-method" title="Permalink to this heading"></a></h2>
-<p>If many commands share the same package we can use the SetPackage() method</p>
+<section id="setpackage-setpackagename-method">
+<span id="index-11"></span><h2>SetPackage()/SetPackageName() Method<a class="headerlink" href="#setpackage-setpackagename-method" title="Permalink to this heading"></a></h2>
+<p>If many commands share the same package we can use the SetPackage()/SetPackageName() method</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
 <span class="n">DefineNaturalCommand</span> <span class="p">{</span>
-        <span class="nf">setPackage</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
         <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
         <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
                 <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
@@ -902,7 +902,7 @@ Command: I want button
 
 <span class="n">DefineNaturalCommand</span> <span class="p">{</span>
         <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
-        <span class="nf">setPackage</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
         <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
                 <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
                 <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
@@ -957,7 +957,7 @@ Is Identifier: 1
 
         <span class="n">DefineNaturalCommand</span> <span class="p">{</span>
                 <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
-                <span class="nf">setPackage</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+                <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
                 <span class="nf">syntaxIsKeywordExpressions</span><span class="p">([</span>
                         <span class="ss">:keyword</span> <span class="o">=</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
                         <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>

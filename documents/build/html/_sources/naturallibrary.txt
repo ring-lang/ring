@@ -73,9 +73,9 @@ The NaturalLanguage class
 After loading the library, We can use the NaturalLanguage class that contains the 
 next methods :-
 
-* SetLanguageName(cLanguageName)
+* SetPackage(cPackageName)   | SetPackageName(cPackageName)
+* SetLanguage(cLanguageName) | SetLanguageName(cLanguageName)
 * SetCommandsPath(cFolder)
-* SetPackageName(cPackageName)
 * UseCommand(cCommandName)
 * LoadCommand(cCommandName)
 * SetOperators(cOperators)
@@ -248,6 +248,9 @@ To define new command we can use the DefineNaturalCommand object
 
 This object provides the next methods :-
 
+* SetPackage(cName) | SetPackageName(cName)
+* StartCache(cName)
+* EndCache() 
 * SyntaxIsKeyword(aPara)
 * SyntaxIsKeywordNumber(aPara)
 * SyntaxIsKeywordNumberNumber(aPara)
@@ -268,9 +271,7 @@ This object provides the next methods :-
 * SyntaxIsCommandExpression(aPara)
 * SyntaxIsCommandExpressionExpression(aPara)
 * SyntaxIsCommandExpressions(aPara,nCount)
-* StartCache(cName)
-* EndCache() 
-* SetPackage(cName)
+
 
 The command passes an anonymous function that becomes a method inside the class 
 representing our domain‑specific language
@@ -761,10 +762,10 @@ Output:
 .. index:: 
 	pair: Using the Natural Library; SetPackage() Method
 
-SetPackage() Method
-===================
+SetPackage()/SetPackageName() Method
+====================================
 
-If many commands share the same package we can use the SetPackage() method
+If many commands share the same package we can use the SetPackage()/SetPackageName() method
 
 Example:
 
@@ -774,7 +775,7 @@ Example:
 	load "naturallib.ring"
 
 	DefineNaturalCommand {
-		setPackage("MyLanguage.Natural")
+		setPackageName("MyLanguage.Natural")
 		startCache(:MyDSL)
 		SyntaxIsCommand([
 			:Command = "I want window", 
@@ -826,7 +827,7 @@ Example:
 
 	DefineNaturalCommand {
 		startCache(:MyDSL)
-		setPackage("MyLanguage.Natural")
+		setPackageName("MyLanguage.Natural")
 		SyntaxIsCommand([
 			:Command = "I want window", 
 			:Function = func {
@@ -889,7 +890,7 @@ Example:
 
 		DefineNaturalCommand {
 			startCache(:MyDSL)
-			setPackage("MyLanguage.Natural")
+			setPackageName("MyLanguage.Natural")
 			syntaxIsKeywordExpressions([
 				:keyword = "replace", 
 				:Function = func {

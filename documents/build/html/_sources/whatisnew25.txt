@@ -384,7 +384,7 @@ The NaturalLib is updated to provide
 
 (3) The next methods are added to the NaturalCommand class
 
-* setPackage(cName)
+* setPackage(cName) | setPackageName(cName)
 * startCache(cName)
 * endCache() 
 
@@ -421,8 +421,8 @@ Example:
 	}
 
 	MyLang = New NaturalLanguage {
-		SetPackageName("MyLanguage.Natural")
-		SetLanguageName(:MyLanguage)
+		SetPackage("MyLanguage.Natural")
+		SetLanguage(:MyLanguage)
 		loadCommand(:MyDSL)
 	}
 
