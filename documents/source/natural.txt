@@ -627,3 +627,110 @@ This means that this class process only one natural statement that end with lite
 					cCatchError=substr(cCatchError,c+1)  
 				end
 				literal += substr(cCatchError,1)
+
+.. index:: 
+	pair: Natural Language Programming; Flexible Statement Separation
+
+Flexible Statement Separation
+=============================
+
+The Ring language allows the use of commas (,) as an alternative to semicolons (;) when 
+separating statements. 
+
+Ring also provides a mechanism for extracting identifiers from error messages. By using the 
+braceError() method together with the cCatchError variable, you can capture and analyze 
+the identifier that triggered the error. 
+
+Example:
+
+.. code-block:: ring
+
+	new xBaseUserInterface {
+		@10, 10 say "Hello, World!"
+		@11, 10 say "I Love Programming!"
+	}
+
+	class xBaseUserInterface
+
+		func braceError
+			? getVarName(cCatchError)
+
+		func getVarName cError
+			if left(cError,11) = "Error (R24)"
+				return substr(cError,45)
+			ok
+
+		func braceExprEval vValue
+			if vValue ? vValue ok
+
+Output:
+
+.. code-block:: none
+
+	@10
+	10
+	say
+	Hello, World!
+	@11
+	10
+	say
+	I Love Programming!
+
+
+.. index:: 
+	pair: Natural Language Programming; Using Keywords as Identifiers
+
+Using Keywords as Identifiers
+=============================
+
+The next keywords could be used as variables/attributes/etc.
+
+This is useful when creating domain-specific languages that uses these keywords in the commands.
+
+* Again
+* But
+* Case
+* Catch
+* Done
+* Else
+* From
+* In
+* Off
+* Ok
+* On
+* Other
+* Step
+* To
+
+Example:
+
+.. code-block:: ring
+
+	new Love {
+		I will say it Again and Again
+		YOU ARE MY LOVE
+		Come with me To the Sky
+	}
+
+	class Love
+
+		To Again
+
+		func getTo
+			? "Where?"
+	
+		func getAgain
+			? "Really?"
+			return True
+
+		func braceError
+
+
+Output:
+
+.. code-block:: none
+
+	Really?
+	Really?
+	Where?
+
