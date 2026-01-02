@@ -1,6 +1,6 @@
 /*
 	Tests For Ring programming language
-	2018-2025, Mahmoud Fayed
+	2018-2026, Mahmoud Fayed
 */
 
 aTests = [
@@ -410,6 +410,7 @@ aTests = [
 	[ :name = "Exit and Loop (Part 2)", :Command = "ring exitandloop/test2.ring" ],
 	[ :name = "Exit and Loop (Part 3)", :Command = "ring exitandloop/test3.ring" ],
 	[ :name = "Exit and Loop (Part 4)", :Command = "ring exitandloop/test4.ring" ],
+	[ :name = "Exit and Loop (Part 5)", :Command = "ring exitandloop/test5.ring" ],
 	[ :name = "Try/Catch (Part 1)", :Command = "ring trycatch/test1.ring" ],
 	[ :name = "Try/Catch (Part 2)", :Command = "ring trycatch/test2.ring" ],
 	[ :name = "Try/Catch (Part 3)", :Command = "ring trycatch/test3.ring" ],
