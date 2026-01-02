@@ -61,7 +61,8 @@ void ring_vm_exit(VM *pVM, int nType) {
 			}
 			x = ring_list_getsize(pActiveList) - nStep + 1;
 			for (y = x + 1; y <= ring_list_getsize(pActiveList); y++) {
-				ring_list_deleteitem_gc(pVM->pRingState, pActiveList, y);
+				ring_list_deleteitem_gc(pVM->pRingState, pVM->pExitMark, y);
+				ring_list_deleteitem_gc(pVM->pRingState, pVM->pLoopMark, y);
 			}
 		} else {
 			if (nType == RING_COMMANDTYPE_EXIT) {
