@@ -1,0 +1,73 @@
+==========
+x = 2
+here
+x = 0
+here
+==========
+one
+two
+three
+four
+five
+==========
+one
+two
+three
+four
+five
+******************** x = 9
+one
+two
+three
+four
+five
+******************** x = 8
+one
+two
+three
+four
+five
+******************** x = 7
+one
+two
+three
+four
+five
+******************** x = 6
+one
+two
+three
+four
+five
+******************** x = 5
+one
+two
+three
+four
+five
+******************** x = 4
+one
+two
+three
+four
+five
+******************** x = 3
+one
+two
+three
+four
+five
+******************** x = 2
+one
+two
+three
+four
+five
+******************** x = 1
+one
+two
+three
+four
+five
+==========
+done
