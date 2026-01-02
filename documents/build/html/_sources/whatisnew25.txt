@@ -978,6 +978,7 @@ More Improvements
 * RingOpenGL - Added GLEW headers and linker flags
 * RingLibuv - Added uv_close_cb to the aFunctionCallback list
 * Code Generator for Extensions - Support (const char * const *) types 
+* DiffDays() - Better Implementation
 * IsFunction() - Better Implementation
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
 * MergeMethods() - Better Performance (Avoid recreating the HashTable)
