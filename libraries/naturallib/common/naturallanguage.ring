@@ -15,7 +15,10 @@ class NaturalLanguage
 	lMaskKeywords = True
 	lMaskOperators = True
 
-	func SetLanguageName cName
+	func SetPackage cName
+		cPackageName = cName
+
+	func SetLanguage cName
 		if cLanguageName != cName {
 			cLanguageName = cName
 			cCode = "class #{langname} from NaturalBase"+nl
@@ -24,12 +27,15 @@ class NaturalLanguage
 			mergemethods(cLanguageName,:NaturalBaseMethods)
 		}
 
+	func setPackageName cName
+		return setPackage(cName)
+
+	func setLanguageName cName
+		return setLanguage(cName)
+
 	func SetCommandsPath cPath
 		cPath = substr(cPath,CurrentDir()+"/","")
 		cCommandsPath = cPath
-
-	func SetPackageName cName
-		cPackageName = cName
 
 	func RunFile cFile
 		if not fexists(cFile) {

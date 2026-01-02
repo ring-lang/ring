@@ -25,6 +25,9 @@ class NaturalCommand
 	func setPackage cName
 		cPackage = cName
 
+	func setPackageName cName
+		return setPackage(cName)
+
 	func prepareCommandParameters aPara
 		if aPara[:Package] {
 			cPackage = aPara[:Package]
