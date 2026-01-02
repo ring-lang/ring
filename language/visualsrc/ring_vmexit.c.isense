@@ -7,7 +7,7 @@ ring_vm_exit
 Type: List *
 pList,*pActiveList
 Type: unsigned int
-x,y,nStep
+x,nStep
 ring_vm_optionalloop
 ring_vm_stepnumber
 Type: double
