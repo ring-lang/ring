@@ -213,6 +213,7 @@ More Samples
 
 The next samples are added:
 
+* samples/UsingQt/DateEdit/daysto.ring
 * samples/UsingTokensLib/test2.ring
 * samples/UsingJSONLib (test14.ring and test15.ring)
 * samples/UsingNaturalLib/tests/largecode.ring
