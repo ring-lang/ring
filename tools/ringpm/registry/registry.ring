@@ -914,5 +914,9 @@ aPackagesRegistry = [
 	[ :name = "ringqml",
           :description = "A library used to interact with QML using Ring",
           :ProviderUserName = "mohannad-aldulaimi"
+	],
+	[ :name = "praytimes",
+          :description = "Prayer times application developed using Ring and RingQML",
+          :ProviderUserName = "mohannad-aldulaimi"
 	]
 ]
