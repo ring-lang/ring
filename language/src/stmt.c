@@ -540,6 +540,8 @@ int ring_parser_stmt(Parser *pParser) {
 								}
 								/* POP Step */
 								ring_parser_icg_newoperation(pParser, ICO_POPSTEP);
+								/* Optional Loop */
+								ring_parser_icg_newoperation(pParser, ICO_OPTIONALLOOP);
 								ring_parser_nexttoken(pParser);
 								RING_STATE_PRINTRULE(RING_RULE_NEXT);
 								ring_string_delete_gc(pParser->pRingState, pString);
@@ -685,11 +687,12 @@ int ring_parser_stmt(Parser *pParser) {
 							    pParser, ring_list_getstring(pParser->pForInVars, nVar));
 							ring_parser_icg_newoperation(pParser, ICO_KILLREFERENCE);
 						}
-						ring_parser_icg_newoperation(pParser, ICO_OPTIONALLOOP);
 						if (nForInVarsCount == 1) {
 							ring_list_deleteallitems_gc(pParser->pRingState,
 										    pParser->pForInVars);
 						}
+						/* Optional Loop */
+						ring_parser_icg_newoperation(pParser, ICO_OPTIONALLOOP);
 						/* Print the rule */
 						RING_STATE_PRINTRULE(RING_RULE_NEXT);
 						ring_string_delete_gc(pParser->pRingState, pString);
@@ -834,6 +837,8 @@ int ring_parser_stmt(Parser *pParser) {
 				}
 				/* POP Step */
 				ring_parser_icg_newoperation(pParser, ICO_POPSTEP);
+				/* Optional Loop */
+				ring_parser_icg_newoperation(pParser, ICO_OPTIONALLOOP);
 				ring_parser_nexttoken(pParser);
 				RING_STATE_PRINTRULE(RING_RULE_END);
 				return RING_PARSER_OK;
@@ -894,6 +899,8 @@ int ring_parser_stmt(Parser *pParser) {
 				}
 				/* POP Step */
 				ring_parser_icg_newoperation(pParser, ICO_POPSTEP);
+				/* Optional Loop */
+				ring_parser_icg_newoperation(pParser, ICO_OPTIONALLOOP);
 				pParser->lAssignmentFlag = 1;
 				RING_STATE_PRINTRULE(RING_RULE_AGAINEXPR);
 				pParser->nDoAgainCounter--;
