@@ -2220,6 +2220,8 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 	time_t vTimer, vTimer2;
 	char cBuffer[RING_SMALLBUF];
 	double nResult;
+	memset(&vTimeInfo, 0, sizeof(struct tm));
+	memset(&vTimeInfo2, 0, sizeof(struct tm));
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
@@ -2231,8 +2233,8 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 	cStr = (const unsigned char *)RING_API_GETSTRING(1);
 	cStr2 = (const unsigned char *)RING_API_GETSTRING(2);
 	if ((RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10)) {
-		if (isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) &&
-		    isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9])) {
+		if (isdigit(cStr[0]) && isdigit(cStr[1]) && isdigit(cStr[3]) && isdigit(cStr[4]) && isdigit(cStr[6]) &&
+		    isdigit(cStr[7]) && isdigit(cStr[8]) && isdigit(cStr[9])) {
 			vTimeInfo.tm_hour = 0;
 			vTimeInfo.tm_min = 0;
 			vTimeInfo.tm_sec = 0;
@@ -2243,7 +2245,7 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 			sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
 			vTimeInfo.tm_year = atoi(cBuffer) - 1900;
 			vTimer = mktime(&vTimeInfo);
-			if (vTimeInfo.tm_year > 1097) {
+			if ((vTimer == (time_t)-1) || (vTimeInfo.tm_year > 1097)) {
 				/*
 				**  1097 + 1900 = 2997
 				**  Values over limit may cause crash
@@ -2251,8 +2253,8 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
-			if (isalnum(cStr2[0]) && isalnum(cStr2[1]) && isalnum(cStr2[3]) && isalnum(cStr2[4]) &&
-			    isalnum(cStr2[6]) && isalnum(cStr2[7]) && isalnum(cStr2[8]) && isalnum(cStr2[9])) {
+			if (isdigit(cStr2[0]) && isdigit(cStr2[1]) && isdigit(cStr2[3]) && isdigit(cStr2[4]) &&
+			    isdigit(cStr2[6]) && isdigit(cStr2[7]) && isdigit(cStr2[8]) && isdigit(cStr2[9])) {
 				vTimeInfo2.tm_hour = 0;
 				vTimeInfo2.tm_min = 0;
 				vTimeInfo2.tm_sec = 0;
@@ -2263,7 +2265,7 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 				sprintf(cBuffer, "%c%c%c%c", cStr2[6], cStr2[7], cStr2[8], cStr2[9]);
 				vTimeInfo2.tm_year = atoi(cBuffer) - 1900;
 				vTimer2 = mktime(&vTimeInfo2);
-				if (vTimeInfo2.tm_year > 1097) {
+				if ((vTimer == (time_t)-1) || (vTimeInfo2.tm_year > 1097)) {
 					/*
 					**  1097 + 1900 = 2997
 					**  Values over limit may cause crash
