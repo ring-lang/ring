@@ -982,16 +982,18 @@ More Improvements
 * MergeMethods() - Better Performance (Avoid recreating the HashTable)
 * RingVM_EvalInScope() - Check the scope range before changing the scope
 * Ring VM - ICO_RETFROMEVAL instruction - Better Implementation
+* Ring VM - ICO_PUSHP - Keep in mind when the variable is no longer global
 * Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)
+* Ring VM - ring_vm_exit() - Better Implementation
 * Ring VM - ring_objfile_getc() - Better implementation
 * Ring VM - ring_objfile_readc() - Better implementation
 * Ring VM - ring_general_isobjectfile() - Better Implementation
 * Ring VM - ring_vm_updateclassespointers() - Better Performance
-* Ring VM - ICO_PUSHP - Keep in mind when the variable is no longer global
 * Ring Compiler - LoadSyntax command - Switch to the file folder 
 * Ring Compiler - ring_state_execute() implementation - Check ring_state_runfile() output
 * Ring Compiler - ring_state_runobjectstring() - Get the file size as parameter
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
+* Ring Compiler - Using ICO_OPTIONALLOOP in Different Types of Loops
 * Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
 * Documentation - Low Level Functions chapter - improve RingVM_EvalInScope() documentation
