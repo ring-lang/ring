@@ -235,3 +235,5 @@ ring_vm_oop_cleansetpropertylist
 ring_vm_oop_internalcallforbracemethod
 Type: List *
 pList
+Type: unsigned int
+lResult
