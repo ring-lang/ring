@@ -3,7 +3,6 @@
 #include "ring.h"
 
 RING_API void ring_vm_error(VM *pVM, const char *cStr) {
-	List *pList;
 	/* Check if we have active error */
 	if (pVM->lActiveError) {
 		return;
@@ -16,18 +15,8 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 	if (pVM->lCheckBraceError && (ring_list_getsize(pVM->pObjState) > 0)) {
 		fflush(stdout);
 		pVM->lActiveError = RING_FALSE;
-		if ((ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0) &&
-		    (pVM->lCallMethod == 0)) {
-			if (ring_vm_findvar(pVM, RING_CSTR_SELF)) {
-				pList = ring_vm_oop_getobj(pVM);
-				RING_VM_STACK_POP;
-				if (ring_vm_oop_isobject(pVM, pList)) {
-					if (ring_vm_oop_ismethod(pVM, pList, RING_CSTR_BRACEERROR)) {
-						ring_vm_callfuncwithouteval(pVM, RING_CSTR_BRACEERROR, RING_TRUE);
-						return;
-					}
-				}
-			}
+		if (ring_vm_oop_internalcallforbracemethod(pVM, RING_CSTR_BRACEERROR)) {
+			return;
 		}
 		pVM->lActiveError = RING_TRUE;
 	}

@@ -232,3 +232,6 @@ Type: unsigned int
 lResult
 ring_vm_oop_addattribute
 ring_vm_oop_cleansetpropertylist
+ring_vm_oop_internalcallforbracemethod
+Type: List *
+pList

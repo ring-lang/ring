@@ -155,4 +155,6 @@ unsigned int ring_vm_oop_isattribute(VM *pVM, List *pList, const char *cStr);
 unsigned int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr);
 
 void ring_vm_oop_cleansetpropertylist(VM *pVM);
+
+int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod);
 #endif

@@ -1281,3 +1281,21 @@ void ring_vm_oop_cleansetpropertylist(VM *pVM) {
 		ring_list_deleteitem_gc(pVM->pRingState, pVM->pSetProperty, ring_list_getsize(pVM->pSetProperty));
 	}
 }
+
+int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod) {
+	List *pList;
+	if ((ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0) &&
+	    (pVM->lCallMethod == 0)) {
+		if (ring_vm_findvar(pVM, RING_CSTR_SELF)) {
+			pList = ring_vm_oop_getobj(pVM);
+			RING_VM_STACK_POP;
+			if (ring_vm_oop_isobject(pVM, pList)) {
+				if (ring_vm_oop_ismethod(pVM, pList, cMethod)) {
+					ring_vm_callfuncwithouteval(pVM, cMethod, RING_TRUE);
+					return RING_TRUE;
+				}
+			}
+		}
+	}
+	return RING_FALSE;
+}
