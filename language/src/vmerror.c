@@ -8,33 +8,31 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 	if (pVM->lActiveError) {
 		return;
 	}
-	pVM->lActiveError = 1;
+	pVM->lActiveError = RING_TRUE;
+	/* Set Error Variable */
+	ring_list_setstring_gc(pVM->pRingState, ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG),
+			       RING_VAR_VALUE, cStr);
 	/* Check BraceError() */
 	if (pVM->lCheckBraceError && (ring_list_getsize(pVM->pObjState) > 0)) {
 		fflush(stdout);
-		if ((ring_vm_oop_callmethodinsideclass(pVM) == 0) && (pVM->lCallMethod == 0)) {
+		pVM->lActiveError = RING_FALSE;
+		if ((ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0) &&
+		    (pVM->lCallMethod == 0)) {
 			if (ring_vm_findvar(pVM, RING_CSTR_SELF)) {
 				pList = ring_vm_oop_getobj(pVM);
 				RING_VM_STACK_POP;
 				if (ring_vm_oop_isobject(pVM, pList)) {
 					if (ring_vm_oop_ismethod(pVM, pList, RING_CSTR_BRACEERROR)) {
-						pVM->lActiveError = 0;
-						ring_list_setstring_gc(
-						    pVM->pRingState,
-						    ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG),
-						    RING_VAR_VALUE, cStr);
 						ring_vm_callfuncwithouteval(pVM, RING_CSTR_BRACEERROR, RING_TRUE);
 						return;
 					}
 				}
 			}
 		}
+		pVM->lActiveError = RING_TRUE;
 	}
-	pVM->lCheckBraceError = 1;
-	if (ring_list_getsize(pVM->pTry) == 0) {
-		ring_list_setstring_gc(pVM->pRingState,
-				       ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG),
-				       RING_VAR_VALUE, cStr);
+	pVM->lCheckBraceError = RING_TRUE;
+	if (ring_list_getsize(pVM->pTry) == RING_ZERO) {
 		if (ring_list_findstring_gc(pVM->pRingState, pVM->pFunctionsMap, RING_CSTR_RINGVMERRORHANDLER,
 					    RING_FUNCMAP_NAME)) {
 			ring_vm_callfuncwithouteval(pVM, RING_CSTR_RINGVMERRORHANDLER, RING_FALSE);
@@ -43,17 +41,17 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 				return;
 			}
 		}
-		if (pVM->lHideErrorMsg == 0) {
+		if (pVM->lHideErrorMsg == RING_FALSE) {
 			ring_vm_showerrormessage(pVM, cStr);
 		}
 		/* Trace */
-		pVM->lActiveError = 0;
+		pVM->lActiveError = RING_FALSE;
 		RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_ERROR);
-		if (pVM->lPassError == 1) {
-			pVM->lPassError = 0;
+		if (pVM->lPassError == RING_TRUE) {
+			pVM->lPassError = RING_FALSE;
 			return;
 		}
-		pVM->lActiveError = 1;
+		pVM->lActiveError = RING_TRUE;
 		ring_vm_shutdown(pVM, RING_EXIT_FAIL);
 		return;
 	}
@@ -64,12 +62,12 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 	*/
 	if (pVM->nEvalInScope) {
 		ring_vm_showerrormessage(pVM, cStr);
-		pVM->lActiveError = 0;
+		pVM->lActiveError = RING_FALSE;
 		ring_vm_freestack(pVM);
 		return;
 	}
 	ring_vm_catch(pVM, cStr);
-	pVM->lActiveError = 0;
+	pVM->lActiveError = RING_FALSE;
 }
 
 void ring_vm_error2(VM *pVM, const char *cStr, const char *cStr2) {
