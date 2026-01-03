@@ -404,16 +404,16 @@ Example:
 	load "stdlibcore.ring"
 	load "naturallib.ring"
 
-	DefineNaturalCommand {
+	defineNaturalCommand {
 		setPackageName("MyLanguage.Natural")
 		startCache(:MyDSL)
-		SyntaxIsCommand([
+		syntaxIsCommand([
 			:Command = "I want window", 
 			:Function = func {
 				?  "Command: I want window" 
 			}
 		])
-		SyntaxIsCommand([
+		syntaxIsCommand([
 			:Command = "I want button", 
 			:Function = func {
 				?  "Command: I want button" 
@@ -422,9 +422,9 @@ Example:
 		endCache()
 	}
 
-	MyLang = New NaturalLanguage {
-		SetPackageName("MyLanguage.Natural")
-		SetLanguage(:MyLanguage)
+	new NaturalLanguage {
+		setPackageName("MyLanguage.Natural")
+		setLanguage(:MyLanguage)
 		loadCommand(:MyDSL)
 	}
 

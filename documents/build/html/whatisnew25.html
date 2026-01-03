@@ -551,16 +551,16 @@ Received Data Size: 11363
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
-<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+<span class="n">defineNaturalCommand</span> <span class="p">{</span>
         <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
         <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
-        <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
                 <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
                 <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
                         <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
                 <span class="p">}</span>
         <span class="p">])</span>
-        <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
                 <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
                 <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
                         <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
@@ -569,9 +569,9 @@ Received Data Size: 11363
         <span class="nf">endCache</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="nf">SetLanguage</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">setLanguage</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
         <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
 <span class="p">}</span>
 
