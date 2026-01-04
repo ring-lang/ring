@@ -945,6 +945,73 @@ Output:
 	age ===> 10
 
 .. index:: 
+	pair: Using the Natural Library; Sharing Data Between Commands
+
+Sharing Data Between Commands
+=============================
+
+Each command can access the aCommandMemory list, which is defined as an attribute of the object. 
+
+Using this list, the commands can share data with one another.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:window] = True
+				?  "Command: I want window" 
+			}
+		])
+		syntaxIsCommand([
+			:Command = "I want button", 
+			:Function = func {
+				if ! aCommandMemory[:window] {
+					? "Please create the window first!"
+					return 
+				}
+				?  "Command: I want button" 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		SetLanguageName(:GUI)
+		SetPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	new GUI  {
+ 		I Want Window	
+		I want Button
+	}						
+
+	? copy("*",25)
+
+	new GUI  {
+		I want Button
+	}		
+
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want button
+	*************************
+	Please create the window first!
+
+.. index:: 
 	pair: Using the Natural Library; The Art Behind NaturalLib
 
 The Art Behind NaturalLib
