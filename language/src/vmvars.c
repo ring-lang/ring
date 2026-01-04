@@ -94,7 +94,7 @@ void ring_vm_deletescope(VM *pVM) {
 }
 
 unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
-	unsigned int x, nPos, nMax1;
+	unsigned int x, nMax1;
 	List *pList, *pList2;
 	pVM->lSelfLoadA = 0;
 	nMax1 = RING_VM_SCOPESCOUNT;
@@ -148,27 +148,9 @@ unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
 					pList = ring_vm_getglobalscope(pVM);
 				}
 			}
-			if (ring_list_getsize(pList) < RING_VARSCOPE_SIZETOUSEHASHTABLE) {
-				/* Search Using Linear Search */
-				nPos = ring_list_findstring_gc(pVM->pRingState, pList, cStr, RING_VAR_NAME);
-				if (nPos != 0) {
-					if (ring_list_islist(pList, nPos)) {
-						pList2 = ring_list_getlist(pList, nPos);
-						return ring_vm_findvar2(pVM, x, pList2, cStr);
-					}
-				}
-			} else {
-				/* Search Using the HashTable */
-				ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
-				if (ring_list_gethashtable(pList) == NULL) {
-					ring_list_genhashtable2_gc(pVM->pRingState, pList);
-				}
-				pList2 = (List *)ring_hashtable_findpointer_gc(pVM->pRingState,
-									       ring_list_gethashtable(pList), cStr);
-				ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
-				if (pList2 != NULL) {
-					return ring_vm_findvar2(pVM, x, pList2, cStr);
-				}
+			pList2 = ring_vm_findvarusinghashtable(pVM, pList, cStr);
+			if (pList2 != NULL) {
+				return ring_vm_findvar2(pVM, x, pList2, cStr);
 			}
 		}
 	}
@@ -303,6 +285,30 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 		ring_list_resetlnewref_gc(pVM->pRingState, pList2);
 	}
 	return RING_TRUE;
+}
+
+List *ring_vm_findvarusinghashtable(VM *pVM, List *pList, const char *cStr) {
+	List *pList2;
+	unsigned int nPos;
+	pList2 = NULL;
+	if (ring_list_getsize(pList) < RING_VARSCOPE_SIZETOUSEHASHTABLE) {
+		/* Search Using Linear Search */
+		nPos = ring_list_findstring_gc(pVM->pRingState, pList, cStr, RING_VAR_NAME);
+		if (nPos != 0) {
+			if (ring_list_islist(pList, nPos)) {
+				pList2 = ring_list_getlist(pList, nPos);
+			}
+		}
+	} else {
+		/* Search Using the HashTable */
+		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
+		if (ring_list_gethashtable(pList) == NULL) {
+			ring_list_genhashtable2_gc(pVM->pRingState, pList);
+		}
+		pList2 = (List *)ring_hashtable_findpointer_gc(pVM->pRingState, ring_list_gethashtable(pList), cStr);
+		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
+	}
+	return pList2;
 }
 
 void ring_vm_newvar(VM *pVM, const char *cStr) {

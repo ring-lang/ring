@@ -12,7 +12,7 @@ Type: unsigned int
 x
 ring_vm_findvar
 Type: unsigned int
-x,nPos,nMax1
+x,nMax1
 Type: List *
 pList,*pList2
 ring_vm_findvar2
@@ -88,3 +88,6 @@ ring_vm_getglobalscope
 Type: List *
 pList
 ring_vm_addvarpointertoscopehash
+ring_vm_findvarusinghashtable
+Type: List *
+pList2

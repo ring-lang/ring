@@ -723,6 +723,8 @@ unsigned int ring_vm_findvar(VM *pVM, const char *cStr);
 
 unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const char *cStr);
 
+List *ring_vm_findvarusinghashtable(VM *pVM, List *pList, const char *cStr);
+
 void ring_vm_newvar(VM *pVM, const char *cStr);
 
 List *ring_vm_newvar2(VM *pVM, const char *cStr, List *pParent);
