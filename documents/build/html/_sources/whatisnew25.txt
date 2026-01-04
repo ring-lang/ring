@@ -981,6 +981,8 @@ More Improvements
 * Code Generator for Extensions - Support (const char * const *) types 
 * DiffDays() - Better Implementation
 * IsFunction() - Better Implementation
+* IsMethod() - Better Performance (Using the HashTable)
+* IsAttribute() - Better Performance (Using the HashTable)
 * AddMethod() - Better Performance (Avoid recreating the HashTable)
 * MergeMethods() - Better Performance (Avoid recreating the HashTable)
 * RingVM_EvalInScope() - Check the scope range before changing the scope
