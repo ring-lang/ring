@@ -1,6 +1,6 @@
 ===========================================================================
 Ring Package Manager (RingPM)
-2018-2025, Mahmoud Fayed <msfclipper@yahoo.com>
+2018-2026, Mahmoud Fayed <msfclipper@yahoo.com>
 ===========================================================================
 Usage   : ringpm [command]
 Command :  [keywords...]
