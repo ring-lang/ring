@@ -29,6 +29,8 @@ Class NaturalBase
 
 	lEnableBraceExprEval = True
 
+	aCommandMemory = []                  // Used for sharing data between commands
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
