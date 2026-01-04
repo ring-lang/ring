@@ -292,6 +292,10 @@ Quotes about Ring
 |		, Sabe
 
 
+|	**"It's great! I've been using the Ring language in Mexico since it was first released as a downloadable program in 2016. Now, with Ring, you can also use PWCT 2.0. It's excellent for productivity (try it, you won't be disappointed)"**
+|		, valentin coellar
+
+
 |	**"Your programming language, Ring, has been incredibly helpful to me. Keep up the amazing work!"**
 |		, Riko Abadi
 
