@@ -156,8 +156,7 @@ void ring_vm_refmeta_isfunction(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		pVM = (VM *)pPointer;
 		cStr = ring_general_lower(RING_API_GETSTRING(1));
-		RING_API_RETNUMBER(
-		    ring_list_findstring_gc(pVM->pRingState, pVM->pFunctionsMap, cStr, RING_FUNCMAP_NAME));
+		RING_API_RETNUMBER(ring_vm_findfuncusinghashtable(pVM, pVM->pFunctionsMap, cStr) != NULL);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
