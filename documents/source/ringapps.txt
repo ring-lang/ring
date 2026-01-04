@@ -283,6 +283,18 @@ Quotes about Ring
 |	**"In 2024, I began working on CSV data manipulation and started looking for a simple, effective programming language. That’s when I discovered Ring, which I found to be a highly viable solution. It was easy to learn—I went through the documentation in about two weeks and was already writing real applications shortly afterward."**
 |		, Clement
 
+
+|	**"Ring is a beautiful language. Its syntax flexibility is especially wonderful."**
+|		, Hassan Harbi
+
+
+|	**"I've been playing around a bit and it is so nice to just load a file and immediately be able to use libraries like RayLib, SDL, and OpenGL. I plan on trying to make a game or even multiple games with Ring and maybe even talk about it on my YouTube channel"**
+|		, Sabe
+
+
+|	**"Your programming language, Ring, has been incredibly helpful to me. Keep up the amazing work!"**
+|		, Riko Abadi
+
 .. index:: 
 	pair: Applications developed in a few hours; Applications and samples
 
