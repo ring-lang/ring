@@ -371,6 +371,7 @@ aTests = [
 	[ :name = "Natural Language Programming (Part 14)", :Command = "ring natural/linenumberinsidebraces.ring" ],
 	[ :name = "Natural Language Programming (Part 15)", :Command = "ring natural/sumrows.ring" ],
 	[ :name = "Natural Language Programming (Part 16)", :Command = "ring natural/bracenewline.ring" ],
+	[ :name = "Natural Language Programming (Part 17)", :Command = "ring natural/sumrows2.ring" ],
 	[ :name = "Natural Language Programming Library (Part 1)", :Command = "ring naturallib/start.ring" ],
 	[ :name = "Natural Language Programming Library (Part 2)", :Command = "ring naturallib/program.ring" ],
 	[ :name = "Natural Language Programming Library (Part 3)", :Command = "ring naturallib/program2.ring" ],
