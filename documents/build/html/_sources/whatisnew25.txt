@@ -28,6 +28,7 @@ Ring 1.25 comes with the next features!
 * Callable Functions as Methods
 * Flexible Statement Separation
 * Using Keywords as Identifiers
+* Newline Callbacks Inside Braces
 * Translating Internal Identifiers
 * RingVM_TranslateCFunction() function
 * RingVM_ErrorHandler() function  
@@ -649,6 +650,54 @@ Output:
 	Really?
 	Really?
 	Where?
+
+.. index:: 
+	pair: What is new in Ring  1.25; Newline Callbacks Inside Braces
+
+Newline Callbacks Inside Braces
+===============================
+
+BraceNewLine() is a callback that Ring automatically triggers whenever a logical 
+newline is encountered when we access an object using braces.
+If a line contains expressions, the method is called after those expressions are processed.
+If the block contains one or more empty lines, Ring treats all consecutive empty lines as a 
+single break, so  is invoked only once no matter how many blank lines appear. 
+
+Example:
+
+.. code-block:: ring
+
+	new SumRows {
+		10 20 30      # 60
+		10            # 10
+		400 100       # 500
+		30 40         # 70
+	}
+
+	class SumRows
+
+		lSum	 = False
+		nSum     = 0
+		nLastRow = 0
+
+		func braceExprEval  value 
+
+			lSum  = True
+			nSum += value 
+
+		func braceNewLine
+
+			if lSum ? nSum nSum=0 lSum=False ok
+
+Output:
+
+.. code-block:: none
+
+	60
+	10
+	500
+	70
+
 
 .. index:: 
 	pair: What is new in Ring  1.25; Translating Internal Identifiers

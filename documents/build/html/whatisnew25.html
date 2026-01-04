@@ -197,6 +197,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#callable-functions-as-methods">Callable Functions as Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newline-callbacks-inside-braces">Newline Callbacks Inside Braces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-translatecfunction-function">RingVM_TranslateCFunction() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">RingVM_ErrorHandler() function</a></li>
@@ -257,6 +258,7 @@
 <li><p>Callable Functions as Methods</p></li>
 <li><p>Flexible Statement Separation</p></li>
 <li><p>Using Keywords as Identifiers</p></li>
+<li><p>Newline Callbacks Inside Braces</p></li>
 <li><p>Translating Internal Identifiers</p></li>
 <li><p>RingVM_TranslateCFunction() function</p></li>
 <li><p>RingVM_ErrorHandler() function</p></li>
@@ -765,8 +767,47 @@ Where?
 </pre></div>
 </div>
 </section>
+<section id="newline-callbacks-inside-braces">
+<span id="index-15"></span><h2>Newline Callbacks Inside Braces<a class="headerlink" href="#newline-callbacks-inside-braces" title="Permalink to this heading"></a></h2>
+<p>BraceNewLine() is a callback that Ring automatically triggers whenever a logical
+newline is encountered when we access an object using braces.
+If a line contains expressions, the method is called after those expressions are processed.
+If the block contains one or more empty lines, Ring treats all consecutive empty lines as a
+single break, so  is invoked only once no matter how many blank lines appear.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">SumRows</span> <span class="p">{</span>
+        <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>      <span class="c1"># 60</span>
+        <span class="mi">10</span>            <span class="c1"># 10</span>
+        <span class="mi">400</span> <span class="mi">100</span>       <span class="c1"># 500</span>
+        <span class="mi">30</span> <span class="mi">40</span>         <span class="c1"># 70</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SumRows</span>
+
+        <span class="n">lSum</span>     <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">nSum</span>     <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nLastRow</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="kd">func</span> <span class="nf">braceExprEval</span>  <span class="n">value</span>
+
+                <span class="n">lSum</span>  <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">nSum</span> <span class="o">+=</span> <span class="n">value</span>
+
+        <span class="kd">func</span> <span class="nf">braceNewLine</span>
+
+                <span class="k">if</span> <span class="n">lSum</span> <span class="o">?</span> <span class="n">nSum</span> <span class="n">nSum</span><span class="o">=</span><span class="mi">0</span> <span class="n">lSum</span><span class="o">=</span><span class="bp">False</span> <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>60
+10
+500
+70
+</pre></div>
+</div>
+</section>
 <section id="translating-internal-identifiers">
-<span id="index-15"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
 <p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
 This allows translation without breaking existing code that relies on English identifiers.</p>
 <p>The identifiers that can be translated are:</p>
@@ -858,7 +899,7 @@ Parent - Test()
 </div>
 </section>
 <section id="ringvm-translatecfunction-function">
-<span id="index-16"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
 <p>This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.</p>
 <p>This happens at the VM level, not at the script level, so it’s fast and transparent.</p>
 <p>Example:</p>
@@ -880,7 +921,7 @@ Parent - Test()
 </div>
 </section>
 <section id="ringvm-errorhandler-function">
-<span id="index-17"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
 <p>If this function is defined in Ring code, it will be called when an error occurs, provided
 the error is not handled by try/catch/done.</p>
 <p>Example (1):</p>
@@ -932,7 +973,7 @@ done
 </div>
 </section>
 <section id="ringvm-ringolists-function">
-<span id="index-18"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
 <p>This function parses a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) string and returns its contents as Ring lists.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
@@ -964,7 +1005,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ringvm-writeringo-function">
-<span id="index-19"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
 <p>This function writes a Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) from a Ring list.</p>
 <p>The list contains five sublists:</p>
 <ul class="simple">
@@ -988,7 +1029,7 @@ Instructions count: 782280
 </div>
 </section>
 <section id="ring-object-file-format-update">
-<span id="index-20"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<span id="index-21"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
 <p>The Ring Object File (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo) format has been revised and improved for better performance and reliability.</p>
 <p>Example: PWCT2 Project</p>
 <p>The updates reduce storage overhead by more than 42% and increase performance by over 48%.</p>
@@ -1024,7 +1065,7 @@ Instructions count: 782280
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-21"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-22"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
 <li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
