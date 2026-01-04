@@ -858,6 +858,8 @@ unsigned int ring_vm_funccallparacount(VM *pVM);
 void ring_vm_newscopeid(VM *pVM);
 
 void ring_vm_optionalfunc(void *pPointer);
+
+List *ring_vm_findfuncusinghashtable(VM *pVM, List *pFuncsList, const char *cFuncName);
 /* String As Array */
 
 void ring_vm_stringpushv(VM *pVM);

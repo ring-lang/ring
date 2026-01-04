@@ -42,12 +42,7 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 			pList = pVM->pFunctionsMap;
 		}
 		/* Use the HashTable */
-		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
-		if (ring_list_gethashtable(pList) == NULL) {
-			ring_list_genhashtable2_gc(pVM->pRingState, pList);
-		}
-		pList2 = (List *)ring_hashtable_findpointer(ring_list_gethashtable(pList), cStr);
-		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
+		pList2 = ring_vm_findfuncusinghashtable(pVM, pList, cStr);
 		if (pList2 != NULL) {
 			/* Error when the method is private */
 			if (ring_list_getint(pList2, RING_FUNCMAP_PRIVATEFLAG) == 1) {
@@ -943,4 +938,17 @@ void ring_vm_optionalfunc(void *pPointer) {
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	RING_VM_STACK_PUSHNVALUE(RING_ZERO);
+}
+
+List *ring_vm_findfuncusinghashtable(VM *pVM, List *pFuncsList, const char *cFuncName) {
+	List *pFuncList;
+	pFuncList = NULL;
+	/* Use the HashTable */
+	ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
+	if (ring_list_gethashtable(pFuncsList) == NULL) {
+		ring_list_genhashtable2_gc(pVM->pRingState, pFuncsList);
+	}
+	pFuncList = (List *)ring_hashtable_findpointer(ring_list_gethashtable(pFuncsList), cFuncName);
+	ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
+	return pFuncList;
 }

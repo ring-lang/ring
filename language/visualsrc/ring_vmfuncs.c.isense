@@ -107,3 +107,6 @@ x
 ring_vm_optionalfunc
 Type: VM *
 pVM
+ring_vm_findfuncusinghashtable
+Type: List *
+pFuncList
