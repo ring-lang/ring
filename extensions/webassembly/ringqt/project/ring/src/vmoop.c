@@ -1146,16 +1146,12 @@ unsigned int ring_vm_oop_ismethod(VM *pVM, List *pList, const char *cStr) {
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM, pList);
 	/* Find the Method */
-	if (ring_list_getsize(pList2) > 0) {
-		for (x = 1; x <= ring_list_getsize(pList2); x++) {
-			pList3 = ring_list_getlist(pList2, x);
-			if (strcmp(ring_list_getstring(pList3, RING_FUNCMAP_NAME), cStr) == 0) {
-				if (ring_list_getint(pList3, RING_FUNCMAP_PRIVATEFLAG)) {
-					return RING_ISMETHOD_PRIVATEMETHOD;
-				}
-				return RING_ISMETHOD_PUBLICMETHOD;
-			}
+	pList3 = ring_vm_findfuncusinghashtable(pVM, pList2, cStr);
+	if (pList3 != NULL) {
+		if (ring_list_getint(pList3, RING_FUNCMAP_PRIVATEFLAG)) {
+			return RING_ISMETHOD_PRIVATEMETHOD;
 		}
+		return RING_ISMETHOD_PUBLICMETHOD;
 	}
 	return RING_ISMETHOD_NOTFOUND;
 }
