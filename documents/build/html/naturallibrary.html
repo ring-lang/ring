@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#expr-and-isidentifier-methods">Expr() and isIdentifier() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands-with-multiple-keywords">Commands with multiple keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sharing-data-between-commands">Sharing Data Between Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setpasserror-method">SetPassError() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-art-behind-naturallib">The Art Behind NaturalLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-samples-and-the-source-code">The Samples and the Source Code</a></li>
 </ul>
@@ -1070,8 +1071,63 @@ Please create the window first!
 </pre></div>
 </div>
 </section>
+<section id="setpasserror-method">
+<span id="index-15"></span><h2>SetPassError() Method<a class="headerlink" href="#setpasserror-method" title="Permalink to this heading"></a></h2>
+<p>Using the SetPassError(lStatus) method, we can control how the Natural Library behaves when an
+error occurs, either by passing the error or by displaying it and terminating the program.</p>
+<p>The default behavior is to pass the error.</p>
+<p>A related method is setTreatIdentifierAsString(lStatus), which controls whether uninitialized
+identifiers should be passed by converting the identifier to a string.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="nf">setPassError</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="nf">setTreatIdentifierAsString</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="p">{</span>
+
+        <span class="n">I</span>
+        <span class="n">Want</span>
+        <span class="n">Window</span>
+
+        <span class="n">I</span> <span class="n">want</span>
+        <span class="n">Button</span>
+
+        <span class="n">I</span> <span class="n">want</span>                          <span class="c1">// Produce error at braceEnd()</span>
+
+<span class="p">}</span>                                       <span class="c1">// Call braceEnd() and check Errors</span>
+</pre></div>
+</div>
+</section>
 <section id="the-art-behind-naturallib">
-<span id="index-15"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
 <p>Working with the Natural Library is not only a technical activity. It is also a creative process.
 The library gives you tools for parsing, evaluating expressions, and defining commands, but
 these tools are only the foundation. The moment you decide how your DSL should read and
@@ -1101,7 +1157,7 @@ should communicate with the computer. The Natural Library supports both sides, y
 creative vision remains yours.</p>
 </section>
 <section id="the-samples-and-the-source-code">
-<span id="index-16"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
 <p>You can find the samples in the ring/samples/UsingNaturalLib folder.</p>
 <p>You can find the source code in the ring/libraries/naturallib folder.</p>
 </section>

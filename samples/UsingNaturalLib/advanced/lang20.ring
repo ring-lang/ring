@@ -20,8 +20,8 @@ DefineNaturalCommand {
 }
 
 new NaturalLanguage {
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 
@@ -38,6 +38,6 @@ GUI {
 	I want 
 	Button
 
-	I want				// Produce error at braceEnd()
+	I want                          // Produce error at braceEnd()
 
-}						// Call braceEnd() and check Errors
+}                                       // Call braceEnd() and check Errors
