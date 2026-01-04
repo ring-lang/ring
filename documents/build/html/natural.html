@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#clean-natural-code">Clean Natural Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newline-callbacks-inside-braces">Newline Callbacks Inside Braces</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
@@ -852,6 +853,45 @@ I Love Programming!
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Really?
 Really?
 Where?
+</pre></div>
+</div>
+</section>
+<section id="newline-callbacks-inside-braces">
+<span id="index-14"></span><h2>Newline Callbacks Inside Braces<a class="headerlink" href="#newline-callbacks-inside-braces" title="Permalink to this heading"></a></h2>
+<p>BraceNewLine() is a callback that Ring automatically triggers whenever a logical
+newline is encountered when we access an object using braces.
+If a line contains expressions, the method is called after those expressions are processed.
+If the block contains one or more empty lines, Ring treats all consecutive empty lines as a
+single break, so  is invoked only once no matter how many blank lines appear.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">SumRows</span> <span class="p">{</span>
+        <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>      <span class="c1"># 60</span>
+        <span class="mi">10</span>            <span class="c1"># 10</span>
+        <span class="mi">400</span> <span class="mi">100</span>       <span class="c1"># 500</span>
+        <span class="mi">30</span> <span class="mi">40</span>         <span class="c1"># 70</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SumRows</span>
+
+        <span class="n">lSum</span>     <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">nSum</span>     <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nLastRow</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="kd">func</span> <span class="nf">braceExprEval</span>  <span class="n">value</span>
+
+                <span class="n">lSum</span>  <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">nSum</span> <span class="o">+=</span> <span class="n">value</span>
+
+        <span class="kd">func</span> <span class="nf">braceNewLine</span>
+
+                <span class="k">if</span> <span class="n">lSum</span> <span class="o">?</span> <span class="n">nSum</span> <span class="n">nSum</span><span class="o">=</span><span class="mi">0</span> <span class="n">lSum</span><span class="o">=</span><span class="bp">False</span> <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>60
+10
+500
+70
 </pre></div>
 </div>
 </section>

@@ -745,3 +745,51 @@ Output:
 	Really?
 	Where?
 
+.. index:: 
+	pair: Natural Language Programming; Newline Callbacks Inside Braces
+
+Newline Callbacks Inside Braces
+===============================
+
+BraceNewLine() is a callback that Ring automatically triggers whenever a logical 
+newline is encountered when we access an object using braces.
+If a line contains expressions, the method is called after those expressions are processed.
+If the block contains one or more empty lines, Ring treats all consecutive empty lines as a 
+single break, so  is invoked only once no matter how many blank lines appear. 
+
+Example:
+
+.. code-block:: ring
+
+	new SumRows {
+		10 20 30      # 60
+		10            # 10
+		400 100       # 500
+		30 40         # 70
+	}
+
+	class SumRows
+
+		lSum	 = False
+		nSum     = 0
+		nLastRow = 0
+
+		func braceExprEval  value 
+
+			lSum  = True
+			nSum += value 
+
+		func braceNewLine
+
+			if lSum ? nSum nSum=0 lSum=False ok
+
+Output:
+
+.. code-block:: none
+
+	60
+	10
+	500
+	70
+
+
