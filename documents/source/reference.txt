@@ -278,8 +278,8 @@ Functions Count: 258
         log(x) ---> The natural logarithm of x (the base of e)
 	log(x,b) ---> The logarithm of x to the base of b
         log10(x) ---> The common logarithm (base-10 logarithm) of x
-	lower(string) ---> convert string letters to lower c
-        max(nNumber1,nNumber) ---> Maximum number
+	lower(string) ---> convert string letters to lower case
+        max(nNumber1,nNumber2) ---> Maximum number
         max(aList) ---> Maximum number inside the list
         memcpy(pDestinationPointer,cSourceString,nSize)
         memorycopy(pDestinationPointer,cSourceString,nSize)
@@ -299,7 +299,7 @@ Functions Count: 258
         object2pointer(List|Object) --> Low Level Object ( C Pointer )
         objectid(object) ---> Returns the object id
 	optionalfunc(cFuncName)
-        packageclasses() cPackageName) ---> a list contains classes names inside the package
+        packageclasses(cPackageName) ---> a list contains classes names inside the package
         packagename() ---> Returns the package name of the latest successful import
         packages() ---> a list contains packages names
 	parentclassname(object) ---> Returns the parent class name of the object class
