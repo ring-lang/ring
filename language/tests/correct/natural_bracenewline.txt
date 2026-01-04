@@ -1,0 +1,8 @@
+welcome
+newline
+newline
+newline
+bye
+====================
+welcome
+bye
