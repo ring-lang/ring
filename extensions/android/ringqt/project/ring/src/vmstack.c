@@ -347,6 +347,9 @@ void ring_vm_loadapushv(VM *pVM) {
 void ring_vm_newline(VM *pVM) {
 	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READI);
 	RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_NEWLINE);
+	if (RING_VM_IR_READIVALUE(RING_VM_IR_REG2)) {
+		ring_vm_oop_internalcallforbracemethod(pVM, RING_CSTR_BRACENEWLINE);
+	}
 }
 
 void ring_vm_freestack(VM *pVM) {

@@ -137,6 +137,7 @@ void ring_parser_icg_newline(Parser *pParser, int nLine) {
 	}
 	ring_parser_icg_newoperation(pParser, ICO_NEWLINE);
 	ring_parser_icg_newoperandint(pParser, nLine);
+	ring_parser_icg_newoperandint(pParser, pParser->nBracesCounter > 0);
 }
 
 char *ring_parser_icg_parentclassname(Parser *pParser) {
