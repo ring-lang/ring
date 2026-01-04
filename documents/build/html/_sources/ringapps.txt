@@ -202,7 +202,7 @@ Quotes about Ring
 |		, Pablo Prieto
 
 |	**"Ring Notepad is a an example of the power of Ring. It is like NotePad++ with built in form design capability, drag and drop, object attributes etc. It is a marvelous application"**
-|		,  Bert Mariani (Italy)
+|		, Bert Mariani (Italy)
 
 |	**"Ring is the language that offers the greatest potential for converting programmers frustrated with the amount of time it takes to develop apps in C/C++, C#  and other OOP-based languages. Considering the extent to which Ring has evolved since the first release in 2016, the Ring team has proven itself worthy of a very high achievement award in the world of programming languages. The extent to which Ring has simplified the development database apps, web apps and GUI apps is a great credit to the Ring team. Ring's implementation of OOP and GUI based apps is far superior to C++ and C#. Another major achievement of the Ring team is the ease at which programmers can get on-line access to Ring documentation, compared to on-line C++ and C# documentation. The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of credit for such an impressive bit of software."**
 |		, L Godioleskky
@@ -293,7 +293,7 @@ Quotes about Ring
 
 
 |	**"It's great! I've been using the Ring language in Mexico since it was first released as a downloadable program in 2016. Now, with Ring, you can also use PWCT 2.0. It's excellent for productivity (try it, you won't be disappointed)"**
-|		, valentin coellar
+|		, Valentin Coellar
 
 
 |	**"Your programming language, Ring, has been incredibly helpful to me. Keep up the amazing work!"**

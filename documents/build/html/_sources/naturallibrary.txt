@@ -984,3 +984,12 @@ In short, the library provides the mechanisms, but the art lies in deciding how 
 should communicate with the computer. The Natural Library supports both sides, yet the 
 creative vision remains yours.
 
+.. index:: 
+	pair: Using the Natural Library; The Samples and the Source Code
+
+The Samples and the Source Code
+===============================
+
+You can find the samples in the ring/samples/UsingNaturalLib folder.
+
+You can find the source code in the ring/libraries/naturallib folder.
