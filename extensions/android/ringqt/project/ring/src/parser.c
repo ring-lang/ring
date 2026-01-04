@@ -190,8 +190,9 @@ void ring_parser_processkeywords(Parser *pParser) {
 		  ring_parser_iskeyword(pParser, K_RINGVMGIVE) ||
 		  ring_parser_iskeyword(pParser, K_RINGVMERRORHANDLER) || ring_parser_iskeyword(pParser, K_MAIN) ||
 		  ring_parser_iskeyword(pParser, K_INIT) || ring_parser_iskeyword(pParser, K_OPERATOR) ||
-		  ring_parser_iskeyword(pParser, K_BRACESTART) || ring_parser_iskeyword(pParser, K_BRACEEXPREVAL) ||
-		  ring_parser_iskeyword(pParser, K_BRACEERROR) || ring_parser_iskeyword(pParser, K_BRACEEND)))
+		  ring_parser_iskeyword(pParser, K_BRACESTART) || ring_parser_iskeyword(pParser, K_BRACEEND) ||
+		  ring_parser_iskeyword(pParser, K_BRACEEXPREVAL) || ring_parser_iskeyword(pParser, K_BRACEERROR) ||
+		  ring_parser_iskeyword(pParser, K_BRACENEWLINE)))
 		ring_parser_keywordtoidentifier(pParser, RING_TRUE);
 }
 /* Display Errors */
