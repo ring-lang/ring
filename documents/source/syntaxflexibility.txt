@@ -276,6 +276,7 @@ The identifiers that can be translated are:
 * Operator
 * BraceStart
 * BraceExprEval
+* BraceNewLine
 * BraceError
 * BraceEnd
 * RingVM_See
