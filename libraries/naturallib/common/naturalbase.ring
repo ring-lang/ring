@@ -96,6 +96,13 @@ class NaturalBaseMethods
 		if lPassError { return }
 		new NatLibError { raise(cCatchError) }
 
+	func braceEnd 
+		if ! lPassError {
+			if aCommandsStack {
+				new NatLibError { raise(C_NATLIB_ERROR_INCOMPLETECMD) }
+			}
+		}
+
 	func getVarName cError
 		if left(cError,11) = "Error (R24)" {
 			return substr(cError,45)
@@ -228,5 +235,8 @@ class NaturalBaseMethods
 			if call cMethod() { exit }
 		}
 		return :NLNV
+
+	func setPassError lStatus 
+		lPassError = lStatus
 
 class NatLibError
