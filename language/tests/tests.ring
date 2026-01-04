@@ -685,6 +685,7 @@ aTests = [
 	[ :name = "General Tests (Part 230)", :Command = "ring general/fread.ring" ],
 	[ :name = "General Tests (Part 231)", :Command = "ring general/funcpara.ring" ],
 	[ :name = "General Tests (Part 232)", :Command = "ring general/transcfunc.ring" ],
+	[ :name = "General Tests (Part 233)", :Command = "ring general/isfunc.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
