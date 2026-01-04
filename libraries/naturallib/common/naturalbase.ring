@@ -239,4 +239,7 @@ class NaturalBaseMethods
 	func setPassError lStatus 
 		lPassError = lStatus
 
+	func setTreatIdentifierAsString lStatus
+		lTreatIdentifierAsString = lStatus
+
 class NatLibError
