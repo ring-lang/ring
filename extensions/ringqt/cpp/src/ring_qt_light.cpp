@@ -14,6 +14,7 @@ extern "C" {
 #include "gguiapplication.h"
 #include "gdrag.h"
 #include "gmovie.h"
+#include "ggroupbox.h"
 #include <QtGui>
 
 #include "gallevents.h"
@@ -324,6 +325,7 @@ extern "C" {
 	void ring_QTabBar_freefunc(void *pState,void *pPointer);
 	void ring_QScrollBar_freefunc(void *pState,void *pPointer);
 	void ring_QStyle_freefunc(void *pState,void *pPointer);
+	void ring_QGroupBox_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLWidget_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsView_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsScene_freefunc(void *pState,void *pPointer);
@@ -123158,6 +123160,272 @@ RING_FUNC(ring_QStyle_visualRect)
 }
 
 
+RING_FUNC(ring_QGroupBox_alignment)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETNUMBER(pObject->alignment());
+}
+
+
+RING_FUNC(ring_QGroupBox_isCheckable)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETNUMBER(pObject->isCheckable());
+}
+
+
+RING_FUNC(ring_QGroupBox_isChecked)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETNUMBER(pObject->isChecked());
+}
+
+
+RING_FUNC(ring_QGroupBox_isFlat)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETNUMBER(pObject->isFlat());
+}
+
+
+RING_FUNC(ring_QGroupBox_setAlignment)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAlignment( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_setCheckable)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCheckable( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_setFlat)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFlat( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_setTitle)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setTitle(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_title)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETSTRING(pObject->title().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QGroupBox_setChecked)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setChecked( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_setclickedEvent)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setclickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_settoggledEvent)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settoggledEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGroupBox_getclickedEvent)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QGroupBox_gettoggledEvent)
+{
+	GGroupBox *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"QGroupBox");
+	RING_API_RETSTRING(pObject->gettoggledEvent());
+}
+
+
 RING_FUNC(ring_QOpenGLWidget_geteventparameters)
 {
 	OpenGLWidget *pObject ;
@@ -140520,6 +140788,21 @@ RING_FUNC(ring_QScrollBar_new)
 	RING_API_RETCPOINTER(pObject,"QScrollBar");
 }
 
+RING_FUNC(ring_QGroupBox_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GGroupBox *pObject = new GGroupBox((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QGroupBox");
+}
+
 RING_FUNC(ring_QOpenGLWidget_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -143992,6 +144275,23 @@ RING_FUNC(ring_QScrollBar_delete)
 	}
 }
 
+RING_FUNC(ring_QGroupBox_delete)
+{
+	GGroupBox *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (GGroupBox *) RING_API_GETCPOINTER(1,"GGroupBox");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QOpenGLWidget_delete)
 {
 	OpenGLWidget *pObject ; 
@@ -145601,6 +145901,13 @@ void ring_QScrollBar_freefunc(void *pState,void *pPointer)
 {
 	QScrollBar *pObject ; 
 	pObject = (QScrollBar *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGroupBox_freefunc(void *pState,void *pPointer)
+{
+	GGroupBox *pObject ; 
+	pObject = (GGroupBox *) pPointer;
 	delete pObject ;
 }
 
@@ -151498,6 +151805,20 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qstyle_visualalignment",ring_QStyle_visualAlignment);
 	RING_API_REGISTER("qstyle_visualpos",ring_QStyle_visualPos);
 	RING_API_REGISTER("qstyle_visualrect",ring_QStyle_visualRect);
+	RING_API_REGISTER("qgroupbox_alignment",ring_QGroupBox_alignment);
+	RING_API_REGISTER("qgroupbox_ischeckable",ring_QGroupBox_isCheckable);
+	RING_API_REGISTER("qgroupbox_ischecked",ring_QGroupBox_isChecked);
+	RING_API_REGISTER("qgroupbox_isflat",ring_QGroupBox_isFlat);
+	RING_API_REGISTER("qgroupbox_setalignment",ring_QGroupBox_setAlignment);
+	RING_API_REGISTER("qgroupbox_setcheckable",ring_QGroupBox_setCheckable);
+	RING_API_REGISTER("qgroupbox_setflat",ring_QGroupBox_setFlat);
+	RING_API_REGISTER("qgroupbox_settitle",ring_QGroupBox_setTitle);
+	RING_API_REGISTER("qgroupbox_title",ring_QGroupBox_title);
+	RING_API_REGISTER("qgroupbox_setchecked",ring_QGroupBox_setChecked);
+	RING_API_REGISTER("qgroupbox_setclickedevent",ring_QGroupBox_setclickedEvent);
+	RING_API_REGISTER("qgroupbox_settoggledevent",ring_QGroupBox_settoggledEvent);
+	RING_API_REGISTER("qgroupbox_getclickedevent",ring_QGroupBox_getclickedEvent);
+	RING_API_REGISTER("qgroupbox_gettoggledevent",ring_QGroupBox_gettoggledEvent);
 	RING_API_REGISTER("qopenglwidget_geteventparameters",ring_QOpenGLWidget_geteventparameters);
 	RING_API_REGISTER("qopenglwidget_setinitevent",ring_QOpenGLWidget_setInitEvent);
 	RING_API_REGISTER("qopenglwidget_getinitevent",ring_QOpenGLWidget_getInitEvent);
@@ -152356,6 +152677,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qcalendarwidget_new",ring_QCalendarWidget_new);
 	RING_API_REGISTER("qtabbar_new",ring_QTabBar_new);
 	RING_API_REGISTER("qscrollbar_new",ring_QScrollBar_new);
+	RING_API_REGISTER("qgroupbox_new",ring_QGroupBox_new);
 	RING_API_REGISTER("qopenglwidget_new",ring_QOpenGLWidget_new);
 	RING_API_REGISTER("qgraphicsview_new",ring_QGraphicsView_new);
 	RING_API_REGISTER("qgraphicsscene_new",ring_QGraphicsScene_new);
@@ -152562,6 +152884,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qcalendarwidget_delete",ring_QCalendarWidget_delete);
 	RING_API_REGISTER("qtabbar_delete",ring_QTabBar_delete);
 	RING_API_REGISTER("qscrollbar_delete",ring_QScrollBar_delete);
+	RING_API_REGISTER("qgroupbox_delete",ring_QGroupBox_delete);
 	RING_API_REGISTER("qopenglwidget_delete",ring_QOpenGLWidget_delete);
 	RING_API_REGISTER("qgraphicsview_delete",ring_QGraphicsView_delete);
 	RING_API_REGISTER("qgraphicsscene_delete",ring_QGraphicsScene_delete);

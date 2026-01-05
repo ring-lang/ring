@@ -78,7 +78,7 @@
 <loadfile> widgets/qtabbar.cf
 <loadfile> widgets/qscrollbar.cf
 <loadfile> widgets/qstyle.cf
-
+<loadfile> widgets/qgroupbox.cf
 <comment>
 <loadfile> widgets/qdesktopwidget.cf
 </comment>

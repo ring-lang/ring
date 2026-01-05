@@ -105,6 +105,7 @@ SOURCES +=   \
     cpp/src/gfiledialog.cpp \
     cpp/src/mscompleter.cpp \
     cpp/src/gdatetimeedit.cpp \
+    cpp/src/ggroupbox.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -200,7 +201,8 @@ HEADERS  += \
     cpp/include/gfontdialog.h \
     cpp/include/gfiledialog.h \
     cpp/include/mscompleter.h \
-    cpp/include/gdatetimeedit.h
+    cpp/include/gdatetimeedit.h \
+    cpp/include/ggroupbox.h
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

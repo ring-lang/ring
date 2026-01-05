@@ -17,6 +17,7 @@ extern "C" {
 #include "gguiapplication.h"
 #include "gdrag.h"
 #include "gmovie.h"
+#include "ggroupbox.h"
 #include <QtGui>
 </filter>
 

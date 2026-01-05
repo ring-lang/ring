@@ -21420,6 +21420,62 @@ Class QStyle from QObject
 		pTempObj.pObject = QStyle_visualRect(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
+Class QGroupBox from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QGroupBox_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGroupBox_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func alignment 
+		return QGroupBox_alignment(pObject)
+
+	Func isCheckable 
+		return QGroupBox_isCheckable(pObject)
+
+	Func isChecked 
+		return QGroupBox_isChecked(pObject)
+
+	Func isFlat 
+		return QGroupBox_isFlat(pObject)
+
+	Func setAlignment P1
+		return QGroupBox_setAlignment(pObject,P1)
+
+	Func setCheckable P1
+		return QGroupBox_setCheckable(pObject,P1)
+
+	Func setFlat P1
+		return QGroupBox_setFlat(pObject,P1)
+
+	Func setTitle P1
+		return QGroupBox_setTitle(pObject,P1)
+
+	Func title 
+		return QGroupBox_title(pObject)
+
+	Func setChecked P1
+		return QGroupBox_setChecked(pObject,P1)
+
+	Func setclickedEvent P1
+		return QGroupBox_setclickedEvent(pObject,P1)
+
+	Func settoggledEvent P1
+		return QGroupBox_settoggledEvent(pObject,P1)
+
+	Func getclickedEvent 
+		return QGroupBox_getclickedEvent(pObject)
+
+	Func gettoggledEvent 
+		return QGroupBox_gettoggledEvent(pObject)
+
 Class QOpenGLWidget from QWidget
 
 	pObject
