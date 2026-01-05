@@ -216,6 +216,7 @@ The next samples are added:
 
 * samples/UsingQt/DateEdit/daysto.ring
 * samples/UsingQt/Combobox/ComboboxAlignItems.ring
+* samples/UsingQt/LocalFont/test.ring
 * samples/UsingTokensLib/test2.ring
 * samples/UsingJSONLib (test14.ring and test15.ring)
 * samples/UsingNaturalLib/tests/largecode.ring
@@ -1028,6 +1029,7 @@ More Improvements
 * RingOpenGL - glClearColor() implementation is revised
 * RingOpenGL - Added GLEW headers and linker flags
 * RingLibuv - Added uv_close_cb to the aFunctionCallback list
+* RingQt - Added QFontDatabase class
 * Code Generator for Extensions - Support (const char * const *) types 
 * DiffDays() - Better Implementation
 * IsFunction() - Better Implementation
