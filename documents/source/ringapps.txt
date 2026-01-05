@@ -323,36 +323,6 @@ The next screen shot for the MyCoffee application.
 	:alt: MyCoffee Application
 
 .. index:: 
-	pair: Applications developed in a few hours; Technical Articles
-
-Technical Articles
-==================
-
-The language comes with better support for Natural Language Programming and 
-Declarative Programming. The innovation comes in supporting these paradigms 
-with new practical techniques on the top of Object-Oriented Programming and 
-Functional Programming. No need to know anything about (Compilers and Parsing). 
-You get the language constructs ready for use to create domain-specific languages 
-in a fraction of time. 
-
-Articles:-
-
-* Natural Language Programming Library : 
-https://www.codeproject.com/articles/Using-the-Natural-Language-Programming-Library-NLP
-
-* Natural Language Programming : 
-https://www.codeproject.com/articles/Natural-Language-Programming-in-the-Ring-Programmi
-
-* The Declarative Approach :
-https://www.codeproject.com/articles/The-Declarative-Approach-of-the-Ring-Programming-L
-
-* Syntax Flexibility : 
-https://www.codeproject.com/articles/Syntax-Flexibility-in-the-Ring-Programming-Languag
-
-* The Ring Programming Language : 
-https://www.codeproject.com/articles/The-Ring-Programming-Language
-
-.. index:: 
 	pair: Applications developed in a few hours; Practical
 
 Practical
