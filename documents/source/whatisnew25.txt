@@ -1031,6 +1031,10 @@ More Improvements
 * RingLibuv - Added uv_close_cb to the aFunctionCallback list
 * RingQt - Added QGroupBox class
 * RingQt - Added QFontDatabase class
+* RingQt - Added QValidator class
+* RingQt - Added QIntValidator class
+* RingQt - Added QDoubleValidator class
+* RingQt - Added QRegularExpressionValidator class
 * Code Generator for Extensions - Support (const char * const *) types 
 * DiffDays() - Better Implementation
 * IsFunction() - Better Implementation
