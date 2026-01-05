@@ -82,6 +82,7 @@ next methods :-
 * RunFile(cFileName)
 * RunString(cCode)
 * Execute(cCode)
+* @(cCode)
 * SetBeforeRun(cCode)
 * SetAfterRun(cCode)
 * SetStartKeywordsWith(cStart)
