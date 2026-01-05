@@ -228,15 +228,20 @@ class NaturalBaseMethods
 	func getSubKeywordBeforeExpr nIndex, nCount, cCommand
 		if IsCommand() and isNumber(CommandData()[:nKeyword]) and		
 		   CommandData()[:nKeyword] = nIndex - 1 {
-			CommandData()[:nKeyword] = nIndex
-			CommandData()[:cCmdBuf] += cCurrentKeyword
-			if nIndex = nCount and CommandData()[:cCmdBuf] = cCommand {
-					CommandData()[:name] = cCommand
-					CommandData()[:nExpr] = 0
-					CommandData()[:aExpr] = []
-					CommandData()[:aIsIdentifier] = []
+			if nIndex < nCount {
+				CommandData()[:nKeyword] = nIndex
+				CommandData()[:cCmdBuf] += cCurrentKeyword
+				return True 
 			}
-			return True
+			if CommandData()[:cCmdBuf] + cCurrentKeyword = cCommand {
+				CommandData()[:nKeyword] = nIndex
+				CommandData()[:cCmdBuf] += cCurrentKeyword
+				CommandData()[:name] = cCommand
+				CommandData()[:nExpr] = 0
+				CommandData()[:aExpr] = []
+				CommandData()[:aIsIdentifier] = []
+				return True
+			}
 		}
 
 	func processCommandKeyword cKeyword 
