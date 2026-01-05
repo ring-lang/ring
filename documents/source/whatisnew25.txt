@@ -1029,6 +1029,7 @@ More Improvements
 * RingOpenGL - glClearColor() implementation is revised
 * RingOpenGL - Added GLEW headers and linker flags
 * RingLibuv - Added uv_close_cb to the aFunctionCallback list
+* RingQt - Added QGroupBox class
 * RingQt - Added QFontDatabase class
 * Code Generator for Extensions - Support (const char * const *) types 
 * DiffDays() - Better Implementation
