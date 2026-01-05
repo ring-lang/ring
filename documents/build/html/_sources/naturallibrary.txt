@@ -1209,15 +1209,15 @@ Example (1):
 		? "Window title: " + @("window title")
 	}
 
-	? copy("*",20)
+	? copy("*",21)
 	mylang.runstring(`I want window and the window title is "one" `)
 	? mylang.runstring("window title")
 
-	? copy("*",20)				
+	? copy("*",21)				
 	mylang.execute(`I want window and the window title is "two" `)
 	? mylang.execute("window title")
 
-	? copy("*",20)				
+	? copy("*",21)				
 	mylang.@(`I want window and the window title is "three" `)
 	? mylang.@("window title")
 
@@ -1227,11 +1227,11 @@ Output (1):
 .. code-block:: none
 
 	Window title: welcome
-	********************
+	*********************
 	one
-	********************
+	*********************
 	two
-	********************
+	*********************
 	three
 
 

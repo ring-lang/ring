@@ -1243,26 +1243,26 @@ Command: I want window
         <span class="o">?</span> <span class="s2">&quot;Window title: &quot;</span> <span class="o">+</span> <span class="n">@</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
 <span class="n">mylang</span><span class="o">.</span><span class="nf">runstring</span><span class="p">(</span><span class="sb">`I want window and the window title is &quot;one&quot; `</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">mylang</span><span class="o">.</span><span class="nf">runstring</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
 <span class="n">mylang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`I want window and the window title is &quot;two&quot; `</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">mylang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
 
-<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
 <span class="n">mylang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="sb">`I want window and the window title is &quot;three&quot; `</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">mylang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output (1):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Window title: welcome
-********************
+*********************
 one
-********************
+*********************
 two
-********************
+*********************
 three
 </pre></div>
 </div>
