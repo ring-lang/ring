@@ -20,8 +20,8 @@ DefineNaturalCommand {
 }
 
 new NaturalLanguage {
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 

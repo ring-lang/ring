@@ -6,7 +6,7 @@ load "../tests/mylanguage.ring"
 MyLanguage.setStartKeywordsWith("@")
 MyLanguage.setMaskOperators(False) 
 
-MyLanguage.RunString('
+MyLanguage.runString('
 
 	@for t=1 @to 10
  		i want window

@@ -4,20 +4,19 @@ load "naturallib.ring"
 DefineNaturalCommand {
 	startCache(:MyDSL)
 	setPackageName("MyLanguage.Natural")
-	SyntaxIsKeywordExpressionExpression([
+	syntaxIsKeywordExpressionExpression([
 		:Keyword = "@", 
 		:Function = func {
 			?  "Command: @ x,y" 
 			?  "Position: (" + Expr(1) + "," + Expr(2) + ")"
 		}
 	])
-
 	endCache()
 }
 
-MyLang = New NaturalLanguage {
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+MyLang = new NaturalLanguage {
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 

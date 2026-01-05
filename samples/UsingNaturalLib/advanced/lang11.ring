@@ -13,7 +13,7 @@ nInsUsed = 1000
 
 DefineNaturalCommand.startCache(:MyDSL)
 for m=1 to nDefIns
-	DefineNaturalCommand.SyntaxIsCommand([
+	DefineNaturalCommand.syntaxIsCommand([
 		:Package = "MyLanguage.Natural",
 		:Command = "i want window"+m, 
 		:Function = func {
@@ -25,8 +25,8 @@ DefineNaturalCommand.endCache()
 
 MyLang = New NaturalLanguage {
 
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:WindowTitleIs)
  	loadCommand(:IWantWindow)
 	loadCommand(:IWantButton)

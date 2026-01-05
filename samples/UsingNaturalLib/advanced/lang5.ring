@@ -12,7 +12,7 @@ nDefIns  = 1000
 nInsUsed = 1000
 
 for m=1 to nDefIns
-	DefineNaturalCommand.SyntaxIsCommand([
+	DefineNaturalCommand.syntaxIsCommand([
 		:Package = "MyLanguage.Natural",
 		:Command = "i want window"+m, 
 		:Function = func {
@@ -21,9 +21,9 @@ for m=1 to nDefIns
 	])
 next
 
-MyLang = New NaturalLanguage {
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+MyLang = new NaturalLanguage {
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:WindowTitleIs)
  	loadCommand(:IWantWindow)
 	loadCommand(:IWantButton)

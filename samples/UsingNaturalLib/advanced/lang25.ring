@@ -21,6 +21,7 @@ DefineNaturalCommand {
 			commandReturn(aCommandMemory[:windowtitle])
 		}
 	])
+
 	syntaxIsCommandExpression([
 		:Command = "Window title is", 
 		:Function = func {
@@ -32,12 +33,13 @@ DefineNaturalCommand {
 			aCommandMemory[:windowtitle] = Expr(1) 
 		}
 	])
+
 	endCache()
 }
 
 mylang = new NaturalLanguage {
-	SetLanguageName(:GUI)
-	SetPackageName("MyLanguage.Natural")
+	setLanguageName(:GUI)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 
@@ -46,15 +48,15 @@ GUI = new GUI
 GUI  {
  	I Want Window	
 	window title is "welcome" 
-? "========"
+	? "========"
 	Window title is "Hello, World!"
-? "========"
+	? "========"
 	window title
 	window title
 	window title
 	window title
 	window title
-? "========"
+	? "========"
 }
 
 ? copy("*",20)

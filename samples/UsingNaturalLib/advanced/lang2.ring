@@ -4,7 +4,7 @@
 load "../tests/mylanguage.ring"
 
 for t=1 to 1000
-	MyLanguage.RunString('
+	MyLanguage.runString('
  		i want window
 	')
 next

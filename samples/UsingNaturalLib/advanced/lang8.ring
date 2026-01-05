@@ -3,7 +3,7 @@
 
 load "../tests/mylanguage.ring"
 
-MyLanguage.RunString('
+MyLanguage.runString('
 
 	i want window
 	window title is "Hello World"

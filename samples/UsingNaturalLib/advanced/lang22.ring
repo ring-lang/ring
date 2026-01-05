@@ -25,8 +25,8 @@ DefineNaturalCommand {
 }
 
 new NaturalLanguage {
-	SetLanguageName(:GUI)
-	SetPackageName("MyLanguage.Natural")
+	setLanguageName(:GUI)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 

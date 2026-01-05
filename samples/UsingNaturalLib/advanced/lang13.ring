@@ -4,7 +4,7 @@ load "naturallib.ring"
 DefineNaturalCommand {
 	startCache(:MyDSL)
 	setPackageName("MyLanguage.Natural")
-	SyntaxIsKeywordExpressions([
+	syntaxIsKeywordExpressions([
 		:keyword = "replace", 
 		:Function = func {
 			? Expr(1) + " ===> " + Expr(2)
@@ -12,7 +12,7 @@ DefineNaturalCommand {
 	],2)
 
 	// Ignore the WITH keyword 
-	SyntaxIskeyword([
+	syntaxIskeyword([
 		:keyword = "with", 
 		:Function = func {
 			return :NLNV
@@ -22,9 +22,9 @@ DefineNaturalCommand {
 	endCache()
 }
 
-MyLang = New NaturalLanguage {
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+MyLang = new NaturalLanguage {
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 

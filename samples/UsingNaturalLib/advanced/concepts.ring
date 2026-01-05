@@ -1,7 +1,7 @@
 load "stdlibcore.ring"
 load "naturallib.ring"
 
-DefineNaturalCommand.SyntaxIsCommand([
+DefineNaturalCommand.syntaxIsCommand([
 	:Package = "MyLanguage.Natural",
 	:Command = "i want window", 
 	:Function = func {
@@ -9,9 +9,9 @@ DefineNaturalCommand.SyntaxIsCommand([
 	}
 ])
 
-MyLang = New NaturalLanguage {
-	SetLanguageName(:MyLanguage)
-	SetPackageName("MyLanguage.Natural")
+MyLang = new NaturalLanguage {
+	setLanguageName(:MyLanguage)
+	setPackageName("MyLanguage.Natural")
 	loadCommand("i want window")
 }
 
@@ -27,9 +27,9 @@ GUI {
 
 ? copy("=",30)
 
-MyLang.RunString(' I want window ')
+MyLang.runString(' I want window ')
 
-MyLang.Execute(' I want window ')
+MyLang.execute(' I want window ')
 
 ? copy("=",30)
 
