@@ -285,5 +285,9 @@ class NaturalBaseMethods
 	func @ cCode 
 		return NATLIB_Execute(self,cCode)
 	
+	func register cAttr 
+		if ! isAttribute(self,cAttr) {
+			addAttribute(self,cAttr)
+		}
 
 class NatLibError
