@@ -271,6 +271,13 @@ class NaturalBaseMethods
 		}
 		return :NLNV
 
+	func executeCommandFunction fMethod
+		NATLIB_TEMP_OUT = call { fMethod() }
+		if ! lCommandReturnIsUsed and ! lPassThisCommand { EndCommand() }
+		lCommandReturnIsUsed = False 
+		lPassThisCommand = False
+		return NATLIB_TEMP_OUT
+
 	func setPassError lStatus 
 		lPassError = lStatus
 

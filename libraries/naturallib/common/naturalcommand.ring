@@ -78,16 +78,10 @@ class NaturalCommand
 
 		if lSyntaxIsKeyword {
 			cCode += "func Get" +cCommandNoSpaces + nl +
-					"    fMethod = :" + fFunc + nl +
-					"    return call { fMethod() }" + nl 
+					"    fMethod = :" + fFunc + "  return call { fMethod() }" + nl 
 		else
 			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
-					 "    fMethod = :" + fFunc + nl +
-					 "    NATLIB_TEMP_OUT = call { fMethod() }" + nl +
-					 "    if ! lCommandReturnIsUsed and ! lPassThisCommand { EndCommand() }" + nl +
-					 "    lCommandReturnIsUsed = False" + nl + 
-					 "    lPassThisCommand = False" + nl +
-					 "    return NATLIB_TEMP_OUT" + nl
+					 "    return executeCommandFunction(:"+fFunc +")"+nl
 		}
 
 		return cCode
