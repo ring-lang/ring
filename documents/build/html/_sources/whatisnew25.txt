@@ -1049,6 +1049,5 @@ More Improvements
 * Ring Compiler - ring_state_runobjectstring() - Get the file size as parameter
 * Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo) 
 * Ring Compiler - Using ICO_OPTIONALLOOP in Different Types of Loops
-* Documentation - Revise links for CodeProject articles
 * Documentation - StdLib chapter - Added: AppArguments() vs SysArgv 
 * Documentation - Low Level Functions chapter - improve RingVM_EvalInScope() documentation
