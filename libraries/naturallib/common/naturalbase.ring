@@ -29,8 +29,10 @@ Class NaturalBase
 
 	lEnableBraceExprEval = True
 
-	aCommandMemory = []                  // Used for sharing data between commands
-	vCommandOutput                       // Used for command output to DSL caller
+	aCommandMemory = []  // Used for sharing interal data between commands
+	vCommandOutput       // Used for command output to DSL caller
+
+	v = []               // Used for storing external state ["key",value] for DSL user/caller 
 
 	cCurrentKeyword
 
