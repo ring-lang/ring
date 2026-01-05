@@ -100,8 +100,17 @@ class NaturalBaseMethods
 
 	func braceEnd 
 		if ! lPassError {
+			removeCommandsThatUsesPass()
 			if aCommandsStack {
 				new NatLibError { raise(C_NATLIB_ERROR_INCOMPLETECMD) }
+			}
+		}
+
+	func removeCommandsThatUsesPass
+		nMax = len(aCommandsStack)
+		for t=nMax to 1 step -1 {
+			if aCommandsStack[t][2][:lPassThisCommand] {
+				del(aCommandsStack,t)
 			}
 		}
 
@@ -147,6 +156,7 @@ class NaturalBaseMethods
 
 	func PassThisCommand
 		lPassThisCommand = True 
+		aCommandsStack[nActiveCommand][2][:lPassThisCommand] = True
 
 	func Expr nIndex
 		return aCommandsStack[nActiveCommand][2][:aExpr][nIndex]
