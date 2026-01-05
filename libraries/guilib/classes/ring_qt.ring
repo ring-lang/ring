@@ -9626,6 +9626,108 @@ Class QMovie from QObject
 	Func getupdatedEvent 
 		return QMovie_getupdatedEvent(pObject)
 
+Class QFontDatabase
+
+	pObject
+
+	Func init 
+		pObject = QFontDatabase_new()
+		return self
+
+	Func delete
+		pObject = QFontDatabase_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bold P1,P2
+		return QFontDatabase_bold(pObject,P1,P2)
+
+	Func families P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFontDatabase_families(pObject,P1)
+		return pTempObj
+
+	Func font P1,P2,P3
+		pTempObj = new QFont
+		pTempObj.pObject = QFontDatabase_font(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func isBitmapScalable P1,P2
+		return QFontDatabase_isBitmapScalable(pObject,P1,P2)
+
+	Func isFixedPitch P1,P2
+		return QFontDatabase_isFixedPitch(pObject,P1,P2)
+
+	Func isPrivateFamily P1
+		return QFontDatabase_isPrivateFamily(pObject,P1)
+
+	Func isScalable P1,P2
+		return QFontDatabase_isScalable(pObject,P1,P2)
+
+	Func isSmoothlyScalable P1,P2
+		return QFontDatabase_isSmoothlyScalable(pObject,P1,P2)
+
+	Func italic P1,P2
+		return QFontDatabase_italic(pObject,P1,P2)
+
+	Func pointSizes P1,P2
+		return QFontDatabase_pointSizes(pObject,P1,P2)
+
+	Func smoothSizes P1,P2
+		return QFontDatabase_smoothSizes(pObject,P1,P2)
+
+	Func styleString P1
+		return QFontDatabase_styleString(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func styleString_2 P1
+		return QFontDatabase_styleString_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func styles P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFontDatabase_styles(pObject,P1)
+		return pTempObj
+
+	Func weight P1,P2
+		return QFontDatabase_weight(pObject,P1,P2)
+
+	Func writingSystems 
+		return QFontDatabase_writingSystems(pObject)
+
+	Func writingSystems_2 P1
+		return QFontDatabase_writingSystems_2(pObject,P1)
+
+	Func addApplicationFont P1
+		return QFontDatabase_addApplicationFont(pObject,P1)
+
+	Func addApplicationFontFromData P1
+		return QFontDatabase_addApplicationFontFromData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func applicationFontFamilies P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFontDatabase_applicationFontFamilies(pObject,P1)
+		return pTempObj
+
+	Func removeAllApplicationFonts 
+		return QFontDatabase_removeAllApplicationFonts(pObject)
+
+	Func removeApplicationFont P1
+		return QFontDatabase_removeApplicationFont(pObject,P1)
+
+	Func standardSizes 
+		return QFontDatabase_standardSizes(pObject)
+
+	Func systemFont P1
+		pTempObj = new QFont
+		pTempObj.pObject = QFontDatabase_systemFont(pObject,P1)
+		return pTempObj
+
+	Func writingSystemName P1
+		return QFontDatabase_writingSystemName(pObject,P1)
+
+	Func writingSystemSample P1
+		return QFontDatabase_writingSystemSample(pObject,P1)
+
 Class QOpenGLFunctions
 
 	pObject

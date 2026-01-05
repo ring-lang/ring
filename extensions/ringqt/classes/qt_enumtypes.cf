@@ -475,5 +475,7 @@ aEnumTypes + "QGraphicsWidget::anonymous"
 aEnumTypes + "QTransform::TransformationType"
 aEnumTypes + "QRegExp::CaretMode"
 aEnumTypes + "QRegExp::PatternSyntax"
+aEnumTypes + "QFontDatabase::SystemFont"
+aEnumTypes + "QFontDatabase::WritingSystem"
 
 </runcode>

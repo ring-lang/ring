@@ -42,6 +42,7 @@
 <loadfile> gui/qdragleaveevent.cf
 <loadfile> gui/qclipboard.cf
 <loadfile> gui/qmovie.cf
+<loadfile> gui/qfontdatabase.cf
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
 <loadfile> gui/qopenglfunctions.cf

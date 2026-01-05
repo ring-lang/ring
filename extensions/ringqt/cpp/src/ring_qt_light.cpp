@@ -230,6 +230,7 @@ extern "C" {
 	void ring_QDragLeaveEvent_freefunc(void *pState,void *pPointer);
 	void ring_QClipboard_freefunc(void *pState,void *pPointer);
 	void ring_QMovie_freefunc(void *pState,void *pPointer);
+	void ring_QFontDatabase_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLFunctions_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLContext_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLFunctions_3_2_Core_freefunc(void *pState,void *pPointer);
@@ -52108,6 +52109,628 @@ RING_FUNC(ring_QMovie_getupdatedEvent)
 	}
 	pObject = (GMovie *) RING_API_GETCPOINTER(1,"QMovie");
 	RING_API_RETSTRING(pObject->getupdatedEvent());
+}
+
+
+RING_FUNC(ring_QFontDatabase_bold)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->bold(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_families)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->families( (QFontDatabase::WritingSystem )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_font)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->font(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_isBitmapScalable)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isBitmapScalable(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_isFixedPitch)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isFixedPitch(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_isPrivateFamily)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isPrivateFamily(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_isScalable)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isScalable(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_isSmoothlyScalable)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->isSmoothlyScalable(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_italic)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->italic(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_pointSizes)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QList<int> *pValue ; 
+		pValue = (QList<int> *) RING_API_MALLOC(sizeof(QList<int>)) ;
+		*pValue = pObject->pointSizes(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<int>",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_smoothSizes)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QList<int> *pValue ; 
+		pValue = (QList<int> *) RING_API_MALLOC(sizeof(QList<int>)) ;
+		*pValue = pObject->smoothSizes(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<int>",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_styleString)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	RING_API_RETSTRING(pObject->styleString(* (QFont  *) RING_API_GETCPOINTER(2,"QFont")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QFont"));
+}
+
+
+RING_FUNC(ring_QFontDatabase_styleString_2)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	RING_API_RETSTRING(pObject->styleString(* (QFontInfo  *) RING_API_GETCPOINTER(2,"QFontInfo")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QFontInfo"));
+}
+
+
+RING_FUNC(ring_QFontDatabase_styles)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->styles(RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_weight)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->weight(RING_API_GETSTRING(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_writingSystems)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	{
+		QList<QFontDatabase::WritingSystem> *pValue ; 
+		pValue = (QList<QFontDatabase::WritingSystem> *) RING_API_MALLOC(sizeof(QList<QFontDatabase::WritingSystem>)) ;
+		*pValue = pObject->writingSystems();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QFontDatabase::WritingSystem>",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_writingSystems_2)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QList<QFontDatabase::WritingSystem> *pValue ; 
+		pValue = (QList<QFontDatabase::WritingSystem> *) RING_API_MALLOC(sizeof(QList<QFontDatabase::WritingSystem>)) ;
+		*pValue = pObject->writingSystems(RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<QFontDatabase::WritingSystem>",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_addApplicationFont)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->addApplicationFont(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_addApplicationFontFromData)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	RING_API_RETNUMBER(pObject->addApplicationFontFromData(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QByteArray"));
+}
+
+
+RING_FUNC(ring_QFontDatabase_applicationFontFamilies)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QStringList *pValue ; 
+		pValue = new QStringList() ;
+		*pValue = pObject->applicationFontFamilies( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_removeAllApplicationFonts)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	RING_API_RETNUMBER(pObject->removeAllApplicationFonts());
+}
+
+
+RING_FUNC(ring_QFontDatabase_removeApplicationFont)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->removeApplicationFont( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QFontDatabase_standardSizes)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	{
+		QList<int> *pValue ; 
+		pValue = (QList<int> *) RING_API_MALLOC(sizeof(QList<int>)) ;
+		*pValue = pObject->standardSizes();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QList<int>",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_systemFont)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->systemFont( (QFontDatabase::SystemFont )  (int) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDatabase_writingSystemName)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->writingSystemName( (QFontDatabase::WritingSystem )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QFontDatabase_writingSystemSample)
+{
+	QFontDatabase *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->writingSystemSample( (QFontDatabase::WritingSystem )  (int) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -138613,6 +139236,17 @@ RING_FUNC(ring_QMovie_new)
 	RING_API_RETCPOINTER(pObject,"QMovie");
 }
 
+RING_FUNC(ring_QFontDatabase_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QFontDatabase *pObject = new QFontDatabase();
+	RING_API_RETCPOINTER(pObject,"QFontDatabase");
+}
+
 RING_FUNC(ring_QOpenGLFunctions_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -141862,6 +142496,23 @@ RING_FUNC(ring_QMovie_delete)
 	}
 }
 
+RING_FUNC(ring_QFontDatabase_delete)
+{
+	QFontDatabase *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QFontDatabase *) RING_API_GETCPOINTER(1,"QFontDatabase");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QOpenGLFunctions_delete)
 {
 	QOpenGLFunctions *pObject ; 
@@ -144334,6 +144985,13 @@ void ring_QMovie_freefunc(void *pState,void *pPointer)
 {
 	GMovie *pObject ; 
 	pObject = (GMovie *) pPointer;
+	delete pObject ;
+}
+
+void ring_QFontDatabase_freefunc(void *pState,void *pPointer)
+{
+	QFontDatabase *pObject ; 
+	pObject = (QFontDatabase *) pPointer;
 	delete pObject ;
 }
 
@@ -147536,6 +148194,32 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qmovie_getstartedevent",ring_QMovie_getstartedEvent);
 	RING_API_REGISTER("qmovie_getstatechangedevent",ring_QMovie_getstateChangedEvent);
 	RING_API_REGISTER("qmovie_getupdatedevent",ring_QMovie_getupdatedEvent);
+	RING_API_REGISTER("qfontdatabase_bold",ring_QFontDatabase_bold);
+	RING_API_REGISTER("qfontdatabase_families",ring_QFontDatabase_families);
+	RING_API_REGISTER("qfontdatabase_font",ring_QFontDatabase_font);
+	RING_API_REGISTER("qfontdatabase_isbitmapscalable",ring_QFontDatabase_isBitmapScalable);
+	RING_API_REGISTER("qfontdatabase_isfixedpitch",ring_QFontDatabase_isFixedPitch);
+	RING_API_REGISTER("qfontdatabase_isprivatefamily",ring_QFontDatabase_isPrivateFamily);
+	RING_API_REGISTER("qfontdatabase_isscalable",ring_QFontDatabase_isScalable);
+	RING_API_REGISTER("qfontdatabase_issmoothlyscalable",ring_QFontDatabase_isSmoothlyScalable);
+	RING_API_REGISTER("qfontdatabase_italic",ring_QFontDatabase_italic);
+	RING_API_REGISTER("qfontdatabase_pointsizes",ring_QFontDatabase_pointSizes);
+	RING_API_REGISTER("qfontdatabase_smoothsizes",ring_QFontDatabase_smoothSizes);
+	RING_API_REGISTER("qfontdatabase_stylestring",ring_QFontDatabase_styleString);
+	RING_API_REGISTER("qfontdatabase_stylestring_2",ring_QFontDatabase_styleString_2);
+	RING_API_REGISTER("qfontdatabase_styles",ring_QFontDatabase_styles);
+	RING_API_REGISTER("qfontdatabase_weight",ring_QFontDatabase_weight);
+	RING_API_REGISTER("qfontdatabase_writingsystems",ring_QFontDatabase_writingSystems);
+	RING_API_REGISTER("qfontdatabase_writingsystems_2",ring_QFontDatabase_writingSystems_2);
+	RING_API_REGISTER("qfontdatabase_addapplicationfont",ring_QFontDatabase_addApplicationFont);
+	RING_API_REGISTER("qfontdatabase_addapplicationfontfromdata",ring_QFontDatabase_addApplicationFontFromData);
+	RING_API_REGISTER("qfontdatabase_applicationfontfamilies",ring_QFontDatabase_applicationFontFamilies);
+	RING_API_REGISTER("qfontdatabase_removeallapplicationfonts",ring_QFontDatabase_removeAllApplicationFonts);
+	RING_API_REGISTER("qfontdatabase_removeapplicationfont",ring_QFontDatabase_removeApplicationFont);
+	RING_API_REGISTER("qfontdatabase_standardsizes",ring_QFontDatabase_standardSizes);
+	RING_API_REGISTER("qfontdatabase_systemfont",ring_QFontDatabase_systemFont);
+	RING_API_REGISTER("qfontdatabase_writingsystemname",ring_QFontDatabase_writingSystemName);
+	RING_API_REGISTER("qfontdatabase_writingsystemsample",ring_QFontDatabase_writingSystemSample);
 	RING_API_REGISTER("qopenglfunctions_glactivetexture",ring_QOpenGLFunctions_glActiveTexture);
 	RING_API_REGISTER("qopenglfunctions_glattachshader",ring_QOpenGLFunctions_glAttachShader);
 	RING_API_REGISTER("qopenglfunctions_glbindattriblocation",ring_QOpenGLFunctions_glBindAttribLocation);
@@ -151584,6 +152268,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qdragenterevent_new",ring_QDragEnterEvent_new);
 	RING_API_REGISTER("qdragleaveevent_new",ring_QDragLeaveEvent_new);
 	RING_API_REGISTER("qmovie_new",ring_QMovie_new);
+	RING_API_REGISTER("qfontdatabase_new",ring_QFontDatabase_new);
 	RING_API_REGISTER("qopenglfunctions_new",ring_QOpenGLFunctions_new);
 	RING_API_REGISTER("qopenglcontext_new",ring_QOpenGLContext_new);
 	RING_API_REGISTER("qopenglfunctions_3_2_core_new",ring_QOpenGLFunctions_3_2_Core_new);
@@ -151789,6 +152474,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qdragenterevent_delete",ring_QDragEnterEvent_delete);
 	RING_API_REGISTER("qdragleaveevent_delete",ring_QDragLeaveEvent_delete);
 	RING_API_REGISTER("qmovie_delete",ring_QMovie_delete);
+	RING_API_REGISTER("qfontdatabase_delete",ring_QFontDatabase_delete);
 	RING_API_REGISTER("qopenglfunctions_delete",ring_QOpenGLFunctions_delete);
 	RING_API_REGISTER("qopenglcontext_delete",ring_QOpenGLContext_delete);
 	RING_API_REGISTER("qopenglfunctions_3_2_core_delete",ring_QOpenGLFunctions_3_2_Core_delete);

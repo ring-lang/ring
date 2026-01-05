@@ -1,0 +1,31 @@
+<class>
+name: QFontDatabase
+para: void
+</class>
+
+bool bold(QString family, QString style)
+QStringList families(QFontDatabase::WritingSystem writingSystem)
+QFont font(QString family, QString style, int pointSize)
+bool isBitmapScalable(QString family, QString style)
+bool isFixedPitch(QString family, QString style)
+bool isPrivateFamily(QString family)
+bool isScalable(QString family, QString style)
+bool isSmoothlyScalable(QString family, QString style)
+bool italic(QString family, QString style)
+QList<int> pointSizes(QString family, QString styleName)
+QList<int> smoothSizes(QString family, QString styleName)
+QString styleString(QFont font)
+QString styleString@2(QFontInfo fontInfo)
+QStringList styles(QString family)
+int weight(QString family, QString style)
+QList<QFontDatabase::WritingSystem> writingSystems(void)
+QList<QFontDatabase::WritingSystem> writingSystems@2(QString family)
+int addApplicationFont(QString fileName)
+int addApplicationFontFromData(QByteArray fontData)
+QStringList applicationFontFamilies(int id)
+bool removeAllApplicationFonts(void)
+bool removeApplicationFont(int id)
+QList<int> standardSizes(void)
+QFont systemFont(QFontDatabase::SystemFont type)
+QString writingSystemName(QFontDatabase::WritingSystem writingSystem)
+QString writingSystemSample(QFontDatabase::WritingSystem writingSystem)
