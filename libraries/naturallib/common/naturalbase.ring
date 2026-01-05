@@ -32,6 +32,8 @@ Class NaturalBase
 	aCommandMemory = []                  // Used for sharing data between commands
 	vCommandOutput                       // Used for command output to DSL caller
 
+	cCurrentKeyword
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -182,6 +184,7 @@ class NaturalBaseMethods
 	func getFirstKeyword
 		StartCommand()
 		CommandData()[:nKeyword] = 1
+		CommandData()[:cCmdBuf] += cCurrentKeyword
 		return :NLNV
 
 	func getKeyword cKeyword
@@ -210,7 +213,12 @@ class NaturalBaseMethods
 		if IsCommand() and isNumber(CommandData()[:nKeyword]) and		
 		   CommandData()[:nKeyword] = nIndex - 1 {
 			CommandData()[:nKeyword] = nIndex
-			if cMethodName { call cMethodName() }
+			CommandData()[:cCmdBuf] += cCurrentKeyword
+			if cMethodName { 
+				if right(cMethodName,len(CommandData()[:cCmdBuf])) = CommandData()[:cCmdBuf] {
+					call cMethodName() 
+				}
+			}
 			return True
 		}
 
@@ -228,6 +236,7 @@ class NaturalBaseMethods
 		}
 
 	func processCommandKeyword cKeyword 
+		cCurrentKeyword = cKeyword
 		if ! aKeywordMethods[cKeyword] {
 			aKeywordMethods[cKeyword] = []
 			processCommandKeyword2(cKeyword,aKeywordMethods[cKeyword])
