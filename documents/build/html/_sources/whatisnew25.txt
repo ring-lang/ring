@@ -22,9 +22,9 @@ Ring 1.25 comes with the next features!
 * MyCTiger Tool
 * More Samples
 * More RingPM Packages
-* Better RingLibCurl
-* Better TokensLib
 * Better NaturalLib
+* Better TokensLib
+* Better RingLibCurl
 * Callable Functions as Methods
 * Flexible Statement Separation
 * Using Keywords as Identifiers
@@ -249,119 +249,6 @@ The following packages have been added to the RingPM registry.
 * PrayTimes: Prayer times application developed using Ring and RingQML
 
 .. index:: 
-	pair: What is new in Ring  1.25; Better RingLibCurl
-
-Better RingLibCurl
-==================
-
-RingLibCurl is updated to supports using callbacks for different operations like handling the 
-response data, headers, progress information and reading data for upload.
-
-We can set the callback function using ``curl_easy_setopt`` and the option name.
-The callback function can get the data using ``curl_get_data()`` or ``curl_get_progress_info()``.
-
-Example: Using the Write Callback
-
-.. code-block:: ring
-
-	load "libcurl.ring"
-
-	func main
-		curl = curl_easy_init()
-		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io")
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, :write_callback)
-		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
-		curl_easy_perform(curl)
-		curl_easy_cleanup(curl)
-
-	func write_callback
-		cData = curl_get_data()
-		? "Received Data Size: " + len(cData)
-
-
-Output:
-
-.. code-block:: none
-
-	Received Data Size: 2756
-	Received Data Size: 2756
-	Received Data Size: 2756
-	Received Data Size: 2756
-	Received Data Size: 2756
-	Received Data Size: 16384
-	Received Data Size: 2604
-	Received Data Size: 16384
-	Received Data Size: 16384
-	Received Data Size: 11363
-
-
-.. index:: 
-	pair: What is new in Ring  1.25; TokensLib
-
-Better TokensLib
-================
-
-The library is updated to include the checkRingCode() function which is used for security.
-
-Syntax:
-
-.. code-block:: none
-
-	checkRingCode(aPara) ---> 1/0 (True/False)
-
-It is expected to be called before eval() when the input is just a Ring List.
-
-The function does not accept code that contains Ring keywords or specific operators such as (), {}, ., ?
-
-In other words: no statements, no function calls, no object access, and no output using the ? operator.
-
-The function support options like safe keywords and safe operators.
-
-Example:
-
-.. code-block:: ring
-
-	load "tokenslib.ring"
-
-	func main
-
-		cCode = `mylist = [1,2,3,:one,:two,:three]`
-		? checkRingCode([:code = cCode])			// 1 (True)
-
-		cCode = `? "hello world"`
-		? checkRingCode([:code = cCode])			// 0 (False)
-		? checkRingCode([:code = cCode, :safeoperators="?"])	// 1 (True)
-
-		cCode = `test(1)`
-		? checkRingCode([:code = cCode])			// 0 (False)
-		? checkRingCode([:code = cCode, :safeoperators="()"])	// 1 (True)
-
-		cCode = `myobj { x=10 }`
-		? checkRingCode([:code = cCode])			// 0 (False)
-		? checkRingCode([:code = cCode, :safeoperators="{}"])	// 1 (True)
-
-		cCode = `see 'hi'`
-		? checkRingCode([:code = cCode])			// 0 (False)
-		? checkRingCode([:code = cCode, :safekeywords=[:see]])	// 1 (True)
-
-		cCode = `see new point { x=10 }`
-		? checkRingCode([:code = cCode])			// 0 (False)
-		? checkRingCode([:code = cCode, :safeoperators="{}", 
-			 	 :safekeywords=[:see, :new]])		// 1 (True)
-
-
-The next applications and tools are updated to use the checkRingCode() function
-
-* Ring Notepad - Use checkRingCode() before using the settings file 
-* Form Designer - Use checkRingCode() before loading the form file
-* RingPM GUI - Use checkRingCode() before using the package file
-* RingPM - Use checkRingCode() before using the package file
-* Ring2EXE - Use checkRingCode() before using the library file 
-* GoldMagic800 game - Use checkRingCode() before using the level file
-* GoldMagic800 Levels Designer - Use checkRingCode() before using the level file
-* Lectures Tracker application - Use checkRingCode() before using the lectures file
-
-.. index:: 
 	pair: What is new in Ring  1.25; Better NaturalLib
 
 Better NaturalLib
@@ -447,6 +334,119 @@ Output:
 	Command: I want button
 
 .. note:: Check the (Using the Natural Library) chapter for more information.
+
+.. index:: 
+	pair: What is new in Ring  1.25; TokensLib
+
+Better TokensLib
+================
+
+The library is updated to include the checkRingCode() function which is used for security.
+
+Syntax:
+
+.. code-block:: none
+
+	checkRingCode(aPara) ---> 1/0 (True/False)
+
+It is expected to be called before eval() when the input is just a Ring List.
+
+The function does not accept code that contains Ring keywords or specific operators such as (), {}, ., ?
+
+In other words: no statements, no function calls, no object access, and no output using the ? operator.
+
+The function support options like safe keywords and safe operators.
+
+Example:
+
+.. code-block:: ring
+
+	load "tokenslib.ring"
+
+	func main
+
+		cCode = `mylist = [1,2,3,:one,:two,:three]`
+		? checkRingCode([:code = cCode])			// 1 (True)
+
+		cCode = `? "hello world"`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="?"])	// 1 (True)
+
+		cCode = `test(1)`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="()"])	// 1 (True)
+
+		cCode = `myobj { x=10 }`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="{}"])	// 1 (True)
+
+		cCode = `see 'hi'`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safekeywords=[:see]])	// 1 (True)
+
+		cCode = `see new point { x=10 }`
+		? checkRingCode([:code = cCode])			// 0 (False)
+		? checkRingCode([:code = cCode, :safeoperators="{}", 
+			 	 :safekeywords=[:see, :new]])		// 1 (True)
+
+
+The next applications and tools are updated to use the checkRingCode() function
+
+* Ring Notepad - Use checkRingCode() before using the settings file 
+* Form Designer - Use checkRingCode() before loading the form file
+* RingPM GUI - Use checkRingCode() before using the package file
+* RingPM - Use checkRingCode() before using the package file
+* Ring2EXE - Use checkRingCode() before using the library file 
+* GoldMagic800 game - Use checkRingCode() before using the level file
+* GoldMagic800 Levels Designer - Use checkRingCode() before using the level file
+* Lectures Tracker application - Use checkRingCode() before using the lectures file
+
+.. index:: 
+	pair: What is new in Ring  1.25; Better RingLibCurl
+
+Better RingLibCurl
+==================
+
+RingLibCurl is updated to supports using callbacks for different operations like handling the 
+response data, headers, progress information and reading data for upload.
+
+We can set the callback function using ``curl_easy_setopt`` and the option name.
+The callback function can get the data using ``curl_get_data()`` or ``curl_get_progress_info()``.
+
+Example: Using the Write Callback
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	func main
+		curl = curl_easy_init()
+		curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io")
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, :write_callback)
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+		curl_easy_perform(curl)
+		curl_easy_cleanup(curl)
+
+	func write_callback
+		cData = curl_get_data()
+		? "Received Data Size: " + len(cData)
+
+
+Output:
+
+.. code-block:: none
+
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 2756
+	Received Data Size: 16384
+	Received Data Size: 2604
+	Received Data Size: 16384
+	Received Data Size: 16384
+	Received Data Size: 11363
+
 
 .. index:: 
 	pair: What is new in Ring  1.25; Callable Functions as Methods
