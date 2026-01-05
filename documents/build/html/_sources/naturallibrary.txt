@@ -1026,7 +1026,6 @@ The default behavior is to pass the error.
 A related method is setTreatIdentifierAsString(lStatus), which controls whether uninitialized 
 identifiers should be passed by converting the identifier to a string.
 
-
 Example:
 
 .. code-block:: ring
@@ -1076,6 +1075,76 @@ Example:
 	
 	}                                       // Call braceEnd() and check Errors
 
+
+.. index:: 
+	pair: Using the Natural Library; PassThisCommand() Method
+
+PassThisCommand() Method
+========================
+
+Using this method, we can support commands that share the same keywords, even when all 
+of a command's keywords may also appear in another command. Then, by using BraceNewLine(),
+we can determine which command should be executed.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:IWantWindow] = :Normal
+				passThisCommand()
+			}
+		])
+		syntaxIsCommand([
+			:Command = "I want window now", 
+			:Function = func {
+				aCommandMemory[:IWantWindow] = :Now
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new GUI
+
+	addMethod(GUI, :braceNewLine, func { 
+		switch aCommandMemory[:IWantWindow] {
+			case :Normal 
+				?  "Command: I want window" 
+			case :Now
+				?  "Command: I want window now" 
+		} 
+		aCommandMemory[:IWantWindow] = NULL
+	} )
+
+	GUI  {
+ 		I want Window	
+		I want Window now
+		I want window now 
+		I want window
+	}						
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window now
+	Command: I want window now
+	Command: I want window
 
 .. index:: 
 	pair: Using the Natural Library; The Art Behind NaturalLib

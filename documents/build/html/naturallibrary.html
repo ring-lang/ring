@@ -103,6 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#commands-with-multiple-keywords">Commands with multiple keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sharing-data-between-commands">Sharing Data Between Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setpasserror-method">SetPassError() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passthiscommand-method">PassThisCommand() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-art-behind-naturallib">The Art Behind NaturalLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-samples-and-the-source-code">The Samples and the Source Code</a></li>
 </ul>
@@ -1126,8 +1127,70 @@ identifiers should be passed by converting the identifier to a string.</p>
 </pre></div>
 </div>
 </section>
+<section id="passthiscommand-method">
+<span id="index-16"></span><h2>PassThisCommand() Method<a class="headerlink" href="#passthiscommand-method" title="Permalink to this heading"></a></h2>
+<p>Using this method, we can support commands that share the same keywords, even when all
+of a command’s keywords may also appear in another command. Then, by using BraceNewLine(),
+we can determine which command should be executed.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Normal</span>
+                        <span class="nf">passThisCommand</span><span class="p">()</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window now&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Now</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">GUI</span>
+
+<span class="nb">addMethod</span><span class="p">(</span><span class="n">GUI</span><span class="p">,</span> <span class="ss">:braceNewLine</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="ss">:Normal</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="k">case</span> <span class="ss">:Now</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window now&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
+<span class="p">}</span> <span class="p">)</span>
+
+<span class="n">GUI</span>  <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">Window</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">Window</span> <span class="n">now</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="n">now</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window now
+Command: I want window now
+Command: I want window
+</pre></div>
+</div>
+</section>
 <section id="the-art-behind-naturallib">
-<span id="index-16"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
 <p>Working with the Natural Library is not only a technical activity. It is also a creative process.
 The library gives you tools for parsing, evaluating expressions, and defining commands, but
 these tools are only the foundation. The moment you decide how your DSL should read and
@@ -1157,7 +1220,7 @@ should communicate with the computer. The Natural Library supports both sides, y
 creative vision remains yours.</p>
 </section>
 <section id="the-samples-and-the-source-code">
-<span id="index-17"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
 <p>You can find the samples in the ring/samples/UsingNaturalLib folder.</p>
 <p>You can find the source code in the ring/libraries/naturallib folder.</p>
 </section>
