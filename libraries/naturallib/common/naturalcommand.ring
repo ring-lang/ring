@@ -77,11 +77,11 @@ class NaturalCommand
 		}
 
 		if lSyntaxIsKeyword {
-			cCode += "func Get" +cCommandNoSpaces + nl +
-					"    fMethod = :" + fFunc + "  return call { fMethod() }" + nl 
+			cCode += " func Get" +cCommandNoSpaces + " { " +
+					"fMethod = :" + fFunc + " return call { fMethod() }" + " }" + nl 
 		else
-			cCode += "func BraceExecute_" +cCommandNoSpaces + nl +
-					 "    return executeCommandFunction(:"+fFunc +")"+nl
+			cCode += " func BraceExecute_" +cCommandNoSpaces + " { " +
+					 "return executeCommandFunction(:"+fFunc +")"+" }" + nl
 		}
 
 		return cCode
@@ -107,10 +107,8 @@ class NaturalCommand
 		return cCode	
 
 	func GetExpr nCount,cType
-		cCode = " func "+"BraceExprEval_"+cKeyword+" ExprValue { 
-				processExprValue(ExprValue,:"+cKeyword+","+nCount+",:"+cType+")
-		} 
-		"
+		cCode = " func "+"BraceExprEval_"+cKeyword+" ExprValue { " +
+				"processExprValue(ExprValue,:"+cKeyword+","+nCount+",:"+cType+") }"+nl
 		return cCode
 
 	func GetExprNumbers nCount
