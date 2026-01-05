@@ -280,4 +280,8 @@ class NaturalBaseMethods
 	func setTreatIdentifierAsString lStatus
 		lTreatIdentifierAsString = lStatus
 
+	func @ cCode 
+		return NATLIB_Execute(self,cCode)
+	
+
 class NatLibError

@@ -14,3 +14,9 @@ func GetVariableValueFromCallerScope oObj,nScope,cCode
 	if NATLIB_TEMPVAR = :NLNV { return cCode }
 
 	return NATLIB_TEMPVAR
+
+func NATLIB_Execute obj,cCode
+	obj {
+		eval(cCode)
+	}
+	return obj.vCommandOutput
