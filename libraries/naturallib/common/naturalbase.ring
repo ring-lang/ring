@@ -149,10 +149,6 @@ class NaturalBaseMethods
 	func IsCommand
 		return nActiveCommand
 
-	func CommandOutput vValue
-		vCommandOutput = vValue
-		BraceExprEval(vValue)
-
 	func CommandReturn vValue
 		lCommandReturnIsUsed = True 
 		vCommandOutput = vValue
