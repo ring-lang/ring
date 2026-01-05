@@ -1,5 +1,5 @@
 # The Ring Natural Library
-# 2017, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2017-2026, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # Disable Keywords
 
@@ -19,6 +19,7 @@ changeringkeyword elseif 		_elseif
 changeringkeyword end 			_end
 changeringkeyword exit 			_exit
 changeringkeyword for 			_for
+changeringkeyword foreach		_foreach
 changeringkeyword from 			_from
 changeringkeyword func 			_func
 changeringkeyword get 			_get
@@ -46,6 +47,18 @@ changeringkeyword switch 		_switch
 changeringkeyword to 			_to
 changeringkeyword try 			_try
 changeringkeyword while 		_while
+changeringkeyword endfunc 		_endfunc
+changeringkeyword endclass 		_endclass
+changeringkeyword endpackage	_endpackage
+changeringkeyword endif 		_endif
+changeringkeyword endfor 		_endfor
+changeringkeyword endwhile 		_endwhile
+changeringkeyword endswitch 	_endswitch
+changeringkeyword endtry 		_endtry
+changeringkeyword function 		_function
+changeringkeyword endfunction	_endfunction
+changeringkeyword break 		_break
+changeringkeyword continue 		_continue
 
 # Disable Operators
 
