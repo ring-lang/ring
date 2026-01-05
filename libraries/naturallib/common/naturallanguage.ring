@@ -43,7 +43,7 @@ class NaturalLanguage
 		}
 		cCode = read(cFile)
 		cCode = CheckOperators(cCode)
-		RunString(cCode)
+		return RunString(cCode)
 
 	func prepareLanguage
 		if ! oLangObj {
@@ -237,14 +237,15 @@ class NaturalLanguage
 		cCode = 'oLangObj {'+nl+
 			cBeforeRun+nl+
 			cString+nl+
-			cAfterRun+nl+'}'
+			cAfterRun+nl+'}'+nl
 		return cCode 
 
 	func RunString cString
 		eval(prepareCode(cString))
+		return oLangObj.vCommandOutput
 
 	func Execute cString
-		runstring(cString)
+		return runstring(cString)
 
 	func CheckOperators cCode 
 		if len(cOperators) > 0 {

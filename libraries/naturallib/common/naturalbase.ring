@@ -30,6 +30,7 @@ Class NaturalBase
 	lEnableBraceExprEval = True
 
 	aCommandMemory = []                  // Used for sharing data between commands
+	vCommandOutput                       // Used for command output to DSL caller
 
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
@@ -147,11 +148,15 @@ class NaturalBaseMethods
 		return nActiveCommand
 
 	func CommandOutput vValue
+		vCommandOutput = vValue
 		BraceExprEval(vValue)
 
 	func CommandReturn vValue
 		lCommandReturnIsUsed = True 
-		EndCommand()
+		vCommandOutput = vValue
+		if ! lPassThisCommand {
+			EndCommand()
+		}
 		BraceExprEval(vValue)
 
 	func PassThisCommand
