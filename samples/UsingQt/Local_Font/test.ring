@@ -17,7 +17,6 @@ app = new QApp {
 			setText("I LOVE PROGRAMMING")
 		}
 		show()
-	}
-	
+	}	
 	exec()
 }
