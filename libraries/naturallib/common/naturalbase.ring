@@ -226,7 +226,8 @@ class NaturalBaseMethods
 		if IsCommand() and isNumber(CommandData()[:nKeyword]) and		
 		   CommandData()[:nKeyword] = nIndex - 1 {
 			CommandData()[:nKeyword] = nIndex
-			if nIndex = nCount {
+			CommandData()[:cCmdBuf] += cCurrentKeyword
+			if nIndex = nCount and CommandData()[:cCmdBuf] = cCommand {
 					CommandData()[:name] = cCommand
 					CommandData()[:nExpr] = 0
 					CommandData()[:aExpr] = []
