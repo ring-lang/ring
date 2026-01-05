@@ -477,5 +477,7 @@ aEnumTypes + "QRegExp::CaretMode"
 aEnumTypes + "QRegExp::PatternSyntax"
 aEnumTypes + "QFontDatabase::SystemFont"
 aEnumTypes + "QFontDatabase::WritingSystem"
+aEnumTypes + "QValidator::State"
+aEnumTypes + "QDoubleValidator::Notation"
 
 </runcode>

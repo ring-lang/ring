@@ -1,0 +1,11 @@
+<class>
+name: QIntValidator
+para: QObject *
+parent: QValidator
+</class>
+
+int bottom(void)
+void setBottom(int)
+void setRange(int bottom, int top)
+void setTop(int)
+int top(void)

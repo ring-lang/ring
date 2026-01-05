@@ -1,0 +1,8 @@
+<class>
+name: QRegularExpressionValidator
+para: QObject *
+parent: QValidator
+</class>
+
+QRegularExpression regularExpression(void)
+void setRegularExpression(QRegularExpression re)

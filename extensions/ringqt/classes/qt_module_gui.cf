@@ -43,6 +43,10 @@
 <loadfile> gui/qclipboard.cf
 <loadfile> gui/qmovie.cf
 <loadfile> gui/qfontdatabase.cf
+<loadfile> gui/qvalidator.cf
+<loadfile> gui/qintvalidator.cf
+<loadfile> gui/qdoublevalidator.cf
+<loadfile> gui/qregularexpressionvalidator.cf
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
 <loadfile> gui/qopenglfunctions.cf

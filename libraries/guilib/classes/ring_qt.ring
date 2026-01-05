@@ -9728,6 +9728,120 @@ Class QFontDatabase
 	Func writingSystemSample P1
 		return QFontDatabase_writingSystemSample(pObject,P1)
 
+Class QValidator from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QValidator_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QValidator_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func locale 
+		pTempObj = new QLocale
+		pTempObj.pObject = QValidator_locale(pObject)
+		return pTempObj
+
+	Func setLocale P1
+		return QValidator_setLocale(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QIntValidator from QValidator
+
+	pObject
+
+	Func init P1
+		pObject = QIntValidator_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QIntValidator_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QIntValidator_bottom(pObject)
+
+	Func setBottom P1
+		return QIntValidator_setBottom(pObject,P1)
+
+	Func setRange P1,P2
+		return QIntValidator_setRange(pObject,P1,P2)
+
+	Func setTop P1
+		return QIntValidator_setTop(pObject,P1)
+
+	Func top 
+		return QIntValidator_top(pObject)
+
+Class QDoubleValidator from QValidator
+
+	pObject
+
+	Func init P1
+		pObject = QDoubleValidator_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDoubleValidator_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QDoubleValidator_bottom(pObject)
+
+	Func decimals 
+		return QDoubleValidator_decimals(pObject)
+
+	Func notation 
+		return QDoubleValidator_notation(pObject)
+
+	Func setBottom P1
+		return QDoubleValidator_setBottom(pObject,P1)
+
+	Func setDecimals P1
+		return QDoubleValidator_setDecimals(pObject,P1)
+
+	Func setNotation P1
+		return QDoubleValidator_setNotation(pObject,P1)
+
+	Func setRange P1,P2,P3
+		return QDoubleValidator_setRange(pObject,P1,P2,P3)
+
+	Func setTop P1
+		return QDoubleValidator_setTop(pObject,P1)
+
+	Func top 
+		return QDoubleValidator_top(pObject)
+
+Class QRegularExpressionValidator from QValidator
+
+	pObject
+
+	Func init P1
+		pObject = QRegularExpressionValidator_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QRegularExpressionValidator_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func regularExpression 
+		pTempObj = new QRegularExpression
+		pTempObj.pObject = QRegularExpressionValidator_regularExpression(pObject)
+		return pTempObj
+
+	Func setRegularExpression P1
+		return QRegularExpressionValidator_setRegularExpression(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QOpenGLFunctions
 
 	pObject
@@ -13567,7 +13681,9 @@ Class QLineEdit from QWidget
 		return QLineEdit_textMargins(pObject)
 
 	Func validator 
-		return QLineEdit_validator(pObject)
+		pTempObj = new QValidator
+		pTempObj.pObject = QLineEdit_validator(pObject)
+		return pTempObj
 
 	Func clear 
 		return QLineEdit_clear(pObject)
@@ -15139,7 +15255,9 @@ Class QComboBox from QWidget
 		return QComboBox_showPopup(pObject)
 
 	Func validator 
-		return QComboBox_validator(pObject)
+		pTempObj = new QValidator
+		pTempObj.pObject = QComboBox_validator(pObject)
+		return pTempObj
 
 	Func view 
 		pTempObj = new QAbstractItemView
