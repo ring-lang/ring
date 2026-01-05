@@ -1,0 +1,9 @@
+name ===> C
+year ===> 1972
+age ===> 54
+name ===> Python
+year ===> 1990
+age ===> 36
+name ===> Ring
+year ===> 2016
+age ===> 10

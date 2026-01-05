@@ -1,0 +1,19 @@
+Command: I want window
+Command: Window Title
+Command: Window title is welcome
+========
+Command: Window Title
+Command: Window title is Hello, World!
+========
+Command: Window Title
+Command: Window Title
+Command: Window Title
+Command: Window Title
+Command: Window Title
+========
+********************
+Command: I want window
+Command: Window Title
+Command: Window title is Welcome
+Command: Window Title
+Welcome
