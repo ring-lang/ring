@@ -1149,6 +1149,205 @@ Output:
 	Command: I want window
 
 .. index:: 
+	pair: Using the Natural Library; The Command Output
+
+The Command Output
+==================
+
+There are several ways to get output after executing commands in our DSL.
+
+One option is to use the commandReturn() method, which returns a value produced by the command.
+
+To execute the command itself, we can use the runString(), execute(), or @() methods
+
+Example (1):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")	
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:window] = True
+			}
+		])	
+		syntaxIsCommand([
+			:Command = "Window title", 
+			:Function = func {
+				passThisCommand()
+				commandReturn(aCommandMemory[:windowtitle])
+			}
+		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				if ! aCommandMemory[:window] {
+					? "Please create the window first!"
+					return 
+				}
+				aCommandMemory[:windowtitle] = Expr(1) 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new GUI
+
+	GUI {
+ 		I Want Window and the window title is "welcome" 
+		? "Window title: " + @("window title")
+	}
+
+	? copy("*",20)
+	mylang.runstring(`I want window and the window title is "one" `)
+	? mylang.runstring("window title")
+
+	? copy("*",20)				
+	mylang.execute(`I want window and the window title is "two" `)
+	? mylang.execute("window title")
+
+	? copy("*",20)				
+	mylang.@(`I want window and the window title is "three" `)
+	? mylang.@("window title")
+
+
+Output (1):
+
+.. code-block:: none
+
+	Window title: welcome
+	********************
+	one
+	********************
+	two
+	********************
+	three
+
+
+We can use the V list, defined as an object attribute, to share state with the DSL user or caller.
+
+Example (2):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:window] = True
+			}
+		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				if ! aCommandMemory[:window] {
+					? "Please create the window first!"
+					return 
+				}
+				v["Window Title"] = Expr(1)
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new GUI
+
+	GUI  {
+ 		I Want Window and the window title is "welcome" 
+		? "Window title: " + v["window title"]
+	}
+
+
+Output (2):
+
+.. code-block:: none
+
+	Window title: welcome
+
+Another way to share state with the DSL user or caller is to define or use a custom object attribute.
+
+We can do this inside the command by using the isAttribute() and addAttribute() functions.
+
+We can also use the register() function, which internally uses isAttribute() and addAttribute().
+
+Example (3):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:Window] = True
+			}
+		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				if ! aCommandMemory[:Window] {
+					? "Please create the window first!"
+					return 
+				}
+				register(:windowTitle)
+				windowTitle = Expr(1) 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+	
+	new GUI {
+	 	I Want Window and the window title is "I Love Programming!" 
+		? "The window title is: " + windowTitle
+	}			
+
+
+Output (3):
+
+.. code-block:: none
+
+	The window title is: I Love Programming!
+
+More ideas:
+
+* Using Setter/Getter methods for new attributes defined through the Register() method.
+
+* Defining the V list as an object (instead of a list) and apply operator overloading. 
+
+
+.. index:: 
 	pair: Using the Natural Library; The Art Behind NaturalLib
 
 The Art Behind NaturalLib
