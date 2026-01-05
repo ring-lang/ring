@@ -49,6 +49,7 @@ class NaturalBaseMethods
 		}
 
 	func BraceStart
+		vCommandOutput = NULL
 		if ! lPrepareAttributes { return }
 		lPrepareAttributes = False
 		prepareClassMethods()
@@ -131,6 +132,7 @@ class NaturalBaseMethods
 		lTreatIdentifierAsString = lStatus
 
 	func StartCommand 
+		vCommandOutput = NULL
 		if len(aCommandsStack) = 16 {
 			del(aCommandsStack,1)
 		}

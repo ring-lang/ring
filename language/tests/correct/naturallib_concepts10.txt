@@ -1,7 +1,7 @@
 Command: I want window
 Command: I want button
 
-Line 108 Error (NaturalLib-10) : Incomplete command... 
+Line 111 Error (NaturalLib-10) : Incomplete command... 
 In raise() In method braceend() in file b:\ring\libraries\naturallib\common/naturalbase.ring
 
 Called from line 43 in file naturallib/concepts10.ring 

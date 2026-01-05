@@ -1,6 +1,6 @@
 Command: I want window
 
-Line 102 Error (R1) : Can't divide by zero 
+Line 105 Error (R1) : Can't divide by zero 
 In raise() In method braceerror() in file b:\ring\libraries\naturallib\common/naturalbase.ring
 
 Called from line 46 in file naturallib/concepts14.ring 
