@@ -247,6 +247,9 @@ class NaturalLanguage
 	func Execute cString
 		return runstring(cString)
 
+	func $ cString
+		return runstring(cString)
+
 	func CheckOperators cCode 
 		if len(cOperators) > 0 {
 			for cLetter in cOperators {

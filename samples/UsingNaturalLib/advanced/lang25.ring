@@ -59,7 +59,15 @@ GUI  {
 	? "========"
 }
 
+// We can use runString()/execute()/$() methods to run commands 
+// They does the same thing!
+
 ? copy("*",20)
-mylang.runstring(`I want window and the window title is "Welcome" `)
+mylang.runstring(`I want window and the window title is "one" `)
 ? mylang.runstring("window title")
-					
+? copy("*",20)				
+mylang.execute(`I want window and the window title is "two" `)
+? mylang.execute("window title")
+? copy("*",20)				
+mylang.$(`I want window and the window title is "three" `)
+? mylang.$("window title")
