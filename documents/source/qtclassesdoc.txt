@@ -28,6 +28,7 @@ Parameters : void
 * int labelsAngle(void)
 * QBrush labelsBrush(void)
 * QColor labelsColor(void)
+* QFont labelsFont(void)
 * bool labelsVisible(void)
 * QPen linePen(void)
 * QColor linePenColor(void)
@@ -40,6 +41,7 @@ Parameters : void
 * void setLabelsAngle(int angle)
 * void setLabelsBrush(QBrush brush)
 * void setLabelsColor(QColor color)
+* void setLabelsFont(QFont font)
 * void setLabelsVisible(bool visible)
 * void setLinePen(QPen pen)
 * void setLinePenColor(QColor color)
@@ -136,6 +138,7 @@ Parameters : void
 Parent Class : AbstractSeries
 
 * bool append(QBarSet *set)
+* qreal barWidth(void)
 * void clear(void)
 * int count(void)
 * bool insert(int index, QBarSet *set)
@@ -595,12 +598,14 @@ Parent Class : QWidget
 * bool hasFrame(void)
 * void interpretText(void)
 * bool isAccelerated(void)
+* bool isReadOnly(void)
 * bool keyboardTracking(void)
 * void setAccelerated(bool on)
 * void setAlignment(Qt::AlignmentFlag flag)
 * void setButtonSymbols(QAbstractSpinBox::ButtonSymbols bs)
 * void setCorrectionMode(QAbstractSpinBox::CorrectionMode cm)
 * void setFrame(bool)
+* void setKeyboardTracking(bool kt)
 * void setReadOnly(bool r)
 * void setSpecialValueText(QString)
 * void setWrapping(bool w)
@@ -1298,6 +1303,7 @@ C++ Reference : http://doc.qt.io/qt-5/qbluetoothdeviceinfo.html
 Parameters : void
 
 * QBluetoothAddress address(void)
+* bool isCached(void)
 * bool isValid(void)
 * QBluetoothDeviceInfo::MajorDeviceClass majorDeviceClass(void)
 * quint8 minorDeviceClass(void)
@@ -1307,6 +1313,7 @@ Parameters : void
 * QList<QBluetoothUuid> serviceUuids(QBluetoothDeviceInfo::DataCompleteness *completeness)
 * QBluetoothDeviceInfo::DataCompleteness serviceUuidsCompleteness(void)
 * void setCached(bool cached)
+* void setRssi(qint16 signal)
 * void setServiceUuids(QList<QBluetoothUuid> uuids, QBluetoothDeviceInfo::DataCompleteness completeness)
 
 .. index::
@@ -2069,6 +2076,7 @@ Parameters : Qt3DCore::QNode *
 * void setOrthographicProjection(float left, float right, float bottom, float top, float nearPlane, float farPlane)
 * void setPerspectiveProjection(float fieldOfView, float aspectRatio, float nearPlane, float farPlane)
 * float top(void)
+* void setAspectRatio(float aspectRatio)
 * void setBottom(float bottom)
 * void setExposure(float exposure)
 * void setFarPlane(float farPlane)
@@ -2730,6 +2738,7 @@ Parent Class : QWidget
 * void hidePopup(void)
 * QSize iconSize(void)
 * void insertItem(int index, QString, QVariant)
+* void insertSeparator(int index)
 * bool isEditable(void)
 * QVariant itemData(int index, int role)
 * QAbstractItemDelegate *itemDelegate(void)
@@ -2748,6 +2757,7 @@ Parent Class : QWidget
 * void setEditable(bool editable)
 * void setFrame(bool)
 * void setIconSize(QSize)
+* void setItemData(int index, QVariant , int role)
 * void setItemDelegate(QAbstractItemDelegate *delegate)
 * void setItemIcon(int index, QIcon)
 * void setItemText(int index, QString)
@@ -2758,8 +2768,10 @@ Parent Class : QWidget
 * void setModel(QAbstractItemModel *model)
 * void setModelColumn(int visibleColumn)
 * void setRootModelIndex(QModelIndex)
+* void setValidator(QValidator *validator)
 * void setView(QAbstractItemView *itemView)
 * void showPopup(void)
+* QValidator *validator(void)
 * QAbstractItemView *view(void)
 * void clear(void)
 * void clearEditText(void)
@@ -3764,6 +3776,7 @@ Parent Class : QIODevice
 * QFileDevice::Permissions permissions(void)
 * bool resize(qint64 sz)
 * QString fileName(void)
+* bool setPermissions(QFileDevice::Permissions permissions)
 * bool unmap(uchar *address)
 * void unsetError(void)
 
@@ -4056,6 +4069,45 @@ Parameters : QString, int, int, bool
 * QString substitute(QString)
 * QStringList substitutes(QString)
 * QStringList substitutions(void)
+
+.. index::
+	pair: RingQt Classes Reference; QFontDatabase Class
+
+QFontDatabase Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qfontdatabase.html
+
+
+Parameters : void
+
+* bool bold(QString family, QString style)
+* QStringList families(QFontDatabase::WritingSystem writingSystem)
+* QFont font(QString family, QString style, int pointSize)
+* bool isBitmapScalable(QString family, QString style)
+* bool isFixedPitch(QString family, QString style)
+* bool isPrivateFamily(QString family)
+* bool isScalable(QString family, QString style)
+* bool isSmoothlyScalable(QString family, QString style)
+* bool italic(QString family, QString style)
+* QList<int> pointSizes(QString family, QString styleName)
+* QList<int> smoothSizes(QString family, QString styleName)
+* QString styleString(QFont font)
+* QString styleString_2(QFontInfo fontInfo)
+* QStringList styles(QString family)
+* int weight(QString family, QString style)
+* QList<QFontDatabase::WritingSystem> writingSystems(void)
+* QList<QFontDatabase::WritingSystem> writingSystems_2(QString family)
+* int addApplicationFont(QString fileName)
+* int addApplicationFontFromData(QByteArray fontData)
+* QStringList applicationFontFamilies(int id)
+* bool removeAllApplicationFonts(void)
+* bool removeApplicationFont(int id)
+* QList<int> standardSizes(void)
+* QFont systemFont(QFontDatabase::SystemFont type)
+* QString writingSystemName(QFontDatabase::WritingSystem writingSystem)
+* QString writingSystemSample(QFontDatabase::WritingSystem writingSystem)
 
 .. index::
 	pair: RingQt Classes Reference; QFontDialog Class
@@ -4726,6 +4778,7 @@ Parameters : QGraphicsItem *
 * void installSceneEventFilter(QGraphicsItem *filterItem)
 * bool isActive(void)
 * bool isAncestorOf(QGraphicsItem *child)
+* bool isClipped(void)
 * bool isEnabled(void)
 * bool isObscured(QRectF rect)
 * bool isObscured_2(qreal x, qreal y, qreal w, qreal h)
@@ -5179,6 +5232,7 @@ Parent Class : QObject
 * QGraphicsItemGroup * createItemGroup(QList<QGraphicsItem *> items)
 * void destroyItemGroup(QGraphicsItemGroup *group)
 * QGraphicsItem * focusItem(void)
+* QFont font(void)
 * QBrush foregroundBrush(void)
 * bool hasFocus(void)
 * qreal height(void)
@@ -5210,6 +5264,7 @@ Parent Class : QObject
 * void setBspTreeDepth(int depth)
 * void setFocus(Qt::FocusReason focusReason)
 * void setFocusItem(QGraphicsItem *item, Qt::FocusReason focusReason)
+* void setFont(QFont font)
 * void setForegroundBrush(QBrush brush)
 * void setItemIndexMethod(QGraphicsScene::ItemIndexMethod method)
 * void setMinimumRenderSize(qreal minSize)
@@ -6239,8 +6294,11 @@ Parent Class : QObject
 * bool isWritable(void)
 * int openMode(void)
 * int peek(char *data, int maxSize)
+* bool putChar(char c)
 * int read(char *data, int maxSize)
+* QByteArray readAll(void)
 * int readLine(char *data, int maxSize)
+* void setTextModeEnabled(bool enabled)
 * void ungetChar(char c)
 * int write(const char *data, int maxSize)
 * bool atEnd(void)
@@ -6872,6 +6930,7 @@ C++ Reference : http://doc.qt.io/qt-5/qlinef.html
 
 Parameters : qreal,qreal,qreal,qreal
 
+* QPointF p1(void)
 * QPointF p2(void)
 * qreal x1(void)
 * qreal x2(void)
@@ -6999,7 +7058,10 @@ Parameters : QWidget *
 Parent Class : QListView
 
 * void addItem(QString)
+* int count(void)
+* int currentRow(void)
 * void editItem(QListWidgetItem *item)
+* void insertItem(int, QString)
 * bool isSortingEnabled(void)
 * QListWidgetItem *item(int row)
 * QListWidgetItem *itemAt(int x, int y)
@@ -7007,6 +7069,7 @@ Parent Class : QListView
 * void openPersistentEditor(QListWidgetItem *item)
 * void removeItemWidget(QListWidgetItem *item)
 * int row(QListWidgetItem *item)
+* void setCurrentItem(QListWidgetItem *item, QItemSelectionModel::SelectionFlag command)
 * void setCurrentRow(int row, QItemSelectionModel::SelectionFlag command)
 * void setItemWidget(QListWidgetItem *item, QWidget *widget)
 * void setSortingEnabled(bool enable)
@@ -7093,6 +7156,7 @@ Parameters : QString
 
 * QString amText(void)
 * QString bcp47Name(void)
+* QLocale::Country country(void)
 * QString createSeparatedList(QStringList list)
 * QString currencySymbol(QLocale::CurrencySymbolFormat format)
 * QString dateFormat(QLocale::FormatType format)
@@ -7101,6 +7165,7 @@ Parameters : QString
 * QChar decimalPoint(void)
 * QChar exponential(void)
 * Qt::DayOfWeek firstDayOfWeek(void)
+* QChar groupSeparator(void)
 * QLocale::Language language(void)
 * QLocale::MeasurementSystem measurementSystem(void)
 * QString monthName(int month, QLocale::FormatType type)
@@ -7120,6 +7185,7 @@ Parameters : QString
 * QString standaloneMonthName(int month, QLocale::FormatType type)
 * Qt::LayoutDirection textDirection(void)
 * QString timeFormat(QLocale::FormatType format)
+* double toDouble(QString s, bool *ok)
 * double toDouble_2(QStringRef s, bool *ok)
 * float toFloat(QString s, bool *ok)
 * float toFloat_2(QStringRef s, bool *ok)
@@ -7314,6 +7380,7 @@ Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,q
 
 * QVector4D column(int index)
 * qreal * constData(void)
+* qreal * data(void)
 * qreal * data_2(void)
 * qreal determinant(void)
 * void fill(qreal value)
@@ -7346,6 +7413,7 @@ Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,q
 * void setColumn(int index, QVector4D value)
 * void setRow(int index, QVector4D value)
 * void setToIdentity(void)
+* QTransform toTransform(void)
 * QTransform toTransform_2(qreal distanceToPlane)
 * void translate(QVector3D vector)
 * void translate_2(qreal x, qreal y)
@@ -7501,18 +7569,24 @@ C++ Reference : http://doc.qt.io/qt-5/qmediaplaylist.html
 
 Parameters : void
 
+* bool addMedia(QUrl)
+* bool clear(void)
 * int currentIndex(void)
 * QMediaContent currentMedia(void)
 * int error(void)
 * QString errorString(void)
 * bool insertMedia(int pos, QMediaContent)
+* bool isEmpty(void)
 * bool isReadOnly(void)
+* void load(QUrl, const char *format) # In RingQt use : void loadfile(QUrl, const char *format)
 * QMediaContent media(int index)
 * int mediaCount(void)
 * int nextIndex(int steps)
 * int playbackMode(void)
 * int previousIndex(int steps)
+* bool removeMedia(int start, int end)
 * bool save(QUrl, const char * format)
+* void setPlaybackMode(QMediaPlaylist::PlaybackMode mode)
 * void next(void) # In RingQt use : void movenext(void)
 * void previous(void)
 * void setCurrentIndex(int playlistPosition)
@@ -7581,14 +7655,17 @@ Parent Class : QWidget
 * QRect actionGeometry(QAction *act)
 * QAction *activeAction(void)
 * QAction *addAction(QString)
+* QMenu *addMenu(QString)
 * QAction *addSeparator(void)
 * void clear(void)
 * QWidget *cornerWidget(Qt::Corner)
+* QAction *insertMenu(QAction *before, QMenu *menu)
 * QAction *insertSeparator(QAction *before)
 * bool isDefaultUp(void)
 * bool isNativeMenuBar(void)
 * void setActiveAction(QAction *act)
 * void setCornerWidget(QWidget *widget, Qt::Corner)
+* void setDefaultUp(bool)
 * void setNativeMenuBar(bool nativeMenuBar)
 
 .. index::
@@ -7795,6 +7872,7 @@ Parent Class : QObject
 * QRect frameRect(void)
 * bool isValid(void)
 * bool jumpToFrame(int frameNumber)
+* int loopCount(void)
 * int nextFrameDelay(void)
 * QSize scaledSize(void)
 * void setBackgroundColor(QColor color)
@@ -7879,6 +7957,7 @@ Parent Class : QObject
 * void clearAccessCache(void)
 * QNetworkConfiguration configuration(void)
 * void connectToHost(QString, quint16)
+* QNetworkCookieJar *cookieJar(void)
 * QNetworkReply *deleteResource(QNetworkRequest)
 * QNetworkReply *get(QNetworkRequest) # In RingQt use : QNetworkReply *getvalue(QNetworkRequest)
 * QNetworkReply *head(QNetworkRequest)
@@ -7958,6 +8037,7 @@ Parent Class : QIODevice
 * QByteArray rawHeader(QByteArray)
 * qint64 readBufferSize(void)
 * QNetworkRequest request(void)
+* QUrl url(void)
 
 .. index::
 	pair: RingQt Classes Reference; QNetworkRequest Class
@@ -7982,6 +8062,7 @@ Parameters : QUrl
 * void setOriginatingObject(QObject *object)
 * void setPriority(QNetworkRequest::Priority priority)
 * void setRawHeader(QByteArray, QByteArray)
+* void setUrl(QUrl)
 * void swap(QNetworkRequest)
 * QUrl url(void)
 
@@ -8029,6 +8110,7 @@ Parent Class : QObject
 * bool notificationsBlocked(void)
 * Qt3DCore::QNode * parentNode(void)
 * Qt3DCore::QNode::PropertyTrackingMode propertyTracking(QString propertyName)
+* void sendReply(Qt3DCore::QNodeCommandPtr command)
 * void setPropertyTracking(QString propertyName, Qt3DCore::QNode::PropertyTrackingMode trackMode)
 * void setDefaultPropertyTrackingMode(Qt3DCore::QNode::PropertyTrackingMode mode)
 * void setEnabled(bool isEnabled)
@@ -8134,6 +8216,7 @@ Parameters : void
 * void destroy(void)
 * bool isCreated(void)
 * void * map(QOpenGLBuffer::Access access)
+* bool read(int offset, void *data, int count)
 * void release(void)
 * void setUsagePattern(QOpenGLBuffer::UsagePattern value)
 * int size(void)
@@ -8162,6 +8245,7 @@ Parent Class : QObject
 * GLuint defaultFramebufferObject(void)
 * void doneCurrent(void)
 * QSet<QByteArray> extensions(void)
+* QSurfaceFormat format(void)
 * QOpenGLFunctions * functions(void)
 * QFunctionPointer getProcAddress(QByteArray procName)
 * QFunctionPointer getProcAddress_2(char *procName)
@@ -8228,6 +8312,7 @@ C++ Reference : http://doc.qt.io/qt-5/qopenglframebufferobject.html
 
 Parameters : int,int,GLenum
 
+* QOpenGLFramebufferObject::Attachment attachment(void)
 * bool bind(void)
 * QOpenGLFramebufferObjectFormat format(void)
 * GLuint handle(void)
@@ -8237,11 +8322,11 @@ Parameters : int,int,GLenum
 * bool release(void)
 * void setAttachment(QOpenGLFramebufferObject::Attachment attachment)
 * QSize size(void)
-* QImage toImage(bool flipped)
-* QImage toImage_3(bool flipped, int colorQOpenGLFramebufferObject::AttachmentIndex)
+* GLuint texture(void)
 * QImage toImage_2(void)
 * int width(void)
 * bool bindDefault(void)
+* bool hasOpenGLFramebufferBlit(void)
 * bool hasOpenGLFramebufferObjects(void)
 
 .. index::
@@ -8333,6 +8418,7 @@ Parameters : void
 * GLint glGetUniformLocation(GLuint program, char *name)
 * void glGetUniformfv(GLuint program, GLint location, GLfloat *params)
 * void glGetUniformiv(GLuint program, GLint location, GLint *params)
+* void glGetVertexAttribfv(GLuint index, GLenum pname, GLfloat *params)
 * void glGetVertexAttribiv(GLuint index, GLenum pname, GLint *params)
 * void glHint(GLenum target, GLenum mode)
 * GLboolean glIsBuffer(GLuint buffer)
@@ -8352,6 +8438,7 @@ Parameters : void
 * void glSampleCoverage(GLclampf value, GLboolean invert)
 * void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)
 * void glShaderBinary(GLint n, GLuint *shaders, GLenum binaryformat, void *binary, GLint length)
+* void glStencilFunc(GLenum func, GLint ref, GLuint mask)
 * void glStencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask)
 * void glStencilMask(GLuint mask)
 * void glStencilMaskSeparate(GLenum face, GLuint mask)
@@ -8523,6 +8610,7 @@ Parameters : void
 * void glGetBooleanv(GLenum pname, GLboolean *params)
 * void glGetBufferParameteri64v(GLenum target, GLenum pname, GLint64 *params)
 * void glGetBufferParameteriv(GLenum target, GLenum pname, GLint *params)
+* void glGetBufferSubData(GLenum target, GLintptr offset, GLsizeiptr size, GLvoid *data)
 * void glGetCompressedTexImage(GLenum target, GLint level, GLvoid *img)
 * void glGetDoublev(GLenum pname, GLdouble *params)
 * GLenum glGetError(void)
@@ -8534,6 +8622,7 @@ Parameters : void
 * void glGetIntegeri_v(GLenum target, GLuint index, GLint *data)
 * void glGetIntegerv(GLenum pname, GLint *params)
 * void glGetMultisamplefv(GLenum pname, GLuint index, GLfloat *val)
+* void glGetProgramInfoLog(GLuint program, GLsizei bufSize, GLsizei *length, GLchar *infoLog)
 * void glGetProgramiv(GLuint program, GLenum pname, GLint *params)
 * void glGetQueryObjectiv(GLuint id, GLenum pname, GLint *params)
 * void glGetQueryObjectuiv(GLuint id, GLenum pname, GLuint *params)
@@ -8554,11 +8643,13 @@ Parameters : void
 * void glGetTexParameteriv(GLenum target, GLenum pname, GLint *params)
 * void glGetTransformFeedbackVarying(GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *type, GLchar *name)
 * GLuint glGetUniformBlockIndex(GLuint program, GLchar *uniformBlockName)
+* GLint glGetUniformLocation(GLuint program, GLchar *name)
 * void glGetUniformfv(GLuint program, GLint location, GLfloat *params)
 * void glGetUniformiv(GLuint program, GLint location, GLint *params)
 * void glGetUniformuiv(GLuint program, GLint location, GLuint *params)
 * void glGetVertexAttribIiv(GLuint index, GLenum pname, GLint *params)
 * void glGetVertexAttribIuiv(GLuint index, GLenum pname, GLuint *params)
+* void glGetVertexAttribdv(GLuint index, GLenum pname, GLdouble *params)
 * void glGetVertexAttribfv(GLuint index, GLenum pname, GLfloat *params)
 * void glGetVertexAttribiv(GLuint index, GLenum pname, GLint *params)
 * void glHint(GLenum target, GLenum mode)
@@ -8581,6 +8672,7 @@ Parameters : void
 * GLvoid * glMapBuffer(GLenum target, GLenum access)
 * GLvoid * glMapBufferRange(GLenum target, GLintptr offset, GLsizeiptr length, GLbitfield access)
 * void glMultiDrawArrays(GLenum mode, GLint *first, GLsizei *count, GLsizei drawcount)
+* void glPixelStoref(GLenum pname, GLfloat param)
 * void glPixelStorei(GLenum pname, GLint param)
 * void glPointParameterf(GLenum pname, GLfloat param)
 * void glPointParameterfv(GLenum pname, GLfloat *params)
@@ -8598,6 +8690,7 @@ Parameters : void
 * void glSampleCoverage(GLfloat value, GLboolean invert)
 * void glSampleMaski(GLuint index, GLbitfield mask)
 * void glScissor(GLint x, GLint y, GLsizei width, GLsizei height)
+* void glStencilFunc(GLenum func, GLint ref, GLuint mask)
 * void glStencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask)
 * void glStencilMask(GLuint mask)
 * void glStencilMaskSeparate(GLenum face, GLuint mask)
@@ -8618,6 +8711,7 @@ Parameters : void
 * void glTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, GLvoid *pixels)
 * void glTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
 * void glTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLvoid *pixels)
+* void glUniform1f(GLint location, GLfloat v0)
 * void glUniform1fv(GLint location, GLsizei count, GLfloat *value)
 * void glUniform1i(GLint location, GLint v0)
 * void glUniform1iv(GLint location, GLsizei count, GLint *value)
@@ -8654,6 +8748,7 @@ Parameters : void
 * GLboolean glUnmapBuffer(GLenum target)
 * void glUseProgram(GLuint program)
 * void glValidateProgram(GLuint program)
+* void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid *pointer)
 * void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
 * void glWaitSync(GLsync sync, GLbitfield flags, GLuint64 timeout)
 
@@ -8719,6 +8814,7 @@ C++ Reference : http://doc.qt.io/qt-5/qopenglshaderprogram.html
 
 Parameters : QObject *
 
+* bool addShader(QOpenGLShader *shader)
 * bool addShaderFromSourceCode(QOpenGLShader::ShaderType type, char *source)
 * bool addShaderFromSourceCode_2(QOpenGLShader::ShaderType type, QByteArray source)
 * bool addShaderFromSourceCode_3(QOpenGLShader::ShaderType type, QString source)
@@ -8730,6 +8826,7 @@ Parameters : QObject *
 * void bindAttributeLocation(char *name, int location)
 * void bindAttributeLocation_2(QByteArray name, int location)
 * void bindAttributeLocation_3(QString name, int location)
+* QVector<float> defaultInnerTessellationLevels(void)
 * QVector<float> defaultOuterTessellationLevels(void)
 * void disableAttributeArray(int location)
 * void disableAttributeArray_2(char *name)
@@ -8791,6 +8888,7 @@ Parameters : QObject *
 * void setUniformValue_14(char *name, QMatrix4x2 value)
 * void setUniformValue_15(char *name, QMatrix4x3 value)
 * void setUniformValue_16(char *name, QMatrix4x4 value)
+* void setUniformValue_20(char *name, QTransform value)
 * void setUniformValue_21(int location, GLuint value)
 * void setUniformValue_22(int location, GLfloat x, GLfloat y)
 * void setUniformValue_23(int location, GLfloat x, GLfloat y, GLfloat z)
@@ -8812,6 +8910,7 @@ Parameters : QObject *
 * void setUniformValue_39(int location, QMatrix4x2 value)
 * void setUniformValue_40(int location, QMatrix4x3 value)
 * void setUniformValue_41(int location, QMatrix4x4 value)
+* void setUniformValue_45(int location, QTransform value)
 * void setUniformValue_46(char *name, GLfloat value)
 * void setUniformValue_47(char *name, GLint value)
 * void setUniformValue_48(char *name, GLuint value)
@@ -8870,11 +8969,13 @@ C++ Reference : http://doc.qt.io/qt-5/qopengltexture.html
 Parameters : QOpenGLTexture::Target
 
 * void allocateStorage(void)
+* void bind(void)
 * void bind_2(uint unit, QOpenGLTexture::TextureUnitReset reset)
 * QColor borderColor(void)
 * void borderColor_2(float *border)
 * void borderColor_3(int *border)
 * void borderColor_4(unsigned int *border)
+* bool create(void)
 * QOpenGLTexture * createTextureView(QOpenGLTexture::Target target, QOpenGLTexture::TextureFormat viewFormat, int minimumMipmapLevel, int maximumMipmapLevel, int minimumLayer, int maximumLayer)
 * int depth(void)
 * QOpenGLTexture::DepthStencilMode depthStencilMode(void)
@@ -8888,6 +8989,7 @@ Parameters : QOpenGLTexture::Target
 * bool isBound(void)
 * bool isBound_2(uint unit)
 * bool isCreated(void)
+* bool isStorageAllocated(void)
 * bool isTextureView(void)
 * int layers(void)
 * QPair<float, float> levelOfDetailRange(void)
@@ -8896,20 +8998,28 @@ Parameters : QOpenGLTexture::Target
 * float maximumAnisotropy(void)
 * float maximumLevelOfDetail(void)
 * int maximumMipLevels(void)
+* QOpenGLTexture::Filter minificationFilter(void)
 * float minimumLevelOfDetail(void)
 * int mipBaseLevel(void)
+* int mipLevels(void)
 * int mipMaxLevel(void)
 * void release(void)
 * void release_2(uint unit, QOpenGLTexture::TextureUnitReset reset)
+* void setAutoMipMapGenerationEnabled(bool enabled)
 * void setBorderColor(QColor color)
+* void setBorderColor_3(int r, int g, int b, int a)
 * void setBorderColor_4(uint r, uint g, uint b, uint a)
+* void setCompressedData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
+* void setCompressedData_3(int mipLevel, int layer, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
 * void setCompressedData_4(int mipLevel, int dataSize, void *data, QOpenGLPixelTransferOptions * options)
 * void setCompressedData_5(int dataSize, void *data, QOpenGLPixelTransferOptions * options)
 * void setData(int mipLevel, int layer, QOpenGLTexture::CubeMapFace cubeFace, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
+* void setData_3(int mipLevel, int layer, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
 * void setData_4(int mipLevel, QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
 * void setData_5(QOpenGLTexture::PixelFormat sourceFormat, QOpenGLTexture::PixelType sourceType, void *data, QOpenGLPixelTransferOptions * options)
 * void setData_6(QImage image, QOpenGLTexture::MipMapGeneration genMipMaps)
 * void setDepthStencilMode(QOpenGLTexture::DepthStencilMode mode)
+* void setFormat(QOpenGLTexture::TextureFormat format)
 * void setLayers(int layers)
 * void setLevelOfDetailRange(float min, float max)
 * void setLevelofDetailBias(float bias)
@@ -8923,14 +9033,17 @@ Parameters : QOpenGLTexture::Target
 * void setMipLevelRange(int baseLevel, int maxLevel)
 * void setMipLevels(int levels)
 * void setMipMaxLevel(int maxLevel)
+* void setSize(int width, int height, int depth)
 * void setSwizzleMask(QOpenGLTexture::SwizzleComponent component, QOpenGLTexture::SwizzleValue value)
 * void setSwizzleMask_2(QOpenGLTexture::SwizzleValue r, QOpenGLTexture::SwizzleValue g, QOpenGLTexture::SwizzleValue b, QOpenGLTexture::SwizzleValue a)
 * void setWrapMode(QOpenGLTexture::WrapMode mode)
 * void setWrapMode_2(QOpenGLTexture::CoordinateDirection direction, QOpenGLTexture::WrapMode mode)
 * QOpenGLTexture::SwizzleValue swizzleMask(QOpenGLTexture::SwizzleComponent component)
+* GLuint textureId(void)
 * int width(void)
 * QOpenGLTexture::WrapMode wrapMode(QOpenGLTexture::CoordinateDirection direction)
 * GLuint boundTextureId(QOpenGLTexture::BindingTarget target)
+* bool hasFeature(QOpenGLTexture::Feature feature)
 
 .. index::
 	pair: RingQt Classes Reference; QOpenGLTimerQuery Class
@@ -9024,6 +9137,7 @@ Parent Class : QWidget
 * bool isValid(void)
 * void makeCurrent(void)
 * void setFormat(QSurfaceFormat format)
+* void setUpdateBehavior(QOpenGLWidget::UpdateBehavior updateBehavior)
 * QOpenGLWidget::UpdateBehavior updateBehavior(void)
 
 .. index::
@@ -9074,6 +9188,7 @@ C++ Reference : http://doc.qt.io/qt-5/qpaintdevice.html
 * int colorCount(void)
 * int depth(void)
 * int devicePixelRatio(void)
+* int height(void)
 * int heightMM(void)
 * int logicalDpiX(void)
 * int logicalDpiY(void)
@@ -9390,6 +9505,7 @@ Parameters : QObject *
 
 Parent Class : QAbstractSeries
 
+* bool append(QPieSlice *slice)
 * bool append_2(QList<QPieSlice *> slices)
 * QPieSlice * append_3(QString label, qreal value)
 * void clear(void)
@@ -9448,6 +9564,7 @@ Parameters : QObject *
 
 Parent Class : QObject
 
+* qreal angleSpan(void)
 * QColor borderColor(void)
 * int borderWidth(void)
 * QBrush brush(void)
@@ -9784,6 +9901,7 @@ Parameters : QGraphicsItem *,Qt::WindowFlags
 
 Parent Class : QChart
 
+* void addAxis(QAbstractAxis *axis, QPolarChart::PolarOrientation polarOrientation)
 * QList<QAbstractAxis *> axes(QPolarChart::PolarOrientations polarOrientation, QAbstractSeries *series )
 
 .. index::
@@ -9897,6 +10015,7 @@ Parameters : QPrinter::PrinterMode
 * bool isValid(void)
 * QString outputFileName(void)
 * int outputFormat(void)
+* int pageOrder(void)
 * QRectF pageRect(QPrinter::Unit unit)
 * QRectF paperRect(QPrinter::Unit unit)
 * int paperSource(void)
@@ -9918,6 +10037,8 @@ Parameters : QPrinter::PrinterMode
 * void setFullPage(bool fp)
 * void setOutputFileName(QString)
 * void setOutputFormat(QPrinter::OutputFormat format)
+* void setPageOrder(QPrinter::PageOrder pageOrder)
+* void setPaperSource(QPrinter::PaperSource source)
 * void setPrintProgram(QString)
 * void setPrintRange(QPrinter::PrintRange)
 * void setPrinterName(QString)
@@ -10142,6 +10263,7 @@ C++ Reference : http://doc.qt.io/qt-5/qquaternion.html
 
 Parameters : float,float,float,float
 
+* bool isIdentity(void)
 * bool isNull(void)
 * float length(void)
 * float lengthSquared(void)
@@ -10155,10 +10277,12 @@ Parameters : float,float,float,float
 * void setX(float x)
 * void setY(float y)
 * void setZ(float z)
+* QVector4D toVector4D(void)
 * QVector3D vector(void)
 * float x(void)
 * float y(void)
 * float z(void)
+* QQuaternion fromAxisAndAngle(QVector3D axis, float angle)
 * QQuaternion fromAxisAndAngle_2(float x, float y, float z, float angle)
 * QQuaternion nlerp(QQuaternion q1, QQuaternion q2, float t)
 * QQuaternion slerp(QQuaternion q1, QQuaternion q2, float t)
@@ -10379,6 +10503,7 @@ Parameters : qreal,qreal,qreal,qreal
 * void setY(qreal y)
 * QSizeF size(void)
 * QRect toAlignedRect(void)
+* QRect toRect(void)
 * qreal top(void)
 * QPointF topLeft(void)
 * QPointF topRight(void)
@@ -10588,6 +10713,7 @@ Parameters : QObject *
 
 Parent Class : QXYSeries
 
+* QColor borderColor(void)
 * QBrush brush(void)
 * QScatterSeries::MarkerShape markerShape(void)
 * qreal markerSize(void)
@@ -11055,6 +11181,7 @@ C++ Reference : http://doc.qt.io/qt-5/qsqldriver.html
 
 Parameters : void
 
+* bool isOpenError(void)
 * QSqlError lastError(void)
 * QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
 * void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy)
@@ -11443,6 +11570,7 @@ Parameters : void
 * QStringRef appendTo(QString * string)
 * QChar at(int position)
 * void clear(void)
+* int compare_2(QStringRef other, Qt::CaseSensitivity cs)
 * int compare_3(QLatin1String other, Qt::CaseSensitivity cs)
 * QChar * constData(void)
 * bool contains(QString str, Qt::CaseSensitivity cs)
@@ -11568,6 +11696,7 @@ Parameters : void
 
 * int alphaBufferSize(void)
 * int blueBufferSize(void)
+* int depthBufferSize(void)
 * int greenBufferSize(void)
 * bool hasAlpha(void)
 * int majorVersion(void)
@@ -11579,6 +11708,7 @@ Parameters : void
 * int samples(void)
 * void setAlphaBufferSize(int size)
 * void setBlueBufferSize(int size)
+* void setDepthBufferSize(int size)
 * void setGreenBufferSize(int size)
 * void setMajorVersion(int major)
 * void setMinorVersion(int minor)
@@ -12094,6 +12224,7 @@ C++ Reference : http://doc.qt.io/qt-5/qtextblock.html
 
 Parameters : void
 
+* QTextBlockFormat blockFormat(void)
 * int blockFormatIndex(void)
 * int blockNumber(void)
 * QTextCharFormat charFormat(void)
@@ -12101,6 +12232,7 @@ Parameters : void
 * void clearLayout(void)
 * bool contains(int position)
 * QTextDocument *document(void)
+* int firstLineNumber(void)
 * bool isValid(void)
 * bool isVisible(void)
 * QTextLayout * layout(void)
@@ -12200,6 +12332,7 @@ Parameters : void
 * void setAnchor(bool anchor)
 * void setAnchorHref( QString   value)
 * void setAnchorNames( QStringList   names)
+* void setFont_2( QFont   font)
 * void setFontCapitalization(QFont::Capitalization capitalization)
 * void setFontFamily( QString   family)
 * void setFontFixedPitch(bool fixedPitch)
@@ -13283,6 +13416,7 @@ C++ Reference : http://doc.qt.io/qt-5/qurl.html
 
 Parameters : QString
 
+* QString authority(QUrl::ComponentFormattingOption options)
 * void clear(void)
 * QString errorString(void)
 * QString fileName(QUrl::ComponentFormattingOption options)
@@ -13295,6 +13429,7 @@ Parameters : QString
 * bool isParentOf(QUrl)
 * bool isRelative(void)
 * bool isValid(void)
+* QString password(QUrl::ComponentFormattingOption options)
 * QString path(QUrl::ComponentFormattingOption options)
 * int port(int defaultPort)
 * QString query(QUrl::ComponentFormattingOption options)
@@ -13312,6 +13447,7 @@ Parameters : QString
 * void setUserInfo(QString, QUrl::ParsingMode mode)
 * void setUserName(QString, QUrl::ParsingMode mode)
 * void swap(QUrl)
+* QString toLocalFile(void)
 * QString userInfo(QUrl::ComponentFormattingOption options)
 * QString userName(QUrl::ComponentFormattingOption options)
 * QUrl fromLocalFile(QString)
@@ -13345,6 +13481,7 @@ Parameters : QObject *
 
 Parent Class : QObject
 
+* int firstBarSetColumn(void)
 * int firstRow(void)
 * int lastBarSetColumn(void)
 * QAbstractItemModel * model(void)
@@ -13402,6 +13539,7 @@ Parameters : QObject *
 
 Parent Class : QObject
 
+* int firstBoxSetColumn(void)
 * int firstRow(void)
 * int lastBoxSetColumn(void)
 * QAbstractItemModel * model(void)
@@ -13638,6 +13776,7 @@ Parameters : void
 * QLocale toLocale(void)
 * qlonglong toLongLong(bool *ok)
 * QModelIndex toModelIndex(void)
+* QPoint toPoint(void)
 * QPointF toPointF(void)
 * qreal toReal(bool *ok)
 * QRect toRect(void)
@@ -14016,6 +14155,7 @@ Parent Class : QObject
 * QAction * action(QWebEnginePage::WebAction action)
 * QColor backgroundColor(void)
 * QSizeF contentsSize(void)
+* QMenu * createStandardContextMenu(void)
 * QWebEnginePage * devToolsPage(void)
 * void download(QUrl url, QString filename)
 * void findText(QString subString, QWebEnginePage::FindFlags options, QWebEngineCallback<bool> resultCallback)
@@ -14025,12 +14165,16 @@ Parent Class : QObject
 * QUrl iconUrl(void)
 * QWebEnginePage * inspectedPage(void)
 * bool isAudioMuted(void)
+* void load_2(QUrl url)
 * void load_3(QWebEngineHttpRequest request)
 * void print(QPrinter *printer,QWebEngineCallback<bool>)
+* QWebEngineProfile * profile(void)
 * bool recentlyAudible(void)
+* void replaceMisspelledWord(QString replacement)
 * QUrl requestedUrl(void)
 * void runJavaScript(QString scriptSource)
 * void runJavaScript_2(QString scriptSource, quint32 worldId)
+* void save(QString filePath, QWebEngineDownloadItem::SavePageFormat format)
 * QPointF scrollPosition(void)
 * QString selectedText(void)
 * void setAudioMuted(bool muted)
@@ -14040,10 +14184,14 @@ Parent Class : QObject
 * void setFeaturePermission(QUrl securityOrigin, QWebEnginePage::Feature feature, QWebEnginePage::PermissionPolicy policy)
 * void setHtml(QString html, QUrl baseUrl)
 * void setInspectedPage(QWebEnginePage *page)
+* void setUrl(QUrl url)
+* void setView(QWidget *view)
+* void setWebChannel(QWebChannel *channel, uint worldId)
 * void setWebChannel_2(QWebChannel *channel)
 * void setZoomFactor(qreal factor)
 * QWebEngineSettings * settings(void)
 * QString title(void)
+* void triggerAction(QWebEnginePage::WebAction action, bool checked)
 * QUrl url(void)
 * QWidget * view(void)
 * QWebChannel * webChannel(void)
@@ -14058,6 +14206,7 @@ Parent Class : QObject
 * void setgeometryChangeRequestedEvent(const char *)
 * void seticonChangedEvent(const char *)
 * void seticonUrlChangedEvent(const char *)
+* void setlinkHoveredEvent(const char *)
 * void setloadFinishedEvent(const char *)
 * void setloadProgressEvent(const char *)
 * void setloadStartedEvent(const char *)
@@ -14068,6 +14217,7 @@ Parent Class : QObject
 * void setrecentlyAudibleChangedEvent(const char *)
 * void setrecommendedStateChangedEvent(const char *)
 * void setregisterProtocolHandlerRequestedEvent(const char *)
+* void setscrollPositionChangedEvent(const char *)
 * void setselectClientCertificateEvent(const char *)
 * void setselectionChangedEvent(const char *)
 * void settitleChangedEvent(const char *)
@@ -14084,6 +14234,7 @@ Parent Class : QObject
 * const char *getgeometryChangeRequestedEvent(void)
 * const char *geticonChangedEvent(void)
 * const char *geticonUrlChangedEvent(void)
+* const char *getlinkHoveredEvent(void)
 * const char *getloadFinishedEvent(void)
 * const char *getloadProgressEvent(void)
 * const char *getloadStartedEvent(void)
@@ -14094,6 +14245,7 @@ Parent Class : QObject
 * const char *getrecentlyAudibleChangedEvent(void)
 * const char *getrecommendedStateChangedEvent(void)
 * const char *getregisterProtocolHandlerRequestedEvent(void)
+* const char *getscrollPositionChangedEvent(void)
 * const char *getselectClientCertificateEvent(void)
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
@@ -14157,21 +14309,27 @@ QWebView Class
 ==============
 
 
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+C++ Reference : http://doc.qt.io/qt-5/qwebengineview.html
 
 
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
+Parent Class : QWidget
 
+* bool hasSelection(void)
 * QWebHistory *history(void)
+* void load(QUrl) # In RingQt use : void loadpage(QUrl)
+* QWebPage *page(void)
 * QAction *pageAction(QWebPage::WebAction action)
+* QString selectedText(void)
 * void setContent(QByteArray,QString,QUrl)
 * void setHtml(QString,QUrl)
 * void setPage(QWebPage *page)
+* void setUrl(QUrl)
 * void setZoomFactor(qreal factor)
 * QWebSettings *settings(void)
+* QString title(void)
 * void triggerPageAction(QWebPage::WebAction action, bool checked)
 * QUrl url(void)
 * qreal zoomFactor(void)
@@ -14180,9 +14338,11 @@ Parent Class : QWebEngineView
 * void print(QPrinter *printer)
 * void reload(void)
 * void stop(void)
+* void setloadFinishedEvent(const char *)
 * void setloadProgressEvent(const char *)
 * void setloadStartedEvent(const char *)
 * void setselectionChangedEvent(const char *)
+* void settitleChangedEvent(const char *)
 * void seturlChangedEvent(const char *)
 * const char *getloadFinishedEvent(void)
 * const char *getloadProgressEvent(void)
