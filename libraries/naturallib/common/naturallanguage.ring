@@ -247,7 +247,7 @@ class NaturalLanguage
 	func Execute cString
 		return runstring(cString)
 
-	func $ cString
+	func @ cString
 		return runstring(cString)
 
 	func CheckOperators cCode 
