@@ -212,14 +212,17 @@ class NaturalBaseMethods
 	func getSubKeyword nIndex, cMethodName
 		if IsCommand() and isNumber(CommandData()[:nKeyword]) and		
 		   CommandData()[:nKeyword] = nIndex - 1 {
-			CommandData()[:nKeyword] = nIndex
-			CommandData()[:cCmdBuf] += cCurrentKeyword
-			if cMethodName { 
-				if right(cMethodName,len(CommandData()[:cCmdBuf])) = CommandData()[:cCmdBuf] {
-					call cMethodName() 
-				}
+			if ! cMethodName {
+				CommandData()[:nKeyword] = nIndex
+				CommandData()[:cCmdBuf] += cCurrentKeyword
+				return True 
+			}			
+			if right(cMethodName,len(CommandData()[:cCmdBuf]+cCurrentKeyword)) = CommandData()[:cCmdBuf]+cCurrentKeyword {
+				CommandData()[:nKeyword] = nIndex
+				CommandData()[:cCmdBuf] += cCurrentKeyword
+				call cMethodName() 
+				return True
 			}
-			return True
 		}
 
 	func getSubKeywordBeforeExpr nIndex, nCount, cCommand
