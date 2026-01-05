@@ -1,0 +1,5 @@
+==============================
+The window title is: Welcome
+Welcome
+The window title is: GREAT
+==============================
