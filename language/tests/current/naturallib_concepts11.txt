@@ -1,6 +1,2 @@
 Command: I want window
-
-Line 108 Error (R24) : Using uninitialized variable: nothing 
-In raise() In method braceerror() in file b:\ring\libraries\naturallib\common/naturalbase.ring
-
-Called from line 39 in file naturallib/concepts11.ring 
+Pass NaturalLib Error when using I want nothing
