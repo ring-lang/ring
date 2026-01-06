@@ -1,5 +1,5 @@
 aNews = [
-  ["January 6, 2025",'<a href="doc1.25/whatisnew25.html"> Ring 1.25 Released!</a>'],
+  ["January 6, 2026",'<a href="doc1.25/whatisnew25.html"> Ring 1.25 Released!</a>'],
   ["December 30, 2025",'<a href="https://github.com/mohannad-aldulaimi/ringqml/"> RingQML: A library for interacting with QML</a>'],
   ["December 26, 2025",'<a href="https://github.com/ysdragon/RingVaders"> RingVaders: A Retro Arcade Shooter Game</a>'],
   ["December 24, 2025",'<a href="https://www.youtube.com/watch?v=zW6bw8dMPc0"> Video: A Quick Introduction to Ring</a>'],
