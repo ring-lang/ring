@@ -473,10 +473,10 @@ RING_API void ring_state_main(int nArgc, char *pArgv[]) {
 	/* Check Startup files (ring.ring and ring.ringo) */
 	if (ring_general_fexists(RING_FILES_AUTOLOADSRC) && lSrc == RING_FALSE) {
 		lSrc = RING_TRUE;
-		cStr = RING_FILES_AUTOLOADSRC;
+		strcpy(cStr, RING_FILES_AUTOLOADSRC);
 	} else if (ring_general_fexists(RING_FILES_AUTOLOADOBJ) && lSrc == RING_FALSE) {
 		lSrc = RING_TRUE;
-		cStr = RING_FILES_AUTOLOADOBJ;
+		strcpy(cStr, RING_FILES_AUTOLOADOBJ);
 	}
 	if ((nArgc > 1) && (lSrc == RING_FALSE)) {
 		for (x = 1; x < nArgc; x++) {
