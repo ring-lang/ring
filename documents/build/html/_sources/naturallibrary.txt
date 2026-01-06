@@ -285,6 +285,8 @@ command parameters, set the command output, and control NaturalLib's behavior.
 * commandReturn(vValue)
 * passThisCommand()
 * register(cAttribute)
+* callerGetVar(cVar)
+* callerSetVar(cVar,vValue)
 
 File: mylanguage.ring
 
