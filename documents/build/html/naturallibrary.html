@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setpasserror-method">SetPassError() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passthiscommand-method">PassThisCommand() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-command-output">The Command Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#callergetvar-and-callersetvar-methods">CallerGetVar() and CallerSetVar() methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-art-behind-naturallib">The Art Behind NaturalLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-samples-and-the-source-code">The Samples and the Source Code</a></li>
 </ul>
@@ -1372,8 +1373,101 @@ three
 <li><p>Defining the V list as an object (instead of a list) and apply operator overloading.</p></li>
 </ul>
 </section>
+<section id="callergetvar-and-callersetvar-methods">
+<span id="index-18"></span><h2>CallerGetVar() and CallerSetVar() methods<a class="headerlink" href="#callergetvar-and-callersetvar-methods" title="Permalink to this heading"></a></h2>
+<p>By using the callerGetVar() and callerSetVar() methods, we can access the caller’s scope.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I have a secret&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span> <span class="s2">&quot;Your secret is: &quot;</span>
+                        <span class="o">?</span> <span class="nf">callerGetVar</span><span class="p">(</span><span class="ss">:mysecret</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="nf">callerSetVar</span><span class="p">(</span><span class="ss">:yoursecret</span><span class="p">,</span><span class="s2">&quot;The Natural Library is GREAT!&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:Chat</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setMaskOperators</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>                 <span class="c1">// So we can use ? and = operators</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="nf">test1</span><span class="p">()</span>
+        <span class="nf">test2</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">test1</span>
+
+
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="n">mySecret</span> <span class="o">=</span> <span class="s2">&quot;Ring Programming is Fun!&quot;</span>
+
+        <span class="kp">new</span> <span class="nc">Chat</span> <span class="p">{</span>
+                <span class="n">I</span> <span class="n">have</span> <span class="n">a</span> <span class="n">secret</span>
+        <span class="p">}</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Mmm....&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;I know your secret too&quot;</span>
+
+        <span class="o">?</span> <span class="n">yourSecret</span>
+
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+
+<span class="kd">func</span> <span class="nf">test2</span>
+
+        <span class="n">MyLang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="sb">`</span>
+
+<span class="sb">                ? copy(&quot;=&quot;,30)</span>
+
+<span class="sb">                mySecret = &quot;Ring Programming is Fun!&quot;</span>
+
+<span class="sb">                I have a secret</span>
+
+<span class="sb">                ? &quot;Mmm....&quot;</span>
+<span class="sb">                ? &quot;I know your secret too&quot;</span>
+
+<span class="sb">                ? yourSecret</span>
+
+<span class="sb">                ? copy(&quot;=&quot;,30)</span>
+
+<span class="sb">        `</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==============================
+Your secret is:
+Ring Programming is Fun!
+******************************
+Mmm....
+I know your secret too
+The Natural Library is GREAT!
+==============================
+==============================
+Your secret is:
+Ring Programming is Fun!
+******************************
+Mmm....
+I know your secret too
+The Natural Library is GREAT!
+==============================
+</pre></div>
+</div>
+</section>
 <section id="the-art-behind-naturallib">
-<span id="index-18"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
 <p>Working with the Natural Library is not only a technical activity. It is also a creative process.
 The library gives you tools for parsing, evaluating expressions, and defining commands, but
 these tools are only the foundation. The moment you decide how your DSL should read and
@@ -1403,7 +1497,7 @@ should communicate with the computer. The Natural Library supports both sides, y
 creative vision remains yours.</p>
 </section>
 <section id="the-samples-and-the-source-code">
-<span id="index-19"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
 <p>You can find the samples in the ring/samples/UsingNaturalLib folder.</p>
 <p>You can find the source code in the ring/libraries/naturallib folder.</p>
 </section>
