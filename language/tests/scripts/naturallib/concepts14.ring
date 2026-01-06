@@ -42,6 +42,10 @@ GUI  {
  	I want Window                                   // Uses passThisCommand()
 }                                                   // No incomplete command error						
 
+Try
 GUI {
 	1/0                                             // Error
 }
+Catch
+	? "Pass error when using 1/0"
+Done

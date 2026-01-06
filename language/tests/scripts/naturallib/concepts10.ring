@@ -29,6 +29,7 @@ GUI = new MyLanguage {
 	setPassError(False)
 }
 
+Try
 GUI {
 
  	I 
@@ -41,3 +42,6 @@ GUI {
 	I want                          // Produce error at braceEnd()
 
 }                                       // Call braceEnd() and check Errors
+catch
+	? "Pass NaturalLib Error"
+Done

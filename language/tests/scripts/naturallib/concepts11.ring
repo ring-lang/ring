@@ -30,6 +30,7 @@ GUI = new MyLanguage {
 	setTreatIdentifierAsString(False)	// Don't convert new Indentifiers to a String 
 }
 
+Try
 GUI {
 
  	I 
@@ -42,3 +43,6 @@ GUI {
 	Button
 
 }						
+Catch
+	? "Pass NaturalLib Error when using I want nothing"
+Done
