@@ -63,8 +63,8 @@ class NaturalBaseMethods
 		lUse@BeforeNumbers = isMethod(self,:Get@)
 	
 	func BraceExprEval Value
-		nCallerScope = ringvm_scopescount()-1
 		if ! lEnableBraceExprEval { return }
+		nCallerScope = ringvm_scopescount()-1
 		if isString(Value) and value = :NLNV { return }
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods { 

@@ -27,7 +27,7 @@ DefineNaturalCommand {
 }
 
 new NaturalLanguage {
-	setLanguageName(:GUI)
+	setLanguageName(:Chat)
 	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
@@ -36,7 +36,7 @@ func main
 
 	? copy("=",30)
 
-	new GUI {
+	new Chat {
 		Hi
  		How are you 
 		My name is "Mahmoud" 

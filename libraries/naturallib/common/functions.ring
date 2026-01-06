@@ -11,7 +11,6 @@ func NatLibCallerGetVar oObj,cVar
 		ringvm_evalinscope(nScope, "NATLIB_TEMPVAR = " + cVar)
 	}
 	oObj.lEnableBraceExprEval = True
-
 	if NATLIB_TEMPVAR = :NLNV { return cVar }
 
 	return NATLIB_TEMPVAR
