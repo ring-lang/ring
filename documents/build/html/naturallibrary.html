@@ -734,16 +734,23 @@ Command: I want window
 <span id="index-7"></span><h2>RunString and Execute() Methods<a class="headerlink" href="#runstring-and-execute-methods" title="Permalink to this heading"></a></h2>
 <p>Both runString() and Execute() perform the same task: they execute code provided as a
 string containing commands defined by our domain‑specific language.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can use the &#64;() method too</p>
+</div>
 <p>Example:</p>
 <p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
 defines the (I want window) command.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MyLang</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
 
 <span class="n">MyLang</span><span class="o">.</span><span class="nf">Execute</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
 Command: I want window
 </pre></div>
 </div>

@@ -602,6 +602,8 @@ RunString and Execute() Methods
 Both runString() and Execute() perform the same task: they execute code provided as a 
 string containing commands defined by our domain‑specific language.
 
+.. note:: We can use the @() method too 
+
 Example:
 
 Assume we have a MyLang object, an instance from the NaturalLanguage class that 
@@ -613,13 +615,15 @@ defines the (I want window) command.
 
 	MyLang.Execute(' I want window ')
 
+	MyLang.@(' I want window ')
+
 Output:
 
 .. code-block:: none
 
 	Command: I want window
 	Command: I want window
-
+	Command: I want window
 
 .. index:: 
 	pair: Using the Natural Library; SetBeforeRun() and SetAfterRun() Methods
