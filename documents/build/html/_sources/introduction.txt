@@ -210,7 +210,8 @@ The Ring language comes with the next features
 * Hybrid Implementation (Compiler + Virtual Machine) 
 * Declarative programming on the top of Object-Oriented programming
 * Natural Language Programming on the top of Object-Oriented programming
-* Natural Language Programming Library
+* Natural Language Programming Library (Build Domain‑Specific Languages Quickly and Easily)
+* Create internal DSLs that look like external DSLs
 * Three different styles for writing the code and you can create your style 
 * Syntax Flexibility (You can change the language keywords and operators)
 * The language keywords can be translated from English to other languages (Arabic, French, etc)
@@ -272,6 +273,7 @@ The Ring language comes with the next features
 * Clear program structure (Statements then functions then packages & classes)
 * Exception Handling
 * Eval() to execute code during run-time
+* Eval‑like function to execute code within a specific scope (such as the caller's scope)
 * 8-bit clean, work on binary data directly
 * I/O commands
 * Math functions
