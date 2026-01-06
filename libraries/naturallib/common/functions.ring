@@ -3,16 +3,16 @@
 
 NATLIB_TEMPVAR = 0
 
-func NatLibCallerGetVar oObj,cCode
+func NatLibCallerGetVar oObj,cVar
 
 	nScope = oObj.nCallerScope
 	oObj.lEnableBraceExprEval = False
 	oObj {
-		ringvm_evalinscope(nScope, "NATLIB_TEMPVAR = " + cCode)
+		ringvm_evalinscope(nScope, "NATLIB_TEMPVAR = " + cVar)
 	}
 	oObj.lEnableBraceExprEval = True
 
-	if NATLIB_TEMPVAR = :NLNV { return cCode }
+	if NATLIB_TEMPVAR = :NLNV { return cVar }
 
 	return NATLIB_TEMPVAR
 

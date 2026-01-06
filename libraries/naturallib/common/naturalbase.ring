@@ -300,4 +300,10 @@ class NaturalBaseMethods
 	func prepareCallerScope
 		nCallerScope = ringvm_scopescount() - 2
 
+	func CallerGetVar cVar
+		return NatLibCallerGetVar(self,cVar)
+
+	func CallerSetVar cVar,cValue
+		NatLibCallerSetVar(self,cVar,cValue)
+
 class NatLibError
