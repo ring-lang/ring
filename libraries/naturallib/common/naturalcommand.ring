@@ -77,7 +77,7 @@ class NaturalCommand
 		}
 
 		if lSyntaxIsKeyword {
-			cCode += " func Get" +cCommandNoSpaces + " { " +
+			cCode += " func Get" +cCommandNoSpaces + " { prepareCallerScope() " +
 					"fMethod = :" + fFunc + " return call { fMethod() }" + " }" + nl 
 		else
 			cCode += " func BraceExecute_" +cCommandNoSpaces + " { " +

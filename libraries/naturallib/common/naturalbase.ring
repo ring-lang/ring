@@ -297,4 +297,7 @@ class NaturalBaseMethods
 			addAttribute(self,cAttr)
 		}
 
+	func prepareCallerScope
+		nCallerScope = ringvm_scopescount() - 2
+
 class NatLibError
