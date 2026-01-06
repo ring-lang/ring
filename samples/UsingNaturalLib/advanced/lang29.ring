@@ -44,6 +44,9 @@ func main
 		My name is "Mahmoud" 
 	}
 
+	// The next variables are local variables 
+	// i.e. we can use DSLs that access our local scope
+
 	? firstMessage			// Defined by GUI - Hi
 	? secondMessage			// Defined by GUI - How are you
 	? thirdMessage			// Defined by GUI - My name is "Mahmoud"
