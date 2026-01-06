@@ -5,18 +5,18 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.24",
-	:ringversion = "1.24",
+	:version = "1.25",
+	:ringversion = "1.25",
 	:versions = 	[
 		[
-			:version = "1.24",
+			:version = "1.25",
 			:branch = "master"
 		]
 	],
 	:libs = 	[
 		[
 			:name = "ringsrc",
-			:version = "1.24",
+			:version = "1.25",
 			:providerusername = "ringpackages"
 		]
 	],
@@ -201,7 +201,6 @@ aPackageInfo = [
 		"language/visualsrc/ring_vmthread.config",
 		"language/visualsrc/ring_vmthread.fpt",
 		"language/visualsrc/ring_vmthread.ssf",
-		"language/visualsrc/config.txt",
 		"language/visualsrc/rpwibuild.bat",
 		"language/visualsrc/commentsnl.ring"
 	],
