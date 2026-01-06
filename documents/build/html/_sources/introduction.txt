@@ -194,7 +194,7 @@ Ring 1.23 is released on July 12, 2025
 
 Ring 1.24 is released on October 1, 2025
 
-This is Ring 1.25 documentation 
+Ring 1.25 is released on January 6, 2026
 
 .. index:: 
 	pair: Introduction; Features
