@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.24",
-	:ringversion = "1.24",
+	:version = "1.25",
+	:ringversion = "1.25",
 	:versions = 	[
 		[
-			:version = "1.24",
+			:version = "1.25",
 			:branch = "master"
 		]
 	],
@@ -49,7 +49,6 @@ aPackageInfo = [
 		"language/include/rstring.h",
 		"language/include/scanner.h",
 		"language/include/state.h",
-		"language/include/test.h",
 		"language/include/vm.h",
 		"language/include/vmgc.h",
 		"language/include/vmgcdata.h",
@@ -81,7 +80,6 @@ aPackageInfo = [
 		"language/src/scanner.c",
 		"language/src/state.c",
 		"language/src/stmt.c",
-		"language/src/test.c",
 		"language/src/vm.c",
 		"language/src/vmerror.c",
 		"language/src/vmeval.c",
