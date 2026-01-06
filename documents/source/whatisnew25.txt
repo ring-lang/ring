@@ -297,12 +297,13 @@ Example:
 	load "naturallib.ring"
 
 	defineNaturalCommand {
-		setPackageName("MyLanguage.Natural")
+		setPackageName("RingLang.NaturalLib")
 		startCache(:MyDSL)
 		syntaxIsCommand([
 			:Command = "I want window", 
 			:Function = func {
-				?  "Command: I want window" 
+				?  "Command: I want window"
+				callerSetVar(:Secret,"Ring Programming is Fun!")  
 			}
 		])
 		syntaxIsCommand([
@@ -311,30 +312,42 @@ Example:
 				?  "Command: I want button" 
 			}
 		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				?  "Command: Window title is " + Expr(1)
+			}
+		])
 		endCache()
 	}
 
 	new NaturalLanguage {
-		setPackageName("MyLanguage.Natural")
-		setLanguage(:MyLanguage)
+		setPackageName("RingLang.NaturalLib")
+		setLanguage(:GUI)
 		loadCommand(:MyDSL)
 	}
 
-	new MyLanguage {
- 		I want window
-		for t=1 to 3	
-			I want button
-		next
-	}
+	func main
+
+		new GUI {
+ 			I want window and the window title is "Hello, World!"
+			for t=1 to 3	
+				I want button
+			next
+		}
+
+		? " Secret: " + Secret	// Local variable created by the (I want window) command
 
 Output:
 
 .. code-block:: none
 
 	Command: I want window
+	Command: Window title is Hello, World!
 	Command: I want button
 	Command: I want button
 	Command: I want button
+	 Secret: Ring Programming is Fun!
 
 .. note:: Check the (Using the Natural Library) chapter for more information.
 

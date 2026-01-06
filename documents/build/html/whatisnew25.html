@@ -469,12 +469,13 @@ int main(int argc, char *argv[])
 <span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
 
 <span class="n">defineNaturalCommand</span> <span class="p">{</span>
-        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;RingLang.NaturalLib&quot;</span><span class="p">)</span>
         <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
         <span class="nf">syntaxIsCommand</span><span class="p">([</span>
                 <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
                 <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
                         <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                        <span class="nf">callerSetVar</span><span class="p">(</span><span class="ss">:Secret</span><span class="p">,</span><span class="s2">&quot;Ring Programming is Fun!&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
         <span class="p">])</span>
         <span class="nf">syntaxIsCommand</span><span class="p">([</span>
@@ -483,28 +484,40 @@ int main(int argc, char *argv[])
                         <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
                 <span class="p">}</span>
         <span class="p">])</span>
+        <span class="nf">syntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window title is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
         <span class="nf">endCache</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
-        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
-        <span class="nf">setLanguage</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;RingLang.NaturalLib&quot;</span><span class="p">)</span>
+        <span class="nf">setLanguage</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
         <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
-        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
-        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
-                <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
-        <span class="k">next</span>
-<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="kp">new</span> <span class="nc">GUI</span> <span class="p">{</span>
+                <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="s2">&quot;Hello, World!&quot;</span>
+                <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+                        <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+                <span class="k">next</span>
+        <span class="p">}</span>
+
+        <span class="o">?</span> <span class="s2">&quot; Secret: &quot;</span> <span class="o">+</span> <span class="n">Secret</span>  <span class="c1">// Local variable created by the (I want window) command</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: Window title is Hello, World!
 Command: I want button
 Command: I want button
 Command: I want button
+ Secret: Ring Programming is Fun!
 </pre></div>
 </div>
 <div class="admonition note">
