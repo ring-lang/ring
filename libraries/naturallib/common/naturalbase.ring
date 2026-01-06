@@ -36,6 +36,8 @@ Class NaturalBase
 
 	cCurrentKeyword
 
+	nCallerScope = 1
+
 /*
 	We separate the methods to add it using mergemethods() instead of inheritance
 	This gives these methods higher order when searching for methods (Better Performance)
@@ -61,6 +63,7 @@ class NaturalBaseMethods
 		lUse@BeforeNumbers = isMethod(self,:Get@)
 	
 	func BraceExprEval Value
+		nCallerScope = ringvm_scopescount()-1
 		if ! lEnableBraceExprEval { return }
 		if isString(Value) and value = :NLNV { return }
 		if (! lPrepareExprEval) {
@@ -81,6 +84,7 @@ class NaturalBaseMethods
 		}
 
 	func BraceError
+		nCallerScope = ringvm_scopescount()-1
 		if lTreatIdentifierAsString {
 			cVarName = getVarName(cCatchError)
 			if cVarName {
@@ -92,8 +96,7 @@ class NaturalBaseMethods
 						BraceExprEval(cNumValue)
 						return :NLNV
 					}
-					nScope = ringvm_scopescount()-1
-					return GetVariableValueFromCallerScope(self,nScope,cVarName)
+					return NatLibCallerGetVar(self,cVarName)
 				}
 				lStringIsIdentifier = True 
 				BraceExprEval(cVarName)
@@ -245,6 +248,8 @@ class NaturalBaseMethods
 		}
 
 	func processCommandKeyword cKeyword 
+		// -2 because this method is called from Getter method like GetWant()
+		nCallerScope = ringvm_scopescount()-2	
 		cCurrentKeyword = cKeyword
 		if ! aKeywordMethods[cKeyword] {
 			aKeywordMethods[cKeyword] = []
@@ -285,7 +290,7 @@ class NaturalBaseMethods
 		lTreatIdentifierAsString = lStatus
 
 	func @ cCode 
-		return NATLIB_Execute(self,cCode)
+		return NatLibExecute(self,cCode)
 	
 	func register cAttr 
 		if ! isAttribute(self,cAttr) {

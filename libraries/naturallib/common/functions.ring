@@ -3,8 +3,9 @@
 
 NATLIB_TEMPVAR = 0
 
-func GetVariableValueFromCallerScope oObj,nScope,cCode
+func NatLibCallerGetVar oObj,cCode
 
+	nScope = oObj.nCallerScope
 	oObj.lEnableBraceExprEval = False
 	oObj {
 		ringvm_evalinscope(nScope, "NATLIB_TEMPVAR = " + cCode)
@@ -15,7 +16,16 @@ func GetVariableValueFromCallerScope oObj,nScope,cCode
 
 	return NATLIB_TEMPVAR
 
-func NATLIB_Execute obj,cCode
+func NatLibCallerSetVar oObj,cVar,cValue
+	NATLIB_TEMPVAR = cValue
+	nScope = oObj.nCallerScope
+	oObj.lEnableBraceExprEval = False
+	oObj {
+		ringvm_evalinscope(nScope, cVar + " = NATLIB_TEMPVAR")
+	}
+	oObj.lEnableBraceExprEval = True
+
+func NatLibExecute obj,cCode
 	obj {
 		eval(cCode)
 	}
