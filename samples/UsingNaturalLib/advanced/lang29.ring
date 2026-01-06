@@ -26,19 +26,17 @@ DefineNaturalCommand {
 	endCache()
 }
 
-mylang = new NaturalLanguage {
+new NaturalLanguage {
 	setLanguageName(:GUI)
 	setPackageName("MyLanguage.Natural")
 	loadCommand(:MyDSL)
 }
 
-GUI = new GUI
-
 func main
 
 	? copy("=",30)
 
-	GUI  {
+	new GUI {
 		Hi
  		How are you 
 		My name is "Mahmoud" 
