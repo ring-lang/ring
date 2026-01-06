@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.4",
-	:ringversion = "1.21",
+	:version = "1.0.5",
+	:ringversion = "1.25",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -27,6 +27,8 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"bin/load/naturallib.ring",
 		"libraries/naturallib/README.md",
+		"libraries/naturallib/common/globals.ring",
+		"libraries/naturallib/common/functions.ring",
 		"libraries/naturallib/common/naturalbase.ring",
 		"libraries/naturallib/common/naturalcommand.ring",
 		"libraries/naturallib/common/naturallanguage.ring",
