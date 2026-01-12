@@ -213,19 +213,21 @@ class NaturalCommand
 		# Command Keywords Methods 
 		if ! find(aAllKeywordsMethods,aKeywords[1]+"_1") {
 			aAllKeywordsMethods + (aKeywords[1]+"_1")
-			cCodeBuf += ` func `+ cCommandNoSpaces+"_getkeyword1_"+aKeywords[1] +			
+			cCodeBuf += ` func getkeyword1_`+aKeywords[1] +			
 					` { return getFirstKeyword() } ` + nl
 		}
 
-		for t = 2 to len(aKeywords) {
-			if find(aAllKeywordsMethods,aKeywords[t]+"_"+t) {
+		nKeywordsCount = len(aKeywords)
+		for t = 2 to nKeywordsCount {
+			if find(aAllKeywordsMethods,aKeywords[t]+"_"+t) and t != nKeywordsCount {
 				loop
 			}
 			aAllKeywordsMethods + (aKeywords[t]+"_"+t)
-			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t] +
+			cMethodStart = ""  if t = nKeywordsCount { cMethodStart = cCommandNoSpaces }
+			cCode = ` func `+cMethodStart+"_getkeywordn_"+aKeywords[t] +
 					` { return getSubKeyword(#{f1},"#{f2}") } ` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
-			if t = len(aKeywords) {
+			if t = nKeywordsCount {
 				cExecuteMethod = "BraceExecute_"+cCommandNoSpaces
 				cCode = substr(cCode,"#{f2}",cExecuteMethod)
 			else
@@ -244,15 +246,17 @@ class NaturalCommand
 
 		if ! find(aAllKeywordsMethods,aKeywords[1]+"_1") {
 			aAllKeywordsMethods + (aKeywords[1]+"_1")
-			cCodeBuf += ` func `+cCommandNoSpaces+"_getkeyword1_"+aKeywords[1] +
+			cCodeBuf += ` func getkeyword1_`+aKeywords[1] +
 			` { return getFirstKeyword() } ` + nl
 		}
-		for t = 2 to len(aKeywords) {
-			if find(aAllKeywordsMethods,aKeywords[t]+"_"+t) {
+		nKeywordsCount = len(aKeywords)
+		for t = 2 to nKeywordsCount {
+			if find(aAllKeywordsMethods,aKeywords[t]+"_"+t) and t != nKeywordsCount {
 				loop
 			}
 			aAllKeywordsMethods + (aKeywords[t]+"_"+t)
-			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t]+
+			cMethodStart = ""  if t = nKeywordsCount { cMethodStart = cCommandNoSpaces }
+			cCode = ` func `+cMethodStart+"_getkeywordn_"+aKeywords[t]+
 					" { return getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
 			cCodeBuf += cCode
 		}
