@@ -918,5 +918,13 @@ aPackagesRegistry = [
 	[ :name = "praytimes",
           :description = "Prayer times application developed using Ring and RingQML",
           :ProviderUserName = "mohannad-aldulaimi"
+	],
+	[ :name = "proc",
+          :description = "Subprocess management library for the Ring programming language",
+          :ProviderUserName = "ysdragon"
+	],
+	[ :name = "archive",
+          :description = "Archive manipulation library for the Ring programming language",
+          :ProviderUserName = "ysdragon"
 	]
 ]
