@@ -1,4 +1,5 @@
 aNews = [
+  ["January 18, 2026",'<a href="https://groups.google.com/g/ring-lang/c/KllU8y8oOnU"> Ring Coding with Claude AI and PWCT2 </a>'],
   ["January 12, 2026",'<a href="https://github.com/ysdragon/archive"> Archive: Archive manipulation library </a>'],
   ["January 10, 2026",'<a href="https://github.com/ysdragon/proc"> Proc: Subprocess management library </a>'],
   ["January 6, 2026",'<a href="doc1.25/whatisnew25.html"> Ring 1.25 Released!</a>'],
