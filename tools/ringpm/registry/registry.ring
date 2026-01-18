@@ -926,5 +926,9 @@ aPackagesRegistry = [
 	[ :name = "archive",
           :description = "Archive manipulation library for the Ring programming language",
           :ProviderUserName = "ysdragon"
+	],
+	[ :name = "AlQalam",
+          :description = "Our AlQalam package using the Ring programming language",
+          :ProviderUserName = "azzeddine2017"
 	]
 ]
