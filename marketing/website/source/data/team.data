@@ -18,10 +18,6 @@
 		[
 			'Youssef Saeed<br/>Software Developer (Packages Master)',
 			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
-		],
-		[
-			'Majdi Sobain<br/>Software Developer (Extensions Master)',
-			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
 ]
 aTopContributors = [
@@ -51,6 +47,10 @@ aTopContributors = [
 		  ]
 ]
 aManyThanks = [
+		[
+			'Majdi Sobain (Extensions Master)',
+			'<img src="images/majdi.jpg" width="150" height="170">'
+		],
 		[
 			'Gal Zsolt (Samples Master)',
 			'<img src="images/GalZsolt.png" width="150" height="170">'
