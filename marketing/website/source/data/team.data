@@ -52,11 +52,11 @@ aTopContributors = [
 ]
 aManyThanks = [
 		[
-			'Gal Zsolt',
+			'Gal Zsolt (Samples Master)',
 			'<img src="images/GalZsolt.png" width="150" height="170">'
 		],
 		[
-			'José Rosado',
+			'José Rosado (FoxRing Library)',
 			'<img src="images/jose.jpg" width="150" height="170">'
 		],
 		[
