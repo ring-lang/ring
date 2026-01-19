@@ -4,8 +4,8 @@
 			'<img src="images/fayed.jpg" width="150" height="170">'
 		],
 		[
-			'Bert Mariani<br/>Software Developer (Applications Master)',
-			'<img src="images/UmbertoMariani.png" width="150" height="170">'
+			'Youssef Saeed<br/>Software Developer (Packages Master)',
+			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
 		],
 		[
 			'Ahmed Hassouna<br/>Software Developer (Training Master)',
@@ -14,10 +14,6 @@
 		[
 			'Mansour Ayouni<br/>Software Developer (Writing Master)',
 			'<img src="images/mansour.jpg" width="150" height="170">'
-		],
-		[
-			'Youssef Saeed<br/>Software Developer (Packages Master)',
-			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
 		]
 ]
 aTopContributors = [
@@ -50,6 +46,10 @@ aManyThanks = [
 		[
 			'Majdi Sobain (Extensions Master)',
 			'<img src="images/majdi.jpg" width="150" height="170">'
+		],
+		[
+			'Bert Mariani<br/>Software Developer (Applications Master)',
+			'<img src="images/UmbertoMariani.png" width="150" height="170">'
 		],
 		[
 			'Gal Zsolt (Samples Master)',
