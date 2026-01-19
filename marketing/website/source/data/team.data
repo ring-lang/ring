@@ -26,13 +26,13 @@ aTopContributors = [
                     'C/Ring Expert'                    
 		  ],
 		  [
+                    'Ilir Liburn (Performance Master)',
+                    'C/C++ Expert'                    
+                  ],
+		  [
                     'Mounir IDRASSI (Creator of VeraCrypt)',
                     'C/C++ Expert'                    
 		  ],
-		  [
-                    'Ilir Liburn (Creator of Ring2A/Ring2B)',
-                    'C/C++ Expert'                    
-                  ],
 		  [
 		    'Mohannad Al-Ayash',
 		    'Web/GUI Apps'				
