@@ -60,15 +60,15 @@ aManyThanks = [
 			'<img src="images/jose.jpg" width="150" height="170">'
 		],
 		[
-			'Marino Esteban',
+			'Marino Esteban (RingQt Samples)',
 			'<img src="images/marino.jpg" width="150" height="170">'
 		],
 		[
-			'Ahmed Baryyan',
+			'Ahmed Baryyan (Marketing)',
 			'<img src="images/ahmedbarayan1.jpg" width="150" height="170">'
 		],
 		[
-			'Amin Najah',
+			'Amin Najah (Marketing)',
 			'<img src="images/amine.jpg" width="150" height="170">'
 		]				  
 ]
