@@ -1,0 +1,49 @@
+.. index:: 
+	single: What is new in Ring 1.26; Introduction
+
+========================
+What is new in Ring 1.26
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.26 release.
+
+.. index:: 
+	pair: What is new in Ring 1.26?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.26 comes with the next features!
+
+* More Samples
+* More RingPM Packages
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.26?; More Samples
+
+More Samples
+============
+
+The next samples are added:
+
+* 
+
+.. index:: 
+	pair: What is new in Ring 1.26?; More RingPM Packages
+
+More RingPM Packages
+====================
+
+The following packages have been added to the RingPM registry.
+
+* Proc: Subprocess management library
+* Archive: Archive manipulation library
+
+.. index:: 
+	pair: What is new in Ring  1.26; More Improvements
+
+More Improvements
+=================
+
+* NaturalLib - Improved implementation for supporting shared keywords across commands
