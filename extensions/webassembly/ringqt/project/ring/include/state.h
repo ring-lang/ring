@@ -80,9 +80,9 @@ typedef struct RingState {
 	PoolManager vPoolManager;
 } RingState;
 #define RING_VERSION_MAJOR 1
-#define RING_VERSION_MINOR 25
+#define RING_VERSION_MINOR 26
 #define RING_VERSION_PATCH 0
-#define RING_STATE_VERSION "1.25"
+#define RING_STATE_VERSION "1.26"
 #define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".0")
 #define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
 #define RING_WARNING_DUPLICATIONINFILENAME "Warning (W2) : Duplication in file name : "
