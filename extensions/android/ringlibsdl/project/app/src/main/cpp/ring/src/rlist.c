@@ -329,8 +329,13 @@ RING_API void ring_list_deleteitem_gc(void *pState, List *pList, unsigned int nI
 	Items *pItems, *pItemsPrev;
 	/* Goto the Item */
 	if (nIndex > 0 && nIndex <= ring_list_getsize(pList)) {
+		/* Quickly get the First Item */
+		if (ring_list_getsize(pList) == 1) {
+			pItems = pList->pFirst;
+			pItemsPrev = NULL;
+		}
 		/* Quickly Get the Last Item */
-		if (nIndex == ring_list_getsize(pList)) {
+		else if (nIndex == ring_list_getsize(pList)) {
 			pItems = pList->pLast;
 			pItemsPrev = pItems->pPrev;
 		}
@@ -357,12 +362,12 @@ RING_API void ring_list_deleteitem_gc(void *pState, List *pList, unsigned int nI
 			if (pItems->pNext != NULL) {
 				pItems->pNext->pPrev = pItemsPrev;
 			}
-			ring_items_delete_gc(pState, pItems);
 			pList->nSize = pList->nSize - 1;
+			/* Refresh The Cache */
+			ring_list_clearcache_gc(pState, pList);
+			ring_items_delete_gc(pState, pItems);
 		}
 	}
-	/* Refresh The Cache */
-	ring_list_clearcache_gc(pState, pList);
 }
 
 RING_API unsigned int ring_list_gettype_gc(void *pState, List *pList, unsigned int nIndex) {
