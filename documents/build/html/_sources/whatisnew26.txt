@@ -47,3 +47,4 @@ More Improvements
 =================
 
 * NaturalLib - Improved implementation for supporting shared keywords across commands
+* Ring Lists - ring_list_deleteitem_gc() - Better implementation (order of operations)
