@@ -1,17 +1,17 @@
 load "closure.ring"
 
-func main
+func main 
 
-    inc = increment()
+	inc = increment()
 
-	? isClosure(inc)    # Prints 1
+	? isClosure(inc) # Prints 1
 
-    ? invoke(inc)       # Prints 11
-    ? invoke(inc)       # Prints 12
+	? invoke(inc) # Prints 11
+	? invoke(inc) # Prints 12
 
-	for m=1 to 1000
+	for m = 1 to 1000
 		invoke(inc)
-	next
+	next 
 
 	? invoke(inc)
 
@@ -20,20 +20,23 @@ func main
 	? invoke(inc)
 	? invoke(dec)
 
-func increment
+	
+func increment 
 
-    x = 10
+	x = 10
 
-    return closure([ :x ], func {
-      x++
-      return x
-    })
+	return closure([:x], func { 
+		x++
+		return x 
+	})
 
-func decrement
+	
+func decrement 
 
-    x = 100
+	x = 100
 
-    return closure([ :x ], func {
-      x--
-      return x
-    })
+	return closure([:x], func { 
+		x--
+		return x 
+	})
+	
