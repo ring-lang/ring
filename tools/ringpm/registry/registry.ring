@@ -934,5 +934,9 @@ aPackagesRegistry = [
 	[ :name = "closure",
 	  :description = "Closure for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "tuiframeworkusingclaudecode",
+	  :description = "TUI Framework developed using prompt-driven development",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
