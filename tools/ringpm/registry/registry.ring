@@ -936,7 +936,7 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "tuiframeworkusingclaudecode",
-	  :description = "TUI Framework developed using prompt-driven development",
+	  :description = "TUI Framework for Windows developed using prompt-driven development",
 	  :ProviderUserName = "ringpackages"
 	]
 ]
