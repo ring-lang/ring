@@ -1,7 +1,7 @@
 ﻿aResources = [ 
 	["English Resources",[
 				[
-					'<a href="https://github.com/ring-lang/ring/releases/download/v1.24/RingDoc_1.24.pdf" >The Complete Reference (Version 1.24)</a>'
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.25/RingDoc_1.25.pdf" >The Complete Reference (Version 1.25)</a>'
 				],
 				[
 					'<a href="https://www.apress.com/gp/book/9781484258323" >Apress: Beginning Ring Programming</a>'
