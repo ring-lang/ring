@@ -15,9 +15,20 @@ List of changes and new features
 
 Ring 1.26 comes with the next features!
 
+* Prompt Driven Development
 * More Samples
 * More RingPM Packages
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Prompt Driven Development
+
+Prompt Driven Development
+=========================
+
+Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language
+
+URL: https://arxiv.org/abs/2601.17584
 
 .. index:: 
 	pair: What is new in Ring 1.26?; More Samples
