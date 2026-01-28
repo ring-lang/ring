@@ -15,10 +15,27 @@ List of changes and new features
 
 Ring 1.26 comes with the next features!
 
+* Rust Bindings for Ring
 * Prompt Driven Development
 * More Samples
 * More RingPM Packages
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Rust Bindings for Ring
+
+Rust Bindings for Ring
+======================
+
+URL: https://github.com/ysdragon/ring-lang-rs
+
+Use Cases
+
+* Write Ring extensions in Rust (Native extensions with Rust's safety and performance)
+
+* Embed Ring in Rust applications (Run Ring scripts from your Rust programs)
+
+* Wrap Rust crates for Ring (Expose any Rust library to Ring applications)
 
 .. index:: 
 	pair: What is new in Ring 1.26?; Prompt Driven Development
@@ -50,6 +67,7 @@ The following packages have been added to the RingPM registry.
 
 * Proc: Subprocess management library
 * Archive: Archive manipulation library
+* TUIFrameworkUsingClaudeCode: A project developed using prompt driven development
 
 .. index:: 
 	pair: What is new in Ring  1.26; More Improvements
