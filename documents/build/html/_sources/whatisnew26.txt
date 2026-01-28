@@ -29,8 +29,6 @@ Rust Bindings for Ring
 
 URL: https://github.com/ysdragon/ring-lang-rs
 
-Use Cases
-
 * Write Ring extensions in Rust (Native extensions with Rust's safety and performance)
 
 * Embed Ring in Rust applications (Run Ring scripts from your Rust programs)
