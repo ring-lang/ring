@@ -187,6 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-bindings-for-ring">Rust Bindings for Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prompt-driven-development">Prompt Driven Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closure-package">Closure Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -232,6 +233,7 @@
 <ul class="simple">
 <li><p>Rust Bindings for Ring</p></li>
 <li><p>Prompt Driven Development</p></li>
+<li><p>Closure Package</p></li>
 <li><p>More Samples</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>More Improvements</p></li>
@@ -251,15 +253,75 @@
 <p>Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language</p>
 <p>URL: <a class="reference external" href="https://arxiv.org/abs/2601.17584">https://arxiv.org/abs/2601.17584</a></p>
 </section>
+<section id="closure-package">
+<span id="index-4"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
+<p>We can create an anonymous function that capture specific variables.</p>
+<p>Install:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringpm</span> <span class="n">install</span> <span class="n">closure</span> <span class="kd">from</span> <span class="nc">ringpackages</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;closure.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="n">inc</span> <span class="o">=</span> <span class="nf">increment</span><span class="p">()</span>
+
+        <span class="o">?</span> <span class="nf">isClosure</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 1</span>
+
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 11</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 12</span>
+
+        <span class="k">for</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000</span>
+                <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
+        <span class="k">next</span>
+
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
+
+        <span class="n">dec</span> <span class="o">=</span> <span class="nf">decrement</span><span class="p">()</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">increment</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">return</span> <span class="nf">closure</span><span class="p">([</span><span class="ss">:x</span><span class="p">],</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">x</span><span class="o">++</span>
+                <span class="k">return</span> <span class="n">x</span>
+        <span class="p">})</span>
+
+<span class="kd">func</span> <span class="nf">decrement</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+
+        <span class="k">return</span> <span class="nf">closure</span><span class="p">([</span><span class="ss">:x</span><span class="p">],</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">x</span><span class="o">--</span>
+                <span class="k">return</span> <span class="n">x</span>
+        <span class="p">})</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+11
+12
+1013
+99
+1014
+98
+</pre></div>
+</div>
+</section>
 <section id="more-samples">
-<span id="index-4"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>The next samples are added:</p>
 <ul class="simple">
 <li><p>ring/samples/UsingClosure/test1.ring</p></li>
 </ul>
 </section>
 <section id="more-ringpm-packages">
-<span id="index-5"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>Proc: Subprocess management library</p></li>
@@ -268,7 +330,7 @@
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>NaturalLib - Improved implementation for supporting shared keywords across commands</p></li>
 <li><p>Ring Lists - ring_list_deleteitem_gc() - Better implementation (order of operations)</p></li>

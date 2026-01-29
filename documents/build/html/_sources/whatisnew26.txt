@@ -17,6 +17,7 @@ Ring 1.26 comes with the next features!
 
 * Rust Bindings for Ring
 * Prompt Driven Development
+* Closure Package
 * More Samples
 * More RingPM Packages
 * More Improvements
@@ -44,6 +45,76 @@ Prompt Driven Development
 Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language
 
 URL: https://arxiv.org/abs/2601.17584
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Closure Package
+
+Closure Package
+===============
+
+We can create an anonymous function that capture specific variables. 
+
+Install:
+
+.. code-block:: ring
+
+	ringpm install closure from ringpackages
+
+Example:
+
+.. code-block:: ring
+
+	load "closure.ring"
+
+	func main
+
+		inc = increment()
+
+		? isClosure(inc) # Prints 1
+
+		? invoke(inc) # Prints 11
+		? invoke(inc) # Prints 12
+
+		for m = 1 to 1000
+			invoke(inc)
+		next
+
+		? invoke(inc)
+
+		dec = decrement()
+		? invoke(dec)
+		? invoke(inc)
+		? invoke(dec)
+
+	func increment
+
+		x = 10
+
+		return closure([:x], func {
+			x++
+			return x
+		})
+
+	func decrement
+
+		x = 100
+
+		return closure([:x], func {
+			x--
+			return x
+		})
+
+Output:
+
+.. code-block:: none
+
+	1
+	11
+	12
+	1013
+	99
+	1014
+	98
 
 .. index:: 
 	pair: What is new in Ring 1.26?; More Samples
