@@ -17,7 +17,7 @@ Ring 1.26 comes with the next features!
 
 * Rust Bindings for Ring
 * Prompt Driven Development
-* Closure Package
+* Closure Library
 * More Samples
 * More RingPM Packages
 * More Improvements
@@ -49,16 +49,22 @@ URL: https://arxiv.org/abs/2601.17584
 .. index:: 
 	pair: What is new in Ring 1.26?; Closure Package
 
-Closure Package
+Closure Library
 ===============
 
 We can create an anonymous function that capture specific variables. 
 
-Install:
+Using closure() capture variables by value. 
 
-.. code-block:: ring
+For lists/objects we can change this behaviour (optional) using the Ref() function. 
 
-	ringpm install closure from ringpackages
+The first parameter to closure() is a list of variables to capture we can type
+
+* :variable_name
+* :variable_name = value
+* :variable_name = ref(list/object)
+
+The second parameter is an anonymous function that could use the captured variables
 
 Example:
 

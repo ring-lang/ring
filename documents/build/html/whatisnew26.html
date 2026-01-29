@@ -187,7 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-bindings-for-ring">Rust Bindings for Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prompt-driven-development">Prompt Driven Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#closure-package">Closure Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closure-library">Closure Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -233,7 +233,7 @@
 <ul class="simple">
 <li><p>Rust Bindings for Ring</p></li>
 <li><p>Prompt Driven Development</p></li>
-<li><p>Closure Package</p></li>
+<li><p>Closure Library</p></li>
 <li><p>More Samples</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>More Improvements</p></li>
@@ -253,13 +253,18 @@
 <p>Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language</p>
 <p>URL: <a class="reference external" href="https://arxiv.org/abs/2601.17584">https://arxiv.org/abs/2601.17584</a></p>
 </section>
-<section id="closure-package">
-<span id="index-4"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
+<section id="closure-library">
+<span id="index-4"></span><h2>Closure Library<a class="headerlink" href="#closure-library" title="Permalink to this heading"></a></h2>
 <p>We can create an anonymous function that capture specific variables.</p>
-<p>Install:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringpm</span> <span class="n">install</span> <span class="n">closure</span> <span class="kd">from</span> <span class="nc">ringpackages</span>
-</pre></div>
-</div>
+<p>Using closure() capture variables by value.</p>
+<p>For lists/objects we can change this behaviour (optional) using the Ref() function.</p>
+<p>The first parameter to closure() is a list of variables to capture we can type</p>
+<ul class="simple">
+<li><p>:variable_name</p></li>
+<li><p>:variable_name = value</p></li>
+<li><p>:variable_name = ref(list/object)</p></li>
+</ul>
+<p>The second parameter is an anonymous function that could use the captured variables</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;closure.ring&quot;</span>
 
