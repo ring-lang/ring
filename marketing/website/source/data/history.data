@@ -1,4 +1,5 @@
 aNews = [
+  ["January 30, 2026",'<a href="https://groups.google.com/g/ring-lang/c/kas0N1fVNM0"> Using Softanza and Ring at Sonibank</a>'],
   ["January 27, 2026",'<a href="https://arxiv.org/abs/2601.17584"> Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language </a>'],
   ["January 25, 2026",'<a href="https://github.com/ysdragon/ring-lang-rs"> Rust bindings for the Ring language </a>'],
   ["January 18, 2026",'<a href="https://groups.google.com/g/ring-lang/c/KllU8y8oOnU"> Ring Coding with Claude AI and PWCT2 </a>'],
