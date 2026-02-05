@@ -467,6 +467,7 @@ aTests = [
 	[ :name = "Standard Functions (Part 2)", :Command = "ring libs/substr2.ring" ],
 	[ :name = "Standard Functions (Part 3)", :Command = "ring libs/substr3.ring" ],
 	[ :name = "Standard Functions (Part 4)", :Command = "ring libs/decimals.ring" ],
+	[ :name = "Standard Functions (Part 5)", :Command = "ring libs/stringpro.ring" ],
 	[ :name = "Arabic File Name", :Command = "ring arabic/test.ring" ],
 	[ :name = "General Tests (Part 1)", :Command = "ring general/test.ring" ],
 	[ :name = "General Tests (Part 2)", :Command = "ring general/test2.ring" ],
