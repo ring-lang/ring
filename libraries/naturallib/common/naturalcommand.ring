@@ -222,9 +222,8 @@ class NaturalCommand
 			if find(aAllKeywordsMethods,aKeywords[t]+"_"+t) and t != nKeywordsCount {
 				loop
 			}
-			aAllKeywordsMethods + (aKeywords[t]+"_"+t)
-			cMethodStart = cCommandNoSpaces 
-			cCode = ` func `+cMethodStart+"_getkeywordn_"+aKeywords[t] +
+			aAllKeywordsMethods + (aKeywords[t]+"_"+t) 
+			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t] +
 					` { return getSubKeyword(#{f1},"#{f2}") } ` + nl
 			cCode = substr(cCode,"#{f1}",""+t)
 			if t = nKeywordsCount {
@@ -255,8 +254,7 @@ class NaturalCommand
 				loop
 			}
 			aAllKeywordsMethods + (aKeywords[t]+"_"+t)
-			cMethodStart = cCommandNoSpaces 
-			cCode = ` func `+cMethodStart+"_getkeywordn_"+aKeywords[t]+
+			cCode = ` func `+cCommandNoSpaces+"_getkeywordn_"+aKeywords[t]+
 					" { return getSubKeywordBeforeExpr("+t+","+len(aKeywords)+",:"+cCommandNoSpaces+") }" + nl
 			cCodeBuf += cCode
 		}
