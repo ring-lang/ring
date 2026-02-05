@@ -697,6 +697,8 @@ void ring_vm_generallib_left(void *pPointer) {
 				RING_API_RETSTRINGSIZE(nNewSize);
 				cString = ring_string_get(RING_API_GETSTRINGRAW);
 				RING_MEMCPY(cString, cStr, nNewSize);
+			} else if (nNum1 > RING_API_GETSTRINGSIZE(1)) {
+				RING_API_RETSTRING2(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1));
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -727,6 +729,8 @@ void ring_vm_generallib_right(void *pPointer) {
 				RING_API_RETSTRINGSIZE(nNewSize);
 				cString = ring_string_get(RING_API_GETSTRINGRAW);
 				RING_MEMCPY(cString, cStr + (nSize - nNewSize), nNewSize);
+			} else if (nNum1 > nSize) {
+				RING_API_RETSTRING2(cStr, nSize);
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -879,7 +883,10 @@ void ring_vm_generallib_substr(void *pPointer) {
 			nNum1 = RING_API_GETNUMBER(2);
 			nNum2 = RING_API_GETNUMBER(3);
 			if ((nNum1 > 0) && (nNum1 <= nSize)) {
-				if ((nNum2 > 0) && ((nNum1 + nNum2 - 1) <= nSize)) {
+				if (nNum2 > 0) {
+					if ((nNum1 + nNum2 - 1) > nSize) {
+						nNum2 = nSize - nNum1 + 1;
+					}
 					RING_API_RETSTRINGSIZE(nNum2);
 					cString = ring_string_get(RING_API_GETSTRINGRAW);
 					for (x = 0; x < nNum2; x++) {
