@@ -412,6 +412,7 @@ aTests = [
 	[ :name = "Natural Language Programming Library (Part 38)", :Command = "ring naturallib/concepts16.ring" ],
 	[ :name = "Natural Language Programming Library (Part 39)", :Command = "ring naturallib/concepts17.ring" ],
 	[ :name = "Natural Language Programming Library (Part 40)", :Command = "ring naturallib/concepts18.ring" ],
+	[ :name = "Natural Language Programming Library (Part 41)", :Command = "ring naturallib/concepts19.ring" ],
 	[ :name = "Tracing Library (Part 1)", :Command = "ring tracelib/test1.ring" ],
 	[ :name = "Tracing Library (Part 2)", :Command = "ring tracelib/test2.ring" ],
 	[ :name = "Tracing Library (Part 3)", :Command = "ring tracelib/test3.ring" ],
