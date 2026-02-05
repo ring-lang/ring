@@ -151,4 +151,7 @@ More Improvements
 =================
 
 * NaturalLib - Improved implementation for supporting shared keywords across commands
+* Left(cStr,nCount) - Return cStr when the requested size exceeds the string length
+* Right(cStr,nCount) - Return cStr when the requested size exceeds the string length
+* SubStr(cStr,nPos,nCount) - Return cStr when the requested size exceeds the string length
 * Ring Lists - ring_list_deleteitem_gc() - Better implementation (order of operations)
