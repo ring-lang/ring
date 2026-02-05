@@ -168,7 +168,116 @@ RING_FUNC(ring_stbi_load_from_file)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_malloc_guesssize(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(4) ;
+}
 
+
+RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize_headerflag)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_malloc_guesssize_headerflag(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4), (int ) RING_API_GETNUMBER(5));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
+
+RING_FUNC(ring_stbi_zlib_decode_malloc)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_stbi_zlib_decode_noheader_malloc)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_noheader_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(3);
+}
 
 RING_FUNC(ring_stbi_load_16_from_memory)
 {
@@ -681,87 +790,6 @@ RING_FUNC(ring_stbi_set_flip_vertically_on_load_thread)
 }
 
 
-RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize)
-{
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(stbi_zlib_decode_malloc_guesssize(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4)));
-	RING_API_ACCEPTINTVALUE(4) ;
-}
-
-
-RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize_headerflag)
-{
-	if ( RING_API_PARACOUNT != 5 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(stbi_zlib_decode_malloc_guesssize_headerflag(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4), (int ) RING_API_GETNUMBER(5)));
-	RING_API_ACCEPTINTVALUE(4) ;
-}
-
-
-RING_FUNC(ring_stbi_zlib_decode_malloc)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(stbi_zlib_decode_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)));
-	RING_API_ACCEPTINTVALUE(3) ;
-}
-
-
 RING_FUNC(ring_stbi_zlib_decode_buffer)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -785,29 +813,6 @@ RING_FUNC(ring_stbi_zlib_decode_buffer)
 		return ;
 	}
 	RING_API_RETNUMBER(stbi_zlib_decode_buffer(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4)));
-}
-
-
-RING_FUNC(ring_stbi_zlib_decode_noheader_malloc)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(stbi_zlib_decode_noheader_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)));
-	RING_API_ACCEPTINTVALUE(3) ;
 }
 
 
@@ -983,6 +988,10 @@ RING_LIBINIT
 	RING_API_REGISTER("stbi_load_from_memory",ring_stbi_load_from_memory);
 	RING_API_REGISTER("stbi_load",ring_stbi_load);
 	RING_API_REGISTER("stbi_load_from_file",ring_stbi_load_from_file);
+	RING_API_REGISTER("stbi_zlib_decode_malloc_guesssize",ring_stbi_zlib_decode_malloc_guesssize);
+	RING_API_REGISTER("stbi_zlib_decode_malloc_guesssize_headerflag",ring_stbi_zlib_decode_malloc_guesssize_headerflag);
+	RING_API_REGISTER("stbi_zlib_decode_malloc",ring_stbi_zlib_decode_malloc);
+	RING_API_REGISTER("stbi_zlib_decode_noheader_malloc",ring_stbi_zlib_decode_noheader_malloc);
 	RING_API_REGISTER("stbi_load_16_from_memory",ring_stbi_load_16_from_memory);
 	RING_API_REGISTER("stbi_load_16",ring_stbi_load_16);
 	RING_API_REGISTER("stbi_load_from_file_16",ring_stbi_load_from_file_16);
@@ -1007,11 +1016,7 @@ RING_LIBINIT
 	RING_API_REGISTER("stbi_convert_iphone_png_to_rgb",ring_stbi_convert_iphone_png_to_rgb);
 	RING_API_REGISTER("stbi_set_flip_vertically_on_load",ring_stbi_set_flip_vertically_on_load);
 	RING_API_REGISTER("stbi_set_flip_vertically_on_load_thread",ring_stbi_set_flip_vertically_on_load_thread);
-	RING_API_REGISTER("stbi_zlib_decode_malloc_guesssize",ring_stbi_zlib_decode_malloc_guesssize);
-	RING_API_REGISTER("stbi_zlib_decode_malloc_guesssize_headerflag",ring_stbi_zlib_decode_malloc_guesssize_headerflag);
-	RING_API_REGISTER("stbi_zlib_decode_malloc",ring_stbi_zlib_decode_malloc);
 	RING_API_REGISTER("stbi_zlib_decode_buffer",ring_stbi_zlib_decode_buffer);
-	RING_API_REGISTER("stbi_zlib_decode_noheader_malloc",ring_stbi_zlib_decode_noheader_malloc);
 	RING_API_REGISTER("stbi_zlib_decode_noheader_buffer",ring_stbi_zlib_decode_noheader_buffer);
 	RING_API_REGISTER("stbi_write_png",ring_stbi_write_png);
 	RING_API_REGISTER("stbi_write_bmp",ring_stbi_write_bmp);

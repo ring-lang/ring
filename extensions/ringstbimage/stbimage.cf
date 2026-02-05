@@ -29,6 +29,10 @@ STBI_rgb_alpha
 stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len,int *x, int *y, int *channels_in_file, int desired_channels) 
 stbi_uc *stbi_load(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels) 
 stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels) 
+char *stbi_zlib_decode_malloc_guesssize(const char *buffer, int len, int initial_size, int *outlen) 
+char *stbi_zlib_decode_malloc_guesssize_headerflag(const char *buffer, int len, int initial_size, int *outlen, int parse_header) 
+char *stbi_zlib_decode_malloc(const char *buffer, int len, int *outlen) 
+char *stbi_zlib_decode_noheader_malloc(const char *buffer, int len, int *outlen) 
 </register>
 
 <code>
@@ -167,7 +171,116 @@ RING_FUNC(ring_stbi_load_from_file)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_malloc_guesssize(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(4) ;
+}
 
+
+RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize_headerflag)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_malloc_guesssize_headerflag(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4), (int ) RING_API_GETNUMBER(5));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(4) ;
+}
+
+
+RING_FUNC(ring_stbi_zlib_decode_malloc)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_stbi_zlib_decode_noheader_malloc)
+{
+	char *cOutput;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOutput = stbi_zlib_decode_noheader_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3));
+	RING_API_RETSTRING(cOutput);
+	RING_API_ACCEPTINTVALUE(3);
+}
 </code>
 
 stbi_us *stbi_load_16_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels) 
@@ -184,9 +297,6 @@ int stbi_is_hdr_from_memory(stbi_uc const *buffer, int len)
 int stbi_is_hdr(char const *filename) 
 int stbi_is_hdr_from_file(FILE *f) 
 const char *stbi_failure_reason(void) 
-<comment>
-void stbi_image_free(void *retval_from_stbi_load) 
-</comment>
 int stbi_info_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp) 
 int stbi_is_16_bit_from_memory(stbi_uc const *buffer, int len) 
 int stbi_info(char const *filename,int *x,int *y,int *comp) 
@@ -197,24 +307,8 @@ void stbi_set_unpremultiply_on_load(int flag_true_if_should_unpremultiply)
 void stbi_convert_iphone_png_to_rgb(int flag_true_if_should_convert) 
 void stbi_set_flip_vertically_on_load(int flag_true_if_should_flip) 
 void stbi_set_flip_vertically_on_load_thread(int flag_true_if_should_flip) 
-char *stbi_zlib_decode_malloc_guesssize(const char *buffer, int len, int initial_size, int *outlen) 
-char *stbi_zlib_decode_malloc_guesssize_headerflag(const char *buffer, int len, int initial_size, int *outlen, int parse_header) 
-char *stbi_zlib_decode_malloc(const char *buffer, int len, int *outlen) 
 int stbi_zlib_decode_buffer(char *obuffer,int olen, const char *ibuffer, int ilen) 
-char *stbi_zlib_decode_noheader_malloc(const char *buffer, int len, int *outlen) 
 int stbi_zlib_decode_noheader_buffer(char *obuffer, int olen, const char *ibuffer, int ilen)
-
-<comment>
-stbi_uc *stbi_load_gif_from_memory(stbi_uc const *buffer, int len, int **delays, int *x, int *y, int *z, int *comp, int req_comp) 
-int stbi_convert_wchar_to_utf8(char *buffer, size_t bufferlen, const wchar_t* input) 
-stbi_uc *stbi_load_from_callbacks(stbi_io_callbacks const *clbk  , void *user, int *x, int *y, int *channels_in_file, int desired_channels) 
-float *stbi_loadf_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y,  int *channels_in_file, int desired_channels) 
-stbi_us *stbi_load_16_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *channels_in_file, int desired_channels) 
-int stbi_is_hdr_from_callbacks(stbi_io_callbacks const *clbk, void *user) 
-int stbi_info_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp) 
-int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *clbk, void *user) 
-</commment>
-
 
 <comment>
 Functions for writing images
@@ -224,7 +318,4 @@ int stbi_write_png(char const *filename, int w, int h, int comp, const void *dat
 int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data)
 int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data)
 int stbi_write_jpg(char const *filename, int w, int h, int comp, const void *data, int quality)
-<comment>
-int stbi_write_hdr(char const *filename, int w, int h, int comp, const float *data)
-</comment>
 void stbi_flip_vertically_on_write(int flag)
