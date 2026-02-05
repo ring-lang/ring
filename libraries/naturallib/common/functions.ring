@@ -4,7 +4,6 @@
 NATLIB_TEMPVAR = 0
 
 func NatLibCallerGetVar oObj,cVar
-
 	nScope = oObj.nCallerScope
 	oObj.lEnableBraceExprEval = False
 	oObj {

@@ -64,7 +64,6 @@ class NaturalBaseMethods
 	
 	func BraceExprEval Value
 		if ! lEnableBraceExprEval { return }
-		nCallerScope = ringvm_scopescount()-1
 		if isString(Value) and value = :NLNV { return }
 		if (! lPrepareExprEval) {
 			if aExprEvalMethods { 
