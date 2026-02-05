@@ -153,6 +153,7 @@ More Improvements
 * NaturalLib - Improved implementation for supporting shared keywords across commands
 * RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
 * RingStbImage - Improved Implementation of Image‑Loading Functions 
+* RingStbImage - Use a binary string as the output for zlib functions
 * Left(cStr,nCount) - Return cStr when the requested size exceeds the string length
 * Right(cStr,nCount) - Return cStr when the requested size exceeds the string length
 * SubStr(cStr,nPos,nCount) - Return cStr when the requested size exceeds the string length
