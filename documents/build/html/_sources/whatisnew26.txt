@@ -151,6 +151,7 @@ More Improvements
 =================
 
 * NaturalLib - Improved implementation for supporting shared keywords across commands
+* RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
 * Left(cStr,nCount) - Return cStr when the requested size exceeds the string length
 * Right(cStr,nCount) - Return cStr when the requested size exceeds the string length
 * SubStr(cStr,nPos,nCount) - Return cStr when the requested size exceeds the string length
