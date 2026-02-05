@@ -138,6 +138,9 @@ Example:
 
 	see left("Hello World!",5) # print Hello
 
+
+.. note:: Left() Return the String when the requested size exceeds the string length.
+
 .. index:: 
 	pair: Strings; Right()
 
@@ -159,6 +162,8 @@ Example:
 .. code-block:: ring
 
 	see Right("Hello World!",6) # print World!
+
+.. note:: Right() Return the String when the requested size exceeds the string length.
 
 .. index:: 
 	pair: Strings; Trim()
@@ -299,6 +304,8 @@ Example:
 	cStr = "Welcome to the Ring programming language"
 	nPos = substr(cStr,"Ring")	# nPos = 16
 	see substr(cStr,nPos,4)		# print Ring 
+
+.. note:: SubStr() Return the String when the requested size exceeds the string length.
 
 .. index:: 
 	pair: Strings; Transform Substring To Another Substring
