@@ -171,6 +171,7 @@ RING_FUNC(ring_stbi_load_from_file)
 RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize)
 {
 	char *cOutput;
+	int *outlen;
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
@@ -191,8 +192,9 @@ RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	cOutput = stbi_zlib_decode_malloc_guesssize(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4));
-	RING_API_RETSTRING(cOutput);
+	outlen = RING_API_GETINTPOINTER(4);
+	cOutput = stbi_zlib_decode_malloc_guesssize(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3),outlen);
+	RING_API_RETSTRING2(cOutput,*outlen);
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
@@ -200,6 +202,7 @@ RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize)
 RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize_headerflag)
 {
 	char *cOutput;
+	int *outlen;
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -224,8 +227,9 @@ RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize_headerflag)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	cOutput = stbi_zlib_decode_malloc_guesssize_headerflag(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4), (int ) RING_API_GETNUMBER(5));
-	RING_API_RETSTRING(cOutput);
+	outlen = RING_API_GETINTPOINTER(4);
+	cOutput = stbi_zlib_decode_malloc_guesssize_headerflag(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2), (int) RING_API_GETNUMBER(3),outlen, (int) RING_API_GETNUMBER(5));
+	RING_API_RETSTRING2(cOutput,*outlen);
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
@@ -233,6 +237,7 @@ RING_FUNC(ring_stbi_zlib_decode_malloc_guesssize_headerflag)
 RING_FUNC(ring_stbi_zlib_decode_malloc)
 {
 	char *cOutput;
+	int *outlen;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -249,8 +254,9 @@ RING_FUNC(ring_stbi_zlib_decode_malloc)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	cOutput = stbi_zlib_decode_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3));
-	RING_API_RETSTRING(cOutput);
+	outlen = RING_API_GETINTPOINTER(3);
+	cOutput = stbi_zlib_decode_malloc(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2),outlen);
+	RING_API_RETSTRING2(cOutput,*outlen);
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
@@ -258,6 +264,7 @@ RING_FUNC(ring_stbi_zlib_decode_malloc)
 RING_FUNC(ring_stbi_zlib_decode_noheader_malloc)
 {
 	char *cOutput;
+	int *outlen;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -274,8 +281,9 @@ RING_FUNC(ring_stbi_zlib_decode_noheader_malloc)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	cOutput = stbi_zlib_decode_noheader_malloc(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3));
-	RING_API_RETSTRING(cOutput);
+	outlen = RING_API_GETINTPOINTER(3);
+	cOutput = stbi_zlib_decode_noheader_malloc(RING_API_GETSTRING(1), (int) RING_API_GETNUMBER(2),outlen);
+	RING_API_RETSTRING2(cOutput,*outlen);
 	RING_API_ACCEPTINTVALUE(3);
 }
 
