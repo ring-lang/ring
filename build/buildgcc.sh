@@ -1,11 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
-# CLear terminal
+RED=$(printf '\033[0;31m')
+GREEN=$(printf '\033[0;32m')
+YELLOW=$(printf '\033[1;33m')
+BLUE=$(printf '\033[1;34m')
+RESET=$(printf '\033[0m')
+
+# Clear terminal
 clear
 
 # Function to get the Linux distro name
 get_distro_name() {
-    if command -v lsb_release &> /dev/null; then
+    if command -v lsb_release > /dev/null 2>&1; then
         lsb_release -d | awk -F'\t' '{print $2}'
         elif [ -f /etc/os-release ]; then
         . /etc/os-release
@@ -19,71 +25,72 @@ get_distro_name() {
 distro_name=$(get_distro_name)
 
 # Get the directory of the current script
-DIR="$(dirname "$(realpath "$0")")"
+DIR="$(cd "$(dirname "$0")" && pwd -P)"
 
 build_header() {
-    local name="$1"
-    echo -e "\033[1;33mBuilding \033[1;34m$name\033[1;33m on $distro_name...\033[0m"
+    printf '%sBuilding %s%s%s on %s...%s\n' "$YELLOW" "$BLUE" "$1" "$YELLOW" "$distro_name" "$RESET"
     sleep 2
 }
 
 install() {
-    local name="$1"
-    
-    cd $DIR/../bin || exit 1
-    echo -e "\033[0;32mInstalling...\033[0m"
+    cd "$DIR/../bin" || exit 1
+    printf '%sInstalling...%s\n' "$GREEN" "$RESET"
     ./install.sh || exit 1
-    echo -e "\033[1;34m$name\033[1;33m has been successfully compiled and installed!\033[0m"
+    printf '%s%s%s has been successfully compiled and installed!%s\n' "$BLUE" "$1" "$YELLOW" "$RESET"
 }
 
-# Initialize and set DEBUG to false by default
 DEBUG=false
+for _arg in "$@"; do
+    case "$_arg" in
+        -debug) DEBUG=true ;;
+    esac
+done
 
-# Check for -debug argument
-if [[ "$@" == *"-debug"* ]]; then
-    DEBUG=true
-fi
-
-# Function to build a compiler/extension/tool
 build() {
-    local path="$DIR/$1"
-    local gencode_script="$2"
-    local build_script="$3"
-    local name="$4"
+    _path="$DIR/$1"
+    _gencode_script="$2"
+    _build_script="$3"
+    _name="$4"
+    _oldpwd="$PWD"
     
-    echo -e "\033[0;32mBuilding $name...\033[0m"
+    printf '%sBuilding %s...%s\n' "$GREEN" "$_name" "$RESET"
 
-    cd "$path" || exit 1
+    cd "$_path" || exit 1
 
-    if [ -n "$gencode_script" ]; then
+    if [ -n "$_gencode_script" ]; then
         if $DEBUG; then
-            ./"$gencode_script"
+            if ! ./"$_gencode_script"; then
+                printf '%sError: Failed to run gencode for %s.%s\n' "$RED" "$_name" "$RESET"
+                cd "$_oldpwd" || exit 1
+                return 1
+            fi
         else
-            ./"$gencode_script" > /dev/null 2>&1
-        fi
-        if [ $? -ne 0 ]; then
-            echo -e "\033[0;31mError: Failed to run gencode for $name.\033[0m"
-            cd - > /dev/null || exit 1
-            return 1
+            if ! ./"$_gencode_script" > /dev/null 2>&1; then
+                printf '%sError: Failed to run gencode for %s.%s\n' "$RED" "$_name" "$RESET"
+                cd "$_oldpwd" || exit 1
+                return 1
+            fi
         fi
     fi
 
     if $DEBUG; then
-        ./"$build_script"
+        if ! ./"$_build_script"; then
+            printf '%sError: Failed to build %s.%s\n' "$RED" "$_name" "$RESET"
+            cd "$_oldpwd" || exit 1
+            return 1
+        fi
     else
-        ./"$build_script" > /dev/null 2>&1
-    fi
-    if [ $? -ne 0 ]; then
-        echo -e "\033[0;31mError: Failed to build $name.\033[0m"
-        cd - > /dev/null || exit 1
-        return 1
+        if ! ./"$_build_script" > /dev/null 2>&1; then
+            printf '%sError: Failed to build %s.%s\n' "$RED" "$_name" "$RESET"
+            cd "$_oldpwd" || exit 1
+            return 1
+        fi
     fi
 
-    cd - > /dev/null || exit 1
+    cd "$_oldpwd" || exit 1
 }
 
-# Check if no arguments are provided or if only -debug is provided
-if [ $# -eq 0 ] || { [ $# -eq 1 ] && [[ "$1" == "-debug" ]]; }; then
+if [ $# -eq 0 ] || { [ $# -eq 1 ] && [ "$1" = "-debug" ]; }; then
     build_header                                             "Ring"
     # Compile ring with all extensions
     build "../language/build"                   ""                  "buildgcc.sh"       "Ring Compiler/VM"      || exit 1
