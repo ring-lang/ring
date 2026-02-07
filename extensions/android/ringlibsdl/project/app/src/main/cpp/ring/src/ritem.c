@@ -15,6 +15,7 @@ RING_API Item *ring_item_new_gc(void *pState, unsigned int nItemType) {
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
 	/* Reference Count */
 	ring_vm_gc_cleardata(pState, pItem);
+	pItem->lUnusedFlag = RING_ZERO;
 	ring_item_settype_gc(pState, pItem, nItemType);
 	return pItem;
 }

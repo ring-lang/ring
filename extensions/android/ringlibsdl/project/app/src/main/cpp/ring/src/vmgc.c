@@ -644,6 +644,8 @@ RING_API void ring_list_clearrefdata_gc(void *pState, List *pList) {
 	pList->vGC.lTrackedList = 0;
 	pList->vGC.lArgCache = 0;
 	pList->vGC.nListType = 0;
+	pList->vGC.lVisitedFlag1 = 0;
+	pList->vGC.lVisitedFlag2 = 0;
 	pList->vGC.lUnusedFlag = 0;
 }
 

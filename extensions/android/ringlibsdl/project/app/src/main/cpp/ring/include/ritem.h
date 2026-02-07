@@ -27,6 +27,7 @@ typedef struct Item {
 	unsigned int lAssignment : 1;
 	/* Garbage Collector Data (Reference Counting) */
 	unsigned int nGCReferenceCount : RING_VM_BITSFORREFCOUNT;
+	unsigned int lUnusedFlag : 1;
 	void (*pGCFreeFunc)(void *, void *);
 } Item;
 /* Constants */

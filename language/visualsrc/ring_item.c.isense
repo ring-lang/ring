@@ -24,6 +24,8 @@ Type: unsigned int
 lAssignment:1
 Type: unsigned int
 nGCReferenceCount: RING_VM_BITSFORREFCOUNT
+Type: unsigned int
+lUnusedFlag: 1
 END:
 Type: Item
 struct Item
