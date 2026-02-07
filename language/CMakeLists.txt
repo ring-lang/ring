@@ -3,7 +3,7 @@
 #             : Youssef Saeed <youssefelkholey@gmail.com>
 
 cmake_minimum_required(VERSION 3.16)
-project(ring)
+project(ring C)
 
 # An option to build a static ring executable
 option(RING_STATIC "Build a static 'ring' executable." OFF)
