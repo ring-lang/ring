@@ -150,6 +150,8 @@ The following packages have been added to the RingPM registry.
 More Improvements
 =================
 
+* Building - build/buildgcc.sh - improve POSIX compliance
+* Building - language/CMakeLists.txt - Explicitly set project language to C
 * NaturalLib - Improved implementation for supporting shared keywords across commands
 * NaturalLib - Support callerSetVar()/callerGetVar() in commands that uses Expressions
 * RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
