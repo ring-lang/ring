@@ -115,6 +115,7 @@ RING_API void ring_item_init_gc(void *pState, Item *pItem) {
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
 	pItem->lAssignment = RING_ZERO;
+	pItem->lUnusedFlag = RING_ZERO;
 }
 
 RING_API double ring_item_getnumber_gc(void *pState, Item *pItem) {
