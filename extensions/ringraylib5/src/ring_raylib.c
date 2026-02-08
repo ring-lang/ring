@@ -3871,6 +3871,252 @@ RING_FUNC(ring_raylib_set_camera3d_projection)
 	pMyPointer->projection = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_camera2d)
+{
+	Camera2D *pMyPointer ;
+	pMyPointer = (Camera2D *) RING_API_MALLOC(sizeof(Camera2D)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Camera2D");
+}
+
+RING_FUNC(ring_raylib_new_managed_camera2d)
+{
+	Camera2D *pMyPointer ;
+	pMyPointer = (Camera2D *) RING_API_MALLOC(sizeof(Camera2D)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Camera2D",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_raylib_destroy_camera2d)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (Camera2D*) RING_API_GETCPOINTER(1,"Camera2D");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_camera2d_offset_x)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	RING_API_RETNUMBER(pMyPointer->offset.x);
+}
+
+RING_FUNC(ring_raylib_set_camera2d_offset_x)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	pMyPointer->offset.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera2d_offset_y)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	RING_API_RETNUMBER(pMyPointer->offset.y);
+}
+
+RING_FUNC(ring_raylib_set_camera2d_offset_y)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	pMyPointer->offset.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera2d_target_x)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	RING_API_RETNUMBER(pMyPointer->target.x);
+}
+
+RING_FUNC(ring_raylib_set_camera2d_target_x)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	pMyPointer->target.x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera2d_target_y)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	RING_API_RETNUMBER(pMyPointer->target.y);
+}
+
+RING_FUNC(ring_raylib_set_camera2d_target_y)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	pMyPointer->target.y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera2d_rotation)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	RING_API_RETNUMBER(pMyPointer->rotation);
+}
+
+RING_FUNC(ring_raylib_set_camera2d_rotation)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	pMyPointer->rotation = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_raylib_get_camera2d_zoom)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	RING_API_RETNUMBER(pMyPointer->zoom);
+}
+
+RING_FUNC(ring_raylib_set_camera2d_zoom)
+{
+	Camera2D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera2D");
+	pMyPointer->zoom = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_shader)
 {
 	Shader *pMyPointer ;
@@ -7191,6 +7437,16 @@ RING_FUNC(ring_DisableCursor)
 }
 
 
+RING_FUNC(ring_IsCursorOnScreen)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsCursorOnScreen());
+}
+
+
 RING_FUNC(ring_ClearBackground_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -7340,6 +7596,88 @@ RING_FUNC(ring_GetCameraMatrix_2)
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera3D"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetCameraMatrix2D_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = GetCameraMatrix2D(* (Camera2D  *) RING_API_GETCPOINTER(1,"Camera2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetScreenToWorld2D_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetScreenToWorld2D(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Camera2D  *) RING_API_GETCPOINTER(2,"Camera2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Camera2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetWorldToScreenEx_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetWorldToScreenEx(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Camera3D  *) RING_API_GETCPOINTER(2,"Camera3D"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Camera3D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetWorldToScreen2D_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetWorldToScreen2D(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Camera2D  *) RING_API_GETCPOINTER(2,"Camera2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Camera2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -7732,6 +8070,20 @@ RING_FUNC(ring_IsKeyPressed_2)
 }
 
 
+RING_FUNC(ring_IsKeyPressedRepeat_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsKeyPressedRepeat( (int ) RING_API_GETNUMBER(1)));
+}
+
+
 RING_FUNC(ring_IsKeyDown_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -7781,6 +8133,16 @@ RING_FUNC(ring_GetKeyPressed)
 		return ;
 	}
 	RING_API_RETNUMBER(GetKeyPressed());
+}
+
+
+RING_FUNC(ring_GetCharPressed)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetCharPressed());
 }
 
 
@@ -7940,6 +8302,20 @@ RING_FUNC(ring_GetGamepadAxisMovement)
 }
 
 
+RING_FUNC(ring_SetGamepadMappings)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SetGamepadMappings(RING_API_GETSTRING(1)));
+}
+
+
 RING_FUNC(ring_IsMouseButtonPressed)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -8095,6 +8471,50 @@ RING_FUNC(ring_GetMouseWheelMove)
 }
 
 
+RING_FUNC(ring_GetMouseWheelMoveV_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetMouseWheelMoveV();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetMouseDelta_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetMouseDelta();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_SetMouseCursor)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetMouseCursor( (int ) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_GetTouchX)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -8131,6 +8551,30 @@ RING_FUNC(ring_GetTouchPosition_2)
 		*pValue = GetTouchPosition( (int ) RING_API_GETNUMBER(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
+}
+
+
+RING_FUNC(ring_GetTouchPointId)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetTouchPointId( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_GetTouchPointCount)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetTouchPointCount());
 }
 
 
@@ -8247,6 +8691,28 @@ RING_FUNC(ring_UpdateCamera_2)
 		return ;
 	}
 	UpdateCamera((Camera3D *) RING_API_GETCPOINTER(1,"Camera3D"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_UpdateCameraPro_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UpdateCameraPro((Camera3D *) RING_API_GETCPOINTER(1,"Camera3D"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"), (float ) RING_API_GETNUMBER(4));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 }
 
 
@@ -15077,6 +15543,7 @@ RING_LIBINIT
 	RING_API_REGISTER("iscursorhidden",ring_IsCursorHidden);
 	RING_API_REGISTER("enablecursor",ring_EnableCursor);
 	RING_API_REGISTER("disablecursor",ring_DisableCursor);
+	RING_API_REGISTER("iscursoronscreen",ring_IsCursorOnScreen);
 	RING_API_REGISTER("clearbackground_2",ring_ClearBackground_2);
 	RING_API_REGISTER("begindrawing",ring_BeginDrawing);
 	RING_API_REGISTER("enddrawing",ring_EndDrawing);
@@ -15089,6 +15556,10 @@ RING_LIBINIT
 	RING_API_REGISTER("getmouseray_2",ring_GetMouseRay_2);
 	RING_API_REGISTER("getworldtoscreen_2",ring_GetWorldToScreen_2);
 	RING_API_REGISTER("getcameramatrix_2",ring_GetCameraMatrix_2);
+	RING_API_REGISTER("getcameramatrix2d_2",ring_GetCameraMatrix2D_2);
+	RING_API_REGISTER("getscreentoworld2d_2",ring_GetScreenToWorld2D_2);
+	RING_API_REGISTER("getworldtoscreenex_2",ring_GetWorldToScreenEx_2);
+	RING_API_REGISTER("getworldtoscreen2d_2",ring_GetWorldToScreen2D_2);
 	RING_API_REGISTER("settargetfps",ring_SetTargetFPS);
 	RING_API_REGISTER("getfps",ring_GetFPS);
 	RING_API_REGISTER("getframetime",ring_GetFrameTime);
@@ -15115,10 +15586,12 @@ RING_LIBINIT
 	RING_API_REGISTER("getfilemodtime",ring_GetFileModTime);
 	RING_API_REGISTER("openurl",ring_OpenURL);
 	RING_API_REGISTER("iskeypressed_2",ring_IsKeyPressed_2);
+	RING_API_REGISTER("iskeypressedrepeat_2",ring_IsKeyPressedRepeat_2);
 	RING_API_REGISTER("iskeydown_2",ring_IsKeyDown_2);
 	RING_API_REGISTER("iskeyreleased_2",ring_IsKeyReleased_2);
 	RING_API_REGISTER("iskeyup_2",ring_IsKeyUp_2);
 	RING_API_REGISTER("getkeypressed",ring_GetKeyPressed);
+	RING_API_REGISTER("getcharpressed",ring_GetCharPressed);
 	RING_API_REGISTER("setexitkey_2",ring_SetExitKey_2);
 	RING_API_REGISTER("isgamepadavailable",ring_IsGamepadAvailable);
 	RING_API_REGISTER("getgamepadname",ring_GetGamepadName);
@@ -15129,6 +15602,7 @@ RING_LIBINIT
 	RING_API_REGISTER("getgamepadbuttonpressed",ring_GetGamepadButtonPressed);
 	RING_API_REGISTER("getgamepadaxiscount",ring_GetGamepadAxisCount);
 	RING_API_REGISTER("getgamepadaxismovement",ring_GetGamepadAxisMovement);
+	RING_API_REGISTER("setgamepadmappings",ring_SetGamepadMappings);
 	RING_API_REGISTER("ismousebuttonpressed",ring_IsMouseButtonPressed);
 	RING_API_REGISTER("ismousebuttondown",ring_IsMouseButtonDown);
 	RING_API_REGISTER("ismousebuttonreleased",ring_IsMouseButtonReleased);
@@ -15140,9 +15614,14 @@ RING_LIBINIT
 	RING_API_REGISTER("setmouseoffset",ring_SetMouseOffset);
 	RING_API_REGISTER("setmousescale",ring_SetMouseScale);
 	RING_API_REGISTER("getmousewheelmove",ring_GetMouseWheelMove);
+	RING_API_REGISTER("getmousewheelmovev_2",ring_GetMouseWheelMoveV_2);
+	RING_API_REGISTER("getmousedelta_2",ring_GetMouseDelta_2);
+	RING_API_REGISTER("setmousecursor",ring_SetMouseCursor);
 	RING_API_REGISTER("gettouchx",ring_GetTouchX);
 	RING_API_REGISTER("gettouchy",ring_GetTouchY);
 	RING_API_REGISTER("gettouchposition_2",ring_GetTouchPosition_2);
+	RING_API_REGISTER("gettouchpointid",ring_GetTouchPointId);
+	RING_API_REGISTER("gettouchpointcount",ring_GetTouchPointCount);
 	RING_API_REGISTER("setgesturesenabled",ring_SetGesturesEnabled);
 	RING_API_REGISTER("isgesturedetected",ring_IsGestureDetected);
 	RING_API_REGISTER("getgesturedetected",ring_GetGestureDetected);
@@ -15152,6 +15631,7 @@ RING_LIBINIT
 	RING_API_REGISTER("getgesturepinchvector_2",ring_GetGesturePinchVector_2);
 	RING_API_REGISTER("getgesturepinchangle",ring_GetGesturePinchAngle);
 	RING_API_REGISTER("updatecamera_2",ring_UpdateCamera_2);
+	RING_API_REGISTER("updatecamerapro_2",ring_UpdateCameraPro_2);
 	RING_API_REGISTER("drawpixel_2",ring_DrawPixel_2);
 	RING_API_REGISTER("drawpixelv_2",ring_DrawPixelV_2);
 	RING_API_REGISTER("drawline_2",ring_DrawLine_2);
@@ -15740,6 +16220,21 @@ RING_LIBINIT
 	RING_API_REGISTER("raylib_set_camera3d_fovy",ring_raylib_set_camera3d_fovy);
 	RING_API_REGISTER("raylib_get_camera3d_projection",ring_raylib_get_camera3d_projection);
 	RING_API_REGISTER("raylib_set_camera3d_projection",ring_raylib_set_camera3d_projection);
+	RING_API_REGISTER("raylib_new_camera2d",ring_raylib_new_camera2d);
+	RING_API_REGISTER("raylib_new_managed_camera2d",ring_raylib_new_managed_camera2d);
+	RING_API_REGISTER("raylib_destroy_camera2d",ring_raylib_destroy_camera2d);
+	RING_API_REGISTER("raylib_get_camera2d_offset_x",ring_raylib_get_camera2d_offset_x);
+	RING_API_REGISTER("raylib_set_camera2d_offset_x",ring_raylib_set_camera2d_offset_x);
+	RING_API_REGISTER("raylib_get_camera2d_offset_y",ring_raylib_get_camera2d_offset_y);
+	RING_API_REGISTER("raylib_set_camera2d_offset_y",ring_raylib_set_camera2d_offset_y);
+	RING_API_REGISTER("raylib_get_camera2d_target_x",ring_raylib_get_camera2d_target_x);
+	RING_API_REGISTER("raylib_set_camera2d_target_x",ring_raylib_set_camera2d_target_x);
+	RING_API_REGISTER("raylib_get_camera2d_target_y",ring_raylib_get_camera2d_target_y);
+	RING_API_REGISTER("raylib_set_camera2d_target_y",ring_raylib_set_camera2d_target_y);
+	RING_API_REGISTER("raylib_get_camera2d_rotation",ring_raylib_get_camera2d_rotation);
+	RING_API_REGISTER("raylib_set_camera2d_rotation",ring_raylib_set_camera2d_rotation);
+	RING_API_REGISTER("raylib_get_camera2d_zoom",ring_raylib_get_camera2d_zoom);
+	RING_API_REGISTER("raylib_set_camera2d_zoom",ring_raylib_set_camera2d_zoom);
 	RING_API_REGISTER("raylib_new_shader",ring_raylib_new_shader);
 	RING_API_REGISTER("raylib_new_managed_shader",ring_raylib_new_managed_shader);
 	RING_API_REGISTER("raylib_destroy_shader",ring_raylib_destroy_shader);

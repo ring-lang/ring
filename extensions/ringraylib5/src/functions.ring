@@ -68,6 +68,10 @@ func Camera3D p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
 	oCamera = new Camera3D(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11)
 	return oCamera
 
+func Camera2D p1,p2,p3,p4,p5,p6
+	oCamera = new Camera2D(p1,p2,p3,p4,p5,p6)
+	return oCamera
+
 func Mesh p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14
 	oMesh = new Mesh(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14)
 	return oMesh
@@ -135,6 +139,9 @@ func isKeyDown vKey
 func IsKeyPressed vKey
 	return IsKeyPressed_2(RayLib_PrepareKey(vKey))
 
+func IsKeyPressedRepeat vKey
+	return IsKeyPressedRepeat_2(RayLib_PrepareKey(vKey))
+
 func IsKeyReleased vKey
 	return IsKeyReleased_2(RayLib_PrepareKey(vKey))
 
@@ -172,6 +179,26 @@ func GetWorldToScreen position,camera
 func GetCameraMatrix camera
 	return GetCameraMatrix_2(GPData(Camera))
 
+func GetCameraMatrix2D camera
+	oMatrix = new Matrix
+	oMatrix.setData( GetCameraMatrix2D_2(GPData(camera)) )
+	return oMatrix
+
+func GetScreenToWorld2D position, camera
+	oVector2 = new Vector2
+	oVector2.setData( GetScreenToWorld2D_2(GPData(position), GPData(camera)) )
+	return oVector2
+
+func GetWorldToScreenEx position, camera, width, height
+	oVector2 = new Vector2
+	oVector2.setData( GetWorldToScreenEx_2(GPData(position), GPData(camera), width, height) )
+	return oVector2
+
+func GetWorldToScreen2D position, camera
+	oVector2 = new Vector2
+	oVector2.setData( GetWorldToScreen2D_2(GPData(position), GPData(camera)) )
+	return oVector2
+
 func SetCameraMode camera,mode
 	return UpdateCamera_2(GPData(camera),mode)
 
@@ -181,6 +208,14 @@ func UpdateCamera camera,mode
 		camera.refresh()
 	else
 		return UpdateCamera_2(camera,mode)
+	ok
+
+func UpdateCameraPro camera, movement, rotation, zoom
+	if isObject(camera)
+		UpdateCameraPro_2(camera.Data(), GPData(movement), GPData(rotation), zoom)
+		camera.refresh()
+	else
+		return UpdateCameraPro_2(camera, GPData(movement), GPData(rotation), zoom)
 	ok
 	
 func DrawBillboard camera,texture,center,size,tint
@@ -617,6 +652,16 @@ func GetMousePosition
 	oVector = new Vector2
 	oVector.setData( GetMousePosition_2()  )
 	return oVector
+
+func GetMouseDelta
+	oVector2 = new Vector2
+	oVector2.setData( GetMouseDelta_2() )
+	return oVector2
+
+func GetMouseWheelMoveV
+	oVector2 = new Vector2
+	oVector2.setData( GetMouseWheelMoveV_2() )
+	return oVector2
 
 func LoadTexture fileName
 	oTexture2D = new Texture2D
