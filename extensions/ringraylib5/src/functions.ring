@@ -48,6 +48,10 @@ func CharInfo p1,p2,p3,p4,p5,p6,p7,p8,p9
 	oCharInfo = new CharInfo(p1,p2,p3,p4,p5,p6,p7,p8,p9)
 	return oCharInfo
 
+func GlyphInfo p1,p2,p3,p4
+	oGlyphInfo = new GlyphInfo(p1,p2,p3,p4)
+	return oGlyphInfo
+
 func Font p1,p2,p3,p4,p5,p6,p7,p8
 	oSpriteFont = new SpriteFont(p1,p2,p3,p4,p5,p6,p7,p8)
 	return oSpriteFont
@@ -960,6 +964,15 @@ func GetWaveData wave
 func DrawTextEx font,text,position,fontSize,spacing,tint
 	return DrawTextEx_2(GPData(font),text,GPData(position),fontSize,spacing,tint)
 
+func DrawTextPro font, text, position, origin, rotation, fontSize, spacing, tint
+	return DrawTextPro_2(GPData(font), text, GPData(position), GPData(origin), rotation, fontSize, spacing, GPData(tint))
+
+func DrawTextCodepoint font, codepoint, position, fontSize, tint
+	return DrawTextCodepoint_2(GPData(font), codepoint, GPData(position), fontSize, GPData(tint))
+
+func DrawTextCodepoints font, codepoints, codepointCount, position, fontSize, spacing, tint
+	return DrawTextCodepoints_2(GPData(font), codepoints, codepointCount, GPData(position), fontSize, spacing, GPData(tint))
+
 func DrawCubeTexture texture,position,width,height,length,color
 	return DrawCubeTexture_2(GPData(texture),GPData(position),width,height,length,GPData(color))
 
@@ -1224,10 +1237,16 @@ func LoadFontFromImage image, key, firstChar
 	oFont.setData(LoadFontFromImage_2( GPData(image), GPData(key), firstChar) )
 	return oFont
 
-func LoadFontData fileName, fontSize, fontChars, charsCount, type
-	oCharInfo = new CharInfo
-	oCharInfo.setData(LoadFontData_2( fileName, fontSize, fontChars, charsCount, type) )
-	return oCharInfo
+func LoadFontFromMemory fileType, fileData, dataSize, fontSize, codepoints, codepointCount
+	oFont = new Font
+	oFont.setData(LoadFontFromMemory_2(fileType, fileData, dataSize, fontSize, codepoints, codepointCount))
+	return oFont
+
+func IsFontReady font
+	return IsFontReady_2(GPData(font))
+
+func LoadFontData fileData, dataSize, fontSize, codepoints, codepointCount, type
+	return LoadFontData_2(fileData, dataSize, fontSize, codepoints, codepointCount, type)
 
 func GenImageFontAtlas chars, charsCount, fontSize, padding, packMethod
 	oImage = new Image 
@@ -1241,6 +1260,14 @@ func MeasureTextEx font, text, fontSize, spacing
 
 func GetGlyphIndex font, character 
 	return GetGlyphIndex_2( GPData(font), character )
+
+func GetGlyphInfo font, codepoint
+	return GetGlyphInfo_2(GPData(font), codepoint)
+
+func GetGlyphAtlasRec font, codepoint
+	oRectangle = new Rectangle
+	oRectangle.setData( GetGlyphAtlasRec_2(GPData(font), codepoint) )
+	return oRectangle
 
 func LoadModel fileName
 	oModel = new Model 

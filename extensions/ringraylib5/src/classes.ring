@@ -387,6 +387,32 @@ class CharInfo from RayLibBase
 		advanceX	= raylib_get_CharInfo_advanceX(oStruct)
 		data		= raylib_get_CharInfo_data(oStruct)
 
+class GlyphInfo from RayLibBase
+
+	value offsetX offsetY advanceX
+
+	oData = raylib_new_managed_GlyphInfo()
+
+	func init p1,p2,p3,p4
+		value = p1
+		offsetX = p2
+		offsetY = p3
+		advanceX = p4
+
+	func data 
+		raylib_set_GlyphInfo_value(oData,value)
+		raylib_set_GlyphInfo_offsetX(oData,offsetX)
+		raylib_set_GlyphInfo_offsetY(oData,offsetY)
+		raylib_set_GlyphInfo_advanceX(oData,advanceX)
+		return oData
+
+	func setdata oStruct 
+		oData = oStruct  
+		value = raylib_get_GlyphInfo_value(oStruct)
+		offsetX = raylib_get_GlyphInfo_offsetX(oStruct)
+		offsetY = raylib_get_GlyphInfo_offsetY(oStruct)
+		advanceX = raylib_get_GlyphInfo_advanceX(oStruct)
+
 class SpriteFont from RayLibBase
 
 	texture = new Texture2D
