@@ -269,8 +269,72 @@ func DrawTriangleLines v1, v2, v3, color
 func DrawTriangleFan points, numPoints, color
 	return DrawTriangleFan_2(points, numPoints, GPData(color))
 
+func DrawTriangleStrip points, pointCount, color
+	return DrawTriangleStrip_2(points, pointCount, GPData(color))
+
 func DrawPoly center, sides, radius, rotation, color
 	return DrawPoly_2(GPData(center), sides, radius, rotation, GPData(color))
+
+func DrawPolyLines center, sides, radius, rotation, color
+	return DrawPolyLines_2(GPData(center), sides, radius, rotation, GPData(color))
+
+func DrawPolyLinesEx center, sides, radius, rotation, lineThick, color
+	return DrawPolyLinesEx_2(GPData(center), sides, radius, rotation, lineThick, GPData(color))
+
+func DrawSplineLinear points, pointCount, thick, color
+	return DrawSplineLinear_2(points, pointCount, thick, GPData(color))
+
+func DrawSplineBasis points, pointCount, thick, color
+	return DrawSplineBasis_2(points, pointCount, thick, GPData(color))
+
+func DrawSplineCatmullRom points, pointCount, thick, color
+	return DrawSplineCatmullRom_2(points, pointCount, thick, GPData(color))
+
+func DrawSplineBezierQuadratic points, pointCount, thick, color
+	return DrawSplineBezierQuadratic_2(points, pointCount, thick, GPData(color))
+
+func DrawSplineBezierCubic points, pointCount, thick, color
+	return DrawSplineBezierCubic_2(points, pointCount, thick, GPData(color))
+
+func DrawSplineSegmentLinear p1, p2, thick, color
+	return DrawSplineSegmentLinear_2(GPData(p1), GPData(p2), thick, GPData(color))
+
+func DrawSplineSegmentBasis p1, p2, p3, p4, thick, color
+	return DrawSplineSegmentBasis_2(GPData(p1), GPData(p2), GPData(p3), GPData(p4), thick, GPData(color))
+
+func DrawSplineSegmentCatmullRom p1, p2, p3, p4, thick, color
+	return DrawSplineSegmentCatmullRom_2(GPData(p1), GPData(p2), GPData(p3), GPData(p4), thick, GPData(color))
+
+func DrawSplineSegmentBezierQuadratic p1, c2, p3, thick, color
+	return DrawSplineSegmentBezierQuadratic_2(GPData(p1), GPData(c2), GPData(p3), thick, GPData(color))
+
+func DrawSplineSegmentBezierCubic p1, c2, c3, p4, thick, color
+	return DrawSplineSegmentBezierCubic_2(GPData(p1), GPData(c2), GPData(c3), GPData(p4), thick, GPData(color))
+
+func GetSplinePointLinear startPos, endPos, t
+	oVector2 = new Vector2
+	oVector2.setData( GetSplinePointLinear_2(GPData(startPos), GPData(endPos), t) )
+	return oVector2
+
+func GetSplinePointBasis p1, p2, p3, p4, t
+	oVector2 = new Vector2
+	oVector2.setData( GetSplinePointBasis_2(GPData(p1), GPData(p2), GPData(p3), GPData(p4), t) )
+	return oVector2
+
+func GetSplinePointCatmullRom p1, p2, p3, p4, t
+	oVector2 = new Vector2
+	oVector2.setData( GetSplinePointCatmullRom_2(GPData(p1), GPData(p2), GPData(p3), GPData(p4), t) )
+	return oVector2
+
+func GetSplinePointBezierQuad p1, c2, p3, t
+	oVector2 = new Vector2
+	oVector2.setData( GetSplinePointBezierQuad_2(GPData(p1), GPData(c2), GPData(p3), t) )
+	return oVector2
+
+func GetSplinePointBezierCubic p1, c2, c3, p4, t
+	oVector2 = new Vector2
+	oVector2.setData( GetSplinePointBezierCubic_2(GPData(p1), GPData(c2), GPData(c3), GPData(p4), t) )
+	return oVector2
 
 func CheckCollisionCircles center1, radius1, center2, radius2
 	return CheckCollisionCircles_2(GPData(center1), radius1, GPData(center2), radius2)
@@ -287,14 +351,32 @@ func CheckCollisionPointCircle point, center, radius
 func CheckCollisionPointTriangle point, p1, p2, p3
 	return CheckCollisionPointTriangle_2(GPData(point), GPData(p1), GPData(p2), GPData(p3))
 
+func CheckCollisionPointPoly point, points, pointCount
+	return CheckCollisionPointPoly_2(GPData(point), points, pointCount)
+
+func CheckCollisionLines startPos1, endPos1, startPos2, endPos2, collisionPoint
+	return CheckCollisionLines_2(GPData(startPos1), GPData(endPos1), GPData(startPos2), GPData(endPos2), collisionPoint)
+
+func CheckCollisionPointLine point, p1, p2, threshold
+	return CheckCollisionPointLine_2(GPData(point), GPData(p1), GPData(p2), threshold)
+
 func ColorFromHSV hsv
 	return ColorFromHSV_2(GPData(hsv))
 
 func DrawLine3D startPos, endPos, color
 	return DrawLine3D_2(GPData(startPos), GPData(endPos), GPData(color))
 
+func DrawPoint3D position, color
+	return DrawPoint3D_2(GPData(position), GPData(color))
+
 func DrawCircle3D center, radius, rotationAxis, rotationAngle, color
 	return DrawCircle3D_2(GPData(center),radius, GPData(rotationAxis), rotationAngle, GPData(color))
+
+func DrawTriangle3D v1, v2, v3, color
+	return DrawTriangle3D_2(GPData(v1), GPData(v2), GPData(v3), GPData(color))
+
+func DrawTriangleStrip3D points, pointCount, color
+	return DrawTriangleStrip3D_2(points, pointCount, GPData(color))
 
 func DrawCube position, width,  height, length, color
 	return DrawCube_2(GPData(position), width,  height, length, GPData(color))
@@ -320,8 +402,20 @@ func DrawSphereWires centerPos, radius, rings, slices, color
 func DrawCylinder position, radiusTop, radiusBottom, height,  slices, color
 	return DrawCylinder_2(GPData(position), radiusTop, radiusBottom, height,  slices, GPData(color))
 
+func DrawCylinderEx startPos, endPos, startRadius, endRadius, sides, color
+	return DrawCylinderEx_2(GPData(startPos), GPData(endPos), startRadius, endRadius, sides, GPData(color))
+
 func DrawCylinderWires position, radiusTop, radiusBottom, height, slices, color
 	return DrawCylinderWires_2(GPData(position), radiusTop, radiusBottom, height, slices, GPData(color))
+
+func DrawCylinderWiresEx startPos, endPos, startRadius, endRadius, sides, color
+	return DrawCylinderWiresEx_2(GPData(startPos), GPData(endPos), startRadius, endRadius, sides, GPData(color))
+
+func DrawCapsule startPos, endPos, radius, slices, rings, color
+	return DrawCapsule_2(GPData(startPos), GPData(endPos), radius, slices, rings, GPData(color))
+
+func DrawCapsuleWires startPos, endPos, radius, slices, rings, color
+	return DrawCapsuleWires_2(GPData(startPos), GPData(endPos), radius, slices, rings, GPData(color))
 
 func DrawPlane centerPos, size, color
 	return DrawPlane_2(GPData(centerPos), GPData(size), GPData(color))
@@ -818,6 +912,15 @@ func DrawCircleGradient centerX, centerY, radius, color1, color2
 
 func DrawCircleLines centerX, centerY, radius, color
 	return DrawCircleLines_2( centerX, centerY, radius, GPData(color) )
+
+func DrawCircleLinesV center, radius, color
+	return DrawCircleLinesV_2(GPData(center), radius, GPData(color))
+
+func DrawEllipse centerX, centerY, radiusH, radiusV, color
+	return DrawEllipse_2(centerX, centerY, radiusH, radiusV, GPData(color))
+
+func DrawEllipseLines centerX, centerY, radiusH, radiusV, color
+	return DrawEllipseLines_2(centerX, centerY, radiusH, radiusV, GPData(color))
 
 func DrawRectangle posX, posY, width, height, color 
 	return DrawRectangle_2( posX, posY, width, height, GPData(color) )
