@@ -228,6 +228,9 @@ func DrawBillboard camera,texture,center,size,tint
 func DrawBillboardRec camera,texture,sourceRec,center,size,tint
 	return DrawBillboardRec_2(GPData(camera),GPData(texture),GPData(sourceRec),GPData(center),size,GPData(tint))
 
+func DrawBillboardPro camera, texture, source, position, up, size, origin, rotation, tint
+	return DrawBillboardPro_2(GPData(camera), GPData(texture), GPData(source), GPData(position), GPData(up), GPData(size), GPData(origin), rotation, GPData(tint))
+
 func UpdateVrTracking camera
 	return UpdateVrTracking_2(GPData(camera))
 
@@ -1282,6 +1285,14 @@ func LoadModelFromMesh mesh
 func UnloadModel model
 	return UnloadModel_2( GPData(model) )
 
+func IsModelReady model
+	return IsModelReady_2( GPData(model) )
+
+func GetModelBoundingBox model
+	oBoundingBox = new BoundingBox
+	oBoundingBox.setData( GetModelBoundingBox_2(GPData(model)) )
+	return oBoundingBox
+
 func LoadMeshes fileName, meshCount
 	oMesh = new Mesh 
 	oMesh.setData(LoadMeshes_2( fileName, meshCount ) )
@@ -1292,6 +1303,18 @@ func ExportMesh mesh, fileName
 
 func UnloadMesh mesh
 	return UnloadMesh_2( GPData(mesh) )
+
+func UploadMesh mesh, dynamic
+	return UploadMesh_2( GPData(mesh), dynamic )
+
+func UpdateMeshBuffer mesh, index, data, dataSize, offset
+	return UpdateMeshBuffer_2( GPData(mesh), index, data, dataSize, offset )
+
+func DrawMesh mesh, material, transform
+	return DrawMesh_2( GPData(mesh), GPData(material), GPData(transform) )
+
+func DrawMeshInstanced mesh, material, transforms, instances
+	return DrawMeshInstanced_2( GPData(mesh), GPData(material), transforms, instances )
 
 func LoadMaterials fileName, materialCount
 	oMaterial = new Material 
@@ -1305,6 +1328,9 @@ func LoadMaterialDefault
 
 func UnloadMaterial material
 	return UnloadMaterial_2( GPData(material) )
+
+func IsMaterialReady material
+	return IsMaterialReady_2( GPData(material) )
 
 func SetMaterialTexture material, mapType, texture
 	return SetMaterialTexture_2( GPData(material), mapType, GPData(texture) )
@@ -1371,6 +1397,14 @@ func MeshBoundingBox mesh
 	oBoundingBox.setData(MeshBoundingBox_2( GPData(mesh) ))
 	return oBoundingBox
 
+func GenMeshTangents mesh
+	return GenMeshTangents_2( GPData(mesh) )
+
+func GenMeshCone radius, height, slices
+	oMesh = new Mesh
+	oMesh.setData(GenMeshCone_2( radius, height, slices ) )
+	return oMesh
+
 func MeshTangents mesh
 	return MeshTangents_2( GPData(mesh) )
 
@@ -1398,6 +1432,14 @@ func LoadShader vsFileName, fsFileName
 	oShader.setData(LoadShader_2( vsFileName, fsFileName ))
 	return oShader 
 
+func LoadShaderFromMemory vsCode, fsCode
+	oShader = new Shader
+	oShader.setData(LoadShaderFromMemory_2( vsCode, fsCode ))
+	return oShader
+
+func IsShaderReady shader
+	return IsShaderReady_2( GPData(shader) )
+
 func LoadShaderCode vsCode, fsCode
 	oShader = new Shader 
 	oShader.setData(LoadShaderCode_2( vsCode, fsCode ))
@@ -1418,6 +1460,9 @@ func GetTextureDefault
 
 func GetShaderLocation shader, uniformName
 	return GetShaderLocation_2( GPData(shader), uniformName )
+
+func GetShaderLocationAttrib shader, attribName
+	return GetShaderLocationAttrib_2( GPData(shader), attribName )
 
 func SetShaderValue shader, uniformLoc, value, uniformType
 	return SetShaderValue_2( GPData(shader), uniformLoc, value, uniformType )
@@ -2065,4 +2110,24 @@ func RayCollision hit
 func GetRayCollisionBox ray,box 
 	oRayCollision = new RayCollision
 	oRayCollision.setData( GetRayCollisionBox_2(GPData(ray),GPData(box)) )
+	return oRayCollision
+
+func GetRayCollisionSphere ray, center, radius
+	oRayCollision = new RayCollision
+	oRayCollision.setData( GetRayCollisionSphere_2(GPData(ray), GPData(center), radius) )
+	return oRayCollision
+
+func GetRayCollisionMesh ray, mesh, transform
+	oRayCollision = new RayCollision
+	oRayCollision.setData( GetRayCollisionMesh_2(GPData(ray), GPData(mesh), GPData(transform)) )
+	return oRayCollision
+
+func GetRayCollisionTriangle ray, p1, p2, p3
+	oRayCollision = new RayCollision
+	oRayCollision.setData( GetRayCollisionTriangle_2(GPData(ray), GPData(p1), GPData(p2), GPData(p3)) )
+	return oRayCollision
+
+func GetRayCollisionQuad ray, p1, p2, p3, p4
+	oRayCollision = new RayCollision
+	oRayCollision.setData( GetRayCollisionQuad_2(GPData(ray), GPData(p1), GPData(p2), GPData(p3), GPData(p4)) )
 	return oRayCollision
