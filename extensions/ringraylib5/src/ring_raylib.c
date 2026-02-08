@@ -14969,6 +14969,57 @@ RING_FUNC(ring_EndScissorMode)
 }
 
 
+RING_FUNC(ring_LoadVrStereoConfig_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		VrStereoConfig *pValue ; 
+		pValue = (VrStereoConfig *) RING_API_MALLOC(sizeof(VrStereoConfig)) ;
+		*pValue = LoadVrStereoConfig(* (VrDeviceInfo  *) RING_API_GETCPOINTER(1,"VrDeviceInfo"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"VrDeviceInfo"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"VrStereoConfig",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_UnloadVrStereoConfig_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadVrStereoConfig(* (VrStereoConfig  *) RING_API_GETCPOINTER(1,"VrStereoConfig"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"VrStereoConfig"));
+}
+
+
+RING_FUNC(ring_BeginVrStereoMode_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	BeginVrStereoMode(* (VrStereoConfig  *) RING_API_GETCPOINTER(1,"VrStereoConfig"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"VrStereoConfig"));
+}
+
+
+RING_FUNC(ring_EndVrStereoMode)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EndVrStereoMode();
+}
+
+
 RING_FUNC(ring_InitAudioDevice)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -15032,6 +15083,18 @@ RING_FUNC(ring_LoadWave_2)
 }
 
 
+RING_FUNC(ring_IsWaveReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWaveReady(* (Wave  *) RING_API_GETCPOINTER(1,"Wave")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
+}
+
+
 RING_FUNC(ring_LoadSound_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -15065,6 +15128,18 @@ RING_FUNC(ring_LoadSoundFromWave_2)
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",RING_API_FREEFUNC);
 	}
+}
+
+
+RING_FUNC(ring_IsSoundReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsSoundReady(* (Sound  *) RING_API_GETCPOINTER(1,"Sound")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15236,6 +15311,48 @@ RING_FUNC(ring_SetSoundPitch_2)
 }
 
 
+RING_FUNC(ring_SetSoundPan_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetSoundPan(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
+}
+
+
+RING_FUNC(ring_LoadWaveSamples_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(LoadWaveSamples(* (Wave  *) RING_API_GETCPOINTER(1,"Wave")),"float");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
+}
+
+
+RING_FUNC(ring_UnloadWaveSamples)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadWaveSamples((float *) RING_API_GETCPOINTER(1,"float"));
+}
+
+
 RING_FUNC(ring_WaveFormat_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -15317,6 +15434,45 @@ RING_FUNC(ring_LoadMusicStream_2)
 		*pValue = LoadMusicStream(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"Music",RING_API_FREEFUNC);
 	}
+}
+
+
+RING_FUNC(ring_LoadMusicStreamFromMemory_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Music *pValue ; 
+		pValue = (Music *) RING_API_MALLOC(sizeof(Music)) ;
+		*pValue = LoadMusicStreamFromMemory(RING_API_GETSTRING(1),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Music",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_IsMusicReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsMusicReady(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15424,6 +15580,38 @@ RING_FUNC(ring_SetMusicPitch_2)
 }
 
 
+RING_FUNC(ring_SetMusicPan_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetMusicPan(* (Music  *) RING_API_GETCPOINTER(1,"Music"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
+}
+
+
+RING_FUNC(ring_SeekMusicStream_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SeekMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
+}
+
+
 RING_FUNC(ring_GetMusicTimeLength_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -15448,6 +15636,57 @@ RING_FUNC(ring_GetMusicTimePlayed_2)
 }
 
 
+RING_FUNC(ring_LoadAudioStream_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		AudioStream *pValue ; 
+		pValue = (AudioStream *) RING_API_MALLOC(sizeof(AudioStream)) ;
+		*pValue = LoadAudioStream( (unsigned int ) RING_API_GETNUMBER(1), (unsigned int ) RING_API_GETNUMBER(2), (unsigned int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"AudioStream",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_IsAudioStreamReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsAudioStreamReady(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
+
+RING_FUNC(ring_UnloadAudioStream_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
+
 RING_FUNC(ring_UpdateAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -15463,6 +15702,18 @@ RING_FUNC(ring_UpdateAudioStream_2)
 		return ;
 	}
 	UpdateAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"),(void *) RING_API_GETCPOINTER(2,"void"), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
+
+RING_FUNC(ring_IsAudioStreamProcessed_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsAudioStreamProcessed(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
@@ -15555,6 +15806,22 @@ RING_FUNC(ring_SetAudioStreamPitch_2)
 		return ;
 	}
 	SetAudioStreamPitch(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
+
+RING_FUNC(ring_SetAudioStreamPan_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetAudioStreamPan(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
@@ -18455,13 +18722,19 @@ RING_LIBINIT
 	RING_API_REGISTER("endblendmode",ring_EndBlendMode);
 	RING_API_REGISTER("beginscissormode",ring_BeginScissorMode);
 	RING_API_REGISTER("endscissormode",ring_EndScissorMode);
+	RING_API_REGISTER("loadvrstereoconfig_2",ring_LoadVrStereoConfig_2);
+	RING_API_REGISTER("unloadvrstereoconfig_2",ring_UnloadVrStereoConfig_2);
+	RING_API_REGISTER("beginvrstereomode_2",ring_BeginVrStereoMode_2);
+	RING_API_REGISTER("endvrstereomode",ring_EndVrStereoMode);
 	RING_API_REGISTER("initaudiodevice",ring_InitAudioDevice);
 	RING_API_REGISTER("closeaudiodevice",ring_CloseAudioDevice);
 	RING_API_REGISTER("isaudiodeviceready",ring_IsAudioDeviceReady);
 	RING_API_REGISTER("setmastervolume",ring_SetMasterVolume);
 	RING_API_REGISTER("loadwave_2",ring_LoadWave_2);
+	RING_API_REGISTER("iswaveready_2",ring_IsWaveReady_2);
 	RING_API_REGISTER("loadsound_2",ring_LoadSound_2);
 	RING_API_REGISTER("loadsoundfromwave_2",ring_LoadSoundFromWave_2);
+	RING_API_REGISTER("issoundready_2",ring_IsSoundReady_2);
 	RING_API_REGISTER("updatesound_2",ring_UpdateSound_2);
 	RING_API_REGISTER("unloadwave_2",ring_UnloadWave_2);
 	RING_API_REGISTER("unloadsound_2",ring_UnloadSound_2);
@@ -18474,10 +18747,15 @@ RING_LIBINIT
 	RING_API_REGISTER("issoundplaying_2",ring_IsSoundPlaying_2);
 	RING_API_REGISTER("setsoundvolume_2",ring_SetSoundVolume_2);
 	RING_API_REGISTER("setsoundpitch_2",ring_SetSoundPitch_2);
+	RING_API_REGISTER("setsoundpan_2",ring_SetSoundPan_2);
+	RING_API_REGISTER("loadwavesamples_2",ring_LoadWaveSamples_2);
+	RING_API_REGISTER("unloadwavesamples",ring_UnloadWaveSamples);
 	RING_API_REGISTER("waveformat_2",ring_WaveFormat_2);
 	RING_API_REGISTER("wavecopy_2",ring_WaveCopy_2);
 	RING_API_REGISTER("wavecrop_2",ring_WaveCrop_2);
 	RING_API_REGISTER("loadmusicstream_2",ring_LoadMusicStream_2);
+	RING_API_REGISTER("loadmusicstreamfrommemory_2",ring_LoadMusicStreamFromMemory_2);
+	RING_API_REGISTER("ismusicready_2",ring_IsMusicReady_2);
 	RING_API_REGISTER("unloadmusicstream_2",ring_UnloadMusicStream_2);
 	RING_API_REGISTER("playmusicstream_2",ring_PlayMusicStream_2);
 	RING_API_REGISTER("updatemusicstream_2",ring_UpdateMusicStream_2);
@@ -18486,9 +18764,15 @@ RING_LIBINIT
 	RING_API_REGISTER("resumemusicstream_2",ring_ResumeMusicStream_2);
 	RING_API_REGISTER("setmusicvolume_2",ring_SetMusicVolume_2);
 	RING_API_REGISTER("setmusicpitch_2",ring_SetMusicPitch_2);
+	RING_API_REGISTER("setmusicpan_2",ring_SetMusicPan_2);
+	RING_API_REGISTER("seekmusicstream_2",ring_SeekMusicStream_2);
 	RING_API_REGISTER("getmusictimelength_2",ring_GetMusicTimeLength_2);
 	RING_API_REGISTER("getmusictimeplayed_2",ring_GetMusicTimePlayed_2);
+	RING_API_REGISTER("loadaudiostream_2",ring_LoadAudioStream_2);
+	RING_API_REGISTER("isaudiostreamready_2",ring_IsAudioStreamReady_2);
+	RING_API_REGISTER("unloadaudiostream_2",ring_UnloadAudioStream_2);
 	RING_API_REGISTER("updateaudiostream_2",ring_UpdateAudioStream_2);
+	RING_API_REGISTER("isaudiostreamprocessed_2",ring_IsAudioStreamProcessed_2);
 	RING_API_REGISTER("playaudiostream_2",ring_PlayAudioStream_2);
 	RING_API_REGISTER("pauseaudiostream_2",ring_PauseAudioStream_2);
 	RING_API_REGISTER("resumeaudiostream_2",ring_ResumeAudioStream_2);
@@ -18496,6 +18780,7 @@ RING_LIBINIT
 	RING_API_REGISTER("stopaudiostream_2",ring_StopAudioStream_2);
 	RING_API_REGISTER("setaudiostreamvolume_2",ring_SetAudioStreamVolume_2);
 	RING_API_REGISTER("setaudiostreampitch_2",ring_SetAudioStreamPitch_2);
+	RING_API_REGISTER("setaudiostreampan_2",ring_SetAudioStreamPan_2);
 	RING_API_REGISTER("guienable",ring_GuiEnable);
 	RING_API_REGISTER("guidisable",ring_GuiDisable);
 	RING_API_REGISTER("guilock",ring_GuiLock);

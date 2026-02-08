@@ -906,6 +906,9 @@ func LoadWave fileName
 	oWave.setData( LoadWave_2(fileName) )
 	return oWave
 
+func IsWaveReady wave
+	return IsWaveReady_2(GPData(wave))
+
 func LoadWaveEx data, sampleCount, sampleRate, sampleSize, channels
 	oWave = new Wave
 	oWave.setData( LoadWaveEx_2(data, sampleCount, sampleRate, sampleSize, channels) )
@@ -913,6 +916,9 @@ func LoadWaveEx data, sampleCount, sampleRate, sampleSize, channels
 
 func LoadSound fileName
 	return LoadSound_2(fileName)
+
+func IsSoundReady sound
+	return IsSoundReady_2(GPData(sound))
 
 func UpdateSound sound, data, samplesCount
 	return UpdateSound_2(GPData(sound), data, samplesCount)
@@ -949,6 +955,12 @@ func SetSoundVolume sound, volume
 
 func SetSoundPitch sound, pitch
 	return SetSoundPitch_2(GPData(sound), pitch)
+
+func SetSoundPan sound, pan
+	return SetSoundPan_2(GPData(sound), pan)
+
+func LoadWaveSamples wave
+	return LoadWaveSamples_2(GPData(wave))
 
 func WaveFormat wave, sampleRate, sampleSize, channels
 	return WaveFormat_2(GPData(wave), sampleRate, sampleSize, channels)
@@ -1513,10 +1525,29 @@ func BeginShaderMode shader
 func SetVrConfiguration info, distortion
 	return SetVrConfiguration_2( GPData(info), GPData(distortion) )
 
+func LoadVrStereoConfig device
+	oConfig = new VrStereoConfig
+	oConfig.setData(LoadVrStereoConfig_2( GPData(device) ))
+	return oConfig
+
+func UnloadVrStereoConfig config
+	return UnloadVrStereoConfig_2( GPData(config) )
+
+func BeginVrStereoMode config
+	return BeginVrStereoMode_2( GPData(config) )
+
 func LoadMusicStream fileName
 	oMusic = new Music
 	oMusic.setData(LoadMusicStream_2( fileName ))
 	return oMusic
+
+func LoadMusicStreamFromMemory fileType, data, dataSize
+	oMusic = new Music
+	oMusic.setData(LoadMusicStreamFromMemory_2( fileType, data, dataSize ))
+	return oMusic
+
+func IsMusicReady music
+	return IsMusicReady_2( GPData(music) )
 
 func UnloadMusicStream music
 	return UnloadMusicStream_2( GPData(music) )
@@ -1545,6 +1576,12 @@ func SetMusicVolume music, volume
 func SetMusicPitch music, pitch
 	return SetMusicPitch_2( GPData(music), pitch )
 
+func SetMusicPan music, pan
+	return SetMusicPan_2( GPData(music), pan )
+
+func SeekMusicStream music, position
+	return SeekMusicStream_2( GPData(music), position )
+
 func SetMusicLoopCount music, count
 	return SetMusicLoopCount_2( GPData(music), count )
 
@@ -1559,8 +1596,22 @@ func InitAudioStream sampleRate, sampleSize, channels
 	oAudioStream.setData(InitAudioStream_2( sampleRate, sampleSize, channels ))
 	return oAudioStream
 
+func LoadAudioStream sampleRate, sampleSize, channels
+	oAudioStream = new AudioStream
+	oAudioStream.setData(LoadAudioStream_2( sampleRate, sampleSize, channels ))
+	return oAudioStream
+
+func IsAudioStreamReady stream
+	return IsAudioStreamReady_2( GPData(stream) )
+
+func UnloadAudioStream stream
+	return UnloadAudioStream_2( GPData(stream) )
+
 func UpdateAudioStream stream, data, samplesCount
 	return UpdateAudioStream_2( GPData(stream), data, samplesCount )
+
+func IsAudioStreamProcessed stream
+	return IsAudioStreamProcessed_2( GPData(stream) )
 
 func CloseAudioStream stream
 	return CloseAudioStream_2( GPData(stream) )
@@ -1588,6 +1639,9 @@ func SetAudioStreamVolume stream, volume
 
 func SetAudioStreamPitch stream, pitch
 	return SetAudioStreamPitch_2( GPData(stream), pitch )
+
+func SetAudioStreamPan stream, pan
+	return SetAudioStreamPan_2( GPData(stream), pan )
 
 func getimagepixelr p1, y, x, width 
 	return getimagepixelr_2(GPData(p1), y, x, width)

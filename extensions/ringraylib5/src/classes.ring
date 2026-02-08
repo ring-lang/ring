@@ -1017,6 +1017,18 @@ class VrDeviceInfo  from RayLibBase
 		lensSeparationDistance = raylib_get_VrDeviceInfo_lensSeparationDistance(oStruct)
 		interpupillaryDistance = raylib_get_VrDeviceInfo_interpupillaryDistance(oStruct)
 
+class VrStereoConfig
+
+	oData
+
+	func init 
+
+	func data 
+		return oData 
+
+	func setdata oStruct 
+		oData = oStruct  
+
 class RayCollision from RayLibBase
 
 	hit
