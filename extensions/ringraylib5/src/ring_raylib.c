@@ -6588,6 +6588,16 @@ RING_FUNC(ring_IsWindowReady)
 }
 
 
+RING_FUNC(ring_IsWindowFullscreen)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWindowFullscreen());
+}
+
+
 RING_FUNC(ring_IsWindowMinimized)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -6595,6 +6605,26 @@ RING_FUNC(ring_IsWindowMinimized)
 		return ;
 	}
 	RING_API_RETNUMBER(IsWindowMinimized());
+}
+
+
+RING_FUNC(ring_IsWindowMaximized)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWindowMaximized());
+}
+
+
+RING_FUNC(ring_IsWindowFocused)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWindowFocused());
 }
 
 
@@ -6618,6 +6648,48 @@ RING_FUNC(ring_IsWindowHidden)
 }
 
 
+RING_FUNC(ring_IsWindowState)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsWindowState( (unsigned int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_SetWindowState)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetWindowState( (unsigned int ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_ClearWindowState)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ClearWindowState( (unsigned int ) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_ToggleFullscreen)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -6625,6 +6697,46 @@ RING_FUNC(ring_ToggleFullscreen)
 		return ;
 	}
 	ToggleFullscreen();
+}
+
+
+RING_FUNC(ring_ToggleBorderlessWindowed)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	ToggleBorderlessWindowed();
+}
+
+
+RING_FUNC(ring_MaximizeWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	MaximizeWindow();
+}
+
+
+RING_FUNC(ring_MinimizeWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	MinimizeWindow();
+}
+
+
+RING_FUNC(ring_RestoreWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RestoreWindow();
 }
 
 
@@ -6637,6 +6749,24 @@ RING_FUNC(ring_SetWindowIcon_2)
 	SetWindowIcon(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+}
+
+
+RING_FUNC(ring_SetWindowIcons_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetWindowIcons((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2));
 }
 
 
@@ -6704,6 +6834,24 @@ RING_FUNC(ring_SetWindowMinSize)
 }
 
 
+RING_FUNC(ring_SetWindowMaxSize)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetWindowMaxSize( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
+
 RING_FUNC(ring_SetWindowSize)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -6719,6 +6867,30 @@ RING_FUNC(ring_SetWindowSize)
 		return ;
 	}
 	SetWindowSize( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_SetWindowOpacity)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetWindowOpacity( (float ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_SetWindowFocused)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SetWindowFocused();
 }
 
 
@@ -6752,6 +6924,26 @@ RING_FUNC(ring_GetScreenHeight)
 }
 
 
+RING_FUNC(ring_GetRenderWidth)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetRenderWidth());
+}
+
+
+RING_FUNC(ring_GetRenderHeight)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetRenderHeight());
+}
+
+
 RING_FUNC(ring_GetMonitorCount)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -6759,6 +6951,35 @@ RING_FUNC(ring_GetMonitorCount)
 		return ;
 	}
 	RING_API_RETNUMBER(GetMonitorCount());
+}
+
+
+RING_FUNC(ring_GetCurrentMonitor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetCurrentMonitor());
+}
+
+
+RING_FUNC(ring_GetMonitorPosition_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetMonitorPosition( (int ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
 }
 
 
@@ -6818,6 +7039,50 @@ RING_FUNC(ring_GetMonitorPhysicalHeight)
 }
 
 
+RING_FUNC(ring_GetMonitorRefreshRate)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetMonitorRefreshRate( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_GetWindowPosition_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetWindowPosition();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetWindowScaleDPI_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Vector2 *pValue ; 
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
+		*pValue = GetWindowScaleDPI();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
+	}
+}
+
+
 RING_FUNC(ring_GetMonitorName)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -6853,6 +7118,26 @@ RING_FUNC(ring_SetClipboardText)
 		return ;
 	}
 	SetClipboardText(RING_API_GETSTRING(1));
+}
+
+
+RING_FUNC(ring_EnableEventWaiting)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	EnableEventWaiting();
+}
+
+
+RING_FUNC(ring_DisableEventWaiting)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	DisableEventWaiting();
 }
 
 
@@ -10314,7 +10599,7 @@ RING_FUNC(ring_TextJoin)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(TextJoin((char **) RING_API_GETCPOINTER2POINTER(1,"char"), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)));
+	RING_API_RETSTRING(TextJoin((const char **) RING_API_GETCPOINTER2POINTER(1,"char"), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)));
 }
 
 
@@ -12788,7 +13073,7 @@ RING_FUNC(ring_GuiListViewEx_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(GuiListViewEx(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5),RING_API_GETINTPOINTER(6)));
+	RING_API_RETNUMBER(GuiListViewEx(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),(const char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5),RING_API_GETINTPOINTER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	RING_API_ACCEPTINTVALUE(4) ;
@@ -14743,27 +15028,50 @@ RING_LIBINIT
 	RING_API_REGISTER("windowshouldclose",ring_WindowShouldClose);
 	RING_API_REGISTER("closewindow",ring_CloseWindow);
 	RING_API_REGISTER("iswindowready",ring_IsWindowReady);
+	RING_API_REGISTER("iswindowfullscreen",ring_IsWindowFullscreen);
 	RING_API_REGISTER("iswindowminimized",ring_IsWindowMinimized);
+	RING_API_REGISTER("iswindowmaximized",ring_IsWindowMaximized);
+	RING_API_REGISTER("iswindowfocused",ring_IsWindowFocused);
 	RING_API_REGISTER("iswindowresized",ring_IsWindowResized);
 	RING_API_REGISTER("iswindowhidden",ring_IsWindowHidden);
+	RING_API_REGISTER("iswindowstate",ring_IsWindowState);
+	RING_API_REGISTER("setwindowstate",ring_SetWindowState);
+	RING_API_REGISTER("clearwindowstate",ring_ClearWindowState);
 	RING_API_REGISTER("togglefullscreen",ring_ToggleFullscreen);
+	RING_API_REGISTER("toggleborderlesswindowed",ring_ToggleBorderlessWindowed);
+	RING_API_REGISTER("maximizewindow",ring_MaximizeWindow);
+	RING_API_REGISTER("minimizewindow",ring_MinimizeWindow);
+	RING_API_REGISTER("restorewindow",ring_RestoreWindow);
 	RING_API_REGISTER("setwindowicon_2",ring_SetWindowIcon_2);
+	RING_API_REGISTER("setwindowicons_2",ring_SetWindowIcons_2);
 	RING_API_REGISTER("setwindowtitle",ring_SetWindowTitle);
 	RING_API_REGISTER("setwindowposition",ring_SetWindowPosition);
 	RING_API_REGISTER("setwindowmonitor",ring_SetWindowMonitor);
 	RING_API_REGISTER("setwindowminsize",ring_SetWindowMinSize);
+	RING_API_REGISTER("setwindowmaxsize",ring_SetWindowMaxSize);
 	RING_API_REGISTER("setwindowsize",ring_SetWindowSize);
+	RING_API_REGISTER("setwindowopacity",ring_SetWindowOpacity);
+	RING_API_REGISTER("setwindowfocused",ring_SetWindowFocused);
 	RING_API_REGISTER("getwindowhandle",ring_GetWindowHandle);
 	RING_API_REGISTER("getscreenwidth",ring_GetScreenWidth);
 	RING_API_REGISTER("getscreenheight",ring_GetScreenHeight);
+	RING_API_REGISTER("getrenderwidth",ring_GetRenderWidth);
+	RING_API_REGISTER("getrenderheight",ring_GetRenderHeight);
 	RING_API_REGISTER("getmonitorcount",ring_GetMonitorCount);
+	RING_API_REGISTER("getcurrentmonitor",ring_GetCurrentMonitor);
+	RING_API_REGISTER("getmonitorposition_2",ring_GetMonitorPosition_2);
 	RING_API_REGISTER("getmonitorwidth",ring_GetMonitorWidth);
 	RING_API_REGISTER("getmonitorheight",ring_GetMonitorHeight);
 	RING_API_REGISTER("getmonitorphysicalwidth",ring_GetMonitorPhysicalWidth);
 	RING_API_REGISTER("getmonitorphysicalheight",ring_GetMonitorPhysicalHeight);
+	RING_API_REGISTER("getmonitorrefreshrate",ring_GetMonitorRefreshRate);
+	RING_API_REGISTER("getwindowposition_2",ring_GetWindowPosition_2);
+	RING_API_REGISTER("getwindowscaledpi_2",ring_GetWindowScaleDPI_2);
 	RING_API_REGISTER("getmonitorname",ring_GetMonitorName);
 	RING_API_REGISTER("getclipboardtext",ring_GetClipboardText);
 	RING_API_REGISTER("setclipboardtext",ring_SetClipboardText);
+	RING_API_REGISTER("enableeventwaiting",ring_EnableEventWaiting);
+	RING_API_REGISTER("disableeventwaiting",ring_DisableEventWaiting);
 	RING_API_REGISTER("showcursor",ring_ShowCursor);
 	RING_API_REGISTER("hidecursor",ring_HideCursor);
 	RING_API_REGISTER("iscursorhidden",ring_IsCursorHidden);

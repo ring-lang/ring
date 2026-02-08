@@ -707,6 +707,24 @@ func DrawCubeTexture texture,position,width,height,length,color
 func SetWindowIcon image 
 	return SetWindowIcon_2( GPData(image) )
 
+func SetWindowIcons images, count
+	return SetWindowIcons_2( GPData(images), count )
+
+func GetMonitorPosition monitor
+	oVector2 = new Vector2
+	oVector2.setData( GetMonitorPosition_2(monitor) )
+	return oVector2
+
+func GetWindowPosition
+	oVector2 = new Vector2
+	oVector2.setData( GetWindowPosition_2() )
+	return oVector2
+
+func GetWindowScaleDPI
+	oVector2 = new Vector2
+	oVector2.setData( GetWindowScaleDPI_2() )
+	return oVector2
+
 func BeginTextureMode target
 	return BeginTextureMode_2( GPData(target) )
 
