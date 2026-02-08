@@ -496,8 +496,63 @@ func ImageDraw dst, src,  srcRec,  dstRec
 	UOData(src)
 	return
 
+func ImageClearBackground dst, color
+	ImageClearBackground_2(GPData(dst), GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawPixel dst, posX, posY, color
+	ImageDrawPixel_2(GPData(dst), posX, posY, GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawPixelV dst, position, color
+	ImageDrawPixelV_2(GPData(dst), GPData(position), GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawLine dst, startPosX, startPosY, endPosX, endPosY, color
+	ImageDrawLine_2(GPData(dst), startPosX, startPosY, endPosX, endPosY, GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawLineV dst, start, endPos, color
+	ImageDrawLineV_2(GPData(dst), GPData(start), GPData(endPos), GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawCircle dst, centerX, centerY, radius, color
+	ImageDrawCircle_2(GPData(dst), centerX, centerY, radius, GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawCircleV dst, center, radius, color
+	ImageDrawCircleV_2(GPData(dst), GPData(center), radius, GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawCircleLines dst, centerX, centerY, radius, color
+	ImageDrawCircleLines_2(GPData(dst), centerX, centerY, radius, GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawCircleLinesV dst, center, radius, color
+	ImageDrawCircleLinesV_2(GPData(dst), GPData(center), radius, GPData(color))
+	UOData(dst)
+	return
+
 func ImageDrawRectangle dst, rec, color
-	return ImageDrawRectangle_2(GPData(dst), GPData(rec), GPData(color))
+	return ImageDrawRectangleRec_2(GPData(dst), GPData(rec), GPData(color))
+
+func ImageDrawRectangleV dst, position, size, color
+	ImageDrawRectangleV_2(GPData(dst), GPData(position), GPData(size), GPData(color))
+	UOData(dst)
+	return
+
+func ImageDrawRectangleRec dst, rec, color
+	ImageDrawRectangleRec_2(GPData(dst), GPData(rec), GPData(color))
+	UOData(dst)
+	return
 
 func ImageDrawRectangleLines dst, rec, thick, color
 	return ImageDrawRectangleLines_2(GPData(dst), GPData(rec), thick, GPData(color))
@@ -660,6 +715,37 @@ func LoadImageRaw(fileName, width, height, format, headerSize)
 	oImage.setData(LoadImageRaw_2(fileName, width, height, format, headerSize))
 	return oImage
 
+func LoadImageSvg fileNameOrString, width, height
+	oImage = new Image
+	oImage.setData(LoadImageSvg_2(fileNameOrString, width, height))
+	return oImage
+
+func LoadImageAnim fileName, frames
+	oImage = new Image
+	oImage.setData(LoadImageAnim_2(fileName, frames))
+	return oImage
+
+func LoadImageFromMemory fileType, fileData, dataSize
+	oImage = new Image
+	oImage.setData(LoadImageFromMemory_2(fileType, fileData, dataSize))
+	return oImage
+
+func LoadImageFromTexture texture
+	oImage = new Image
+	oImage.setData(LoadImageFromTexture_2(GPData(texture)))
+	return oImage
+
+func LoadImageFromScreen
+	oImage = new Image
+	oImage.setData(LoadImageFromScreen_2())
+	return oImage
+
+func IsImageReady image
+	return IsImageReady_2(GPData(image))
+
+func ExportImageToMemory image, fileType, fileSize
+	return ExportImageToMemory_2(GPData(image), fileType, fileSize)
+
 func ImageFlipVertical image
 	ImageFlipVertical_2(GPData(image))
 	UOData(image)
@@ -710,11 +796,45 @@ func ImageColorReplace image, color, replace
 	UOData(image)
 	return 
 
+func ImageFromImage image, rec
+	oImage = new Image
+	oImage.setData( ImageFromImage_2(GPData(image), GPData(rec)) )
+	return oImage
+
+func ImageBlurGaussian image, blurSize
+	ImageBlurGaussian_2(GPData(image), blurSize)
+	UOData(image)
+	return
+
+func ImageRotate image, degrees
+	ImageRotate_2(GPData(image), degrees)
+	UOData(image)
+	return
+
+func LoadImagePalette image, maxPaletteSize, colorCount
+	return LoadImagePalette_2(GPData(image), maxPaletteSize, colorCount)
+
+func GetImageAlphaBorder image, threshold
+	oRectangle = new Rectangle
+	oRectangle.setData( GetImageAlphaBorder_2(GPData(image), threshold) )
+	return oRectangle
+
+func GetImageColor image, x, y
+	oColor = new Color
+	oColor.setData( GetImageColor_2(GPData(image), x, y) )
+	return oColor
+
 func UnloadImage image
 	return UnloadImage_2(GPData(image))
 
 func UnloadTexture texture
 	return UnloadTexture_2(GPData(texture))
+
+func IsTextureReady texture
+	return IsTextureReady_2(GPData(texture))
+
+func IsRenderTextureReady target
+	return IsRenderTextureReady_2(GPData(target))
 
 func ImageResize image, newWidth, newHeight
 	ImageResize_2(GPData(image), newWidth, newHeight)
@@ -724,8 +844,8 @@ func ImageResize image, newWidth, newHeight
 func DrawTexture texture, posX, posY, tint
 	return DrawTexture_2( GPData(texture),  posX,  posY, GPData(tint) )
 
-func ImageDrawText dst, position, text, fontSize, color
-	ImageDrawText_2(GPData(dst), GPData(position), text, fontSize, GPData(color))
+func ImageDrawText dst, text, posX, posY, fontSize, color
+	ImageDrawText_2(GPData(dst), text, posX, posY, fontSize, GPData(color))
 	UOData(dst)
 	return
 
@@ -888,6 +1008,39 @@ func Fade color, alpha
 	oColor.setData( Fade_2( GPData(color), alpha )  )
 	return oColor 
 
+func ColorFromNormalized normalized
+	oColor = new Color
+	oColor.setData( ColorFromNormalized_2(GPData(normalized)) )
+	return oColor
+
+func ColorTint color, tint
+	oColor = new Color
+	oColor.setData( ColorTint_2(GPData(color), GPData(tint)) )
+	return oColor
+
+func ColorBrightness color, factor
+	oColor = new Color
+	oColor.setData( ColorBrightness_2(GPData(color), factor) )
+	return oColor
+
+func ColorContrast color, contrast
+	oColor = new Color
+	oColor.setData( ColorContrast_2(GPData(color), contrast) )
+	return oColor
+
+func ColorAlpha color, alpha
+	oColor = new Color
+	oColor.setData( ColorAlpha_2(GPData(color), alpha) )
+	return oColor
+
+func ColorAlphaBlend dst, src, tint
+	oColor = new Color
+	oColor.setData( ColorAlphaBlend_2(GPData(dst), GPData(src), GPData(tint)) )
+	return oColor
+
+func SetPixelColor dstPtr, color, format
+	return SetPixelColor_2(dstPtr, GPData(color), format)
+
 func GetGestureDragVector 
 	oVector2 = new Vector2 
 	oVector2.setData( GetGestureDragVector_2() )
@@ -965,6 +1118,9 @@ func GetScreenData
 
 func UpdateTexture texture, pixels 
 	return UpdateTexture_2( GPData(texture), pixels )
+
+func UpdateTextureRec texture, rec, pixels
+	return UpdateTextureRec_2( GPData(texture), GPData(rec), pixels )
 
 func ImageCopy image
 	oImage = new Image 

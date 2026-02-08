@@ -7839,6 +7839,169 @@ RING_FUNC(ring_Fade_2)
 }
 
 
+RING_FUNC(ring_ColorFromNormalized_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = ColorFromNormalized(* (Vector4  *) RING_API_GETCPOINTER(1,"Vector4"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector4"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_ColorTint_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = ColorTint(* (Color  *) RING_API_GETCPOINTER(1,"Color"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_ColorBrightness_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = ColorBrightness(* (Color  *) RING_API_GETCPOINTER(1,"Color"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_ColorContrast_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = ColorContrast(* (Color  *) RING_API_GETCPOINTER(1,"Color"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_ColorAlpha_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = ColorAlpha(* (Color  *) RING_API_GETCPOINTER(1,"Color"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_ColorAlphaBlend_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = ColorAlphaBlend(* (Color  *) RING_API_GETCPOINTER(1,"Color"),* (Color  *) RING_API_GETCPOINTER(2,"Color"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetPixelColor)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = GetPixelColor((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_SetPixelColor_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetPixelColor((void *) RING_API_GETCPOINTER(1,"void"),* (Color  *) RING_API_GETCPOINTER(2,"Color"), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
+}
+
+
 RING_FUNC(ring_SetConfigFlags)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -10139,6 +10302,163 @@ RING_FUNC(ring_LoadImage_2)
 }
 
 
+RING_FUNC(ring_LoadImageRaw_2)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = LoadImageRaw(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_LoadImageSvg_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = LoadImageSvg(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_LoadImageAnim_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = LoadImageAnim(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
+
+RING_FUNC(ring_LoadImageFromMemory_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = LoadImageFromMemory(RING_API_GETSTRING(1),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_LoadImageFromTexture_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = LoadImageFromTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_LoadImageFromScreen_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = LoadImageFromScreen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_IsImageReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsImageReady(* (Image  *) RING_API_GETCPOINTER(1,"Image")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+}
+
+
 RING_FUNC(ring_ExportImage_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -10168,6 +10488,27 @@ RING_FUNC(ring_ExportImageAsCode_2)
 	ExportImageAsCode(* (Image  *) RING_API_GETCPOINTER(1,"Image"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+}
+
+
+RING_FUNC(ring_ExportImageToMemory_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(ExportImageToMemory(* (Image  *) RING_API_GETCPOINTER(1,"Image"),RING_API_GETSTRING(2),RING_API_GETINTPOINTER(3)),"unsigned char");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+	RING_API_ACCEPTINTVALUE(3) ;
 }
 
 
@@ -10287,6 +10628,30 @@ RING_FUNC(ring_UnloadRenderTexture_2)
 }
 
 
+RING_FUNC(ring_IsTextureReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsTextureReady(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
+}
+
+
+RING_FUNC(ring_IsRenderTextureReady_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsRenderTextureReady(* (RenderTexture2D  *) RING_API_GETCPOINTER(1,"RenderTexture2D")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"RenderTexture2D"));
+}
+
+
 RING_FUNC(ring_LoadImageColors_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -10334,6 +10699,24 @@ RING_FUNC(ring_UpdateTexture_2)
 	UpdateTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),(void *) RING_API_GETCPOINTER(2,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
+}
+
+
+RING_FUNC(ring_UpdateTextureRec_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UpdateTextureRec(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),(void *) RING_API_GETCPOINTER(3,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 }
 
 
@@ -10702,6 +11085,340 @@ RING_FUNC(ring_ImageDrawTextEx_2)
 }
 
 
+RING_FUNC(ring_ImageClearBackground_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageClearBackground((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawPixel_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawPixel((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawPixelV_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawPixelV((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawLine_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawLine((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawLineV_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawLineV((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawCircle_2)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawCircle((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawCircleV_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawCircleV((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawCircleLines_2)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawCircleLines((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawCircleLinesV_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawCircleLinesV((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawRectangle_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawRectangle((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawRectangleV_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawRectangleV((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawRectangleRec_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawRectangleRec((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawRectangleLines_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawRectangleLines((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawText_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawText((Image *) RING_API_GETCPOINTER(1,"Image"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
+}
+
+
 RING_FUNC(ring_ImageFlipVertical_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -10853,6 +11570,156 @@ RING_FUNC(ring_ImageColorReplace_2)
 		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
+}
+
+
+RING_FUNC(ring_ImageFromImage_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = ImageFromImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_ImageBlurGaussian_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageBlurGaussian((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_ImageRotate_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageRotate((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_LoadImagePalette_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(LoadImagePalette(* (Image  *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)),"Color");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_UnloadImageColors)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadImageColors((Color *) RING_API_GETCPOINTER(1,"Color"));
+}
+
+
+RING_FUNC(ring_UnloadImagePalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadImagePalette((Color *) RING_API_GETCPOINTER(1,"Color"));
+}
+
+
+RING_FUNC(ring_GetImageAlphaBorder_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Rectangle *pValue ; 
+		pValue = (Rectangle *) RING_API_MALLOC(sizeof(Rectangle)) ;
+		*pValue = GetImageAlphaBorder(* (Image  *) RING_API_GETCPOINTER(1,"Image"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Rectangle",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_GetImageColor_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Color *pValue ; 
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
+		*pValue = GetImageColor(* (Image  *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
+	}
 }
 
 
@@ -16309,6 +17176,14 @@ RING_LIBINIT
 	RING_API_REGISTER("colorfromhsv_2",ring_ColorFromHSV_2);
 	RING_API_REGISTER("getcolor",ring_GetColor);
 	RING_API_REGISTER("fade_2",ring_Fade_2);
+	RING_API_REGISTER("colorfromnormalized_2",ring_ColorFromNormalized_2);
+	RING_API_REGISTER("colortint_2",ring_ColorTint_2);
+	RING_API_REGISTER("colorbrightness_2",ring_ColorBrightness_2);
+	RING_API_REGISTER("colorcontrast_2",ring_ColorContrast_2);
+	RING_API_REGISTER("coloralpha_2",ring_ColorAlpha_2);
+	RING_API_REGISTER("coloralphablend_2",ring_ColorAlphaBlend_2);
+	RING_API_REGISTER("getpixelcolor",ring_GetPixelColor);
+	RING_API_REGISTER("setpixelcolor_2",ring_SetPixelColor_2);
 	RING_API_REGISTER("setconfigflags",ring_SetConfigFlags);
 	RING_API_REGISTER("settracelogcallback",ring_SetTraceLogCallback);
 	RING_API_REGISTER("tracelog",ring_TraceLog);
@@ -16434,8 +17309,16 @@ RING_LIBINIT
 	RING_API_REGISTER("checkcollisionlines_2",ring_CheckCollisionLines_2);
 	RING_API_REGISTER("checkcollisionpointline_2",ring_CheckCollisionPointLine_2);
 	RING_API_REGISTER("loadimage_2",ring_LoadImage_2);
+	RING_API_REGISTER("loadimageraw_2",ring_LoadImageRaw_2);
+	RING_API_REGISTER("loadimagesvg_2",ring_LoadImageSvg_2);
+	RING_API_REGISTER("loadimageanim_2",ring_LoadImageAnim_2);
+	RING_API_REGISTER("loadimagefrommemory_2",ring_LoadImageFromMemory_2);
+	RING_API_REGISTER("loadimagefromtexture_2",ring_LoadImageFromTexture_2);
+	RING_API_REGISTER("loadimagefromscreen_2",ring_LoadImageFromScreen_2);
+	RING_API_REGISTER("isimageready_2",ring_IsImageReady_2);
 	RING_API_REGISTER("exportimage_2",ring_ExportImage_2);
 	RING_API_REGISTER("exportimageascode_2",ring_ExportImageAsCode_2);
+	RING_API_REGISTER("exportimagetomemory_2",ring_ExportImageToMemory_2);
 	RING_API_REGISTER("loadtexture_2",ring_LoadTexture_2);
 	RING_API_REGISTER("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
 	RING_API_REGISTER("loadtexturecubemap",ring_LoadTextureCubemap);
@@ -16443,9 +17326,12 @@ RING_LIBINIT
 	RING_API_REGISTER("unloadimage_2",ring_UnloadImage_2);
 	RING_API_REGISTER("unloadtexture_2",ring_UnloadTexture_2);
 	RING_API_REGISTER("unloadrendertexture_2",ring_UnloadRenderTexture_2);
+	RING_API_REGISTER("istextureready_2",ring_IsTextureReady_2);
+	RING_API_REGISTER("isrendertextureready_2",ring_IsRenderTextureReady_2);
 	RING_API_REGISTER("loadimagecolors_2",ring_LoadImageColors_2);
 	RING_API_REGISTER("getpixeldatasize",ring_GetPixelDataSize);
 	RING_API_REGISTER("updatetexture_2",ring_UpdateTexture_2);
+	RING_API_REGISTER("updatetexturerec_2",ring_UpdateTextureRec_2);
 	RING_API_REGISTER("imagecopy_2",ring_ImageCopy_2);
 	RING_API_REGISTER("imagetopot_2",ring_ImageToPOT_2);
 	RING_API_REGISTER("imageformat_2",ring_ImageFormat_2);
@@ -16463,6 +17349,20 @@ RING_LIBINIT
 	RING_API_REGISTER("imagetextex_2",ring_ImageTextEx_2);
 	RING_API_REGISTER("imagedraw_2",ring_ImageDraw_2);
 	RING_API_REGISTER("imagedrawtextex_2",ring_ImageDrawTextEx_2);
+	RING_API_REGISTER("imageclearbackground_2",ring_ImageClearBackground_2);
+	RING_API_REGISTER("imagedrawpixel_2",ring_ImageDrawPixel_2);
+	RING_API_REGISTER("imagedrawpixelv_2",ring_ImageDrawPixelV_2);
+	RING_API_REGISTER("imagedrawline_2",ring_ImageDrawLine_2);
+	RING_API_REGISTER("imagedrawlinev_2",ring_ImageDrawLineV_2);
+	RING_API_REGISTER("imagedrawcircle_2",ring_ImageDrawCircle_2);
+	RING_API_REGISTER("imagedrawcirclev_2",ring_ImageDrawCircleV_2);
+	RING_API_REGISTER("imagedrawcirclelines_2",ring_ImageDrawCircleLines_2);
+	RING_API_REGISTER("imagedrawcirclelinesv_2",ring_ImageDrawCircleLinesV_2);
+	RING_API_REGISTER("imagedrawrectangle_2",ring_ImageDrawRectangle_2);
+	RING_API_REGISTER("imagedrawrectanglev_2",ring_ImageDrawRectangleV_2);
+	RING_API_REGISTER("imagedrawrectanglerec_2",ring_ImageDrawRectangleRec_2);
+	RING_API_REGISTER("imagedrawrectanglelines_2",ring_ImageDrawRectangleLines_2);
+	RING_API_REGISTER("imagedrawtext_2",ring_ImageDrawText_2);
 	RING_API_REGISTER("imageflipvertical_2",ring_ImageFlipVertical_2);
 	RING_API_REGISTER("imagefliphorizontal_2",ring_ImageFlipHorizontal_2);
 	RING_API_REGISTER("imagerotatecw_2",ring_ImageRotateCW_2);
@@ -16473,6 +17373,14 @@ RING_LIBINIT
 	RING_API_REGISTER("imagecolorcontrast_2",ring_ImageColorContrast_2);
 	RING_API_REGISTER("imagecolorbrightness_2",ring_ImageColorBrightness_2);
 	RING_API_REGISTER("imagecolorreplace_2",ring_ImageColorReplace_2);
+	RING_API_REGISTER("imagefromimage_2",ring_ImageFromImage_2);
+	RING_API_REGISTER("imageblurgaussian_2",ring_ImageBlurGaussian_2);
+	RING_API_REGISTER("imagerotate_2",ring_ImageRotate_2);
+	RING_API_REGISTER("loadimagepalette_2",ring_LoadImagePalette_2);
+	RING_API_REGISTER("unloadimagecolors",ring_UnloadImageColors);
+	RING_API_REGISTER("unloadimagepalette",ring_UnloadImagePalette);
+	RING_API_REGISTER("getimagealphaborder_2",ring_GetImageAlphaBorder_2);
+	RING_API_REGISTER("getimagecolor_2",ring_GetImageColor_2);
 	RING_API_REGISTER("genimagecolor_2",ring_GenImageColor_2);
 	RING_API_REGISTER("genimagegradientlinear",ring_GenImageGradientLinear);
 	RING_API_REGISTER("genimagegradientradial",ring_GenImageGradientRadial);
