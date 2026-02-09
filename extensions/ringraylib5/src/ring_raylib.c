@@ -8142,6 +8142,40 @@ RING_FUNC(ring_GetTime)
 }
 
 
+RING_FUNC(ring_WaitTime)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	WaitTime( (double ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_PollInputEvents)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	PollInputEvents();
+}
+
+
+RING_FUNC(ring_SwapScreenBuffer)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	SwapScreenBuffer();
+}
+
+
 RING_FUNC(ring_ColorToInt_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -12783,6 +12817,33 @@ RING_FUNC(ring_GenImageCellular_2)
 }
 
 
+RING_FUNC(ring_GenImageText_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Image *pValue ; 
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
+		*pValue = GenImageText( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
+	}
+}
+
+
 RING_FUNC(ring_GenTextureMipmaps_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -13158,6 +13219,22 @@ RING_FUNC(ring_UnloadFont_2)
 		return ;
 	}
 	UnloadFont(* (Font  *) RING_API_GETCPOINTER(1,"Font"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
+}
+
+
+RING_FUNC(ring_ExportFontAsCode_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(ExportFontAsCode(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 }
@@ -13698,6 +13775,24 @@ RING_FUNC(ring_TextToInteger)
 		return ;
 	}
 	RING_API_RETNUMBER(TextToInteger(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_TextCopy)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TextCopy(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 }
 
 
@@ -14673,6 +14768,24 @@ RING_FUNC(ring_IsModelAnimationValid_2)
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"ModelAnimation"));
+}
+
+
+RING_FUNC(ring_UnloadModelAnimations_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadModelAnimations((ModelAnimation *) RING_API_GETCPOINTER(1,"ModelAnimation"), (int ) RING_API_GETNUMBER(2));
 }
 
 
@@ -15704,6 +15817,16 @@ RING_FUNC(ring_SetMasterVolume)
 }
 
 
+RING_FUNC(ring_GetMasterVolume)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(GetMasterVolume());
+}
+
+
 RING_FUNC(ring_LoadWave_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -15732,6 +15855,33 @@ RING_FUNC(ring_IsWaveReady_2)
 	RING_API_RETNUMBER(IsWaveReady(* (Wave  *) RING_API_GETCPOINTER(1,"Wave")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
+}
+
+
+RING_FUNC(ring_LoadWaveFromMemory_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Wave *pValue ; 
+		pValue = (Wave *) RING_API_MALLOC(sizeof(Wave)) ;
+		*pValue = LoadWaveFromMemory(RING_API_GETSTRING(1),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",RING_API_FREEFUNC);
+	}
 }
 
 
@@ -15778,6 +15928,35 @@ RING_FUNC(ring_IsSoundReady_2)
 		return ;
 	}
 	RING_API_RETNUMBER(IsSoundReady(* (Sound  *) RING_API_GETCPOINTER(1,"Sound")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
+}
+
+
+RING_FUNC(ring_LoadSoundAlias_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Sound *pValue ; 
+		pValue = (Sound *) RING_API_MALLOC(sizeof(Sound)) ;
+		*pValue = LoadSoundAlias(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_UnloadSoundAlias_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	UnloadSoundAlias(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
@@ -16111,6 +16290,18 @@ RING_FUNC(ring_IsMusicReady_2)
 		return ;
 	}
 	RING_API_RETNUMBER(IsMusicReady(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
+}
+
+
+RING_FUNC(ring_IsMusicStreamPlaying_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(IsMusicStreamPlaying(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
@@ -16464,6 +16655,20 @@ RING_FUNC(ring_SetAudioStreamPan_2)
 	SetAudioStreamPan(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
+}
+
+
+RING_FUNC(ring_SetAudioStreamBufferSizeDefault)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetAudioStreamBufferSizeDefault( (int ) RING_API_GETNUMBER(1));
 }
 
 
@@ -19003,6 +19208,9 @@ RING_LIBINIT
 	RING_API_REGISTER("getfps",ring_GetFPS);
 	RING_API_REGISTER("getframetime",ring_GetFrameTime);
 	RING_API_REGISTER("gettime",ring_GetTime);
+	RING_API_REGISTER("waittime",ring_WaitTime);
+	RING_API_REGISTER("pollinputevents",ring_PollInputEvents);
+	RING_API_REGISTER("swapscreenbuffer",ring_SwapScreenBuffer);
 	RING_API_REGISTER("colortoint_2",ring_ColorToInt_2);
 	RING_API_REGISTER("colornormalize_2",ring_ColorNormalize_2);
 	RING_API_REGISTER("colortohsv_2",ring_ColorToHSV_2);
@@ -19246,6 +19454,7 @@ RING_LIBINIT
 	RING_API_REGISTER("genimagewhitenoise_2",ring_GenImageWhiteNoise_2);
 	RING_API_REGISTER("genimageperlinnoise_2",ring_GenImagePerlinNoise_2);
 	RING_API_REGISTER("genimagecellular_2",ring_GenImageCellular_2);
+	RING_API_REGISTER("genimagetext_2",ring_GenImageText_2);
 	RING_API_REGISTER("gentexturemipmaps_2",ring_GenTextureMipmaps_2);
 	RING_API_REGISTER("settexturefilter_2",ring_SetTextureFilter_2);
 	RING_API_REGISTER("settexturewrap_2",ring_SetTextureWrap_2);
@@ -19264,6 +19473,7 @@ RING_LIBINIT
 	RING_API_REGISTER("loadfontdata_2",ring_LoadFontData_2);
 	RING_API_REGISTER("unloadfontdata",ring_UnloadFontData);
 	RING_API_REGISTER("unloadfont_2",ring_UnloadFont_2);
+	RING_API_REGISTER("exportfontascode_2",ring_ExportFontAsCode_2);
 	RING_API_REGISTER("drawfps",ring_DrawFPS);
 	RING_API_REGISTER("drawtext",ring_DrawText);
 	RING_API_REGISTER("drawtextex_2",ring_DrawTextEx_2);
@@ -19290,6 +19500,7 @@ RING_LIBINIT
 	RING_API_REGISTER("texttolower",ring_TextToLower);
 	RING_API_REGISTER("texttopascal",ring_TextToPascal);
 	RING_API_REGISTER("texttointeger",ring_TextToInteger);
+	RING_API_REGISTER("textcopy",ring_TextCopy);
 	RING_API_REGISTER("loadutf8",ring_LoadUTF8);
 	RING_API_REGISTER("unloadutf8",ring_UnloadUTF8);
 	RING_API_REGISTER("loadcodepoints",ring_LoadCodepoints);
@@ -19341,6 +19552,7 @@ RING_LIBINIT
 	RING_API_REGISTER("updatemodelanimation_2",ring_UpdateModelAnimation_2);
 	RING_API_REGISTER("unloadmodelanimation_2",ring_UnloadModelAnimation_2);
 	RING_API_REGISTER("ismodelanimationvalid_2",ring_IsModelAnimationValid_2);
+	RING_API_REGISTER("unloadmodelanimations_2",ring_UnloadModelAnimations_2);
 	RING_API_REGISTER("genmeshpoly_2",ring_GenMeshPoly_2);
 	RING_API_REGISTER("genmeshplane_2",ring_GenMeshPlane_2);
 	RING_API_REGISTER("genmeshcube_2",ring_GenMeshCube_2);
@@ -19394,11 +19606,15 @@ RING_LIBINIT
 	RING_API_REGISTER("closeaudiodevice",ring_CloseAudioDevice);
 	RING_API_REGISTER("isaudiodeviceready",ring_IsAudioDeviceReady);
 	RING_API_REGISTER("setmastervolume",ring_SetMasterVolume);
+	RING_API_REGISTER("getmastervolume",ring_GetMasterVolume);
 	RING_API_REGISTER("loadwave_2",ring_LoadWave_2);
 	RING_API_REGISTER("iswaveready_2",ring_IsWaveReady_2);
+	RING_API_REGISTER("loadwavefrommemory_2",ring_LoadWaveFromMemory_2);
 	RING_API_REGISTER("loadsound_2",ring_LoadSound_2);
 	RING_API_REGISTER("loadsoundfromwave_2",ring_LoadSoundFromWave_2);
 	RING_API_REGISTER("issoundready_2",ring_IsSoundReady_2);
+	RING_API_REGISTER("loadsoundalias_2",ring_LoadSoundAlias_2);
+	RING_API_REGISTER("unloadsoundalias_2",ring_UnloadSoundAlias_2);
 	RING_API_REGISTER("updatesound_2",ring_UpdateSound_2);
 	RING_API_REGISTER("unloadwave_2",ring_UnloadWave_2);
 	RING_API_REGISTER("unloadsound_2",ring_UnloadSound_2);
@@ -19420,6 +19636,7 @@ RING_LIBINIT
 	RING_API_REGISTER("loadmusicstream_2",ring_LoadMusicStream_2);
 	RING_API_REGISTER("loadmusicstreamfrommemory_2",ring_LoadMusicStreamFromMemory_2);
 	RING_API_REGISTER("ismusicready_2",ring_IsMusicReady_2);
+	RING_API_REGISTER("ismusicstreamplaying_2",ring_IsMusicStreamPlaying_2);
 	RING_API_REGISTER("unloadmusicstream_2",ring_UnloadMusicStream_2);
 	RING_API_REGISTER("playmusicstream_2",ring_PlayMusicStream_2);
 	RING_API_REGISTER("updatemusicstream_2",ring_UpdateMusicStream_2);
@@ -19445,6 +19662,7 @@ RING_LIBINIT
 	RING_API_REGISTER("setaudiostreamvolume_2",ring_SetAudioStreamVolume_2);
 	RING_API_REGISTER("setaudiostreampitch_2",ring_SetAudioStreamPitch_2);
 	RING_API_REGISTER("setaudiostreampan_2",ring_SetAudioStreamPan_2);
+	RING_API_REGISTER("setaudiostreambuffersizedefault",ring_SetAudioStreamBufferSizeDefault);
 	RING_API_REGISTER("guienable",ring_GuiEnable);
 	RING_API_REGISTER("guidisable",ring_GuiDisable);
 	RING_API_REGISTER("guilock",ring_GuiLock);
