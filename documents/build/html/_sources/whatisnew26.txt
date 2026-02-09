@@ -201,6 +201,11 @@ Better RingQt
 * QRubberBand
 * QSplitterHandle
 * QSizeGrip
+* QSqlQueryModel
+* QSqlTableModel
+* QSqlRelation
+* QSqlRelationalTableModel
+* QSqlRelationalDelegate
 
 (2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
 
