@@ -1271,7 +1271,18 @@ func GetFontDefault
 
 func LoadFontEx fileName, fontSize, fontChars, charsCount
 	oFont = new Font 
-	oFont.setData(LoadFontEx_2( fileName, fontSize, fontChars, charsCount ) )
+	if fontChars = 0 or fontChars = NULL
+		# Default character set: ASCII 32-126 (95 printable characters)
+		cDefault = " "
+		for i = 33 to 126
+			cDefault += char(i)
+		next
+		pCodepoints = LoadCodepoints(cDefault, 0)
+		oFont.setData(LoadFontEx_2( fileName, fontSize, pCodepoints, 95 ) )
+		UnloadCodepoints(pCodepoints)
+	else
+		oFont.setData(LoadFontEx_2( fileName, fontSize, fontChars, charsCount ) )
+	ok
 	return oFont
 
 func LoadFontFromImage image, key, firstChar
