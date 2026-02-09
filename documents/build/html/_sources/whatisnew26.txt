@@ -189,6 +189,18 @@ Better RingQt
 * QStaticText
 * QPageSize
 * QPageLayout
+* QShortcut
+* QProgressDialog
+* QToolBox
+* QWizard
+* QWizardPage
+* QUndoCommand
+* QSizePolicy
+* QErrorMessage
+* QCommandLinkButton
+* QRubberBand
+* QSplitterHandle
+* QSizeGrip
 
 (2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
 
