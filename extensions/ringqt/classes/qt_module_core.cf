@@ -76,7 +76,4 @@
 <loadfile> core/qmarginsf.cf
 <loadfile> core/qsettings.cf
 <loadfile> core/qdatastream.cf
-<loadfile> core/qstandarditemmodel.cf
-<loadfile> core/qstandarditem.cf
 <loadfile> core/qsortfilterproxymodel.cf
-<loadfile> core/qitemselectionmodel.cf

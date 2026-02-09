@@ -5419,6 +5419,363 @@ Class QMargins
 	Func setTop P1
 		return QMargins_setTop(pObject,P1)
 
+Class QMarginsF
+
+	pObject
+
+	Func init 
+		pObject = QMarginsF_new()
+		return self
+
+	Func delete
+		pObject = QMarginsF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QMarginsF_bottom(pObject)
+
+	Func isNull 
+		return QMarginsF_isNull(pObject)
+
+	Func left 
+		return QMarginsF_left(pObject)
+
+	Func right 
+		return QMarginsF_right(pObject)
+
+	Func top 
+		return QMarginsF_top(pObject)
+
+	Func setBottom P1
+		return QMarginsF_setBottom(pObject,P1)
+
+	Func setLeft P1
+		return QMarginsF_setLeft(pObject,P1)
+
+	Func setRight P1
+		return QMarginsF_setRight(pObject,P1)
+
+	Func setTop P1
+		return QMarginsF_setTop(pObject,P1)
+
+	Func toMargins 
+		pTempObj = new QMargins
+		pTempObj.pObject = QMarginsF_toMargins(pObject)
+		return pTempObj
+
+Class QSettings from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QSettings_new(P1,P2)
+		return self
+
+	Func delete
+		pObject = QSettings_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func allKeys 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSettings_allKeys(pObject)
+		return pTempObj
+
+	Func applicationName 
+		return QSettings_applicationName(pObject)
+
+	Func beginGroup P1
+		return QSettings_beginGroup(pObject,P1)
+
+	Func beginReadArray P1
+		return QSettings_beginReadArray(pObject,P1)
+
+	Func beginWriteArray P1,P2
+		return QSettings_beginWriteArray(pObject,P1,P2)
+
+	Func childGroups 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSettings_childGroups(pObject)
+		return pTempObj
+
+	Func childKeys 
+		pTempObj = new QStringList
+		pTempObj.pObject = QSettings_childKeys(pObject)
+		return pTempObj
+
+	Func clear 
+		return QSettings_clear(pObject)
+
+	Func contains P1
+		return QSettings_contains(pObject,P1)
+
+	Func endArray 
+		return QSettings_endArray(pObject)
+
+	Func endGroup 
+		return QSettings_endGroup(pObject)
+
+	Func fallbacksEnabled 
+		return QSettings_fallbacksEnabled(pObject)
+
+	Func fileName 
+		return QSettings_fileName(pObject)
+
+	Func format 
+		return QSettings_format(pObject)
+
+	Func group 
+		return QSettings_group(pObject)
+
+	Func isWritable 
+		return QSettings_isWritable(pObject)
+
+	Func organizationName 
+		return QSettings_organizationName(pObject)
+
+	Func remove P1
+		return QSettings_remove(pObject,P1)
+
+	Func scope 
+		return QSettings_scope(pObject)
+
+	Func setArrayIndex P1
+		return QSettings_setArrayIndex(pObject,P1)
+
+	Func setFallbacksEnabled P1
+		return QSettings_setFallbacksEnabled(pObject,P1)
+
+	Func setValue P1,P2
+		return QSettings_setValue(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func status 
+		return QSettings_status(pObject)
+
+	Func sync 
+		return QSettings_sync(pObject)
+
+	Func value P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSettings_value(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+Class QDataStream
+
+	pObject
+
+	Func init P1
+		pObject = QDataStream_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDataStream_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func atEnd 
+		return QDataStream_atEnd(pObject)
+
+	Func byteOrder 
+		return QDataStream_byteOrder(pObject)
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QDataStream_device(pObject)
+		return pTempObj
+
+	Func floatingPointPrecision 
+		return QDataStream_floatingPointPrecision(pObject)
+
+	Func resetStatus 
+		return QDataStream_resetStatus(pObject)
+
+	Func setByteOrder P1
+		return QDataStream_setByteOrder(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDevice P1
+		return QDataStream_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFloatingPointPrecision P1
+		return QDataStream_setFloatingPointPrecision(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setStatus P1
+		return QDataStream_setStatus(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setVersion P1
+		return QDataStream_setVersion(pObject,P1)
+
+	Func skipRawData P1
+		return QDataStream_skipRawData(pObject,P1)
+
+	Func status 
+		return QDataStream_status(pObject)
+
+	Func version 
+		return QDataStream_version(pObject)
+
+Class QSortFilterProxyModel from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QSortFilterProxyModel_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSortFilterProxyModel_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func dynamicSortFilter 
+		return QSortFilterProxyModel_dynamicSortFilter(pObject)
+
+	Func filterCaseSensitivity 
+		return QSortFilterProxyModel_filterCaseSensitivity(pObject)
+
+	Func filterKeyColumn 
+		return QSortFilterProxyModel_filterKeyColumn(pObject)
+
+	Func filterRegularExpression 
+		pTempObj = new QRegularExpression
+		pTempObj.pObject = QSortFilterProxyModel_filterRegularExpression(pObject)
+		return pTempObj
+
+	Func filterRole 
+		return QSortFilterProxyModel_filterRole(pObject)
+
+	Func isRecursiveFilteringEnabled 
+		return QSortFilterProxyModel_isRecursiveFilteringEnabled(pObject)
+
+	Func isSortLocaleAware 
+		return QSortFilterProxyModel_isSortLocaleAware(pObject)
+
+	Func mapFromSource P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_mapFromSource(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToSource P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_mapToSource(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setDynamicSortFilter P1
+		return QSortFilterProxyModel_setDynamicSortFilter(pObject,P1)
+
+	Func setFilterCaseSensitivity P1
+		return QSortFilterProxyModel_setFilterCaseSensitivity(pObject,P1)
+
+	Func setFilterKeyColumn P1
+		return QSortFilterProxyModel_setFilterKeyColumn(pObject,P1)
+
+	Func setFilterRole P1
+		return QSortFilterProxyModel_setFilterRole(pObject,P1)
+
+	Func setRecursiveFilteringEnabled P1
+		return QSortFilterProxyModel_setRecursiveFilteringEnabled(pObject,P1)
+
+	Func setSortCaseSensitivity P1
+		return QSortFilterProxyModel_setSortCaseSensitivity(pObject,P1)
+
+	Func setSortLocaleAware P1
+		return QSortFilterProxyModel_setSortLocaleAware(pObject,P1)
+
+	Func setSortRole P1
+		return QSortFilterProxyModel_setSortRole(pObject,P1)
+
+	Func sortCaseSensitivity 
+		return QSortFilterProxyModel_sortCaseSensitivity(pObject)
+
+	Func sortColumn 
+		return QSortFilterProxyModel_sortColumn(pObject)
+
+	Func sortOrder 
+		return QSortFilterProxyModel_sortOrder(pObject)
+
+	Func sortRole 
+		return QSortFilterProxyModel_sortRole(pObject)
+
+	Func sourceModel 
+		return QSortFilterProxyModel_sourceModel(pObject)
+
+	Func setSourceModel P1
+		return QSortFilterProxyModel_setSourceModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func invalidate 
+		return QSortFilterProxyModel_invalidate(pObject)
+
+	Func setFilterFixedString P1
+		return QSortFilterProxyModel_setFilterFixedString(pObject,P1)
+
+	Func setFilterRegularExpression_2 P1
+		return QSortFilterProxyModel_setFilterRegularExpression_2(pObject,P1)
+
+	Func setFilterWildcard P1
+		return QSortFilterProxyModel_setFilterWildcard(pObject,P1)
+
+	Func sort P1,P2
+		return QSortFilterProxyModel_sort(pObject,P1,P2)
+
+	Func columnCount P1
+		return QSortFilterProxyModel_columnCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func data P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSortFilterProxyModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func flags P1
+		return QSortFilterProxyModel_flags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func hasChildren P1
+		return QSortFilterProxyModel_hasChildren(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func headerData P1,P2,P3
+		pTempObj = new QVariant
+		pTempObj.pObject = QSortFilterProxyModel_headerData(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func index P1,P2,P3
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_index(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func insertColumns P1,P2,P3
+		return QSortFilterProxyModel_insertColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func insertRows P1,P2,P3
+		return QSortFilterProxyModel_insertRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func parent P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_parent(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func removeColumns P1,P2,P3
+		return QSortFilterProxyModel_removeColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func removeRows P1,P2,P3
+		return QSortFilterProxyModel_removeRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func rowCount P1
+		return QSortFilterProxyModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setData P1,P2,P3
+		return QSortFilterProxyModel_setData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func setHeaderData P1,P2,P3,P4
+		return QSortFilterProxyModel_setHeaderData(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func sibling P1,P2,P3
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QSortFilterProxyModel_sibling(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
 Class QSize
 
 	pObject

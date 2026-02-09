@@ -63,7 +63,6 @@
 <loadfile> gui/qwheelevent.cf
 <loadfile> gui/qpolygon.cf
 <loadfile> gui/qpolygonf.cf
-<loadfile> gui/qfontinfo.cf
 <loadfile> gui/qstatictext.cf
 <loadfile> gui/qpagesize.cf
 <loadfile> gui/qpagelayout.cf
@@ -87,4 +86,6 @@
 </filter>
 
 <loadfile> gui/qtransform.cf
-
+<loadfile> gui/qstandarditemmodel.cf
+<loadfile> gui/qstandarditem.cf
+<loadfile> gui/qitemselectionmodel.cf
