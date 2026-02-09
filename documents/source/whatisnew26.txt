@@ -228,11 +228,9 @@ Better RingQt
 | QSslSocket                 | QUdpSocket                   |                            |                            |
 +----------------------------+------------------------------+----------------------------+----------------------------+
 
-
-
-QColumnView
-
 (2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
+
+(3) Enum support is revised in all classes
 
 .. index:: 
 	pair: What is new in Ring  1.26; Better RingRayLib
