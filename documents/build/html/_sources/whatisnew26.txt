@@ -20,6 +20,7 @@ Ring 1.26 comes with the next features!
 * Closure Library
 * More Samples
 * More RingPM Packages
+* Better RingQt
 * Better RingRayLib
 * More Improvements
 
@@ -146,6 +147,26 @@ The following packages have been added to the RingPM registry.
 * Archive: Archive manipulation library
 * TUIFrameworkUsingClaudeCode: A project developed using prompt driven development
 
+.. index:: 
+	pair: What is new in Ring  1.26; Better Better RingQt
+
+Better RingQt
+=============
+
+(1) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
+
+(2) The next classes are added
+
+* QFormLayout 
+* QElapsedTimer
+* QSizeF
+* QMargins
+* QRadialGradient
+* QConicalGradient
+* QDoubleSpinBox
+* QDialogButtonBox
+* QSpacerItem
+* QToolTip
 
 .. index:: 
 	pair: What is new in Ring  1.26; Better RingRayLib
@@ -270,8 +291,6 @@ More Improvements
 * Building - language/CMakeLists.txt - Explicitly set project language to C
 * NaturalLib - Improved implementation for supporting shared keywords across commands
 * NaturalLib - Support callerSetVar()/callerGetVar() in commands that uses Expressions
-* RingQt - Added: QFormLayout class
-* RingQt - Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
 * RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
 * RingStbImage - Improved Implementation of Image‑Loading Functions 
 * RingStbImage - Use a binary string as the output for zlib functions
