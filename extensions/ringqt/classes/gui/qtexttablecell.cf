@@ -1,0 +1,15 @@
+<class>
+name: QTextTableCell
+para: void
+</class>
+
+int column(void)
+int columnSpan(void)
+QTextCursor firstCursorPosition(void)
+QTextCharFormat format(void)
+bool isValid(void)
+QTextCursor lastCursorPosition(void)
+int row(void)
+int rowSpan(void)
+void setFormat(QTextCharFormat format)
+int tableCellFormatIndex(void)

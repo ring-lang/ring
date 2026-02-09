@@ -1,0 +1,15 @@
+<class>
+name: QMarginsF
+para: void
+</class>
+
+qreal bottom(void)
+bool isNull(void)
+qreal left(void)
+qreal right(void)
+qreal top(void)
+void setBottom(qreal bottom)
+void setLeft(qreal left)
+void setRight(qreal right)
+void setTop(qreal top)
+QMargins toMargins(void)

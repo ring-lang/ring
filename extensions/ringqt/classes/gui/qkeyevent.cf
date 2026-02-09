@@ -1,0 +1,15 @@
+<class>
+name: QKeyEvent
+para: void
+nonew
+</class>
+
+int count(void)
+bool isAutoRepeat(void)
+int key(void)
+Qt::KeyboardModifiers modifiers(void)
+quint32 nativeModifiers(void)
+quint32 nativeScanCode(void)
+quint32 nativeVirtualKey(void)
+QString text(void)
+bool matches(QKeySequence::StandardKey key)

@@ -1,0 +1,17 @@
+<class>
+name: QFontInfo
+para: QFont
+</class>
+
+bool bold(void)
+bool exactMatch(void)
+QString family(void)
+bool fixedPitch(void)
+bool italic(void)
+int pixelSize(void)
+int pointSize(void)
+qreal pointSizeF(void)
+QString styleName(void)
+QFont::Style style(void)
+QFont::StyleHint styleHint(void)
+int weight(void)

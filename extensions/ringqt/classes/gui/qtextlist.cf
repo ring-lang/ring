@@ -1,0 +1,15 @@
+<class>
+name: QTextList
+para: void
+nonew
+</class>
+
+void add(QTextBlock block)
+int count(void)
+QTextListFormat format(void)
+QTextBlock item(int i)
+int itemNumber(QTextBlock block)
+QString itemText(QTextBlock block)
+void remove(QTextBlock block)
+void removeItem(int i)
+void setFormat(QTextListFormat format)

@@ -1,0 +1,18 @@
+<class>
+name: QDataStream
+para: QIODevice *
+</class>
+
+bool atEnd(void)
+QDataStream::ByteOrder byteOrder(void)
+QIODevice *device(void)
+QDataStream::FloatingPointPrecision floatingPointPrecision(void)
+void resetStatus(void)
+void setByteOrder(QDataStream::ByteOrder bo)
+void setDevice(QIODevice *d)
+void setFloatingPointPrecision(QDataStream::FloatingPointPrecision precision)
+void setStatus(QDataStream::Status status)
+void setVersion(int v)
+int skipRawData(int len)
+QDataStream::Status status(void)
+int version(void)

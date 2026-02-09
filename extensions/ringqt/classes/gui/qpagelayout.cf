@@ -1,0 +1,26 @@
+<class>
+name: QPageLayout
+para: void
+</class>
+
+QRectF fullRect(QPageLayout::Unit units)
+QRectF fullRectPixels(int resolution)
+QRectF fullRectPoints(void)
+bool isEquivalentTo(QPageLayout other)
+bool isValid(void)
+QMargins marginsPixels(int resolution)
+QMargins marginsPoints(void)
+QPageLayout::Mode mode(void)
+QPageLayout::Orientation orientation(void)
+QPageSize pageSize(void)
+QRectF paintRect(QPageLayout::Unit units)
+QRectF paintRectPixels(int resolution)
+QRectF paintRectPoints(void)
+bool setBottomMargin(qreal bottomMargin)
+bool setLeftMargin(qreal leftMargin)
+void setMode(QPageLayout::Mode mode)
+void setOrientation(QPageLayout::Orientation orientation)
+bool setRightMargin(qreal rightMargin)
+bool setTopMargin(qreal topMargin)
+void setUnits(QPageLayout::Unit units)
+QPageLayout::Unit units(void)

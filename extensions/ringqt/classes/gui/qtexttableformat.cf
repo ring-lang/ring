@@ -1,0 +1,17 @@
+<class>
+name: QTextTableFormat
+para: void
+</class>
+
+Qt::Alignment alignment(void)
+qreal cellPadding(void)
+qreal cellSpacing(void)
+int columns(void)
+int headerRowCount(void)
+bool borderCollapse(void)
+void setAlignment(Qt::Alignment alignment)
+void setCellPadding(qreal padding)
+void setCellSpacing(qreal spacing)
+void setColumns(int columns)
+void setHeaderRowCount(int count)
+void setBorderCollapse(bool borderCollapse)

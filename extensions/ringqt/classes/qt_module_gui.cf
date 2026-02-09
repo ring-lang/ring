@@ -22,6 +22,14 @@
 <loadfile> gui/qpainterpath.cf
 <loadfile> gui/qimage.cf
 <loadfile> gui/qtextcharformat.cf
+<loadfile> gui/qtextblockformat.cf
+<loadfile> gui/qtextlistformat.cf
+<loadfile> gui/qtexttableformat.cf
+<loadfile> gui/qtextframeformat.cf
+<loadfile> gui/qtexttable.cf
+<loadfile> gui/qtexttablecell.cf
+<loadfile> gui/qtextframe.cf
+<loadfile> gui/qtextlist.cf
 <loadfile> gui/qfontmetrics.cf
 <loadfile> gui/qlineargradient.cf
 <loadfile> gui/qradialgradient.cf
@@ -49,6 +57,16 @@
 <loadfile> gui/qintvalidator.cf
 <loadfile> gui/qdoublevalidator.cf
 <loadfile> gui/qregularexpressionvalidator.cf
+<loadfile> gui/qpalette.cf
+<loadfile> gui/qkeyevent.cf
+<loadfile> gui/qmouseevent.cf
+<loadfile> gui/qwheelevent.cf
+<loadfile> gui/qpolygon.cf
+<loadfile> gui/qpolygonf.cf
+<loadfile> gui/qfontinfo.cf
+<loadfile> gui/qstatictext.cf
+<loadfile> gui/qpagesize.cf
+<loadfile> gui/qpagelayout.cf
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
 <loadfile> gui/qopenglfunctions.cf

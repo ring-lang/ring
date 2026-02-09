@@ -1,0 +1,33 @@
+<class>
+name: QTextFrameFormat
+para: void
+</class>
+
+qreal border(void)
+QBrush borderBrush(void)
+QTextFrameFormat::BorderStyle borderStyle(void)
+qreal bottomMargin(void)
+QTextLength height(void)
+qreal leftMargin(void)
+qreal margin(void)
+qreal padding(void)
+QTextFormat::PageBreakFlags pageBreakPolicy(void)
+QTextFrameFormat::Position position(void)
+qreal rightMargin(void)
+void setBorder(qreal width)
+void setBorderBrush(QBrush brush)
+void setBorderStyle(QTextFrameFormat::BorderStyle style)
+void setBottomMargin(qreal margin)
+void setHeight(qreal height)
+void setHeight@2(QTextLength height)
+void setLeftMargin(qreal margin)
+void setMargin(qreal margin)
+void setPadding(qreal width)
+void setPageBreakPolicy(QTextFormat::PageBreakFlags policy)
+void setPosition(QTextFrameFormat::Position policy)
+void setRightMargin(qreal margin)
+void setTopMargin(qreal margin)
+void setWidth(qreal width)
+void setWidth@2(QTextLength width)
+qreal topMargin(void)
+QTextLength width(void)

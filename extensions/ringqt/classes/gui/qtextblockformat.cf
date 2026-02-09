@@ -1,0 +1,27 @@
+<class>
+name: QTextBlockFormat
+para: void
+</class>
+
+Qt::Alignment alignment(void)
+qreal bottomMargin(void)
+int indent(void)
+qreal leftMargin(void)
+qreal lineHeight(int scriptLineHeight, int scaling)
+qreal lineHeight@2(void)
+int lineHeightType(void)
+bool nonBreakableLines(void)
+QTextFormat::PageBreakFlags pageBreakPolicy(void)
+qreal rightMargin(void)
+void setAlignment(Qt::Alignment alignment)
+void setBottomMargin(qreal margin)
+void setIndent(int indentation)
+void setLeftMargin(qreal margin)
+void setLineHeight(qreal height, int heightType)
+void setNonBreakableLines(bool b)
+void setPageBreakPolicy(QTextFormat::PageBreakFlags policy)
+void setRightMargin(qreal margin)
+void setTextIndent(qreal indent)
+void setTopMargin(qreal margin)
+qreal textIndent(void)
+qreal topMargin(void)

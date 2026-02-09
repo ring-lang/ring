@@ -1,0 +1,17 @@
+<class>
+name: QStaticText
+para: void
+</class>
+
+QStaticText::PerformanceHint performanceHint(void)
+void prepare(QTransform matrix, QFont font)
+void setPerformanceHint(QStaticText::PerformanceHint performanceHint)
+void setText(QString text)
+void setTextFormat(Qt::TextFormat textFormat)
+void setTextOption(QTextOption textOption)
+void setTextWidth(qreal textWidth)
+QSizeF size(void)
+QString text(void)
+Qt::TextFormat textFormat(void)
+QTextOption textOption(void)
+qreal textWidth(void)

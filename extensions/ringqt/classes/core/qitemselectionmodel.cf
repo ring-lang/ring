@@ -1,0 +1,23 @@
+<class>
+name: QItemSelectionModel
+para: QAbstractItemModel *
+parent: QObject
+</class>
+
+int columnIntersectsSelection(int column, QModelIndex parent)
+QModelIndex currentIndex(void)
+bool hasSelection(void)
+bool isColumnSelected(int column, QModelIndex parent)
+bool isRowSelected(int row, QModelIndex parent)
+bool isSelected(QModelIndex index)
+QAbstractItemModel *model(void)
+int rowIntersectsSelection(int row, QModelIndex parent)
+QModelIndexList selectedColumns(int row)
+QModelIndexList selectedIndexes(void)
+QModelIndexList selectedRows(int column)
+void clear(void)
+void clearCurrentIndex(void)
+void clearSelection(void)
+void reset(void)
+void select(QModelIndex index, QItemSelectionModel::SelectionFlag command)
+void setCurrentIndex(QModelIndex index, QItemSelectionModel::SelectionFlag command)

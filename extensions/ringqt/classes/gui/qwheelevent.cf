@@ -1,0 +1,17 @@
+<class>
+name: QWheelEvent
+para: void
+nonew
+</class>
+
+QPoint angleDelta(void)
+Qt::MouseButtons buttons(void)
+bool inverted(void)
+QPointF globalPosF(void)
+int globalX(void)
+int globalY(void)
+QPoint pixelDelta(void)
+QPointF posF(void)
+Qt::ScrollPhase phase(void)
+int x(void)
+int y(void)

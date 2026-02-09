@@ -1,0 +1,13 @@
+<class>
+name: QTextListFormat
+para: void
+</class>
+
+int indent(void)
+QString numberPrefix(void)
+QString numberSuffix(void)
+void setIndent(int indentation)
+void setNumberPrefix(QString numberPrefix)
+void setNumberSuffix(QString numberSuffix)
+void setStyle(QTextListFormat::Style style)
+QTextListFormat::Style style(void)

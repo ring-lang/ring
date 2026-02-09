@@ -1,0 +1,17 @@
+<class>
+name: QPageSize
+para: void
+</class>
+
+QSizeF definitionSize(void)
+QPageSize::Unit definitionUnits(void)
+int id(void)
+bool isEquivalentTo(QPageSize other)
+bool isValid(void)
+QString key(void)
+QString name(void)
+QRectF rect(QPageSize::Unit units)
+QSize sizePixels(int resolution)
+QSizeF size(QPageSize::Unit units)
+QSize sizePoints(void)
+int windowsId(void)

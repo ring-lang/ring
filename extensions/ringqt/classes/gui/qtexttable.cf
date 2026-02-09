@@ -1,0 +1,22 @@
+<class>
+name: QTextTable
+para: void
+nonew
+</class>
+
+void appendColumns(int count)
+void appendRows(int count)
+QTextTableCell cellAt(int row, int column)
+QTextTableCell cellAt@2(QTextCursor cursor)
+int columns(void)
+QTextTableFormat format(void)
+void insertColumns(int index, int columns)
+void insertRows(int index, int rows)
+void mergeCells(int row, int column, int numRows, int numCols)
+void mergeCells@2(QTextCursor cursor)
+void removeColumns(int index, int columns)
+void removeRows(int index, int rows)
+void resize(int rows, int columns)
+int rows(void)
+void setFormat(QTextTableFormat format)
+void splitCell(int row, int column, int numRows, int numCols)

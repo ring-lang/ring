@@ -1,0 +1,18 @@
+<class>
+name: QMouseEvent
+para: void
+nonew
+</class>
+
+Qt::MouseButton button(void)
+Qt::MouseButtons buttons(void)
+Qt::MouseEventFlags flags(void)
+QPointF globalPos(void)
+int globalX(void)
+int globalY(void)
+QPointF localPos(void)
+QPoint pos(void)
+QPointF screenPos(void)
+QPointF windowPos(void)
+int x(void)
+int y(void)

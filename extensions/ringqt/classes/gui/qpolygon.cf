@@ -1,0 +1,45 @@
+<class>
+name: QPolygon
+para: void
+</class>
+
+QRect boundingRect(void)
+bool containsPoint(QPoint point, Qt::FillRule fillRule)
+QPolygon intersected(QPolygon r)
+bool isEmpty(void)
+QPoint point(int index)
+void putPoints(int index, int nPoints, int firstx, int firsty)
+void setPoint(int index, int x, int y)
+int size(void)
+QPolygon subtracted(QPolygon r)
+void translate(int dx, int dy)
+void translate@2(QPoint offset)
+QPolygon translated(int dx, int dy)
+QPolygon translated@2(QPoint offset)
+QPolygon united(QPolygon r)
+
+<register>
+void append(int x, int y)
+</register>
+
+<code>
+RING_FUNC(ring_QPolygon_append)
+{
+	QPolygon *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPolygon *) RING_API_GETCPOINTER(1,"QPolygon");
+	if ( ! RING_API_ISNUMBER(2) || ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->append(QPoint((int) RING_API_GETNUMBER(2),(int) RING_API_GETNUMBER(3)));
+}
+</code>
