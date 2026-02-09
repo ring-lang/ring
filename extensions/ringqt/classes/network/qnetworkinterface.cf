@@ -1,0 +1,14 @@
+<class>
+name: QNetworkInterface
+para: void
+</class>
+
+QList<QNetworkAddressEntry> addressEntries(void)
+QNetworkInterface::InterfaceFlags flags(void)
+QString hardwareAddress(void)
+QString humanReadableName(void)
+int index(void)
+bool isValid(void)
+int maximumTransmissionUnit(void)
+QString name(void)
+QNetworkInterface::InterfaceType type(void)

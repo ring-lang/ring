@@ -1,0 +1,11 @@
+<class>
+name: QNetworkCookieJar
+para: QObject *parent
+parent: QObject
+</class>
+
+QList<QNetworkCookie> cookiesForUrl(QUrl url)
+bool deleteCookie(QNetworkCookie cookie)
+bool insertCookie(QNetworkCookie cookie)
+bool setCookiesFromUrl(QList<QNetworkCookie> cookieList, QUrl url)
+bool updateCookie(QNetworkCookie cookie)

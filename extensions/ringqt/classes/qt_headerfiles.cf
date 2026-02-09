@@ -128,10 +128,14 @@ extern "C" {
 </filter>
 
 <filter> sysget("RINGQT_NONETWORK") = ""
+#include <QtNetwork>
 #include "gnetworkaccessmanager.h"
 #include "gtcpserver.h"
 #include "gabstractsocket.h"
 #include "gtcpsocket.h"
+#include "gudpsocket.h"
+#include "gsslsocket.h"
+#include "gnetworkconfigurationmanager.h"
 #include <QAbstractSocket>
 #include <QTcpSocket>
 #include <QTcpServer>

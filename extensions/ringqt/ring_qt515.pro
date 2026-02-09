@@ -128,6 +128,9 @@ SOURCES +=   \
     cpp/src/gdatawidgetmapper.cpp \
     cpp/src/gkeysequenceedit.cpp \
     cpp/src/gcolumnview.cpp \
+    cpp/src/gudpsocket.cpp \
+    cpp/src/gsslsocket.cpp \
+    cpp/src/gnetworkconfigurationmanager.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -246,7 +249,10 @@ HEADERS  += \
     cpp/include/gstackedlayout.h \
     cpp/include/gdatawidgetmapper.h \
     cpp/include/gkeysequenceedit.h \
-    cpp/include/gcolumnview.h 
+    cpp/include/gcolumnview.h \
+    cpp/include/gudpsocket.h \
+    cpp/include/gsslsocket.h \
+    cpp/include/gnetworkconfigurationmanager.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

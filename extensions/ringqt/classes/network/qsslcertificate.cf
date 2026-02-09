@@ -1,0 +1,25 @@
+<class>
+name: QSslCertificate
+para: void
+</class>
+
+void clear(void)
+QByteArray digest(QCryptographicHash::Algorithm algorithm)
+QDateTime effectiveDate(void)
+QDateTime expiryDate(void)
+bool isBlacklisted(void)
+bool isNull(void)
+bool isSelfSigned(void)
+QStringList issuerInfo(QSslCertificate::SubjectInfo subject)
+QStringList issuerInfo@2(QByteArray attribute)
+QList<QByteArray> issuerInfoAttributes(void)
+QSslKey publicKey(void)
+QByteArray serialNumber(void)
+QStringList subjectInfo(QSslCertificate::SubjectInfo subject)
+QStringList subjectInfo@2(QByteArray attribute)
+QList<QByteArray> subjectInfoAttributes(void)
+void swap(QSslCertificate other)
+QByteArray toDer(void)
+QByteArray toPem(void)
+QString toText(void)
+QByteArray version(void)

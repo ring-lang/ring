@@ -1,0 +1,23 @@
+<class>
+name: QNetworkCookie
+para: QByteArray name, QByteArray value
+</class>
+
+QString domain(void)
+QDateTime expirationDate(void)
+bool hasSameIdentifier(QNetworkCookie other)
+bool isHttpOnly(void)
+bool isSecure(void)
+bool isSessionCookie(void)
+QByteArray name(void)
+void normalize(QUrl url)
+QString path(void)
+void setDomain(QString domain)
+void setExpirationDate(QDateTime date)
+void setHttpOnly(bool enable)
+void setName(QByteArray cookieName)
+void setPath(QString path)
+void setSecure(bool enable)
+void setValue(QByteArray value)
+QByteArray toRawForm(QNetworkCookie::RawForm form)
+QByteArray value(void)

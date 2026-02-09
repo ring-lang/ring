@@ -29926,7 +29926,9 @@ Class QNetworkAccessManager from QObject
 		return QNetworkAccessManager_connectToHost(pObject,P1,P2)
 
 	Func cookieJar 
-		return QNetworkAccessManager_cookieJar(pObject)
+		pTempObj = new QNetworkCookieJar
+		pTempObj.pObject = QNetworkAccessManager_cookieJar(pObject)
+		return pTempObj
 
 	Func deleteResource P1
 		pTempObj = new QNetworkReply
@@ -29994,6 +29996,695 @@ Class QNetworkAccessManager from QObject
 
 	Func geteventparameters 
 		return QNetworkAccessManager_geteventparameters(pObject)
+
+Class QUdpSocket from QAbstractSocket
+
+	pObject
+
+	Func init P1
+		pObject = QUdpSocket_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QUdpSocket_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func hasPendingDatagrams 
+		return QUdpSocket_hasPendingDatagrams(pObject)
+
+	Func joinMulticastGroup P1
+		return QUdpSocket_joinMulticastGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func joinMulticastGroup_2 P1,P2
+		return QUdpSocket_joinMulticastGroup_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func leaveMulticastGroup P1
+		return QUdpSocket_leaveMulticastGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func leaveMulticastGroup_2 P1,P2
+		return QUdpSocket_leaveMulticastGroup_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func multicastInterface 
+		pTempObj = new QNetworkInterface
+		pTempObj.pObject = QUdpSocket_multicastInterface(pObject)
+		return pTempObj
+
+	Func pendingDatagramSize 
+		return QUdpSocket_pendingDatagramSize(pObject)
+
+	Func readDatagram P1,P2,P3,P4
+		return QUdpSocket_readDatagram(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setMulticastInterface P1
+		return QUdpSocket_setMulticastInterface(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func writeDatagram P1,P2,P3
+		return QUdpSocket_writeDatagram(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func writeDatagram_2 P1,P2,P3,P4
+		return QUdpSocket_writeDatagram_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func setconnectedEvent P1
+		return QUdpSocket_setconnectedEvent(pObject,P1)
+
+	Func setdisconnectedEvent P1
+		return QUdpSocket_setdisconnectedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QUdpSocket_seterrorEvent(pObject,P1)
+
+	Func sethostFoundEvent P1
+		return QUdpSocket_sethostFoundEvent(pObject,P1)
+
+	Func setstateChangedEvent P1
+		return QUdpSocket_setstateChangedEvent(pObject,P1)
+
+	Func setreadyReadEvent P1
+		return QUdpSocket_setreadyReadEvent(pObject,P1)
+
+	Func getconnectedEvent 
+		return QUdpSocket_getconnectedEvent(pObject)
+
+	Func getdisconnectedEvent 
+		return QUdpSocket_getdisconnectedEvent(pObject)
+
+	Func geterrorEvent 
+		return QUdpSocket_geterrorEvent(pObject)
+
+	Func gethostFoundEvent 
+		return QUdpSocket_gethostFoundEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QUdpSocket_getstateChangedEvent(pObject)
+
+	Func getreadyReadEvent 
+		return QUdpSocket_getreadyReadEvent(pObject)
+
+Class QNetworkInterface
+
+	pObject
+
+	Func init 
+		pObject = QNetworkInterface_new()
+		return self
+
+	Func delete
+		pObject = QNetworkInterface_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addressEntries 
+		return QNetworkInterface_addressEntries(pObject)
+
+	Func flags 
+		return QNetworkInterface_flags(pObject)
+
+	Func hardwareAddress 
+		return QNetworkInterface_hardwareAddress(pObject)
+
+	Func humanReadableName 
+		return QNetworkInterface_humanReadableName(pObject)
+
+	Func index 
+		return QNetworkInterface_index(pObject)
+
+	Func isValid 
+		return QNetworkInterface_isValid(pObject)
+
+	Func maximumTransmissionUnit 
+		return QNetworkInterface_maximumTransmissionUnit(pObject)
+
+	Func name 
+		return QNetworkInterface_name(pObject)
+
+	Func type 
+		return QNetworkInterface_type(pObject)
+
+Class QNetworkCookie
+
+	pObject
+
+	Func init P1,P2
+		pObject = QNetworkCookie_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QNetworkCookie_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func domain 
+		return QNetworkCookie_domain(pObject)
+
+	Func expirationDate 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QNetworkCookie_expirationDate(pObject)
+		return pTempObj
+
+	Func hasSameIdentifier P1
+		return QNetworkCookie_hasSameIdentifier(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isHttpOnly 
+		return QNetworkCookie_isHttpOnly(pObject)
+
+	Func isSecure 
+		return QNetworkCookie_isSecure(pObject)
+
+	Func isSessionCookie 
+		return QNetworkCookie_isSessionCookie(pObject)
+
+	Func name 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QNetworkCookie_name(pObject)
+		return pTempObj
+
+	Func normalize P1
+		return QNetworkCookie_normalize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func path 
+		return QNetworkCookie_path(pObject)
+
+	Func setDomain P1
+		return QNetworkCookie_setDomain(pObject,P1)
+
+	Func setExpirationDate P1
+		return QNetworkCookie_setExpirationDate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHttpOnly P1
+		return QNetworkCookie_setHttpOnly(pObject,P1)
+
+	Func setName P1
+		return QNetworkCookie_setName(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPath P1
+		return QNetworkCookie_setPath(pObject,P1)
+
+	Func setSecure P1
+		return QNetworkCookie_setSecure(pObject,P1)
+
+	Func setValue P1
+		return QNetworkCookie_setValue(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toRawForm P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QNetworkCookie_toRawForm(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func value 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QNetworkCookie_value(pObject)
+		return pTempObj
+
+Class QNetworkCookieJar from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QNetworkCookieJar_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QNetworkCookieJar_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cookiesForUrl P1
+		return QNetworkCookieJar_cookiesForUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func deleteCookie P1
+		return QNetworkCookieJar_deleteCookie(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertCookie P1
+		return QNetworkCookieJar_insertCookie(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCookiesFromUrl P1,P2
+		return QNetworkCookieJar_setCookiesFromUrl(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func updateCookie P1
+		return QNetworkCookieJar_updateCookie(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QNetworkConfigurationManager from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QNetworkConfigurationManager_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QNetworkConfigurationManager_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func allConfigurations P1
+		return QNetworkConfigurationManager_allConfigurations(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func capabilities 
+		return QNetworkConfigurationManager_capabilities(pObject)
+
+	Func configurationFromIdentifier P1
+		return QNetworkConfigurationManager_configurationFromIdentifier(pObject,P1)
+
+	Func defaultConfiguration 
+		return QNetworkConfigurationManager_defaultConfiguration(pObject)
+
+	Func isOnline 
+		return QNetworkConfigurationManager_isOnline(pObject)
+
+	Func updateConfigurations 
+		return QNetworkConfigurationManager_updateConfigurations(pObject)
+
+	Func setconfigurationAddedEvent P1
+		return QNetworkConfigurationManager_setconfigurationAddedEvent(pObject,P1)
+
+	Func setconfigurationChangedEvent P1
+		return QNetworkConfigurationManager_setconfigurationChangedEvent(pObject,P1)
+
+	Func setconfigurationRemovedEvent P1
+		return QNetworkConfigurationManager_setconfigurationRemovedEvent(pObject,P1)
+
+	Func setonlineStateChangedEvent P1
+		return QNetworkConfigurationManager_setonlineStateChangedEvent(pObject,P1)
+
+	Func setupdateCompletedEvent P1
+		return QNetworkConfigurationManager_setupdateCompletedEvent(pObject,P1)
+
+	Func getconfigurationAddedEvent 
+		return QNetworkConfigurationManager_getconfigurationAddedEvent(pObject)
+
+	Func getconfigurationChangedEvent 
+		return QNetworkConfigurationManager_getconfigurationChangedEvent(pObject)
+
+	Func getconfigurationRemovedEvent 
+		return QNetworkConfigurationManager_getconfigurationRemovedEvent(pObject)
+
+	Func getonlineStateChangedEvent 
+		return QNetworkConfigurationManager_getonlineStateChangedEvent(pObject)
+
+	Func getupdateCompletedEvent 
+		return QNetworkConfigurationManager_getupdateCompletedEvent(pObject)
+
+Class QSslConfiguration
+
+	pObject
+
+	Func init 
+		pObject = QSslConfiguration_new()
+		return self
+
+	Func delete
+		pObject = QSslConfiguration_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func allowedNextProtocols 
+		return QSslConfiguration_allowedNextProtocols(pObject)
+
+	Func caCertificates 
+		return QSslConfiguration_caCertificates(pObject)
+
+	Func ciphers 
+		return QSslConfiguration_ciphers(pObject)
+
+	Func isNull 
+		return QSslConfiguration_isNull(pObject)
+
+	Func localCertificate 
+		pTempObj = new QSslCertificate
+		pTempObj.pObject = QSslConfiguration_localCertificate(pObject)
+		return pTempObj
+
+	Func localCertificateChain 
+		return QSslConfiguration_localCertificateChain(pObject)
+
+	Func nextNegotiatedProtocol 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslConfiguration_nextNegotiatedProtocol(pObject)
+		return pTempObj
+
+	Func nextProtocolNegotiationStatus 
+		return QSslConfiguration_nextProtocolNegotiationStatus(pObject)
+
+	Func ocspStaplingEnabled 
+		return QSslConfiguration_ocspStaplingEnabled(pObject)
+
+	Func peerCertificate 
+		pTempObj = new QSslCertificate
+		pTempObj.pObject = QSslConfiguration_peerCertificate(pObject)
+		return pTempObj
+
+	Func peerCertificateChain 
+		return QSslConfiguration_peerCertificateChain(pObject)
+
+	Func peerVerifyDepth 
+		return QSslConfiguration_peerVerifyDepth(pObject)
+
+	Func peerVerifyMode 
+		return QSslConfiguration_peerVerifyMode(pObject)
+
+	Func privateKey 
+		pTempObj = new QSslKey
+		pTempObj.pObject = QSslConfiguration_privateKey(pObject)
+		return pTempObj
+
+	Func protocol 
+		return QSslConfiguration_protocol(pObject)
+
+	Func sessionCipher 
+		return QSslConfiguration_sessionCipher(pObject)
+
+	Func sessionProtocol 
+		return QSslConfiguration_sessionProtocol(pObject)
+
+	Func sessionTicket 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslConfiguration_sessionTicket(pObject)
+		return pTempObj
+
+	Func sessionTicketLifeTimeHint 
+		return QSslConfiguration_sessionTicketLifeTimeHint(pObject)
+
+	Func setAllowedNextProtocols P1
+		return QSslConfiguration_setAllowedNextProtocols(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCaCertificates P1
+		return QSslConfiguration_setCaCertificates(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCiphers P1
+		return QSslConfiguration_setCiphers(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLocalCertificate P1
+		return QSslConfiguration_setLocalCertificate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLocalCertificateChain P1
+		return QSslConfiguration_setLocalCertificateChain(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setOcspStaplingEnabled P1
+		return QSslConfiguration_setOcspStaplingEnabled(pObject,P1)
+
+	Func setPeerVerifyDepth P1
+		return QSslConfiguration_setPeerVerifyDepth(pObject,P1)
+
+	Func setPeerVerifyMode P1
+		return QSslConfiguration_setPeerVerifyMode(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPrivateKey P1
+		return QSslConfiguration_setPrivateKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProtocol P1
+		return QSslConfiguration_setProtocol(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSessionTicket P1
+		return QSslConfiguration_setSessionTicket(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func swap P1
+		return QSslConfiguration_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QSslCertificate
+
+	pObject
+
+	Func init 
+		pObject = QSslCertificate_new()
+		return self
+
+	Func delete
+		pObject = QSslCertificate_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func clear 
+		return QSslCertificate_clear(pObject)
+
+	Func digest P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslCertificate_digest(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func effectiveDate 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QSslCertificate_effectiveDate(pObject)
+		return pTempObj
+
+	Func expiryDate 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QSslCertificate_expiryDate(pObject)
+		return pTempObj
+
+	Func isBlacklisted 
+		return QSslCertificate_isBlacklisted(pObject)
+
+	Func isNull 
+		return QSslCertificate_isNull(pObject)
+
+	Func isSelfSigned 
+		return QSslCertificate_isSelfSigned(pObject)
+
+	Func issuerInfo P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QSslCertificate_issuerInfo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func issuerInfo_2 P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QSslCertificate_issuerInfo_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func issuerInfoAttributes 
+		return QSslCertificate_issuerInfoAttributes(pObject)
+
+	Func publicKey 
+		pTempObj = new QSslKey
+		pTempObj.pObject = QSslCertificate_publicKey(pObject)
+		return pTempObj
+
+	Func serialNumber 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslCertificate_serialNumber(pObject)
+		return pTempObj
+
+	Func subjectInfo P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QSslCertificate_subjectInfo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func subjectInfo_2 P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QSslCertificate_subjectInfo_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func subjectInfoAttributes 
+		return QSslCertificate_subjectInfoAttributes(pObject)
+
+	Func swap P1
+		return QSslCertificate_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toDer 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslCertificate_toDer(pObject)
+		return pTempObj
+
+	Func toPem 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslCertificate_toPem(pObject)
+		return pTempObj
+
+	Func toText 
+		return QSslCertificate_toText(pObject)
+
+	Func version 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslCertificate_version(pObject)
+		return pTempObj
+
+Class QSslKey
+
+	pObject
+
+	Func init 
+		pObject = QSslKey_new()
+		return self
+
+	Func delete
+		pObject = QSslKey_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func algorithm 
+		return QSslKey_algorithm(pObject)
+
+	Func clear 
+		return QSslKey_clear(pObject)
+
+	Func isNull 
+		return QSslKey_isNull(pObject)
+
+	Func length 
+		return QSslKey_length(pObject)
+
+	Func toDer P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslKey_toDer(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func toPem P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QSslKey_toPem(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func type 
+		return QSslKey_type(pObject)
+
+	Func swap P1
+		return QSslKey_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QSslSocket from QTcpSocket
+
+	pObject
+
+	Func init P1
+		pObject = QSslSocket_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSslSocket_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func abort 
+		return QSslSocket_abort(pObject)
+
+	Func connectToHostEncrypted P1,P2,P3,P4
+		return QSslSocket_connectToHostEncrypted(pObject,P1,P2,P3,P4)
+
+	Func connectToHostEncrypted_2 P1,P2,P3,P4,P5
+		return QSslSocket_connectToHostEncrypted_2(pObject,P1,P2,P3,P4,P5)
+
+	Func encryptedBytesAvailable 
+		return QSslSocket_encryptedBytesAvailable(pObject)
+
+	Func encryptedBytesToWrite 
+		return QSslSocket_encryptedBytesToWrite(pObject)
+
+	Func ignoreSslErrors 
+		return QSslSocket_ignoreSslErrors(pObject)
+
+	Func isEncrypted 
+		return QSslSocket_isEncrypted(pObject)
+
+	Func localCertificate 
+		pTempObj = new QSslCertificate
+		pTempObj.pObject = QSslSocket_localCertificate(pObject)
+		return pTempObj
+
+	Func mode 
+		return QSslSocket_mode(pObject)
+
+	Func peerCertificate 
+		pTempObj = new QSslCertificate
+		pTempObj.pObject = QSslSocket_peerCertificate(pObject)
+		return pTempObj
+
+	Func peerVerifyDepth 
+		return QSslSocket_peerVerifyDepth(pObject)
+
+	Func peerVerifyMode 
+		return QSslSocket_peerVerifyMode(pObject)
+
+	Func peerVerifyName 
+		return QSslSocket_peerVerifyName(pObject)
+
+	Func privateKey 
+		pTempObj = new QSslKey
+		pTempObj.pObject = QSslSocket_privateKey(pObject)
+		return pTempObj
+
+	Func protocol 
+		return QSslSocket_protocol(pObject)
+
+	Func sessionCipher 
+		return QSslSocket_sessionCipher(pObject)
+
+	Func sessionProtocol 
+		return QSslSocket_sessionProtocol(pObject)
+
+	Func setLocalCertificate P1
+		return QSslSocket_setLocalCertificate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPeerVerifyDepth P1
+		return QSslSocket_setPeerVerifyDepth(pObject,P1)
+
+	Func setPeerVerifyMode P1
+		return QSslSocket_setPeerVerifyMode(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPeerVerifyName P1
+		return QSslSocket_setPeerVerifyName(pObject,P1)
+
+	Func setPrivateKey P1
+		return QSslSocket_setPrivateKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProtocol P1
+		return QSslSocket_setProtocol(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSslConfiguration P1
+		return QSslSocket_setSslConfiguration(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sslConfiguration 
+		pTempObj = new QSslConfiguration
+		pTempObj.pObject = QSslSocket_sslConfiguration(pObject)
+		return pTempObj
+
+	Func sslHandshakeErrors 
+		return QSslSocket_sslHandshakeErrors(pObject)
+
+	Func waitForEncrypted P1
+		return QSslSocket_waitForEncrypted(pObject,P1)
+
+	Func startClientEncryption 
+		return QSslSocket_startClientEncryption(pObject)
+
+	Func startServerEncryption 
+		return QSslSocket_startServerEncryption(pObject)
+
+	Func setencryptedEvent P1
+		return QSslSocket_setencryptedEvent(pObject,P1)
+
+	Func setencryptedBytesWrittenEvent P1
+		return QSslSocket_setencryptedBytesWrittenEvent(pObject,P1)
+
+	Func setmodeChangedEvent P1
+		return QSslSocket_setmodeChangedEvent(pObject,P1)
+
+	Func setpeerVerifyErrorEvent P1
+		return QSslSocket_setpeerVerifyErrorEvent(pObject,P1)
+
+	Func setsslErrorsEvent P1
+		return QSslSocket_setsslErrorsEvent(pObject,P1)
+
+	Func getencryptedEvent 
+		return QSslSocket_getencryptedEvent(pObject)
+
+	Func getencryptedBytesWrittenEvent 
+		return QSslSocket_getencryptedBytesWrittenEvent(pObject)
+
+	Func getmodeChangedEvent 
+		return QSslSocket_getmodeChangedEvent(pObject)
+
+	Func getpeerVerifyErrorEvent 
+		return QSslSocket_getpeerVerifyErrorEvent(pObject)
+
+	Func getsslErrorsEvent 
+		return QSslSocket_getsslErrorsEvent(pObject)
 
 Class QSqlDatabase
 

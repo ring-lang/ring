@@ -1,0 +1,33 @@
+<class>
+name: QUdpSocket
+para: QObject *parent
+parent: QAbstractSocket
+codename: GUdpSocket
+passvmpointer
+</class>
+
+bool hasPendingDatagrams(void)
+bool joinMulticastGroup(QHostAddress groupAddress)
+bool joinMulticastGroup@2(QHostAddress groupAddress, QNetworkInterface iface)
+bool leaveMulticastGroup(QHostAddress groupAddress)
+bool leaveMulticastGroup@2(QHostAddress groupAddress, QNetworkInterface iface)
+QNetworkInterface multicastInterface(void)
+qint64 pendingDatagramSize(void)
+qint64 readDatagram(char *data, qint64 maxSize, QHostAddress *address, quint16 *port)
+void setMulticastInterface(QNetworkInterface iface)
+qint64 writeDatagram(QByteArray datagram, QHostAddress host, quint16 port)
+qint64 writeDatagram@2(char *data, qint64 size, QHostAddress address, quint16 port)
+
+void setconnectedEvent(const char *)
+void setdisconnectedEvent(const char *)
+void seterrorEvent(const char *)
+void sethostFoundEvent(const char *)
+void setstateChangedEvent(const char *)
+void setreadyReadEvent(const char *)
+
+const char *getconnectedEvent(void)
+const char *getdisconnectedEvent(void)
+const char *geterrorEvent(void)
+const char *gethostFoundEvent(void)
+const char *getstateChangedEvent(void)
+const char *getreadyReadEvent(void)

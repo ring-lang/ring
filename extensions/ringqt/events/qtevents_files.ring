@@ -61,6 +61,9 @@ load "printsupport/qprintdialog.ring"
 load "network/qabstractsocket.ring"
 load "network/qnetworkaccessmanager.ring"
 load "network/qtcpserver.ring"
+load "network/qudpsocket.ring"
+load "network/qsslsocket.ring"
+load "network/qnetworkconfigurationmanager.ring"
 #-------------------------------------------------------------------------#
 load "multimediawidgets/qvideowidget.ring"
 #-------------------------------------------------------------------------#
