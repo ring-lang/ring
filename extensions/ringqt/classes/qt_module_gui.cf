@@ -24,6 +24,8 @@
 <loadfile> gui/qtextcharformat.cf
 <loadfile> gui/qfontmetrics.cf
 <loadfile> gui/qlineargradient.cf
+<loadfile> gui/qradialgradient.cf
+<loadfile> gui/qconicalgradient.cf
 <loadfile> gui/qgradient.cf
 <loadfile> gui/qcursor.cf
 <loadfile> gui/qscreen.cf

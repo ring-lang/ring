@@ -1,0 +1,8 @@
+<class>
+name: QSpacerItem
+para: int w, int h, QSizePolicy::Policy hPolicy, QSizePolicy::Policy vPolicy
+parent: QLayoutItem
+</class>
+
+void changeSize(int w, int h, QSizePolicy::Policy hPolicy, QSizePolicy::Policy vPolicy)
+QSizePolicy sizePolicy(void)

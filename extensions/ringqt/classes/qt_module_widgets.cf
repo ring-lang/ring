@@ -33,6 +33,7 @@
 <loadfile> widgets/qtablewidget.cf
 <loadfile> widgets/qprogressbar.cf
 <loadfile> widgets/qspinbox.cf
+<loadfile> widgets/qdoublespinbox.cf
 <loadfile> widgets/qabstractslider.cf
 <loadfile> widgets/qslider.cf
 <loadfile> core/qdateedit.cf
@@ -48,6 +49,7 @@
 <loadfile> widgets/qfiledialog.cf
 <loadfile> widgets/qfontdialog.cf
 <loadfile> widgets/qdialog.cf
+<loadfile> widgets/qdialogbuttonbox.cf
 <loadfile> widgets/qcolordialog.cf
 <loadfile> widgets/qlcdnumber.cf
 <loadfile> widgets/qinputdialog.cf
@@ -59,6 +61,7 @@
 <loadfile> widgets/codeeditor.cf
 <loadfile> widgets/qgridlayout.cf
 <loadfile> widgets/qformlayout.cf
+<loadfile> widgets/qspaceritem.cf
 <loadfile> widgets/qheaderview.cf
 <loadfile> widgets/qsplashscreen.cf
 <loadfile> widgets/qboxlayout.cf
@@ -79,6 +82,7 @@
 <loadfile> widgets/qtabbar.cf
 <loadfile> widgets/qscrollbar.cf
 <loadfile> widgets/qstyle.cf
+<loadfile> widgets/qtooltip.cf
 <loadfile> widgets/qgroupbox.cf
 <comment>
 <loadfile> widgets/qdesktopwidget.cf

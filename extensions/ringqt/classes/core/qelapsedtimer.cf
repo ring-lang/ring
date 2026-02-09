@@ -1,0 +1,12 @@
+<class>
+name: QElapsedTimer
+para: void
+</class>
+
+qint64 elapsed(void)
+bool hasExpired(qint64 timeout)
+void invalidate(void)
+bool isValid(void)
+qint64 nsecsElapsed(void)
+qint64 restart(void)
+void start(void)

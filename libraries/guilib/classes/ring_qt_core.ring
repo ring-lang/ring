@@ -1723,7 +1723,9 @@ Class QVariant
 		return pTempObj
 
 	Func toSizeF 
-		return QVariant_toSizeF(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QVariant_toSizeF(pObject)
+		return pTempObj
 
 	Func toStringList 
 		pTempObj = new QStringList
@@ -4898,7 +4900,9 @@ Class QRectF
 		return QRectF_setY(pObject,P1)
 
 	Func size 
-		return QRectF_size(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QRectF_size(pObject)
+		return pTempObj
 
 	Func toAlignedRect 
 		pTempObj = new QRect
@@ -5264,6 +5268,156 @@ Class QLibraryInfo
 		pTempObj = new QVersionNumber
 		pTempObj.pObject = QLibraryInfo_version()
 		return pTempObj
+
+Class QElapsedTimer
+
+	pObject
+
+	Func init 
+		pObject = QElapsedTimer_new()
+		return self
+
+	Func delete
+		pObject = QElapsedTimer_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func elapsed 
+		return QElapsedTimer_elapsed(pObject)
+
+	Func hasExpired P1
+		return QElapsedTimer_hasExpired(pObject,P1)
+
+	Func invalidate 
+		return QElapsedTimer_invalidate(pObject)
+
+	Func isValid 
+		return QElapsedTimer_isValid(pObject)
+
+	Func nsecsElapsed 
+		return QElapsedTimer_nsecsElapsed(pObject)
+
+	Func restart 
+		return QElapsedTimer_restart(pObject)
+
+	Func start 
+		return QElapsedTimer_start(pObject)
+
+Class QSizeF
+
+	pObject
+
+	Func init 
+		pObject = QSizeF_new()
+		return self
+
+	Func delete
+		pObject = QSizeF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func height 
+		return QSizeF_height(pObject)
+
+	Func isEmpty 
+		return QSizeF_isEmpty(pObject)
+
+	Func isNull 
+		return QSizeF_isNull(pObject)
+
+	Func isValid 
+		return QSizeF_isValid(pObject)
+
+	Func width 
+		return QSizeF_width(pObject)
+
+	Func setHeight P1
+		return QSizeF_setHeight(pObject,P1)
+
+	Func setWidth P1
+		return QSizeF_setWidth(pObject,P1)
+
+	Func toSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QSizeF_toSize(pObject)
+		return pTempObj
+
+	Func transpose 
+		return QSizeF_transpose(pObject)
+
+	Func transposed 
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_transposed(pObject)
+		return pTempObj
+
+	Func boundedTo P1
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_boundedTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func expandedTo P1
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_expandedTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func scale P1,P2,P3
+		return QSizeF_scale(pObject,P1,P2,P3)
+
+	Func scale_2 P1,P2
+		return QSizeF_scale_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func scaled P1,P2,P3
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_scaled(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func scaled_2 P1,P2
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_scaled_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+Class QMargins
+
+	pObject
+
+	Func init 
+		pObject = QMargins_new()
+		return self
+
+	Func delete
+		pObject = QMargins_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QMargins_bottom(pObject)
+
+	Func isNull 
+		return QMargins_isNull(pObject)
+
+	Func left 
+		return QMargins_left(pObject)
+
+	Func right 
+		return QMargins_right(pObject)
+
+	Func top 
+		return QMargins_top(pObject)
+
+	Func setBottom P1
+		return QMargins_setBottom(pObject,P1)
+
+	Func setLeft P1
+		return QMargins_setLeft(pObject,P1)
+
+	Func setRight P1
+		return QMargins_setRight(pObject,P1)
+
+	Func setTop P1
+		return QMargins_setTop(pObject,P1)
 
 Class QSize
 

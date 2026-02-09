@@ -1723,7 +1723,9 @@ Class QVariant
 		return pTempObj
 
 	Func toSizeF 
-		return QVariant_toSizeF(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QVariant_toSizeF(pObject)
+		return pTempObj
 
 	Func toStringList 
 		pTempObj = new QStringList
@@ -4898,7 +4900,9 @@ Class QRectF
 		return QRectF_setY(pObject,P1)
 
 	Func size 
-		return QRectF_size(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QRectF_size(pObject)
+		return pTempObj
 
 	Func toAlignedRect 
 		pTempObj = new QRect
@@ -5264,6 +5268,156 @@ Class QLibraryInfo
 		pTempObj = new QVersionNumber
 		pTempObj.pObject = QLibraryInfo_version()
 		return pTempObj
+
+Class QElapsedTimer
+
+	pObject
+
+	Func init 
+		pObject = QElapsedTimer_new()
+		return self
+
+	Func delete
+		pObject = QElapsedTimer_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func elapsed 
+		return QElapsedTimer_elapsed(pObject)
+
+	Func hasExpired P1
+		return QElapsedTimer_hasExpired(pObject,P1)
+
+	Func invalidate 
+		return QElapsedTimer_invalidate(pObject)
+
+	Func isValid 
+		return QElapsedTimer_isValid(pObject)
+
+	Func nsecsElapsed 
+		return QElapsedTimer_nsecsElapsed(pObject)
+
+	Func restart 
+		return QElapsedTimer_restart(pObject)
+
+	Func start 
+		return QElapsedTimer_start(pObject)
+
+Class QSizeF
+
+	pObject
+
+	Func init 
+		pObject = QSizeF_new()
+		return self
+
+	Func delete
+		pObject = QSizeF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func height 
+		return QSizeF_height(pObject)
+
+	Func isEmpty 
+		return QSizeF_isEmpty(pObject)
+
+	Func isNull 
+		return QSizeF_isNull(pObject)
+
+	Func isValid 
+		return QSizeF_isValid(pObject)
+
+	Func width 
+		return QSizeF_width(pObject)
+
+	Func setHeight P1
+		return QSizeF_setHeight(pObject,P1)
+
+	Func setWidth P1
+		return QSizeF_setWidth(pObject,P1)
+
+	Func toSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QSizeF_toSize(pObject)
+		return pTempObj
+
+	Func transpose 
+		return QSizeF_transpose(pObject)
+
+	Func transposed 
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_transposed(pObject)
+		return pTempObj
+
+	Func boundedTo P1
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_boundedTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func expandedTo P1
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_expandedTo(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func scale P1,P2,P3
+		return QSizeF_scale(pObject,P1,P2,P3)
+
+	Func scale_2 P1,P2
+		return QSizeF_scale_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func scaled P1,P2,P3
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_scaled(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func scaled_2 P1,P2
+		pTempObj = new QSizeF
+		pTempObj.pObject = QSizeF_scaled_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+Class QMargins
+
+	pObject
+
+	Func init 
+		pObject = QMargins_new()
+		return self
+
+	Func delete
+		pObject = QMargins_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bottom 
+		return QMargins_bottom(pObject)
+
+	Func isNull 
+		return QMargins_isNull(pObject)
+
+	Func left 
+		return QMargins_left(pObject)
+
+	Func right 
+		return QMargins_right(pObject)
+
+	Func top 
+		return QMargins_top(pObject)
+
+	Func setBottom P1
+		return QMargins_setBottom(pObject,P1)
+
+	Func setLeft P1
+		return QMargins_setLeft(pObject,P1)
+
+	Func setRight P1
+		return QMargins_setRight(pObject,P1)
+
+	Func setTop P1
+		return QMargins_setTop(pObject,P1)
 
 Class QDesktopServices
 
@@ -6821,7 +6975,9 @@ Class QTextDocument from QObject
 		return QTextDocument_pageCount(pObject)
 
 	Func pageSize 
-		return QTextDocument_pageSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QTextDocument_pageSize(pObject)
+		return pTempObj
 
 	Func print P1
 		return QTextDocument_print(pObject,GetObjectPointerFromRingObject(P1))
@@ -6886,7 +7042,9 @@ Class QTextDocument from QObject
 		return QTextDocument_setUseDesignMetrics(pObject,P1)
 
 	Func size 
-		return QTextDocument_size(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QTextDocument_size(pObject)
+		return pTempObj
 
 	Func textWidth 
 		return QTextDocument_textWidth(pObject)
@@ -7729,6 +7887,91 @@ Class QLinearGradient from QGradient
 		pTempObj.pObject = QLinearGradient_start(pObject)
 		return pTempObj
 
+Class QRadialGradient from QGradient
+
+	pObject
+
+	Func init 
+		pObject = QRadialGradient_new()
+		return self
+
+	Func delete
+		pObject = QRadialGradient_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRadialGradient_center(pObject)
+		return pTempObj
+
+	Func centerRadius 
+		return QRadialGradient_centerRadius(pObject)
+
+	Func focalRadius 
+		return QRadialGradient_focalRadius(pObject)
+
+	Func focalPoint 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRadialGradient_focalPoint(pObject)
+		return pTempObj
+
+	Func radius 
+		return QRadialGradient_radius(pObject)
+
+	Func setCenter P1
+		return QRadialGradient_setCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCenter_2 P1,P2
+		return QRadialGradient_setCenter_2(pObject,P1,P2)
+
+	Func setCenterRadius P1
+		return QRadialGradient_setCenterRadius(pObject,P1)
+
+	Func setFocalPoint P1
+		return QRadialGradient_setFocalPoint(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFocalPoint_2 P1,P2
+		return QRadialGradient_setFocalPoint_2(pObject,P1,P2)
+
+	Func setFocalRadius P1
+		return QRadialGradient_setFocalRadius(pObject,P1)
+
+	Func setRadius P1
+		return QRadialGradient_setRadius(pObject,P1)
+
+Class QConicalGradient from QGradient
+
+	pObject
+
+	Func init 
+		pObject = QConicalGradient_new()
+		return self
+
+	Func delete
+		pObject = QConicalGradient_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func angle 
+		return QConicalGradient_angle(pObject)
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QConicalGradient_center(pObject)
+		return pTempObj
+
+	Func setAngle P1
+		return QConicalGradient_setAngle(pObject,P1)
+
+	Func setCenter P1
+		return QConicalGradient_setCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCenter_2 P1,P2
+		return QConicalGradient_setCenter_2(pObject,P1,P2)
+
 Class QGradient
 
 	pObject
@@ -7932,7 +8175,9 @@ Class QScreen
 		return QScreen_physicalDotsPerInchY(pObject)
 
 	Func physicalSize 
-		return QScreen_physicalSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QScreen_physicalSize(pObject)
+		return pTempObj
 
 	Func primaryOrientation 
 		return QScreen_primaryOrientation(pObject)
@@ -8006,7 +8251,9 @@ Class QWindow from QObject
 		return pTempObj
 
 	Func frameMargins 
-		return QWindow_frameMargins(pObject)
+		pTempObj = new QMargins
+		pTempObj.pObject = QWindow_frameMargins(pObject)
+		return pTempObj
 
 	Func framePosition 
 		pTempObj = new QPoint
@@ -12736,7 +12983,9 @@ Class QWidget from QObject
 		return QWidget_clearMask(pObject)
 
 	Func contentsMargins 
-		return QWidget_contentsMargins(pObject)
+		pTempObj = new QMargins
+		pTempObj.pObject = QWidget_contentsMargins(pObject)
+		return pTempObj
 
 	Func contentsRect 
 		pTempObj = new QRect
@@ -13678,7 +13927,9 @@ Class QLineEdit from QWidget
 		return QLineEdit_text(pObject)
 
 	Func textMargins 
-		return QLineEdit_textMargins(pObject)
+		pTempObj = new QMargins
+		pTempObj.pObject = QLineEdit_textMargins(pObject)
+		return pTempObj
 
 	Func validator 
 		pTempObj = new QValidator
@@ -17111,6 +17362,83 @@ Class QSpinBox from QWidget
 	Func getvalueChangedEvent 
 		return QSpinBox_getvalueChangedEvent(pObject)
 
+Class QDoubleSpinBox from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QDoubleSpinBox_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDoubleSpinBox_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cleanText 
+		return QDoubleSpinBox_cleanText(pObject)
+
+	Func decimals 
+		return QDoubleSpinBox_decimals(pObject)
+
+	Func maximum 
+		return QDoubleSpinBox_maximum(pObject)
+
+	Func minimum 
+		return QDoubleSpinBox_minimum(pObject)
+
+	Func prefix 
+		return QDoubleSpinBox_prefix(pObject)
+
+	Func setDecimals P1
+		return QDoubleSpinBox_setDecimals(pObject,P1)
+
+	Func setMaximum P1
+		return QDoubleSpinBox_setMaximum(pObject,P1)
+
+	Func setMinimum P1
+		return QDoubleSpinBox_setMinimum(pObject,P1)
+
+	Func setPrefix P1
+		return QDoubleSpinBox_setPrefix(pObject,P1)
+
+	Func setRange P1,P2
+		return QDoubleSpinBox_setRange(pObject,P1,P2)
+
+	Func setSingleStep P1
+		return QDoubleSpinBox_setSingleStep(pObject,P1)
+
+	Func setSuffix P1
+		return QDoubleSpinBox_setSuffix(pObject,P1)
+
+	Func setStepType P1
+		return QDoubleSpinBox_setStepType(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func singleStep 
+		return QDoubleSpinBox_singleStep(pObject)
+
+	Func suffix 
+		return QDoubleSpinBox_suffix(pObject)
+
+	Func value 
+		return QDoubleSpinBox_value(pObject)
+
+	Func setValue P1
+		return QDoubleSpinBox_setValue(pObject,P1)
+
+	Func textFromValue P1
+		return QDoubleSpinBox_textFromValue(pObject,P1)
+
+	Func valueFromText P1
+		return QDoubleSpinBox_valueFromText(pObject,P1)
+
+	Func setvalueChangedEvent P1
+		return QDoubleSpinBox_setvalueChangedEvent(pObject,P1)
+
+	Func getvalueChangedEvent 
+		return QDoubleSpinBox_getvalueChangedEvent(pObject)
+
 Class QAbstractSlider from QWidget
 
 	pObject
@@ -18577,6 +18905,95 @@ Class QDialog from QWidget
 	Func reject 
 		return QDialog_reject(pObject)
 
+Class QDialogButtonBox from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QDialogButtonBox_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDialogButtonBox_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addButton P1,P2
+		return QDialogButtonBox_addButton(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func addButton_2 P1,P2
+		pTempObj = new QPushButton
+		pTempObj.pObject = QDialogButtonBox_addButton_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func addButton_3 P1
+		pTempObj = new QPushButton
+		pTempObj.pObject = QDialogButtonBox_addButton_3(pObject,P1)
+		return pTempObj
+
+	Func button P1
+		pTempObj = new QPushButton
+		pTempObj.pObject = QDialogButtonBox_button(pObject,P1)
+		return pTempObj
+
+	Func buttonRole P1
+		return QDialogButtonBox_buttonRole(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func buttons 
+		return QDialogButtonBox_buttons(pObject)
+
+	Func centerButtons 
+		return QDialogButtonBox_centerButtons(pObject)
+
+	Func clear 
+		return QDialogButtonBox_clear(pObject)
+
+	Func orientation 
+		return QDialogButtonBox_orientation(pObject)
+
+	Func removeButton P1
+		return QDialogButtonBox_removeButton(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCenterButtons P1
+		return QDialogButtonBox_setCenterButtons(pObject,P1)
+
+	Func setOrientation P1
+		return QDialogButtonBox_setOrientation(pObject,P1)
+
+	Func setStandardButtons P1
+		return QDialogButtonBox_setStandardButtons(pObject,P1)
+
+	Func standardButton P1
+		return QDialogButtonBox_standardButton(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func standardButtons 
+		return QDialogButtonBox_standardButtons(pObject)
+
+	Func setacceptedEvent P1
+		return QDialogButtonBox_setacceptedEvent(pObject,P1)
+
+	Func setrejectedEvent P1
+		return QDialogButtonBox_setrejectedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QDialogButtonBox_setclickedEvent(pObject,P1)
+
+	Func sethelpRequestedEvent P1
+		return QDialogButtonBox_sethelpRequestedEvent(pObject,P1)
+
+	Func getacceptedEvent 
+		return QDialogButtonBox_getacceptedEvent(pObject)
+
+	Func getrejectedEvent 
+		return QDialogButtonBox_getrejectedEvent(pObject)
+
+	Func getclickedEvent 
+		return QDialogButtonBox_getclickedEvent(pObject)
+
+	Func gethelpRequestedEvent 
+		return QDialogButtonBox_gethelpRequestedEvent(pObject)
+
 Class QColorDialog from QDialog
 
 	pObject
@@ -20024,6 +20441,26 @@ Class QFormLayout from QLayout
 		pTempObj.pObject = QFormLayout_labelForField_2(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
+Class QSpacerItem from QLayoutItem
+
+	pObject
+
+	Func init P1,P2,P3,P4
+		pObject = QSpacerItem_new(P1,P2,P3,P4)
+		return self
+
+	Func delete
+		pObject = QSpacerItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func changeSize P1,P2,P3,P4
+		return QSpacerItem_changeSize(pObject,P1,P2,P3,P4)
+
+	Func sizePolicy 
+		return QSpacerItem_sizePolicy(pObject)
+
 Class QHeaderView from QAbstractItemView
 
 	pObject
@@ -20409,7 +20846,9 @@ Class QLayout from QObject
 		return QLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func contentsMargins 
-		return QLayout_contentsMargins(pObject)
+		pTempObj = new QMargins
+		pTempObj.pObject = QLayout_contentsMargins(pObject)
+		return pTempObj
 
 	Func contentsRect 
 		pTempObj = new QRect
@@ -21697,6 +22136,37 @@ Class QStyle from QObject
 		pTempObj = new QRect
 		pTempObj.pObject = QStyle_visualRect(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
+
+Class QToolTip
+
+	pObject
+
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QToolTip_font()
+		return pTempObj
+
+	Func hideText 
+		return QToolTip_hideText()
+
+	Func isVisible 
+		return QToolTip_isVisible()
+
+	Func palette 
+		return QToolTip_palette()
+
+	Func setFont P1
+		return QToolTip_setFont(GetObjectPointerFromRingObject(P1))
+
+	Func setPalette P1
+		return QToolTip_setPalette(GetObjectPointerFromRingObject(P1))
+
+	Func showText P1,P2,P3
+		return QToolTip_showText(GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
+	Func text 
+		return QToolTip_text()
 
 Class QGroupBox from QWidget
 
@@ -23436,7 +23906,9 @@ Class QGraphicsLayoutItem
 		return pTempObj
 
 	Func effectiveSizeHint P1,P2
-		return QGraphicsLayoutItem_effectiveSizeHint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsLayoutItem_effectiveSizeHint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func geometry 
 		pTempObj = new QRectF
@@ -23458,7 +23930,9 @@ Class QGraphicsLayoutItem
 		return QGraphicsLayoutItem_maximumHeight(pObject)
 
 	Func maximumSize 
-		return QGraphicsLayoutItem_maximumSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsLayoutItem_maximumSize(pObject)
+		return pTempObj
 
 	Func maximumWidth 
 		return QGraphicsLayoutItem_maximumWidth(pObject)
@@ -23467,7 +23941,9 @@ Class QGraphicsLayoutItem
 		return QGraphicsLayoutItem_minimumHeight(pObject)
 
 	Func minimumSize 
-		return QGraphicsLayoutItem_minimumSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsLayoutItem_minimumSize(pObject)
+		return pTempObj
 
 	Func minimumWidth 
 		return QGraphicsLayoutItem_minimumWidth(pObject)
@@ -23484,7 +23960,9 @@ Class QGraphicsLayoutItem
 		return QGraphicsLayoutItem_preferredHeight(pObject)
 
 	Func preferredSize 
-		return QGraphicsLayoutItem_preferredSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsLayoutItem_preferredSize(pObject)
+		return pTempObj
 
 	Func preferredWidth 
 		return QGraphicsLayoutItem_preferredWidth(pObject)
@@ -24083,10 +24561,14 @@ Class QGraphicsSceneResizeEvent from QGraphicsSceneEvent
 		return pObject
 
 	Func newSize 
-		return QGraphicsSceneResizeEvent_newSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsSceneResizeEvent_newSize(pObject)
+		return pTempObj
 
 	Func oldSize 
-		return QGraphicsSceneResizeEvent_oldSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsSceneResizeEvent_oldSize(pObject)
+		return pTempObj
 
 Class QGraphicsSceneWheelEvent from QGraphicsSceneEvent
 
@@ -24558,7 +25040,9 @@ Class QGraphicsWidget from QGraphicsObject
 		return QGraphicsWidget_setWindowTitle(pObject,P1)
 
 	Func size 
-		return QGraphicsWidget_size(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsWidget_size(pObject)
+		return pTempObj
 
 	Func style 
 		return QGraphicsWidget_style(pObject)
@@ -25100,7 +25584,9 @@ Class QGraphicsVideoItem
 		return QGraphicsVideoItem_aspectRatioMode(pObject)
 
 	Func nativeSize 
-		return QGraphicsVideoItem_nativeSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsVideoItem_nativeSize(pObject)
+		return pTempObj
 
 	Func offset 
 		pTempObj = new QPointF
@@ -25117,7 +25603,9 @@ Class QGraphicsVideoItem
 		return QGraphicsVideoItem_setSize(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func size 
-		return QGraphicsVideoItem_size(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QGraphicsVideoItem_size(pObject)
+		return pTempObj
 
 Class QPrintPreviewDialog from QDialog
 
@@ -27487,7 +27975,9 @@ Class QWebEnginePage from QObject
 		return pTempObj
 
 	Func contentsSize 
-		return QWebEnginePage_contentsSize(pObject)
+		pTempObj = new QSizeF
+		pTempObj.pObject = QWebEnginePage_contentsSize(pObject)
+		return pTempObj
 
 	Func createStandardContextMenu 
 		pTempObj = new QMenu
@@ -32551,7 +33041,9 @@ Class QChart from QGraphicsWidget
 		return pTempObj
 
 	Func margins 
-		return QChart_margins(pObject)
+		pTempObj = new QMargins
+		pTempObj.pObject = QChart_margins(pObject)
+		return pTempObj
 
 	Func plotArea 
 		pTempObj = new QRectF

@@ -106,6 +106,8 @@ SOURCES +=   \
     cpp/src/mscompleter.cpp \
     cpp/src/gdatetimeedit.cpp \
     cpp/src/ggroupbox.cpp \
+    cpp/src/gdoublespinbox.cpp \
+    cpp/src/gdialogbuttonbox.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -202,7 +204,9 @@ HEADERS  += \
     cpp/include/gfiledialog.h \
     cpp/include/mscompleter.h \
     cpp/include/gdatetimeedit.h \
-    cpp/include/ggroupbox.h
+    cpp/include/ggroupbox.h \
+    cpp/include/gdoublespinbox.h \
+    cpp/include/gdialogbuttonbox.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

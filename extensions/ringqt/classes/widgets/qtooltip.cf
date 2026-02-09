@@ -1,0 +1,15 @@
+<class>
+name: QToolTip
+para: void
+nonew
+staticmethods
+</class>
+
+QFont font(void)
+void hideText(void)
+bool isVisible(void)
+QPalette palette(void)
+void setFont(QFont font)
+void setPalette(QPalette palette)
+void showText(QPoint pos, QString text, QWidget *w)
+QString text(void)

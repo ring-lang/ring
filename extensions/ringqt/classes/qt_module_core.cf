@@ -70,3 +70,6 @@
 
 <loadfile> core/qversionnumber.cf
 <loadfile> core/qlibraryinfo.cf
+<loadfile> core/qelapsedtimer.cf
+<loadfile> core/qsizef.cf
+<loadfile> core/qmargins.cf

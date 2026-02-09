@@ -1,0 +1,21 @@
+<class>
+name: QSizeF
+para: void
+</class>
+
+qreal height(void)
+bool isEmpty(void)
+bool isNull(void)
+bool isValid(void)
+qreal width(void)
+void setHeight(qreal height)
+void setWidth(qreal width)
+QSize toSize(void)
+void transpose(void)
+QSizeF transposed(void)
+QSizeF boundedTo(QSizeF otherSize)
+QSizeF expandedTo(QSizeF otherSize)
+void scale(qreal width, qreal height, Qt::AspectRatioMode mode)
+void scale@2(QSizeF size, Qt::AspectRatioMode mode)
+QSizeF scaled(qreal width, qreal height, Qt::AspectRatioMode mode)
+QSizeF scaled@2(QSizeF size, Qt::AspectRatioMode mode)

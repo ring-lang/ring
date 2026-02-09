@@ -1,0 +1,18 @@
+<class>
+name: QRadialGradient
+para: void
+parent: QGradient
+</class>
+
+QPointF center(void)
+qreal centerRadius(void)
+qreal focalRadius(void)
+QPointF focalPoint(void)
+qreal radius(void)
+void setCenter(QPointF center)
+void setCenter@2(qreal x, qreal y)
+void setCenterRadius(qreal radius)
+void setFocalPoint(QPointF focalPoint)
+void setFocalPoint@2(qreal x, qreal y)
+void setFocalRadius(qreal radius)
+void setRadius(qreal radius)
