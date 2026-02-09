@@ -28715,6 +28715,600 @@ Class QAudioOutput
 	Func setVolume P1
 		return QAudioOutput_setVolume(pObject,P1)
 
+Class QAudioInput from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QAudioInput_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAudioInput_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func bufferSize 
+		return QAudioInput_bufferSize(pObject)
+
+	Func bytesReady 
+		return QAudioInput_bytesReady(pObject)
+
+	Func elapsedUSecs 
+		return QAudioInput_elapsedUSecs(pObject)
+
+	Func error 
+		return QAudioInput_error(pObject)
+
+	Func format 
+		pTempObj = new QAudioFormat
+		pTempObj.pObject = QAudioInput_format(pObject)
+		return pTempObj
+
+	Func notifyInterval 
+		return QAudioInput_notifyInterval(pObject)
+
+	Func periodSize 
+		return QAudioInput_periodSize(pObject)
+
+	Func processedUSecs 
+		return QAudioInput_processedUSecs(pObject)
+
+	Func reset 
+		return QAudioInput_reset(pObject)
+
+	Func resume 
+		return QAudioInput_resume(pObject)
+
+	Func setBufferSize P1
+		return QAudioInput_setBufferSize(pObject,P1)
+
+	Func setNotifyInterval P1
+		return QAudioInput_setNotifyInterval(pObject,P1)
+
+	Func setVolume P1
+		return QAudioInput_setVolume(pObject,P1)
+
+	Func start P1
+		return QAudioInput_start(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func start_2 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QAudioInput_start_2(pObject)
+		return pTempObj
+
+	Func state 
+		return QAudioInput_state(pObject)
+
+	Func stop 
+		return QAudioInput_stop(pObject)
+
+	Func suspend 
+		return QAudioInput_suspend(pObject)
+
+	Func volume 
+		return QAudioInput_volume(pObject)
+
+	Func setstateChangedEvent P1
+		return QAudioInput_setstateChangedEvent(pObject,P1)
+
+	Func setnotifyEvent P1
+		return QAudioInput_setnotifyEvent(pObject,P1)
+
+	Func getstateChangedEvent 
+		return QAudioInput_getstateChangedEvent(pObject)
+
+	Func getnotifyEvent 
+		return QAudioInput_getnotifyEvent(pObject)
+
+Class QAudioFormat
+
+	pObject
+
+	Func init 
+		pObject = QAudioFormat_new()
+		return self
+
+	Func delete
+		pObject = QAudioFormat_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func byteOrder 
+		return QAudioFormat_byteOrder(pObject)
+
+	Func channelCount 
+		return QAudioFormat_channelCount(pObject)
+
+	Func codec 
+		return QAudioFormat_codec(pObject)
+
+	Func isValid 
+		return QAudioFormat_isValid(pObject)
+
+	Func sampleRate 
+		return QAudioFormat_sampleRate(pObject)
+
+	Func sampleSize 
+		return QAudioFormat_sampleSize(pObject)
+
+	Func sampleType 
+		return QAudioFormat_sampleType(pObject)
+
+	Func setByteOrder P1
+		return QAudioFormat_setByteOrder(pObject,P1)
+
+	Func setChannelCount P1
+		return QAudioFormat_setChannelCount(pObject,P1)
+
+	Func setCodec P1
+		return QAudioFormat_setCodec(pObject,P1)
+
+	Func setSampleRate P1
+		return QAudioFormat_setSampleRate(pObject,P1)
+
+	Func setSampleSize P1
+		return QAudioFormat_setSampleSize(pObject,P1)
+
+	Func setSampleType P1
+		return QAudioFormat_setSampleType(pObject,P1)
+
+Class QAudioDeviceInfo
+
+	pObject
+
+	Func init 
+		pObject = QAudioDeviceInfo_new()
+		return self
+
+	Func delete
+		pObject = QAudioDeviceInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func deviceName 
+		return QAudioDeviceInfo_deviceName(pObject)
+
+	Func isFormatSupported P1
+		return QAudioDeviceInfo_isFormatSupported(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isNull 
+		return QAudioDeviceInfo_isNull(pObject)
+
+	Func nearestFormat P1
+		pTempObj = new QAudioFormat
+		pTempObj.pObject = QAudioDeviceInfo_nearestFormat(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func preferredFormat 
+		pTempObj = new QAudioFormat
+		pTempObj.pObject = QAudioDeviceInfo_preferredFormat(pObject)
+		return pTempObj
+
+	Func supportedChannelCounts 
+		return QAudioDeviceInfo_supportedChannelCounts(pObject)
+
+	Func supportedCodecs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QAudioDeviceInfo_supportedCodecs(pObject)
+		return pTempObj
+
+	Func supportedSampleRates 
+		return QAudioDeviceInfo_supportedSampleRates(pObject)
+
+	Func supportedSampleSizes 
+		return QAudioDeviceInfo_supportedSampleSizes(pObject)
+
+	Func supportedSampleTypes 
+		return QAudioDeviceInfo_supportedSampleTypes(pObject)
+
+	Func supportedByteOrders 
+		return QAudioDeviceInfo_supportedByteOrders(pObject)
+
+Class QAudioRecorder from QMediaRecorder
+
+	pObject
+
+	Func init P1
+		pObject = QAudioRecorder_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAudioRecorder_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func audioInput 
+		return QAudioRecorder_audioInput(pObject)
+
+	Func audioInputDescription P1
+		return QAudioRecorder_audioInputDescription(pObject,P1)
+
+	Func audioInputs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QAudioRecorder_audioInputs(pObject)
+		return pTempObj
+
+	Func defaultAudioInput 
+		return QAudioRecorder_defaultAudioInput(pObject)
+
+	Func setAudioInput P1
+		return QAudioRecorder_setAudioInput(pObject,P1)
+
+	Func setaudioInputChangedEvent P1
+		return QAudioRecorder_setaudioInputChangedEvent(pObject,P1)
+
+	Func setavailableAudioInputsChangedEvent P1
+		return QAudioRecorder_setavailableAudioInputsChangedEvent(pObject,P1)
+
+	Func getaudioInputChangedEvent 
+		return QAudioRecorder_getaudioInputChangedEvent(pObject)
+
+	Func getavailableAudioInputsChangedEvent 
+		return QAudioRecorder_getavailableAudioInputsChangedEvent(pObject)
+
+Class QAudioProbe from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QAudioProbe_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAudioProbe_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isActive 
+		return QAudioProbe_isActive(pObject)
+
+	Func setSource P1
+		return QAudioProbe_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSource_2 P1
+		return QAudioProbe_setSource_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setaudioBufferProbedEvent P1
+		return QAudioProbe_setaudioBufferProbedEvent(pObject,P1)
+
+	Func setflushEvent P1
+		return QAudioProbe_setflushEvent(pObject,P1)
+
+	Func getaudioBufferProbedEvent 
+		return QAudioProbe_getaudioBufferProbedEvent(pObject)
+
+	Func getflushEvent 
+		return QAudioProbe_getflushEvent(pObject)
+
+Class QSoundEffect from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QSoundEffect_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSoundEffect_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func category 
+		return QSoundEffect_category(pObject)
+
+	Func isLoaded 
+		return QSoundEffect_isLoaded(pObject)
+
+	Func isMuted 
+		return QSoundEffect_isMuted(pObject)
+
+	Func isPlaying 
+		return QSoundEffect_isPlaying(pObject)
+
+	Func loopCount 
+		return QSoundEffect_loopCount(pObject)
+
+	Func loopsRemaining 
+		return QSoundEffect_loopsRemaining(pObject)
+
+	Func setCategory P1
+		return QSoundEffect_setCategory(pObject,P1)
+
+	Func setLoopCount P1
+		return QSoundEffect_setLoopCount(pObject,P1)
+
+	Func setMuted P1
+		return QSoundEffect_setMuted(pObject,P1)
+
+	Func setSource P1
+		return QSoundEffect_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setVolume P1
+		return QSoundEffect_setVolume(pObject,P1)
+
+	Func source 
+		pTempObj = new QUrl
+		pTempObj.pObject = QSoundEffect_source(pObject)
+		return pTempObj
+
+	Func status 
+		return QSoundEffect_status(pObject)
+
+	Func volume 
+		return QSoundEffect_volume(pObject)
+
+	Func play 
+		return QSoundEffect_play(pObject)
+
+	Func stop 
+		return QSoundEffect_stop(pObject)
+
+	Func setcategoryChangedEvent P1
+		return QSoundEffect_setcategoryChangedEvent(pObject,P1)
+
+	Func setloadedChangedEvent P1
+		return QSoundEffect_setloadedChangedEvent(pObject,P1)
+
+	Func setloopCountChangedEvent P1
+		return QSoundEffect_setloopCountChangedEvent(pObject,P1)
+
+	Func setloopsRemainingChangedEvent P1
+		return QSoundEffect_setloopsRemainingChangedEvent(pObject,P1)
+
+	Func setmutedChangedEvent P1
+		return QSoundEffect_setmutedChangedEvent(pObject,P1)
+
+	Func setplayingChangedEvent P1
+		return QSoundEffect_setplayingChangedEvent(pObject,P1)
+
+	Func setsourceChangedEvent P1
+		return QSoundEffect_setsourceChangedEvent(pObject,P1)
+
+	Func setstatusChangedEvent P1
+		return QSoundEffect_setstatusChangedEvent(pObject,P1)
+
+	Func setvolumeChangedEvent P1
+		return QSoundEffect_setvolumeChangedEvent(pObject,P1)
+
+	Func getcategoryChangedEvent 
+		return QSoundEffect_getcategoryChangedEvent(pObject)
+
+	Func getloadedChangedEvent 
+		return QSoundEffect_getloadedChangedEvent(pObject)
+
+	Func getloopCountChangedEvent 
+		return QSoundEffect_getloopCountChangedEvent(pObject)
+
+	Func getloopsRemainingChangedEvent 
+		return QSoundEffect_getloopsRemainingChangedEvent(pObject)
+
+	Func getmutedChangedEvent 
+		return QSoundEffect_getmutedChangedEvent(pObject)
+
+	Func getplayingChangedEvent 
+		return QSoundEffect_getplayingChangedEvent(pObject)
+
+	Func getsourceChangedEvent 
+		return QSoundEffect_getsourceChangedEvent(pObject)
+
+	Func getstatusChangedEvent 
+		return QSoundEffect_getstatusChangedEvent(pObject)
+
+	Func getvolumeChangedEvent 
+		return QSoundEffect_getvolumeChangedEvent(pObject)
+
+Class QMediaRecorder from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QMediaRecorder_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMediaRecorder_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func actualLocation 
+		pTempObj = new QUrl
+		pTempObj.pObject = QMediaRecorder_actualLocation(pObject)
+		return pTempObj
+
+	Func audioSettings 
+		return QMediaRecorder_audioSettings(pObject)
+
+	Func availability 
+		return QMediaRecorder_availability(pObject)
+
+	Func containerDescription P1
+		return QMediaRecorder_containerDescription(pObject,P1)
+
+	Func containerFormat 
+		return QMediaRecorder_containerFormat(pObject)
+
+	Func duration 
+		return QMediaRecorder_duration(pObject)
+
+	Func error 
+		return QMediaRecorder_error(pObject)
+
+	Func errorString 
+		return QMediaRecorder_errorString(pObject)
+
+	Func isAvailable 
+		return QMediaRecorder_isAvailable(pObject)
+
+	Func isMetaDataAvailable 
+		return QMediaRecorder_isMetaDataAvailable(pObject)
+
+	Func isMetaDataWritable 
+		return QMediaRecorder_isMetaDataWritable(pObject)
+
+	Func isMuted 
+		return QMediaRecorder_isMuted(pObject)
+
+	Func metaData P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QMediaRecorder_metaData(pObject,P1)
+		return pTempObj
+
+	Func outputLocation 
+		pTempObj = new QUrl
+		pTempObj.pObject = QMediaRecorder_outputLocation(pObject)
+		return pTempObj
+
+	Func setOutputLocation P1
+		return QMediaRecorder_setOutputLocation(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func state 
+		return QMediaRecorder_state(pObject)
+
+	Func status 
+		return QMediaRecorder_status(pObject)
+
+	Func supportedAudioCodecs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QMediaRecorder_supportedAudioCodecs(pObject)
+		return pTempObj
+
+	Func supportedContainers 
+		pTempObj = new QStringList
+		pTempObj.pObject = QMediaRecorder_supportedContainers(pObject)
+		return pTempObj
+
+	Func supportedVideoCodecs 
+		pTempObj = new QStringList
+		pTempObj.pObject = QMediaRecorder_supportedVideoCodecs(pObject)
+		return pTempObj
+
+	Func videoCodecDescription P1
+		return QMediaRecorder_videoCodecDescription(pObject,P1)
+
+	Func videoSettings 
+		return QMediaRecorder_videoSettings(pObject)
+
+	Func volume 
+		return QMediaRecorder_volume(pObject)
+
+	Func pause 
+		return QMediaRecorder_pause(pObject)
+
+	Func record 
+		return QMediaRecorder_record(pObject)
+
+	Func setAudioSettings P1
+		return QMediaRecorder_setAudioSettings(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setEncodingSettings P1,P2,P3
+		return QMediaRecorder_setEncodingSettings(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func setMetaData P1,P2
+		return QMediaRecorder_setMetaData(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setMuted P1
+		return QMediaRecorder_setMuted(pObject,P1)
+
+	Func setVideoSettings P1
+		return QMediaRecorder_setVideoSettings(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setVolume P1
+		return QMediaRecorder_setVolume(pObject,P1)
+
+	Func stop 
+		return QMediaRecorder_stop(pObject)
+
+	Func setactualLocationChangedEvent P1
+		return QMediaRecorder_setactualLocationChangedEvent(pObject,P1)
+
+	Func setdurationChangedEvent P1
+		return QMediaRecorder_setdurationChangedEvent(pObject,P1)
+
+	Func seterrorEvent P1
+		return QMediaRecorder_seterrorEvent(pObject,P1)
+
+	Func setmetaDataChangedEvent P1
+		return QMediaRecorder_setmetaDataChangedEvent(pObject,P1)
+
+	Func setmutedChangedEvent P1
+		return QMediaRecorder_setmutedChangedEvent(pObject,P1)
+
+	Func setstateChangedEvent P1
+		return QMediaRecorder_setstateChangedEvent(pObject,P1)
+
+	Func setstatusChangedEvent P1
+		return QMediaRecorder_setstatusChangedEvent(pObject,P1)
+
+	Func setvolumeChangedEvent P1
+		return QMediaRecorder_setvolumeChangedEvent(pObject,P1)
+
+	Func getactualLocationChangedEvent 
+		return QMediaRecorder_getactualLocationChangedEvent(pObject)
+
+	Func getdurationChangedEvent 
+		return QMediaRecorder_getdurationChangedEvent(pObject)
+
+	Func geterrorEvent 
+		return QMediaRecorder_geterrorEvent(pObject)
+
+	Func getmetaDataChangedEvent 
+		return QMediaRecorder_getmetaDataChangedEvent(pObject)
+
+	Func getmutedChangedEvent 
+		return QMediaRecorder_getmutedChangedEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QMediaRecorder_getstateChangedEvent(pObject)
+
+	Func getstatusChangedEvent 
+		return QMediaRecorder_getstatusChangedEvent(pObject)
+
+	Func getvolumeChangedEvent 
+		return QMediaRecorder_getvolumeChangedEvent(pObject)
+
+Class QVideoProbe from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QVideoProbe_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QVideoProbe_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isActive 
+		return QVideoProbe_isActive(pObject)
+
+	Func setSource P1
+		return QVideoProbe_setSource(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSource_2 P1
+		return QVideoProbe_setSource_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setvideoFrameProbedEvent P1
+		return QVideoProbe_setvideoFrameProbedEvent(pObject,P1)
+
+	Func setflushEvent P1
+		return QVideoProbe_setflushEvent(pObject,P1)
+
+	Func getvideoFrameProbedEvent 
+		return QVideoProbe_getvideoFrameProbedEvent(pObject)
+
+	Func getflushEvent 
+		return QVideoProbe_getflushEvent(pObject)
+
 Class QVideoWidget from QWidget
 
 	pObject

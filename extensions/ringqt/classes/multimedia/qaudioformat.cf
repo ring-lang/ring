@@ -1,0 +1,18 @@
+<class>
+name: QAudioFormat
+para: void
+</class>
+
+QAudioFormat::Endian byteOrder(void)
+int channelCount(void)
+QString codec(void)
+bool isValid(void)
+int sampleRate(void)
+int sampleSize(void)
+QAudioFormat::SampleType sampleType(void)
+void setByteOrder(QAudioFormat::Endian byteOrder)
+void setChannelCount(int channels)
+void setCodec(QString codec)
+void setSampleRate(int samplerate)
+void setSampleSize(int sampleSize)
+void setSampleType(QAudioFormat::SampleType sampleType)

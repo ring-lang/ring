@@ -124,6 +124,12 @@ SOURCES +=   \
     cpp/src/gudpsocket.cpp \
     cpp/src/gsslsocket.cpp \
     cpp/src/gnetworkconfigurationmanager.cpp \
+    cpp/src/gsoundeffect.cpp \
+    cpp/src/gaudioinput.cpp \
+    cpp/src/gmediarecorder.cpp \
+    cpp/src/gaudiorecorder.cpp \
+    cpp/src/gaudioprobe.cpp \
+    cpp/src/gvideoprobe.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -238,7 +244,13 @@ HEADERS  += \
     cpp/include/gcolumnview.h \
     cpp/include/gudpsocket.h \
     cpp/include/gsslsocket.h \
-    cpp/include/gnetworkconfigurationmanager.h 
+    cpp/include/gnetworkconfigurationmanager.h \
+    cpp/include/gsoundeffect.h \
+    cpp/include/gaudioinput.h \
+    cpp/include/gmediarecorder.h \
+    cpp/include/gaudiorecorder.h \
+    cpp/include/gaudioprobe.h \
+    cpp/include/gvideoprobe.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

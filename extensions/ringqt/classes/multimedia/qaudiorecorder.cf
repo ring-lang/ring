@@ -1,0 +1,19 @@
+<class>
+name: QAudioRecorder
+para: QObject *
+parent: QMediaRecorder
+codename: GAudioRecorder
+passvmpointer
+</class>
+
+QString audioInput(void)
+QString audioInputDescription(QString name)
+QStringList audioInputs(void)
+QString defaultAudioInput(void)
+void setAudioInput(QString name)
+
+void setaudioInputChangedEvent(const char *)
+void setavailableAudioInputsChangedEvent(const char *)
+
+const char *getaudioInputChangedEvent(void)
+const char *getavailableAudioInputsChangedEvent(void)

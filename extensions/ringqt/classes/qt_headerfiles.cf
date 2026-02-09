@@ -91,6 +91,13 @@ extern "C" {
 
 <filter> sysget("RINGQT_NOMULTIMEDIA") = ""
 #include "gvideowidget.h"
+#include "gsoundeffect.h"
+#include "gaudioinput.h"
+#include "gmediarecorder.h"
+#include "gaudiorecorder.h"
+#include "gaudioprobe.h"
+#include "gvideoprobe.h"
+
 #include <QMediaContent>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
@@ -101,6 +108,14 @@ extern "C" {
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QAudioOutput>
+#include <QSoundEffect>
+#include <QAudioInput>
+#include <QMediaRecorder>
+#include <QAudioRecorder>
+#include <QAudioProbe>
+#include <QVideoProbe>
+#include <QAudioDeviceInfo>
+#include <QAudioFormat>
 </filter>
 
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""

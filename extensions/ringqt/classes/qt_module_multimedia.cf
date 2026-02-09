@@ -8,3 +8,11 @@
 <loadfile> multimedia/qcameraimagecapture.cf
 <loadfile> multimedia/qmediaobject.cf
 <loadfile> multimedia/qaudiooutput.cf
+<loadfile> multimedia/qaudioinput.cf
+<loadfile> multimedia/qaudioformat.cf
+<loadfile> multimedia/qaudiodeviceinfo.cf
+<loadfile> multimedia/qaudiorecorder.cf
+<loadfile> multimedia/qaudioprobe.cf
+<loadfile> multimedia/qsoundeffect.cf
+<loadfile> multimedia/qmediarecorder.cf
+<loadfile> multimedia/qvideoprobe.cf

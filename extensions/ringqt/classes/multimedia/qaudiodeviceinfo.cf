@@ -1,0 +1,16 @@
+<class>
+name: QAudioDeviceInfo
+para: void
+</class>
+
+QString deviceName(void)
+bool isFormatSupported(QAudioFormat settings)
+bool isNull(void)
+QAudioFormat nearestFormat(QAudioFormat settings)
+QAudioFormat preferredFormat(void)
+QList<int> supportedChannelCounts(void)
+QStringList supportedCodecs(void)
+QList<int> supportedSampleRates(void)
+QList<int> supportedSampleSizes(void)
+QList<QAudioFormat::SampleType> supportedSampleTypes(void)
+QList<QAudioFormat::Endian> supportedByteOrders(void)

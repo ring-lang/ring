@@ -1,0 +1,17 @@
+<class>
+name: QVideoProbe
+para: QObject *
+parent: QObject
+codename: GVideoProbe
+passvmpointer
+</class>
+
+bool isActive(void)
+bool setSource(QMediaObject *source)
+bool setSource@2(QMediaRecorder *source)
+
+void setvideoFrameProbedEvent(const char *)
+void setflushEvent(const char *)
+
+const char *getvideoFrameProbedEvent(void)
+const char *getflushEvent(void)

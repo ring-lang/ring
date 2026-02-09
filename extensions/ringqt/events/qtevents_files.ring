@@ -65,6 +65,12 @@ load "network/qudpsocket.ring"
 load "network/qsslsocket.ring"
 load "network/qnetworkconfigurationmanager.ring"
 #-------------------------------------------------------------------------#
+load "multimedia/qsoundeffect.ring"
+load "multimedia/qaudioinput.ring"
+load "multimedia/qmediarecorder.ring"
+load "multimedia/qaudiorecorder.ring"
+load "multimedia/qaudioprobe.ring"
+load "multimedia/qvideoprobe.ring"
 load "multimediawidgets/qvideowidget.ring"
 #-------------------------------------------------------------------------#
 load "quick/qquickwidget.ring"
