@@ -2982,16 +2982,16 @@ Class QString2
 		return QString2_rightJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
 
 	Func section_1 P1,P2,P3,P4
-		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func section_2 P1,P2,P3,P4
-		return QString2_section_2(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_2(pObject,P1,P2,P3,P4)
 
 	Func section_3 P1,P2,P3,P4
-		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func section_4 P1,P2,P3,P4
-		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func simplified 
 		return QString2_simplified(pObject)
@@ -5594,16 +5594,16 @@ Class QDataStream
 		return QDataStream_resetStatus(pObject)
 
 	Func setByteOrder P1
-		return QDataStream_setByteOrder(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataStream_setByteOrder(pObject,P1)
 
 	Func setDevice P1
 		return QDataStream_setDevice(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setFloatingPointPrecision P1
-		return QDataStream_setFloatingPointPrecision(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataStream_setFloatingPointPrecision(pObject,P1)
 
 	Func setStatus P1
-		return QDataStream_setStatus(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataStream_setStatus(pObject,P1)
 
 	Func setVersion P1
 		return QDataStream_setVersion(pObject,P1)

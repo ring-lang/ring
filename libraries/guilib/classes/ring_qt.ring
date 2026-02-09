@@ -2982,16 +2982,16 @@ Class QString2
 		return QString2_rightJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
 
 	Func section_1 P1,P2,P3,P4
-		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func section_2 P1,P2,P3,P4
-		return QString2_section_2(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_2(pObject,P1,P2,P3,P4)
 
 	Func section_3 P1,P2,P3,P4
-		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func section_4 P1,P2,P3,P4
-		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func simplified 
 		return QString2_simplified(pObject)
@@ -5594,16 +5594,16 @@ Class QDataStream
 		return QDataStream_resetStatus(pObject)
 
 	Func setByteOrder P1
-		return QDataStream_setByteOrder(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataStream_setByteOrder(pObject,P1)
 
 	Func setDevice P1
 		return QDataStream_setDevice(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setFloatingPointPrecision P1
-		return QDataStream_setFloatingPointPrecision(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataStream_setFloatingPointPrecision(pObject,P1)
 
 	Func setStatus P1
-		return QDataStream_setStatus(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataStream_setStatus(pObject,P1)
 
 	Func setVersion P1
 		return QDataStream_setVersion(pObject,P1)
@@ -8357,7 +8357,7 @@ Class QTextListFormat
 		return QTextListFormat_setNumberSuffix(pObject,P1)
 
 	Func setStyle P1
-		return QTextListFormat_setStyle(pObject,GetObjectPointerFromRingObject(P1))
+		return QTextListFormat_setStyle(pObject,P1)
 
 	Func style 
 		return QTextListFormat_style(pObject)
@@ -8468,7 +8468,7 @@ Class QTextFrameFormat
 		return QTextFrameFormat_setBorderBrush(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setBorderStyle P1
-		return QTextFrameFormat_setBorderStyle(pObject,GetObjectPointerFromRingObject(P1))
+		return QTextFrameFormat_setBorderStyle(pObject,P1)
 
 	Func setBottomMargin P1
 		return QTextFrameFormat_setBottomMargin(pObject,P1)
@@ -8492,7 +8492,7 @@ Class QTextFrameFormat
 		return QTextFrameFormat_setPageBreakPolicy(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setPosition P1
-		return QTextFrameFormat_setPosition(pObject,GetObjectPointerFromRingObject(P1))
+		return QTextFrameFormat_setPosition(pObject,P1)
 
 	Func setRightMargin P1
 		return QTextFrameFormat_setRightMargin(pObject,P1)
@@ -9026,7 +9026,7 @@ Class QScreen
 		return pObject
 
 	Func angleBetween P1,P2
-		return QScreen_angleBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QScreen_angleBetween(pObject,P1,P2)
 
 	Func availableGeometry 
 		pTempObj = new QRect
@@ -9073,10 +9073,10 @@ Class QScreen
 		return QScreen_handle(pObject)
 
 	Func isLandscape P1
-		return QScreen_isLandscape(pObject,GetObjectPointerFromRingObject(P1))
+		return QScreen_isLandscape(pObject,P1)
 
 	Func isPortrait P1
-		return QScreen_isPortrait(pObject,GetObjectPointerFromRingObject(P1))
+		return QScreen_isPortrait(pObject,P1)
 
 	Func logicalDotsPerInch 
 		return QScreen_logicalDotsPerInch(pObject)
@@ -9089,7 +9089,7 @@ Class QScreen
 
 	Func mapBetween P1,P2,P3
 		pTempObj = new QRect
-		pTempObj.pObject = QScreen_mapBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj.pObject = QScreen_mapBetween(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
 	Func name 
@@ -9125,7 +9125,7 @@ Class QScreen
 		return QScreen_refreshRate(pObject)
 
 	Func setOrientationUpdateMask P1
-		return QScreen_setOrientationUpdateMask(pObject,GetObjectPointerFromRingObject(P1))
+		return QScreen_setOrientationUpdateMask(pObject,P1)
 
 	Func size 
 		pTempObj = new QSize
@@ -9134,7 +9134,7 @@ Class QScreen
 
 	Func transformBetween P1,P2,P3
 		pTempObj = new QTransform
-		pTempObj.pObject = QScreen_transformBetween(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj.pObject = QScreen_transformBetween(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
 Class QWindow from QObject
@@ -9279,7 +9279,7 @@ Class QWindow from QObject
 		return pTempObj
 
 	Func reportContentOrientationChange P1
-		return QWindow_reportContentOrientationChange(pObject,GetObjectPointerFromRingObject(P1))
+		return QWindow_reportContentOrientationChange(pObject,P1)
 
 	Func requestedFormat 
 		pTempObj = new QSurfaceFormat
@@ -11479,7 +11479,7 @@ Class QStaticText
 		return QStaticText_prepare(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func setPerformanceHint P1
-		return QStaticText_setPerformanceHint(pObject,GetObjectPointerFromRingObject(P1))
+		return QStaticText_setPerformanceHint(pObject,P1)
 
 	Func setText P1
 		return QStaticText_setText(pObject,P1)
@@ -11551,7 +11551,7 @@ Class QPageSize
 
 	Func rect P1
 		pTempObj = new QRectF
-		pTempObj.pObject = QPageSize_rect(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QPageSize_rect(pObject,P1)
 		return pTempObj
 
 	Func sizePixels P1
@@ -11561,7 +11561,7 @@ Class QPageSize
 
 	Func size P1
 		pTempObj = new QSizeF
-		pTempObj.pObject = QPageSize_size(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QPageSize_size(pObject,P1)
 		return pTempObj
 
 	Func sizePoints 
@@ -11650,7 +11650,7 @@ Class QPageLayout
 		return QPageLayout_setLeftMargin(pObject,P1)
 
 	Func setMode P1
-		return QPageLayout_setMode(pObject,GetObjectPointerFromRingObject(P1))
+		return QPageLayout_setMode(pObject,P1)
 
 	Func setOrientation P1
 		return QPageLayout_setOrientation(pObject,P1)
@@ -13322,16 +13322,16 @@ Class QOpenGLDebugLogger
 		return pObject
 
 	Func disableMessages P1,P2,P3
-		return QOpenGLDebugLogger_disableMessages(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return QOpenGLDebugLogger_disableMessages(pObject,P1,P2,P3)
 
 	Func disableMessages_2 P1,P2,P3
-		return QOpenGLDebugLogger_disableMessages_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return QOpenGLDebugLogger_disableMessages_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
 
 	Func enableMessages P1,P2,P3
-		return QOpenGLDebugLogger_enableMessages(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return QOpenGLDebugLogger_enableMessages(pObject,P1,P2,P3)
 
 	Func enableMessages_2 P1,P2,P3
-		return QOpenGLDebugLogger_enableMessages_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return QOpenGLDebugLogger_enableMessages_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
 
 	Func initialize 
 		return QOpenGLDebugLogger_initialize(pObject)
@@ -13352,7 +13352,7 @@ Class QOpenGLDebugLogger
 		return QOpenGLDebugLogger_popGroup(pObject)
 
 	Func pushGroup P1,P2,P3
-		return QOpenGLDebugLogger_pushGroup(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return QOpenGLDebugLogger_pushGroup(pObject,P1,P2,P3)
 
 	Func logMessage P1
 		return QOpenGLDebugLogger_logMessage(pObject,GetObjectPointerFromRingObject(P1))
@@ -14397,12 +14397,12 @@ Class QTransform2
 
 	Func rotate P1,P2
 		pTempObj = new QTransform
-		pTempObj.pObject = QTransform2_rotate(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QTransform2_rotate(pObject,P1,P2)
 		return pTempObj
 
 	Func rotateRadians P1,P2
 		pTempObj = new QTransform
-		pTempObj.pObject = QTransform2_rotateRadians(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QTransform2_rotateRadians(pObject,P1,P2)
 		return pTempObj
 
 	Func scale P1,P2
@@ -19449,7 +19449,7 @@ Class QDoubleSpinBox from QWidget
 		return QDoubleSpinBox_setSuffix(pObject,P1)
 
 	Func setStepType P1
-		return QDoubleSpinBox_setStepType(pObject,GetObjectPointerFromRingObject(P1))
+		return QDoubleSpinBox_setStepType(pObject,P1)
 
 	Func singleStep 
 		return QDoubleSpinBox_singleStep(pObject)
@@ -20956,11 +20956,11 @@ Class QDialogButtonBox from QWidget
 		return pObject
 
 	Func addButton P1,P2
-		return QDialogButtonBox_addButton(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QDialogButtonBox_addButton(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func addButton_2 P1,P2
 		pTempObj = new QPushButton
-		pTempObj.pObject = QDialogButtonBox_addButton_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QDialogButtonBox_addButton_2(pObject,P1,P2)
 		return pTempObj
 
 	Func addButton_3 P1
@@ -22221,7 +22221,7 @@ Class QPlainTextEdit from QAbstractScrollArea
 		return QPlainTextEdit_extraSelections(pObject)
 
 	Func find P1,P2
-		return QPlainTextEdit_find(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QPlainTextEdit_find(pObject,P1,P2)
 
 	Func isReadOnly 
 		return QPlainTextEdit_isReadOnly(pObject)
@@ -22293,7 +22293,7 @@ Class QPlainTextEdit from QAbstractScrollArea
 		return QPlainTextEdit_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setTextInteractionFlags P1
-		return QPlainTextEdit_setTextInteractionFlags(pObject,GetObjectPointerFromRingObject(P1))
+		return QPlainTextEdit_setTextInteractionFlags(pObject,P1)
 
 	Func setUndoRedoEnabled P1
 		return QPlainTextEdit_setUndoRedoEnabled(pObject,P1)
@@ -22617,10 +22617,10 @@ Class QFormLayout from QLayout
 		return QFormLayout_spacing(pObject)
 
 	Func setFieldGrowthPolicy P1
-		return QFormLayout_setFieldGrowthPolicy(pObject,GetObjectPointerFromRingObject(P1))
+		return QFormLayout_setFieldGrowthPolicy(pObject,P1)
 
 	Func setRowWrapPolicy P1
-		return QFormLayout_setRowWrapPolicy(pObject,GetObjectPointerFromRingObject(P1))
+		return QFormLayout_setRowWrapPolicy(pObject,P1)
 
 	Func setLabelAlignment P1
 		return QFormLayout_setLabelAlignment(pObject,P1)
@@ -23034,7 +23034,7 @@ Class QBoxLayout from QLayout
 	pObject
 
 	Func init P1,P2
-		pObject = QBoxLayout_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pObject = QBoxLayout_new(P1,GetObjectPointerFromRingObject(P2))
 		return self
 
 	Func delete
@@ -23080,7 +23080,7 @@ Class QBoxLayout from QLayout
 		return QBoxLayout_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2),P3,P4)
 
 	Func setDirection P1
-		return QBoxLayout_setDirection(pObject,GetObjectPointerFromRingObject(P1))
+		return QBoxLayout_setDirection(pObject,P1)
 
 	Func setSpacing P1
 		return QBoxLayout_setSpacing(pObject,P1)
@@ -23451,11 +23451,11 @@ Class QWizard from QDialog
 
 	Func button P1
 		pTempObj = new QAbstractButton
-		pTempObj.pObject = QWizard_button(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QWizard_button(pObject,P1)
 		return pTempObj
 
 	Func buttonText P1
-		return QWizard_buttonText(pObject,GetObjectPointerFromRingObject(P1))
+		return QWizard_buttonText(pObject,P1)
 
 	Func currentId 
 		return QWizard_currentId(pObject)
@@ -23489,32 +23489,32 @@ Class QWizard from QDialog
 
 	Func pixmap P1
 		pTempObj = new QPixmap
-		pTempObj.pObject = QWizard_pixmap(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QWizard_pixmap(pObject,P1)
 		return pTempObj
 
 	Func removePage P1
 		return QWizard_removePage(pObject,P1)
 
 	Func setButton P1,P2
-		return QWizard_setButton(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QWizard_setButton(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setButtonText P1,P2
-		return QWizard_setButtonText(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QWizard_setButtonText(pObject,P1,P2)
 
 	Func setField P1,P2
 		return QWizard_setField(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setOption P1,P2
-		return QWizard_setOption(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QWizard_setOption(pObject,P1,P2)
 
 	Func setOptions P1
-		return QWizard_setOptions(pObject,GetObjectPointerFromRingObject(P1))
+		return QWizard_setOptions(pObject,P1)
 
 	Func setPage P1,P2
 		return QWizard_setPage(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setPixmap P1,P2
-		return QWizard_setPixmap(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QWizard_setPixmap(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setSideWidget P1
 		return QWizard_setSideWidget(pObject,GetObjectPointerFromRingObject(P1))
@@ -23529,7 +23529,7 @@ Class QWizard from QDialog
 		return QWizard_setTitleFormat(pObject,P1)
 
 	Func setWizardStyle P1
-		return QWizard_setWizardStyle(pObject,GetObjectPointerFromRingObject(P1))
+		return QWizard_setWizardStyle(pObject,P1)
 
 	Func sideWidget 
 		pTempObj = new QWidget
@@ -23593,7 +23593,7 @@ Class QWizardPage from QWidget
 		return pObject
 
 	Func buttonText P1
-		return QWizardPage_buttonText(pObject,GetObjectPointerFromRingObject(P1))
+		return QWizardPage_buttonText(pObject,P1)
 
 	Func isCommitPage 
 		return QWizardPage_isCommitPage(pObject)
@@ -23609,11 +23609,11 @@ Class QWizardPage from QWidget
 
 	Func pixmap P1
 		pTempObj = new QPixmap
-		pTempObj.pObject = QWizardPage_pixmap(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QWizardPage_pixmap(pObject,P1)
 		return pTempObj
 
 	Func setButtonText P1,P2
-		return QWizardPage_setButtonText(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QWizardPage_setButtonText(pObject,P1,P2)
 
 	Func setCommitPage P1
 		return QWizardPage_setCommitPage(pObject,P1)
@@ -23622,7 +23622,7 @@ Class QWizardPage from QWidget
 		return QWizardPage_setFinalPage(pObject,P1)
 
 	Func setPixmap P1,P2
-		return QWizardPage_setPixmap(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QWizardPage_setPixmap(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setSubTitle P1
 		return QWizardPage_setSubTitle(pObject,P1)
@@ -23940,7 +23940,7 @@ Class QStackedLayout from QLayout
 		return QStackedLayout_removeWidget(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setStackingMode P1
-		return QStackedLayout_setStackingMode(pObject,GetObjectPointerFromRingObject(P1))
+		return QStackedLayout_setStackingMode(pObject,P1)
 
 	Func stackingMode 
 		return QStackedLayout_stackingMode(pObject)
@@ -24037,7 +24037,7 @@ Class QDataWidgetMapper from QObject
 		return QDataWidgetMapper_setRootIndex(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setSubmitPolicy P1
-		return QDataWidgetMapper_setSubmitPolicy(pObject,GetObjectPointerFromRingObject(P1))
+		return QDataWidgetMapper_setSubmitPolicy(pObject,P1)
 
 	Func submitPolicy 
 		return QDataWidgetMapper_submitPolicy(pObject)
@@ -24643,7 +24643,7 @@ Class QToolButton from QAbstractButton
 		return QToolButton_popupMode(pObject)
 
 	Func setArrowType P1
-		return QToolButton_setArrowType(pObject,GetObjectPointerFromRingObject(P1))
+		return QToolButton_setArrowType(pObject,P1)
 
 	Func setAutoRaise P1
 		return QToolButton_setAutoRaise(pObject,P1)
@@ -24912,7 +24912,7 @@ Class QCalendarWidget from QWidget
 		return QCalendarWidget_setDateTextFormat(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func setFirstDayOfWeek P1
-		return QCalendarWidget_setFirstDayOfWeek(pObject,GetObjectPointerFromRingObject(P1))
+		return QCalendarWidget_setFirstDayOfWeek(pObject,P1)
 
 	Func setHeaderTextFormat P1
 		return QCalendarWidget_setHeaderTextFormat(pObject,GetObjectPointerFromRingObject(P1))
@@ -24933,14 +24933,14 @@ Class QCalendarWidget from QWidget
 		return QCalendarWidget_setVerticalHeaderFormat(pObject,P1)
 
 	Func setWeekdayTextFormat P1,P2
-		return QCalendarWidget_setWeekdayTextFormat(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QCalendarWidget_setWeekdayTextFormat(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func verticalHeaderFormat 
 		return QCalendarWidget_verticalHeaderFormat(pObject)
 
 	Func weekdayTextFormat P1
 		pTempObj = new QTextCharFormat
-		pTempObj.pObject = QCalendarWidget_weekdayTextFormat(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QCalendarWidget_weekdayTextFormat(pObject,P1)
 		return pTempObj
 
 	Func yearShown 
@@ -25194,7 +25194,7 @@ Class QStyle from QObject
 
 
 	Func combinedLayoutSpacing P1,P2,P3,P4,P5
-		return QStyle_combinedLayoutSpacing(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+		return QStyle_combinedLayoutSpacing(P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
 
 	Func drawComplexControl P1,P2,P3,P4
 		return QStyle_drawComplexControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
@@ -25213,7 +25213,7 @@ Class QStyle from QObject
 
 	Func generatedIconPixmap P1,P2,P3
 		pTempObj = new QPixmap
-		pTempObj.pObject = QStyle_generatedIconPixmap(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj.pObject = QStyle_generatedIconPixmap(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
 	Func hitTestComplexControl P1,P2,P3,P4
@@ -25230,7 +25230,7 @@ Class QStyle from QObject
 		return pTempObj
 
 	Func layoutSpacing P1,P2,P3,P4,P5
-		return QStyle_layoutSpacing(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+		return QStyle_layoutSpacing(P1,P2,P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
 
 	Func pixelMetric P1
 		return QStyle_pixelMetric(P1)
@@ -25554,16 +25554,16 @@ Class QGraphicsView from QAbstractScrollArea
 		return QGraphicsView_items_3(pObject,P1,P2)
 
 	Func items_4 P1,P2
-		return QGraphicsView_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsView_items_4(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func items_5 P1,P2,P3,P4,P5
-		return QGraphicsView_items_5(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+		return QGraphicsView_items_5(pObject,P1,P2,P3,P4,P5)
 
 	Func items_6 P1,P2
-		return QGraphicsView_items_6(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsView_items_6(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func items_7 P1,P2
-		return QGraphicsView_items_7(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsView_items_7(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func mapFromScene P1
 		pTempObj = new QPoint
@@ -25695,13 +25695,13 @@ Class QGraphicsView from QAbstractScrollArea
 		return QGraphicsView_setRenderHint(pObject,P1,P2)
 
 	Func setRenderHints P1
-		return QGraphicsView_setRenderHints(pObject,GetObjectPointerFromRingObject(P1))
+		return QGraphicsView_setRenderHints(pObject,P1)
 
 	Func setResizeAnchor P1
 		return QGraphicsView_setResizeAnchor(pObject,P1)
 
 	Func setRubberBandSelectionMode P1
-		return QGraphicsView_setRubberBandSelectionMode(pObject,GetObjectPointerFromRingObject(P1))
+		return QGraphicsView_setRubberBandSelectionMode(pObject,P1)
 
 	Func setScene P1
 		return QGraphicsView_setScene(pObject,GetObjectPointerFromRingObject(P1))
@@ -25857,7 +25857,7 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_clearFocus(pObject)
 
 	Func collidingItems P1,P2
-		return QGraphicsScene_collidingItems(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsScene_collidingItems(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func createItemGroup P1
 		pTempObj = new QGraphicsItemGroup
@@ -25916,19 +25916,19 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_items(pObject,P1)
 
 	Func items_2 P1,P2,P3,P4
-		return QGraphicsScene_items_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+		return QGraphicsScene_items_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
 
 	Func items_3 P1,P2,P3,P4
-		return QGraphicsScene_items_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+		return QGraphicsScene_items_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
 
 	Func items_4 P1,P2,P3,P4
-		return QGraphicsScene_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+		return QGraphicsScene_items_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
 
 	Func items_5 P1,P2,P3,P4
-		return QGraphicsScene_items_5(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+		return QGraphicsScene_items_5(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
 
 	Func items_6 P1,P2,P3,P4,P5,P6,P7
-		return QGraphicsScene_items_6(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
+		return QGraphicsScene_items_6(pObject,P1,P2,P3,P4,P5,P6,GetObjectPointerFromRingObject(P7))
 
 	Func itemsBoundingRect 
 		pTempObj = new QRectF
@@ -26013,10 +26013,10 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_setSelectionArea(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func setSelectionArea_2 P1,P2,P3
-		return QGraphicsScene_setSelectionArea_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return QGraphicsScene_setSelectionArea_2(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
 
 	Func setSelectionArea_3 P1,P2,P3,P4
-		return QGraphicsScene_setSelectionArea_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return QGraphicsScene_setSelectionArea_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
 
 	Func setStickyFocus P1
 		return QGraphicsScene_setStickyFocus(pObject,P1)
@@ -26140,13 +26140,13 @@ Class QGraphicsItem
 		return pTempObj
 
 	Func collidesWithItem P1,P2
-		return QGraphicsItem_collidesWithItem(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsItem_collidesWithItem(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func collidesWithPath P1,P2
-		return QGraphicsItem_collidesWithPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsItem_collidesWithPath(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func collidingItems P1
-		return QGraphicsItem_collidingItems(pObject,GetObjectPointerFromRingObject(P1))
+		return QGraphicsItem_collidingItems(pObject,P1)
 
 	Func commonAncestorItem P1
 		pTempObj = new QGraphicsItem
@@ -26850,18 +26850,18 @@ Class QGraphicsAnchorLayout from QGraphicsLayout
 
 	Func addAnchor P1,P2,P3,P4
 		pTempObj = new QGraphicsAnchor
-		pTempObj.pObject = QGraphicsAnchorLayout_addAnchor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		pTempObj.pObject = QGraphicsAnchorLayout_addAnchor(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4)
 		return pTempObj
 
 	Func addAnchors P1,P2,P3
-		return QGraphicsAnchorLayout_addAnchors(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return QGraphicsAnchorLayout_addAnchors(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
 
 	Func addCornerAnchors P1,P2,P3,P4
 		return QGraphicsAnchorLayout_addCornerAnchors(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4)
 
 	Func anchor P1,P2,P3,P4
 		pTempObj = new QGraphicsAnchor
-		pTempObj.pObject = QGraphicsAnchorLayout_anchor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		pTempObj.pObject = QGraphicsAnchorLayout_anchor(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4)
 		return pTempObj
 
 	Func horizontalSpacing 
@@ -27130,7 +27130,7 @@ Class QGraphicsLayoutItem
 
 	Func effectiveSizeHint P1,P2
 		pTempObj = new QSizeF
-		pTempObj.pObject = QGraphicsLayoutItem_effectiveSizeHint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QGraphicsLayoutItem_effectiveSizeHint(pObject,P1,GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
 	Func geometry 
@@ -27236,7 +27236,7 @@ Class QGraphicsLayoutItem
 		return QGraphicsLayoutItem_setSizePolicy(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setSizePolicy_2 P1,P2,P3
-		return QGraphicsLayoutItem_setSizePolicy_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return QGraphicsLayoutItem_setSizePolicy_2(pObject,P1,P2,P3)
 
 	Func sizePolicy 
 		pTempObj = new QSizePolicy
@@ -27694,17 +27694,17 @@ Class QGraphicsSceneMouseEvent from QGraphicsSceneEvent
 
 	Func buttonDownPos P1
 		pTempObj = new QPointF
-		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownPos(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownPos(pObject,P1)
 		return pTempObj
 
 	Func buttonDownScenePos P1
 		pTempObj = new QPointF
-		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScenePos(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScenePos(pObject,P1)
 		return pTempObj
 
 	Func buttonDownScreenPos P1
 		pTempObj = new QPoint
-		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScreenPos(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScreenPos(pObject,P1)
 		return pTempObj
 
 	Func buttons 
@@ -27971,7 +27971,7 @@ Class QGraphicsObject from QGraphicsItem
 		return pObject
 
 	Func grabGesture P1,P2
-		return QGraphicsObject_grabGesture(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QGraphicsObject_grabGesture(pObject,P1,P2)
 
 	Func ungrabGesture P1
 		return QGraphicsObject_ungrabGesture(pObject,P1)
@@ -28090,7 +28090,7 @@ Class QGraphicsTextItem from QGraphicsObject
 		return QGraphicsTextItem_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setTextInteractionFlags P1
-		return QGraphicsTextItem_setTextInteractionFlags(pObject,GetObjectPointerFromRingObject(P1))
+		return QGraphicsTextItem_setTextInteractionFlags(pObject,P1)
 
 	Func setTextWidth P1
 		return QGraphicsTextItem_setTextWidth(pObject,P1)
@@ -28640,7 +28640,7 @@ Class QCameraImageCapture
 		return QCameraImageCapture_isReadyForCapture(pObject)
 
 	Func setBufferFormat P1
-		return QCameraImageCapture_setBufferFormat(pObject,GetObjectPointerFromRingObject(P1))
+		return QCameraImageCapture_setBufferFormat(pObject,P1)
 
 	Func setCaptureDestination P1
 		return QCameraImageCapture_setCaptureDestination(pObject,P1)
@@ -28918,7 +28918,7 @@ Class QPrintPreviewWidget from QWidget
 		return QPrintPreviewWidget_setLandscapeOrientation(pObject)
 
 	Func setOrientation P1
-		return QPrintPreviewWidget_setOrientation(pObject,GetObjectPointerFromRingObject(P1))
+		return QPrintPreviewWidget_setOrientation(pObject,P1)
 
 	Func setPortraitOrientation 
 		return QPrintPreviewWidget_setPortraitOrientation(pObject)
@@ -30191,7 +30191,7 @@ Class QNetworkCookie
 
 	Func toRawForm P1
 		pTempObj = new QByteArray
-		pTempObj.pObject = QNetworkCookie_toRawForm(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QNetworkCookie_toRawForm(pObject,P1)
 		return pTempObj
 
 	Func value 
@@ -30243,7 +30243,7 @@ Class QNetworkConfigurationManager from QObject
 		return pObject
 
 	Func allConfigurations P1
-		return QNetworkConfigurationManager_allConfigurations(pObject,GetObjectPointerFromRingObject(P1))
+		return QNetworkConfigurationManager_allConfigurations(pObject,P1)
 
 	Func capabilities 
 		return QNetworkConfigurationManager_capabilities(pObject)
@@ -30393,13 +30393,13 @@ Class QSslConfiguration
 		return QSslConfiguration_setPeerVerifyDepth(pObject,P1)
 
 	Func setPeerVerifyMode P1
-		return QSslConfiguration_setPeerVerifyMode(pObject,GetObjectPointerFromRingObject(P1))
+		return QSslConfiguration_setPeerVerifyMode(pObject,P1)
 
 	Func setPrivateKey P1
 		return QSslConfiguration_setPrivateKey(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setProtocol P1
-		return QSslConfiguration_setProtocol(pObject,GetObjectPointerFromRingObject(P1))
+		return QSslConfiguration_setProtocol(pObject,P1)
 
 	Func setSessionTicket P1
 		return QSslConfiguration_setSessionTicket(pObject,GetObjectPointerFromRingObject(P1))
@@ -30426,7 +30426,7 @@ Class QSslCertificate
 
 	Func digest P1
 		pTempObj = new QByteArray
-		pTempObj.pObject = QSslCertificate_digest(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QSslCertificate_digest(pObject,P1)
 		return pTempObj
 
 	Func effectiveDate 
@@ -30450,7 +30450,7 @@ Class QSslCertificate
 
 	Func issuerInfo P1
 		pTempObj = new QStringList
-		pTempObj.pObject = QSslCertificate_issuerInfo(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QSslCertificate_issuerInfo(pObject,P1)
 		return pTempObj
 
 	Func issuerInfo_2 P1
@@ -30473,7 +30473,7 @@ Class QSslCertificate
 
 	Func subjectInfo P1
 		pTempObj = new QStringList
-		pTempObj.pObject = QSslCertificate_subjectInfo(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QSslCertificate_subjectInfo(pObject,P1)
 		return pTempObj
 
 	Func subjectInfo_2 P1
@@ -30625,7 +30625,7 @@ Class QSslSocket from QTcpSocket
 		return QSslSocket_setPeerVerifyDepth(pObject,P1)
 
 	Func setPeerVerifyMode P1
-		return QSslSocket_setPeerVerifyMode(pObject,GetObjectPointerFromRingObject(P1))
+		return QSslSocket_setPeerVerifyMode(pObject,P1)
 
 	Func setPeerVerifyName P1
 		return QSslSocket_setPeerVerifyName(pObject,P1)
@@ -30634,7 +30634,7 @@ Class QSslSocket from QTcpSocket
 		return QSslSocket_setPrivateKey(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setProtocol P1
-		return QSslSocket_setProtocol(pObject,GetObjectPointerFromRingObject(P1))
+		return QSslSocket_setProtocol(pObject,P1)
 
 	Func setSslConfiguration P1
 		return QSslSocket_setSslConfiguration(pObject,GetObjectPointerFromRingObject(P1))
@@ -30793,7 +30793,7 @@ Class QSqlDatabase
 
 	Func tables P1
 		pTempObj = new QStringList
-		pTempObj.pObject = QSqlDatabase_tables(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QSqlDatabase_tables(pObject,P1)
 		return pTempObj
 
 	Func transaction 
@@ -31390,7 +31390,7 @@ Class QSqlTableModel from QObject
 		return QSqlTableModel_setRecord(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setEditStrategy P1
-		return QSqlTableModel_setEditStrategy(pObject,GetObjectPointerFromRingObject(P1))
+		return QSqlTableModel_setEditStrategy(pObject,P1)
 
 	Func setFilter P1
 		return QSqlTableModel_setFilter(pObject,P1)
@@ -31573,7 +31573,7 @@ Class QSqlRelationalTableModel from QObject
 		return QSqlRelationalTableModel_setRecord(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setEditStrategy P1
-		return QSqlRelationalTableModel_setEditStrategy(pObject,GetObjectPointerFromRingObject(P1))
+		return QSqlRelationalTableModel_setEditStrategy(pObject,P1)
 
 	Func setFilter P1
 		return QSqlRelationalTableModel_setFilter(pObject,P1)
@@ -31607,7 +31607,7 @@ Class QSqlRelationalTableModel from QObject
 		return pTempObj
 
 	Func setJoinMode P1
-		return QSqlRelationalTableModel_setJoinMode(pObject,GetObjectPointerFromRingObject(P1))
+		return QSqlRelationalTableModel_setJoinMode(pObject,P1)
 
 	Func setRelation P1,P2
 		return QSqlRelationalTableModel_setRelation(pObject,P1,GetObjectPointerFromRingObject(P2))
@@ -32421,7 +32421,7 @@ Class QWebEnginePage from QObject
 		return QWebEnginePage_runJavaScript_2(pObject,P1,P2)
 
 	Func save P1,P2
-		return QWebEnginePage_save(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QWebEnginePage_save(pObject,P1,P2)
 
 	Func scrollPosition 
 		pTempObj = new QPointF
@@ -37356,7 +37356,7 @@ Class QChart from QGraphicsWidget
 		return QChart_animationOptions(pObject)
 
 	Func axes P1,P2
-		return QChart_axes(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QChart_axes(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func backgroundBrush 
 		pTempObj = new QBrush
