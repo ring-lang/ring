@@ -87983,7 +87983,7 @@ RING_FUNC(ring_QTreeWidgetItem_write)
 RING_FUNC(ring_QComboBox_addItem)
 {
 	QComboBox *pObject ;
-	if ( RING_API_PARACOUNT != 2 && RING_API_PARACOUNT != 3 ) {
+	if ( ( RING_API_PARACOUNT != 2 ) && ( RING_API_PARACOUNT != 3 ) ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
@@ -87997,11 +87997,36 @@ RING_FUNC(ring_QComboBox_addItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( (RING_API_PARACOUNT == 3) && (! RING_API_ISNUMBER(3)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( RING_API_PARACOUNT == 2 ) {
 		pObject->addItem(RING_API_GETSTRING(2));
 	} else {
 		pObject->addItem(RING_API_GETSTRING(2),QVariant(RING_API_GETNUMBER(3)));
 	}
+}
+
+
+RING_FUNC(ring_QComboBox_addItem_2)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addItem(RING_API_GETSTRING(2));
 }
 
 
@@ -151311,6 +151336,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qtreewidgetitem_whatsthis",ring_QTreeWidgetItem_whatsThis);
 	RING_API_REGISTER("qtreewidgetitem_write",ring_QTreeWidgetItem_write);
 	RING_API_REGISTER("qcombobox_additem",ring_QComboBox_addItem);
+	RING_API_REGISTER("qcombobox_additem_2",ring_QComboBox_addItem_2);
 	RING_API_REGISTER("qcombobox_additems",ring_QComboBox_addItems);
 	RING_API_REGISTER("qcombobox_completer",ring_QComboBox_completer);
 	RING_API_REGISTER("qcombobox_count",ring_QComboBox_count);

@@ -15113,6 +15113,9 @@ Class QComboBox from QWidget
 	Func addItem P1,P2
 		return QComboBox_addItem(pObject,P1,P2)
 
+	Func addItem_2 P1
+		return QComboBox_addItem_2(pObject,P1)
+
 	Func addItems P1
 		return QComboBox_addItems(pObject,GetObjectPointerFromRingObject(P1))
 

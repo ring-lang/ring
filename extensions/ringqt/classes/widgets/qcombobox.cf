@@ -15,7 +15,7 @@ void addItem(QString,int)
 RING_FUNC(ring_QComboBox_addItem)
 {
 	QComboBox *pObject ;
-	if ( RING_API_PARACOUNT != 2 && RING_API_PARACOUNT != 3 ) {
+	if ( ( RING_API_PARACOUNT != 2 ) && ( RING_API_PARACOUNT != 3 ) ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
@@ -29,6 +29,10 @@ RING_FUNC(ring_QComboBox_addItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( (RING_API_PARACOUNT == 3) && (! RING_API_ISNUMBER(3)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( RING_API_PARACOUNT == 2 ) {
 		pObject->addItem(RING_API_GETSTRING(2));
 	} else {
@@ -38,6 +42,7 @@ RING_FUNC(ring_QComboBox_addItem)
 
 </code>
 
+void addItem@2(QString)
 void addItems(QStringList)
 QCompleter *completer(void)
 int count(void)
