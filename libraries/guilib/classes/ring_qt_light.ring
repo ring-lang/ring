@@ -15320,7 +15320,9 @@ Class QWidget from QObject
 		return pTempObj
 
 	Func sizePolicy 
-		return QWidget_sizePolicy(pObject)
+		pTempObj = new QSizePolicy
+		pTempObj.pObject = QWidget_sizePolicy(pObject)
+		return pTempObj
 
 	Func stackUnder P1
 		return QWidget_stackUnder(pObject,GetObjectPointerFromRingObject(P1))
@@ -20869,6 +20871,176 @@ Class QDialogButtonBox from QWidget
 	Func gethelpRequestedEvent 
 		return QDialogButtonBox_gethelpRequestedEvent(pObject)
 
+Class QShortcut from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QShortcut_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QShortcut_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func autoRepeat 
+		return QShortcut_autoRepeat(pObject)
+
+	Func context 
+		return QShortcut_context(pObject)
+
+	Func id 
+		return QShortcut_id(pObject)
+
+	Func isEnabled 
+		return QShortcut_isEnabled(pObject)
+
+	Func key 
+		pTempObj = new QKeySequence
+		pTempObj.pObject = QShortcut_key(pObject)
+		return pTempObj
+
+	Func setAutoRepeat P1
+		return QShortcut_setAutoRepeat(pObject,P1)
+
+	Func setContext P1
+		return QShortcut_setContext(pObject,P1)
+
+	Func setEnabled P1
+		return QShortcut_setEnabled(pObject,P1)
+
+	Func setKey P1
+		return QShortcut_setKey(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWhatsThis P1
+		return QShortcut_setWhatsThis(pObject,P1)
+
+	Func whatsThis 
+		return QShortcut_whatsThis(pObject)
+
+	Func setactivatedEvent P1
+		return QShortcut_setactivatedEvent(pObject,P1)
+
+	Func setactivatedAmbiguouslyEvent P1
+		return QShortcut_setactivatedAmbiguouslyEvent(pObject,P1)
+
+	Func getactivatedEvent 
+		return QShortcut_getactivatedEvent(pObject)
+
+	Func getactivatedAmbiguouslyEvent 
+		return QShortcut_getactivatedAmbiguouslyEvent(pObject)
+
+Class QProgressDialog from QDialog
+
+	pObject
+
+	Func init P1
+		pObject = QProgressDialog_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QProgressDialog_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func autoClose 
+		return QProgressDialog_autoClose(pObject)
+
+	Func autoReset 
+		return QProgressDialog_autoReset(pObject)
+
+	Func labelText 
+		return QProgressDialog_labelText(pObject)
+
+	Func maximum 
+		return QProgressDialog_maximum(pObject)
+
+	Func minimum 
+		return QProgressDialog_minimum(pObject)
+
+	Func minimumDuration 
+		return QProgressDialog_minimumDuration(pObject)
+
+	Func wasCanceled 
+		return QProgressDialog_wasCanceled(pObject)
+
+	Func value 
+		return QProgressDialog_value(pObject)
+
+	Func open 
+		return QProgressDialog_open(pObject)
+
+	Func setAutoClose P1
+		return QProgressDialog_setAutoClose(pObject,P1)
+
+	Func setAutoReset P1
+		return QProgressDialog_setAutoReset(pObject,P1)
+
+	Func setBar P1
+		return QProgressDialog_setBar(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCancelButton P1
+		return QProgressDialog_setCancelButton(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCancelButtonText P1
+		return QProgressDialog_setCancelButtonText(pObject,P1)
+
+	Func setLabel P1
+		return QProgressDialog_setLabel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelText P1
+		return QProgressDialog_setLabelText(pObject,P1)
+
+	Func setMaximum P1
+		return QProgressDialog_setMaximum(pObject,P1)
+
+	Func setMinimum P1
+		return QProgressDialog_setMinimum(pObject,P1)
+
+	Func setMinimumDuration P1
+		return QProgressDialog_setMinimumDuration(pObject,P1)
+
+	Func setRange P1,P2
+		return QProgressDialog_setRange(pObject,P1,P2)
+
+	Func setValue P1
+		return QProgressDialog_setValue(pObject,P1)
+
+	Func cancel 
+		return QProgressDialog_cancel(pObject)
+
+	Func reset 
+		return QProgressDialog_reset(pObject)
+
+	Func setcanceledEvent P1
+		return QProgressDialog_setcanceledEvent(pObject,P1)
+
+	Func getcanceledEvent 
+		return QProgressDialog_getcanceledEvent(pObject)
+
+Class QErrorMessage from QDialog
+
+	pObject
+
+	Func init P1
+		pObject = QErrorMessage_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QErrorMessage_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func showMessage P1
+		return QErrorMessage_showMessage(pObject,P1)
+
+	Func showMessage_2 P1,P2
+		return QErrorMessage_showMessage_2(pObject,P1,P2)
+
 Class QColorDialog from QDialog
 
 	pObject
@@ -22334,7 +22506,76 @@ Class QSpacerItem from QLayoutItem
 		return QSpacerItem_changeSize(pObject,P1,P2,P3,P4)
 
 	Func sizePolicy 
-		return QSpacerItem_sizePolicy(pObject)
+		pTempObj = new QSizePolicy
+		pTempObj.pObject = QSpacerItem_sizePolicy(pObject)
+		return pTempObj
+
+Class QSizePolicy
+
+	pObject
+
+	Func init 
+		pObject = QSizePolicy_new()
+		return self
+
+	Func delete
+		pObject = QSizePolicy_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func expandingDirections 
+		return QSizePolicy_expandingDirections(pObject)
+
+	Func hasHeightForWidth 
+		return QSizePolicy_hasHeightForWidth(pObject)
+
+	Func hasWidthForHeight 
+		return QSizePolicy_hasWidthForHeight(pObject)
+
+	Func horizontalPolicy 
+		return QSizePolicy_horizontalPolicy(pObject)
+
+	Func horizontalStretch 
+		return QSizePolicy_horizontalStretch(pObject)
+
+	Func retainSizeWhenHidden 
+		return QSizePolicy_retainSizeWhenHidden(pObject)
+
+	Func setHeightForWidth P1
+		return QSizePolicy_setHeightForWidth(pObject,P1)
+
+	Func setHorizontalPolicy P1
+		return QSizePolicy_setHorizontalPolicy(pObject,P1)
+
+	Func setHorizontalStretch P1
+		return QSizePolicy_setHorizontalStretch(pObject,P1)
+
+	Func setRetainSizeWhenHidden P1
+		return QSizePolicy_setRetainSizeWhenHidden(pObject,P1)
+
+	Func setVerticalPolicy P1
+		return QSizePolicy_setVerticalPolicy(pObject,P1)
+
+	Func setVerticalStretch P1
+		return QSizePolicy_setVerticalStretch(pObject,P1)
+
+	Func setWidthForHeight P1
+		return QSizePolicy_setWidthForHeight(pObject,P1)
+
+	Func transpose 
+		return QSizePolicy_transpose(pObject)
+
+	Func transposed 
+		pTempObj = new QSizePolicy
+		pTempObj.pObject = QSizePolicy_transposed(pObject)
+		return pTempObj
+
+	Func verticalPolicy 
+		return QSizePolicy_verticalPolicy(pObject)
+
+	Func verticalStretch 
+		return QSizePolicy_verticalStretch(pObject)
 
 Class QHeaderView from QAbstractItemView
 
@@ -22865,7 +23106,9 @@ Class QSplitter from QFrame
 		return QSplitter_getRange(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 
 	Func handle P1
-		return QSplitter_handle(pObject,P1)
+		pTempObj = new QSplitterHandle
+		pTempObj.pObject = QSplitter_handle(pObject,P1)
+		return pTempObj
 
 	Func handleWidth 
 		return QSplitter_handleWidth(pObject)
@@ -22924,6 +23167,445 @@ Class QSplitter from QFrame
 		pTempObj = new QWidget
 		pTempObj.pObject = QSplitter_widget(pObject,P1)
 		return pTempObj
+
+Class QSplitterHandle
+
+	pObject
+
+
+	Func opaqueResize 
+		return QSplitterHandle_opaqueResize()
+
+	Func orientation 
+		return QSplitterHandle_orientation()
+
+	Func setOrientation P1
+		return QSplitterHandle_setOrientation(P1)
+
+	Func splitter 
+		pTempObj = new QSplitter
+		pTempObj.pObject = QSplitterHandle_splitter()
+		return pTempObj
+
+Class QToolBox from QFrame
+
+	pObject
+
+	Func init P1
+		pObject = QToolBox_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QToolBox_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addItem P1,P2
+		return QToolBox_addItem(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func addItem_2 P1,P2,P3
+		return QToolBox_addItem_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func count 
+		return QToolBox_count(pObject)
+
+	Func currentIndex 
+		return QToolBox_currentIndex(pObject)
+
+	Func currentWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QToolBox_currentWidget(pObject)
+		return pTempObj
+
+	Func indexOf P1
+		return QToolBox_indexOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertItem P1,P2,P3
+		return QToolBox_insertItem(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func insertItem_2 P1,P2,P3,P4
+		return QToolBox_insertItem_2(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
+
+	Func isItemEnabled P1
+		return QToolBox_isItemEnabled(pObject,P1)
+
+	Func itemIcon P1
+		pTempObj = new QIcon
+		pTempObj.pObject = QToolBox_itemIcon(pObject,P1)
+		return pTempObj
+
+	Func itemText P1
+		return QToolBox_itemText(pObject,P1)
+
+	Func itemToolTip P1
+		return QToolBox_itemToolTip(pObject,P1)
+
+	Func removeItem P1
+		return QToolBox_removeItem(pObject,P1)
+
+	Func setItemEnabled P1,P2
+		return QToolBox_setItemEnabled(pObject,P1,P2)
+
+	Func setItemIcon P1,P2
+		return QToolBox_setItemIcon(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setItemText P1,P2
+		return QToolBox_setItemText(pObject,P1,P2)
+
+	Func setItemToolTip P1,P2
+		return QToolBox_setItemToolTip(pObject,P1,P2)
+
+	Func widget P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QToolBox_widget(pObject,P1)
+		return pTempObj
+
+	Func setCurrentIndex P1
+		return QToolBox_setCurrentIndex(pObject,P1)
+
+	Func setCurrentWidget P1
+		return QToolBox_setCurrentWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setcurrentChangedEvent P1
+		return QToolBox_setcurrentChangedEvent(pObject,P1)
+
+	Func getcurrentChangedEvent 
+		return QToolBox_getcurrentChangedEvent(pObject)
+
+Class QWizard from QDialog
+
+	pObject
+
+	Func init P1
+		pObject = QWizard_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QWizard_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addPage P1
+		return QWizard_addPage(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func button P1
+		pTempObj = new QAbstractButton
+		pTempObj.pObject = QWizard_button(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttonText P1
+		return QWizard_buttonText(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func currentId 
+		return QWizard_currentId(pObject)
+
+	Func currentPage 
+		pTempObj = new QWizardPage
+		pTempObj.pObject = QWizard_currentPage(pObject)
+		return pTempObj
+
+	Func field P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QWizard_field(pObject,P1)
+		return pTempObj
+
+	Func hasVisitedPage P1
+		return QWizard_hasVisitedPage(pObject,P1)
+
+	Func nextId 
+		return QWizard_nextId(pObject)
+
+	Func options 
+		return QWizard_options(pObject)
+
+	Func page P1
+		pTempObj = new QWizardPage
+		pTempObj.pObject = QWizard_page(pObject,P1)
+		return pTempObj
+
+	Func pageIds 
+		return QWizard_pageIds(pObject)
+
+	Func pixmap P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QWizard_pixmap(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func removePage P1
+		return QWizard_removePage(pObject,P1)
+
+	Func setButton P1,P2
+		return QWizard_setButton(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setButtonText P1,P2
+		return QWizard_setButtonText(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setField P1,P2
+		return QWizard_setField(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setOption P1,P2
+		return QWizard_setOption(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setOptions P1
+		return QWizard_setOptions(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPage P1,P2
+		return QWizard_setPage(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setPixmap P1,P2
+		return QWizard_setPixmap(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setSideWidget P1
+		return QWizard_setSideWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setStartId P1
+		return QWizard_setStartId(pObject,P1)
+
+	Func setSubTitleFormat P1
+		return QWizard_setSubTitleFormat(pObject,P1)
+
+	Func setTitleFormat P1
+		return QWizard_setTitleFormat(pObject,P1)
+
+	Func setWizardStyle P1
+		return QWizard_setWizardStyle(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sideWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QWizard_sideWidget(pObject)
+		return pTempObj
+
+	Func startId 
+		return QWizard_startId(pObject)
+
+	Func subTitleFormat 
+		return QWizard_subTitleFormat(pObject)
+
+	Func titleFormat 
+		return QWizard_titleFormat(pObject)
+
+	Func visitedPages 
+		return QWizard_visitedPages(pObject)
+
+	Func wizardStyle 
+		return QWizard_wizardStyle(pObject)
+
+	Func back 
+		return QWizard_back(pObject)
+
+	Func nextpage 
+		return QWizard_next(pObject)
+
+	Func restart 
+		return QWizard_restart(pObject)
+
+	Func setcurrentIdChangedEvent P1
+		return QWizard_setcurrentIdChangedEvent(pObject,P1)
+
+	Func setpageAddedEvent P1
+		return QWizard_setpageAddedEvent(pObject,P1)
+
+	Func setpageRemovedEvent P1
+		return QWizard_setpageRemovedEvent(pObject,P1)
+
+	Func getcurrentIdChangedEvent 
+		return QWizard_getcurrentIdChangedEvent(pObject)
+
+	Func getpageAddedEvent 
+		return QWizard_getpageAddedEvent(pObject)
+
+	Func getpageRemovedEvent 
+		return QWizard_getpageRemovedEvent(pObject)
+
+Class QWizardPage from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QWizardPage_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QWizardPage_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func buttonText P1
+		return QWizardPage_buttonText(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isCommitPage 
+		return QWizardPage_isCommitPage(pObject)
+
+	Func isComplete 
+		return QWizardPage_isComplete(pObject)
+
+	Func isFinalPage 
+		return QWizardPage_isFinalPage(pObject)
+
+	Func nextId 
+		return QWizardPage_nextId(pObject)
+
+	Func pixmap P1
+		pTempObj = new QPixmap
+		pTempObj.pObject = QWizardPage_pixmap(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setButtonText P1,P2
+		return QWizardPage_setButtonText(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setCommitPage P1
+		return QWizardPage_setCommitPage(pObject,P1)
+
+	Func setFinalPage P1
+		return QWizardPage_setFinalPage(pObject,P1)
+
+	Func setPixmap P1,P2
+		return QWizardPage_setPixmap(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setSubTitle P1
+		return QWizardPage_setSubTitle(pObject,P1)
+
+	Func setTitle P1
+		return QWizardPage_setTitle(pObject,P1)
+
+	Func subTitle 
+		return QWizardPage_subTitle(pObject)
+
+	Func title 
+		return QWizardPage_title(pObject)
+
+	Func setcompleteChangedEvent P1
+		return QWizardPage_setcompleteChangedEvent(pObject,P1)
+
+	Func getcompleteChangedEvent 
+		return QWizardPage_getcompleteChangedEvent(pObject)
+
+Class QCommandLinkButton from QPushButton
+
+	pObject
+
+	Func init P1
+		pObject = QCommandLinkButton_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QCommandLinkButton_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func description 
+		return QCommandLinkButton_description(pObject)
+
+	Func isFlat 
+		return QCommandLinkButton_isFlat(pObject)
+
+	Func setDescription P1
+		return QCommandLinkButton_setDescription(pObject,P1)
+
+	Func setFlat P1
+		return QCommandLinkButton_setFlat(pObject,P1)
+
+Class QRubberBand from QWidget
+
+	pObject
+
+	Func init P1,P2
+		pObject = QRubberBand_new(P1,GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QRubberBand_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func move P1,P2
+		return QRubberBand_move(pObject,P1,P2)
+
+	Func move_2 P1
+		return QRubberBand_move_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resize P1,P2
+		return QRubberBand_resize(pObject,P1,P2)
+
+	Func resize_2 P1
+		return QRubberBand_resize_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGeometry P1
+		return QRubberBand_setGeometry(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGeometry_2 P1,P2,P3,P4
+		return QRubberBand_setGeometry_2(pObject,P1,P2,P3,P4)
+
+	Func shape 
+		return QRubberBand_shape(pObject)
+
+Class QUndoCommand
+
+	pObject
+
+	Func init 
+		pObject = QUndoCommand_new()
+		return self
+
+	Func delete
+		pObject = QUndoCommand_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func actionText 
+		return QUndoCommand_actionText(pObject)
+
+	Func child P1
+		pTempObj = new QUndoCommand
+		pTempObj.pObject = QUndoCommand_child(pObject,P1)
+		return pTempObj
+
+	Func childCount 
+		return QUndoCommand_childCount(pObject)
+
+	Func id 
+		return QUndoCommand_id(pObject)
+
+	Func isObsolete 
+		return QUndoCommand_isObsolete(pObject)
+
+	Func redo 
+		return QUndoCommand_redo(pObject)
+
+	Func setObsolete P1
+		return QUndoCommand_setObsolete(pObject,P1)
+
+	Func setText P1
+		return QUndoCommand_setText(pObject,P1)
+
+	Func text 
+		return QUndoCommand_text(pObject)
+
+	Func undo 
+		return QUndoCommand_undo(pObject)
+
+Class QSizeGrip from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QSizeGrip_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSizeGrip_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func setVisible P1
+		return QSizeGrip_setVisible(pObject,P1)
 
 Class QCompleter from QObject
 
@@ -25933,7 +26615,9 @@ Class QGraphicsLayoutItem
 		return QGraphicsLayoutItem_setSizePolicy_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
 	Func sizePolicy 
-		return QGraphicsLayoutItem_sizePolicy(pObject)
+		pTempObj = new QSizePolicy
+		pTempObj.pObject = QGraphicsLayoutItem_sizePolicy(pObject)
+		return pTempObj
 
 	Func updateGeometry 
 		return QGraphicsLayoutItem_updateGeometry(pObject)

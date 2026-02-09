@@ -21,5 +21,5 @@ aNewMethodName + ["QPixmap","load","loadpixmap"]
 aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
 aNewMethodName + ["QCoreApplication","exit","exitfromapplication"]
 aNewMethodName + ["QOpenGLTimerQuery","end","endtimer"]
-
+aNewMethodName + ["QWizard","next","nextpage"]
 </runcode>

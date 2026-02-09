@@ -108,6 +108,11 @@ SOURCES +=   \
     cpp/src/ggroupbox.cpp \
     cpp/src/gdoublespinbox.cpp \
     cpp/src/gdialogbuttonbox.cpp \
+    cpp/src/gshortcut.cpp \
+    cpp/src/gprogressdialog.cpp \
+    cpp/src/gtoolbox.cpp \
+    cpp/src/gwizard.cpp \
+    cpp/src/gwizardpage.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -206,7 +211,12 @@ HEADERS  += \
     cpp/include/gdatetimeedit.h \
     cpp/include/ggroupbox.h \
     cpp/include/gdoublespinbox.h \
-    cpp/include/gdialogbuttonbox.h 
+    cpp/include/gdialogbuttonbox.h \
+    cpp/include/gshortcut.h \
+    cpp/include/gprogressdialog.h \
+    cpp/include/gtoolbox.h \
+    cpp/include/gwizard.h \
+    cpp/include/gwizardpage.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
