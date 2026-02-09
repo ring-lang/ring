@@ -49,6 +49,10 @@ Ray {position.x, position.y, position.z, direction.x, direction.y, direction.z}
 BoundingBox {min.x, min.y, min.z, max.x, max.y, max.z}
 VrDeviceInfo {hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter, eyeToScreenDistance, lensSeparationDistance, interpupillaryDistance}
 RayCollision {hit, distance, point.x, point.y, point.z, normal.x, normal.y, normal.z}
+Mesh {vertexCount, triangleCount, float *vertices, float *texcoords, float *texcoords2, float *normals, float *tangents, unsigned char *colors, unsigned short *indices, float *animVertices, float *animNormals, unsigned char *boneIds, float *boneWeights, vaoId}
+Material {shader.id}
+Wave {frameCount, sampleRate, sampleSize, channels, void *data}
+AudioStream {sampleRate, sampleSize, channels}
 </struct>
 
 <funcstart>

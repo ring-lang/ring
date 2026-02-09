@@ -650,23 +650,19 @@ class Shader from RayLibBase
 class Material from RayLibBase
 
 	shader = new Shader 
-	params
 
 	oData = raylib_new_managed_Material()
 
-	func init p1,p2
+	func init p1
 		shader.id = p1
-		params = p2
 
 	func data 
-		raylib_set_Material_Shader_id(oData,Shader.id)	
-		raylib_set_Material_params(oData,params)	
+		raylib_set_Material_shader_id(oData,Shader.id)	
 		return oData 
 
 	func setdata oStruct 
 		oData 		= oStruct  
 		shader.id 	= raylib_get_Material_shader_id(oStruct)
-		params 		= raylib_get_Material_params(oStruct)
 
 class Transform from RayLibBase
 
@@ -920,29 +916,29 @@ class BoundingBox from RayLibBase
 
 class Wave from RayLibBase
 
-	sampleCount sampleRate sampleSize channels data
+	frameCount sampleRate sampleSize channels data
 
 	oData = raylib_new_managed_Wave()
 
 	func init p1,p2,p3,p4,p5
 
-		sampleCount=p1 sampleRate=p2 sampleSize=p3 channels=p4 data=p5
+		frameCount=p1 sampleRate=p2 sampleSize=p3 channels=p4 data=p5
 
 	func data 
-		raylib_set_Wave_sampleCount(oData,sampleCount)
+		raylib_set_Wave_frameCount(oData,frameCount)
 		raylib_set_Wave_sampleRate(oData,sampleRate)
 		raylib_set_Wave_sampleSize(oData,sampleSize)
-		raylib_set_Wave_Channels(oData,Channels)
-		raylib_set_Wave_Data(oData,Data)
+		raylib_set_Wave_channels(oData,channels)
+		raylib_set_Wave_data(oData,data)
 		return oData
 
 	func setdata oStruct 
 		oData = oStruct  
-		sampleCount	= raylib_get_Wave_sampleCount(oStruct)
+		frameCount	= raylib_get_Wave_frameCount(oStruct)
 		sampleRate	= raylib_get_Wave_sampleRate(oStruct)
 		sampleSize	= raylib_get_Wave_sampleSize(oStruct)
-		Channels	= raylib_get_Wave_Channels(oStruct)
-		Data		= raylib_get_Wave_Data(oStruct)
+		channels	= raylib_get_Wave_channels(oStruct)
+		data		= raylib_get_Wave_data(oStruct)
 
 class Music 
 
@@ -959,20 +955,17 @@ class Music
 
 class AudioStream from RayLibBase
 
-	sampleRate sampleSize channels audioBuffer format source
+	sampleRate sampleSize channels
 
 	oData = raylib_new_managed_AudioStream()
 
-	func init p1,p2,p3,p4,p5,p6
-		sampleRate=p1 sampleSize=p2 channels=p3 audioBuffer=p4 format=p5 source=p6
+	func init p1,p2,p3
+		sampleRate=p1 sampleSize=p2 channels=p3
 
 	func data 
 		raylib_set_AudioStream_sampleRate(oData,sampleRate)
 		raylib_set_AudioStream_sampleSize(oData,sampleSize)
 		raylib_set_AudioStream_channels(oData,channels)
-		raylib_set_AudioStream_audioBuffer(oData,audioBuffer)
-		raylib_set_AudioStream_format(oData,format)
-		raylib_set_AudioStream_source(oData,source)
 		return oData	
 
 	func setdata oStruct 
@@ -980,9 +973,6 @@ class AudioStream from RayLibBase
 		sampleRate 	= raylib_get_AudioStream_sampleRate(oStruct)
 		sampleSize 	= raylib_get_AudioStream_sampleSize(oStruct)
 		channels 	= raylib_get_AudioStream_channels(oStruct)
-		audioBuffer 	= raylib_get_AudioStream_audioBuffer(oStruct)
-		format 		= raylib_get_AudioStream_format(oStruct)
-		source 		= raylib_get_AudioStream_source(oStruct)
 
 class VrDeviceInfo  from RayLibBase
 
