@@ -153,9 +153,7 @@ The following packages have been added to the RingPM registry.
 Better RingQt
 =============
 
-(1) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
-
-(2) The next classes are added
+(1) The next classes are added
 
 * QFormLayout 
 * QElapsedTimer
@@ -167,6 +165,32 @@ Better RingQt
 * QDialogButtonBox
 * QSpacerItem
 * QToolTip
+* QMarginsF
+* QSettings
+* QDataStream
+* QStandardItemModel
+* QStandardItem
+* QSortFilterProxyModel
+* QItemSelectionModel
+* QPalette
+* QKeyEvent
+* QMouseEvent
+* QWheelEvent
+* QPolygon
+* QPolygonF
+* QTextBlockFormat
+* QTextListFormat
+* QTextTableFormat
+* QTextFrameFormat
+* QTextTable
+* QTextTableCell
+* QTextFrame
+* QTextList
+* QStaticText
+* QPageSize
+* QPageLayout
+
+(2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
 
 .. index:: 
 	pair: What is new in Ring  1.26; Better RingRayLib
