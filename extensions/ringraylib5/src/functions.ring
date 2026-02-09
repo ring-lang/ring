@@ -175,13 +175,19 @@ func BeginMode3D camera
 	return BeginMode3D_2(GPData(Camera))
 
 func GetMouseRay mousePosition,camera
-	return GetMouseRay_2(GPData(mousePosition),GPData(Camera))
+	oRay = new Ray
+	oRay.setData( GetMouseRay_2(GPData(mousePosition),GPData(Camera)) )
+	return oRay
 
 func GetWorldToScreen position,camera
-	return GetWorldToScreen_2(GPData(position),GPData(Camera))
+	oVector2 = new Vector2
+	oVector2.setData( GetWorldToScreen_2(GPData(position),GPData(Camera)) )
+	return oVector2
 
 func GetCameraMatrix camera
-	return GetCameraMatrix_2(GPData(Camera))
+	oMatrix = new Matrix
+	oMatrix.setData( GetCameraMatrix_2(GPData(Camera)) )
+	return oMatrix
 
 func GetCameraMatrix2D camera
 	oMatrix = new Matrix
@@ -367,8 +373,10 @@ func CheckCollisionLines startPos1, endPos1, startPos2, endPos2, collisionPoint
 func CheckCollisionPointLine point, p1, p2, threshold
 	return CheckCollisionPointLine_2(GPData(point), GPData(p1), GPData(p2), threshold)
 
-func ColorFromHSV hsv
-	return ColorFromHSV_2(GPData(hsv))
+func ColorFromHSV hue, saturation, value
+	oColor = new Color
+	oColor.setData( ColorFromHSV_2(hue, saturation, value) )
+	return oColor
 
 func DrawLine3D startPos, endPos, color
 	return DrawLine3D_2(GPData(startPos), GPData(endPos), GPData(color))
@@ -1435,9 +1443,14 @@ func GetCollisionRayModel ray, model
 	return oRayHitInfo
 
 func GetCollisionRayGround ray, groundHeight
-	oRayHitInfo = new RayHitInfo
-	oRayHitInfo.setData(GetCollisionRayGround_2( GPData(ray), groundHeight ) )
-	return oRayHitInfo
+	# GetCollisionRayGround was removed in raylib 5.0
+	# Replacement: intersect ray with a large ground quad at the given height
+	nSize = 10000
+	p1 = new Vector3  p1.x = -nSize  p1.y = groundHeight  p1.z = -nSize
+	p2 = new Vector3  p2.x = -nSize  p2.y = groundHeight  p2.z =  nSize
+	p3 = new Vector3  p3.x =  nSize  p3.y = groundHeight  p3.z =  nSize
+	p4 = new Vector3  p4.x =  nSize  p4.y = groundHeight  p4.z = -nSize
+	return GetRayCollisionQuad(ray, p1, p2, p3, p4)
 
 func LoadShader vsFileName, fsFileName
 	oShader = new Shader 
