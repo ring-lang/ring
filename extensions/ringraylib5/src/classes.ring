@@ -1031,7 +1031,9 @@ class VrStereoConfig
 
 class RayCollision from RayLibBase
 
-	hit
+	hit distance
+	point  = new Vector3
+	normal = new Vector3
 
 	oData = raylib_new_managed_raycollision()
 
@@ -1040,8 +1042,22 @@ class RayCollision from RayLibBase
 
 	func data 
 		raylib_set_raycollision_hit(oData,hit)
+		raylib_set_raycollision_distance(oData,distance)
+		raylib_set_raycollision_point_x(oData,point.x)
+		raylib_set_raycollision_point_y(oData,point.y)
+		raylib_set_raycollision_point_z(oData,point.z)
+		raylib_set_raycollision_normal_x(oData,normal.x)
+		raylib_set_raycollision_normal_y(oData,normal.y)
+		raylib_set_raycollision_normal_z(oData,normal.z)
 		return oData	
 
 	func setdata oStruct 
 		oData = oStruct  
 		hit = raylib_get_raycollision_hit(oStruct)
+		distance = raylib_get_raycollision_distance(oStruct)
+		point.x = raylib_get_raycollision_point_x(oStruct)
+		point.y = raylib_get_raycollision_point_y(oStruct)
+		point.z = raylib_get_raycollision_point_z(oStruct)
+		normal.x = raylib_get_raycollision_normal_x(oStruct)
+		normal.y = raylib_get_raycollision_normal_y(oStruct)
+		normal.z = raylib_get_raycollision_normal_z(oStruct)
