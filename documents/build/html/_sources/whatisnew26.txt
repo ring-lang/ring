@@ -132,6 +132,7 @@ More Samples
 The next samples are added:
 
 * ring/samples/UsingClosure/test1.ring
+* ring/samples/UsingQt/Layouts/qformlayout.ring
 
 .. index:: 
 	pair: What is new in Ring 1.26?; More RingPM Packages
