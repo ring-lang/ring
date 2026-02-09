@@ -8194,6 +8194,20 @@ RING_FUNC(ring_SetConfigFlags)
 }
 
 
+RING_FUNC(ring_SetTraceLogLevel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetTraceLogLevel( (int ) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_SetTraceLogCallback)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -8238,6 +8252,20 @@ RING_FUNC(ring_TakeScreenshot)
 }
 
 
+RING_FUNC(ring_SetRandomSeed)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	SetRandomSeed( (unsigned int ) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_GetRandomValue)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -8256,6 +8284,212 @@ RING_FUNC(ring_GetRandomValue)
 }
 
 
+RING_FUNC(ring_LoadRandomSequence)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(LoadRandomSequence( (unsigned int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)),"int");
+}
+
+
+RING_FUNC(ring_UnloadRandomSequence)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadRandomSequence(RING_API_GETINTPOINTER(1));
+	RING_API_ACCEPTINTVALUE(1) ;
+}
+
+
+RING_FUNC(ring_MemAlloc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(MemAlloc( (unsigned int ) RING_API_GETNUMBER(1)),"void");
+}
+
+
+RING_FUNC(ring_MemRealloc)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(MemRealloc((void *) RING_API_GETCPOINTER(1,"void"), (unsigned int ) RING_API_GETNUMBER(2)),"void");
+}
+
+
+RING_FUNC(ring_MemFree)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	MemFree((void *) RING_API_GETCPOINTER(1,"void"));
+}
+
+
+RING_FUNC(ring_LoadFileData)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(LoadFileData(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2)),"unsigned char");
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
+
+RING_FUNC(ring_UnloadFileData)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadFileData((unsigned char *) RING_API_GETCPOINTER(1,"unsigned char"));
+}
+
+
+RING_FUNC(ring_SaveFileData)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SaveFileData(RING_API_GETSTRING(1),(void *) RING_API_GETCPOINTER(2,"void"), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_ExportDataAsCode)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(ExportDataAsCode((unsigned char *) RING_API_GETCPOINTER(1,"unsigned char"), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3)));
+}
+
+
+RING_FUNC(ring_LoadFileText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(LoadFileText(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_UnloadFileText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	UnloadFileText(RING_API_GETSTRING(1));
+}
+
+
+RING_FUNC(ring_SaveFileText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SaveFileText(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
+}
+
+
 RING_FUNC(ring_FileExists)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -8267,6 +8501,20 @@ RING_FUNC(ring_FileExists)
 		return ;
 	}
 	RING_API_RETNUMBER(FileExists(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_DirectoryExists)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(DirectoryExists(RING_API_GETSTRING(1)));
 }
 
 
@@ -8285,6 +8533,34 @@ RING_FUNC(ring_IsFileExtension)
 		return ;
 	}
 	RING_API_RETNUMBER(IsFileExtension(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_GetFileLength)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GetFileLength(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_GetFileExtension)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(GetFileExtension(RING_API_GETSTRING(1)));
 }
 
 
@@ -8330,6 +8606,20 @@ RING_FUNC(ring_GetDirectoryPath)
 }
 
 
+RING_FUNC(ring_GetPrevDirectoryPath)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(GetPrevDirectoryPath(RING_API_GETSTRING(1)));
+}
+
+
 RING_FUNC(ring_GetWorkingDirectory)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -8337,6 +8627,16 @@ RING_FUNC(ring_GetWorkingDirectory)
 		return ;
 	}
 	RING_API_RETSTRING(GetWorkingDirectory());
+}
+
+
+RING_FUNC(ring_GetApplicationDirectory)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETSTRING(GetApplicationDirectory());
 }
 
 
@@ -8351,6 +8651,20 @@ RING_FUNC(ring_ChangeDirectory)
 		return ;
 	}
 	RING_API_RETNUMBER(ChangeDirectory(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_IsPathFile)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(IsPathFile(RING_API_GETSTRING(1)));
 }
 
 
@@ -8380,6 +8694,94 @@ RING_FUNC(ring_GetFileModTime)
 		*pValue = GetFileModTime(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"long",RING_API_FREEFUNC);
 	}
+}
+
+
+RING_FUNC(ring_CompressData)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(CompressData((unsigned char *) RING_API_GETCPOINTER(1,"unsigned char"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)),"unsigned char");
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_DecompressData)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(DecompressData((unsigned char *) RING_API_GETCPOINTER(1,"unsigned char"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)),"unsigned char");
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_EncodeDataBase64)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(EncodeDataBase64((unsigned char *) RING_API_GETCPOINTER(1,"unsigned char"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)));
+	RING_API_ACCEPTINTVALUE(3) ;
+}
+
+
+RING_FUNC(ring_DecodeDataBase64)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(DecodeDataBase64((unsigned char *) RING_API_GETCPOINTER(1,"unsigned char"),RING_API_GETINTPOINTER(2)),"unsigned char");
+	RING_API_ACCEPTINTVALUE(2) ;
 }
 
 
@@ -18378,19 +18780,43 @@ RING_LIBINIT
 	RING_API_REGISTER("getpixelcolor",ring_GetPixelColor);
 	RING_API_REGISTER("setpixelcolor_2",ring_SetPixelColor_2);
 	RING_API_REGISTER("setconfigflags",ring_SetConfigFlags);
+	RING_API_REGISTER("settraceloglevel",ring_SetTraceLogLevel);
 	RING_API_REGISTER("settracelogcallback",ring_SetTraceLogCallback);
 	RING_API_REGISTER("tracelog",ring_TraceLog);
 	RING_API_REGISTER("takescreenshot",ring_TakeScreenshot);
+	RING_API_REGISTER("setrandomseed",ring_SetRandomSeed);
 	RING_API_REGISTER("getrandomvalue",ring_GetRandomValue);
+	RING_API_REGISTER("loadrandomsequence",ring_LoadRandomSequence);
+	RING_API_REGISTER("unloadrandomsequence",ring_UnloadRandomSequence);
+	RING_API_REGISTER("memalloc",ring_MemAlloc);
+	RING_API_REGISTER("memrealloc",ring_MemRealloc);
+	RING_API_REGISTER("memfree",ring_MemFree);
+	RING_API_REGISTER("loadfiledata",ring_LoadFileData);
+	RING_API_REGISTER("unloadfiledata",ring_UnloadFileData);
+	RING_API_REGISTER("savefiledata",ring_SaveFileData);
+	RING_API_REGISTER("exportdataascode",ring_ExportDataAsCode);
+	RING_API_REGISTER("loadfiletext",ring_LoadFileText);
+	RING_API_REGISTER("unloadfiletext",ring_UnloadFileText);
+	RING_API_REGISTER("savefiletext",ring_SaveFileText);
 	RING_API_REGISTER("fileexists",ring_FileExists);
+	RING_API_REGISTER("directoryexists",ring_DirectoryExists);
 	RING_API_REGISTER("isfileextension",ring_IsFileExtension);
+	RING_API_REGISTER("getfilelength",ring_GetFileLength);
+	RING_API_REGISTER("getfileextension",ring_GetFileExtension);
 	RING_API_REGISTER("getfilename",ring_GetFileName);
 	RING_API_REGISTER("getfilenamewithoutext",ring_GetFileNameWithoutExt);
 	RING_API_REGISTER("getdirectorypath",ring_GetDirectoryPath);
+	RING_API_REGISTER("getprevdirectorypath",ring_GetPrevDirectoryPath);
 	RING_API_REGISTER("getworkingdirectory",ring_GetWorkingDirectory);
+	RING_API_REGISTER("getapplicationdirectory",ring_GetApplicationDirectory);
 	RING_API_REGISTER("changedirectory",ring_ChangeDirectory);
+	RING_API_REGISTER("ispathfile",ring_IsPathFile);
 	RING_API_REGISTER("isfiledropped",ring_IsFileDropped);
 	RING_API_REGISTER("getfilemodtime",ring_GetFileModTime);
+	RING_API_REGISTER("compressdata",ring_CompressData);
+	RING_API_REGISTER("decompressdata",ring_DecompressData);
+	RING_API_REGISTER("encodedatabase64",ring_EncodeDataBase64);
+	RING_API_REGISTER("decodedatabase64",ring_DecodeDataBase64);
 	RING_API_REGISTER("openurl",ring_OpenURL);
 	RING_API_REGISTER("iskeypressed_2",ring_IsKeyPressed_2);
 	RING_API_REGISTER("iskeypressedrepeat_2",ring_IsKeyPressedRepeat_2);
