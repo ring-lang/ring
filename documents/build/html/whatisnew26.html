@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#closure-library">Closure Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -236,6 +237,7 @@
 <li><p>Closure Library</p></li>
 <li><p>More Samples</p></li>
 <li><p>More RingPM Packages</p></li>
+<li><p>Better RingRayLib</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -334,14 +336,278 @@
 <li><p>TUIFrameworkUsingClaudeCode: A project developed using prompt driven development</p></li>
 </ul>
 </section>
+<section id="better-ringraylib">
+<span id="index-7"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<p>Added more functions to deliver full support for RayLib 5.0</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Function</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IsWindowFullscreen</p></td>
+<td><p>IsWindowMaximized</p></td>
+<td><p>IsWindowFocused</p></td>
+<td><p>IsWindowState</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetWindowState</p></td>
+<td><p>ClearWindowState</p></td>
+<td><p>ToggleBorderlessWindowed</p></td>
+<td><p>MaximizeWindow</p></td>
+</tr>
+<tr class="row-even"><td><p>MinimizeWindow</p></td>
+<td><p>RestoreWindow</p></td>
+<td><p>SetWindowMaxSize</p></td>
+<td><p>SetWindowOpacity</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetWindowFocused</p></td>
+<td><p>GetRenderWidth</p></td>
+<td><p>GetRenderHeight</p></td>
+<td><p>GetCurrentMonitor</p></td>
+</tr>
+<tr class="row-even"><td><p>GetMonitorRefreshRate</p></td>
+<td><p>EnableEventWaiting</p></td>
+<td><p>DisableEventWaiting</p></td>
+<td><p>SetWindowIcons</p></td>
+</tr>
+<tr class="row-odd"><td><p>GetMonitorPosition</p></td>
+<td><p>GetWindowPosition</p></td>
+<td><p>GetWindowScaleDPI</p></td>
+<td><p>IsCursorOnScreen</p></td>
+</tr>
+<tr class="row-even"><td><p>GetCameraMatrix2D</p></td>
+<td><p>GetScreenToWorld2D</p></td>
+<td><p>GetWorldToScreenEx</p></td>
+<td><p>GetWorldToScreen2D</p></td>
+</tr>
+<tr class="row-odd"><td><p>IsKeyPressedRepeat</p></td>
+<td><p>GetCharPressed</p></td>
+<td><p>SetGamepadMappings</p></td>
+<td><p>GetMouseDelta</p></td>
+</tr>
+<tr class="row-even"><td><p>GetMouseWheelMoveV</p></td>
+<td><p>SetMouseCursor</p></td>
+<td><p>GetTouchPointId</p></td>
+<td><p>GetTouchPointCount</p></td>
+</tr>
+<tr class="row-odd"><td><p>UpdateCameraPro</p></td>
+<td><p>DrawCircleLinesV</p></td>
+<td><p>DrawEllipse</p></td>
+<td><p>DrawEllipseLines</p></td>
+</tr>
+<tr class="row-even"><td><p>DrawTriangleStrip</p></td>
+<td><p>DrawPolyLines</p></td>
+<td><p>DrawPolyLinesEx</p></td>
+<td><p>DrawSplineLinear</p></td>
+</tr>
+<tr class="row-odd"><td><p>DrawSplineBasis</p></td>
+<td><p>DrawSplineCatmullRom</p></td>
+<td><p>DrawSplineBezierQuadratic</p></td>
+<td><p>DrawSplineBezierCubic</p></td>
+</tr>
+<tr class="row-even"><td><p>DrawSplineSegmentLinear</p></td>
+<td><p>DrawSplineSegmentBasis</p></td>
+<td><p>DrawSplineSegmentCatmullRom</p></td>
+<td><p>DrawSplineSegmentBezierQuadratic</p></td>
+</tr>
+<tr class="row-odd"><td><p>DrawSplineSegmentBezierCubic</p></td>
+<td><p>GetSplinePointLinear</p></td>
+<td><p>GetSplinePointBasis</p></td>
+<td><p>GetSplinePointCatmullRom</p></td>
+</tr>
+<tr class="row-even"><td><p>GetSplinePointBezierQuad</p></td>
+<td><p>GetSplinePointBezierCubic</p></td>
+<td><p>CheckCollisionPointPoly</p></td>
+<td><p>CheckCollisionLines</p></td>
+</tr>
+<tr class="row-odd"><td><p>CheckCollisionPointLine</p></td>
+<td><p>DrawPoint3D</p></td>
+<td><p>DrawTriangle3D</p></td>
+<td><p>DrawTriangleStrip3D</p></td>
+</tr>
+<tr class="row-even"><td><p>DrawCylinderEx</p></td>
+<td><p>DrawCylinderWiresEx</p></td>
+<td><p>DrawCapsule</p></td>
+<td><p>DrawCapsuleWires</p></td>
+</tr>
+<tr class="row-odd"><td><p>LoadImageRaw</p></td>
+<td><p>LoadImageSvg</p></td>
+<td><p>LoadImageAnim</p></td>
+<td><p>LoadImageFromMemory</p></td>
+</tr>
+<tr class="row-even"><td><p>LoadImageFromTexture</p></td>
+<td><p>LoadImageFromScreen</p></td>
+<td><p>IsImageReady</p></td>
+<td><p>ExportImageToMemory</p></td>
+</tr>
+<tr class="row-odd"><td><p>ImageFromImage</p></td>
+<td><p>ImageBlurGaussian</p></td>
+<td><p>ImageRotate</p></td>
+<td><p>LoadImagePalette</p></td>
+</tr>
+<tr class="row-even"><td><p>UnloadImageColors</p></td>
+<td><p>UnloadImagePalette</p></td>
+<td><p>GetImageAlphaBorder</p></td>
+<td><p>GetImageColor</p></td>
+</tr>
+<tr class="row-odd"><td><p>ImageClearBackground</p></td>
+<td><p>ImageDrawPixel</p></td>
+<td><p>ImageDrawPixelV</p></td>
+<td><p>ImageDrawLine</p></td>
+</tr>
+<tr class="row-even"><td><p>ImageDrawLineV</p></td>
+<td><p>ImageDrawCircle</p></td>
+<td><p>ImageDrawCircleV</p></td>
+<td><p>ImageDrawCircleLines</p></td>
+</tr>
+<tr class="row-odd"><td><p>ImageDrawCircleLinesV</p></td>
+<td><p>ImageDrawRectangle</p></td>
+<td><p>ImageDrawRectangleV</p></td>
+<td><p>ImageDrawRectangleRec</p></td>
+</tr>
+<tr class="row-even"><td><p>ImageDrawRectangleLines</p></td>
+<td><p>ImageDrawText</p></td>
+<td><p>IsTextureReady</p></td>
+<td><p>IsRenderTextureReady</p></td>
+</tr>
+<tr class="row-odd"><td><p>UpdateTextureRec</p></td>
+<td><p>ColorFromNormalized</p></td>
+<td><p>ColorTint</p></td>
+<td><p>ColorBrightness</p></td>
+</tr>
+<tr class="row-even"><td><p>ColorContrast</p></td>
+<td><p>ColorAlpha</p></td>
+<td><p>ColorAlphaBlend</p></td>
+<td><p>GetPixelColor</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetPixelColor</p></td>
+<td><p>LoadFontFromMemory</p></td>
+<td><p>IsFontReady</p></td>
+<td><p>LoadFontData</p></td>
+</tr>
+<tr class="row-even"><td><p>UnloadFontData</p></td>
+<td><p>GetGlyphAtlasRec</p></td>
+<td><p>DrawTextPro</p></td>
+<td><p>DrawTextCodepoint</p></td>
+</tr>
+<tr class="row-odd"><td><p>DrawTextCodepoints</p></td>
+<td><p>SetTextLineSpacing</p></td>
+<td><p>GetGlyphInfo</p></td>
+<td><p>LoadUTF8</p></td>
+</tr>
+<tr class="row-even"><td><p>UnloadUTF8</p></td>
+<td><p>LoadCodepoints</p></td>
+<td><p>UnloadCodepoints</p></td>
+<td><p>GetCodepointCount</p></td>
+</tr>
+<tr class="row-odd"><td><p>GetCodepoint</p></td>
+<td><p>GetCodepointNext</p></td>
+<td><p>GetCodepointPrevious</p></td>
+<td><p>CodepointToUTF8</p></td>
+</tr>
+<tr class="row-even"><td><p>IsModelReady</p></td>
+<td><p>GetModelBoundingBox</p></td>
+<td><p>DrawBillboardPro</p></td>
+<td><p>UploadMesh</p></td>
+</tr>
+<tr class="row-odd"><td><p>UpdateMeshBuffer</p></td>
+<td><p>DrawMesh</p></td>
+<td><p>DrawMeshInstanced</p></td>
+<td><p>GenMeshTangents</p></td>
+</tr>
+<tr class="row-even"><td><p>GenMeshCone</p></td>
+<td><p>IsMaterialReady</p></td>
+<td><p>GetRayCollisionSphere</p></td>
+<td><p>GetRayCollisionMesh</p></td>
+</tr>
+<tr class="row-odd"><td><p>GetRayCollisionTriangle</p></td>
+<td><p>GetRayCollisionQuad</p></td>
+<td><p>LoadShaderFromMemory</p></td>
+<td><p>IsShaderReady</p></td>
+</tr>
+<tr class="row-even"><td><p>GetShaderLocationAttrib</p></td>
+<td><p>IsWaveReady</p></td>
+<td><p>IsSoundReady</p></td>
+<td><p>SetSoundPan</p></td>
+</tr>
+<tr class="row-odd"><td><p>LoadWaveSamples</p></td>
+<td><p>UnloadWaveSamples</p></td>
+<td><p>LoadMusicStreamFromMemory</p></td>
+<td><p>IsMusicReady</p></td>
+</tr>
+<tr class="row-even"><td><p>SeekMusicStream</p></td>
+<td><p>SetMusicPan</p></td>
+<td><p>LoadAudioStream</p></td>
+<td><p>IsAudioStreamReady</p></td>
+</tr>
+<tr class="row-odd"><td><p>UnloadAudioStream</p></td>
+<td><p>IsAudioStreamProcessed</p></td>
+<td><p>SetAudioStreamPan</p></td>
+<td><p>LoadVrStereoConfig</p></td>
+</tr>
+<tr class="row-even"><td><p>UnloadVrStereoConfig</p></td>
+<td><p>BeginVrStereoMode</p></td>
+<td><p>EndVrStereoMode</p></td>
+<td><p>LoadFileData</p></td>
+</tr>
+<tr class="row-odd"><td><p>UnloadFileData</p></td>
+<td><p>SaveFileData</p></td>
+<td><p>ExportDataAsCode</p></td>
+<td><p>LoadFileText</p></td>
+</tr>
+<tr class="row-even"><td><p>UnloadFileText</p></td>
+<td><p>SaveFileText</p></td>
+<td><p>DirectoryExists</p></td>
+<td><p>GetFileLength</p></td>
+</tr>
+<tr class="row-odd"><td><p>GetFileExtension</p></td>
+<td><p>GetPrevDirectoryPath</p></td>
+<td><p>GetApplicationDirectory</p></td>
+<td><p>IsPathFile</p></td>
+</tr>
+<tr class="row-even"><td><p>CompressData</p></td>
+<td><p>DecompressData</p></td>
+<td><p>EncodeDataBase64</p></td>
+<td><p>DecodeDataBase64</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetTraceLogLevel</p></td>
+<td><p>SetRandomSeed</p></td>
+<td><p>LoadRandomSequence</p></td>
+<td><p>UnloadRandomSequence</p></td>
+</tr>
+<tr class="row-even"><td><p>MemAlloc</p></td>
+<td><p>MemRealloc</p></td>
+<td><p>MemFree</p></td>
+<td><p>GetMasterVolume</p></td>
+</tr>
+<tr class="row-odd"><td><p>WaitTime</p></td>
+<td><p>GenImageText</p></td>
+<td><p>ExportFontAsCode</p></td>
+<td><p>LoadWaveFromMemory</p></td>
+</tr>
+<tr class="row-even"><td><p>LoadSoundAlias</p></td>
+<td><p>UnloadSoundAlias</p></td>
+<td><p>IsMusicStreamPlaying</p></td>
+<td><p>TextCopy</p></td>
+</tr>
+<tr class="row-odd"><td><p>PollInputEvents</p></td>
+<td><p>SwapScreenBuffer</p></td>
+<td><p>SetAudioStreamBufferSizeDefault</p></td>
+<td><p>UnloadModelAnimations</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Building - build/buildgcc.sh - improve POSIX compliance</p></li>
 <li><p>Building - language/CMakeLists.txt - Explicitly set project language to C</p></li>
 <li><p>NaturalLib - Improved implementation for supporting shared keywords across commands</p></li>
 <li><p>NaturalLib - Support callerSetVar()/callerGetVar() in commands that uses Expressions</p></li>
-<li><p>RingRayLib – Added 202 more functions to deliver full support for RayLib 5.0</p></li>
 <li><p>RingStbImage - The stb_image.h file is updated from v2.28 to v2.30</p></li>
 <li><p>RingStbImage - Improved Implementation of Image‑Loading Functions</p></li>
 <li><p>RingStbImage - Use a binary string as the output for zlib functions</p></li>

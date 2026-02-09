@@ -20,6 +20,7 @@ Ring 1.26 comes with the next features!
 * Closure Library
 * More Samples
 * More RingPM Packages
+* Better RingRayLib
 * More Improvements
 
 .. index:: 
@@ -144,6 +145,120 @@ The following packages have been added to the RingPM registry.
 * Archive: Archive manipulation library
 * TUIFrameworkUsingClaudeCode: A project developed using prompt driven development
 
+
+.. index:: 
+	pair: What is new in Ring  1.26; Better RingRayLib
+
+Better RingRayLib
+=================
+
+Added more functions to deliver full support for RayLib 5.0
+
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| Function                     | Function                  | Function                        | Function                         |
++==============================+===========================+=================================+==================================+
+| IsWindowFullscreen           | IsWindowMaximized         | IsWindowFocused                 | IsWindowState                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetWindowState               | ClearWindowState          | ToggleBorderlessWindowed        | MaximizeWindow                   |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| MinimizeWindow               | RestoreWindow             | SetWindowMaxSize                | SetWindowOpacity                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetWindowFocused             | GetRenderWidth            | GetRenderHeight                 | GetCurrentMonitor                |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetMonitorRefreshRate        | EnableEventWaiting        | DisableEventWaiting             | SetWindowIcons                   |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetMonitorPosition           | GetWindowPosition         | GetWindowScaleDPI               | IsCursorOnScreen                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetCameraMatrix2D            | GetScreenToWorld2D        | GetWorldToScreenEx              | GetWorldToScreen2D               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| IsKeyPressedRepeat           | GetCharPressed            | SetGamepadMappings              | GetMouseDelta                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetMouseWheelMoveV           | SetMouseCursor            | GetTouchPointId                 | GetTouchPointCount               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UpdateCameraPro              | DrawCircleLinesV          | DrawEllipse                     | DrawEllipseLines                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawTriangleStrip            | DrawPolyLines             | DrawPolyLinesEx                 | DrawSplineLinear                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawSplineBasis              | DrawSplineCatmullRom      | DrawSplineBezierQuadratic       | DrawSplineBezierCubic            |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawSplineSegmentLinear      | DrawSplineSegmentBasis    | DrawSplineSegmentCatmullRom     | DrawSplineSegmentBezierQuadratic |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawSplineSegmentBezierCubic | GetSplinePointLinear      | GetSplinePointBasis             | GetSplinePointCatmullRom         |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetSplinePointBezierQuad     | GetSplinePointBezierCubic | CheckCollisionPointPoly         | CheckCollisionLines              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| CheckCollisionPointLine      | DrawPoint3D               | DrawTriangle3D                  | DrawTriangleStrip3D              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawCylinderEx               | DrawCylinderWiresEx       | DrawCapsule                     | DrawCapsuleWires                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadImageRaw                 | LoadImageSvg              | LoadImageAnim                   | LoadImageFromMemory              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadImageFromTexture         | LoadImageFromScreen       | IsImageReady                    | ExportImageToMemory              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageFromImage               | ImageBlurGaussian         | ImageRotate                     | LoadImagePalette                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadImageColors            | UnloadImagePalette        | GetImageAlphaBorder             | GetImageColor                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageClearBackground         | ImageDrawPixel            | ImageDrawPixelV                 | ImageDrawLine                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageDrawLineV               | ImageDrawCircle           | ImageDrawCircleV                | ImageDrawCircleLines             |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageDrawCircleLinesV        | ImageDrawRectangle        | ImageDrawRectangleV             | ImageDrawRectangleRec            |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageDrawRectangleLines      | ImageDrawText             | IsTextureReady                  | IsRenderTextureReady             |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UpdateTextureRec             | ColorFromNormalized       | ColorTint                       | ColorBrightness                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ColorContrast                | ColorAlpha                | ColorAlphaBlend                 | GetPixelColor                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetPixelColor                | LoadFontFromMemory        | IsFontReady                     | LoadFontData                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadFontData               | GetGlyphAtlasRec          | DrawTextPro                     | DrawTextCodepoint                |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawTextCodepoints           | SetTextLineSpacing        | GetGlyphInfo                    | LoadUTF8                         |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadUTF8                   | LoadCodepoints            | UnloadCodepoints                | GetCodepointCount                |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetCodepoint                 | GetCodepointNext          | GetCodepointPrevious            | CodepointToUTF8                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| IsModelReady                 | GetModelBoundingBox       | DrawBillboardPro                | UploadMesh                       |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UpdateMeshBuffer             | DrawMesh                  | DrawMeshInstanced               | GenMeshTangents                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GenMeshCone                  | IsMaterialReady           | GetRayCollisionSphere           | GetRayCollisionMesh              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetRayCollisionTriangle      | GetRayCollisionQuad       | LoadShaderFromMemory            | IsShaderReady                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetShaderLocationAttrib      | IsWaveReady               | IsSoundReady                    | SetSoundPan                      |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadWaveSamples              | UnloadWaveSamples         | LoadMusicStreamFromMemory       | IsMusicReady                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SeekMusicStream              | SetMusicPan               | LoadAudioStream                 | IsAudioStreamReady               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadAudioStream            | IsAudioStreamProcessed    | SetAudioStreamPan               | LoadVrStereoConfig               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadVrStereoConfig         | BeginVrStereoMode         | EndVrStereoMode                 | LoadFileData                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadFileData               | SaveFileData              | ExportDataAsCode                | LoadFileText                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadFileText               | SaveFileText              | DirectoryExists                 | GetFileLength                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetFileExtension             | GetPrevDirectoryPath      | GetApplicationDirectory         | IsPathFile                       |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| CompressData                 | DecompressData            | EncodeDataBase64                | DecodeDataBase64                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetTraceLogLevel             | SetRandomSeed             | LoadRandomSequence              | UnloadRandomSequence             |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| MemAlloc                     | MemRealloc                | MemFree                         | GetMasterVolume                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| WaitTime                     | GenImageText              | ExportFontAsCode                | LoadWaveFromMemory               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadSoundAlias               | UnloadSoundAlias          | IsMusicStreamPlaying            | TextCopy                         |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| PollInputEvents              | SwapScreenBuffer          | SetAudioStreamBufferSizeDefault | UnloadModelAnimations            |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+
+
 .. index:: 
 	pair: What is new in Ring  1.26; More Improvements
 
@@ -154,7 +269,6 @@ More Improvements
 * Building - language/CMakeLists.txt - Explicitly set project language to C
 * NaturalLib - Improved implementation for supporting shared keywords across commands
 * NaturalLib - Support callerSetVar()/callerGetVar() in commands that uses Expressions
-* RingRayLib – Added 202 more functions to deliver full support for RayLib 5.0
 * RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
 * RingStbImage - Improved Implementation of Image‑Loading Functions 
 * RingStbImage - Use a binary string as the output for zlib functions
