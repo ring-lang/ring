@@ -154,6 +154,7 @@ More Improvements
 * Building - language/CMakeLists.txt - Explicitly set project language to C
 * NaturalLib - Improved implementation for supporting shared keywords across commands
 * NaturalLib - Support callerSetVar()/callerGetVar() in commands that uses Expressions
+* RingRayLib – Added 187 more functions to deliver full support for RayLib 5.0
 * RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
 * RingStbImage - Improved Implementation of Image‑Loading Functions 
 * RingStbImage - Use a binary string as the output for zlib functions
