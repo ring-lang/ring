@@ -15,7 +15,7 @@ List of changes and new features
 
 Ring 1.26 comes with the next features!
 
-* RingSlint Extension
+* RingSlint Package
 * Rust Bindings for Ring
 * Prompt Driven Development
 * Closure Library
@@ -26,10 +26,10 @@ Ring 1.26 comes with the next features!
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring 1.26?; RingSlint Extension
+	pair: What is new in Ring 1.26?; RingSlint Package
 
-RingSlint Extension
-===================
+RingSlint Package
+=================
 
 Build Beautiful, Native Applications for Desktop and Mobile
 
