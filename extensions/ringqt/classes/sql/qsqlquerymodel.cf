@@ -1,0 +1,22 @@
+<class>
+name: QSqlQueryModel
+para: QObject *parent
+parent: QObject
+</class>
+
+bool canFetchMore(QModelIndex parent)
+void clear(void)
+int columnCount(QModelIndex parent)
+QVariant data(QModelIndex item, int role)
+void fetchMore(QModelIndex parent)
+QVariant headerData(int section, Qt::Orientation orientation, int role)
+bool insertColumns(int column, int count, QModelIndex parent)
+QSqlError lastError(void)
+QSqlQuery query(void)
+QSqlRecord record(int row)
+QSqlRecord record@2(void)
+bool removeColumns(int column, int count, QModelIndex parent)
+int rowCount(QModelIndex parent)
+bool setHeaderData(int section, Qt::Orientation orientation, QVariant value, int role)
+void setQuery(QString query, QSqlDatabase db)
+void setQuery@2(QString query)

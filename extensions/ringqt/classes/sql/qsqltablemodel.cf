@@ -1,0 +1,56 @@
+<class>
+name: QSqlTableModel
+para: QObject *parent, QSqlDatabase db
+parent: QObject
+codename: GSqlTableModel
+passvmpointer
+</class>
+
+QSqlDatabase database(void)
+QSqlIndex primaryKey(void)
+QVariant data(QModelIndex index, int role)
+bool setData(QModelIndex index, QVariant value, int role)
+void clear(void)
+int columnCount(QModelIndex parent)
+QVariant headerData(int section, Qt::Orientation orientation, int role)
+bool setHeaderData(int section, Qt::Orientation orientation, QVariant value, int role)
+QSqlError lastError(void)
+QSqlRecord record(int row)
+QSqlRecord record@2(void)
+int rowCount(QModelIndex parent)
+bool isDirty(QModelIndex index)
+bool isDirty@2(void)
+QSqlTableModel::EditStrategy editStrategy(void)
+int fieldIndex(QString fieldName)
+QString filter(void)
+bool insertRecord(int row, QSqlRecord record)
+bool insertRows(int row, int count, QModelIndex parent)
+<comment>
+QString orderByClause(void)
+</comment>
+bool removeRows(int row, int count, QModelIndex parent)
+void revertRow(int row)
+bool setRecord(int row, QSqlRecord values)
+void setEditStrategy(QSqlTableModel::EditStrategy strategy)
+void setFilter(QString filter)
+void setSort(int column, Qt::SortOrder order)
+void setTable(QString tableName)
+void sort(int column, Qt::SortOrder order)
+QString tableName(void)
+Qt::ItemFlags flags(QModelIndex index)
+bool removeColumns(int column, int count, QModelIndex parent)
+bool select(void)
+void revert(void)
+void revertAll(void)
+bool submit(void)
+bool submitAll(void)
+
+void setbeforeDeleteEvent(const char *)
+void setbeforeInsertEvent(const char *)
+void setbeforeUpdateEvent(const char *)
+void setprimeInsertEvent(const char *)
+
+const char *getbeforeDeleteEvent(void)
+const char *getbeforeInsertEvent(void)
+const char *getbeforeUpdateEvent(void)
+const char *getprimeInsertEvent(void)

@@ -120,6 +120,8 @@ SOURCES +=   \
     cpp/src/gtoolbox.cpp \
     cpp/src/gwizard.cpp \
     cpp/src/gwizardpage.cpp \
+    cpp/src/gsqltablemodel.cpp \
+    cpp/src/gsqlrelationaltablemodel.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -230,7 +232,9 @@ HEADERS  += \
     cpp/include/gprogressdialog.h \
     cpp/include/gtoolbox.h \
     cpp/include/gwizard.h \
-    cpp/include/gwizardpage.h 
+    cpp/include/gwizardpage.h \
+    cpp/include/gsqltablemodel.h \
+    cpp/include/gsqlrelationaltablemodel.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

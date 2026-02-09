@@ -10,4 +10,9 @@
 <loadfile> sql/qsqlrecord.cf
 <loadfile> sql/qsqlfield.cf
 <loadfile> sql/qsqldrivercreatorbase.cf
+<loadfile> sql/qsqlquerymodel.cf
+<loadfile> sql/qsqltablemodel.cf
+<loadfile> sql/qsqlrelation.cf
+<loadfile> sql/qsqlrelationaltablemodel.cf
+<loadfile> sql/qsqlrelationaldelegate.cf
 

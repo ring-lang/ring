@@ -113,6 +113,9 @@ load "charts/qvxymodelmapper.ring"
 load "charts/qvalueaxis.ring"
 load "charts/qxyseries.ring"
 #-------------------------------------------------------------------------#
+load "sql/qsqltablemodel.ring"
+load "sql/qsqlrelationaltablemodel.ring"
+#-------------------------------------------------------------------------#
 load "graphicsview/qgraphicsscene.ring"
 load "graphicsview/qgraphicseffect.ring"
 load "graphicsview/qgraphicsobject.ring"

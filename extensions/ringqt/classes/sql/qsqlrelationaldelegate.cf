@@ -1,0 +1,8 @@
+<class>
+name: QSqlRelationalDelegate
+para: QObject *parent
+parent: QObject
+</class>
+
+QWidget *createEditor(QWidget *parent, QStyleOptionViewItem option, QModelIndex index)
+void setModelData(QWidget *editor, QAbstractItemModel *model, QModelIndex index)

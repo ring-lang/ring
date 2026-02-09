@@ -29958,6 +29958,458 @@ Class QSqlField
 		pTempObj.pObject = QSqlField_value(pObject)
 		return pTempObj
 
+Class QSqlQueryModel from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QSqlQueryModel_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSqlQueryModel_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func canFetchMore P1
+		return QSqlQueryModel_canFetchMore(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func clear 
+		return QSqlQueryModel_clear(pObject)
+
+	Func columnCount P1
+		return QSqlQueryModel_columnCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func data P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlQueryModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func fetchMore P1
+		return QSqlQueryModel_fetchMore(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func headerData P1,P2,P3
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlQueryModel_headerData(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func insertColumns P1,P2,P3
+		return QSqlQueryModel_insertColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func lastError 
+		pTempObj = new QSqlError
+		pTempObj.pObject = QSqlQueryModel_lastError(pObject)
+		return pTempObj
+
+	Func query 
+		pTempObj = new QSqlQuery
+		pTempObj.pObject = QSqlQueryModel_query(pObject)
+		return pTempObj
+
+	Func record P1
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlQueryModel_record(pObject,P1)
+		return pTempObj
+
+	Func record_2 
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlQueryModel_record_2(pObject)
+		return pTempObj
+
+	Func removeColumns P1,P2,P3
+		return QSqlQueryModel_removeColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func rowCount P1
+		return QSqlQueryModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHeaderData P1,P2,P3,P4
+		return QSqlQueryModel_setHeaderData(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func setQuery P1,P2
+		return QSqlQueryModel_setQuery(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setQuery_2 P1
+		return QSqlQueryModel_setQuery_2(pObject,P1)
+
+Class QSqlTableModel from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QSqlTableModel_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QSqlTableModel_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func database 
+		pTempObj = new QSqlDatabase
+		pTempObj.pObject = QSqlTableModel_database(pObject)
+		return pTempObj
+
+	Func primaryKey 
+		pTempObj = new QSqlIndex
+		pTempObj.pObject = QSqlTableModel_primaryKey(pObject)
+		return pTempObj
+
+	Func data P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlTableModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func setData P1,P2,P3
+		return QSqlTableModel_setData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func clear 
+		return QSqlTableModel_clear(pObject)
+
+	Func columnCount P1
+		return QSqlTableModel_columnCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func headerData P1,P2,P3
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlTableModel_headerData(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func setHeaderData P1,P2,P3,P4
+		return QSqlTableModel_setHeaderData(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func lastError 
+		pTempObj = new QSqlError
+		pTempObj.pObject = QSqlTableModel_lastError(pObject)
+		return pTempObj
+
+	Func record P1
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlTableModel_record(pObject,P1)
+		return pTempObj
+
+	Func record_2 
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlTableModel_record_2(pObject)
+		return pTempObj
+
+	Func rowCount P1
+		return QSqlTableModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isDirty P1
+		return QSqlTableModel_isDirty(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isDirty_2 
+		return QSqlTableModel_isDirty_2(pObject)
+
+	Func editStrategy 
+		return QSqlTableModel_editStrategy(pObject)
+
+	Func fieldIndex P1
+		return QSqlTableModel_fieldIndex(pObject,P1)
+
+	Func filter 
+		return QSqlTableModel_filter(pObject)
+
+	Func insertRecord P1,P2
+		return QSqlTableModel_insertRecord(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func insertRows P1,P2,P3
+		return QSqlTableModel_insertRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func removeRows P1,P2,P3
+		return QSqlTableModel_removeRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func revertRow P1
+		return QSqlTableModel_revertRow(pObject,P1)
+
+	Func setRecord P1,P2
+		return QSqlTableModel_setRecord(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setEditStrategy P1
+		return QSqlTableModel_setEditStrategy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFilter P1
+		return QSqlTableModel_setFilter(pObject,P1)
+
+	Func setSort P1,P2
+		return QSqlTableModel_setSort(pObject,P1,P2)
+
+	Func setTable P1
+		return QSqlTableModel_setTable(pObject,P1)
+
+	Func sort P1,P2
+		return QSqlTableModel_sort(pObject,P1,P2)
+
+	Func tableName 
+		return QSqlTableModel_tableName(pObject)
+
+	Func flags P1
+		return QSqlTableModel_flags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeColumns P1,P2,P3
+		return QSqlTableModel_removeColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func select 
+		return QSqlTableModel_select(pObject)
+
+	Func revert 
+		return QSqlTableModel_revert(pObject)
+
+	Func revertAll 
+		return QSqlTableModel_revertAll(pObject)
+
+	Func submit 
+		return QSqlTableModel_submit(pObject)
+
+	Func submitAll 
+		return QSqlTableModel_submitAll(pObject)
+
+	Func setbeforeDeleteEvent P1
+		return QSqlTableModel_setbeforeDeleteEvent(pObject,P1)
+
+	Func setbeforeInsertEvent P1
+		return QSqlTableModel_setbeforeInsertEvent(pObject,P1)
+
+	Func setbeforeUpdateEvent P1
+		return QSqlTableModel_setbeforeUpdateEvent(pObject,P1)
+
+	Func setprimeInsertEvent P1
+		return QSqlTableModel_setprimeInsertEvent(pObject,P1)
+
+	Func getbeforeDeleteEvent 
+		return QSqlTableModel_getbeforeDeleteEvent(pObject)
+
+	Func getbeforeInsertEvent 
+		return QSqlTableModel_getbeforeInsertEvent(pObject)
+
+	Func getbeforeUpdateEvent 
+		return QSqlTableModel_getbeforeUpdateEvent(pObject)
+
+	Func getprimeInsertEvent 
+		return QSqlTableModel_getprimeInsertEvent(pObject)
+
+Class QSqlRelation
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QSqlRelation_new(P1,P2,P3)
+		return self
+
+	Func delete
+		pObject = QSqlRelation_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func displayColumn 
+		return QSqlRelation_displayColumn(pObject)
+
+	Func indexColumn 
+		return QSqlRelation_indexColumn(pObject)
+
+	Func isValid 
+		return QSqlRelation_isValid(pObject)
+
+	Func tableName 
+		return QSqlRelation_tableName(pObject)
+
+Class QSqlRelationalTableModel from QObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QSqlRelationalTableModel_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QSqlRelationalTableModel_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func database 
+		pTempObj = new QSqlDatabase
+		pTempObj.pObject = QSqlRelationalTableModel_database(pObject)
+		return pTempObj
+
+	Func primaryKey 
+		pTempObj = new QSqlIndex
+		pTempObj.pObject = QSqlRelationalTableModel_primaryKey(pObject)
+		return pTempObj
+
+	Func data P1,P2
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlRelationalTableModel_data(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func setData P1,P2,P3
+		return QSqlRelationalTableModel_setData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+
+	Func clear 
+		return QSqlRelationalTableModel_clear(pObject)
+
+	Func columnCount P1
+		return QSqlRelationalTableModel_columnCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func headerData P1,P2,P3
+		pTempObj = new QVariant
+		pTempObj.pObject = QSqlRelationalTableModel_headerData(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func setHeaderData P1,P2,P3,P4
+		return QSqlRelationalTableModel_setHeaderData(pObject,P1,P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func lastError 
+		pTempObj = new QSqlError
+		pTempObj.pObject = QSqlRelationalTableModel_lastError(pObject)
+		return pTempObj
+
+	Func record P1
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlRelationalTableModel_record(pObject,P1)
+		return pTempObj
+
+	Func record_2 
+		pTempObj = new QSqlRecord
+		pTempObj.pObject = QSqlRelationalTableModel_record_2(pObject)
+		return pTempObj
+
+	Func rowCount P1
+		return QSqlRelationalTableModel_rowCount(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isDirty P1
+		return QSqlRelationalTableModel_isDirty(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isDirty_2 
+		return QSqlRelationalTableModel_isDirty_2(pObject)
+
+	Func editStrategy 
+		return QSqlRelationalTableModel_editStrategy(pObject)
+
+	Func fieldIndex P1
+		return QSqlRelationalTableModel_fieldIndex(pObject,P1)
+
+	Func filter 
+		return QSqlRelationalTableModel_filter(pObject)
+
+	Func insertRecord P1,P2
+		return QSqlRelationalTableModel_insertRecord(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func insertRows P1,P2,P3
+		return QSqlRelationalTableModel_insertRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func removeRows P1,P2,P3
+		return QSqlRelationalTableModel_removeRows(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func revertRow P1
+		return QSqlRelationalTableModel_revertRow(pObject,P1)
+
+	Func setRecord P1,P2
+		return QSqlRelationalTableModel_setRecord(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setEditStrategy P1
+		return QSqlRelationalTableModel_setEditStrategy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFilter P1
+		return QSqlRelationalTableModel_setFilter(pObject,P1)
+
+	Func setSort P1,P2
+		return QSqlRelationalTableModel_setSort(pObject,P1,P2)
+
+	Func setTable P1
+		return QSqlRelationalTableModel_setTable(pObject,P1)
+
+	Func sort P1,P2
+		return QSqlRelationalTableModel_sort(pObject,P1,P2)
+
+	Func tableName 
+		return QSqlRelationalTableModel_tableName(pObject)
+
+	Func flags P1
+		return QSqlRelationalTableModel_flags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeColumns P1,P2,P3
+		return QSqlRelationalTableModel_removeColumns(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func relation P1
+		pTempObj = new QSqlRelation
+		pTempObj.pObject = QSqlRelationalTableModel_relation(pObject,P1)
+		return pTempObj
+
+	Func relationModel P1
+		pTempObj = new QSqlTableModel
+		pTempObj.pObject = QSqlRelationalTableModel_relationModel(pObject,P1)
+		return pTempObj
+
+	Func setJoinMode P1
+		return QSqlRelationalTableModel_setJoinMode(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRelation P1,P2
+		return QSqlRelationalTableModel_setRelation(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func select 
+		return QSqlRelationalTableModel_select(pObject)
+
+	Func revert 
+		return QSqlRelationalTableModel_revert(pObject)
+
+	Func revertAll 
+		return QSqlRelationalTableModel_revertAll(pObject)
+
+	Func submit 
+		return QSqlRelationalTableModel_submit(pObject)
+
+	Func submitAll 
+		return QSqlRelationalTableModel_submitAll(pObject)
+
+	Func setbeforeDeleteEvent P1
+		return QSqlRelationalTableModel_setbeforeDeleteEvent(pObject,P1)
+
+	Func setbeforeInsertEvent P1
+		return QSqlRelationalTableModel_setbeforeInsertEvent(pObject,P1)
+
+	Func setbeforeUpdateEvent P1
+		return QSqlRelationalTableModel_setbeforeUpdateEvent(pObject,P1)
+
+	Func setprimeInsertEvent P1
+		return QSqlRelationalTableModel_setprimeInsertEvent(pObject,P1)
+
+	Func getbeforeDeleteEvent 
+		return QSqlRelationalTableModel_getbeforeDeleteEvent(pObject)
+
+	Func getbeforeInsertEvent 
+		return QSqlRelationalTableModel_getbeforeInsertEvent(pObject)
+
+	Func getbeforeUpdateEvent 
+		return QSqlRelationalTableModel_getbeforeUpdateEvent(pObject)
+
+	Func getprimeInsertEvent 
+		return QSqlRelationalTableModel_getprimeInsertEvent(pObject)
+
+Class QSqlRelationalDelegate from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QSqlRelationalDelegate_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSqlRelationalDelegate_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func createEditor P1,P2,P3
+		pTempObj = new QWidget
+		pTempObj.pObject = QSqlRelationalDelegate_createEditor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func setModelData P1,P2,P3
+		return QSqlRelationalDelegate_setModelData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
 Class QGeoPositionInfo
 
 	pObject
