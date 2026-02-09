@@ -938,5 +938,9 @@ aPackagesRegistry = [
 	[ :name = "tuiframeworkusingclaudecode",
 	  :description = "TUI Framework for Windows developed using prompt-driven development",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring-slint",
+	  :description = "Build beautiful, native applications with Ring and Slint",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
