@@ -13855,6 +13855,12 @@ Class QTextEdit from QAbstractScrollArea
 	Func overwriteMode 
 		return QTextEdit_overwriteMode(pObject)
 
+	Func placeholderText 
+		return QTextEdit_placeholderText(pObject)
+
+	Func setPlaceholderText P1
+		return QTextEdit_setPlaceholderText(pObject,P1)
+
 	Func setAcceptRichText P1
 		return QTextEdit_setAcceptRichText(pObject,P1)
 
@@ -19572,6 +19578,9 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func overwriteMode 
 		return QPlainTextEdit_overwriteMode(pObject)
 
+	Func placeholderText 
+		return QPlainTextEdit_placeholderText(pObject)
+
 	Func print P1
 		return QPlainTextEdit_print(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -19604,6 +19613,9 @@ Class QPlainTextEdit from QAbstractScrollArea
 
 	Func setOverwriteMode P1
 		return QPlainTextEdit_setOverwriteMode(pObject,P1)
+
+	Func setPlaceholderText P1
+		return QPlainTextEdit_setPlaceholderText(pObject,P1)
 
 	Func setReadOnly P1
 		return QPlainTextEdit_setReadOnly(pObject,P1)
@@ -19863,6 +19875,111 @@ Class QGridLayout
 
 	Func verticalSpacing 
 		return QGridLayout_verticalSpacing(pObject)
+
+Class QFormLayout from QLayout
+
+	pObject
+
+	Func init 
+		pObject = QFormLayout_new()
+		return self
+
+	Func delete
+		pObject = QFormLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addRow P1,P2
+		return QFormLayout_addRow(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func addRow_2 P1,P2
+		return QFormLayout_addRow_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func addRow_3 P1,P2
+		return QFormLayout_addRow_3(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func addRow_4 P1,P2
+		return QFormLayout_addRow_4(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func addRow_5 P1
+		return QFormLayout_addRow_5(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addRow_6 P1
+		return QFormLayout_addRow_6(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertRow P1,P2,P3
+		return QFormLayout_insertRow(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func insertRow_2 P1,P2,P3
+		return QFormLayout_insertRow_2(pObject,P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func insertRow_3 P1,P2,P3
+		return QFormLayout_insertRow_3(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func insertRow_4 P1,P2,P3
+		return QFormLayout_insertRow_4(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func insertRow_5 P1,P2
+		return QFormLayout_insertRow_5(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func insertRow_6 P1,P2
+		return QFormLayout_insertRow_6(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func fieldGrowthPolicy 
+		return QFormLayout_fieldGrowthPolicy(pObject)
+
+	Func rowWrapPolicy 
+		return QFormLayout_rowWrapPolicy(pObject)
+
+	Func labelAlignment 
+		return QFormLayout_labelAlignment(pObject)
+
+	Func formAlignment 
+		return QFormLayout_formAlignment(pObject)
+
+	Func horizontalSpacing 
+		return QFormLayout_horizontalSpacing(pObject)
+
+	Func verticalSpacing 
+		return QFormLayout_verticalSpacing(pObject)
+
+	Func rowCount 
+		return QFormLayout_rowCount(pObject)
+
+	Func spacing 
+		return QFormLayout_spacing(pObject)
+
+	Func setFieldGrowthPolicy P1
+		return QFormLayout_setFieldGrowthPolicy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRowWrapPolicy P1
+		return QFormLayout_setRowWrapPolicy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelAlignment P1
+		return QFormLayout_setLabelAlignment(pObject,P1)
+
+	Func setFormAlignment P1
+		return QFormLayout_setFormAlignment(pObject,P1)
+
+	Func setHorizontalSpacing P1
+		return QFormLayout_setHorizontalSpacing(pObject,P1)
+
+	Func setVerticalSpacing P1
+		return QFormLayout_setVerticalSpacing(pObject,P1)
+
+	Func setSpacing P1
+		return QFormLayout_setSpacing(pObject,P1)
+
+	Func labelForField P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QFormLayout_labelForField(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func labelForField_2 P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QFormLayout_labelForField_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 Class QHeaderView from QAbstractItemView
 

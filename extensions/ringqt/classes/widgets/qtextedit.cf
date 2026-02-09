@@ -38,6 +38,8 @@ bool overwriteMode(void)
 void print(QPrinter * printer)  
 </filter>
 
+QString placeholderText(void)
+void setPlaceholderText(QString placeholderText)
 void setAcceptRichText(bool accept)
 void setCurrentCharFormat(QTextCharFormat)
 void setCursorWidth(int width)

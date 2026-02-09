@@ -48,9 +48,7 @@ void mergeCurrentCharFormat(QTextCharFormat modifier)
 void moveCursor(QTextCursor::MoveOperation operation, QTextCursor::MoveMode mode)
 bool overwriteMode(void)
 
-<comment>
 QString placeholderText(void)
-</comment>
 
 void print(QPagedPaintDevice *printer)
 void setBackgroundVisible(bool visible)
@@ -64,9 +62,7 @@ void setLineWrapMode(QPlainTextEdit::LineWrapMode mode)
 void setMaximumBlockCount(int maximum)
 void setOverwriteMode(bool overwrite)
 
-<comment>
 void setPlaceholderText(QString placeholderText)
-</comment>
 
 void setReadOnly(bool ro)
 void setTabChangesFocus(bool b)

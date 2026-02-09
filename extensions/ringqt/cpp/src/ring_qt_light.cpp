@@ -309,6 +309,7 @@ extern "C" {
 	void ring_QPlainTextEdit_freefunc(void *pState,void *pPointer);
 	void ring_CodeEditor_freefunc(void *pState,void *pPointer);
 	void ring_QGridLayout_freefunc(void *pState,void *pPointer);
+	void ring_QFormLayout_freefunc(void *pState,void *pPointer);
 	void ring_QHeaderView_freefunc(void *pState,void *pPointer);
 	void ring_QSplashScreen_freefunc(void *pState,void *pPointer);
 	void ring_QBoxLayout_freefunc(void *pState,void *pPointer);
@@ -80903,6 +80904,44 @@ RING_FUNC(ring_QTextEdit_overwriteMode)
 }
 
 
+RING_FUNC(ring_QTextEdit_placeholderText)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	RING_API_RETSTRING(pObject->placeholderText().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QTextEdit_setPlaceholderText)
+{
+	GTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GTextEdit *) RING_API_GETCPOINTER(1,"QTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPlaceholderText(RING_API_GETSTRING(2));
+}
+
+
 RING_FUNC(ring_QTextEdit_setAcceptRichText)
 {
 	GTextEdit *pObject ;
@@ -87944,8 +87983,8 @@ RING_FUNC(ring_QTreeWidgetItem_write)
 RING_FUNC(ring_QComboBox_addItem)
 {
 	QComboBox *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 && RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -87958,7 +87997,11 @@ RING_FUNC(ring_QComboBox_addItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addItem(RING_API_GETSTRING(2),QVariant(RING_API_GETNUMBER(3)));
+	if ( RING_API_PARACOUNT == 2 ) {
+		pObject->addItem(RING_API_GETSTRING(2));
+	} else {
+		pObject->addItem(RING_API_GETSTRING(2),QVariant(RING_API_GETNUMBER(3)));
+	}
 }
 
 
@@ -112300,6 +112343,23 @@ RING_FUNC(ring_QPlainTextEdit_overwriteMode)
 }
 
 
+RING_FUNC(ring_QPlainTextEdit_placeholderText)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	RING_API_RETSTRING(pObject->placeholderText().toStdString().c_str());
+}
+
+
 RING_FUNC(ring_QPlainTextEdit_print)
 {
 	GPlainTextEdit *pObject ;
@@ -112524,6 +112584,27 @@ RING_FUNC(ring_QPlainTextEdit_setOverwriteMode)
 		return ;
 	}
 	pObject->setOverwriteMode( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QPlainTextEdit_setPlaceholderText)
+{
+	GPlainTextEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GPlainTextEdit *) RING_API_GETCPOINTER(1,"QPlainTextEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setPlaceholderText(RING_API_GETSTRING(2));
 }
 
 
@@ -114120,6 +114201,645 @@ RING_FUNC(ring_QGridLayout_verticalSpacing)
 	}
 	pObject = (QGridLayout *) RING_API_GETCPOINTER(1,"QGridLayout");
 	RING_API_RETNUMBER(pObject->verticalSpacing());
+}
+
+
+RING_FUNC(ring_QFormLayout_addRow)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addRow((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"));
+}
+
+
+RING_FUNC(ring_QFormLayout_addRow_2)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addRow((QWidget *) RING_API_GETCPOINTER(2,"QWidget"),(QLayout *) RING_API_GETCPOINTER(3,"QLayout"));
+}
+
+
+RING_FUNC(ring_QFormLayout_addRow_3)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addRow(RING_API_GETSTRING(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"));
+}
+
+
+RING_FUNC(ring_QFormLayout_addRow_4)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addRow(RING_API_GETSTRING(2),(QLayout *) RING_API_GETCPOINTER(3,"QLayout"));
+}
+
+
+RING_FUNC(ring_QFormLayout_addRow_5)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addRow((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QFormLayout_addRow_6)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addRow((QLayout *) RING_API_GETCPOINTER(2,"QLayout"));
+}
+
+
+RING_FUNC(ring_QFormLayout_insertRow)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertRow( (int ) RING_API_GETNUMBER(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"),(QWidget *) RING_API_GETCPOINTER(4,"QWidget"));
+}
+
+
+RING_FUNC(ring_QFormLayout_insertRow_2)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertRow( (int ) RING_API_GETNUMBER(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"),(QLayout *) RING_API_GETCPOINTER(4,"QLayout"));
+}
+
+
+RING_FUNC(ring_QFormLayout_insertRow_3)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertRow( (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3),(QWidget *) RING_API_GETCPOINTER(4,"QWidget"));
+}
+
+
+RING_FUNC(ring_QFormLayout_insertRow_4)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertRow( (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3),(QLayout *) RING_API_GETCPOINTER(4,"QLayout"));
+}
+
+
+RING_FUNC(ring_QFormLayout_insertRow_5)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertRow( (int ) RING_API_GETNUMBER(2),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"));
+}
+
+
+RING_FUNC(ring_QFormLayout_insertRow_6)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->insertRow( (int ) RING_API_GETNUMBER(2),(QLayout *) RING_API_GETCPOINTER(3,"QLayout"));
+}
+
+
+RING_FUNC(ring_QFormLayout_fieldGrowthPolicy)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	{
+		QFormLayout::FieldGrowthPolicy *pValue ; 
+		pValue = (QFormLayout::FieldGrowthPolicy *) RING_API_MALLOC(sizeof(QFormLayout::FieldGrowthPolicy)) ;
+		*pValue = pObject->fieldGrowthPolicy();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFormLayout::FieldGrowthPolicy",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFormLayout_rowWrapPolicy)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	{
+		QFormLayout::RowWrapPolicy *pValue ; 
+		pValue = (QFormLayout::RowWrapPolicy *) RING_API_MALLOC(sizeof(QFormLayout::RowWrapPolicy)) ;
+		*pValue = pObject->rowWrapPolicy();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFormLayout::RowWrapPolicy",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QFormLayout_labelAlignment)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	RING_API_RETNUMBER(pObject->labelAlignment());
+}
+
+
+RING_FUNC(ring_QFormLayout_formAlignment)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	RING_API_RETNUMBER(pObject->formAlignment());
+}
+
+
+RING_FUNC(ring_QFormLayout_horizontalSpacing)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	RING_API_RETNUMBER(pObject->horizontalSpacing());
+}
+
+
+RING_FUNC(ring_QFormLayout_verticalSpacing)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	RING_API_RETNUMBER(pObject->verticalSpacing());
+}
+
+
+RING_FUNC(ring_QFormLayout_rowCount)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	RING_API_RETNUMBER(pObject->rowCount());
+}
+
+
+RING_FUNC(ring_QFormLayout_spacing)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	RING_API_RETNUMBER(pObject->spacing());
+}
+
+
+RING_FUNC(ring_QFormLayout_setFieldGrowthPolicy)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	pObject->setFieldGrowthPolicy(* (QFormLayout::FieldGrowthPolicy  *) RING_API_GETCPOINTER(2,"QFormLayout::FieldGrowthPolicy"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QFormLayout::FieldGrowthPolicy"));
+}
+
+
+RING_FUNC(ring_QFormLayout_setRowWrapPolicy)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	pObject->setRowWrapPolicy(* (QFormLayout::RowWrapPolicy  *) RING_API_GETCPOINTER(2,"QFormLayout::RowWrapPolicy"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QFormLayout::RowWrapPolicy"));
+}
+
+
+RING_FUNC(ring_QFormLayout_setLabelAlignment)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLabelAlignment( (Qt::Alignment )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QFormLayout_setFormAlignment)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setFormAlignment( (Qt::Alignment )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QFormLayout_setHorizontalSpacing)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHorizontalSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QFormLayout_setVerticalSpacing)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVerticalSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QFormLayout_setSpacing)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSpacing( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QFormLayout_labelForField)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->labelForField((QWidget *) RING_API_GETCPOINTER(2,"QWidget")),"QWidget");
+}
+
+
+RING_FUNC(ring_QFormLayout_labelForField_2)
+{
+	QFormLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->labelForField((QLayout *) RING_API_GETCPOINTER(2,"QLayout")),"QWidget");
 }
 
 
@@ -140927,6 +141647,17 @@ RING_FUNC(ring_QGridLayout_new)
 	RING_API_RETCPOINTER(pObject,"QGridLayout");
 }
 
+RING_FUNC(ring_QFormLayout_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QFormLayout *pObject = new QFormLayout();
+	RING_API_RETCPOINTER(pObject,"QFormLayout");
+}
+
 RING_FUNC(ring_QHeaderView_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -144433,6 +145164,23 @@ RING_FUNC(ring_QGridLayout_delete)
 	}
 }
 
+RING_FUNC(ring_QFormLayout_delete)
+{
+	QFormLayout *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QFormLayout *) RING_API_GETCPOINTER(1,"QFormLayout");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QHeaderView_delete)
 {
 	GHeaderView *pObject ; 
@@ -146260,6 +147008,13 @@ void ring_QGridLayout_freefunc(void *pState,void *pPointer)
 {
 	QGridLayout *pObject ; 
 	pObject = (QGridLayout *) pPointer;
+	delete pObject ;
+}
+
+void ring_QFormLayout_freefunc(void *pState,void *pPointer)
+{
+	QFormLayout *pObject ; 
+	pObject = (QFormLayout *) pPointer;
 	delete pObject ;
 }
 
@@ -150210,6 +150965,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qtextedit_mergecurrentcharformat",ring_QTextEdit_mergeCurrentCharFormat);
 	RING_API_REGISTER("qtextedit_movecursor",ring_QTextEdit_moveCursor);
 	RING_API_REGISTER("qtextedit_overwritemode",ring_QTextEdit_overwriteMode);
+	RING_API_REGISTER("qtextedit_placeholdertext",ring_QTextEdit_placeholderText);
+	RING_API_REGISTER("qtextedit_setplaceholdertext",ring_QTextEdit_setPlaceholderText);
 	RING_API_REGISTER("qtextedit_setacceptrichtext",ring_QTextEdit_setAcceptRichText);
 	RING_API_REGISTER("qtextedit_setcurrentcharformat",ring_QTextEdit_setCurrentCharFormat);
 	RING_API_REGISTER("qtextedit_setcursorwidth",ring_QTextEdit_setCursorWidth);
@@ -151769,6 +152526,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qplaintextedit_mergecurrentcharformat",ring_QPlainTextEdit_mergeCurrentCharFormat);
 	RING_API_REGISTER("qplaintextedit_movecursor",ring_QPlainTextEdit_moveCursor);
 	RING_API_REGISTER("qplaintextedit_overwritemode",ring_QPlainTextEdit_overwriteMode);
+	RING_API_REGISTER("qplaintextedit_placeholdertext",ring_QPlainTextEdit_placeholderText);
 	RING_API_REGISTER("qplaintextedit_print",ring_QPlainTextEdit_print);
 	RING_API_REGISTER("qplaintextedit_setbackgroundvisible",ring_QPlainTextEdit_setBackgroundVisible);
 	RING_API_REGISTER("qplaintextedit_setcenteronscroll",ring_QPlainTextEdit_setCenterOnScroll);
@@ -151780,6 +152538,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qplaintextedit_setlinewrapmode",ring_QPlainTextEdit_setLineWrapMode);
 	RING_API_REGISTER("qplaintextedit_setmaximumblockcount",ring_QPlainTextEdit_setMaximumBlockCount);
 	RING_API_REGISTER("qplaintextedit_setoverwritemode",ring_QPlainTextEdit_setOverwriteMode);
+	RING_API_REGISTER("qplaintextedit_setplaceholdertext",ring_QPlainTextEdit_setPlaceholderText);
 	RING_API_REGISTER("qplaintextedit_setreadonly",ring_QPlainTextEdit_setReadOnly);
 	RING_API_REGISTER("qplaintextedit_settabchangesfocus",ring_QPlainTextEdit_setTabChangesFocus);
 	RING_API_REGISTER("qplaintextedit_settextcursor",ring_QPlainTextEdit_setTextCursor);
@@ -151855,6 +152614,35 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgridlayout_setverticalspacing",ring_QGridLayout_setVerticalSpacing);
 	RING_API_REGISTER("qgridlayout_spacing",ring_QGridLayout_spacing);
 	RING_API_REGISTER("qgridlayout_verticalspacing",ring_QGridLayout_verticalSpacing);
+	RING_API_REGISTER("qformlayout_addrow",ring_QFormLayout_addRow);
+	RING_API_REGISTER("qformlayout_addrow_2",ring_QFormLayout_addRow_2);
+	RING_API_REGISTER("qformlayout_addrow_3",ring_QFormLayout_addRow_3);
+	RING_API_REGISTER("qformlayout_addrow_4",ring_QFormLayout_addRow_4);
+	RING_API_REGISTER("qformlayout_addrow_5",ring_QFormLayout_addRow_5);
+	RING_API_REGISTER("qformlayout_addrow_6",ring_QFormLayout_addRow_6);
+	RING_API_REGISTER("qformlayout_insertrow",ring_QFormLayout_insertRow);
+	RING_API_REGISTER("qformlayout_insertrow_2",ring_QFormLayout_insertRow_2);
+	RING_API_REGISTER("qformlayout_insertrow_3",ring_QFormLayout_insertRow_3);
+	RING_API_REGISTER("qformlayout_insertrow_4",ring_QFormLayout_insertRow_4);
+	RING_API_REGISTER("qformlayout_insertrow_5",ring_QFormLayout_insertRow_5);
+	RING_API_REGISTER("qformlayout_insertrow_6",ring_QFormLayout_insertRow_6);
+	RING_API_REGISTER("qformlayout_fieldgrowthpolicy",ring_QFormLayout_fieldGrowthPolicy);
+	RING_API_REGISTER("qformlayout_rowwrappolicy",ring_QFormLayout_rowWrapPolicy);
+	RING_API_REGISTER("qformlayout_labelalignment",ring_QFormLayout_labelAlignment);
+	RING_API_REGISTER("qformlayout_formalignment",ring_QFormLayout_formAlignment);
+	RING_API_REGISTER("qformlayout_horizontalspacing",ring_QFormLayout_horizontalSpacing);
+	RING_API_REGISTER("qformlayout_verticalspacing",ring_QFormLayout_verticalSpacing);
+	RING_API_REGISTER("qformlayout_rowcount",ring_QFormLayout_rowCount);
+	RING_API_REGISTER("qformlayout_spacing",ring_QFormLayout_spacing);
+	RING_API_REGISTER("qformlayout_setfieldgrowthpolicy",ring_QFormLayout_setFieldGrowthPolicy);
+	RING_API_REGISTER("qformlayout_setrowwrappolicy",ring_QFormLayout_setRowWrapPolicy);
+	RING_API_REGISTER("qformlayout_setlabelalignment",ring_QFormLayout_setLabelAlignment);
+	RING_API_REGISTER("qformlayout_setformalignment",ring_QFormLayout_setFormAlignment);
+	RING_API_REGISTER("qformlayout_sethorizontalspacing",ring_QFormLayout_setHorizontalSpacing);
+	RING_API_REGISTER("qformlayout_setverticalspacing",ring_QFormLayout_setVerticalSpacing);
+	RING_API_REGISTER("qformlayout_setspacing",ring_QFormLayout_setSpacing);
+	RING_API_REGISTER("qformlayout_labelforfield",ring_QFormLayout_labelForField);
+	RING_API_REGISTER("qformlayout_labelforfield_2",ring_QFormLayout_labelForField_2);
 	RING_API_REGISTER("qheaderview_cascadingsectionresizes",ring_QHeaderView_cascadingSectionResizes);
 	RING_API_REGISTER("qheaderview_count",ring_QHeaderView_count);
 	RING_API_REGISTER("qheaderview_defaultalignment",ring_QHeaderView_defaultAlignment);
@@ -153165,6 +153953,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qplaintextedit_new",ring_QPlainTextEdit_new);
 	RING_API_REGISTER("codeeditor_new",ring_CodeEditor_new);
 	RING_API_REGISTER("qgridlayout_new",ring_QGridLayout_new);
+	RING_API_REGISTER("qformlayout_new",ring_QFormLayout_new);
 	RING_API_REGISTER("qheaderview_new",ring_QHeaderView_new);
 	RING_API_REGISTER("qsplashscreen_new",ring_QSplashScreen_new);
 	RING_API_REGISTER("qboxlayout_new",ring_QBoxLayout_new);
@@ -153375,6 +154164,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qplaintextedit_delete",ring_QPlainTextEdit_delete);
 	RING_API_REGISTER("codeeditor_delete",ring_CodeEditor_delete);
 	RING_API_REGISTER("qgridlayout_delete",ring_QGridLayout_delete);
+	RING_API_REGISTER("qformlayout_delete",ring_QFormLayout_delete);
 	RING_API_REGISTER("qheaderview_delete",ring_QHeaderView_delete);
 	RING_API_REGISTER("qsplashscreen_delete",ring_QSplashScreen_delete);
 	RING_API_REGISTER("qboxlayout_delete",ring_QBoxLayout_delete);

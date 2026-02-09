@@ -1,0 +1,35 @@
+<class>
+name: QFormLayout
+para: void
+parent: QLayout
+</class>
+
+void addRow(QWidget *label, QWidget *field)
+void addRow@2(QWidget *label, QLayout *field)
+void addRow@3(QString, QWidget *field)
+void addRow@4(QString, QLayout *field)
+void addRow@5(QWidget *widget)
+void addRow@6(QLayout *layout)
+void insertRow(int row, QWidget *label, QWidget *field)
+void insertRow@2(int row, QWidget *label, QLayout *field)
+void insertRow@3(int row, QString, QWidget *field)
+void insertRow@4(int row, QString, QLayout *field)
+void insertRow@5(int row, QWidget *widget)
+void insertRow@6(int row, QLayout *layout)
+QFormLayout::FieldGrowthPolicy fieldGrowthPolicy(void)
+QFormLayout::RowWrapPolicy rowWrapPolicy(void)
+Qt::Alignment labelAlignment(void)
+Qt::Alignment formAlignment(void)
+int horizontalSpacing(void)
+int verticalSpacing(void)
+int rowCount(void)
+int spacing(void)
+void setFieldGrowthPolicy(QFormLayout::FieldGrowthPolicy policy)
+void setRowWrapPolicy(QFormLayout::RowWrapPolicy policy)
+void setLabelAlignment(Qt::Alignment alignment)
+void setFormAlignment(Qt::Alignment alignment)
+void setHorizontalSpacing(int spacing)
+void setVerticalSpacing(int spacing)
+void setSpacing(int spacing)
+QWidget *labelForField(QWidget *field)
+QWidget *labelForField@2(QLayout *field)

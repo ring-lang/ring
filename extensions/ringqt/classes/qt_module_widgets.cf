@@ -58,6 +58,7 @@
 <loadfile> widgets/qplaintextedit.cf
 <loadfile> widgets/codeeditor.cf
 <loadfile> widgets/qgridlayout.cf
+<loadfile> widgets/qformlayout.cf
 <loadfile> widgets/qheaderview.cf
 <loadfile> widgets/qsplashscreen.cf
 <loadfile> widgets/qboxlayout.cf
