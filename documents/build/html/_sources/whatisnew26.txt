@@ -188,67 +188,39 @@ Better RingQt
 
 (1) The next classes are added
 
-* QFormLayout 
-* QElapsedTimer
-* QSizeF
-* QMargins
-* QRadialGradient
-* QConicalGradient
-* QDoubleSpinBox
-* QDialogButtonBox
-* QSpacerItem
-* QToolTip
-* QMarginsF
-* QSettings
-* QDataStream
-* QStandardItemModel
-* QStandardItem
-* QSortFilterProxyModel
-* QItemSelectionModel
-* QPalette
-* QKeyEvent
-* QMouseEvent
-* QWheelEvent
-* QPolygon
-* QPolygonF
-* QTextBlockFormat
-* QTextListFormat
-* QTextTableFormat
-* QTextFrameFormat
-* QTextTable
-* QTextTableCell
-* QTextFrame
-* QTextList
-* QStaticText
-* QPageSize
-* QPageLayout
-* QShortcut
-* QProgressDialog
-* QToolBox
-* QWizard
-* QWizardPage
-* QUndoCommand
-* QSizePolicy
-* QErrorMessage
-* QCommandLinkButton
-* QRubberBand
-* QSplitterHandle
-* QSizeGrip
-* QSqlQueryModel
-* QSqlTableModel
-* QSqlRelation
-* QSqlRelationalTableModel
-* QSqlRelationalDelegate
-* QUndoStack
-* QStackedLayout
-* QFileSystemWatcher
-* QTemporaryFile
-* QSaveFile
-* QDataWidgetMapper
-* QStyledItemDelegate
-* QKeySequenceEdit
-* QUndoView
-* QColumnView
++----------------------------+----------------------------+----------------------------+----------------------------+
+| Class                      | Class                      | Class                      | Class                      |
++============================+============================+============================+============================+
+| QFormLayout                | QElapsedTimer              | QSizeF                     | QMargins                   |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QRadialGradient            | QConicalGradient           | QDoubleSpinBox             | QDialogButtonBox           |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QSpacerItem                | QToolTip                   | QMarginsF                  | QSettings                  |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QDataStream                | QStandardItemModel         | QStandardItem              | QSortFilterProxyModel      |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QItemSelectionModel        | QPalette                   | QKeyEvent                  | QMouseEvent                |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QWheelEvent                | QPolygon                   | QPolygonF                  | QTextBlockFormat           |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QTextListFormat            | QTextTableFormat           | QTextFrameFormat           | QTextTable                 |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QTextTableCell             | QTextFrame                 | QTextList                  | QStaticText                |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QPageSize                  | QPageLayout                | QShortcut                  | QProgressDialog            |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QToolBox                   | QWizard                    | QWizardPage                | QUndoCommand               |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QSizePolicy                | QErrorMessage              | QCommandLinkButton         | QRubberBand                |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QSplitterHandle            | QSizeGrip                  | QSqlQueryModel             | QSqlTableModel             |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QSqlRelation               | QSqlRelationalTableModel   | QSqlRelationalDelegate     | QUndoStack                 |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QStackedLayout             | QFileSystemWatcher         | QTemporaryFile             | QSaveFile                  |
++----------------------------+----------------------------+----------------------------+----------------------------+
+| QDataWidgetMapper          | QStyledItemDelegate        | QKeySequenceEdit           | QUndoView                  |
++----------------------------+----------------------------+----------------------------+----------------------------+
 
 (2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
 
