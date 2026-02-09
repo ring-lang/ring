@@ -1,0 +1,10 @@
+<class>
+name: QSplitterHandle
+para: void
+nonew
+</class>
+
+bool opaqueResize(void)
+Qt::Orientation orientation(void)
+void setOrientation(Qt::Orientation orientation)
+QSplitter *splitter(void)

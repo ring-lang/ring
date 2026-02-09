@@ -1,0 +1,13 @@
+<class>
+name: QRubberBand
+para: QRubberBand::Shape, QWidget *parent
+parent: QWidget
+</class>
+
+void move(int x, int y)
+void move@2(QPoint p)
+void resize(int width, int height)
+void resize@2(QSize size)
+void setGeometry(QRect rect)
+void setGeometry@2(int x, int y, int width, int height)
+QRubberBand::Shape shape(void)

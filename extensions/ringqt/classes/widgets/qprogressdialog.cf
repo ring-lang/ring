@@ -1,0 +1,35 @@
+<class>
+name: QProgressDialog
+para: QWidget *parent
+parent: QDialog
+codename: GProgressDialog
+passvmpointer
+</class>
+
+bool autoClose(void)
+bool autoReset(void)
+QString labelText(void)
+int maximum(void)
+int minimum(void)
+int minimumDuration(void)
+bool wasCanceled(void)
+int value(void)
+void open(void)
+void setAutoClose(bool close)
+void setAutoReset(bool reset)
+void setBar(QProgressBar *bar)
+void setCancelButton(QPushButton *cancelButton)
+void setCancelButtonText(QString cancelButtonText)
+void setLabel(QLabel *label)
+void setLabelText(QString text)
+void setMaximum(int maximum)
+void setMinimum(int minimum)
+void setMinimumDuration(int ms)
+void setRange(int minimum, int maximum)
+void setValue(int progress)
+void cancel(void)
+void reset(void)
+
+void setcanceledEvent(const char *)
+
+const char *getcanceledEvent(void)

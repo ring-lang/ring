@@ -480,4 +480,5 @@ aEnumTypes + "QFontDatabase::WritingSystem"
 aEnumTypes + "QValidator::State"
 aEnumTypes + "QDoubleValidator::Notation"
 aEnumTypes + "QDialogButtonBox::StandardButton"
+aEnumTypes + "QRubberBand::Shape"
 </runcode>

@@ -1,0 +1,10 @@
+<class>
+name: QCommandLinkButton
+para: QWidget *parent
+parent: QPushButton
+</class>
+
+QString description(void)
+bool isFlat(void)
+void setDescription(QString description)
+void setFlat(bool flat)

@@ -1,0 +1,22 @@
+<class>
+name: QSizePolicy
+para: void
+</class>
+
+Qt::Orientations expandingDirections(void)
+bool hasHeightForWidth(void)
+bool hasWidthForHeight(void)
+QSizePolicy::Policy horizontalPolicy(void)
+int horizontalStretch(void)
+bool retainSizeWhenHidden(void)
+void setHeightForWidth(bool dependent)
+void setHorizontalPolicy(QSizePolicy::Policy policy)
+void setHorizontalStretch(int stretchFactor)
+void setRetainSizeWhenHidden(bool retainSize)
+void setVerticalPolicy(QSizePolicy::Policy policy)
+void setVerticalStretch(int stretchFactor)
+void setWidthForHeight(bool dependent)
+void transpose(void)
+QSizePolicy transposed(void)
+QSizePolicy::Policy verticalPolicy(void)
+int verticalStretch(void)

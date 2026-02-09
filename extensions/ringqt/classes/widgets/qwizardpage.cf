@@ -1,0 +1,26 @@
+<class>
+name: QWizardPage
+para: QWidget *parent
+parent: QWidget 
+codename: GWizardPage
+passvmpointer
+</class>
+
+QString buttonText(QWizard::WizardButton which)
+bool isCommitPage(void)
+bool isComplete(void)
+bool isFinalPage(void)
+int nextId(void)
+QPixmap pixmap(QWizard::WizardPixmap which)
+void setButtonText(QWizard::WizardButton which, QString text)
+void setCommitPage(bool commitPage)
+void setFinalPage(bool finalPage)
+void setPixmap(QWizard::WizardPixmap which, QPixmap pixmap)
+void setSubTitle(QString subTitle)
+void setTitle(QString title)
+QString subTitle(void)
+QString title(void)
+
+void setcompleteChangedEvent(const char *)
+
+const char *getcompleteChangedEvent(void)

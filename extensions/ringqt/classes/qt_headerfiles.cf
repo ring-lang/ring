@@ -58,6 +58,11 @@ extern "C" {
 #include "gdatetimeedit.h"
 #include "gdoublespinbox.h"
 #include "gdialogbuttonbox.h"
+#include "gshortcut.h"
+#include "gprogressdialog.h"
+#include "gtoolbox.h"
+#include "gwizard.h"
+#include "gwizardpage.h"
 #include "mscompleter.h"
 #include <QtWidgets>
 

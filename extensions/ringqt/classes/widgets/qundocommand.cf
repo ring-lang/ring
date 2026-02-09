@@ -1,0 +1,15 @@
+<class>
+name: QUndoCommand
+para: void
+</class>
+
+QString actionText(void)
+QUndoCommand *child(int index)
+int childCount(void)
+int id(void)
+bool isObsolete(void)
+void redo(void)
+void setObsolete(bool obsolete)
+void setText(QString text)
+QString text(void)
+void undo(void)
