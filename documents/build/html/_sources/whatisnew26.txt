@@ -145,6 +145,7 @@ The following packages have been added to the RingPM registry.
 
 * Proc: Subprocess management library
 * Archive: Archive manipulation library
+* Ring-Slint: Build Beautiful, Native Applications for Desktop and Mobile
 * TUIFrameworkUsingClaudeCode: A project developed using prompt driven development
 
 .. index:: 
