@@ -1,5 +1,6 @@
 #-------------------------------------------------------------------------#
 load "core/qobject.ring"
+load "core/qfilesystemwatcher.ring"
 load "core/qiodevice.ring"
 load "core/qprocess.ring"
 load "core/qthread.ring"
@@ -47,6 +48,11 @@ load "widgets/qwizard.ring"
 load "widgets/qwizardpage.ring"
 load "widgets/qdatetimeedit.ring"
 load "widgets/qgroupbox.ring"
+load "widgets/qundostack.ring"
+load "widgets/qstackedlayout.ring"
+load "widgets/qdatawidgetmapper.ring"
+load "widgets/qkeysequenceedit.ring"
+load "widgets/qcolumnview.ring"
 #-------------------------------------------------------------------------#
 load "printsupport/qprintpreviewwidget.ring"
 load "printsupport/qprintpreviewdialog.ring"

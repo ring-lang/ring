@@ -5776,6 +5776,125 @@ Class QSortFilterProxyModel from QObject
 		pTempObj.pObject = QSortFilterProxyModel_sibling(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
+Class QFileSystemWatcher from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QFileSystemWatcher_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFileSystemWatcher_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addPath P1
+		return QFileSystemWatcher_addPath(pObject,P1)
+
+	Func addPaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_addPaths(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func directories 
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_directories(pObject)
+		return pTempObj
+
+	Func files 
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_files(pObject)
+		return pTempObj
+
+	Func removePath P1
+		return QFileSystemWatcher_removePath(pObject,P1)
+
+	Func removePaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_removePaths(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setdirectoryChangedEvent P1
+		return QFileSystemWatcher_setdirectoryChangedEvent(pObject,P1)
+
+	Func setfileChangedEvent P1
+		return QFileSystemWatcher_setfileChangedEvent(pObject,P1)
+
+	Func getdirectoryChangedEvent 
+		return QFileSystemWatcher_getdirectoryChangedEvent(pObject)
+
+	Func getfileChangedEvent 
+		return QFileSystemWatcher_getfileChangedEvent(pObject)
+
+Class QTemporaryFile from QFile
+
+	pObject
+
+	Func init 
+		pObject = QTemporaryFile_new()
+		return self
+
+	Func delete
+		pObject = QTemporaryFile_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func autoRemove 
+		return QTemporaryFile_autoRemove(pObject)
+
+	Func fileName 
+		return QTemporaryFile_fileName(pObject)
+
+	Func fileTemplate 
+		return QTemporaryFile_fileTemplate(pObject)
+
+	Func open 
+		return QTemporaryFile_open(pObject)
+
+	Func setAutoRemove P1
+		return QTemporaryFile_setAutoRemove(pObject,P1)
+
+	Func setFileTemplate P1
+		return QTemporaryFile_setFileTemplate(pObject,P1)
+
+Class QSaveFile from QFileDevice
+
+	pObject
+
+	Func init P1
+		pObject = QSaveFile_new(P1)
+		return self
+
+	Func delete
+		pObject = QSaveFile_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cancelWriting 
+		return QSaveFile_cancelWriting(pObject)
+
+	Func commit 
+		return QSaveFile_commit(pObject)
+
+	Func directWriteFallback 
+		return QSaveFile_directWriteFallback(pObject)
+
+	Func fileName 
+		return QSaveFile_fileName(pObject)
+
+	Func setDirectWriteFallback P1
+		return QSaveFile_setDirectWriteFallback(pObject,P1)
+
+	Func setFileName P1
+		return QSaveFile_setFileName(pObject,P1)
+
+	Func open P1
+		return QSaveFile_open(pObject,P1)
+
 Class QSize
 
 	pObject

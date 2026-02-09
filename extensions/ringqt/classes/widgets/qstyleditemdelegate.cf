@@ -1,0 +1,11 @@
+<class>
+name: QStyledItemDelegate
+para: QObject *parent
+parent: QObject
+</class>
+
+QString displayText(QVariant value, QLocale locale)
+QWidget *createEditor(QWidget *parent, QStyleOptionViewItem option, QModelIndex index)
+void setEditorData(QWidget *editor, QModelIndex index)
+void setModelData(QWidget *editor, QAbstractItemModel *model, QModelIndex index)
+void updateEditorGeometry(QWidget *editor, QStyleOptionViewItem option, QModelIndex index)

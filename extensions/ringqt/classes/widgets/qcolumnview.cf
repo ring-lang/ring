@@ -1,0 +1,24 @@
+<class>
+name: QColumnView
+para: QWidget *parent
+parent: QAbstractItemView
+codename: GColumnView
+passvmpointer
+</class>
+
+QList<int> columnWidths(void)
+QWidget *previewWidget(void)
+bool resizeGripsVisible(void)
+void setColumnWidths(QList<int> list)
+void setPreviewWidget(QWidget *widget)
+void setResizeGripsVisible(bool visible)
+void setModel(QAbstractItemModel *model)
+void setRootIndex(QModelIndex index)
+void setSelectionModel(QItemSelectionModel *newSelectionModel)
+QModelIndex indexAt(QPoint point)
+void scrollTo(QModelIndex index, QAbstractItemView::ScrollHint hint)
+QRect visualRect(QModelIndex index)
+
+void setupdatePreviewWidgetEvent(const char *)
+
+const char *getupdatePreviewWidgetEvent(void)

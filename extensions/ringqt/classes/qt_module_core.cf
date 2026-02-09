@@ -77,3 +77,6 @@
 <loadfile> core/qsettings.cf
 <loadfile> core/qdatastream.cf
 <loadfile> core/qsortfilterproxymodel.cf
+<loadfile> core/qfilesystemwatcher.cf
+<loadfile> core/qtemporaryfile.cf
+<loadfile> core/qsavefile.cf

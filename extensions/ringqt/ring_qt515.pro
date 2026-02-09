@@ -122,6 +122,12 @@ SOURCES +=   \
     cpp/src/gwizardpage.cpp \
     cpp/src/gsqltablemodel.cpp \
     cpp/src/gsqlrelationaltablemodel.cpp \
+    cpp/src/gfilesystemwatcher.cpp \
+    cpp/src/gundostack.cpp \
+    cpp/src/gstackedlayout.cpp \
+    cpp/src/gdatawidgetmapper.cpp \
+    cpp/src/gkeysequenceedit.cpp \
+    cpp/src/gcolumnview.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -234,7 +240,13 @@ HEADERS  += \
     cpp/include/gwizard.h \
     cpp/include/gwizardpage.h \
     cpp/include/gsqltablemodel.h \
-    cpp/include/gsqlrelationaltablemodel.h 
+    cpp/include/gsqlrelationaltablemodel.h \
+    cpp/include/gfilesystemwatcher.h \
+    cpp/include/gundostack.h \
+    cpp/include/gstackedlayout.h \
+    cpp/include/gdatawidgetmapper.h \
+    cpp/include/gkeysequenceedit.h \
+    cpp/include/gcolumnview.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

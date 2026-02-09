@@ -79,6 +79,13 @@
 <loadfile> widgets/qcommandlinkbutton.cf
 <loadfile> widgets/qrubberband.cf
 <loadfile> widgets/qundocommand.cf
+<loadfile> widgets/qundostack.cf
+<loadfile> widgets/qundoview.cf
+<loadfile> widgets/qstackedlayout.cf
+<loadfile> widgets/qdatawidgetmapper.cf
+<loadfile> widgets/qstyleditemdelegate.cf
+<loadfile> widgets/qkeysequenceedit.cf
+<loadfile> widgets/qcolumnview.cf
 <loadfile> widgets/qsizegrip.cf
 <loadfile> widgets/qcompleter.cf
 <loadfile> widgets/qcompleter2.cf

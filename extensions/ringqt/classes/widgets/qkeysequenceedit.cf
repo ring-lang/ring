@@ -1,0 +1,17 @@
+<class>
+name: QKeySequenceEdit
+para: QWidget *parent
+parent: QWidget
+codename: GKeySequenceEdit
+passvmpointer
+</class>
+
+QKeySequence keySequence(void)
+void clear(void)
+void setKeySequence(QKeySequence keySequence)
+
+void seteditingFinishedEvent(const char *)
+void setkeySequenceChangedEvent(const char *)
+
+const char *geteditingFinishedEvent(void)
+const char *getkeySequenceChangedEvent(void)

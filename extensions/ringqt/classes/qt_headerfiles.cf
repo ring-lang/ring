@@ -9,6 +9,7 @@ extern "C" {
 #include "giodevice.h"
 #include "gprocess.h"
 #include "gthread.h"
+#include "gfilesystemwatcher.h"
 #include <QtCore>
 </filter>
 
@@ -63,6 +64,11 @@ extern "C" {
 #include "gtoolbox.h"
 #include "gwizard.h"
 #include "gwizardpage.h"
+#include "gundostack.h"
+#include "gstackedlayout.h"
+#include "gdatawidgetmapper.h"
+#include "gkeysequenceedit.h"
+#include "gcolumnview.h" 
 #include "mscompleter.h"
 #include <QtWidgets>
 

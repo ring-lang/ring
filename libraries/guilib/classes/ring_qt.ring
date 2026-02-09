@@ -5776,6 +5776,125 @@ Class QSortFilterProxyModel from QObject
 		pTempObj.pObject = QSortFilterProxyModel_sibling(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
+Class QFileSystemWatcher from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QFileSystemWatcher_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QFileSystemWatcher_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addPath P1
+		return QFileSystemWatcher_addPath(pObject,P1)
+
+	Func addPaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_addPaths(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func directories 
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_directories(pObject)
+		return pTempObj
+
+	Func files 
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_files(pObject)
+		return pTempObj
+
+	Func removePath P1
+		return QFileSystemWatcher_removePath(pObject,P1)
+
+	Func removePaths P1
+		pTempObj = new QStringList
+		pTempObj.pObject = QFileSystemWatcher_removePaths(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setdirectoryChangedEvent P1
+		return QFileSystemWatcher_setdirectoryChangedEvent(pObject,P1)
+
+	Func setfileChangedEvent P1
+		return QFileSystemWatcher_setfileChangedEvent(pObject,P1)
+
+	Func getdirectoryChangedEvent 
+		return QFileSystemWatcher_getdirectoryChangedEvent(pObject)
+
+	Func getfileChangedEvent 
+		return QFileSystemWatcher_getfileChangedEvent(pObject)
+
+Class QTemporaryFile from QFile
+
+	pObject
+
+	Func init 
+		pObject = QTemporaryFile_new()
+		return self
+
+	Func delete
+		pObject = QTemporaryFile_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func autoRemove 
+		return QTemporaryFile_autoRemove(pObject)
+
+	Func fileName 
+		return QTemporaryFile_fileName(pObject)
+
+	Func fileTemplate 
+		return QTemporaryFile_fileTemplate(pObject)
+
+	Func open 
+		return QTemporaryFile_open(pObject)
+
+	Func setAutoRemove P1
+		return QTemporaryFile_setAutoRemove(pObject,P1)
+
+	Func setFileTemplate P1
+		return QTemporaryFile_setFileTemplate(pObject,P1)
+
+Class QSaveFile from QFileDevice
+
+	pObject
+
+	Func init P1
+		pObject = QSaveFile_new(P1)
+		return self
+
+	Func delete
+		pObject = QSaveFile_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cancelWriting 
+		return QSaveFile_cancelWriting(pObject)
+
+	Func commit 
+		return QSaveFile_commit(pObject)
+
+	Func directWriteFallback 
+		return QSaveFile_directWriteFallback(pObject)
+
+	Func fileName 
+		return QSaveFile_fileName(pObject)
+
+	Func setDirectWriteFallback P1
+		return QSaveFile_setDirectWriteFallback(pObject,P1)
+
+	Func setFileName P1
+		return QSaveFile_setFileName(pObject,P1)
+
+	Func open P1
+		return QSaveFile_open(pObject,P1)
+
 Class QDesktopServices
 
 	pObject
@@ -23629,6 +23748,459 @@ Class QUndoCommand
 
 	Func undo 
 		return QUndoCommand_undo(pObject)
+
+Class QUndoStack from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QUndoStack_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QUndoStack_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func canRedo 
+		return QUndoStack_canRedo(pObject)
+
+	Func canUndo 
+		return QUndoStack_canUndo(pObject)
+
+	Func cleanIndex 
+		return QUndoStack_cleanIndex(pObject)
+
+	Func clear 
+		return QUndoStack_clear(pObject)
+
+	Func count 
+		return QUndoStack_count(pObject)
+
+	Func createRedoAction P1,P2
+		pTempObj = new QAction
+		pTempObj.pObject = QUndoStack_createRedoAction(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func createUndoAction P1,P2
+		pTempObj = new QAction
+		pTempObj.pObject = QUndoStack_createUndoAction(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func index 
+		return QUndoStack_index(pObject)
+
+	Func isActive 
+		return QUndoStack_isActive(pObject)
+
+	Func isClean 
+		return QUndoStack_isClean(pObject)
+
+	Func push P1
+		return QUndoStack_push(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func redoText 
+		return QUndoStack_redoText(pObject)
+
+	Func setActive P1
+		return QUndoStack_setActive(pObject,P1)
+
+	Func setUndoLimit P1
+		return QUndoStack_setUndoLimit(pObject,P1)
+
+	Func text P1
+		return QUndoStack_text(pObject,P1)
+
+	Func undoLimit 
+		return QUndoStack_undoLimit(pObject)
+
+	Func undoText 
+		return QUndoStack_undoText(pObject)
+
+	Func redo 
+		return QUndoStack_redo(pObject)
+
+	Func setClean 
+		return QUndoStack_setClean(pObject)
+
+	Func setIndex P1
+		return QUndoStack_setIndex(pObject,P1)
+
+	Func undo 
+		return QUndoStack_undo(pObject)
+
+	Func setcanRedoChangedEvent P1
+		return QUndoStack_setcanRedoChangedEvent(pObject,P1)
+
+	Func setcanUndoChangedEvent P1
+		return QUndoStack_setcanUndoChangedEvent(pObject,P1)
+
+	Func setcleanChangedEvent P1
+		return QUndoStack_setcleanChangedEvent(pObject,P1)
+
+	Func setindexChangedEvent P1
+		return QUndoStack_setindexChangedEvent(pObject,P1)
+
+	Func setredoTextChangedEvent P1
+		return QUndoStack_setredoTextChangedEvent(pObject,P1)
+
+	Func setundoTextChangedEvent P1
+		return QUndoStack_setundoTextChangedEvent(pObject,P1)
+
+	Func getcanRedoChangedEvent 
+		return QUndoStack_getcanRedoChangedEvent(pObject)
+
+	Func getcanUndoChangedEvent 
+		return QUndoStack_getcanUndoChangedEvent(pObject)
+
+	Func getcleanChangedEvent 
+		return QUndoStack_getcleanChangedEvent(pObject)
+
+	Func getindexChangedEvent 
+		return QUndoStack_getindexChangedEvent(pObject)
+
+	Func getredoTextChangedEvent 
+		return QUndoStack_getredoTextChangedEvent(pObject)
+
+	Func getundoTextChangedEvent 
+		return QUndoStack_getundoTextChangedEvent(pObject)
+
+Class QUndoView from QListView
+
+	pObject
+
+	Func init P1
+		pObject = QUndoView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QUndoView_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cleanIcon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QUndoView_cleanIcon(pObject)
+		return pTempObj
+
+	Func emptyLabel 
+		return QUndoView_emptyLabel(pObject)
+
+	Func stack 
+		pTempObj = new QUndoStack
+		pTempObj.pObject = QUndoView_stack(pObject)
+		return pTempObj
+
+	Func setCleanIcon P1
+		return QUndoView_setCleanIcon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setEmptyLabel P1
+		return QUndoView_setEmptyLabel(pObject,P1)
+
+	Func setStack P1
+		return QUndoView_setStack(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QStackedLayout from QLayout
+
+	pObject
+
+	Func init P1
+		pObject = QStackedLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QStackedLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addWidget P1
+		return QStackedLayout_addWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func count 
+		return QStackedLayout_count(pObject)
+
+	Func currentIndex 
+		return QStackedLayout_currentIndex(pObject)
+
+	Func currentWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QStackedLayout_currentWidget(pObject)
+		return pTempObj
+
+	Func indexOf P1
+		return QStackedLayout_indexOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertWidget P1,P2
+		return QStackedLayout_insertWidget(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func removeWidget P1
+		return QStackedLayout_removeWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setStackingMode P1
+		return QStackedLayout_setStackingMode(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func stackingMode 
+		return QStackedLayout_stackingMode(pObject)
+
+	Func widget P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QStackedLayout_widget(pObject,P1)
+		return pTempObj
+
+	Func setCurrentIndex P1
+		return QStackedLayout_setCurrentIndex(pObject,P1)
+
+	Func setCurrentWidget P1
+		return QStackedLayout_setCurrentWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setcurrentChangedEvent P1
+		return QStackedLayout_setcurrentChangedEvent(pObject,P1)
+
+	Func setwidgetRemovedEvent P1
+		return QStackedLayout_setwidgetRemovedEvent(pObject,P1)
+
+	Func getcurrentChangedEvent 
+		return QStackedLayout_getcurrentChangedEvent(pObject)
+
+	Func getwidgetRemovedEvent 
+		return QStackedLayout_getwidgetRemovedEvent(pObject)
+
+Class QDataWidgetMapper from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QDataWidgetMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDataWidgetMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addMapping P1,P2
+		return QDataWidgetMapper_addMapping(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func addMapping_2 P1,P2,P3
+		return QDataWidgetMapper_addMapping_2(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
+	Func clearMapping 
+		return QDataWidgetMapper_clearMapping(pObject)
+
+	Func currentIndex 
+		return QDataWidgetMapper_currentIndex(pObject)
+
+	Func itemDelegate 
+		return QDataWidgetMapper_itemDelegate(pObject)
+
+	Func mappedPropertyName P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QDataWidgetMapper_mappedPropertyName(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mappedSection P1
+		return QDataWidgetMapper_mappedSection(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func mappedWidgetAt P1
+		pTempObj = new QWidget
+		pTempObj.pObject = QDataWidgetMapper_mappedWidgetAt(pObject,P1)
+		return pTempObj
+
+	Func model 
+		return QDataWidgetMapper_model(pObject)
+
+	Func orientation 
+		return QDataWidgetMapper_orientation(pObject)
+
+	Func removeMapping P1
+		return QDataWidgetMapper_removeMapping(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func rootIndex 
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QDataWidgetMapper_rootIndex(pObject)
+		return pTempObj
+
+	Func setItemDelegate P1
+		return QDataWidgetMapper_setItemDelegate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setModel P1
+		return QDataWidgetMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setOrientation P1
+		return QDataWidgetMapper_setOrientation(pObject,P1)
+
+	Func setRootIndex P1
+		return QDataWidgetMapper_setRootIndex(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSubmitPolicy P1
+		return QDataWidgetMapper_setSubmitPolicy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func submitPolicy 
+		return QDataWidgetMapper_submitPolicy(pObject)
+
+	Func revert 
+		return QDataWidgetMapper_revert(pObject)
+
+	Func submit 
+		return QDataWidgetMapper_submit(pObject)
+
+	Func setCurrentIndex P1
+		return QDataWidgetMapper_setCurrentIndex(pObject,P1)
+
+	Func setCurrentModelIndex P1
+		return QDataWidgetMapper_setCurrentModelIndex(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toFirst 
+		return QDataWidgetMapper_toFirst(pObject)
+
+	Func toLast 
+		return QDataWidgetMapper_toLast(pObject)
+
+	Func toNext 
+		return QDataWidgetMapper_toNext(pObject)
+
+	Func toPrevious 
+		return QDataWidgetMapper_toPrevious(pObject)
+
+	Func setcurrentIndexChangedEvent P1
+		return QDataWidgetMapper_setcurrentIndexChangedEvent(pObject,P1)
+
+	Func getcurrentIndexChangedEvent 
+		return QDataWidgetMapper_getcurrentIndexChangedEvent(pObject)
+
+Class QStyledItemDelegate from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QStyledItemDelegate_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QStyledItemDelegate_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func displayText P1,P2
+		return QStyledItemDelegate_displayText(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func createEditor P1,P2,P3
+		pTempObj = new QWidget
+		pTempObj.pObject = QStyledItemDelegate_createEditor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func setEditorData P1,P2
+		return QStyledItemDelegate_setEditorData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setModelData P1,P2,P3
+		return QStyledItemDelegate_setModelData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func updateEditorGeometry P1,P2,P3
+		return QStyledItemDelegate_updateEditorGeometry(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+Class QKeySequenceEdit from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QKeySequenceEdit_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QKeySequenceEdit_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func keySequence 
+		pTempObj = new QKeySequence
+		pTempObj.pObject = QKeySequenceEdit_keySequence(pObject)
+		return pTempObj
+
+	Func clear 
+		return QKeySequenceEdit_clear(pObject)
+
+	Func setKeySequence P1
+		return QKeySequenceEdit_setKeySequence(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func seteditingFinishedEvent P1
+		return QKeySequenceEdit_seteditingFinishedEvent(pObject,P1)
+
+	Func setkeySequenceChangedEvent P1
+		return QKeySequenceEdit_setkeySequenceChangedEvent(pObject,P1)
+
+	Func geteditingFinishedEvent 
+		return QKeySequenceEdit_geteditingFinishedEvent(pObject)
+
+	Func getkeySequenceChangedEvent 
+		return QKeySequenceEdit_getkeySequenceChangedEvent(pObject)
+
+Class QColumnView from QAbstractItemView
+
+	pObject
+
+	Func init P1
+		pObject = QColumnView_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QColumnView_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func columnWidths 
+		return QColumnView_columnWidths(pObject)
+
+	Func previewWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QColumnView_previewWidget(pObject)
+		return pTempObj
+
+	Func resizeGripsVisible 
+		return QColumnView_resizeGripsVisible(pObject)
+
+	Func setColumnWidths P1
+		return QColumnView_setColumnWidths(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPreviewWidget P1
+		return QColumnView_setPreviewWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setResizeGripsVisible P1
+		return QColumnView_setResizeGripsVisible(pObject,P1)
+
+	Func setModel P1
+		return QColumnView_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRootIndex P1
+		return QColumnView_setRootIndex(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSelectionModel P1
+		return QColumnView_setSelectionModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func indexAt P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QColumnView_indexAt(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func scrollTo P1,P2
+		return QColumnView_scrollTo(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func visualRect P1
+		pTempObj = new QRect
+		pTempObj.pObject = QColumnView_visualRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setupdatePreviewWidgetEvent P1
+		return QColumnView_setupdatePreviewWidgetEvent(pObject,P1)
+
+	Func getupdatePreviewWidgetEvent 
+		return QColumnView_getupdatePreviewWidgetEvent(pObject)
 
 Class QSizeGrip from QWidget
 

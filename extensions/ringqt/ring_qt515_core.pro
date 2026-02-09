@@ -16,13 +16,15 @@ SOURCES +=   \
     cpp/src/giodevice.cpp \
     cpp/src/gprocess.cpp \
     cpp/src/gthread.cpp \
+    cpp/src/gfilesystemwatcher.cpp \
     cpp/src/ring_qt_core.cpp
 
 HEADERS  += \
     cpp/include/gtimer.h \
     cpp/include/giodevice.h \
     cpp/include/gprocess.h \
-    cpp/include/gthread.h 
+    cpp/include/gthread.h \
+    cpp/include/gfilesystemwatcher.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

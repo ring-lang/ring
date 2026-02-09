@@ -1,0 +1,13 @@
+<class>
+name: QSaveFile
+para: QString name
+parent: QFileDevice
+</class>
+
+void cancelWriting(void)
+bool commit(void)
+bool directWriteFallback(void)
+QString fileName(void)
+void setDirectWriteFallback(bool enabled)
+void setFileName(QString name)
+bool open(QIODevice::OpenMode mode)

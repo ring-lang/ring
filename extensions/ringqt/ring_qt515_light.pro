@@ -67,6 +67,12 @@ SOURCES +=   \
     cpp/src/gtoolbox.cpp \
     cpp/src/gwizard.cpp \
     cpp/src/gwizardpage.cpp \
+    cpp/src/gfilesystemwatcher.cpp \
+    cpp/src/gundostack.cpp \
+    cpp/src/gstackedlayout.cpp \
+    cpp/src/gdatawidgetmapper.cpp \
+    cpp/src/gkeysequenceedit.cpp \
+    cpp/src/gcolumnview.cpp \
     cpp/src/ring_qt_light.cpp 
 
 HEADERS  += \
@@ -124,7 +130,13 @@ HEADERS  += \
     cpp/include/gprogressdialog.h \
     cpp/include/gtoolbox.h \
     cpp/include/gwizard.h \
-    cpp/include/gwizardpage.h 
+    cpp/include/gwizardpage.h \
+    cpp/include/gfilesystemwatcher.h \
+    cpp/include/gundostack.h \
+    cpp/include/gstackedlayout.h \
+    cpp/include/gdatawidgetmapper.h \
+    cpp/include/gkeysequenceedit.h \
+    cpp/include/gcolumnview.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

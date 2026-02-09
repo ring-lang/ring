@@ -1,0 +1,38 @@
+<class>
+name: QDataWidgetMapper
+para: QObject *
+parent: QObject
+codename: GDataWidgetMapper
+passvmpointer
+</class>
+
+void addMapping(QWidget *widget, int section)
+void addMapping@2(QWidget *widget, int section, QByteArray propertyName)
+void clearMapping(void)
+int currentIndex(void)
+QAbstractItemDelegate *itemDelegate(void)
+QByteArray mappedPropertyName(QWidget *widget)
+int mappedSection(QWidget *widget)
+QWidget *mappedWidgetAt(int section)
+QAbstractItemModel *model(void)
+Qt::Orientation orientation(void)
+void removeMapping(QWidget *widget)
+QModelIndex rootIndex(void)
+void setItemDelegate(QAbstractItemDelegate *delegate)
+void setModel(QAbstractItemModel *model)
+void setOrientation(Qt::Orientation aOrientation)
+void setRootIndex(QModelIndex index)
+void setSubmitPolicy(QDataWidgetMapper::SubmitPolicy policy)
+QDataWidgetMapper::SubmitPolicy submitPolicy(void)
+void revert(void)
+bool submit(void)
+void setCurrentIndex(int index)
+void setCurrentModelIndex(QModelIndex index)
+void toFirst(void)
+void toLast(void)
+void toNext(void)
+void toPrevious(void)
+
+void setcurrentIndexChangedEvent(const char *)
+
+const char *getcurrentIndexChangedEvent(void)

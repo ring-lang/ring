@@ -1,0 +1,20 @@
+<class>
+name: QFileSystemWatcher
+para: QObject *
+parent: QObject
+codename: GFileSystemWatcher
+passvmpointer
+</class>
+
+bool addPath(QString path)
+QStringList addPaths(QStringList paths)
+QStringList directories(void)
+QStringList files(void)
+bool removePath(QString path)
+QStringList removePaths(QStringList paths)
+
+void setdirectoryChangedEvent(const char *)
+void setfileChangedEvent(const char *)
+
+const char *getdirectoryChangedEvent(void)
+const char *getfileChangedEvent(void)
