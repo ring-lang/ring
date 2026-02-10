@@ -120,7 +120,7 @@ class RNoteControllerBase from WindowsControllerParent
 		Tree1 filestabs TextEdit1 
 		oDockProjectFiles oDockSourceCode oDockWebBrowser 
 		oDockFunctionsList oDockOutputWindow oDockClassesList oDockFormDesigner
-		oWebBrowser oWebView  oWBText 
+		oWebBrowser oWebView  oWBText oWBBack
 		oFile oFunctionsList oClassesList
 		oOutputWindow oProcessEditbox oProcessText oProcess
 	
