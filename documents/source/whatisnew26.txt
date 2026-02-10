@@ -237,6 +237,8 @@ Better RingQt
 
 (3) Enum support is revised in all classes
 
+(4) The macOS version of RingQt does not use Qt WebEngine
+
 .. index:: 
 	pair: What is new in Ring  1.26; Better RingRayLib
 
