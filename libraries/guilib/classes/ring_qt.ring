@@ -420,6 +420,9 @@ Class QUrl
 	Func swap P1
 		return QUrl_swap(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func toString P1
+		return QUrl_toString(pObject,P1)
+
 	Func toLocalFile 
 		return QUrl_toLocalFile(pObject)
 

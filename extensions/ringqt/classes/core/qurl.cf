@@ -43,9 +43,9 @@ void swap(QUrl)
 <comment>
 QString toDisplayString(int options)
 QByteArray toEncoded(int options)
-QString toString(int options)
 QString url(int options)
 </comment>
+QString toString(QUrl::ComponentFormattingOption options)
 QString toLocalFile(void)
 QString userInfo(QUrl::ComponentFormattingOption options)
 QString userName(QUrl::ComponentFormattingOption options)
