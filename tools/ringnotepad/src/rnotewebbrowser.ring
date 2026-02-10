@@ -3,6 +3,11 @@
 
 class RNoteWebBrowser
 
+	func createWebBrowserControl  
+		this.oWebView = new qWebView(this.win1) {
+			loadpage(new qurl(this.cWebSite))
+		}
+
 	func WebGo
 		cWebsite = oWBText.text()
 		if lower(left(cWebsite,4)) != "http" and 

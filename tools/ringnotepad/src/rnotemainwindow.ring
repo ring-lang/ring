@@ -1060,9 +1060,7 @@ class RNoteMainWindow
 					addWidget(oWBGo)
 					addWidget(oWBBack)
 				}
-				this.oWebView = new qWebView(this.win1) {
-					loadpage(new qurl(this.cWebSite))
-				}
+				this.createWebBrowserControl()
 				oWBlayout2 = new qVBoxLayout() {
 					addLayout(oWBLayout1)
 					addWidget(this.oWebView)
