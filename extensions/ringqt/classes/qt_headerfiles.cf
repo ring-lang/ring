@@ -240,13 +240,13 @@ extern "C" {
 #include <QSerialPortInfo>
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "" and sysget("RINGQT_NOWEBKITWIDGETS") = "")
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "" and sysget("RINGQT_NOWEBKITWIDGETS") = "" and ismacOSX() = 0) 
 #include "gwebview.h"
 #include <QWebSettings>
 #include <QWebView>
 </filter>
 
-<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1" and sysget("RINGQT_NOWEBENGINEWIDGETS") = "")
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1" and sysget("RINGQT_NOWEBENGINEWIDGETS") = "" and ismacOSX() = 0)
 #include "gwebengineview.h"
 #include <QWebEngineSettings>
 #include <QWebEngineView>
