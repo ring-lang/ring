@@ -41,11 +41,11 @@
 <loadfile> qt_module_positioning.cf
 </filter>
 
-<filter> sysget("RINGQT_NOWEBKITWIDGETS") = ""
+<filter> ( sysget("RINGQT_NOWEBKITWIDGETS") = "" ) and ( ! ismacOSX() )
 <loadfile> qt_module_webkitwidgets.cf
 </filter>
 
-<filter> sysget("RINGQT_NOWEBENGINEWIDGETS") = ""
+<filter> ( sysget("RINGQT_NOWEBENGINEWIDGETS") = "" ) and ( ! ismacOSX() )
 <loadfile> qt_module_webenginewidgets.cf
 </filter>
 
