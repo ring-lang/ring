@@ -15871,6 +15871,7 @@ Parameters : QString
 * void setUserInfo(QString, QUrl::ParsingMode mode)
 * void setUserName(QString, QUrl::ParsingMode mode)
 * void swap(QUrl)
+* QString toString(QUrl::ComponentFormattingOption options)
 * QString toLocalFile(void)
 * QString userInfo(QUrl::ComponentFormattingOption options)
 * QString userName(QUrl::ComponentFormattingOption options)

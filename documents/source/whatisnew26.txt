@@ -145,9 +145,11 @@ Better RingQt
 
 (2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
 
-(3) Enum support is revised in all classes
+(3) Added: toString() method to QUrl class
 
-(4) The macOS version of RingQt does not use Qt WebEngine
+(4) Enum support is revised in all classes
+
+(5) The macOS version of RingQt does not use Qt WebEngine
 
 .. index:: 
 	pair: What is new in Ring  1.26; Better RingRayLib
