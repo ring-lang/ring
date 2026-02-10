@@ -4,7 +4,12 @@
 class RNoteWebBrowser
 
 	func createWebBrowserControl  
-		this.oWebView = new qWebView(this.win1) {
+		if ismacOSX() 
+			oWebView = new customWebView(this.win1) 
+		else 
+			oWebView = new QWebView(this.win1) 
+		ok
+		oWebView {
 			loadpage(new qurl(this.cWebSite))
 		}
 
@@ -29,3 +34,12 @@ class RNoteWebBrowser
 		oWBText  { setText(cLink) }
 		oDockWebBrowser.Show()
 		oDockWebBrowser.raise()
+
+class customWebView from QLabel 
+
+	func init oParent 
+		super.init(oParent)
+
+	func loadPage oURL
+
+	func back
