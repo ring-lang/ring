@@ -112,6 +112,26 @@ SOURCES +=   \
     ringqt/src/gdatetimeedit.cpp \
     ringqt/src/mscompleter.cpp \
     ringqt/src/ggroupbox.cpp \
+    ringqt/src/gdoublespinbox.cpp \
+    ringqt/src/gdialogbuttonbox.cpp \
+    ringqt/src/gshortcut.cpp \
+    ringqt/src/gprogressdialog.cpp \
+    ringqt/src/gtoolbox.cpp \
+    ringqt/src/gwizard.cpp \
+    ringqt/src/gwizardpage.cpp \
+    ringqt/src/gfilesystemwatcher.cpp \
+    ringqt/src/gundostack.cpp \
+    ringqt/src/gstackedlayout.cpp \
+    ringqt/src/gdatawidgetmapper.cpp \
+    ringqt/src/gkeysequenceedit.cpp \
+    ringqt/src/gcolumnview.cpp \
+    ringqt/src/gudpsocket.cpp \
+    ringqt/src/gsoundeffect.cpp \
+    ringqt/src/gaudioinput.cpp \
+    ringqt/src/gmediarecorder.cpp \
+    ringqt/src/gaudiorecorder.cpp \
+    ringqt/src/gaudioprobe.cpp \
+    ringqt/src/gvideoprobe.cpp \
     ringqt/src/ring_qt.cpp
 
 HEADERS  += \
@@ -204,7 +224,28 @@ HEADERS  += \
     ringqt/include/gfiledialog.h \
     ringqt/include/gdatetimeedit.h \
     ringqt/include/mscompleter.h \
-    ringqt/include/ggroupbox.h
+    ringqt/include/ggroupbox.h \
+    ringqt/include/gdoublespinbox.h \
+    ringqt/include/gdialogbuttonbox.h \
+    ringqt/include/gshortcut.h \
+    ringqt/include/gprogressdialog.h \
+    ringqt/include/gtoolbox.h \
+    ringqt/include/gwizard.h \
+    ringqt/include/gwizardpage.h \
+    ringqt/include/gfilesystemwatcher.h \
+    ringqt/include/gundostack.h \
+    ringqt/include/gstackedlayout.h \
+    ringqt/include/gdatawidgetmapper.h \
+    ringqt/include/gkeysequenceedit.h \
+    ringqt/include/gcolumnview.h \
+    ringqt/include/gudpsocket.h \
+    ringqt/include/gsoundeffect.h \
+    ringqt/include/gaudioinput.h \
+    ringqt/include/gmediarecorder.h \
+    ringqt/include/gaudiorecorder.h \
+    ringqt/include/gaudioprobe.h \
+    ringqt/include/gvideoprobe.h 
+
 
 CONFIG += warn_off
 
