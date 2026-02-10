@@ -18,11 +18,10 @@ Ring 1.26 comes with the next features!
 * RingSlint Package
 * Rust Bindings for Ring
 * Prompt Driven Development
-* Closure Library
-* More Samples
-* More RingPM Packages
 * Better RingQt
 * Better RingRayLib
+* Closure Library
+* More Resources
 * More Improvements
 
 .. index:: 
@@ -77,108 +76,19 @@ The framework was produced through 107 prompts: 21 feature requests, 72 bug fix 
 sharing information from Ring documentation, 4 prompts providing architectural guidance, and 1 
 prompt dedicated to generating documentation.
 
-.. image:: ringtui.png
-	:alt: Ring TUI
+The resulting framework includes a complete windowing subsystem, event driven 
+architecture, interactive widgets, hierarchical menus, grid and tree components, tab 
+controls, and a multi window desktop environment.
 
-.. index:: 
-	pair: What is new in Ring 1.26?; Closure Package
-
-Closure Library
-===============
-
-We can create an anonymous function that capture specific variables. 
-
-Using closure() capture variables by value. 
-
-For lists/objects we can change this behaviour (optional) using the Ref() function. 
-
-The first parameter to closure() is a list of variables to capture we can type
-
-* :variable_name
-* :variable_name = value
-* :variable_name = ref(list/object)
-
-The second parameter is an anonymous function that could use the captured variables
-
-Example:
-
-.. code-block:: ring
-
-	load "closure.ring"
-
-	func main
-
-		inc = increment()
-
-		? isClosure(inc) # Prints 1
-
-		? invoke(inc) # Prints 11
-		? invoke(inc) # Prints 12
-
-		for m = 1 to 1000
-			invoke(inc)
-		next
-
-		? invoke(inc)
-
-		dec = decrement()
-		? invoke(dec)
-		? invoke(inc)
-		? invoke(dec)
-
-	func increment
-
-		x = 10
-
-		return closure([:x], func {
-			x++
-			return x
-		})
-
-	func decrement
-
-		x = 100
-
-		return closure([:x], func {
-			x--
-			return x
-		})
-
-Output:
+.. note:: The framework is developed for MS‑Windows using the RingRogueUtil library. With a few updates, it could be fully ported to Linux and macOS.
 
 .. code-block:: none
 
-	1
-	11
-	12
-	1013
-	99
-	1014
-	98
+	ringpm install TUIFrameworkUsingClaudeCode
+	ringpm run TUIFrameworkUsingClaudeCode
 
-.. index:: 
-	pair: What is new in Ring 1.26?; More Samples
-
-More Samples
-============
-
-The next samples are added:
-
-* ring/samples/UsingClosure/test1.ring
-* ring/samples/UsingQt/Layouts/qformlayout.ring
-
-.. index:: 
-	pair: What is new in Ring 1.26?; More RingPM Packages
-
-More RingPM Packages
-====================
-
-The following packages have been added to the RingPM registry.
-
-* Proc: Subprocess management library
-* Archive: Archive manipulation library
-* Ring-Slint: Build Beautiful, Native Applications for Desktop and Mobile
-* TUIFrameworkUsingClaudeCode: A project developed using prompt driven development
+.. image:: ringtui.png
+	:alt: Ring TUI
 
 .. index:: 
 	pair: What is new in Ring  1.26; Better Better RingQt
@@ -351,6 +261,98 @@ Added more functions to deliver full support for RayLib 5.0
 | PollInputEvents              | SwapScreenBuffer          | SetAudioStreamBufferSizeDefault | UnloadModelAnimations            |
 +------------------------------+---------------------------+---------------------------------+----------------------------------+
 
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Closure Package
+
+Closure Library
+===============
+
+We can create an anonymous function that capture specific variables. 
+
+Using closure() capture variables by value. 
+
+For lists/objects we can change this behaviour (optional) using the Ref() function. 
+
+The first parameter to closure() is a list of variables to capture we can type
+
+* :variable_name
+* :variable_name = value
+* :variable_name = ref(list/object)
+
+The second parameter is an anonymous function that could use the captured variables
+
+Example:
+
+.. code-block:: ring
+
+	load "closure.ring"
+
+	func main
+
+		inc = increment()
+
+		? isClosure(inc) # Prints 1
+
+		? invoke(inc) # Prints 11
+		? invoke(inc) # Prints 12
+
+		for m = 1 to 1000
+			invoke(inc)
+		next
+
+		? invoke(inc)
+
+		dec = decrement()
+		? invoke(dec)
+		? invoke(inc)
+		? invoke(dec)
+
+	func increment
+
+		x = 10
+
+		return closure([:x], func {
+			x++
+			return x
+		})
+
+	func decrement
+
+		x = 100
+
+		return closure([:x], func {
+			x--
+			return x
+		})
+
+Output:
+
+.. code-block:: none
+
+	1
+	11
+	12
+	1013
+	99
+	1014
+	98
+
+.. index:: 
+	pair: What is new in Ring 1.26?; More Resources
+
+More Resources
+==============
+
+The next samples are added:
+
+* ring/samples/UsingClosure/test1.ring
+* ring/samples/UsingQt/Layouts/qformlayout.ring
+
+The following packages have been added to the RingPM registry.
+
+* Proc: Subprocess management library
+* Archive: Archive manipulation library
 
 .. index:: 
 	pair: What is new in Ring  1.26; More Improvements
