@@ -13,7 +13,6 @@
 
 <filter> sysget("RINGQT_WEBASSEMBLY") = ""
 <loadfile> network/qnetworkaccessmanager.cf
-</filter>
 <loadfile> network/qudpsocket.cf
 <loadfile> network/qnetworkinterface.cf
 <loadfile> network/qnetworkcookie.cf
@@ -23,3 +22,4 @@
 <loadfile> network/qsslcertificate.cf
 <loadfile> network/qsslkey.cf
 <loadfile> network/qsslsocket.cf
+</filter>

@@ -148,20 +148,13 @@ extern "C" {
 #include "gtcpserver.h"
 #include "gabstractsocket.h"
 #include "gtcpsocket.h"
+</filter>
+
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_WEBASSEMBLY") = "")
 #include "gudpsocket.h"
 #include "gsslsocket.h"
 #include "gnetworkconfigurationmanager.h"
-#include <QAbstractSocket>
-#include <QTcpSocket>
-#include <QTcpServer>
-#include <QNetworkProxy>
-#include <QHostAddress>
-#include <QHostInfo>
-#include <QNetworkRequest>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
 </filter>
-
 
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""
 #include <QBluetoothAddress>
