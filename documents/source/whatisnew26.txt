@@ -370,3 +370,4 @@ More Improvements
 * SubStr(cStr,nPos,nCount) - Return cStr when the requested size exceeds the string length
 * Ring Lists - ring_list_deleteitem_gc() - Better implementation (order of operations)
 * Ring VM - Using Ref() - Collecting Cycles - Better Performance
+* Ring Notepad - Using QtWebView on macOS instead of Qt WebEngine 
