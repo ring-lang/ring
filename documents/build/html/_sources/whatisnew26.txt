@@ -38,6 +38,8 @@ The player is trapped in a world of rooms separated by closed doors.
 To open each door, you must push code blocks into the correct order on the assembly 
 line to form a valid program.
 
+The code is 100% generated using Claude Code (Opus 4.6)
+
 .. image:: coderooms3d.png
 	:alt: Code Rooms 3D
 
