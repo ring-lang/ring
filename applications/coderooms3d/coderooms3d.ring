@@ -3,7 +3,7 @@
 **  ==========================================
 **  Using Ring Language + RingRayLib
 **
-**  A man is trapped in a world of rooms separated by closed doors.
+**  The Player is trapped in a world of rooms separated by closed doors.
 **  To open each door, you must push code blocks into the correct
 **  order on the assembly line to form a valid program.
 **
