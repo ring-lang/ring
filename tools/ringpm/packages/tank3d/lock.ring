@@ -1,0 +1,16 @@
+aLockInfo = [
+	[
+		:name = "tank3d",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringraylib",
+		:branch = "master",
+		:version = "1.0.49",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	]
+]
