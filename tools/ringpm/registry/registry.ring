@@ -942,5 +942,10 @@ aPackagesRegistry = [
 	[ :name = "ring-slint",
 	  :description = "Build beautiful, native applications with Ring and Slint",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "coderooms3d",
+	  :description = "The CodeRooms3D game developed using Ring and RingRayLib",
+	  :ProviderUserName = "ringpackages"
 	]
+
 ]
