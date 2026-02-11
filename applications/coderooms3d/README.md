@@ -3,7 +3,7 @@ CodeRooms3D Game
 
 Developed using Ring and RingRayLib
 
-# Screen Shots 
+# Screen Shot
 
 ![coderooms3d](https://raw.githubusercontent.com/ring-lang/ring/master/applications/coderooms3d/coderooms3d.png)
 
