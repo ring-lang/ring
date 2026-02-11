@@ -3,6 +3,8 @@ CodeRooms3D Game
 
 Developed using Ring and RingRayLib
 
+The source code is 100% generated using Claude Code (Opus 4.6)
+
 # Using RingPM
 
 To quickly install and run the game using the Ring Package Manager
