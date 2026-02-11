@@ -31,6 +31,8 @@ Ring 1.26 comes with the next features!
 CodeRooms3D Game
 ================
 
+Folder: ring/applications/coderooms3d
+
 The player is trapped in a world of rooms separated by closed doors.
 
 To open each door, you must push code blocks into the correct order on the assembly 
