@@ -15,15 +15,46 @@ List of changes and new features
 
 Ring 1.26 comes with the next features!
 
+* Tank3D Game
+* CodeRooms3D Game
 * RingSlint Package
 * Rust Bindings for Ring
 * Prompt Driven Development
-* CodeRooms3D Game
 * Better RingQt
 * Better RingRayLib
 * Closure Library
 * More Resources
 * More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Tank3D Game
+
+Tank3D Game
+===========
+
+Folder: ring/applications/tank3d
+
+The Tank3D Game (12 Levels)
+
+.. image:: tank3d.png
+	:alt: Tank 3D
+
+.. index:: 
+	pair: What is new in Ring 1.26?; CodeRooms3D Game
+
+CodeRooms3D Game
+================
+
+Folder: ring/applications/coderooms3d
+
+The player is trapped in a world of rooms separated by closed doors.
+
+To open each door, you must push code blocks into the correct order on the assembly 
+line to form a valid program.
+
+.. image:: coderooms3d.png
+	:alt: Code Rooms 3D
 
 .. index:: 
 	pair: What is new in Ring 1.26?; RingSlint Package
@@ -90,25 +121,6 @@ controls, and a multi window desktop environment.
 
 .. image:: ringtui.png
 	:alt: Ring TUI
-
-.. index:: 
-	pair: What is new in Ring 1.26?; CodeRooms3D Game
-
-CodeRooms3D Game
-================
-
-Folder: ring/applications/coderooms3d
-
-The player is trapped in a world of rooms separated by closed doors.
-
-To open each door, you must push code blocks into the correct order on the assembly 
-line to form a valid program.
-
-The code is 100% generated using Claude Code (Opus 4.6)
-
-.. image:: coderooms3d.png
-	:alt: Code Rooms 3D
-
 
 .. index:: 
 	pair: What is new in Ring  1.26; Better Better RingQt
