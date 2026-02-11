@@ -1,5 +1,6 @@
 aNews = [
-  ["February 11, 2026",'<a href="https://github.com/ring-lang/ring/tree/master/applications/coderooms3d"> CodeRooms3D Game (Using RingRayLib)</a>'],
+  ["February 12, 2026",'<a href="https://github.com/ring-lang/ring/tree/master/applications/tank3d"> Tank3D Game</a>'],
+  ["February 11, 2026",'<a href="https://github.com/ring-lang/ring/tree/master/applications/coderooms3d"> CodeRooms3D Game</a>'],
   ["February 9, 2026",'<a href="https://github.com/ysdragon/ring-slint"> RingSlint: Build Beautiful, Native Applications for Desktop and Mobile</a>'],
   ["January 30, 2026",'<a href="https://groups.google.com/g/ring-lang/c/kas0N1fVNM0"> Using Softanza and Ring at Sonibank</a>'],
   ["January 27, 2026",'<a href="https://arxiv.org/abs/2601.17584"> Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language </a>'],
