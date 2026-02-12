@@ -1,4 +1,5 @@
 aNews = [
+  ["February 13, 2026",'<a href="https://github.com/ring-lang/ring/tree/master/applications/davethefighter"> DaveTheFighter Game</a>'],
   ["February 12, 2026",'<a href="https://github.com/ring-lang/ring/tree/master/applications/tank3d"> Tank3D Game</a>'],
   ["February 11, 2026",'<a href="https://github.com/ring-lang/ring/tree/master/applications/coderooms3d"> CodeRooms3D Game</a>'],
   ["February 9, 2026",'<a href="https://github.com/ysdragon/ring-slint"> RingSlint: Build Beautiful, Native Applications for Desktop and Mobile</a>'],
