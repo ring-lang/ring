@@ -183,6 +183,8 @@ Better RingQt
 
 (5) The macOS version of RingQt does not use Qt WebEngine
 
+(6) No warning message when loading lightguilib.ring after guilib.ring is already loaded
+
 .. index:: 
 	pair: What is new in Ring  1.26; Better RingRayLib
 
