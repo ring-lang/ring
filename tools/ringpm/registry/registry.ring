@@ -950,6 +950,9 @@ aPackagesRegistry = [
 	[ :name = "tank3d",
 	  :description = "The Tank3D game developed using Ring and RingRayLib",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "davethefighter",
+	  :description = "The DaveTheFighter game developed using Ring and RingRayLib",
+	  :ProviderUserName = "ringpackages"
 	]
-
 ]
