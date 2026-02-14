@@ -16,6 +16,8 @@ List of changes and new features
 Ring 1.26 comes with the next features!
 
 * Tank3D Game
+* DaveTheFighter Game
+* LineDrawing3D Game
 * CodeRooms3D Game
 * RingSlint Package
 * Rust Bindings for Ring
@@ -39,6 +41,35 @@ The Tank3D Game (12 Levels)
 
 .. image:: tank3d.png
 	:alt: Tank 3D
+
+
+.. index:: 
+	pair: What is new in Ring 1.26?; DaveTheFighter Game
+
+DaveTheFighter Game
+===================
+
+Folder: ring/applications/davethefighter
+
+.. image:: davethefighter_shot1.png
+	:alt: Dave The Fighter Shot1
+
+.. image:: davethefighter_shot2.png
+	:alt: Dave The Fighter Shot2
+
+.. index:: 
+	pair: What is new in Ring 1.26?; LineDrawing3D Game
+
+LineDrawing3D Game
+==================
+
+Folder: ring/applications/linedrawing3d
+
+.. image:: linedrawing3d_shot1.png
+	:alt: Line Drawing 3D Shot1
+
+.. image:: linedrawing3d_shot2.png
+	:alt: Line Drawing 3D Shot2
 
 .. index:: 
 	pair: What is new in Ring 1.26?; CodeRooms3D Game
