@@ -406,5 +406,8 @@ aAllPackagesInfo = [
 	],
 	:snakesandladders2 = 	[
 
+	],
+	:closure = 	[
+
 	]
 ]

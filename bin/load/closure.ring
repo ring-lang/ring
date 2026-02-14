@@ -1,1 +1,0 @@
-load "/../../libraries/closure/closure.ring"
