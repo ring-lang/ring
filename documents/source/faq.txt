@@ -557,6 +557,75 @@ You can try the closure library
 
 	ringpm install closure
 
+Using closure() capture variables by value. 
+
+For lists/objects we can change this behaviour (optional) using the Ref() function. 
+
+The first parameter to closure() is a list of variables to capture we can type
+
+* :variable_name
+* :variable_name = value
+* :variable_name = ref(list/object)
+
+The second parameter is an anonymous function that could use the captured variables
+
+Example:
+
+.. code-block:: ring
+
+	load "closure.ring"
+
+	func main
+
+		inc = increment()
+
+		? isClosure(inc) # Prints 1
+
+		? invoke(inc) # Prints 11
+		? invoke(inc) # Prints 12
+
+		for m = 1 to 1000
+			invoke(inc)
+		next
+
+		? invoke(inc)
+
+		dec = decrement()
+		? invoke(dec)
+		? invoke(inc)
+		? invoke(dec)
+
+	func increment
+
+		x = 10
+
+		return closure([:x], func {
+			x++
+			return x
+		})
+
+	func decrement
+
+		x = 100
+
+		return closure([:x], func {
+			x--
+			return x
+		})
+
+Output:
+
+.. code-block:: none
+
+	1
+	11
+	12
+	1013
+	99
+	1014
+	98
+
+
 .. index:: 
 	pair: Frequently Asked Questions; Why the ability to define your own languages Instead of parsing?
 
