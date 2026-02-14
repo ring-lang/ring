@@ -1,5 +1,5 @@
-﻿aResources = [ 
-	["English Resources",[
+﻿aResourcesEnglish = [ 
+	["Resources",[
 				[
 					'<a href="https://github.com/ring-lang/ring/releases/download/v1.25/RingDoc_1.25.pdf" >The Complete Reference (Version 1.25)</a>'
 				],
@@ -48,7 +48,7 @@
 
 			]
 	     ],
-	     ["More Projects",[
+	     ["Projects",[
 				[
 					'<a href="https://idrassi.github.io/MonoRing/" >MonoRing (Monolithic Distribution)</a>'
 				],
@@ -59,8 +59,10 @@
 					'<a href="https://github.com/ringpackages/myctiger" >MyCTiger (Use Ring for generating/building C programs)</a>'
 				]
 			]
-	     ],
-	     ["Arabic Applications",[
+	     ]
+]
+aResourcesArabic = [ 
+	     ["Applications",[
 			[
 				'<a href="https://github.com/ringpackages/werdy2" >Werdy Application</a>',
 				'<img src="images/werdy2.png" width="100%">'
@@ -83,7 +85,7 @@
 			]
 		]
 		],
-	     ["Arabic Resources",[
+	     ["Resources",[
 				[
 					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" >Ring Lectures (Quick introduction to Ring)</a>'
 				],

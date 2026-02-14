@@ -8,7 +8,7 @@
 
   <div id="applications" class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Applications developed using Ring <span class="badge"><%= nAppsCount %></span></h4></div>
+      <div class="panel-heading"><h4>Applications <span class="badge"><%= nAppsCount %></span></h4></div>
       <div class="panel-body">
 
 	    <% nIDNumber = 0 %>
@@ -59,19 +59,19 @@
   <%  eval(read("data/resources.data"))  %>
 
   <% nResourcesCount = 0 
-	 for aGroup in aResources
+	 for aGroup in aResourcesEnglish
 		nResourcesCount += len(aGroup[2]) 
 	 next 
   %>
 
 
-  <div id="resources" class="panel-group">
+  <div id="resourcesEnglish" class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Resources <span class="badge"><%= nResourcesCount %></span></h4></div>
+      <div class="panel-heading"><h4>English <span class="badge"><%= nResourcesCount %></span></h4></div>
       <div class="panel-body">
 
 	    <% nIDNumber = 0 %>
-		<% for aGroup in aResources %>
+		<% for aGroup in aResourcesEnglish %>
 		<% nIDNumber++ %>
 
 		<%= '<a href="#res_section'+nIDNumber+'" class="btn btn-default" data-toggle="collapse" style="width:100%">'+aGroup[1]+
@@ -113,6 +113,63 @@
        </div>
      </div>  
   </div>  
+
+  <% nResourcesCount = 0 
+	 for aGroup in aResourcesArabic
+		nResourcesCount += len(aGroup[2]) 
+	 next 
+  %>
+
+
+  <div id="resourcesArabic" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Arabic <span class="badge"><%= nResourcesCount %></span></h4></div>
+      <div class="panel-body">
+
+	    <% nIDNumber = 0 %>
+		<% for aGroup in aResourcesArabic %>
+		<% nIDNumber++ %>
+
+		<%= '<a href="#res_section_arabic'+nIDNumber+'" class="btn btn-default" data-toggle="collapse" style="width:100%">'+aGroup[1]+
+		' ('+len(aGroup[2])+') </a>'%>
+
+	    <%= '<div class="panel panel-primary collapse" id="res_section_arabic'+nIDNumber+'">'%>
+		      <div class="panel-heading"><%= aGroup[1] %> <span class="badge"><%= len(aGroup[2]) %></span></div>
+		      <div class="panel-body">
+
+			<table class="table table-striped">
+
+				<% if len(aGroup[2][1]) = 2  %>
+					<thead>
+				  		<tr>
+							<th width="70%">Description  </th>
+							<th width="30%">Photo </th>
+				  		</tr>
+					</thead>
+				<% ok %>
+
+				<tbody>
+				<% for aItem in aGroup[2] %>
+				  <tr>
+					<% for aData in aItem %>
+						 <th>
+							<%= aData %>
+						 </th>
+					<% next %>
+				  </tr>
+				<% next %>
+				</tbody>
+			</table>
+
+ 	       	      </div>
+	        </div>  
+
+		<% next %>
+
+       </div>
+     </div>  
+  </div>  
+
 
 
 
