@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "ringnotepad",
 		:branch = "master",
-		:version = "1.0.29",
+		:version = "1.0.30",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.22",
+		:version = "1.0.23",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -23,14 +23,14 @@ aLockInfo = [
 	[
 		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.15",
+		:version = "1.0.18",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "codegen",
 		:branch = "master",
-		:version = "1.0.14",
+		:version = "1.0.15",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -45,6 +45,13 @@ aLockInfo = [
 		:name = "ringcurl",
 		:branch = "master",
 		:version = "1.0.12",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.14",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -79,7 +86,7 @@ aLockInfo = [
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.38",
+		:version = "1.0.42",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -91,16 +98,23 @@ aLockInfo = [
 		:providerwebsite = ""
 	],
 	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.16",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
 		:name = "ringqtruntime",
 		:branch = "master",
-		:version = "1.0.28",
+		:version = "1.0.32",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "guilib",
 		:branch = "master",
-		:version = "1.0.24",
+		:version = "1.0.28",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -142,7 +156,7 @@ aLockInfo = [
 	[
 		:name = "tokenslib",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.7",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -154,37 +168,51 @@ aLockInfo = [
 		:providerwebsite = ""
 	],
 	[
-		:name = "formdesigner",
+		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.20",
+		:version = "1.0.22",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
-		:name = "stdlib",
+		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.21",
+		:version = "1.0.15",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.37",
+		:version = "1.0.38",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringqtruntime",
 		:branch = "master",
-		:version = "1.0.25",
+		:version = "1.0.28",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "guilib",
 		:branch = "master",
-		:version = "1.0.23",
+		:version = "1.0.24",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "formdesigner",
+		:branch = "master",
+		:version = "1.0.21",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "tokenslib",
+		:branch = "master",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
