@@ -351,7 +351,7 @@ class Cube
 		texture = 0
 
 		try
-			data = stbi_load(image, :width, :height, :depth, STBI_default)
+			data = stbi_load(image, :width, :height, :depth, STBI_RGB)
  			txptr = varptr(:txc, "GLuint")
 			glGenTextures(1, txptr)
 			texture = bytes2int(txc)
