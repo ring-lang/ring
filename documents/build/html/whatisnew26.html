@@ -190,11 +190,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#linedrawing3d-game">LineDrawing3D Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coderooms3d-game">CodeRooms3D Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringslint-package">RingSlint Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closure-package">Closure Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-bindings-for-ring">Rust Bindings for Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prompt-driven-development">Prompt Driven Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#closure-library">Closure Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-resources">More Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -242,11 +242,11 @@
 <li><p>LineDrawing3D Game</p></li>
 <li><p>CodeRooms3D Game</p></li>
 <li><p>RingSlint Package</p></li>
+<li><p>Closure Package</p></li>
 <li><p>Rust Bindings for Ring</p></li>
 <li><p>Prompt Driven Development</p></li>
 <li><p>Better RingQt</p></li>
 <li><p>Better RingRayLib</p></li>
-<li><p>Closure Library</p></li>
 <li><p>More Resources</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -286,8 +286,77 @@ line to form a valid program.</p>
 </div>
 <img alt="Ring Slint" src="_images/ringslint.png" />
 </section>
+<section id="closure-package">
+<span id="index-7"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
+<p>We can create an anonymous function that capture specific variables.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install closure
+</pre></div>
+</div>
+<p>Using closure() capture variables by value.</p>
+<p>For lists/objects we can change this behaviour (optional) using the Ref() function.</p>
+<p>The first parameter to closure() is a list of variables to capture we can type</p>
+<ul class="simple">
+<li><p>:variable_name</p></li>
+<li><p>:variable_name = value</p></li>
+<li><p>:variable_name = ref(list/object)</p></li>
+</ul>
+<p>The second parameter is an anonymous function that could use the captured variables</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;closure.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="n">inc</span> <span class="o">=</span> <span class="nf">increment</span><span class="p">()</span>
+
+        <span class="o">?</span> <span class="nf">isClosure</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 1</span>
+
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 11</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 12</span>
+
+        <span class="k">for</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000</span>
+                <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
+        <span class="k">next</span>
+
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
+
+        <span class="n">dec</span> <span class="o">=</span> <span class="nf">decrement</span><span class="p">()</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
+        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">increment</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">return</span> <span class="nf">closure</span><span class="p">([</span><span class="ss">:x</span><span class="p">],</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">x</span><span class="o">++</span>
+                <span class="k">return</span> <span class="n">x</span>
+        <span class="p">})</span>
+
+<span class="kd">func</span> <span class="nf">decrement</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+
+        <span class="k">return</span> <span class="nf">closure</span><span class="p">([</span><span class="ss">:x</span><span class="p">],</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">x</span><span class="o">--</span>
+                <span class="k">return</span> <span class="n">x</span>
+        <span class="p">})</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+11
+12
+1013
+99
+1014
+98
+</pre></div>
+</div>
+</section>
 <section id="rust-bindings-for-ring">
-<span id="index-7"></span><h2>Rust Bindings for Ring<a class="headerlink" href="#rust-bindings-for-ring" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Rust Bindings for Ring<a class="headerlink" href="#rust-bindings-for-ring" title="Permalink to this heading"></a></h2>
 <p>URL: <a class="reference external" href="https://github.com/ysdragon/ring-lang-rs">https://github.com/ysdragon/ring-lang-rs</a></p>
 <ul class="simple">
 <li><p>Write Ring extensions in Rust (Native extensions with Rust’s safety and performance)</p></li>
@@ -297,7 +366,7 @@ line to form a valid program.</p>
 <img alt="Ring Rust" src="_images/ringrust.png" />
 </section>
 <section id="prompt-driven-development">
-<span id="index-8"></span><h2>Prompt Driven Development<a class="headerlink" href="#prompt-driven-development" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Prompt Driven Development<a class="headerlink" href="#prompt-driven-development" title="Permalink to this heading"></a></h2>
 <p>Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language</p>
 <p>URL: <a class="reference external" href="https://arxiv.org/abs/2601.17584">https://arxiv.org/abs/2601.17584</a></p>
 <p>This study presents an empirical analysis of developing a 7420 line Terminal User Interface
@@ -320,7 +389,7 @@ ringpm run TUIFrameworkUsingClaudeCode
 <img alt="Ring TUI" src="_images/ringtui.png" />
 </section>
 <section id="better-ringqt">
-<span id="index-9"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The next classes are added</p></li>
 </ol>
@@ -444,7 +513,7 @@ ringpm run TUIFrameworkUsingClaudeCode
 </ol>
 </section>
 <section id="better-ringraylib">
-<span id="index-10"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>Added more functions to deliver full support for RayLib 5.0</p>
 <table class="docutils align-default">
 <thead>
@@ -707,71 +776,6 @@ ringpm run TUIFrameworkUsingClaudeCode
 </tr>
 </tbody>
 </table>
-</section>
-<section id="closure-library">
-<span id="index-11"></span><h2>Closure Library<a class="headerlink" href="#closure-library" title="Permalink to this heading"></a></h2>
-<p>We can create an anonymous function that capture specific variables.</p>
-<p>Using closure() capture variables by value.</p>
-<p>For lists/objects we can change this behaviour (optional) using the Ref() function.</p>
-<p>The first parameter to closure() is a list of variables to capture we can type</p>
-<ul class="simple">
-<li><p>:variable_name</p></li>
-<li><p>:variable_name = value</p></li>
-<li><p>:variable_name = ref(list/object)</p></li>
-</ul>
-<p>The second parameter is an anonymous function that could use the captured variables</p>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;closure.ring&quot;</span>
-
-<span class="kd">func</span> <span class="nf">main</span>
-
-        <span class="n">inc</span> <span class="o">=</span> <span class="nf">increment</span><span class="p">()</span>
-
-        <span class="o">?</span> <span class="nf">isClosure</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 1</span>
-
-        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 11</span>
-        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span> <span class="c1"># Prints 12</span>
-
-        <span class="k">for</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000</span>
-                <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
-        <span class="k">next</span>
-
-        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
-
-        <span class="n">dec</span> <span class="o">=</span> <span class="nf">decrement</span><span class="p">()</span>
-        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
-        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">inc</span><span class="p">)</span>
-        <span class="o">?</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">increment</span>
-
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-
-        <span class="k">return</span> <span class="nf">closure</span><span class="p">([</span><span class="ss">:x</span><span class="p">],</span> <span class="kd">func</span> <span class="p">{</span>
-                <span class="n">x</span><span class="o">++</span>
-                <span class="k">return</span> <span class="n">x</span>
-        <span class="p">})</span>
-
-<span class="kd">func</span> <span class="nf">decrement</span>
-
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
-
-        <span class="k">return</span> <span class="nf">closure</span><span class="p">([</span><span class="ss">:x</span><span class="p">],</span> <span class="kd">func</span> <span class="p">{</span>
-                <span class="n">x</span><span class="o">--</span>
-                <span class="k">return</span> <span class="n">x</span>
-        <span class="p">})</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
-11
-12
-1013
-99
-1014
-98
-</pre></div>
-</div>
 </section>
 <section id="more-resources">
 <span id="index-12"></span><h2>More Resources<a class="headerlink" href="#more-resources" title="Permalink to this heading"></a></h2>

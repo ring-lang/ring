@@ -20,11 +20,11 @@ Ring 1.26 comes with the next features!
 * LineDrawing3D Game
 * CodeRooms3D Game
 * RingSlint Package
+* Closure Package
 * Rust Bindings for Ring
 * Prompt Driven Development
 * Better RingQt
 * Better RingRayLib
-* Closure Library
 * More Resources
 * More Improvements
 
@@ -103,6 +103,89 @@ Install:
 
 .. image:: ringslint.png
 	:alt: Ring Slint
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Closure Package
+
+Closure Package
+===============
+
+We can create an anonymous function that capture specific variables. 
+
+Install:
+
+.. code-block:: none
+
+	ringpm install closure
+
+
+Using closure() capture variables by value. 
+
+For lists/objects we can change this behaviour (optional) using the Ref() function. 
+
+The first parameter to closure() is a list of variables to capture we can type
+
+* :variable_name
+* :variable_name = value
+* :variable_name = ref(list/object)
+
+The second parameter is an anonymous function that could use the captured variables
+
+Example:
+
+.. code-block:: ring
+
+	load "closure.ring"
+
+	func main
+
+		inc = increment()
+
+		? isClosure(inc) # Prints 1
+
+		? invoke(inc) # Prints 11
+		? invoke(inc) # Prints 12
+
+		for m = 1 to 1000
+			invoke(inc)
+		next
+
+		? invoke(inc)
+
+		dec = decrement()
+		? invoke(dec)
+		? invoke(inc)
+		? invoke(dec)
+
+	func increment
+
+		x = 10
+
+		return closure([:x], func {
+			x++
+			return x
+		})
+
+	func decrement
+
+		x = 100
+
+		return closure([:x], func {
+			x--
+			return x
+		})
+
+Output:
+
+.. code-block:: none
+
+	1
+	11
+	12
+	1013
+	99
+	1014
+	98
 
 .. index:: 
 	pair: What is new in Ring 1.26?; Rust Bindings for Ring
@@ -328,82 +411,6 @@ Added more functions to deliver full support for RayLib 5.0
 | PollInputEvents              | SwapScreenBuffer          | SetAudioStreamBufferSizeDefault | UnloadModelAnimations            |
 +------------------------------+---------------------------+---------------------------------+----------------------------------+
 
-
-.. index:: 
-	pair: What is new in Ring 1.26?; Closure Package
-
-Closure Library
-===============
-
-We can create an anonymous function that capture specific variables. 
-
-Using closure() capture variables by value. 
-
-For lists/objects we can change this behaviour (optional) using the Ref() function. 
-
-The first parameter to closure() is a list of variables to capture we can type
-
-* :variable_name
-* :variable_name = value
-* :variable_name = ref(list/object)
-
-The second parameter is an anonymous function that could use the captured variables
-
-Example:
-
-.. code-block:: ring
-
-	load "closure.ring"
-
-	func main
-
-		inc = increment()
-
-		? isClosure(inc) # Prints 1
-
-		? invoke(inc) # Prints 11
-		? invoke(inc) # Prints 12
-
-		for m = 1 to 1000
-			invoke(inc)
-		next
-
-		? invoke(inc)
-
-		dec = decrement()
-		? invoke(dec)
-		? invoke(inc)
-		? invoke(dec)
-
-	func increment
-
-		x = 10
-
-		return closure([:x], func {
-			x++
-			return x
-		})
-
-	func decrement
-
-		x = 100
-
-		return closure([:x], func {
-			x--
-			return x
-		})
-
-Output:
-
-.. code-block:: none
-
-	1
-	11
-	12
-	1013
-	99
-	1014
-	98
 
 .. index:: 
 	pair: What is new in Ring 1.26?; More Resources
