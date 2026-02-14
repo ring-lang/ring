@@ -240,7 +240,7 @@ Example:
 
 	see oat_hash("hello") + nl
 
-	# Jenkins hash function - https://en.wikipedia.org/wiki/Jenkins_hash_function
+	# Jenkins hash function
 	func oat_hash cKey	
 		h = 0
 		for x in cKey

@@ -176,8 +176,6 @@ All of this will be deleted directly after the end of the function call (end of 
 In most cases, the SBMM and Escape Analysis is used.
 We directly know what will be deleted and what will remain in the memory.
 
-https://en.wikipedia.org/wiki/Escape_analysis
-
 In some cases Ring may use Reference Counting.
 
 For example when we pass a list and sub list to a function

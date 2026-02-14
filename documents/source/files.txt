@@ -254,7 +254,6 @@ Example:
 	next
 
 	/*
-	** Read : https://en.wikipedia.org/wiki/Device_file#Device_files
 	** The next code is not portable, we can use iswindows() before 
 	** using it and we can write special code for each operating system.
 	*/
