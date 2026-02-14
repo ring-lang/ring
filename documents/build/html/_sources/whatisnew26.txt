@@ -25,7 +25,6 @@ Ring 1.26 comes with the next features!
 * Prompt Driven Development
 * Better RingQt
 * Better RingRayLib
-* More Resources
 * More Improvements
 
 
@@ -411,29 +410,15 @@ Added more functions to deliver full support for RayLib 5.0
 | PollInputEvents              | SwapScreenBuffer          | SetAudioStreamBufferSizeDefault | UnloadModelAnimations            |
 +------------------------------+---------------------------+---------------------------------+----------------------------------+
 
-
-.. index:: 
-	pair: What is new in Ring 1.26?; More Resources
-
-More Resources
-==============
-
-The next samples are added:
-
-* ring/samples/UsingClosure/test1.ring
-* ring/samples/UsingQt/Layouts/qformlayout.ring
-
-The following packages have been added to the RingPM registry.
-
-* Proc: Subprocess management library
-* Archive: Archive manipulation library
-
 .. index:: 
 	pair: What is new in Ring  1.26; More Improvements
 
 More Improvements
 =================
 
+* Added (Proc) package to RingPM registry - Subprocess management library
+* Added (Archive) package to RingPM registry - Archive manipulation library
+* Added Sample - ring/samples/UsingQt/Layouts/qformlayout.ring
 * Building - build/buildgcc.sh - improve POSIX compliance
 * Building - language/CMakeLists.txt - Explicitly set project language to C
 * NaturalLib - Improved implementation for supporting shared keywords across commands
