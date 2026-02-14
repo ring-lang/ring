@@ -508,9 +508,18 @@ func dave_drawShootingStars
 // =============================================================
 
 func dave_drawRainbowTitle title, startX, startY, fontSize
-    // Draw each character with a different hue that shifts over time
-    charX = startX
+    // First pass: calculate total width from individual characters
     nChars = len(title)
+    totalW = 0
+    for i = 1 to nChars
+        ch = substr(title, i, 1)
+        totalW += MeasureText(ch, fontSize)
+    next
+
+    // Center based on actual total width
+    charX = floor(SCREEN_W / 2 - totalW / 2)
+
+    // Second pass: draw each character
     for i = 1 to nChars
         ch = substr(title, i, 1)
         chW = MeasureText(ch, fontSize)
