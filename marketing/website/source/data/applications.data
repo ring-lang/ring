@@ -138,19 +138,19 @@ aApplications = [
 	["General Tools",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/imagepixel" >Image Pixel Application</a>',
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/imagepixel" >Image Pixel</a>',
 				'<img src="images/imagepixel.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" >Desktop Screen Shot Application</a>',
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" >Desktop Screen Shot</a>',
 				'<img src="images/dssapp.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" >Merge Two Files (Line by Line)</a>',
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" >Merge Two Files</a>',
 				'<img src="images/mergetwofiles.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/readfiles" >Read Files (Hexadeciamal/Characters)</a>',
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/readfiles" >Read Files</a>',
 				'<img src="images/readfiles.png" width="100%">'
 			],
 			[
@@ -158,15 +158,15 @@ aApplications = [
 				'<img src="images/newcalc2.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener" >Google URL Shortener</a>',
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener" >URL Shortener</a>',
 				'<img src="images/urlapp.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/winstartupmanager" >Windows Startup Manager</a>',
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/winstartupmanager" >Startup Manager</a>',
 				'<img src="images/winstartupman.jpg" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" >Video Music Player</a>',
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" >Video Player</a>',
 				'<img src="images/videomusicplayer.jpg" width="100%">'
 			],
 			[
