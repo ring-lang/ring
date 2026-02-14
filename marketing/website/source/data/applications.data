@@ -1,37 +1,57 @@
 aApplications = [ 
-	["Arabic Applications",
+	["Tools (GUI)",
 		[
 			[
-				'<a href="https://github.com/ringpackages/werdy2" >Werdy Application</a>',
-				'<img src="images/werdy2.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" >Ring Notepad</a>',
+				'<img src="images/ringnotepad.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" >Arabic Poetry Analysis</a>',
-				'<img src="images/poetryanalysis.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" >Ring Form Designer</a>',
+				'<img src="images/ringformdesigner.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/mohannad-aldulaimi/quran_ring" >Listen to Quran</a>',
-				'<img src="images/listentoquran.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" >Find in files</a>',
+				'<img src="images/findinfiles.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/mohannad-aldulaimi/Adhkar_Ring_App" > Adhkar (WebAssembly)</a>',
-				'<img src="images/adhkarapp.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" >Ring REPL</a>',
+				'<img src="images/ringrepl.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/mohannad-aldulaimi/praytimes" > Pray Times</a>',
-				'<img src="images/praytimes.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" >String To Constant</a>',
+				'<img src="images/string2constant.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" >Qt Class Converter</a>',
+				'<img src="images/qtconverter.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" >Gold Magic 800 Level Editor</a>',
+				'<img src="images/gm800le.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/ringpmgui" >Ring Package Manager (GUI)</a>',
+				'<img src="images/ringpmgui.png" width="100%">'
 			]
 		]
 	],
-	["GUI for ML Models",
+	["Using RayLib",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" >Chess Endgame Application</a>',
-				'<img src="images/chessendgame1.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" >Space Shooter Game</a>',
+				'<img src="images/spaceshootergame.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" >Citations Prediction Application</a>',
-				'<img src="images/predictionapp1.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" >Pong2 Game</a>',
+				'<img src="images/pong2game.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" >Typing Quiz</a>',
+				'<img src="images/typingquiz.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/samples/Algorithms/path_finding_bfs_usingref.ring" >Path Finding</a>',
+				'<img src="images/findpath.png" width="100%">'
 			]
 		]
 	],
@@ -76,26 +96,6 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/towersofhanoi" >Towers of Hanoi</a>',
 				'<img src="images/towersofhanoi.png" width="100%">'
-			]
-		]
-	],
-	["Using RayLib",
-		[
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" >Space Shooter Game</a>',
-				'<img src="images/spaceshootergame.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" >Pong2 Game</a>',
-				'<img src="images/pong2game.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" >Typing Quiz</a>',
-				'<img src="images/typingquiz.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/samples/Algorithms/path_finding_bfs_usingref.ring" >Path Finding</a>',
-				'<img src="images/findpath.png" width="100%">'
 			]
 		]
 	],
@@ -375,39 +375,15 @@ aApplications = [
 			]
 		]
 	],
-	["Tools (GUI)",
+	["GUI for ML Models",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" >Ring Notepad</a>',
-				'<img src="images/ringnotepad.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" >Chess Endgame Application</a>',
+				'<img src="images/chessendgame1.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" >Ring Form Designer</a>',
-				'<img src="images/ringformdesigner.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" >Find in files</a>',
-				'<img src="images/findinfiles.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" >Ring REPL</a>',
-				'<img src="images/ringrepl.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" >String To Constant</a>',
-				'<img src="images/string2constant.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" >Qt Class Converter</a>',
-				'<img src="images/qtconverter.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" >Gold Magic 800 Level Editor</a>',
-				'<img src="images/gm800le.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/ringpmgui" >Ring Package Manager (GUI)</a>',
-				'<img src="images/ringpmgui.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" >Citations Prediction Application</a>',
+				'<img src="images/predictionapp1.png" width="100%">'
 			]
 		]
 	],

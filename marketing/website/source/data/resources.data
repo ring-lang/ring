@@ -48,6 +48,41 @@
 
 			]
 	     ],
+	     ["More Projects",[
+				[
+					'<a href="https://idrassi.github.io/MonoRing/" >MonoRing (Monolithic Distribution)</a>'
+				],
+				[
+					'<a href="https://github.com/PWCT/PWCT2" >Programming Without Coding Technology 2.0</a>'
+				],
+				[
+					'<a href="https://github.com/ringpackages/myctiger" >MyCTiger (Use Ring for generating/building C programs)</a>'
+				]
+			]
+	     ],
+	     ["Arabic Applications",[
+			[
+				'<a href="https://github.com/ringpackages/werdy2" >Werdy Application</a>',
+				'<img src="images/werdy2.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" >Arabic Poetry Analysis</a>',
+				'<img src="images/poetryanalysis.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/mohannad-aldulaimi/quran_ring" >Listen to Quran</a>',
+				'<img src="images/listentoquran.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/mohannad-aldulaimi/Adhkar_Ring_App" > Adhkar (WebAssembly)</a>',
+				'<img src="images/adhkarapp.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/mohannad-aldulaimi/praytimes" > Pray Times</a>',
+				'<img src="images/praytimes.png" width="100%">'
+			]
+		]
+		],
 	     ["Arabic Resources",[
 				[
 					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" >Ring Lectures (Quick introduction to Ring)</a>'
@@ -75,18 +110,6 @@
 				],
 				[
 					'<a href="http://ring-lang.github.io/ref/GhanemBookUsingRing.pdf" >Book: Using Ring to analysis the Arabic Poetry (The Book)</a>'
-				]
-			]
-	     ],
-	     ["More Projects",[
-				[
-					'<a href="https://idrassi.github.io/MonoRing/" >MonoRing (Monolithic Distribution)</a>'
-				],
-				[
-					'<a href="https://github.com/PWCT/PWCT2" >Programming Without Coding Technology 2.0</a>'
-				],
-				[
-					'<a href="https://github.com/ringpackages/myctiger" >MyCTiger (Use Ring for generating/building C programs)</a>'
 				]
 			]
 	     ]
