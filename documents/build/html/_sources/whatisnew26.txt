@@ -21,6 +21,7 @@ Ring 1.26 comes with the next features!
 * CodeRooms3D Game
 * RingSlint Package
 * Archive Package
+* Proc Package
 * Closure Package
 * Rust Bindings for Ring
 * Prompt Driven Development
@@ -126,7 +127,6 @@ Install:
 
 	ringpm install archive
 
-
 Example:
 
 .. code-block:: ring
@@ -158,6 +158,45 @@ Example:
 
 	writer.close()
 
+.. index:: 
+	pair: What is new in Ring 1.26?; Proc Package
+
+Proc Package
+============
+
+Subprocess management library
+
+* Create Subprocesses: Spawn child processes with full control over I/O
+* I/O Redirection: Read/write to subprocess stdin, stdout, stderr
+* Environment Control: Pass custom environment variables
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level API: Simple proc_shell() and proc_run() for common use cases
+* OOP Interface: Clean object-oriented Process and Shell classes
+
+Install:
+
+.. code-block:: none
+
+	ringpm install proc
+
+Example:
+
+.. code-block:: ring
+
+	load "proc.ring"
+
+	// Using Process class
+	proc = new Process(["cat"], PROC_SEARCH_USER_PATH)
+	proc.writeLine("Hello from Ring!")
+	proc.closeStdin()
+	proc.join()
+	? proc.stdout()
+	proc.destroy()
+
+	// Using Shell class
+	shell = new Shell
+	? shell.capture("pwd")              // Get output
+	? shell.success("test -f file.txt") // Check if command succeeded
 
 .. index:: 
 	pair: What is new in Ring 1.26?; Closure Package
@@ -472,7 +511,6 @@ Added more functions to deliver full support for RayLib 5.0
 More Improvements
 =================
 
-* Added (Proc) package to RingPM registry - Subprocess management library
 * Added Sample - ring/samples/UsingQt/Layouts/qformlayout.ring
 * Building - build/buildgcc.sh - improve POSIX compliance
 * Building - language/CMakeLists.txt - Explicitly set project language to C

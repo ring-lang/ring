@@ -191,6 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#coderooms3d-game">CodeRooms3D Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringslint-package">RingSlint Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#archive-package">Archive Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proc-package">Proc Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#closure-package">Closure Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-bindings-for-ring">Rust Bindings for Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prompt-driven-development">Prompt Driven Development</a></li>
@@ -243,6 +244,7 @@
 <li><p>CodeRooms3D Game</p></li>
 <li><p>RingSlint Package</p></li>
 <li><p>Archive Package</p></li>
+<li><p>Proc Package</p></li>
 <li><p>Closure Package</p></li>
 <li><p>Rust Bindings for Ring</p></li>
 <li><p>Prompt Driven Development</p></li>
@@ -332,8 +334,41 @@ line to form a valid program.</p>
 </pre></div>
 </div>
 </section>
+<section id="proc-package">
+<span id="index-8"></span><h2>Proc Package<a class="headerlink" href="#proc-package" title="Permalink to this heading"></a></h2>
+<p>Subprocess management library</p>
+<ul class="simple">
+<li><p>Create Subprocesses: Spawn child processes with full control over I/O</p></li>
+<li><p>I/O Redirection: Read/write to subprocess stdin, stdout, stderr</p></li>
+<li><p>Environment Control: Pass custom environment variables</p></li>
+<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
+<li><p>High-Level API: Simple proc_shell() and proc_run() for common use cases</p></li>
+<li><p>OOP Interface: Clean object-oriented Process and Shell classes</p></li>
+</ul>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install proc
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;proc.ring&quot;</span>
+
+<span class="c1">// Using Process class</span>
+<span class="n">proc</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Process</span><span class="p">([</span><span class="s2">&quot;cat&quot;</span><span class="p">],</span> <span class="n">PROC_SEARCH_USER_PATH</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="nf">writeLine</span><span class="p">(</span><span class="s2">&quot;Hello from Ring!&quot;</span><span class="p">)</span>
+<span class="n">proc</span><span class="o">.</span><span class="nf">closeStdin</span><span class="p">()</span>
+<span class="n">proc</span><span class="o">.</span><span class="nf">join</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">proc</span><span class="o">.</span><span class="nf">stdout</span><span class="p">()</span>
+<span class="n">proc</span><span class="o">.</span><span class="nf">destroy</span><span class="p">()</span>
+
+<span class="c1">// Using Shell class</span>
+<span class="n">shell</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Shell</span>
+<span class="o">?</span> <span class="n">shell</span><span class="o">.</span><span class="nf">capture</span><span class="p">(</span><span class="s2">&quot;pwd&quot;</span><span class="p">)</span>              <span class="c1">// Get output</span>
+<span class="o">?</span> <span class="n">shell</span><span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="s2">&quot;test -f file.txt&quot;</span><span class="p">)</span> <span class="c1">// Check if command succeeded</span>
+</pre></div>
+</div>
+</section>
 <section id="closure-package">
-<span id="index-8"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
 <p>We can create an anonymous function that capture specific variables.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install closure
@@ -402,7 +437,7 @@ line to form a valid program.</p>
 </div>
 </section>
 <section id="rust-bindings-for-ring">
-<span id="index-9"></span><h2>Rust Bindings for Ring<a class="headerlink" href="#rust-bindings-for-ring" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Rust Bindings for Ring<a class="headerlink" href="#rust-bindings-for-ring" title="Permalink to this heading"></a></h2>
 <p>URL: <a class="reference external" href="https://github.com/ysdragon/ring-lang-rs">https://github.com/ysdragon/ring-lang-rs</a></p>
 <ul class="simple">
 <li><p>Write Ring extensions in Rust (Native extensions with Rust’s safety and performance)</p></li>
@@ -412,7 +447,7 @@ line to form a valid program.</p>
 <img alt="Ring Rust" src="_images/ringrust.png" />
 </section>
 <section id="prompt-driven-development">
-<span id="index-10"></span><h2>Prompt Driven Development<a class="headerlink" href="#prompt-driven-development" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Prompt Driven Development<a class="headerlink" href="#prompt-driven-development" title="Permalink to this heading"></a></h2>
 <p>Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language</p>
 <p>URL: <a class="reference external" href="https://arxiv.org/abs/2601.17584">https://arxiv.org/abs/2601.17584</a></p>
 <p>This study presents an empirical analysis of developing a 7420 line Terminal User Interface
@@ -435,7 +470,7 @@ ringpm run TUIFrameworkUsingClaudeCode
 <img alt="Ring TUI" src="_images/ringtui.png" />
 </section>
 <section id="better-ringqt">
-<span id="index-11"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The next classes are added</p></li>
 </ol>
@@ -559,7 +594,7 @@ ringpm run TUIFrameworkUsingClaudeCode
 </ol>
 </section>
 <section id="better-ringraylib">
-<span id="index-12"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>Added more functions to deliver full support for RayLib 5.0</p>
 <table class="docutils align-default">
 <thead>
@@ -824,9 +859,8 @@ ringpm run TUIFrameworkUsingClaudeCode
 </table>
 </section>
 <section id="more-improvements">
-<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Added (Proc) package to RingPM registry - Subprocess management library</p></li>
 <li><p>Added Sample - ring/samples/UsingQt/Layouts/qformlayout.ring</p></li>
 <li><p>Building - build/buildgcc.sh - improve POSIX compliance</p></li>
 <li><p>Building - language/CMakeLists.txt - Explicitly set project language to C</p></li>
