@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#linedrawing3d-game">LineDrawing3D Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#coderooms3d-game">CodeRooms3D Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringslint-package">RingSlint Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archive-package">Archive Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#closure-package">Closure Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rust-bindings-for-ring">Rust Bindings for Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prompt-driven-development">Prompt Driven Development</a></li>
@@ -241,6 +242,7 @@
 <li><p>LineDrawing3D Game</p></li>
 <li><p>CodeRooms3D Game</p></li>
 <li><p>RingSlint Package</p></li>
+<li><p>Archive Package</p></li>
 <li><p>Closure Package</p></li>
 <li><p>Rust Bindings for Ring</p></li>
 <li><p>Prompt Driven Development</p></li>
@@ -284,8 +286,54 @@ line to form a valid program.</p>
 </div>
 <img alt="Ring Slint" src="_images/ringslint.png" />
 </section>
+<section id="archive-package">
+<span id="index-7"></span><h2>Archive Package<a class="headerlink" href="#archive-package" title="Permalink to this heading"></a></h2>
+<p>Archive manipulation library</p>
+<ul class="simple">
+<li><p>Multiple Formats: TAR, ZIP, 7-Zip, CPIO, ISO9660, RAR (read-only)</p></li>
+<li><p>Multiple Compressions: GZIP, BZIP2, XZ, LZMA, ZSTD, LZ4</p></li>
+<li><p>Encryption Support: AES-256, AES-128, ZipCrypt for ZIP archives</p></li>
+<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
+<li><p>High-Level API: Simple archive_extract(), archive_create(), archive_list()</p></li>
+<li><p>OOP Interface: Clean ArchiveReader, ArchiveWriter, Archive, ArchiveEntry classes</p></li>
+<li><p>Static Linking: All dependencies built-in, no external libraries needed</p></li>
+</ul>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install archive
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;archive.ring&quot;</span>
+
+<span class="c1">// OOP Interface - Reading</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">ArchiveReader</span><span class="p">(</span><span class="s2">&quot;myarchive.tar.gz&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="nf">nextEntry</span><span class="p">()</span>
+        <span class="o">?</span> <span class="s2">&quot;File: &quot;</span> <span class="o">+</span> <span class="n">reader</span><span class="o">.</span><span class="nf">entryPath</span><span class="p">()</span>
+        <span class="o">?</span> <span class="s2">&quot;Size: &quot;</span> <span class="o">+</span> <span class="n">reader</span><span class="o">.</span><span class="nf">entrySize</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reader</span><span class="o">.</span><span class="nf">entryIsFile</span><span class="p">()</span>
+                <span class="o">?</span> <span class="s2">&quot;Content: &quot;</span> <span class="o">+</span> <span class="n">reader</span><span class="o">.</span><span class="nf">readAll</span><span class="p">()</span>
+        <span class="k">ok</span>
+<span class="k">end</span>
+
+<span class="n">reader</span><span class="o">.</span><span class="nf">close</span><span class="p">()</span>
+
+<span class="c1">// OOP Interface - Writing</span>
+
+<span class="n">writer</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">ArchiveWriter</span><span class="p">(</span><span class="n">ARCHIVE_FORMAT_ZIP</span><span class="p">,</span> <span class="n">ARCHIVE_COMPRESSION_NONE</span><span class="p">)</span>
+
+<span class="n">writer</span><span class="o">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">&quot;output.zip&quot;</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="nf">addFile</span><span class="p">(</span><span class="s2">&quot;hello.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="nf">addFile</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">,</span> <span class="s1">&#39;{&quot;key&quot;: &quot;value&quot;}&#39;</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="nf">addDirectory</span><span class="p">(</span><span class="s2">&quot;subdir/&quot;</span><span class="p">)</span>
+
+<span class="n">writer</span><span class="o">.</span><span class="nf">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 <section id="closure-package">
-<span id="index-7"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Closure Package<a class="headerlink" href="#closure-package" title="Permalink to this heading"></a></h2>
 <p>We can create an anonymous function that capture specific variables.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install closure
@@ -354,7 +402,7 @@ line to form a valid program.</p>
 </div>
 </section>
 <section id="rust-bindings-for-ring">
-<span id="index-8"></span><h2>Rust Bindings for Ring<a class="headerlink" href="#rust-bindings-for-ring" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Rust Bindings for Ring<a class="headerlink" href="#rust-bindings-for-ring" title="Permalink to this heading"></a></h2>
 <p>URL: <a class="reference external" href="https://github.com/ysdragon/ring-lang-rs">https://github.com/ysdragon/ring-lang-rs</a></p>
 <ul class="simple">
 <li><p>Write Ring extensions in Rust (Native extensions with Rust’s safety and performance)</p></li>
@@ -364,7 +412,7 @@ line to form a valid program.</p>
 <img alt="Ring Rust" src="_images/ringrust.png" />
 </section>
 <section id="prompt-driven-development">
-<span id="index-9"></span><h2>Prompt Driven Development<a class="headerlink" href="#prompt-driven-development" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Prompt Driven Development<a class="headerlink" href="#prompt-driven-development" title="Permalink to this heading"></a></h2>
 <p>Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language</p>
 <p>URL: <a class="reference external" href="https://arxiv.org/abs/2601.17584">https://arxiv.org/abs/2601.17584</a></p>
 <p>This study presents an empirical analysis of developing a 7420 line Terminal User Interface
@@ -387,7 +435,7 @@ ringpm run TUIFrameworkUsingClaudeCode
 <img alt="Ring TUI" src="_images/ringtui.png" />
 </section>
 <section id="better-ringqt">
-<span id="index-10"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The next classes are added</p></li>
 </ol>
@@ -511,7 +559,7 @@ ringpm run TUIFrameworkUsingClaudeCode
 </ol>
 </section>
 <section id="better-ringraylib">
-<span id="index-11"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>Added more functions to deliver full support for RayLib 5.0</p>
 <table class="docutils align-default">
 <thead>
@@ -776,10 +824,9 @@ ringpm run TUIFrameworkUsingClaudeCode
 </table>
 </section>
 <section id="more-improvements">
-<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Added (Proc) package to RingPM registry - Subprocess management library</p></li>
-<li><p>Added (Archive) package to RingPM registry - Archive manipulation library</p></li>
 <li><p>Added Sample - ring/samples/UsingQt/Layouts/qformlayout.ring</p></li>
 <li><p>Building - build/buildgcc.sh - improve POSIX compliance</p></li>
 <li><p>Building - language/CMakeLists.txt - Explicitly set project language to C</p></li>

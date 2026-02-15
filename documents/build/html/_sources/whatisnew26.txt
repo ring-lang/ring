@@ -20,6 +20,7 @@ Ring 1.26 comes with the next features!
 * LineDrawing3D Game
 * CodeRooms3D Game
 * RingSlint Package
+* Archive Package
 * Closure Package
 * Rust Bindings for Ring
 * Prompt Driven Development
@@ -102,6 +103,61 @@ Install:
 
 .. image:: ringslint.png
 	:alt: Ring Slint
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Archive Package
+
+Archive Package
+===============
+
+Archive manipulation library
+
+* Multiple Formats: TAR, ZIP, 7-Zip, CPIO, ISO9660, RAR (read-only)
+* Multiple Compressions: GZIP, BZIP2, XZ, LZMA, ZSTD, LZ4
+* Encryption Support: AES-256, AES-128, ZipCrypt for ZIP archives
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level API: Simple archive_extract(), archive_create(), archive_list()
+* OOP Interface: Clean ArchiveReader, ArchiveWriter, Archive, ArchiveEntry classes
+* Static Linking: All dependencies built-in, no external libraries needed
+
+Install:
+
+.. code-block:: none
+
+	ringpm install archive
+
+
+Example:
+
+.. code-block:: ring
+
+	load "archive.ring"
+
+	// OOP Interface - Reading
+
+	reader = new ArchiveReader("myarchive.tar.gz")
+
+	while reader.nextEntry()
+		? "File: " + reader.entryPath()
+		? "Size: " + reader.entrySize()
+    		if reader.entryIsFile()
+			? "Content: " + reader.readAll()
+    		ok
+	end
+
+	reader.close()
+
+	// OOP Interface - Writing
+
+	writer = new ArchiveWriter(ARCHIVE_FORMAT_ZIP, ARCHIVE_COMPRESSION_NONE)
+
+	writer.open("output.zip")
+	writer.addFile("hello.txt", "Hello World!")
+	writer.addFile("data.json", '{"key": "value"}')
+	writer.addDirectory("subdir/")
+
+	writer.close()
+
 
 .. index:: 
 	pair: What is new in Ring 1.26?; Closure Package
@@ -417,7 +473,6 @@ More Improvements
 =================
 
 * Added (Proc) package to RingPM registry - Subprocess management library
-* Added (Archive) package to RingPM registry - Archive manipulation library
 * Added Sample - ring/samples/UsingQt/Layouts/qformlayout.ring
 * Building - build/buildgcc.sh - improve POSIX compliance
 * Building - language/CMakeLists.txt - Explicitly set project language to C
