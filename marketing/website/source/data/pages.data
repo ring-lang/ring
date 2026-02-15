@@ -5,6 +5,7 @@ C_HEADER = "template/header.template"   C_FOOTER = "template/footer.template"
 aPages = [
 	  "template/index.template",
 	  "template/download.template",
+	  "template/download125.template",
 	  "template/download124.template",
 	  "template/download123.template",
 	  "template/download122.template",
