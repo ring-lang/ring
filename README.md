@@ -47,17 +47,17 @@ The language support these paradigms with new practical techniques on top of Obj
 
 You get the language constructs ready for use to create domain-specific languages in a fraction of time. 
 
-* [Aim](https://ring-lang.github.io/doc1.25/introduction.html#motivation-1)
+* [Aim](https://ring-lang.github.io/doc1.26/introduction.html#motivation-1)
 
-* [Ring Article](https://ring-lang.github.io/doc1.25/languagedesign.html)
+* [Ring Article](https://ring-lang.github.io/doc1.26/languagedesign.html)
 
-* [Syntax Flexibility](https://ring-lang.github.io/doc1.25/syntaxflexibility.html)
+* [Syntax Flexibility](https://ring-lang.github.io/doc1.26/syntaxflexibility.html)
 
-* [The Declarative Approach](https://ring-lang.github.io/doc1.25/declarative.html)
+* [The Declarative Approach](https://ring-lang.github.io/doc1.26/declarative.html)
 
-* [Natural Language Programming](https://ring-lang.github.io/doc1.25/natural.html)
+* [Natural Language Programming](https://ring-lang.github.io/doc1.26/natural.html)
 
-* [Natural Language Programming Library](https://ring-lang.github.io/doc1.25/naturallibrary.html)
+* [Natural Language Programming Library](https://ring-lang.github.io/doc1.26/naturallibrary.html)
 
 * [Programming Without Coding Technology](https://github.com/pwct/pwct2)
 
