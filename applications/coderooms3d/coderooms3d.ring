@@ -48,14 +48,13 @@ monIdx = GetCurrentMonitor()
 monW = GetMonitorWidth(monIdx)
 monH = GetMonitorHeight(monIdx)
 
-InitWindow(monW, monH, "Code Rooms 3D - Programming Puzzle Game")
+InitWindow(monW, monH, "Code Rooms 3D")
 SetTargetFPS(60)
 ToggleFullscreen()
 BeginDrawing()
 ClearBackground(RAYLIBColor(0, 0, 0, 255))
 EndDrawing()
  
-
 SCREEN_W = GetScreenWidth()
 SCREEN_H = GetScreenHeight()
 

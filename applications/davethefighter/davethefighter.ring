@@ -76,18 +76,22 @@ load "draw.ring"
 load "hud.ring"
 
 // =============================================================
-// Main
+// Initialize Window & Fullscreen
 // =============================================================
 
-InitWindow(SCREEN_W, SCREEN_H, "Dave the Fighter - 3D Action Platformer - RingRayLib")
 monIdx = GetCurrentMonitor()
 monW = GetMonitorWidth(monIdx)
 monH = GetMonitorHeight(monIdx)
-SetWindowSize(monW, monH)
-ToggleFullScreen()
+
+InitWindow(monW, monH, "Dave the Fighter")
+SetTargetFPS(60)
+ToggleFullscreen()
+BeginDrawing()
+ClearBackground(RAYLIBColor(0, 0, 0, 255))
+EndDrawing()
+ 
 SCREEN_W = GetScreenWidth()
 SCREEN_H = GetScreenHeight()
-SetTargetFPS(60)
 
 dave_initAudio()
 dave_loadSounds()

@@ -44,27 +44,25 @@ load "puzzle.ring"
 load "render.ring"
 
 // =============================================================
-// Initialization
+// Initialize Window & Fullscreen
 // =============================================================
 
-// Initialize window first to query monitor info
-SetConfigFlags(FLAG_WINDOW_RESIZABLE)
-InitWindow(800, 600, "Line Drawing 3D - Puzzle Maze Explorer")
+monIdx = GetCurrentMonitor()
+monW = GetMonitorWidth(monIdx)
+monH = GetMonitorHeight(monIdx)
 
-// Get maximum supported resolution from current monitor
-curMonitor = GetCurrentMonitor()
-monW = GetMonitorWidth(curMonitor)
-monH = GetMonitorHeight(curMonitor)
-if monW > 0 and monH > 0
-    SCREEN_W = monW
-    SCREEN_H = monH
-ok
+InitWindow(monW, monH, "Line Drawing 3D")
+SetTargetFPS(60)
+ToggleFullscreen()
+BeginDrawing()
+ClearBackground(RAYLIBColor(0, 0, 0, 255))
+EndDrawing()
+ 
+SCREEN_W = GetScreenWidth()
+SCREEN_H = GetScreenHeight()
+
 centerX = SCREEN_W / 2
 centerY = SCREEN_H / 2
-
-// Set to fullscreen at maximum resolution
-SetWindowSize(SCREEN_W, SCREEN_H)
-ToggleFullscreen()
 
 SetTargetFPS(60)
 HideCursor()

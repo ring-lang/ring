@@ -50,18 +50,22 @@ load "music.ring"
 load "globals.ring"
 
 // =============================================================
-// Main
+// Initialize Window & Fullscreen
 // =============================================================
 
-InitWindow(SCREEN_W, SCREEN_H, "Ring 3D Tank Battle - Ultimate Edition - RingRayLib")
 monIdx = GetCurrentMonitor()
 monW = GetMonitorWidth(monIdx)
 monH = GetMonitorHeight(monIdx)
-SetWindowSize(monW, monH)
-ToggleFullScreen()
+
+InitWindow(monW, monH, "Tank3D")
+SetTargetFPS(60)
+ToggleFullscreen()
+BeginDrawing()
+ClearBackground(RAYLIBColor(0, 0, 0, 255))
+EndDrawing()
+ 
 SCREEN_W = GetScreenWidth()
 SCREEN_H = GetScreenHeight()
-SetTargetFPS(60)
 
 // Initialize audio
 tank_initAudio()
