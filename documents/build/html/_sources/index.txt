@@ -143,6 +143,7 @@ Contents:
    Release Notes: Version 1.24 <whatisnew24>
    Release Notes: Version 1.25 <whatisnew25>
    Release Notes: Version 1.26 <whatisnew26>
+   Release Notes: Version 1.27 <whatisnew27>
    Using Other Code Editors <codeeditors>
    Frequently Asked Questions (FAQ) <faq>
    Building From Source Code <sourcecode>
