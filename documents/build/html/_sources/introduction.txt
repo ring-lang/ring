@@ -198,6 +198,8 @@ Ring 1.25 is released on January 6, 2026
 
 Ring 1.26 is released on February 15, 2026
 
+This is Ring 1.27 documentation!
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -344,7 +346,7 @@ License
 
 The Ring Programming Language
 
-Version 1.26.0
+Version 1.27.0
 
 The MIT License (MIT)
 
