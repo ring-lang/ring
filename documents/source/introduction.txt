@@ -51,7 +51,7 @@ a different language that comes with new ideas and intelligent implementation.
 Motivation (2)
 ==============
 
-In 2009-2010, I developed a small domain-specific programming language for GUI development called Supernova.
+In 2009-2010, I developed a small `domain-specific programming language for GUI development called Supernova <https://supernova.sourceforge.net/>`_.
 I invested many months of my time to create this language and get something that I can use for small programs.
 After creating Supernova, I realized that if the programming language have some new features on the top of object-oriented programming, it could help me create a domain-specific language like Supernova in days instead of many months. So Ring as a language provide these features, and using Ring we can create Supernova and enjoy its features in real-world applications development. Ring is designed to be a superset of Supernova and enable us to create many domain-specific languages.
 
