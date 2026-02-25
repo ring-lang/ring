@@ -176,6 +176,7 @@ We provide instructions for building on the next platforms:-
 * [Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming](https://www.mdpi.com/2079-9292/13/23/4627)
 * [PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion](https://www.mdpi.com/2076-3417/15/3/1521)
 * [Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications](https://arxiv.org/abs/2509.20426) 
+* [Prompt-Driven Development with Claude Code: Developing a TUI Framework for the Ring Programming Language](https://www.mdpi.com/2079-9292/15/4/903)
 
 # 📜License 
 
