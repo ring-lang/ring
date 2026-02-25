@@ -86,7 +86,7 @@
 			<a id="ringarticle5" href="doc1.26/declarative.html"  class="btn btn-default"  style="width:100%">The Declarative Approach</a> 
 			<a id="ringarticle3" href="doc1.26/natural.html"  class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
 			<a id="ringarticle2" href="doc1.26/naturallibrary.html"  class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
-			<a id="ringpwct"     href="https://github.com/PWCT/pwct2"  class="btn btn-default"  style="width:100%">Programming Without Coding Technology (PWCT)</a> 
+			<a id="ringpwct"     href="https://pwct.github.io"  class="btn btn-default"  style="width:100%">Programming Without Coding Technology (PWCT)</a> 
 		
 			
 			</div>
