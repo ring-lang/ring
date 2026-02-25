@@ -59,7 +59,7 @@ You get the language constructs ready for use to create domain-specific language
 
 * [Natural Language Programming Library](https://ring-lang.github.io/doc1.26/naturallibrary.html)
 
-* [Programming Without Coding Technology](https://github.com/pwct/pwct2)
+* [Programming Without Coding Technology](https://pwct.github.io)
 
 # 🔋Batteries Included
 
