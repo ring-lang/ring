@@ -1,4 +1,5 @@
 aNews = [
+  ["February 27, 2026",'<a href="https://github.com/ringpackages/ring-python"> RingPython: Python bindings for the Ring Programming Language</a>'],
   ["February 25, 2026",'<a href="https://www.einpresswire.com/article/895318105/using-the-ring-programming-language-and-softanza-library-at-espa-mt-and-sonibank"> Using the Ring Programming Language and Softanza Library at ESPA‑MT and SONIBANK</a>'],
   ["February 23, 2026",'<a href="https://www.mdpi.com/2079-9292/15/4/903"> Prompt-Driven Development with Claude Code: Developing a TUI Framework for the Ring Programming Language</a>'],
   ["February 22, 2026",'<a href="https://www.einpresswire.com/article/894469675/ring-programming-language-team-honors-a-decade-of-contributions-from-applications-master-bert-mariani-2016-2026"> Ring Team Honors a Decade of Contributions from Applications Master Bert Mariani</a>'],
