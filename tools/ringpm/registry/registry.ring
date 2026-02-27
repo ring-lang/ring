@@ -958,5 +958,9 @@ aPackagesRegistry = [
 	[ :name = "linedrawing3d",
 	  :description = "The LineDrawing3D game developed using Ring and RingRayLib",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring-python",
+	  :description = "Python bindings for the Ring Programming Language",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
