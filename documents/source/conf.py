@@ -38,8 +38,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     "sphinx_rtd_theme",
-    "sphinx_copybutton",
-    "sphinx_rtd_dark_mode"
+    "sphinx_copybutton"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
