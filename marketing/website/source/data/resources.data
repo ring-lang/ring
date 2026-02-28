@@ -16,6 +16,9 @@
 					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" >Video Tutorials (Getting Started!)</a>'
 				],
 				[
+					'<a href="http://ring-wincreg.sourceforge.net/docs/" >RingWinCReg Extension Documentation</a>'
+				],
+				[
 					'<a href="https://www.rangakrish.com/index.php/2021/08/07/first-encounter-with-the-ring-programming-language/" >Article: First Encounter with the Ring Programming Language</a>'
 				],
 				[
@@ -25,19 +28,16 @@
 					'<a href="https://www.rangakrish.com/index.php/2021/09/04/ring-language-dynamic-behavior-of-classes-and-objects/" >Article: Dynamic Behavior of Classes and Objects</a>'
 				],
 				[
-					'<a href="http://ring-wincreg.sourceforge.net/docs/" >Ring_WinCReg’s documentation</a>'
+					'<a href="https://ring-lang.github.io/ref/PhDThesisPresentation.pdf" >Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications (PhD Thesis Presentation)</a>'
+				],
+				[
+					'<a href="https://arxiv.org/pdf/2509.20426" >Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications (PhD Thesis)</a>'
 				],
 				[
 					'<a href="https://www.mdpi.com/2079-9292/13/23/4627" >Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming</a>'
 				],
 				[
 					'<a href="https://www.mdpi.com/2076-3417/15/3/1521" >PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion</a>'
-				],
-				[
-					'<a href="https://arxiv.org/pdf/2509.20426" >Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications (PhD Thesis)</a>'
-				],
-				[
-					'<a href="https://ring-lang.github.io/ref/PhDThesisPresentation.pdf" >Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications (PhD Thesis Presentation)</a>'
 				],
 				[
 					'<a href="https://www.mdpi.com/2079-9292/15/4/903" >Prompt-Driven Development with Claude Code: Developing a TUI Framework for the Ring Programming Language</a>'
