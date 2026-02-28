@@ -25,3 +25,4 @@ More Improvements
 =================
 
 * Added: samples/General/RosettaCode/YinYang.ring
+* Added: samples/General/RosettaCode/YinYang2.ring
