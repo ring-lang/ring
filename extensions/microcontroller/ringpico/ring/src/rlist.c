@@ -824,7 +824,7 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long ri
 
 RING_API void ring_list_sortstr_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
 				   const char *cAttribute) {
-	unsigned int x, y, nMid;
+	long x, y, nMid;
 	const char *pMidvalue;
 	x = left;
 	y = right;
