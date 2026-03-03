@@ -892,13 +892,13 @@ RING_API unsigned int ring_list_binarysearchstr_gc(void *pState, List *pList, co
 }
 
 RING_API void ring_list_swap_gc(void *pState, List *pList, unsigned int x, unsigned int y) {
-	Item *pItem;
 	Items *pItems, *pItems2;
-	pItem = ring_list_getitem_gc(pState, pList, x);
+	Item vItem;
+	memcpy(&vItem, ring_list_getitem_gc(pState, pList, x), sizeof(Item));
 	pItems = ring_list_getitemcontainer_gc(pState, pList, x);
 	pItems2 = ring_list_getitemcontainer_gc(pState, pList, y);
-	pItems->pValue = pItems2->pValue;
-	pItems2->pValue = pItem;
+	memcpy(pItems->pValue, pItems2->pValue, sizeof(Item));
+	memcpy(pItems2->pValue, &vItem, sizeof(Item));
 }
 /* List Items to Array */
 

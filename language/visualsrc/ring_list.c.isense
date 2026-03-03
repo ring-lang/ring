@@ -245,7 +245,7 @@ x,y,nMid
 Type: double
 nMidvalue
 ring_list_sortstr_gc
-Type: unsigned int
+Type: long
 x,y,nMid
 Type: const char *
 pMidvalue
@@ -260,10 +260,10 @@ nFirst,nMid,nLast
 Type: int
 nRes
 ring_list_swap_gc
-Type: Item *
-pItem
 Type: Items *
 pItems, *pItems2
+Type: Item
+vItem
 ring_list_genarray_gc
 Type: unsigned int
 x
