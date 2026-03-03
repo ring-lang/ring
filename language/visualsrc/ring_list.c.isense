@@ -252,6 +252,8 @@ pMidvalue
 ring_list_binarysearchnum_gc
 Type: unsigned int
 nFirst,nMid,nLast
+Type: double
+nRes
 ring_list_binarysearchstr_gc
 Type: unsigned int
 nFirst,nMid,nLast

@@ -854,13 +854,15 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 RING_API unsigned int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
 						   const char *cAttribute) {
 	unsigned int nFirst, nMid, nLast;
+	double nRes;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);
 	while (nFirst <= nLast) {
 		nMid = (nFirst + nLast) / 2;
-		if (ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute) == nNum1) {
+		nRes = ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute);
+		if (nRes == nNum1) {
 			return nMid;
-		} else if (ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute) < nNum1) {
+		} else if (nRes < nNum1) {
 			nFirst = nMid + 1;
 		} else {
 			nLast = nMid - 1;
