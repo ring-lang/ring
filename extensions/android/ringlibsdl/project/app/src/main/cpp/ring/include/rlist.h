@@ -195,11 +195,11 @@ RING_API unsigned int ring_list_findpointer_gc(void *pState, List *pList, void *
 RING_API unsigned int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn);
 /* Sort and Binary Search */
 
-RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left, unsigned int right,
-				   unsigned int nColumn, const char *cAttribute);
+RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+				   const char *cAttribute);
 
-RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
-				   unsigned int nColumn, const char *cAttribute);
+RING_API void ring_list_sortstr_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+				   const char *cAttribute);
 
 RING_API unsigned int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
 						   const char *cAttribute);

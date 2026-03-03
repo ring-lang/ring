@@ -793,9 +793,9 @@ RING_API unsigned int ring_list_findlistref_gc(void *pState, List *pList, List *
 }
 /* Sort (QuickSort) and Binary Search */
 
-RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left, unsigned int right,
-				   unsigned int nColumn, const char *cAttribute) {
-	unsigned int x, y, nMid;
+RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+				   const char *cAttribute) {
+	long x, y, nMid;
 	double nMidvalue;
 	x = left;
 	y = right;
@@ -817,13 +817,13 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left,
 	if (left < y) {
 		ring_list_sortnum_gc(pState, pList, left, y, nColumn, cAttribute);
 	}
-	if (y < right) {
+	if (x < right) {
 		ring_list_sortnum_gc(pState, pList, x, right, nColumn, cAttribute);
 	}
 }
 
-RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
-				   unsigned int nColumn, const char *cAttribute) {
+RING_API void ring_list_sortstr_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+				   const char *cAttribute) {
 	unsigned int x, y, nMid;
 	const char *pMidvalue;
 	x = left;
@@ -846,7 +846,7 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 	if (left < y) {
 		ring_list_sortstr_gc(pState, pList, left, y, nColumn, cAttribute);
 	}
-	if (y < right) {
+	if (x < right) {
 		ring_list_sortstr_gc(pState, pList, x, right, nColumn, cAttribute);
 	}
 }

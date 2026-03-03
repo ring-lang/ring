@@ -240,7 +240,7 @@ x,nCount
 Type: List *
 pList2, *pList3
 ring_list_sortnum_gc
-Type: unsigned int
+Type: long
 x,y,nMid
 Type: double
 nMidvalue
