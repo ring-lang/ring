@@ -343,6 +343,9 @@ RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned
 RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
 					    const char *cAttribute);
 
+RING_API void ring_list_setstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+					   const char *cAttribute, const char *cValue);
+
 RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void *pValue,
 						void (*pFreeFunc)(void *, void *));
 

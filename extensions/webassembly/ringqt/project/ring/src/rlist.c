@@ -1287,6 +1287,33 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 	return nullstring;
 }
 
+RING_API void ring_list_setstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+					   const char *cAttribute, const char *cValue) {
+	unsigned int nPos;
+	static char nullstring[] = RING_CSTR_EMPTY;
+	if (nColumn == 0) {
+		ring_list_setstring_gc(pState, pList, nIndex, cValue);
+	} else {
+		if (strcmp(cAttribute, RING_CSTR_EMPTY) == 0) {
+			ring_list_setstring_gc(pState, ring_list_getlist(pList, nIndex), nColumn, cValue);
+		} else {
+			pList = ring_list_getlist(pList, nIndex);
+			if (nColumn > 1) {
+				pList = ring_list_getlist(pList, nColumn);
+			}
+			if (ring_list_isobject(pList)) {
+				nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
+							       cAttribute, RING_VAR_NAME);
+				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+				pList = ring_list_getlist(pList, nPos);
+				if (ring_list_isstring(pList, RING_VAR_VALUE)) {
+					ring_list_setstring_gc(pState, pList, RING_VAR_VALUE, cValue);
+				}
+			}
+		}
+	}
+}
+
 RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void *pValue,
 						void (*pFreeFunc)(void *, void *)) {
 	Item *pItem;
