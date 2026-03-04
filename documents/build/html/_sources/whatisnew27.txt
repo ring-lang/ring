@@ -15,8 +15,18 @@ List of changes and new features
 
 Ring 1.27 comes with the next features!
 
+* More RingPM Packages
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring  1.27; More RingPM Packages
+
+More RingPM Packages
+====================
+
+The following packages have been added to the RingPM registry.
+
+* Ring-Python
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
