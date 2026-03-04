@@ -1,4 +1,5 @@
 aNews = [
+  ["March 4, 2026",'<a href="https://github.com/azzeddine2017/AlQalam"> AlQalam (The Pen) Extension</a>'],
   ["March 1, 2026",'<a href="https://www.einpresswire.com/article/896618732/ring-programming-language-expands-with-major-package-contributions-from-developer-youssef-saeed"> Ring Expands with Major Package Contributions from Developer Youssef Saeed</a>'],
   ["February 27, 2026",'<a href="https://github.com/ysdragon/ring-python"> RingPython: Python bindings for the Ring Programming Language</a>'],
   ["February 25, 2026",'<a href="https://www.einpresswire.com/article/895318105/using-the-ring-programming-language-and-softanza-library-at-espa-mt-and-sonibank"> Using the Ring Programming Language and Softanza Library at ESPA‑MT and SONIBANK</a>'],
