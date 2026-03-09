@@ -16,16 +16,16 @@ aTeam = [
 		[
 			'Mansour Ayouni<br/>Software Developer (Writing Master)',
 			'<img src="images/mansour.jpg" width="150" height="170">'
-		],
-		[
-			'Majdi Sobain (Extensions Master)',
-			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
 ]
 aLegends = [
 		[
 			'Bert Mariani (Applications Master)',
 			'<img src="images/UmbertoMariani.png" width="150" height="170">'
+		],
+		[
+			'Majdi Sobain (Extensions Master)',
+			'<img src="images/majdi.jpg" width="150" height="170">'
 		],
 		[
 			'Gal Zsolt (Samples Master)',
