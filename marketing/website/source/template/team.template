@@ -1,4 +1,33 @@
 ﻿  <% eval(read("data/team.data"))  %>
+
+  <div id="founder" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Project Founder</h4></div>
+      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="85%"></th>
+					<th width="15%"></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <% for x in aFounder %>
+				  <tr> 
+					<% for x2 in x %>
+						<th> <%= x2 %> </th>					
+					<% next %>
+				  </tr>
+				  <% next %>
+				</tbody>
+			</table>
+
+      </div>
+     </div>  
+
+	<br />	 
+
   <div id="team" class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Ring Team <span class="badge"><%= len(aTeam) %></span></h4></div>

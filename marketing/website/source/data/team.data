@@ -1,8 +1,10 @@
-﻿aTeam = [
+﻿aFounder = [
 		[
 			'Mahmoud Samir Fayed<br/>Software Developer (The Creator of Ring)',
 			'<img src="images/fayed.jpg" width="150" height="170">'
-		],
+		]
+]
+aTeam = [
 		[
 			'Youssef Saeed<br/>Software Developer (Packages Master)',
 			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
