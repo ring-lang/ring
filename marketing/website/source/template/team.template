@@ -85,6 +85,35 @@
 
 <br />	 
 
+  <div id="legends" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Ring Community Legends <span class="badge"><%= len(aLegends) %></span></h4></div>
+      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="85%"></th>
+					<th width="15%"></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <% for x in aLegends %>
+				  <tr> 
+					<% for x2 in x %>
+						<th> <%= x2 %> </th>					
+					<% next %>
+				  </tr>
+				  <% next %>
+				</tbody>
+			</table>
+
+      </div>
+     </div>  
+
+	<br />	
+
+
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Special Thanks for Sharing Your Source Code and Spreading the Word <span class="badge"><%= len(aManyThanks) %></span></h4></div>
       <div class="panel-body">

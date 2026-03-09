@@ -22,6 +22,17 @@ aTeam = [
 			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
 ]
+aLegends = [
+		[
+			'Bert Mariani (Applications Master)',
+			'<img src="images/UmbertoMariani.png" width="150" height="170">'
+		],
+		[
+			'Gal Zsolt (Samples Master)',
+			'<img src="images/GalZsolt.png" width="150" height="170">'
+		]
+]
+
 aTopContributors = [
 		  [
                     'Azzeddine Remmal (Qt/3D/AI Master)',
@@ -49,14 +60,6 @@ aTopContributors = [
 		  ]
 ]
 aManyThanks = [
-		[
-			'Bert Mariani (Applications Master)',
-			'<img src="images/UmbertoMariani.png" width="150" height="170">'
-		],
-		[
-			'Gal Zsolt (Samples Master)',
-			'<img src="images/GalZsolt.png" width="150" height="170">'
-		],
 		[
 			'José Rosado (FoxRing Library)',
 			'<img src="images/jose.jpg" width="150" height="170">'
