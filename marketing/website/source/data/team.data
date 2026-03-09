@@ -49,14 +49,6 @@ aTopContributors = [
 		  [
                     'Mounir IDRASSI (Creator of VeraCrypt)',
                     'C/C++ Expert'                    
-		  ],
-		  [
-                    'Ahmad Zakaria',
-                    'RayLib Master'                    
-		  ],
-		  [
-		    'Khaled ABID',
-		    'PWCT2 Testing'					
 		  ]
 ]
 aManyThanks = [
@@ -152,7 +144,15 @@ aTeam2 = [
 				  [
 					'Magdy Ragab',
 					'Tester'				
-				  ],				
+				  ],
+		  		  [
+                    			'Ahmad Zakaria',
+                    			'Tester'                    
+		  		  ],
+		  		  [
+		    			'Khaled ABID',
+		    			'Tester'					
+		  		  ],				
 				  [
 					'Ahmed Omar',
 					'Tester'				
