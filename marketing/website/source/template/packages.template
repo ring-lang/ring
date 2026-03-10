@@ -3,6 +3,7 @@
     <div class="panel panel-info">
       <div class="panel-heading"><h4>Packages <span class="badge"><%=len(aPackagesRegistry) %></span></h4></div>
       <div class="panel-body">
+  		<div class="table-responsive">
 			<pre><code>Usage: ringpm install &lt;PackageName&gt; from &lt;Provider&gt;</code></pre>
 			<table class="table table-striped">
 				<thead>
@@ -22,6 +23,7 @@
 				<% next %>				 	  
 				</tbody>
 			</table>
+		</div>
 	  </div>
      </div>  
   </div>
