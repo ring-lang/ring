@@ -1,0 +1,25 @@
+﻿  <%  eval(read("data/registry.data"))  %>
+  <div id="news" class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h4>Packages <span class="badge"><%=len(aPackagesRegistry) %></span></h4></div>
+      <div class="panel-body">
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="20%">Name</th>
+					<th>Description</th>
+				  </tr>
+				</thead>
+				<tbody>
+				<% aPackages = reverse(aPackagesRegistry) for x in aPackages %>
+				  <tr>
+					<td><%= lower(x[:name]) %></td>
+					<td><%= x[:description] %></td>
+				  </tr>
+				<% next %>				 	  
+				</tbody>
+			</table>
+	  </div>
+     </div>  
+  </div>
+

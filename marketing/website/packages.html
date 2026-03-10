@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Ring Programming Language</title>
+  <link rel="icon" href="images/ringicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="title" content="Ring Language">
+  <meta name="description" content="Ring is an innovative and practical general-purpose multi-paradigm language. The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.">
+  <meta name="keywords" content="Ring, Ring Language, innovative , practical , programming language, multi paradigm language, general purpose language, imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming. The language is portable Windows, Linux, macOS, Android, create Console, GUI, Web, Games, Mobile applications">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">  
+  <meta name="og:title" property="og:title" content="Ring Language - Innovative and practical general-purpose multi-paradigm language">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://ring-lang.sourceforge.net/" />
+  <meta property="og:image" content="http://ring-lang.sourceforge.net/theringlogo.jpg" />
+	
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html#">Home</a></li>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
+            <ul class="dropdown-menu" style="max-height: 300px; overflow-y: auto;">
+		  <li><a href="download.html">Ring 1.26</a></li>
+		  <li><a href="download125.html">Ring 1.25</a></li>
+		  <li><a href="download124.html">Ring 1.24</a></li>
+		  <li><a href="download123.html">Ring 1.23</a></li>
+		  <li><a href="download122.html">Ring 1.22</a></li>
+		  <li><a href="download1212.html">Ring 1.21</a></li>
+		  <li><a href="download120.html">Ring 1.20</a></li>
+		  <li><a href="download119.html">Ring 1.19</a></li>
+		  <li><a href="download118.html">Ring 1.18</a></li>
+		  <li><a href="download117.html">Ring 1.17</a></li>
+		  <li><a href="download116.html">Ring 1.16</a></li>
+		  <li><a href="download115.html">Ring 1.15</a></li>
+		  <li><a href="download114.html">Ring 1.14</a></li>
+		  <li><a href="download113.html">Ring 1.13</a></li>
+		  <li><a href="download112.html">Ring 1.12</a></li>
+		  <li><a href="download111.html">Ring 1.11</a></li>
+		  <li><a href="download110.html">Ring 1.10</a></li>
+		  <li><a href="download19.html">Ring 1.9</a></li>
+		  <li><a href="download18.html">Ring 1.8</a></li>
+		  <li><a href="download17.html">Ring 1.7</a></li>
+		  <li><a href="download16.html">Ring 1.6</a></li>
+		  <li><a href="download154.html">Ring 1.5</a></li>
+		  <li><a href="download141.html">Ring 1.4</a></li>
+		  <li><a href="download13.html">Ring 1.3</a></li>
+		  <li><a href="download12.html">Ring 1.2</a></li>
+	          <li><a href="download11.html">Ring 1.1</a></li>
+          	  <li><a href="download1.html">Ring 1.0</a></li>
+            </ul>
+          </li>	
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Change Log<span class="caret"></span></a>
+            <ul class="dropdown-menu" style="max-height: 300px; overflow-y: auto;">
+		  <li><a href="doc1.26/whatisnew26.html">Ring 1.26</a></li>
+		  <li><a href="doc1.26/whatisnew25.html">Ring 1.25</a></li>
+		  <li><a href="doc1.26/whatisnew24.html">Ring 1.24</a></li>
+		  <li><a href="doc1.26/whatisnew23.html">Ring 1.23</a></li>
+		  <li><a href="doc1.26/whatisnew22.html">Ring 1.22</a></li>
+		  <li><a href="doc1.26/whatisnew21.html">Ring 1.21</a></li>
+		  <li><a href="doc1.26/whatisnew20.html">Ring 1.20</a></li>
+		  <li><a href="doc1.26/whatisnew19.html">Ring 1.19</a></li>
+		  <li><a href="doc1.26/whatisnew18.html">Ring 1.18</a></li>
+		  <li><a href="doc1.26/whatisnew17.html">Ring 1.17</a></li>
+		  <li><a href="doc1.26/whatisnew16.html">Ring 1.16</a></li>
+		  <li><a href="doc1.26/whatisnew15.html">Ring 1.15</a></li>
+		  <li><a href="doc1.26/whatisnew14.html">Ring 1.14</a></li>
+		  <li><a href="doc1.26/whatisnew13.html">Ring 1.13</a></li>
+		  <li><a href="doc1.26/whatisnew12.html">Ring 1.12</a></li>
+		  <li><a href="doc1.26/whatisnew11.html">Ring 1.11</a></li>
+		  <li><a href="doc1.26/whatisnew10.html">Ring 1.10</a></li>
+		  <li><a href="doc1.26/whatisnew9.html">Ring 1.9</a></li>
+		  <li><a href="doc1.26/whatisnew8.html">Ring 1.8</a></li>
+		  <li><a href="doc1.26/whatisnew7.html">Ring 1.7</a></li>
+		  <li><a href="doc1.26/whatisnew6.html">Ring 1.6</a></li>
+		  <li><a href="doc1.26/whatisnew5.html">Ring 1.5</a></li>
+		  <li><a href="doc1.26/whatisnew4.html">Ring 1.4</a></li>
+		  <li><a href="doc1.26/whatisnew3.html">Ring 1.3</a></li>
+		  <li><a href="doc1.26/whatisnew2.html">Ring 1.2</a></li>
+	          <li><a href="doc1.26/whatisnew.html">Ring 1.1</a></li>
+          	  <li><a href="doc1.26/languagedesign.html">Ring 1.0</a></li>
+            </ul>
+          </li>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+			  <li><a href="doc1.26/index.html">Documentation</a></li>
+			  <li><a href="resources.html">Resources</a></li>	
+			  <li class="hidden-xs hidden-sm"><a href="web/tryringonline/project.html">Try Online</a></li>		  
+			  <li><a href="https://groups.google.com/g/ring-lang">Group</a></li>			  
+			  <li><a href="https://github.com/ring-lang/ring">GitHub</a></li>
+			  <li><a href="news.html">News</a></li>
+          	  <li><a href="team.html">Team</a></li>
+            </ul>
+          </li>
+    </ul>
+
+	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
+		<form class="search" action="doc1.26/search.html" method="get" style="width:200px" >
+			<div class="input-group">
+				<input name="q" type="text" class="form-control" placeholder="Search for...">
+				<span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Go!</button>
+				</span>
+			</div>
+			<input name="check_keywords" value="yes" type="hidden">
+			<input name="area" value="default" type="hidden">
+		</form>
+
+    </div>
+
+  </div>
+
+</nav>  
+
+<a href="https://github.com/ring-lang/ring" class="hidden-xs" style="float:right ; margin-top:50px">
+	<img src="images/forkme.png" alt="Fork me on GitHub" width="198" height="198">
+</a>
+
+
+<div class="container">
+ <div class="text-center">
+	<br><br><br> 
+	<br><br>
+	<div class="row">		
+			<div class="col-xs-3 hidden-xs">
+			</div>
+			<div class="col-xs-6">
+				<img src="images/theringlogo.jpg" width="297px" height="154px">
+			</div>
+			<div class="col-xs-3 hidden-xs">
+			</div>
+	</div>
+
+	<div class="row">
+				<br> 
+				<div class="col-xs-2">
+				</div>
+				<div class="col-sm-12 col-md-2">
+					<a href="download.html" class="btn btn-default btn-block" style="">Download</a>
+				</div>
+				
+				<div class="col-sm-12 col-md-2">
+					<a href="doc1.26/index.html" class="btn btn-default btn-block" style="">Documentation</a>
+				</div>
+
+				<div class="col-sm-12 col-md-2">
+					<a href="resources.html" class="btn btn-default btn-block" style="">Resources</a>
+				</div>
+
+				<div class="col-sm-12 col-md-2">
+					<a href="https://groups.google.com/g/ring-lang" class="btn btn-default btn-block" style="">Group</a>
+				</div>
+				
+				<div class="col-xs-2">
+				</div>
+				<br>  
+	</div>
+		
+	<h3>Simple and flexible dynamic programming language for applications development</h3>
+	
+		
+		
+  </div>
+
+
+
+﻿  
+  <div id="news" class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h4>Packages <span class="badge">241</span></h4></div>
+      <div class="panel-body">
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="20%">Name</th>
+					<th>Description</th>
+				  </tr>
+				</thead>
+				<tbody>
+				
+				  <tr>
+					<td>ring-python</td>
+					<td>Python bindings for the Ring Programming Language</td>
+				  </tr>
+				
+				  <tr>
+					<td>linedrawing3d</td>
+					<td>The LineDrawing3D game developed using Ring and RingRayLib</td>
+				  </tr>
+				
+				  <tr>
+					<td>davethefighter</td>
+					<td>The DaveTheFighter game developed using Ring and RingRayLib</td>
+				  </tr>
+				
+				  <tr>
+					<td>tank3d</td>
+					<td>The Tank3D game developed using Ring and RingRayLib</td>
+				  </tr>
+				
+				  <tr>
+					<td>coderooms3d</td>
+					<td>The CodeRooms3D game developed using Ring and RingRayLib</td>
+				  </tr>
+				
+				  <tr>
+					<td>ring-slint</td>
+					<td>Build beautiful, native applications with Ring and Slint</td>
+				  </tr>
+				
+				  <tr>
+					<td>tuiframeworkusingclaudecode</td>
+					<td>TUI Framework for Windows developed using prompt-driven development</td>
+				  </tr>
+				
+				  <tr>
+					<td>closure</td>
+					<td>Closure for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>alqalam</td>
+					<td>Our AlQalam package using the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>archive</td>
+					<td>Archive manipulation library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>proc</td>
+					<td>Subprocess management library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>praytimes</td>
+					<td>Prayer times application developed using Ring and RingQML</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringqml</td>
+					<td>A library used to interact with QML using Ring</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringvaders</td>
+					<td>A retro arcade shooter game written in Ring using Ring Allegro</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringtensor</td>
+					<td>Extension designed specifically to accelerate Matrix operations</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringml-using-ringtensor</td>
+					<td>High-performance, Deep Learning framework built for the  Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>stock-analysis-bm</td>
+					<td>Stock Analysis Momentum using Mega Stocks ticker list</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringml</td>
+					<td>RingML package using the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ring-html</td>
+					<td>A high-performance HTML5 parser library with CSS selectors and DOM manipulation for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>distromap</td>
+					<td>A lightweight web API server (Linux distribution and release information)</td>
+				  </tr>
+				
+				  <tr>
+					<td>im2ansi</td>
+					<td>Image to ANSI/ASCII Art Converter</td>
+				  </tr>
+				
+				  <tr>
+					<td>ring2exe-plus</td>
+					<td>Ring2EXE Plus package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>lecturestracker</td>
+					<td>Lectures Tracker application developed using the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>stockanalysis</td>
+					<td>Stock Analysis application developed using the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>uuid</td>
+					<td>UUID extension for the Ring Programming Language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ring-libsql</td>
+					<td>LibSQL client extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ftp</td>
+					<td>FTP/FTPS client extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>bcrypt</td>
+					<td>Bcrypt password hashing algorithm extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>argon2</td>
+					<td>Argon2 password hashing algorithm extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringfmt</td>
+					<td>Source code formatter and beautifier</td>
+				  </tr>
+				
+				  <tr>
+					<td>simplejson</td>
+					<td>Simple Ring bindings for the Jansson JSON library</td>
+				  </tr>
+				
+				  <tr>
+					<td>yaml</td>
+					<td>A YAML parser for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringpmgui</td>
+					<td>Ring Package Manager GUI using RingQt</td>
+				  </tr>
+				
+				  <tr>
+					<td>ring-jwt</td>
+					<td>JWT library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tictactoeplus</td>
+					<td>An implementation for the TicTacToe game (large board) using RingQt</td>
+				  </tr>
+				
+				  <tr>
+					<td>worm</td>
+					<td>Worm Game developed using Ring Game Engine for 2D Games</td>
+				  </tr>
+				
+				  <tr>
+					<td>dialog</td>
+					<td>Ring bindings for osdialog, a cross-platform library for native OS dialogs</td>
+				  </tr>
+				
+				  <tr>
+					<td>webview</td>
+					<td>Create beautiful, cross-platform desktop apps with Ring and web technologies</td>
+				  </tr>
+				
+				  <tr>
+					<td>trianglecalculator</td>
+					<td>TriangleCalculator application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>snakesandladders2</td>
+					<td>SnakesAndLadders2 Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>toml</td>
+					<td>A comprehensive TOML parser extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>adhkar_ring_app</td>
+					<td>Application: Adhkar (Arabic/WebAssembly)</td>
+				  </tr>
+				
+				  <tr>
+					<td>markdown</td>
+					<td>A Markdown parser and HTML converter extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>advanced-trace</td>
+					<td>Performance analysis and concurrent operations tracing</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringsubprocess</td>
+					<td>subprocess management extension for creating and managing system processes</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringthreadpro</td>
+					<td>Threads management library</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringregex</td>
+					<td>Regular expression library built on top of the PCRE2</td>
+				  </tr>
+				
+				  <tr>
+					<td>sysinfo</td>
+					<td>A package to retrieve essential system information for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>dotenv</td>
+					<td>dotenv package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringtilengine</td>
+					<td>RingTilengine extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>extensionstutorials</td>
+					<td>Extensions tutorials for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringthreads</td>
+					<td>RingThreads extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringwinlib</td>
+					<td>RingWinLib extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>imagepixel</td>
+					<td>ImagePixel application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringfastpro</td>
+					<td>RingFastPro extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>hourscounter</td>
+					<td>HoursCounter application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>planetaryorbits</td>
+					<td>PlantaryOrbits application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>listentoquran</td>
+					<td>ListenToQuran application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>matrixlib</td>
+					<td>MatrixLib library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>readfiles</td>
+					<td>ReadFiles package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_allegro528</td>
+					<td>LibDepWin_Allegro528 package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>randomuser</td>
+					<td>RandomUser package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>httplib</td>
+					<td>RingHTTPLib package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>stzlib</td>
+					<td>Softanza Library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>regex</td>
+					<td>An easy to use pattern matching</td>
+				  </tr>
+				
+				  <tr>
+					<td>dogapi</td>
+					<td>Dog API client</td>
+				  </tr>
+				
+				  <tr>
+					<td>rosetta-ring-sample</td>
+					<td>Our Rosetta-Ring-Sample package using the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>poetryanalysis</td>
+					<td>Poetry Analysis application package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>mergetwofiles</td>
+					<td>Merge Two Files application package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>citationsprediction</td>
+					<td>Citations Prediction application package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_allegro5271</td>
+					<td>LibDepWin_Allegro5271 package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>jsonlib</td>
+					<td>JSONLib library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tokenslib</td>
+					<td>TokensLib library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>csvlib</td>
+					<td>CSVLib library for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>chessendgame</td>
+					<td>ChessEndGame package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>chess3d-qt3d</td>
+					<td>Chess3D in Ring language</td>
+				  </tr>
+				
+				  <tr>
+					<td>erlangbformula</td>
+					<td>Erlang B Formula package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringlibui</td>
+					<td>RingLibUI extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>socket</td>
+					<td>Socket extension for network programming with Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>cloc</td>
+					<td>CLOC package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>guilib</td>
+					<td>GUILib package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>objectslib</td>
+					<td>ObjectsLib package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>webassemblyringqt</td>
+					<td>WebassemblyRingQt package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>spaceshootergame</td>
+					<td>SpaceShooter game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>pong2game</td>
+					<td>Pong2 game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>typingquiz</td>
+					<td>TypingQuiz package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>eightqueensgame</td>
+					<td>EightQueens game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>nimgame</td>
+					<td>Nim game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>lotterygame</td>
+					<td>Lottery game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>rockpaperscissors</td>
+					<td>RockPaperScissors game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>moneycase</td>
+					<td>MoneyCase game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>questions</td>
+					<td>questions game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>towersofhanoi</td>
+					<td>TowersOfHanoi package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>wordgame</td>
+					<td>Word game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>pairsgame</td>
+					<td>Pairs game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>matchinggame</td>
+					<td>Matching game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qt515qmlruntime</td>
+					<td>Qt 5.15 - QML - runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qt515runtime</td>
+					<td>Qt 5.15 runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringstbimage</td>
+					<td>RingStbImage package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>escape</td>
+					<td>Escape game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tetris</td>
+					<td>Tetris game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>moneyboxes</td>
+					<td>MoneyBoxes game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>laser</td>
+					<td>Laser game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>magicballs</td>
+					<td>Magic Balls game package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>juliandaycalendar</td>
+					<td>Julian Day Calendar package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>calendar</td>
+					<td>Calendar package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>gogame</td>
+					<td>GoGame package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>bmicalculator</td>
+					<td>BMICalculator package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>asciitable</td>
+					<td>ASCIITable package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qt512qmlruntime</td>
+					<td>Qt 5.12 - QML - runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qt512runtime</td>
+					<td>Qt 5.12 runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>zerolib</td>
+					<td>ZeroLib package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>texttospeech</td>
+					<td>TextToSpeech package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sudoku</td>
+					<td>Sudoku package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>snake</td>
+					<td>Snake package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>maze</td>
+					<td>Maze package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sokoban</td>
+					<td>Sokoban package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringraylib</td>
+					<td>RingRayLib package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>visualizesortsample</td>
+					<td>VisualizeSortSample package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qcalendarwidgetsample</td>
+					<td>QCalendarWidgetSample package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>desktopscreenshot</td>
+					<td>DesktopScreenShot package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>saveimagesample</td>
+					<td>SaveImageSample package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringmouseevent</td>
+					<td>RingMouseEvent package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>werdy2</td>
+					<td>Werdy2 package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>werdy</td>
+					<td>Werdy package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>binarylibs_macos_64bit</td>
+					<td>BinaryLibs_MacOS_64bit package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>binarylibs_ubuntu_64bit</td>
+					<td>BinaryLibs_Ubuntu_64bit package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>binarylibs_fedora_64bit</td>
+					<td>BinaryLibs_Fedora_64bit package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ring2exe</td>
+					<td>Ring2EXE package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_pgsql</td>
+					<td>LibDepWin_PgSQL package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_openssl</td>
+					<td>LibDepWin_OpenSSL package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_mysql</td>
+					<td>LibDepWin_MySQL package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_libuv</td>
+					<td>LibDepWin_Libuv package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_libsdl</td>
+					<td>LibDepWin_LibSDL package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_libcurl</td>
+					<td>LibDepWin_LibCurl package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_glew</td>
+					<td>LibDepWin_GLEW package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_freeglut</td>
+					<td>LibDepWin_FreeGLUT package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_allegro524</td>
+					<td>LibDepWin_Allegro524 package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringsamples</td>
+					<td>RingSamples package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>help2wiki</td>
+					<td>Help2Wiki package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>string2constant</td>
+					<td>String2Constant package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qtclassconverter</td>
+					<td>QtClassConverter package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dlevelsofcubes</td>
+					<td>Sample3DLevelsOfCubes package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dstars</td>
+					<td>Sample3DStars package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dcube</td>
+					<td>Sample3DCube package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dmovablecube</td>
+					<td>Sample3DMovableCube package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dmanycubes</td>
+					<td>Sample3DManyCubes package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dlongway</td>
+					<td>Sample3DLongWay package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dcameraandbackground</td>
+					<td>Sample3DCameraAndBackground package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sample3dcamera</td>
+					<td>Sample3DCamera package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>vscodeeditorextension</td>
+					<td>VSCode Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>visualstudioeditorextension</td>
+					<td>VisualStudio Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sublimetext2editorextension</td>
+					<td>Sublimetext2 Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>notepadppeditorextension</td>
+					<td>Notepad++ Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>geanyeditorextension</td>
+					<td>Geany Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>emacseditorextension</td>
+					<td>Emacs Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>atomeditorextension</td>
+					<td>Atom Editor Extension package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>androidringqt</td>
+					<td>AndroidRingQt package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>androidringlibsdl</td>
+					<td>AndroidRingLibSDL package for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>winstartupmanager</td>
+					<td>WinStartupManager application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>wisequadrat</td>
+					<td>WiseQuadrat game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>weighthistory</td>
+					<td>WeightHistory application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>videomusicplayer</td>
+					<td>VideoMusicPlayer application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>urlshortener</td>
+					<td>URLShortener application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tictactoe3d</td>
+					<td>TicTacToe3D Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tictactoe</td>
+					<td>TicTacToe Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tesseragame</td>
+					<td>Tessera Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>superman2016</td>
+					<td>Super Man 2016 Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sumpuzzlegame</td>
+					<td>Sum Puzzle Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>stopwatch</td>
+					<td>Stop Watch application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>starsfighter</td>
+					<td>Stars Fighter Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>squarespuzzle</td>
+					<td>Squares Puzzle Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>snakesandladders</td>
+					<td>Snakes And Ladders Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>sixteenpuzzle</td>
+					<td>Sixteen Puzzle Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>pong</td>
+					<td>Pong Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>othellogame</td>
+					<td>OthelloGame Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>minesweeper</td>
+					<td>MineSweeper Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>memorygame</td>
+					<td>MemoryGame Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>magicfour</td>
+					<td>MagicFour Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>lightsout</td>
+					<td>LightsOut Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>knighttour</td>
+					<td>KnightTour Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>goldmagic800</td>
+					<td>GoldMagic800 Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>getquoteshistory</td>
+					<td>GetQuotesHistory application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>gameoflife</td>
+					<td>GameOfLife game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>game2048</td>
+					<td>Game2048 game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>eightpuzzle3d</td>
+					<td>EightPuzzle3D game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>fifteenpuzzle</td>
+					<td>FifteenPuzzle game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>employee</td>
+					<td>Employee application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>dotsandboxes</td>
+					<td>DotsAndBoxes game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>chess</td>
+					<td>Chess game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>checkers</td>
+					<td>Checkers game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>calculator</td>
+					<td>Calculator application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>analogclock</td>
+					<td>Analog Clock application for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>flappybird3000</td>
+					<td>Flappy Bird 3000 Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>cards</td>
+					<td>Cards Game for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringhelphtml</td>
+					<td>Help (HTML) for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringhelpchm</td>
+					<td>Help (CHM) for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringhelppdf</td>
+					<td>Help (PDF) for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringrepl</td>
+					<td>Ring REPL for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringnotepad</td>
+					<td>Ring Notepad for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>findinfiles</td>
+					<td>Find in Files for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>formdesigner</td>
+					<td>Form Designer for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>bignumber</td>
+					<td>BigNumber for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>foxring</td>
+					<td>FoxRing for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>gameengine</td>
+					<td>GameEngine for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>naturallib</td>
+					<td>NaturalLib for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>tracelib</td>
+					<td>TraceLib for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>typehints</td>
+					<td>TypeHints for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>weblibtools</td>
+					<td>WebLibTools for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>weblib</td>
+					<td>WebLib for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>libdepwin_apache</td>
+					<td>Apache web server for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>stdlib</td>
+					<td>StdLib for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringwincreg</td>
+					<td>RingWinCReg for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringwinapi</td>
+					<td>RingWinAPI for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringlibsdl</td>
+					<td>RingLibSDL for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>cruntime</td>
+					<td>CRuntime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringqt</td>
+					<td>RingQt for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringqtruntime</td>
+					<td>RingQt runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qt55qmlruntime</td>
+					<td>Qt 5.5 - QML - runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>qt55runtime</td>
+					<td>Qt 5.5 runtime for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringopengl32</td>
+					<td>RingOpenGL 3.2 Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringopengl21</td>
+					<td>RingOpenGL 2.1 Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringopengl11</td>
+					<td>RingOpenGL 1.1 Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringmurmurhash</td>
+					<td>RingMurmurHash Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringlibuv</td>
+					<td>RingLibuv Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringfreeglut</td>
+					<td>RingFreeGLUT Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringconsolecolors</td>
+					<td>RingConsoleColors Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringbeep</td>
+					<td>RingBeep Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringallegro</td>
+					<td>RingAllegro Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringzip</td>
+					<td>RingZip Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringpostgresql</td>
+					<td>RingPostgreSQL Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringsqlite</td>
+					<td>RingSQLite Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringmysql</td>
+					<td>RingMySQL Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>internetlib</td>
+					<td>InternetLib Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringcurl</td>
+					<td>RingCurl Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringopenssl</td>
+					<td>RingOpenSSL Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringodbc</td>
+					<td>RingODBC Extension for the Ring programming language</td>
+				  </tr>
+				
+				  <tr>
+					<td>codegen</td>
+					<td>Code Generator for creating Ring programming language extensions in C and C++</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringvisualsrc</td>
+					<td>The Visual Source of the Ring programming language (Using Programming Without Coding Technology - PWCT)</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringsrc</td>
+					<td>Ring programming language source code (Compiler+Virtual Machine) in the C language.</td>
+				  </tr>
+				
+				  <tr>
+					<td>ringpresentation</td>
+					<td>Powerpoint presentation for the Ring programming language</td>
+				  </tr>
+								 	  
+				</tbody>
+			</table>
+	  </div>
+     </div>  
+  </div>
+
+
+﻿</div>
+<div class="container-fluid" style="color:black ; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div class="container" style=" margin-bottom: 2%;">
+<br> <br>
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+ 	    Basic <br> <br>
+
+            <ul>			  
+			  <li><a href="doc1.26/ringapps.html">Applications developed in little hours</a></li>
+			  <li><a href="doc1.26/introduction.html">Introduction</a></li>
+			  <li><a href="doc1.26/languagedesign.html">Language Design</a></li>
+			  <li><a href="doc1.26/sourcecode.html">Building From Source Code</a></li>
+			  <li><a href="doc1.26/contribute.html">How to contribute?</a></li>
+			  <li><a href="doc1.26/ringnotepad.html">Using Ring Notepad</a></li>
+			  <li><a href="doc1.26/getting_started.html">Getting Started - First Style </a></li>
+			  <li><a href="doc1.26/getting_started2.html">Getting Started - Second Style</a></li>
+			  <li><a href="doc1.26/getting_started3.html">Getting Started - Third Style</a></li>
+			  <li><a href="doc1.26/variables.html">Variables</a></li>
+			  <li><a href="doc1.26/operators.html">Operators</a></li>
+			  <li><a href="doc1.26/controlstructures.html">Control Structures - First Style</a></li>
+			  <li><a href="doc1.26/controlstructures2.html">Control Structures - Second Style</a></li>
+			  <li><a href="doc1.26/controlstructures3.html">Control Structures - Third Style</a></li>
+			  <li><a href="doc1.26/getinput.html">Getting Input</a></li>
+			  <li><a href="doc1.26/functions.html">Functions - First Style</a></li>
+			  <li><a href="doc1.26/functions2.html">Functions - Second Style</a></li>
+			  <li><a href="doc1.26/functions3.html">Functions - Third Style</a></li>
+			  <li><a href="doc1.26/programstructure.html">Program Structure</a></li>
+			  <li><a href="doc1.26/lists.html">Lists</a></li>
+			  <li><a href="doc1.26/strings.html">Strings</a></li>
+			  <li><a href="doc1.26/dateandtime.html">Date and Time</a></li>
+			  <li><a href="doc1.26/checkandconvert.html">Check Data Type and Conversion</a></li>
+			  <li><a href="doc1.26/mathfunc.html">Mathematical Functions</a></li>
+			  <li><a href="doc1.26/files.html">Files</a></li>
+			  <li><a href="doc1.26/systemfunc.html">System Functions</a></li>              
+              		  <li><a href="doc1.26/secfunc.html">Security and Internet Functions</a></li>
+              		  <li><a href="doc1.26/odbc.html">ODBC Functions</a></li>
+              		  <li><a href="doc1.26/mysql.html">MYSQL Functions</a></li>
+			  <li><a href="doc1.26/sqlite.html">SQLite Functions</a></li>
+			  <li><a href="doc1.26/postgresql.html">PostgreSQL Functions</a></li>	
+			  <li><a href="doc1.26/evaldebug.html">Eval() and Debugging</a></li>              
+			  <li><a href="doc1.26/demo.html">Demo Programs</a></li>
+			  <li><a href="doc1.26/debug.html">The Trace Library (Interactive Debugger)</a></li>
+
+            </ul>
+	</div>
+
+	<div class="col-sm-12 col-md-4">
+ 	    Intermediate <br> <br>
+
+            <ul>              			  
+			  <li><a href="doc1.26/oop.html">Object Oriented Programming</a></li>
+			  <li><a href="doc1.26/fp.html">Functional Programming (FP)</a></li>
+			  <li><a href="doc1.26/metaprog.html">Reflection and Meta-programming</a></li>
+			  <li><a href="doc1.26/declarative.html">Declarative Programming using Nested Structures</a></li>
+			  <li><a href="doc1.26/syntaxflexibility.html">Syntax Flexibility</a></li>
+			  <li><a href="doc1.26/natural.html">Natural language programming</a></li>              
+			  <li><a href="doc1.26/naturallibrary.html">Using the Natural Library</a></li>              
+			  <li><a href="doc1.26/scope.html">Scope Rules for Variables and Attributes</a></li>
+			  <li><a href="doc1.26/scope2.html">Scope Rules for Functions and Methods</a></li>
+			  <li><a href="doc1.26/stdlib.html">Stdlib Functions</a></li>		  
+			  <li><a href="doc1.26/stdlibclasses.html">Stdlib Classes</a></li>
+			  <li><a href="doc1.26/web.html">Web Development (CGI Library)</a></li>
+			  <li><a href="doc1.26/deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+			  <li><a href="doc1.26/libcurl.html">Using LibCurl</a></li>
+			  <li><a href="doc1.26/ringzip.html">Using Zip</a></li>			  			  			  			  
+			  <li><a href="doc1.26/allegro.html">2D Games programming using Allegro</a></li>
+			  <li><a href="doc1.26/libsdl.html">Using LibSDL</a></li>			
+			  <li><a href="doc1.26/gameengine.html">Demo Project - Game Engine for 2D Games</a></li>			  
+			  <li><a href="doc1.26/gameengineandorid.html">Building Games for Android</a></li>
+			  <li><a href="doc1.26/ringraylib.html">Using RayLib</a></li>
+			  <li><a href="doc1.26/tilengine.html">Using Tilengine</a></li>	
+			  <li><a href="doc1.26/usingopengl.html">Using OpenGL and FreeGLUT for 3D Graphics</a></li>
+			  <li><a href="doc1.26/usingopengl2.html">Using OpenGL and Allegro for 3D Graphics</a></li>
+			  <li><a href="doc1.26/goldmagic800.html">The Gold Magic 800 Game</a></li>			  			  
+			  <li><a href="doc1.26/qt.html">Desktop and Mobile development using Qt</a></li>
+			  <li><a href="doc1.26/qtmobile.html">Building Qt Applications for Mobile</a></li>			  	
+			  <li><a href="doc1.26/qtwebassembly.html">Building Qt Applications for WebAssembly</a></li>			  			  
+			  <li><a href="doc1.26/ringqtobjects.html">Objects Library for Qt Application</a></li>			  			  
+			  <li><a href="doc1.26/formdesigner.html">Using the Form Designer</a></li>			  			  
+			  <li><a href="doc1.26/multilanguage.html">Multi-language Applications</a></li>			  			  
+			  <li><a href="doc1.26/qt3d.html">Using Qt3D</a></li>
+			  <li><a href="doc1.26/distribute.html">Distributing Ring Applications</a></li>
+			  <li><a href="doc1.26/distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+			  <li><a href="doc1.26/ringpm.html">The Ring Package Manager (RingPM)</a></li>  	
+            </ul>
+	</div>
+
+	<div class="col-sm-12 col-md-4">
+ 	    Advanced <br> <br>
+
+            <ul>
+			  <li><a href="doc1.26/typehints.html">The Type Hints Library</a></li>     			
+			  <li><a href="doc1.26/usingref.html">Using References</a></li>			  
+			  <li><a href="doc1.26/lowlevel.html">Low Level Functions</a></li>
+			  <li><a href="doc1.26/ringemb.html">Embedding Ring in Ring</a></li>
+			  <li><a href="doc1.26/extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+			  <li><a href="doc1.26/extension.html">Extension using the C/C++ languages</a></li>
+			  <li><a href="doc1.26/embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+			  <li><a href="doc1.26/codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+			  <li><a href="doc1.26/ringbeep.html">Create your first extension</a></li>
+			  </ul> 
+			  More <br> <br>
+			  <ul>
+              		  <li><a href="doc1.26/usingpico.html" >Raspberry Pi Pico Microcontroller</a></li> 
+              		  <li><a href="doc1.26/csvlib.html">Using CSVLib</a></li> 
+              		  <li><a href="doc1.26/jsonlib.html">Using JSONLib</a></li>
+ 			  <li><a href="doc1.26/usingringpdfgen.html">Using PDFGen</a></li>
+ 		  	  <li><a href="doc1.26/tokenslib.html">Using TokensLib</a></li>
+ 		  	  <li><a href="doc1.26/zerolib.html">Using ZeroLib</a></li>
+ 		  	  <li><a href="doc1.26/bignumber.html">Using BigNumber</a></li>
+              		  <li><a href="doc1.26/usingfastpro.html">FastPro Extension</a></li> 
+              		  <li><a href="doc1.26/httplib.html">HTTPLib Extension</a></li> 
+              		  <li><a href="doc1.26/libui.html">LibUI Extension</a></li> 
+              		  <li><a href="doc1.26/libuv.html">Libuv Extension</a></li> 
+              		  <li><a href="doc1.26/socket.html">Socket Extension</a></li> 
+              		  <li><a href="doc1.26/threads.html">Threads Extension</a></li>
+              		  <li><a href="doc1.26/ringstbimage.html">StbImage Extension</a></li>
+              		  <li><a href="doc1.26/ringconsolecolorsfuncsdoc.html">ConsoleColors Extension</a></li>  
+              		  <li><a href="doc1.26/usingrogueutil.html">RogueUtil Extension</a></li>  
+              		  <li><a href="doc1.26/ringmurmurhashfuncsdoc.html">MurmurHash Extension</a></li>  
+              		  <li><a href="doc1.26/performancetips.html">Performance Tips</a></li> 
+              		  <li><a href="doc1.26/compiler.html">Command Line Options</a></li>              
+			  <li><a href="doc1.26/generalinfo.html">General Information</a></li>
+			  <li><a href="doc1.26/reference.html">Language Reference</a></li>
+			  <li><a href="doc1.26/faq.html">Frequently Asked Questions (FAQ)</a></li>	      
+            </ul>
+	</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="container-fluid" style="text-align:center;color:black; height: 25px; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<a href="https://mahmoudfayed.github.io/">© 2016-2026, Mahmoud Samir Fayed</a> 
+</div>
+
+<div class="container-fluid" style="color:black ; height: 5px; background: transparent linear-gradient(to bottom, rgb(0, 183, 234) 0%, rgb(0, 158, 195) 100%) repeat scroll 0% 0% ; margin-bottom: 0%; text-align:center;">
+ <p>
+ 
+ </p>
+
+</div>
+
+</body>
+</html>
