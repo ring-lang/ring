@@ -1,13 +1,14 @@
 ﻿  <%  eval(read("data/registry.data"))  %>
   <div id="news" class="panel-group">
     <div class="panel panel-info">
-      <div class="panel-heading"><h4>Packages <span class="badge"><%=len(aPackagesRegistry) %></span></h4></div>
+      <div class="panel-heading"><h4>Packages <span class="badge"><%=len(aPackagesRegistry) %></span> (Usage: ringpm install &lt;PackageName&gt; from &lt;Provider&gt;)</h4></div>
       <div class="panel-body">
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th width="20%">Name</th>
+					<th width="20%">Package Name</th>
 					<th>Description</th>
+					<th width="10%">Provider</th>
 				  </tr>
 				</thead>
 				<tbody>
@@ -15,6 +16,7 @@
 				  <tr>
 					<td><%= lower(x[:name]) %></td>
 					<td><%= x[:description] %></td>
+					<td><%= x[:providerusername] %></td>
 				  </tr>
 				<% next %>				 	  
 				</tbody>
