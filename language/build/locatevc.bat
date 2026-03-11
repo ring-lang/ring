@@ -97,6 +97,15 @@ if exist "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" (
     exit /b
 )
 
+if exist "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\Tools\VsDevCmd.bat" (
+    pushd "%cd%" 
+    call "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    popd   
+    set RING_VCVARS_INITIALIZED=1
+    set RING_VCVARS_TARGET=%ringbuildtarget%
+    exit /b
+)
+
 if exist "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" (
     pushd "%cd%" 
     call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
