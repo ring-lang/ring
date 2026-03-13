@@ -26,6 +26,7 @@ More RingPM Packages
 
 The following packages have been added to the RingPM registry.
 
+* Solitaire
 * Ring-Python
 
 .. index:: 
