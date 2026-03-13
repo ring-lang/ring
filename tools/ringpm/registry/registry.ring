@@ -962,5 +962,9 @@ aPackagesRegistry = [
 	[ :name = "ring-python",
 	  :description = "Python bindings for the Ring Programming Language",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "solitaire",
+	  :description = "The Solitaire game developed using Ring and RingRayLib",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
