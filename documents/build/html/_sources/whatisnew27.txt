@@ -37,5 +37,6 @@ More Improvements
 
 * Added: samples/General/RosettaCode/YinYang.ring
 * Added: samples/General/RosettaCode/YinYang2.ring
+* Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring
 * language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
 
