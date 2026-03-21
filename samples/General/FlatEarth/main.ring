@@ -1,6 +1,6 @@
 /*
 	Application 	: # Flat Earth - Sun & Moon Motion (Main File)
-# نموذج الأرض المسطحة - حركة الشمس والقمر (الملف الرئيسي)				
+# Flat Earth Model - Sun & Moon Motion (Main File) | نموذج الأرض المسطحة | Modèle Terre Plate - Mouvement Soleil & Lune				
 			# Ring Language - lightguilib / qPainter / qPixmap2
 
 	Author		: Khaled ABID
@@ -10,7 +10,7 @@
 load "stdlibcore.ring"
 load "lightguilib.ring"
 
-# تحميل الملفات الفرعية
+# Load sub-files | تحميل الملفات الفرعية | Charger les sous-fichiers
 load "constants.ring"
 load "globals.ring"
 load "colors.ring"
@@ -27,7 +27,7 @@ myApp = new qApp
         setGeometry(50, 30, 900, 800)
         setMinimumSize(700, 600)
 
-        # Main Canvas
+        # Main Canvas | لوحة الرسم الرئيسية | Canevas principal
         Canvas = new qLabel(win)
         {
             MonaLisa = new qPixMap2(600, 700)
@@ -39,7 +39,7 @@ myApp = new qApp
             setGeometry(0, 0, 600, 700)
         }
 
-        # Control Panel
+        # Control Panel | لوحة التحكم | Panneau de contrôle
         ControlPanel = new qWidget()
         {
             setParent(win)

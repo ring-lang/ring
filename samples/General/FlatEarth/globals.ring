@@ -1,5 +1,5 @@
 # Globals
-# المتغيرات العامة
+# Global Variables | المتغيرات العامة | Variables globales
 
 newline = nl
 
@@ -11,14 +11,14 @@ myApp        = null
 win          = null
 oTimer       = null
 
-# أبعاد قابلة للتغيير مع حجم النافذة
+# Window dimensions - resizable | أبعاد قابلة للتغيير | Dimensions de fenêtre - redimensionnable
 W  = 600
 H  = 700
 CX = 300
 CY = 350
 ER = 270
 
-# تتبع حجم النافذة للكشف عن التغيير
+# Track window size to detect changes | تتبع حجم النافذة | Suivre la taille de fenêtre
 nLastWinW = 900
 nLastWinH = 700
 
@@ -33,11 +33,11 @@ bPaused    = False
 nSpeed     = 0.25
 btnSpeed   = null
 
-# Moon phase tracking
+# Moon phase tracking | تتبع مرحلة القمر | Suivi des phases lunaires
 nMoonPhase = 0  # 0-100 (0=new moon, 50=full moon, 100=new moon)
 nMoonDay   = 1   # Day in lunar month (1-30)
 nLunarYear = 1447  # Islamic lunar year
-# نظام اللغات: 1=English, 2=Arabic, 3=French
+# Language system: 1=English, 2=Arabic, 3=French | نظام اللغات | Système de langues
 nLang    = 1
 btnLang      = null
 lblTitlePanel  = null
@@ -53,12 +53,12 @@ lblLocHd       = null
 lblCoords      = null
 txtLocation    = null
 
-# الموقع الجغرافي الافتراضي (أدرار، الجزائر)
+# Default location (Adrar, Algeria) | الموقع الجغرافي الافتراضي | Localisation par défaut (Adrar, Algérie)
 cCityName   = "Adrar, Algeria"
 nLatitude   = 27.87
 nLongitude  = -0.29
 
-# ترجمات اللغات الثلاث
+# Multilingual translations [EN, AR, FR] | ترجمات اللغات الثلاث | Traductions multilingues
 # [English, Arabic, French]
 LANG_TITLE        = ["Flat Earth - Sun & Moon", "الأرض المسطحة - الشمس والقمر", "Terre Plate - Soleil & Lune"]
 LANG_CONTROL      = ["Control Panel", "لوحة التحكم", "Panneau de contrôle"]
@@ -100,17 +100,17 @@ LANG_RESET        = ["Reset", "إعادة", "Réinitialiser"]
 LANG_SPEED        = ["Speed", "السرعة", "Vitesse"]
 LANG_LANG_BTN     = ["AR | FR", "EN | FR", "EN | AR"]
 
-# أسماء الفصول بالثلاث لغات [EN, AR, FR]
+# Season names in 3 languages | أسماء الفصول بالثلاث لغات | Noms des saisons en 3 langues
 SEASONS_EN = ["Winter", "Spring", "Summer", "Autumn"]
 SEASONS_AR = ["شتاء", "ربيع", "صيف", "خريف"]
 SEASONS_FR = ["Hiver", "Printemps", "Été", "Automne"]
 
-# أسماء الأشهر الميلادية
+# Gregorian month names | أسماء الأشهر الميلادية | Noms des mois grégoriens
 MONTHS_EN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 MONTHS_AR = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"]
 MONTHS_FR = ["Jan","Fév","Mar","Avr","Mai","Jun","Jul","Aoû","Sep","Oct","Nov","Déc"]
 
-# مراحل القمر
+# Moon phases | مراحل القمر | Phases lunaires
 PHASE_NEW       = ["New Moon", "محاق", "Nouvelle lune"]
 PHASE_WAX_CRES  = ["Waxing Crescent", "هلال متزايد", "Croissant montant"]
 PHASE_FIRST_Q   = ["First Quarter", "تربيع أول", "Premier quartier"]
@@ -118,17 +118,17 @@ PHASE_FULL      = ["Full Moon", "بدر", "Pleine lune"]
 PHASE_LAST_Q    = ["Last Quarter", "تربيع آخر", "Dernier quartier"]
 PHASE_WAN_CRES  = ["Waning Crescent", "هلال متناقص", "Croissant décroissant"]
 
-# أسماء الأشهر الهجرية
+# Hijri month names | أسماء الأشهر الهجرية | Noms des mois hégirien
 LUNAR_MONTHS_EN = ["Muharram","Safar","Rabi I","Rabi II","Jumada I","Jumada II","Rajab","Sha'ban","Ramadan","Shawwal","Dhu al-Qi'dah","Dhu al-Hijjah"]
 LUNAR_MONTHS_AR = ["محرم","صفر","ربيع الأول","ربيع الآخر","جمادى الأولى","جمادى الآخرة","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"]
 LUNAR_MONTHS_FR = ["Mouharram","Safar","Rabi I","Rabi II","Joumada I","Joumada II","Rajab","Chaabane","Ramadan","Chawwal","Dhou al-Qi'da","Dhou al-Hijja"]
 
-# أسماء القارات على الخريطة
+# Map continent labels | أسماء القارات على الخريطة | Étiquettes des continents
 MAP_LABELS_EN = ["N.Pole","Antarctica","Africa","Europe","Asia","N.America","S.America","Australia","Greenland","Sun","Moon"]
 MAP_LABELS_AR = ["القطب الشمالي","أنتاركتيكا","أفريقيا","أوروبا","آسيا","أ.الشمالية","أ.الجنوبية","أستراليا","غرينلاند","الشمس","القمر"]
 MAP_LABELS_FR = ["Pôle Nord","Antarctique","Afrique","Europe","Asie","Am. Nord","Am. Sud","Australie","Groenland","Soleil","Lune"]
 
-# شريط العنوان أسفل الخريطة
+# Bottom title bar text | شريط العنوان أسفل الخريطة | Texte de la barre de titre
 FOOTER_EN = ["Flat Earth Model - Sun & Moon Motion", "North Pole = center | Antarctica = outer ring"]
 FOOTER_AR = ["نموذج الأرض المسطحة - حركة الشمس والقمر", "القطب الشمالي = المركز | أنتاركتيكا = الحلقة الخارجية"]
 FOOTER_FR = ["Modèle Terre Plate - Mouvement Soleil & Lune", "Pôle Nord = centre | Antarctique = anneau extérieur"]
@@ -140,13 +140,13 @@ btnOrbitInfo = null
 btnMoonSpeed = null
 btnMoonInfo = null
 
-# Moon info labels
+# Moon info labels | عناوين معلومات القمر | Étiquettes d'info lune
 lblMoonPhase = null
 lblMoonDay = null
 lblLunarMonth = null
 lblSolarDate = null
 
-# Control Panel Variables
+# Control Panel | لوحة التحكم | Panneau de contrôle variables | متغيرات لوحة التحكم
 lblDay     = null
 lblMonth   = null
 lblYear    = null

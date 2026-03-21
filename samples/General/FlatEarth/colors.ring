@@ -1,5 +1,5 @@
 # Colors
-# الألوان
+# Colors | الألوان | Couleurs
 
 colorBg        = new qColor() { setRgb(  3,   3,  22, 255) }
 colorWhite     = new qColor() { setRgb(255, 255, 255, 255) }

@@ -1,14 +1,14 @@
 # Functions
-# الدوال
+# Functions | الدوال | Fonctions
 
 ### ═══════════════════════════════════════════════════════════════════════════
 
 Func toRad(deg)
     return deg * PI / 180.0
 
-# دالة مساعدة: تُرجع النص حسب اللغة الحالية
-# الاستخدام 1: T([EN, AR, FR])
-# الاستخدام 2: T(aEN, aAR, aFR, nIndex)
+# Helper: returns text by current language | تُرجع النص حسب اللغة | Retourne le texte selon la langue
+# Usage 1: T([EN, AR, FR])
+# Usage 2: TI(aEN, aAR, aFR, nIndex)
 Func T(aArr)
     return aArr[nLang]
 
@@ -21,18 +21,18 @@ Func TI(aEN, aAR, aFR, nIndex)
         return aFR[nIndex]
     ok
 
-# تبديل اللغة: EN → AR → FR → EN
+# Toggle language: EN -> AR -> FR -> EN | تبديل اللغة | Changer de langue: EN -> AR -> FR -> EN
 Func ToggleLanguage()
     nLang++
     if nLang > 3 { nLang = 1 }
     ApplyLanguage()
 
-# تحديث الساعة والتاريخ من إعدادات النظام
+# Update clock & date from system settings | تحديث الساعة والتاريخ | Mettre à jour l'horloge depuis le système
 Func UpdateClock()
-    # الوقت من النظام
+    # Get time from system | الوقت من النظام | Obtenir l'heure du système
     cTime = time()
 
-    # التاريخ من النظام - Ring تُرجع "DD/MM/YYYY"
+    # Date from system - Ring returns "DD/MM/YYYY" | التاريخ من النظام | Date du système
     cSysDate  = date()
     nSysDay   = number(left(cSysDate, 2))
     nSysMonth = number(substr(cSysDate, 4, 2))
@@ -56,16 +56,16 @@ Func UpdateClock()
     cDateStr = string(nSysDay) + " " + cMonthN + " " + string(nSysYear)
     lblClock.setText(cTime + "   " + cDateStr)
 
-# تحديث الموقع الجغرافي من إدخال المستخدم
+# Update location from user input | تحديث الموقع الجغرافي | Mettre à jour la localisation
 Func UpdateLocation()
     cCityName = txtLocation.text()
     
-    # التحقق من صحة الإحداثيات
+    # Validate coordinates | التحقق من صحة الإحداثيات | Valider les coordonnées
     if nLatitude < -90 or nLatitude > 90
-        nLatitude = 27.87  # القيمة الافتراضية
+        nLatitude = 27.87  # Default value | القيمة الافتراضية | Valeur par défaut
     ok
     if nLongitude < -180 or nLongitude > 180
-        nLongitude = -0.29  # القيمة الافتراضية
+        nLongitude = -0.29  # Default value | القيمة الافتراضية | Valeur par défaut
     ok
     
     cLatDir = "N"
@@ -82,12 +82,12 @@ Func UpdateLocation()
     ok
     lblCoords.setText("Lat: " + nLat + "° " + cLatDir + "  |  Lon: " + nLon + "° " + cLonDir)
 
-# تطبيق اللغة على كل عناصر الواجهة
+# Apply language to all UI elements | تطبيق اللغة | Appliquer la langue à tous les éléments
 Func ApplyLanguage()
     win.setWindowTitle(T(LANG_TITLE))
     btnLang.setText(T(LANG_LANG_BTN))
 
-    # عناوين الأقسام الثابتة
+    # Static section headers | عناوين الأقسام الثابتة | En-têtes de sections fixes
     lblTitlePanel.setText(T(LANG_CONTROL))
     lblDateInfo.setText(T(LANG_DATE_INFO))
     lblOrbitInfo.setText(T(LANG_ORBIT_INFO_H))
@@ -96,13 +96,13 @@ Func ApplyLanguage()
     lblNavigation.setText(T(LANG_NAV_H))
     lblControls.setText(T(LANG_CONTROLS_H))
 
-    # أزرار التنقل
+    # Navigation buttons | أزرار التنقل | Boutons de navigation
     btnPrevDay.setText(T(LANG_PREV_DAY))
     btnNextDay.setText(T(LANG_NEXT_DAY))
     btnPrevMonth.setText(T(LANG_PREV_MONTH))
     btnNextMonth.setText(T(LANG_NEXT_MONTH))
 
-    # أزرار التحكم
+    # Control buttons | أزرار التحكم | Boutons de contrôle
     if bPaused
         btnPause.setText(T(LANG_RESUME))
     else
@@ -132,7 +132,7 @@ Func ApplyLanguage()
 
     btnSpeed.setText(T(LANG_SPEED) + ": " + nSpeed + "x")
 
-    # تحديث ComboBox الفصول
+    # Update seasons ComboBox | تحديث قائمة الفصول | Mettre à jour la liste des saisons
     cbSeason.clear()
     if nLang = 1
         cbSeason.addItem(SEASONS_EN[1], null)
@@ -155,7 +155,7 @@ Func ApplyLanguage()
     UpdateControlPanel()
     DrawScene()
 
-# Calculate current season from day number
+# Calculate current season from day number | حساب الفصل الحالي | Calculer la saison actuelle
 Func GetSeason(nDayNum)
     if nDayNum >= 355 or nDayNum < 80
         return SEASON_WINTER
@@ -167,7 +167,7 @@ Func GetSeason(nDayNum)
         return SEASON_AUTUMN
     ok
 
-# Get month from day number
+# Get month from day number | الحصول على الشهر | Obtenir le mois depuis le numéro de jour
 Func GetMonth(nDayNum)
     nMonth = 1
     nDays = 0
@@ -180,7 +180,7 @@ Func GetMonth(nDayNum)
     next
     return nMonth
 
-# Get day of month from day number
+# Get day of month from day number | الحصول على اليوم | Obtenir le jour du mois
 Func GetDayOfMonth(nDayNum)
     nMonth = GetMonth(nDayNum)
     nDays = 0
@@ -189,13 +189,13 @@ Func GetDayOfMonth(nDayNum)
     next
     return nDayNum - nDays
 
-# Update control panel labels
+# Update control panel labels | تحديث عناوين لوحة التحكم | Mettre à jour les étiquettes
 Func UpdateControlPanel()
     nM = GetMonth(nDay)
     nDayOfMonth = GetDayOfMonth(nDay)
     nSeason = GetSeason(nDay)
 
-    # أسماء الأشهر حسب اللغة
+    # Month names by language | أسماء الأشهر حسب اللغة | Noms des mois par langue
     if nLang = 1
         cMonthName = MONTHS_EN[nM]
     but nLang = 2
@@ -204,7 +204,7 @@ Func UpdateControlPanel()
         cMonthName = MONTHS_FR[nM]
     ok
 
-    # أسماء الفصول حسب اللغة
+    # Season names by language | أسماء الفصول حسب اللغة | Noms des saisons par langue
     if nLang = 1
         cSeasonName = SEASONS_EN[nSeason]
     but nLang = 2
@@ -224,7 +224,7 @@ Func UpdateControlPanel()
     CalculateMoonPhase()
     UpdateMoonPhaseLabels()
 
-# Pause/Resume animation
+# Pause/Resume animation | إيقاف/استئناف الحركة | Pause/Reprendre l'animation
 Func TogglePause()
     bPaused = not bPaused
     if bPaused
@@ -233,7 +233,7 @@ Func TogglePause()
         btnPause.setText(T(LANG_PAUSE))
     ok
 
-# Reset to today's date
+# Reset to today's date | إعادة إلى تاريخ اليوم | Réinitialiser à la date du jour
 Func ResetToDay1()
     nDay       = 79
     nYear      = 2026
@@ -247,9 +247,9 @@ Func ResetToDay1()
     DrawScene()
     UpdateControlPanel()
 
-# Toggle animation speed
+# Toggle animation speed | تبديل سرعة الحركة | Changer la vitesse d'animation
 Func ToggleSpeed()
-    # السرعات: 0.1 → 0.25 → 0.5 → 1 → 2 → 5
+    # Speed levels: 0.1->0.25->0.5->1->2->5 | السرعات | Niveaux de vitesse
     if nSpeed = 0.1
         nSpeed = 0.25
     but nSpeed = 0.25
@@ -265,7 +265,7 @@ Func ToggleSpeed()
     ok
     btnSpeed.setText(T(LANG_SPEED) + ": " + nSpeed + "x")
 
-# Toggle day/night motion
+# Toggle day/night motion | تبديل حركة الليل والنهار | Basculer jour/nuit
 Func ToggleDayNight()
     bShowDayNight = not bShowDayNight
     if bShowDayNight
@@ -277,7 +277,7 @@ Func ToggleDayNight()
     ok
     DrawScene()
 
-# Toggle orbit information
+# Toggle orbit information | تبديل معلومات المدار | Basculer infos orbite
 Func ToggleOrbitInfo()
     bShowOrbitInfo = not bShowOrbitInfo
     if bShowOrbitInfo
@@ -292,7 +292,7 @@ Func ToggleOrbitInfo()
         lblMoonOrbit.hide()
     ok
 
-# Toggle moon speed
+# Toggle moon speed | تبديل سرعة القمر | Changer la vitesse de la lune
 Func ToggleMoonSpeed()
     if nMoonSpeedFactor = 0.1
         nMoonSpeedFactor = 0.5
@@ -310,27 +310,27 @@ Func ToggleMoonSpeed()
 
 # Calculate moon phase from hijri day
 Func CalculateMoonPhase()
-    # نحسب المرحلة من اليوم الهجري مباشرة
-    # اليوم 1 = محاق (0%), اليوم 15 = بدر (50%), اليوم 29/30 = محاق (100%)
+    # Calculate phase from Hijri day | نحسب المرحلة من اليوم الهجري | Calculer la phase à partir du jour hégirien
+    # Day 1=New Moon(0%), Day 15=Full Moon(50%), Day 29=New Moon(100%) | اليوم 1=محاق، 15=بدر | Jour 1=Nouvelle lune, 15=Pleine lune
     aDate  = GetFullGregorianDate()
     jdn    = GregorianToJDN(aDate[1], aDate[2], aDate[3])
     aHijri = JDNToHijri(jdn)
     hDay   = aHijri[1]
-    # تحويل اليوم الهجري (1-30) إلى نسبة مئوية (0-100)
+    # Convert Hijri day (1-30) to percentage (0-100) | تحويل اليوم الهجري | Convertir le jour hégirien (1-30) en pourcentage
     nMoonPhase = ((hDay - 1) / 29.5) * 100.0
     if nMoonPhase > 100 { nMoonPhase = 100 }
 
 # ═══════════════════════════════════════════════════════════
-# تحويل التاريخ الميلادي إلى هجري بدقة
-# نقطة المرجع: 20 مارس 2026 = 1 رمضان 1447
-# Julian Day Number لـ 20 مارس 2026 = 2461120
+# Accurate Gregorian to Hijri conversion | تحويل الميلادي إلى هجري | Conversion précise grégorien -> hégirien
+# Reference: 20 March 2026 = 1 Ramadan 1447 H | نقطة المرجع | Référence: 20 Mars 2026 = 1 Ramadan 1447 H
+# Julian Day Number for 20 March 2026 = 2461120
 # ═══════════════════════════════════════════════════════════
 
-# دالة مساعدة للقسمة الصحيحة
+# Helper function for integer division | دالة مساعدة للقسمة الصحيحة | Fonction auxiliaire pour division entière
 Func idiv(a, b)
     return floor(a / b)
 
-# حساب Julian Day Number من تاريخ ميلادي
+# Calculate Julian Day Number from Gregorian date | حساب Julian Day Number | Calculer le numéro de jour julien
 Func GregorianToJDN(gDay, gMonth, gYear)
     a   = idiv(14 - gMonth, 12)
     y   = gYear + 4800 - a
@@ -338,7 +338,7 @@ Func GregorianToJDN(gDay, gMonth, gYear)
     jdn = gDay + idiv(153*m + 2, 5) + 365*y + idiv(y, 4) - idiv(y, 100) + idiv(y, 400) - 32045
     return jdn
 
-# تحويل Julian Day Number إلى تاريخ هجري
+# Convert Julian Day Number to Hijri date | تحويل Julian Day Number | Convertir le JDN en date hégirienne
 Func JDNToHijri(jdn)
     l      = jdn - 1948440 + 10632
     n      = idiv(l - 1, 10631)
@@ -352,13 +352,13 @@ Func JDNToHijri(jdn)
     hYear  = 30 * n + j - 30
     return [hDay, hMonth, hYear]
 
-# الحصول على التاريخ الميلادي الكامل من nDay و nYear
+# Get full Gregorian date from nDay & nYear | الحصول على التاريخ الميلادي | Obtenir la date grégorienne complète
 Func GetFullGregorianDate()
     nM = GetMonth(nDay)
     nD = GetDayOfMonth(nDay)
     return [nD, nM, nYear]
 
-# تحديث labels التاريخ الهجري والمرحلة القمرية
+# Update Hijri date & moon phase labels | تحديث labels التاريخ الهجري | Mettre à jour les étiquettes de date hégirienne
 Func UpdateMoonPhaseLabels()
     cPhaseName = GetMoonPhaseName(nMoonPhase)
 
@@ -373,7 +373,7 @@ Func UpdateMoonPhaseLabels()
     hMonth = aHijri[2]
     hYear  = aHijri[3]
 
-    # اسم الشهر الهجري حسب اللغة
+    # Hijri month name by language | اسم الشهر الهجري حسب اللغة | Nom du mois hégirien par langue
     if nLang = 1
         cLunarMonth = LUNAR_MONTHS_EN[hMonth]
     but nLang = 2
@@ -408,12 +408,12 @@ Func GetMoonPhaseName(nPhase)
 Func DrawMoonPhase(nX, nY, nPhase)
     nR = 22
 
-    # جسم القمر الأساسي
+    # Moon base body | جسم القمر الأساسي | Corps de base de la lune
     daVinci.setPen(new qPen() { setColor(new qColor() { setRgb(170,170,155,255) }) setWidth(1) })
     daVinci.setBrush(new qBrush() { setStyle(1) setColor(new qColor() { setRgb(218,218,200,255) }) })
     daVinci.drawEllipse(nX-nR, nY-nR, nR*2, nR*2)
 
-    # تضاريس
+    # Surface features (maria & craters) | تضاريس | Caractéristiques de surface (mers & cratères)
     daVinci.setPen(penNone)
     daVinci.setBrush(new qBrush() { setStyle(1) setColor(new qColor() { setRgb(155,155,140,160) }) })
     daVinci.drawEllipse(nX-8, nY-10, 14, 12)
@@ -424,54 +424,54 @@ Func DrawMoonPhase(nX, nY, nPhase)
     daVinci.drawEllipse(nX-4,  nY+12, 4, 4)
     daVinci.drawEllipse(nX-16, nY-6,  3, 3)
 
-    # === ظل المرحلة ===
-    # nPhase: 0=محاق → 50=بدر → 100=محاق
-    # اليوم الهجري 1 → nPhase=0 (محاق)
-    # اليوم 15      → nPhase=47.5 (بدر)
-    # اليوم 29      → nPhase=94.9 (محاق)
+    # === Phase shadow | ظل المرحلة | Ombre de phase ===
+    # nPhase: 0=New Moon->50=Full Moon->100=New Moon | 0=محاق->50=بدر->100=محاق | 0=Nouvelle->50=Pleine->100=Nouvelle
+    # Hijri day 1 -> nPhase=0 (New Moon) | اليوم 1 = محاق | Jour 1 = Nouvelle lune
+    # Hijri day 15 -> nPhase=47.5 (Full Moon) | اليوم 15 = بدر | Jour 15 = Pleine lune
+    # Hijri day 29 -> nPhase=94.9 (New Moon) | اليوم 29 = محاق | Jour 29 = Nouvelle lune
 
     daVinci.setPen(penNone)
     cSh = new qColor() { setRgb(5, 5, 20, 225) }
     bSh = new qBrush() { setStyle(1) setColor(cSh) }
     daVinci.setBrush(bSh)
 
-    # تحويل nPhase إلى زاوية دورة (0=محاق, 180=بدر, 360=محاق)
+    # Convert nPhase to cycle angle (0=New,180=Full,360=New) | تحويل nPhase إلى زاوية دورة | Convertir nPhase en angle de cycle
     nCycleAngle = nPhase * 3.6   # 0 → 360
 
     if nCycleAngle < 10 or nCycleAngle > 350
-        # محاق: كامل الظلام
+        # New Moon: fully dark | محاق: كامل الظلام | Nouvelle lune: totalement sombre
         daVinci.drawEllipse(nX-nR, nY-nR, nR*2, nR*2)
 
     but nCycleAngle < 170
-        # هلال متزايد (يوم 1-14):
-        # النصف الأيسر دائماً مظلم
+        # Waxing crescent (days 1-14) | هلال متزايد (يوم 1-14) | Croissant montant (jours 1-14)
+        # Left half always dark | النصف الأيسر دائماً مظلم | Moitié gauche toujours sombre
         daVinci.drawChord(nX-nR, nY-nR, nR*2, nR*2, 90*16, 180*16)
-        # الشريط الأيمن يتقلص: عند nCycleAngle=0 الشريط=nR، عند 180 الشريط=0
+        # Right strip shrinks from nR to 0 | الشريط الأيمن يتقلص | Bande droite rétrécit de nR à 0
         nW = nR * (1.0 - nCycleAngle/180.0)
         if nW > 0.5
             daVinci.drawChord(nX-nW, nY-nR, nW*2, nR*2, 270*16, 180*16)
         ok
 
     but nCycleAngle < 190
-        # بدر (يوم 14-16): لا ظل
+        # Full Moon (days 14-16): no shadow | بدر: لا ظل | Pleine lune (jours 14-16): pas d'ombre
 
     else
-        # هلال متناقص (يوم 16-29):
-        # النصف الأيمن دائماً مظلم
+        # Waning crescent (days 16-29) | هلال متناقص (يوم 16-29) | Croissant décroissant (jours 16-29)
+        # Right half always dark | النصف الأيمن دائماً مظلم | Moitié droite toujours sombre
         daVinci.drawChord(nX-nR, nY-nR, nR*2, nR*2, 270*16, 180*16)
-        # الشريط الأيسر يتمدد: عند nCycleAngle=180 الشريط=0، عند 360 الشريط=nR
+        # Left strip grows from 0 to nR | الشريط الأيسر يتمدد | Bande gauche grandit de 0 à nR
         nW = nR * ((nCycleAngle - 180.0) / 180.0)
         if nW > 0.5
             daVinci.drawChord(nX-nW, nY-nR, nW*2, nR*2, 90*16, 180*16)
         ok
     ok
 
-    # حافة نهائية
+    # Final edge outline | حافة نهائية | Contour final
     daVinci.setPen(new qPen() { setColor(new qColor() { setRgb(190,190,175,255) }) setWidth(1) })
     daVinci.setBrush(brushEmpty)
     daVinci.drawEllipse(nX-nR, nY-nR, nR*2, nR*2)
 
-# Go to previous day
+# Go to previous day | الانتقال ليوم سابق | Aller au jour précédent
 Func PrevDay()
     nDay -= 1
     if nDay < 1
@@ -483,7 +483,7 @@ Func PrevDay()
     DrawScene()
     UpdateControlPanel()
 
-# Go to next day
+# Go to next day | الانتقال ليوم تالٍ | Aller au jour suivant
 Func NextDay()
     nDay += 1
     if nDay > 365
@@ -495,7 +495,7 @@ Func NextDay()
     DrawScene()
     UpdateControlPanel()
 
-# Go to previous month
+# Go to previous month | الانتقال لشهر سابق | Aller au mois précédent
 Func PrevMonth()
     nM = GetMonth(nDay)
     if nM = 1
@@ -512,7 +512,7 @@ Func PrevMonth()
     DrawScene()
     UpdateControlPanel()
 
-# Go to next month
+# Go to next month | الانتقال لشهر تالٍ | Aller au mois suivant
 Func NextMonth()
     nM = GetMonth(nDay)
     if nM = 12
@@ -529,7 +529,7 @@ Func NextMonth()
     DrawScene()
     UpdateControlPanel()
 
-# Set season from combo box
+# Set season from combo box | تعيين الفصل من القائمة | Définir la saison
 Func SetSeason(nIndex)
     nNewSeason = nIndex + 1
     if nNewSeason = SEASON_WINTER
@@ -599,57 +599,57 @@ Func DrawScene()
     nSX = CX + nSunOrbit * cos(toRad(nSunAngle))
     nSY = CY + nSunOrbit * sin(toRad(nSunAngle))
 
-    # === منطقة الليل والنهار الواقعية ===
+    # === Realistic Day/Night zone | منطقة الليل والنهار الواقعية | Zone jour/nuit réaliste ===
     if bShowDayNight
         daVinci.setPen(penNone)
 
         nOR = ER - 22
 
-        # زاوية الشمس من مركز الأرض بالدرجات (Qt تقيس عكس عقارب الساعة)
-        # في Ring/Qt: cos يُعطي الاتجاه الأفقي، sin يُعطي العمودي
-        # زاوية الظل = عكس زاوية الشمس + 180
-        # drawChord: startAngle و spanAngle بوحدة 1/16 درجة
-        # startAngle = زاوية البداية من اليمين عكس عقارب الساعة
-        # لكن Qt تعكس المحور Y لذا نعكس الإشارة
+        # Sun angle from Earth center in degrees (Qt: CCW) | زاوية الشمس من مركز الأرض | Angle soleil depuis le centre Terre
+        # In Ring/Qt: cos=horizontal, sin=vertical | cos أفقي، sin عمودي | cos=horizontal, sin=vertical
+        # Shadow angle = inverse sun angle + 180 | زاوية الظل | Angle de l'ombre = inverse angle soleil + 180
+        # drawChord: startAngle & spanAngle in 1/16 degree units | بوحدة 1/16 درجة | unités de 1/16 degré
+        # startAngle = from right, CCW | من اليمين عكس عقارب الساعة | depuis la droite, sens antihoraire
+        # Qt inverts Y axis so we negate | Qt تعكس المحور Y | Qt inverse l'axe Y donc on négative
 
         nShadeStart = (-nSunAngle + 180 - 90) * 16
         
-        # طبقة 1: الفجر/الغسق (أخف تعتيم - أوسع زاوية)
+        # Layer 1: Dawn/Dusk (lightest - widest) | طبقة 1: الفجر/الغسق | Couche 1: Aube/Crépuscule
         c = new qColor() { setRgb(0, 5, 30, 30) }
         b = new qBrush() { setStyle(1) setColor(c) }
         daVinci.setBrush(b)
         daVinci.drawChord(CX-nOR, CY-nOR, nOR*2, nOR*2,
             nShadeStart - 20*16, 220 * 16)
 
-        # طبقة 2
+        # Layer 2 | طبقة 2 | Couche 2
         c = new qColor() { setRgb(0, 3, 25, 60) }
         b = new qBrush() { setStyle(1) setColor(c) }
         daVinci.setBrush(b)
         daVinci.drawChord(CX-nOR, CY-nOR, nOR*2, nOR*2,
             nShadeStart - 10*16, 200 * 16)
 
-        # طبقة 3: نصف الأرض بالضبط
+        # Layer 3: Exactly half Earth | طبقة 3: نصف الأرض | Couche 3: Exactement la moitié de la Terre
         c = new qColor() { setRgb(0, 2, 20, 90) }
         b = new qBrush() { setStyle(1) setColor(c) }
         daVinci.setBrush(b)
         daVinci.drawChord(CX-nOR, CY-nOR, nOR*2, nOR*2,
             nShadeStart, 180 * 16)
 
-        # طبقة 4: ظلام أعمق
+        # Layer 4: Deeper darkness | طبقة 4: ظلام أعمق | Couche 4: Obscurité plus profonde
         c = new qColor() { setRgb(0, 0, 15, 120) }
         b = new qBrush() { setStyle(1) setColor(c) }
         daVinci.setBrush(b)
         daVinci.drawChord(CX-nOR, CY-nOR, nOR*2, nOR*2,
             nShadeStart + 20*16, 140 * 16)
 
-        # طبقة 5: وسط الليل
+        # Layer 5: Deep midnight | طبقة 5: وسط الليل | Couche 5: Minuit profond
         c = new qColor() { setRgb(0, 0, 10, 150) }
         b = new qBrush() { setStyle(1) setColor(c) }
         daVinci.setBrush(b)
         daVinci.drawChord(CX-nOR, CY-nOR, nOR*2, nOR*2,
             nShadeStart + 45*16, 90 * 16)
 
-        # هالة النهار من جهة الشمس
+        # Daytime glow from sun side | هالة النهار من جهة الشمس | Lueur diurne du côté soleil
         c = new qColor() { setRgb(255, 240, 160, 22) }
         b = new qBrush() { setStyle(1) setColor(c) }
         daVinci.setBrush(b)
@@ -700,7 +700,7 @@ Func DrawScene()
     daVinci.setBrush(brushMoonGlow)
     daVinci.drawEllipse(nMX-30, nMY-30, 60, 60)
 
-    # رسم القمر بمرحلته الواقعية
+    # Draw moon with realistic phase | رسم القمر بمرحلته الواقعية | Dessiner la lune avec sa phase réaliste
     DrawMoonPhase(nMX, nMY, nMoonPhase)
 
     daVinci.setPen(penNone)
@@ -766,13 +766,13 @@ Func animate()
         ResizeLayout()
     ok
 
-    # تحديث الساعة دائماً حتى عند الإيقاف
+    # Always update clock even when paused | تحديث الساعة دائماً | Toujours mettre à jour l'horloge
     UpdateClock()
 
     if not bPaused
         nSunAngle += (360.0 / 365.0) * nSpeed
 
-        # عند اكتمال دورة شمسية → سنة جديدة
+        # Full solar orbit completed -> new year | عند اكتمال دورة شمسية | Orbite solaire complète -> nouvelle année
         if nSunAngle >= 360
             nSunAngle -= 360
             nYear += 1
@@ -782,7 +782,7 @@ Func animate()
             nYear -= 1
         ok
 
-        # احسب nDay من nSunAngle مباشرة (1-365)
+        # Derive nDay from nSunAngle (1-365) | احسب nDay من nSunAngle | Dériver nDay depuis nSunAngle
         nDay = floor(nSunAngle / 360.0 * 365.0) + 1
         if nDay < 1   { nDay = 1   }
         if nDay > 365 { nDay = 365 }
@@ -797,35 +797,35 @@ Func animate()
     ok
 
 Func ResizeLayout()
-    # الحصول على حجم النافذة الحالي
+    # Get current window size | الحصول على حجم النافذة | Obtenir la taille de fenêtre
     nWinW = win.width()
     nWinH = win.height()
 
-    # عرض لوحة التحكم ثابت = 300
+    # Control panel fixed width = 300 | عرض لوحة التحكم ثابت | Largeur fixe du panneau = 300
     nPanelW = 300
 
-    # حجم Canvas = باقي العرض × كامل الارتفاع
+    # Canvas = remaining width x full height | حجم Canvas | Canvas = largeur restante x hauteur totale
     nCanvasW = nWinW - nPanelW
     nCanvasH = nWinH
 
-    # تحديث Canvas
+    # Update Canvas geometry | تحديث Canvas | Mettre à jour la géométrie Canvas
     Canvas.setGeometry(0, 0, nCanvasW, nCanvasH)
 
-    # تحديث ControlPanel
+    # Update ControlPanel geometry | تحديث ControlPanel | Mettre à jour la géométrie du panneau
     ControlPanel.setGeometry(nCanvasW, 0, nPanelW, nWinH)
 
-    # تحديث ثوابت الرسم
+    # Update drawing constants | تحديث ثوابت الرسم | Mettre à jour les constantes de dessin
     W  = nCanvasW
     H  = nCanvasH
     CX = nCanvasW / 2
     CY = nCanvasH / 2
 
-    # نصف قطر الأرض = 90% من نصف أصغر بُعد
+    # Earth radius = 90% of half smallest dimension | نصف قطر الأرض | Rayon Terre = 90% de la moitié
     nMinDim = nCanvasW
     if nCanvasH < nCanvasW { nMinDim = nCanvasH }
     ER = (nMinDim / 2) * 0.90
 
-    # إعادة بناء الـ pixmap بالحجم الجديد
+    # Rebuild pixmap at new size | إعادة بناء الـ pixmap | Reconstruire le pixmap
     daVinci.endpaint()
     MonaLisa = new qPixMap2(nCanvasW, nCanvasH)
     daVinci  = new qPainter()
