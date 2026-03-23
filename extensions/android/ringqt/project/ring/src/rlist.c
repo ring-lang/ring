@@ -831,12 +831,12 @@ void ring_list_general_quicksort(char **keys, long *idx, long low, long high) {
 	}
 }
 
-RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+RING_API void ring_list_sortnum_gc(void *pState, List *pList, long low, long high, unsigned int nColumn,
 				   const char *cAttribute) {
 	long x, y, nMid;
 	double nMidvalue;
-	x = left;
-	y = right;
+	x = low;
+	y = high;
 	nMid = (x + y) / 2;
 	nMidvalue = ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute);
 	while (x <= y) {
@@ -852,11 +852,11 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long ri
 			y--;
 		}
 	}
-	if (left < y) {
-		ring_list_sortnum_gc(pState, pList, left, y, nColumn, cAttribute);
+	if (low < y) {
+		ring_list_sortnum_gc(pState, pList, low, y, nColumn, cAttribute);
 	}
-	if (x < right) {
-		ring_list_sortnum_gc(pState, pList, x, right, nColumn, cAttribute);
+	if (x < high) {
+		ring_list_sortnum_gc(pState, pList, x, high, nColumn, cAttribute);
 	}
 }
 
