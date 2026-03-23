@@ -258,10 +258,14 @@ x,y,nMid
 Type: double
 nMidvalue
 ring_list_sortstr_gc
+Type: List *
+pList2, *pList3
+Type: char **
+keys
+Type: long *
+idx
 Type: long
-x,y,nMid
-Type: const char *
-pMidvalue
+i,count
 ring_list_binarysearchnum_gc
 Type: unsigned int
 nFirst,nMid,nLast
