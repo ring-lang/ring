@@ -239,6 +239,19 @@ Type: unsigned int
 x,nCount
 Type: List *
 pList2, *pList3
+ring_list_general_swaplong
+Type: long
+t
+ring_list_general_partition
+Type: const char *
+pivot
+Type: const char *
+cur
+Type: long
+i
+ring_list_general_quicksort
+Type: long
+pi
 ring_list_sortnum_gc
 Type: long
 x,y,nMid

@@ -793,6 +793,44 @@ RING_API unsigned int ring_list_findlistref_gc(void *pState, List *pList, List *
 }
 /* Sort (QuickSort) and Binary Search */
 
+void ring_list_general_swaplong(long *a, long *b) {
+	long t;
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+
+long ring_list_general_partition(char **keys, long *idx, long low, long high) {
+	const char *pivot;
+	const char *cur;
+	long i;
+	pivot = keys[idx[high]];
+	i = low - 1;
+	for (long j = low; j <= high - 1; j++) {
+		cur = keys[idx[j]];
+		if (strcmp(cur, pivot) <= 0) {
+			i++;
+			ring_list_general_swaplong(&idx[i], &idx[j]);
+		}
+	}
+	ring_list_general_swaplong(&idx[i + 1], &idx[high]);
+	return i + 1;
+}
+
+void ring_list_general_quicksort(char **keys, long *idx, long low, long high) {
+	long pi;
+	while (low < high) {
+		pi = ring_list_general_partition(keys, idx, low, high);
+		if (pi - low < high - pi) {
+			ring_list_general_quicksort(keys, idx, low, pi - 1);
+			low = pi + 1;
+		} else {
+			ring_list_general_quicksort(keys, idx, pi + 1, high);
+			high = pi - 1;
+		}
+	}
+}
+
 RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
 				   const char *cAttribute) {
 	long x, y, nMid;

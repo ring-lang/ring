@@ -195,6 +195,12 @@ RING_API unsigned int ring_list_findpointer_gc(void *pState, List *pList, void *
 RING_API unsigned int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn);
 /* Sort and Binary Search */
 
+void ring_list_general_swaplong(long *a, long *b);
+
+long ring_list_general_partition(char **keys, long *idx, long low, long high);
+
+void ring_list_general_quicksort(char **keys, long *idx, long low, long high);
+
 RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
 				   const char *cAttribute);
 
