@@ -875,7 +875,8 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, long low, long hig
 	idx = (long *)ring_state_malloc(pState, count * sizeof(long));
 	;
 	for (i = 0; i < count; i++) {
-		keys[i] = strdup(ring_list_getstringcolumn_gc(pState, pList, i + 1, nColumn, cAttribute));
+		keys[i] = ring_string_strdup_gc(
+		    pState, ring_list_getstringcolumn_gc(pState, pList, i + 1, nColumn, cAttribute));
 		idx[i] = i;
 	}
 	/* Sort index array */
