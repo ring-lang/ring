@@ -242,22 +242,22 @@ pList2, *pList3
 ring_list_general_swaplong
 Type: long
 t
-ring_list_general_partition
+ring_list_general_partitionnum
+Type: double
+pivot
+Type: long
+i,j
+ring_list_general_partitionstr
 Type: const char *
 pivot
 Type: const char *
 cur
 Type: long
 i
-ring_list_general_partitionnum
-Type: double
-pivot
-Type: long
-i,j
-ring_list_general_quicksort
+ring_list_general_quicksortnum
 Type: long
 pi
-ring_list_general_quicksortnum
+ring_list_general_quicksortstr
 Type: long
 pi
 ring_list_sortnum_gc

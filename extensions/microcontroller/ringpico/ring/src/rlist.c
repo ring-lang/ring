@@ -800,7 +800,22 @@ void ring_list_general_swaplong(long *a, long *b) {
 	*b = t;
 }
 
-long ring_list_general_partition(char **keys, long *idx, long low, long high) {
+long ring_list_general_partitionnum(double *keys, long *idx, long low, long high) {
+	double pivot;
+	long i, j;
+	pivot = keys[idx[high]];
+	i = low - 1;
+	for (j = low; j <= high - 1; j++) {
+		if (keys[idx[j]] <= pivot) {
+			i++;
+			ring_list_general_swaplong(&idx[i], &idx[j]);
+		}
+	}
+	ring_list_general_swaplong(&idx[i + 1], &idx[high]);
+	return i + 1;
+}
+
+long ring_list_general_partitionstr(char **keys, long *idx, long low, long high) {
 	const char *pivot;
 	const char *cur;
 	long i;
@@ -817,35 +832,6 @@ long ring_list_general_partition(char **keys, long *idx, long low, long high) {
 	return i + 1;
 }
 
-long ring_list_general_partitionnum(double *keys, long *idx, long low, long high) {
-	double pivot;
-	long i, j;
-	pivot = keys[idx[high]];
-	i = low - 1;
-	for (j = low; j <= high - 1; j++) {
-		if (keys[idx[j]] <= pivot) {
-			i++;
-			ring_list_general_swaplong(&idx[i], &idx[j]);
-		}
-	}
-	ring_list_general_swaplong(&idx[i + 1], &idx[high]);
-	return i + 1;
-}
-
-void ring_list_general_quicksort(char **keys, long *idx, long low, long high) {
-	long pi;
-	while (low < high) {
-		pi = ring_list_general_partition(keys, idx, low, high);
-		if (pi - low < high - pi) {
-			ring_list_general_quicksort(keys, idx, low, pi - 1);
-			low = pi + 1;
-		} else {
-			ring_list_general_quicksort(keys, idx, pi + 1, high);
-			high = pi - 1;
-		}
-	}
-}
-
 void ring_list_general_quicksortnum(double *keys, long *idx, long low, long high) {
 	long pi;
 	while (low < high) {
@@ -855,6 +841,20 @@ void ring_list_general_quicksortnum(double *keys, long *idx, long low, long high
 			low = pi + 1;
 		} else {
 			ring_list_general_quicksortnum(keys, idx, pi + 1, high);
+			high = pi - 1;
+		}
+	}
+}
+
+void ring_list_general_quicksortstr(char **keys, long *idx, long low, long high) {
+	long pi;
+	while (low < high) {
+		pi = ring_list_general_partitionstr(keys, idx, low, high);
+		if (pi - low < high - pi) {
+			ring_list_general_quicksortstr(keys, idx, low, pi - 1);
+			low = pi + 1;
+		} else {
+			ring_list_general_quicksortstr(keys, idx, pi + 1, high);
 			high = pi - 1;
 		}
 	}
@@ -917,7 +917,7 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, long low, long hig
 		idx[i] = i;
 	}
 	/* Sort index array */
-	ring_list_general_quicksort(keys, idx, 0, count - 1);
+	ring_list_general_quicksortstr(keys, idx, 0, count - 1);
 	pList2 = ring_list_new_gc(pState, 0);
 	for (i = 0; i < count; i++) {
 		if (nColumn == 0) {
