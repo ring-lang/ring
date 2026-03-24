@@ -42,4 +42,5 @@ More Improvements
 * Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring
 * Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
 * language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
-
+* Ring VM - ring_list_sortnum_gc() - Better Performance
+* Ring VM - ring_list_sortstr_gc() - Better Performance
