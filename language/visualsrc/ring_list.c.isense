@@ -249,14 +249,26 @@ Type: const char *
 cur
 Type: long
 i
+ring_list_general_partitionnum
+Type: double
+pivot
+Type: long
+i,j
 ring_list_general_quicksort
 Type: long
 pi
-ring_list_sortnum_gc
+ring_list_general_quicksortnum
 Type: long
-x,y,nMid
-Type: double
-nMidvalue
+pi
+ring_list_sortnum_gc
+Type: List *
+pList2, *pList3
+Type: double *
+keys
+Type: long *
+idx
+Type: long
+i,count
 ring_list_sortstr_gc
 Type: List *
 pList2, *pList3

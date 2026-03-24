@@ -817,6 +817,21 @@ long ring_list_general_partition(char **keys, long *idx, long low, long high) {
 	return i + 1;
 }
 
+long ring_list_general_partitionnum(double *keys, long *idx, long low, long high) {
+	double pivot;
+	long i, j;
+	pivot = keys[idx[high]];
+	i = low - 1;
+	for (j = low; j <= high - 1; j++) {
+		if (keys[idx[j]] <= pivot) {
+			i++;
+			ring_list_general_swaplong(&idx[i], &idx[j]);
+		}
+	}
+	ring_list_general_swaplong(&idx[i + 1], &idx[high]);
+	return i + 1;
+}
+
 void ring_list_general_quicksort(char **keys, long *idx, long low, long high) {
 	long pi;
 	while (low < high) {
@@ -831,33 +846,55 @@ void ring_list_general_quicksort(char **keys, long *idx, long low, long high) {
 	}
 }
 
+void ring_list_general_quicksortnum(double *keys, long *idx, long low, long high) {
+	long pi;
+	while (low < high) {
+		pi = ring_list_general_partitionnum(keys, idx, low, high);
+		if (pi - low < high - pi) {
+			ring_list_general_quicksortnum(keys, idx, low, pi - 1);
+			low = pi + 1;
+		} else {
+			ring_list_general_quicksortnum(keys, idx, pi + 1, high);
+			high = pi - 1;
+		}
+	}
+}
+
 RING_API void ring_list_sortnum_gc(void *pState, List *pList, long low, long high, unsigned int nColumn,
 				   const char *cAttribute) {
-	long x, y, nMid;
-	double nMidvalue;
-	x = low;
-	y = high;
-	nMid = (x + y) / 2;
-	nMidvalue = ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute);
-	while (x <= y) {
-		while (ring_list_getdoublecolumn_gc(pState, pList, x, nColumn, cAttribute) < nMidvalue) {
-			x++;
-		}
-		while (ring_list_getdoublecolumn_gc(pState, pList, y, nColumn, cAttribute) > nMidvalue) {
-			y--;
-		}
-		if (x <= y) {
-			ring_list_swap_gc(pState, pList, x, y);
-			x++;
-			y--;
+	List *pList2, *pList3;
+	double *keys;
+	long *idx;
+	long i, count;
+	count = ring_list_getsize(pList);
+	if (count <= 1) {
+		return;
+	}
+	/* Extract all keys once */
+	keys = (double *)ring_state_malloc(pState, count * sizeof(double));
+	idx = (long *)ring_state_malloc(pState, count * sizeof(long));
+	;
+	for (i = 0; i < count; i++) {
+		keys[i] = ring_list_getdoublecolumn_gc(pState, pList, i + 1, nColumn, cAttribute);
+		idx[i] = i;
+	}
+	/* Sort index array */
+	ring_list_general_quicksortnum(keys, idx, 0, count - 1);
+	pList2 = ring_list_new_gc(pState, 0);
+	for (i = 0; i < count; i++) {
+		if (nColumn == 0) {
+			ring_list_setdouble_gc(pState, pList, i + 1, keys[idx[i]]);
+		} else {
+			pList3 = ring_list_newlist_gc(pState, pList2);
+			ring_list_swaptwolists_gc(pState, pList3, ring_list_getlist(pList, idx[i] + 1));
 		}
 	}
-	if (low < y) {
-		ring_list_sortnum_gc(pState, pList, low, y, nColumn, cAttribute);
+	if (nColumn != 0) {
+		ring_list_swaptwolists_gc(pState, pList, pList2);
 	}
-	if (x < high) {
-		ring_list_sortnum_gc(pState, pList, x, high, nColumn, cAttribute);
-	}
+	ring_list_delete_gc(pState, pList2);
+	ring_state_free(pState, keys);
+	ring_state_free(pState, idx);
 }
 
 RING_API void ring_list_sortstr_gc(void *pState, List *pList, long low, long high, unsigned int nColumn,
