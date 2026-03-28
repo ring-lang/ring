@@ -43,5 +43,7 @@ More Improvements
 * Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
 * language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
 * Remove() function - Correct error message when the argument count is incorrect
+* LoadLib() function - Return after displaying the error message
+* SysSleep() function - Return after displaying the error message
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
