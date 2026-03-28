@@ -195,10 +195,20 @@ RING_API unsigned int ring_list_findpointer_gc(void *pState, List *pList, void *
 RING_API unsigned int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn);
 /* Sort and Binary Search */
 
-RING_API void ring_list_sortnum_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+void ring_list_general_swaplong(long *a, long *b);
+
+long ring_list_general_partitionnum(double *keys, long *idx, long low, long high);
+
+long ring_list_general_partitionstr(char **keys, long *idx, long low, long high);
+
+void ring_list_general_quicksortnum(double *keys, long *idx, long low, long high);
+
+void ring_list_general_quicksortstr(char **keys, long *idx, long low, long high);
+
+RING_API void ring_list_sortnum_gc(void *pState, List *pList, long low, long high, unsigned int nColumn,
 				   const char *cAttribute);
 
-RING_API void ring_list_sortstr_gc(void *pState, List *pList, long left, long right, unsigned int nColumn,
+RING_API void ring_list_sortstr_gc(void *pState, List *pList, long low, long high, unsigned int nColumn,
 				   const char *cAttribute);
 
 RING_API unsigned int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
@@ -309,7 +319,7 @@ RING_API void ring_list_insertfuncpointer(List *pList, unsigned int nPos, void (
 
 RING_API List *ring_list_insertlist(List *pList, unsigned int nPos);
 
-RING_API void ring_list_sortstr(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
+RING_API void ring_list_sortstr(List *pList, unsigned int low, unsigned int high, unsigned int nColumn,
 				const char *cAttribute);
 /* List Items to HashTable */
 
