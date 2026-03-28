@@ -34,6 +34,9 @@
 **                    Append
 **                    AllSum
 **                    Mandelbrot
+**
+** 2026-03-28 B.M.    ring_transform3d  //  Apply a 4x4 transformation matrix to every point in a Nx4 point array.
+**                    transform3d( FC, RC )
 */
 
 #include "ring.h"
@@ -3599,6 +3602,137 @@ RING_FUNC(ring_updatebytescolumn)
     RING_API_RETSTRING2(pBytes,nBytesSize);
 }
 
+
+//===========================================================
+// ring_transform3d  --  Apply a 4x4 transformation matrix
+//                       to every point in a Nx4 point array.
+//
+// Ring call:
+//   transform3d( FC, RC )
+//
+//   FC : List[4][4]   -- combined 4x4 transformation matrix
+//                        (result of Rotation * Scale * Translate *
+//                         Shear * Reflection chain, as built in
+//                         Mug-Rotation-C-Calc.ring DrawMatrix())
+//   RC : List[N][4]   -- point array  [x, y, z, 1]
+//                        transformed in-place: RC[i][1..3]
+//                        are overwritten with the new x',y',z'
+//
+// Each point is treated as a column vector [x,y,z,1]^T.
+// The result column vector R = FC * P is computed for every
+// row i of RC, and the first three components are written back.
+//
+// Equivalent to the Ring loop in Mug-Rotation-C-Calc.ring:
+//
+//   for i = 1 to ShapeLen
+//       A = [[ ShapeMug[i][1] ],
+//            [ ShapeMug[i][2] ],
+//            [ ShapeMug[i][3] ],
+//            [       1        ]]
+//       C = MatrixMultiply(FC, A)
+//       Corners[i][1] = C[1][1]
+//       Corners[i][2] = C[2][1]
+//       Corners[i][3] = C[3][1]
+//   next
+//
+// Performance note:
+//   Avoids all per-point list allocation by caching the
+//   four rows of FC once before the point loop.
+//===========================================================
+
+RING_FUNC(ring_transform3d)
+{
+    List   *pFC, *pRC ;
+    List   *pFCrow[4] ;          /* pointers to the 4 rows of FC            */
+    List   *pPoint ;             /* pointer to the current row of RC         */
+    double  fc[4][4] ;           /* local copy of the 4x4 matrix elements    */
+    double  px, py, pz ;         /* input point components                   */
+    double  rx, ry, rz ;         /* output point components                  */
+    int     nPoints, i, r, c ;
+    VM     *pVM ;
+
+    pVM = (VM *) pPointer ;
+
+    /* ---- parameter validation ---- */
+
+    if ( RING_API_PARACOUNT != 2 ) {
+        RING_API_ERROR("transform3d: expected exactly 2 parameters (FC, RC)");
+        return ;
+    }
+    if ( ! RING_API_ISLIST(1) ) {
+        RING_API_ERROR("transform3d: parameter 1 (FC) must be a 4x4 list");
+        return ;
+    }
+    if ( ! RING_API_ISLIST(2) ) {
+        RING_API_ERROR("transform3d: parameter 2 (RC) must be an Nx4 list");
+        return ;
+    }
+
+    pFC = RING_API_GETLIST(1) ;
+    pRC = RING_API_GETLIST(2) ;
+
+    /* ---- validate FC dimensions: must be 4 rows of 4 ---- */
+    if ( ring_list_getsize(pFC) != 4 ) {
+        RING_API_ERROR("transform3d: FC must have exactly 4 rows");
+        return ;
+    }
+    for ( r = 0 ; r < 4 ; r++ ) {
+        if ( ! ring_list_islist(pFC, r+1) ) {
+            RING_API_ERROR("transform3d: FC rows must be lists");
+            return ;
+        }
+        pFCrow[r] = ring_list_getlist(pFC, r+1) ;
+        if ( ring_list_getsize(pFCrow[r]) != 4 ) {
+            RING_API_ERROR("transform3d: each FC row must have exactly 4 columns");
+            return ;
+        }
+    }
+
+    /* ---- cache FC into a plain C array for fast access ---- */
+    for ( r = 0 ; r < 4 ; r++ ) {
+        for ( c = 0 ; c < 4 ; c++ ) {
+            fc[r][c] = ring_list_getdouble(pFCrow[r], c+1) ;
+        }
+    }
+
+    /* ---- iterate over every point in RC ---- */
+    nPoints = ring_list_getsize(pRC) ;
+
+    for ( i = 1 ; i <= nPoints ; i++ ) {
+
+        if ( ! ring_list_islist(pRC, i) ) continue ;
+
+        pPoint = ring_list_getlist(pRC, i) ;
+
+        if ( ring_list_getsize(pPoint) < 3 ) continue ;
+
+        /* read x, y, z  (w is assumed 1, matching the Ring code) */
+        px = ring_list_getdouble(pPoint, 1) ;
+        py = ring_list_getdouble(pPoint, 2) ;
+        pz = ring_list_getdouble(pPoint, 3) ;
+
+        /* R = FC * [px, py, pz, 1]^T
+        **
+        **  rx = fc[0][0]*px + fc[0][1]*py + fc[0][2]*pz + fc[0][3]
+        **  ry = fc[1][0]*px + fc[1][1]*py + fc[1][2]*pz + fc[1][3]
+        **  rz = fc[2][0]*px + fc[2][1]*py + fc[2][2]*pz + fc[2][3]
+        **  (rw = fc[3][3] == 1, not stored back)
+        */
+        rx = fc[0][0]*px + fc[0][1]*py + fc[0][2]*pz + fc[0][3] ;
+        ry = fc[1][0]*px + fc[1][1]*py + fc[1][2]*pz + fc[1][3] ;
+        rz = fc[2][0]*px + fc[2][1]*py + fc[2][2]*pz + fc[2][3] ;
+
+        /* write results back into RC[i][1..3] in-place */
+        ring_list_setdouble_gc(pVM->pRingState, pPoint, 1, rx) ;
+        ring_list_setdouble_gc(pVM->pRingState, pPoint, 2, ry) ;
+        ring_list_setdouble_gc(pVM->pRingState, pPoint, 3, rz) ;
+    }
+
+    /* no return value needed; RC is modified in-place via its Ring reference */
+}
+
+//===========================================================
+
 RING_FUNC(ring_addbytescolumn)
 {
     unsigned char *pBytes, *pNewBytes;
@@ -3654,4 +3788,5 @@ RING_LIBINIT
     RING_API_REGISTER("updatecolumn",ring_updatecolumn);
     RING_API_REGISTER("updatebytescolumn",ring_updatebytescolumn);
     RING_API_REGISTER("addbytescolumn",ring_addbytescolumn);
+    RING_API_REGISTER("transform3d",ring_transform3d);
 }
