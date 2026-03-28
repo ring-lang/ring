@@ -89,7 +89,7 @@ RING_API void ring_vm_statecustmutexunlock(void *pState, unsigned int nMutex) {
 		return;
 	}
 	pVM = ((RingState *)pState)->pVM;
-	if ((pVM->aCustomMutex[nMutex] != NULL) && (pVM->pFuncMutexLock != NULL)) {
+	if ((pVM->aCustomMutex[nMutex] != NULL) && (pVM->pFuncMutexUnlock != NULL)) {
 		pVM->pFuncMutexUnlock(pVM->aCustomMutex[nMutex]);
 	}
 }
