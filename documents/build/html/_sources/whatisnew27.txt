@@ -41,7 +41,9 @@ More Improvements
 * Added: samples/UsingRayLib/more/ex11_matrix_rain.ring
 * Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring
 * Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
+* Added: samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 * language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
+* RingFastPro - Added Transform3D() function
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib() function - Return after displaying the error message
 * SysSleep() function - Return after displaying the error message
