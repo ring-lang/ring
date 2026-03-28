@@ -2272,7 +2272,7 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 				sprintf(cBuffer, "%c%c%c%c", cStr2[6], cStr2[7], cStr2[8], cStr2[9]);
 				vTimeInfo2.tm_year = atoi(cBuffer) - 1900;
 				vTimer2 = mktime(&vTimeInfo2);
-				if ((vTimer == (time_t)-1) || (vTimeInfo2.tm_year > 1097)) {
+				if ((vTimer2 == (time_t)-1) || (vTimeInfo2.tm_year > 1097)) {
 					/*
 					**  1097 + 1900 = 2997
 					**  Values over limit may cause crash
