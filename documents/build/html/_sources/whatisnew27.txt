@@ -45,6 +45,7 @@ More Improvements
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib() function - Return after displaying the error message
 * SysSleep() function - Return after displaying the error message
+* DiffDays() function - Better Code
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
 * Ring VM - ring_list_updaterefcount_gc() - Better Code
