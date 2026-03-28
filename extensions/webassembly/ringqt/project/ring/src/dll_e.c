@@ -27,6 +27,7 @@ void ring_vm_dll_loadlib(void *pPointer) {
 			lRegister = (unsigned int)RING_API_GETNUMBER(2);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	if (RING_API_ISSTRING(1)) {

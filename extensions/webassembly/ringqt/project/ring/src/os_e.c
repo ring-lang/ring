@@ -360,6 +360,7 @@ void ring_vm_os_syssleep(void *pPointer) {
 	}
 	if (!RING_API_ISNUMBER(1)) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
 	}
 	nTime = (int)RING_API_GETNUMBER(1);
 	#ifdef _WIN32
