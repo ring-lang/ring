@@ -402,7 +402,7 @@ void ring_vm_oop_movetobeforeobjstate(VM *pVM) {
 	/* Move list from pObjState to pBeforeObjState */
 	pList = ring_list_newlist_gc(pVM->pRingState, pVM->pBeforeObjState);
 	pList2 = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-	ring_list_copy_gc(pVM->pRingState, pList, pList2);
+	ring_list_swaptwolists_gc(pVM->pRingState, pList, pList2);
 	ring_list_deleteitem_gc(pVM->pRingState, pVM->pObjState, ring_list_getsize(pVM->pObjState));
 }
 
