@@ -161,6 +161,7 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 	unsigned int nPC, nType, lPrivateError, nAssignmentPos;
 	Item *pItem;
 	List *pList, *pThis;
+	VMState *pVMState;
 	/*
 	**  Now We have the variable List
 	**  The Scope of the search result
@@ -236,7 +237,8 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 		} else if ((nLevel == RING_VARSCOPE_OBJSTATE) && (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
 			/* Accessing Object Attribute Using { } */
 			if (ring_list_getsize(pVM->pBraceObjects) > 0) {
-				pList = ring_list_getlist(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
+				pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects,
+									   ring_list_getsize(pVM->pBraceObjects));
 				/* Pass braces { } for class init() method */
 				if (pVM->nCallClassInit) {
 					/*
@@ -247,7 +249,7 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 					return RING_TRUE;
 				}
 				/* Get Object List */
-				pList = (List *)ring_list_getpointer(pList, RING_BRACEOBJECTS_BRACEOBJECT);
+				pList = (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT];
 				nType = ring_vm_oop_objtypefromobjlist(pVM, pList);
 				/* Set Object Pointer & Type */
 				if (nType == RING_OBJTYPE_VARIABLE) {

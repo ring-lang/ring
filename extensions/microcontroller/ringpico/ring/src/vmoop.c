@@ -508,15 +508,15 @@ void ring_vm_oop_bracestart(VM *pVM) {
 }
 
 void ring_vm_oop_braceend(VM *pVM) {
-	List *pList;
-	pList = ring_list_getlist(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-	ring_vm_restorestateforbraces(pVM, pList);
+	VMState *pVMState;
+	pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
+	ring_vm_restorestateforbraces(pVM, pVMState);
 }
 
 void ring_vm_oop_bracestack(VM *pVM) {
-	List *pList;
-	pList = ring_list_getlist(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-	pVM->nSP = ring_list_getint(pList, RING_BRACEOBJECTS_NSP);
+	VMState *pVMState;
+	pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
+	pVM->nSP = pVMState->aNumbers[RING_BRACEOBJECTS_NSP];
 	if (pVM->nFuncSP > pVM->nSP) {
 		/*
 		**  This fixes a problem when we use oObject {  eval(code) } return cString
@@ -1249,10 +1249,11 @@ void ring_vm_oop_callclassinit(VM *pVM) {
 }
 
 void ring_vm_oop_checkbracemethod(VM *pVM) {
-	List *pList;
+	VMState *pVMState;
 	unsigned int lResult;
-	pList = ring_list_getlist(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-	lResult = ring_vm_oop_ismethod(pVM, ring_list_getlist(pList, RING_BRACEOBJECTS_BRACEOBJECT), RING_VM_IR_READC);
+	pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
+	lResult =
+	    ring_vm_oop_ismethod(pVM, (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT], RING_VM_IR_READC);
 	RING_VM_STACK_PUSHNVALUE(lResult);
 }
 
@@ -1274,11 +1275,11 @@ void ring_vm_oop_cleansetpropertylist(VM *pVM) {
 }
 
 int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod) {
-	List *pList;
+	VMState *pVMState;
 	if (ring_list_getsize(pVM->pObjState) && ring_list_getsize(pVM->pBraceObjects) && (pVM->lCallMethod == 0) &&
 	    (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
-		pList = ring_list_getlist(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-		if (ring_vm_oop_ismethod(pVM, ring_list_getlist(pList, RING_BRACEOBJECTS_BRACEOBJECT), cMethod)) {
+		pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
+		if (ring_vm_oop_ismethod(pVM, (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT], cMethod)) {
 			RING_VM_STACK_POP;
 			ring_vm_callfuncwithouteval(pVM, cMethod, RING_TRUE);
 			return RING_TRUE;

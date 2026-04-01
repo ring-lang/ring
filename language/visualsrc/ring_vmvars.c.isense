@@ -22,6 +22,13 @@ Type: Item *
 pItem
 Type: List *
 pList, *pThis
+Type: VMState *
+pVMState
+ring_vm_findvarusinghashtable
+Type: List *
+pList2
+Type: unsigned int
+nPos
 ring_vm_newvar
 Type: List *
 pList
@@ -88,6 +95,3 @@ ring_vm_getglobalscope
 Type: List *
 pList
 ring_vm_addvarpointertoscopehash
-ring_vm_findvarusinghashtable
-Type: List *
-pList2

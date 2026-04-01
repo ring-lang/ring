@@ -939,7 +939,9 @@ void ring_vm_restorestatefornewobjects(VM *pVM);
 
 void ring_vm_savestateforbraces(VM *pVM, List *pObjState);
 
-void ring_vm_restorestateforbraces(VM *pVM, List *pList);
+void ring_vm_restorestateforbraces(VM *pVM, VMState *pVMState);
+
+void ring_vmstate_deleteforbraces(void *pState, void *pMemory);
 
 unsigned int ring_vm_newobjectstackpointer(VM *pVM);
 

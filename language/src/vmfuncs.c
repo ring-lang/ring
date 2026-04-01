@@ -771,6 +771,7 @@ void ring_vm_freetemplists(VM *pVM) {
 	List *pTempMem, *pList, *pList2;
 	unsigned int x, x2, lFound, nStart, lListsDeleted;
 	FuncCall *pFuncCall;
+	VMState *pVMState;
 	lListsDeleted = 0;
 	/* Clear lists inside pDeleteLater */
 	for (x = ring_list_getsize(pVM->pDeleteLater); x >= 1; x--) {
@@ -778,8 +779,8 @@ void ring_vm_freetemplists(VM *pVM) {
 		lFound = 0;
 		/* Be sure that the list doesn't exist in opened objects */
 		for (x2 = 1; x2 <= ring_list_getsize(pVM->pBraceObjects); x2++) {
-			pList2 = ring_list_getlist(pVM->pBraceObjects, x2);
-			if (ring_list_getpointer(pList2, RING_BRACEOBJECTS_BRACEOBJECT) == pList) {
+			pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, x2);
+			if (pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT] == pList) {
 				lFound = 1;
 				break;
 			}

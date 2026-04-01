@@ -86,6 +86,8 @@ Type: unsigned int
 x,x2,lFound,nStart,lListsDeleted
 Type: FuncCall *
 pFuncCall
+Type: VMState *
+pVMState
 ring_vm_retitemref
 Type: FuncCall *
 pFuncCall
