@@ -1119,7 +1119,9 @@ void ring_vm_oop_preparecallmethodfrombrace(VM *pVM) {
 	pList2 = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
 	ring_list_copy_gc(pVM->pRingState, pList2, pList);
 	/* Add Logical Value (True) , That we are inside the class method */
-	ring_list_addint_gc(pVM->pRingState, pList2, RING_TRUE);
+	if (ring_list_getsize(pList2) == 3) {
+		ring_list_addint_gc(pVM->pRingState, pList2, RING_TRUE);
+	}
 	/* Push Class Package */
 	pList = (List *)ring_list_getpointer(pList2, RING_OBJSTATE_CLASS);
 	ring_vm_oop_pushclasspackage(pVM, pList);
