@@ -194,6 +194,8 @@ pItem
 Type: unsigned int
 nObjType, nIns
 ring_vm_oop_callmethodfrombrace
+Type: ByteCode *
+pByteCodeIR
 ring_vm_oop_preparecallmethodfrombrace
 Type: List *
 pList,*pList2

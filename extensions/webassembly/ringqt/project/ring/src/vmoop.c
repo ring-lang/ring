@@ -1086,17 +1086,19 @@ void ring_vm_oop_operatoroverloading2(VM *pVM, List *pObj, const char *cStr1, un
 }
 
 void ring_vm_oop_callmethodfrombrace(VM *pVM) {
+	ByteCode *pByteCodeIR;
 	/*
 	**  We uses AfterCallMethod2 instead of AfterCallMethod to avoid conflict with normal method call
 	**  AfterCallMethod2 is the same instruction as AfterCallMethod
 	**  Change NOOP to After Call Method2
 	*/
+	pByteCodeIR = pVM->pByteCodeIR;
 	RING_VM_IR_LOAD;
 	if ((RING_VM_IR_OPCODE == ICO_NOOP) || (RING_VM_IR_OPCODE == ICO_AFTERCALLMETHOD2)) {
 		RING_VM_IR_OPCODE = ICO_AFTERCALLMETHOD2;
 		ring_vm_oop_preparecallmethodfrombrace(pVM);
 	}
-	RING_VM_IR_UNLOAD;
+	pVM->pByteCodeIR = pByteCodeIR;
 }
 
 void ring_vm_oop_preparecallmethodfrombrace(VM *pVM) {
