@@ -1,3 +1,52 @@
 #!/bin/sh
 
-sudo apt-get install build-essential pkgconf unixodbc unixodbc-dev libmysqlclient-dev libcurl4-gnutls-dev libssl-dev liballegro5-dev liballegro-image5-dev liballegro-ttf5-dev liballegro-audio5-dev liballegro-acodec5-dev liballegro-dialog5-dev liballegro-physfs5-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qtmultimedia5-dev libqt5multimedia5-plugins libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev qtdeclarative5-dev libqt5opengl5-dev libqt5texttospeech5-dev qtpositioning5-dev qt3d5-dev qt3d5-dev-tools libqt5charts5 libqt5charts5-dev libqt5svg5-dev qtwebengine5-dev qml-module-qtquick-controls qml-module-qtcharts libqt5webview5-dev qml-module-qtwebview mesa-common-dev libglew-dev freeglut3-dev libpq-dev libsdl2-dev libsdl2-net-dev libsdl2-mixer-dev libsdl2-image-dev libsdl2-ttf-dev apache2 libpng-dev libuv1-dev
+sudo apt-get install \
+	apache2 \
+	build-essential \
+	freeglut3-dev \
+	liballegro-acodec5-dev \
+	liballegro-audio5-dev \
+	liballegro-dialog5-dev \
+	liballegro-image5-dev \
+	liballegro-physfs5-dev \
+	liballegro-ttf5-dev \
+	liballegro5-dev \
+	libcurl4-gnutls-dev \
+	libglew-dev \
+	libmysqlclient-dev \
+	libpng-dev \
+	libpq-dev \
+	libqt5charts5 \
+	libqt5charts5-dev \
+	libqt5multimedia5-plugins \
+	libqt5opengl5-dev \
+	libqt5serialport5-dev \
+	libqt5svg5-dev \
+	libqt5texttospeech5-dev \
+	libqt5webkit5-dev \
+	libqt5webview5-dev \
+	libsdl2-dev \
+	libsdl2-image-dev \
+	libsdl2-mixer-dev \
+	libsdl2-net-dev \
+	libsdl2-ttf-dev \
+	libssl-dev \
+	libuv1-dev \
+	mesa-common-dev \
+	pkgconf \
+	qml-module-qtcharts \
+	qml-module-qtquick-controls \
+	qml-module-qtwebview \
+	qt3d5-dev \
+	qt3d5-dev-tools \
+	qt5-qmake \
+	qtbase5-dev \
+	qtbase5-dev-tools \
+	qtchooser \
+	qtconnectivity5-dev \
+	qtdeclarative5-dev \
+	qtmultimedia5-dev \
+	qtpositioning5-dev \
+	qtwebengine5-dev \
+	unixodbc \
+	unixodbc-dev
