@@ -10,6 +10,8 @@ Type: CFunction *
 pCFunc
 Type: CFunction
 vCFunc
+Type: ObjState *
+pOS
 ring_vm_call
 ring_vm_call2
 Type: List *
