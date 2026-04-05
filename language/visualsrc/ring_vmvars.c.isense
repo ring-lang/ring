@@ -24,6 +24,8 @@ Type: List *
 pList, *pThis
 Type: VMState *
 pVMState
+Type: ObjState *
+pOS
 ring_vm_findvarusinghashtable
 Type: List *
 pList2
