@@ -131,10 +131,7 @@ void ring_vm_oop_newobj(VM *pVM) {
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
-				pList4 = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-				ring_list_addpointer_gc(pVM->pRingState, pList4, pList3);
-				ring_list_addpointer_gc(pVM->pRingState, pList4, NULL);
-				ring_list_addpointer_gc(pVM->pRingState, pList4, pList);
+				RING_VM_PUSHOBJSTATE(pList3, NULL, pList, 0);
 				/* Create the Super Virtual Object */
 				ring_vm_oop_newsuperobj(pVM, pList3, pList);
 				/* Enable NULL variables (To be class attributes) */
@@ -239,9 +236,7 @@ void ring_vm_oop_newclass(VM *pVM) {
 	}
 	pClass = ring_vm_oop_checkpointertoclassinpackage(pVM, pClass);
 	/* Make object methods visible while executing the Class Init method */
-	pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-	ring_list_setpointer_gc(pVM->pRingState, pList, RING_OBJSTATE_METHODS,
-				ring_list_getlist(pClass, RING_CLASSMAP_METHODSLIST));
+	pVM->aObjState[pVM->nCurrentObjState].pMethods = ring_list_getlist(pClass, RING_CLASSMAP_METHODSLIST);
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM, pClass);
 	/* Attributes Scope is Public */
@@ -368,16 +363,9 @@ void ring_vm_oop_loadmethod2(VM *pVM, const char *cMethod) {
 	pList = (List *)ring_list_getpointer(pVar, RING_OBJECT_CLASSPOINTER);
 	/* Push Class Package */
 	ring_vm_oop_pushclasspackage(pVM, pList);
-	/* Get Object State */
-	pList2 = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-	ring_list_addpointer_gc(pVM->pRingState, pList2, ring_list_getlist(pVar, RING_OBJECT_OBJECTDATA));
 	/* Get Class Methods */
 	pList3 = ring_list_getlist(pList, RING_CLASSMAP_METHODSLIST);
-	ring_list_addpointer_gc(pVM->pRingState, pList2, pList3);
-	/* Add Pointer to Class */
-	ring_list_addpointer_gc(pVM->pRingState, pList2, pList);
-	/* Add Logical Value (True) , That we are inside the class method */
-	ring_list_addint_gc(pVM->pRingState, pList2, RING_TRUE);
+	RING_VM_PUSHOBJSTATE(ring_list_getlist(pVar, RING_OBJECT_OBJECTDATA), pList3, pList, 1);
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM, pList);
 	/* Call Method */
@@ -394,16 +382,14 @@ void ring_vm_oop_loadmethod2(VM *pVM, const char *cMethod) {
 }
 
 void ring_vm_oop_movetobeforeobjstate(VM *pVM) {
-	List *pList, *pList2;
 	if (pVM->lActiveCatch == 1) {
 		/* Try/Catch restore aObjState and may become empty */
 		return;
 	}
 	/* Move list from pObjState to pBeforeObjState */
-	pList = ring_list_newlist_gc(pVM->pRingState, pVM->pBeforeObjState);
-	pList2 = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-	ring_list_swaptwolists_gc(pVM->pRingState, pList, pList2);
-	ring_list_deleteitem_gc(pVM->pRingState, pVM->pObjState, ring_list_getsize(pVM->pObjState));
+	pVM->nBeforeObjStateCount++;
+	pVM->aBeforeObjState[pVM->nBeforeObjStateCount] = pVM->aObjState[pVM->nCurrentObjState];
+	RING_VM_POPOBJSTATE;
 }
 
 void ring_vm_oop_parentmethods(VM *pVM, List *pList) {
@@ -453,8 +439,8 @@ void ring_vm_oop_parentmethods(VM *pVM, List *pList) {
 }
 
 void ring_vm_oop_aftercallmethod(VM *pVM) {
-	if (ring_list_getsize(pVM->pObjState) != 0) {
-		ring_list_deleteitem_gc(pVM->pRingState, pVM->pObjState, ring_list_getsize(pVM->pObjState));
+	if (pVM->nCurrentObjState != 0) {
+		RING_VM_POPOBJSTATE;
 	}
 }
 
@@ -468,7 +454,7 @@ void ring_vm_oop_setbraceobj(VM *pVM, List *pList) {
 }
 
 void ring_vm_oop_bracestart(VM *pVM) {
-	List *pList, *pVar, *pStateList;
+	List *pList, *pVar;
 	Item *pItem;
 	unsigned int lShowError;
 	/* Check Error */
@@ -500,8 +486,12 @@ void ring_vm_oop_bracestart(VM *pVM) {
 		ring_vm_error(pVM, RING_VM_ERROR_BRACEWITHOUTOBJECT);
 		return;
 	}
-	pStateList = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-	ring_vm_savestateforbraces(pVM, pStateList);
+	pVM->nCurrentObjState++;
+	if (pVM->nCurrentObjState > RING_VM_STACK_CHECKOVERFLOW) {
+		ring_vm_error(pVM, RING_VM_ERROR_STACKOVERFLOW);
+		return;
+	}
+	ring_vm_savestateforbraces(pVM);
 	/* Check Don't Ref. and Don't Ref Again */
 	ring_list_disabledontref_gc(pVM->pRingState, pList);
 	ring_list_disabledontrefagain_gc(pVM->pRingState, pList);
@@ -561,7 +551,7 @@ void ring_vm_oop_newsuperobj(VM *pVM, List *pState, List *pClass) {
 
 List *ring_vm_oop_getsuperobj(VM *pVM) {
 	List *pVar;
-	if ((RING_VM_STACK_ISPOINTER) && (ring_list_getsize(pVM->pObjState) != 0)) {
+	if ((RING_VM_STACK_ISPOINTER) && (pVM->nCurrentObjState != 0)) {
 		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 			pVar = (List *)RING_VM_STACK_READP;
 			if ((ring_list_islist(pVar, RING_VAR_VALUE)) &&
@@ -577,11 +567,10 @@ List *ring_vm_oop_getsuperobj(VM *pVM) {
 
 void ring_vm_oop_loadsuperobjmethod(VM *pVM, List *pSuper) {
 	unsigned int x;
-	List *pState, *pMethods, *pClass, *pVar, *pList;
-	pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-	pState = ring_list_getlist(pList, RING_OBJSTATE_SCOPE);
-	pMethods = ring_list_getlist(pList, RING_OBJSTATE_METHODS);
-	pClass = ring_list_getlist(pList, RING_OBJSTATE_CLASS);
+	List *pState, *pMethods, *pClass, *pVar;
+	pState = pVM->aObjState[pVM->nCurrentObjState].pScope;
+	pMethods = pVM->aObjState[pVM->nCurrentObjState].pMethods;
+	pClass = pVM->aObjState[pVM->nCurrentObjState].pClass;
 	for (x = 1; x <= ring_list_getsize(pSuper); x++) {
 		if (ring_list_getpointer(pSuper, x) == pMethods) {
 			if ((x + 1) <= ring_list_getsize(pSuper)) {
@@ -593,10 +582,7 @@ void ring_vm_oop_loadsuperobjmethod(VM *pVM, List *pSuper) {
 			}
 		}
 	}
-	pList = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-	ring_list_addpointer_gc(pVM->pRingState, pList, pState);
-	ring_list_addpointer_gc(pVM->pRingState, pList, pMethods);
-	ring_list_addpointer_gc(pVM->pRingState, pList, pClass);
+	RING_VM_PUSHOBJSTATE(pState, pMethods, pClass, 0);
 	/* Call Method */
 	pVar = pVM->pFunctionsMap;
 	pVM->pFunctionsMap = pMethods;
@@ -724,20 +710,17 @@ unsigned int ring_vm_oop_callmethodinsideclass(VM *pVM) {
 	**  Or it's called from inside { } as function
 	**  Return 1 if last item is a method
 	*/
-	if (ring_list_getsize(pVM->pObjState) >= 1) {
-		pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-		if ((ring_list_getsize(pList) == 4) && (pVM->lCallMethod == 0)) {
+	if (pVM->nCurrentObjState >= 1) {
+		if ((pVM->aObjState[pVM->nCurrentObjState].lIsMethod) && (pVM->lCallMethod == 0)) {
 			return RING_TRUE;
 		}
 	}
 	/* Check using braces { } to access object from a method in the Class */
-	if (ring_list_getsize(pVM->pObjState) >= 2) {
-		pList = (List *)ring_list_getpointer(
-		    ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState)), RING_OBJSTATE_CLASS);
-		for (x = ring_list_getsize(pVM->pObjState) - 1; x >= 1; x--) {
-			pList2 = ring_list_getlist(pVM->pObjState, x);
-			if (ring_list_getsize(pList2) == 4) {
-				pList2 = (List *)ring_list_getpointer(pList2, RING_OBJSTATE_CLASS);
+	if (pVM->nCurrentObjState >= 2) {
+		pList = pVM->aObjState[pVM->nCurrentObjState].pClass;
+		for (x = pVM->nCurrentObjState - 1; x >= 1; x--) {
+			if (pVM->aObjState[x].lIsMethod) {
+				pList2 = pVM->aObjState[x].pClass;
 				if (pList == pList2) {
 					return RING_TRUE;
 				} else {
@@ -1102,30 +1085,32 @@ void ring_vm_oop_callmethodfrombrace(VM *pVM) {
 }
 
 void ring_vm_oop_preparecallmethodfrombrace(VM *pVM) {
-	List *pList, *pList2;
+	unsigned int nSrcIndex;
 	FuncCall *pFuncCall;
 	const char *cStr;
-	pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
+	List *pList;
+	nSrcIndex = pVM->nCurrentObjState;
 	/* Pass Brace when we call class init , using new object() */
-	if ((ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit)) {
+	if ((pVM->nCurrentObjState > 1) && (pVM->nCallClassInit)) {
 		if (RING_VM_FUNCCALLSCOUNT > 0) {
 			pFuncCall = RING_VM_LASTFUNCCALL;
 			cStr = pFuncCall->cName;
 			if (strcmp(cStr, RING_CSTR_INIT) != 0) {
-				pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState) - 1);
+				nSrcIndex = pVM->nCurrentObjState - 1;
 			}
 		} else {
-			pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState) - 1);
+			nSrcIndex = pVM->nCurrentObjState - 1;
 		}
 	}
-	pList2 = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-	ring_list_copy_gc(pVM->pRingState, pList2, pList);
-	/* Add Logical Value (True) , That we are inside the class method */
-	if (ring_list_getsize(pList2) == 3) {
-		ring_list_addint_gc(pVM->pRingState, pList2, RING_TRUE);
+	pVM->nCurrentObjState++;
+	if (pVM->nCurrentObjState > RING_VM_STACK_CHECKOVERFLOW) {
+		ring_vm_error(pVM, RING_VM_ERROR_STACKOVERFLOW);
+		return;
 	}
+	pVM->aObjState[pVM->nCurrentObjState] = pVM->aObjState[nSrcIndex];
+	pVM->aObjState[pVM->nCurrentObjState].lIsMethod = RING_TRUE;
 	/* Push Class Package */
-	pList = (List *)ring_list_getpointer(pList2, RING_OBJSTATE_CLASS);
+	pList = pVM->aObjState[pVM->nCurrentObjState].pClass;
 	ring_vm_oop_pushclasspackage(pVM, pList);
 }
 
@@ -1170,14 +1155,13 @@ void ring_vm_oop_updateselfpointer(VM *pVM, List *pObj, unsigned int nType, void
 void ring_vm_oop_setthethisvariable(VM *pVM) {
 	List *pList, *pThis;
 	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
-	if ((ring_list_getsize(pVM->pObjState) < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
+	if ((pVM->nCurrentObjState < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
 		ring_list_setpointer_gc(pVM->pRingState, pThis, RING_VAR_VALUE, NULL);
 		ring_list_setint_gc(pVM->pRingState, pThis, RING_VAR_PVALUETYPE, RING_OBJTYPE_NOTYPE);
 		return;
 	}
-	pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
 	/* Get Object Scope */
-	pList = ring_list_getlist(pList, RING_OBJSTATE_SCOPE);
+	pList = pVM->aObjState[pVM->nCurrentObjState].pScope;
 	if (pList == NULL) {
 		ring_list_setpointer_gc(pVM->pRingState, pThis, RING_VAR_VALUE, NULL);
 		ring_list_setint_gc(pVM->pRingState, pThis, RING_VAR_PVALUETYPE, RING_OBJTYPE_NOTYPE);
@@ -1193,9 +1177,8 @@ void ring_vm_oop_setthethisvariable(VM *pVM) {
 void ring_vm_oop_setthethisvariableinclassregion(VM *pVM) {
 	List *pList, *pThis;
 	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
-	pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
 	/* Get Object Scope */
-	pList = ring_list_getlist(pList, RING_OBJSTATE_SCOPE);
+	pList = pVM->aObjState[pVM->nCurrentObjState].pScope;
 	/* Get Self Attribute List */
 	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
 	/* Save this */
@@ -1280,7 +1263,7 @@ void ring_vm_oop_cleansetpropertylist(VM *pVM) {
 
 int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod) {
 	VMState *pVMState;
-	if (ring_list_getsize(pVM->pObjState) && ring_list_getsize(pVM->pBraceObjects) && (pVM->lCallMethod == 0) &&
+	if (pVM->nCurrentObjState && ring_list_getsize(pVM->pBraceObjects) && (pVM->lCallMethod == 0) &&
 	    (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
 		pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
 		if (ring_vm_oop_ismethod(pVM, (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT], cMethod)) {

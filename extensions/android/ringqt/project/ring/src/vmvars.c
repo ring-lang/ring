@@ -113,22 +113,17 @@ unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
 				**  Also if we don't have object scope using { } we will pass
 				**  Also If we are using ICO_LOADAFIRST (Used by For In) - we don't check object scope
 				*/
-				if ((pVM->lGetSetProperty == 1) || (ring_list_getsize(pVM->pObjState) == 0) ||
-				    pVM->lFirstAddress) {
+				if ((pVM->lGetSetProperty == 1) || (pVM->nCurrentObjState == 0) || pVM->lFirstAddress) {
 					continue;
 				}
 				/* Search in Object State */
-				pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-				pList = (List *)ring_list_getpointer(pList, RING_OBJSTATE_SCOPE);
+				pList = pVM->aObjState[pVM->nCurrentObjState].pScope;
 				if (pList == NULL) {
 					continue;
 				}
 				/* Pass Braces for Class Init() method */
-				if ((ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) &&
-				    (pVM->nCallClassInit)) {
-					pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState) -
-										      pVM->nCallClassInit);
-					pList = (List *)ring_list_getpointer(pList, RING_OBJSTATE_SCOPE);
+				if ((pVM->nCurrentObjState > pVM->nCallClassInit) && (pVM->nCallClassInit)) {
+					pList = pVM->aObjState[pVM->nCurrentObjState - pVM->nCallClassInit].pScope;
 					if (pList == NULL) {
 						continue;
 					}
@@ -162,6 +157,7 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 	Item *pItem;
 	List *pList, *pThis;
 	VMState *pVMState;
+	ObjState *pOS;
 	/*
 	**  Now We have the variable List
 	**  The Scope of the search result
@@ -204,12 +200,9 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 				if (ring_vm_oop_callmethodinsideclass(pVM) == 0) {
 					lPrivateError = 1;
 					/* Pass Braces for Class Init() to be sure we are inside a method or not */
-					if ((ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) &&
-					    (pVM->nCallClassInit)) {
-						pList = ring_list_getlist(pVM->pObjState,
-									  ring_list_getsize(pVM->pObjState) -
-									      pVM->nCallClassInit);
-						if ((ring_list_getsize(pList) == 4) && (pVM->lCallMethod == 0)) {
+					if ((pVM->nCurrentObjState > pVM->nCallClassInit) && (pVM->nCallClassInit)) {
+						pOS = &pVM->aObjState[pVM->nCurrentObjState - pVM->nCallClassInit];
+						if (pOS->lIsMethod && (pVM->lCallMethod == 0)) {
 							/* Here we have a method, So we avoid the private attribute
 							 * error! */
 							lPrivateError = 0;

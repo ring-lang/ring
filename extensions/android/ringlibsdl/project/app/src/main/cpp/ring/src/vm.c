@@ -67,8 +67,8 @@ VM *ring_vm_new(RingState *pRingState) {
 	pVM->pScopeNewObj = ring_list_new_gc(pVM->pRingState, RING_ZERO);
 	/* Flag ( 0 = Call Function  1 = Call Method After writing object name using dot ) */
 	pVM->lCallMethod = 0;
-	/* List of Lists used like Stack, list structure [Pointer to State , Pointer to Methods] */
-	pVM->pObjState = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	/* The index of active item in ObjState array */
+	pVM->nCurrentObjState = 0;
 	/* Support for using Braces to access object state */
 	pVM->pBraceObject = NULL;
 	pVM->pBraceObjects = ring_list_new_gc(pVM->pRingState, RING_ZERO);
@@ -109,8 +109,8 @@ VM *ring_vm_new(RingState *pRingState) {
 	pVM->lNoAssignment = 0;
 	/* The scope of the result of Load Address */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
-	/* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
-	pVM->pBeforeObjState = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	/* Control what to add later to pObjState, prepare by loadmethod, add before call */
+	pVM->nBeforeObjStateCount = 0;
 	/* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
 	pVM->lEvalCalledFromRingCode = 0;
 	/* Number of decimals after the point */
@@ -230,12 +230,10 @@ VM *ring_vm_delete(VM *pVM) {
 	pVM->pLoopMark = ring_list_delete_gc(pVM->pRingState, pVM->pLoopMark);
 	pVM->pTry = ring_list_delete_gc(pVM->pRingState, pVM->pTry);
 	pVM->pScopeNewObj = ring_list_delete_gc(pVM->pRingState, pVM->pScopeNewObj);
-	pVM->pObjState = ring_list_delete_gc(pVM->pRingState, pVM->pObjState);
 	pVM->pBraceObjects = ring_list_delete_gc(pVM->pRingState, pVM->pBraceObjects);
 	pVM->pActivePackage = ring_list_delete_gc(pVM->pRingState, pVM->pActivePackage);
 	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState, pVM->pSetProperty);
 	pVM->pForStep = ring_list_delete_gc(pVM->pRingState, pVM->pForStep);
-	pVM->pBeforeObjState = ring_list_delete_gc(pVM->pRingState, pVM->pBeforeObjState);
 	/* Free (Stack, FuncCall & Scopes) */
 	for (x = 0; x < RING_VM_STACK_SIZE; x++) {
 		ring_item_deletecontent_gc(pVM->pRingState, &(pVM->aStack[x]));

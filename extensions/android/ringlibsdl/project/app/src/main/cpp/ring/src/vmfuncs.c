@@ -16,24 +16,24 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 	FuncCall *pFuncCall;
 	CFunction *pCFunc;
 	CFunction vCFunc;
+	ObjState *pOS;
 	/* Search */
 	for (y = 2; y >= 1; y--) {
 		/* For OOP Support - Search in the Class Methods */
 		if (y == 2) {
 			/* Exit if we are  ( not inside class (no active object) ) or we call method after object name
 			 */
-			if ((ring_list_getsize(pVM->pObjState) == 0) || (pVM->lCallMethod == 1)) {
+			if ((pVM->nCurrentObjState == 0) || (pVM->lCallMethod == 1)) {
 				continue;
 			}
-			pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
+			pOS = &pVM->aObjState[pVM->nCurrentObjState];
 			/* Pass Braces for Class Init() method */
-			if ((ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit)) {
+			if ((pVM->nCurrentObjState > 1) && (pVM->nCallClassInit)) {
 				if (strcmp(cStr, RING_CSTR_INIT) != 0) {
-					pList =
-					    ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState) - 1);
+					pOS = &pVM->aObjState[pVM->nCurrentObjState - 1];
 				}
 			}
-			pList = (List *)ring_list_getpointer(pList, RING_OBJSTATE_METHODS);
+			pList = pOS->pMethods;
 			if (pList == NULL) {
 				continue;
 			}
@@ -212,7 +212,7 @@ RING_API void ring_vm_call2(VM *pVM) {
 		pVM->nPC = pFuncCall->nPC;
 		/* Save State */
 		if (pFuncCall->lMethod || pVM->pAssignment || pVM->nListStart || pVM->nBlockCounter ||
-		    pVM->nInsideEval || pVM->nInClassRegion || ring_list_getsize(pVM->pObjState) ||
+		    pVM->nInsideEval || pVM->nInClassRegion || pVM->nCurrentObjState ||
 		    ring_list_getsize(pVM->pTraceData))
 			pFuncCall->pVMState = ring_vm_savestateformethods(pVM);
 		/* Global Scope */
@@ -225,12 +225,8 @@ RING_API void ring_vm_call2(VM *pVM) {
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
 		/* Avoid accessing object data or methods */
-		if ((pFuncCall->lMethod == 0) && (ring_list_getsize(pVM->pObjState) != 0) &&
-		    (RING_VM_LASTOBJSTATE != NULL)) {
-			pList = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-			ring_list_addpointer_gc(pVM->pRingState, pList, NULL);
-			ring_list_addpointer_gc(pVM->pRingState, pList, NULL);
-			ring_list_addpointer_gc(pVM->pRingState, pList, NULL);
+		if ((pFuncCall->lMethod == 0) && (pVM->nCurrentObjState != 0) && (RING_VM_LASTOBJSTATE != NULL)) {
+			RING_VM_PUSHOBJSTATE(NULL, NULL, NULL, 0);
 		}
 	} else if (pFuncCall->nType == RING_FUNCTYPE_C) {
 		/* Trace */
@@ -310,11 +306,15 @@ void ring_vm_preparecallmethod(VM *pVM) {
 	**  We do this here and not in LoadMethod to avoid accessing the object state when passing parameters
 	**  This fix a problem when we pass the self object to avoid passing ObjName that comes before the metho
 	*/
-	if (ring_list_getsize(pVM->pBeforeObjState) > 0) {
-		pList = ring_list_newlist_gc(pVM->pRingState, pVM->pObjState);
-		ring_list_swaptwolists(
-		    pList, ring_list_getlist(pVM->pBeforeObjState, ring_list_getsize(pVM->pBeforeObjState)));
-		ring_list_deleteitem_gc(pVM->pRingState, pVM->pBeforeObjState, ring_list_getsize(pVM->pBeforeObjState));
+	if (pVM->nBeforeObjStateCount > 0) {
+		pVM->nCurrentObjState++;
+		if (pVM->nCurrentObjState > RING_VM_STACK_CHECKOVERFLOW) {
+			ring_vm_error(pVM, RING_VM_ERROR_STACKOVERFLOW);
+			pVM->nBeforeObjStateCount--;
+			return;
+		}
+		pVM->aObjState[pVM->nCurrentObjState] = pVM->aBeforeObjState[pVM->nBeforeObjStateCount];
+		pVM->nBeforeObjStateCount--;
 	}
 }
 
@@ -331,7 +331,7 @@ void ring_vm_return(VM *pVM) {
 		/* Be sure it's not a function call or method call */
 		if (pVM->nPC != 0) {
 			/* Set the lIgnoreNULL Flag */
-			if (!ring_list_getsize(pVM->pObjState)) {
+			if (!pVM->nCurrentObjState) {
 				pVM->lIgnoreNULL = 0;
 			}
 			return;
@@ -393,8 +393,8 @@ void ring_vm_return(VM *pVM) {
 			**  But return command could be used from braces opened in the called function
 			**  So, we must clean the pVM->pObjState list in this case
 			*/
-			if (ring_list_getsize(pVM->pObjState)) {
-				ring_list_deleteallitems_gc(pVM->pRingState, pVM->pObjState);
+			if (pVM->nCurrentObjState) {
+				RING_VM_CLEANOBJSTATE;
 			}
 		}
 		RING_VM_DELETELASTFUNCCALL;
@@ -713,10 +713,8 @@ void ring_vm_anonymous(VM *pVM) {
 		ring_general_lower(cStr);
 		if (ring_vm_loadfunc2(pVM, cStr, RING_FALSE)) {
 			if (RING_VM_IR_READI && RING_VM_FUNCCALLSCOUNT) {
-				if (ring_list_getsize(pVM->pObjState) != 0) {
-					pList = ring_list_getlist(pVM->pObjState, ring_list_getsize(pVM->pObjState));
-					pList = (List *)ring_list_getpointer(pList, RING_OBJSTATE_SCOPE);
-					if (pList != NULL) {
+				if (pVM->nCurrentObjState != 0) {
+					if (pVM->aObjState[pVM->nCurrentObjState].pScope != NULL) {
 						lCanCallAsMethod = RING_TRUE;
 					}
 				}

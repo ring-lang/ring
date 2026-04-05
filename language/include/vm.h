@@ -85,6 +85,12 @@ typedef struct FuncCall {
 	unsigned int nLoadAddressScope : 8;
 	unsigned int lMethod : 8;
 } FuncCall;
+typedef struct ObjState {
+	List *pScope;
+	List *pMethods;
+	List *pClass;
+	unsigned int lIsMethod : 1;
+} ObjState;
 typedef struct VM {
 	RingState *pRingState;
 	List *pCode;
@@ -98,14 +104,12 @@ typedef struct VM {
 	List *pLoopMark;
 	List *pTry;
 	List *pScopeNewObj;
-	List *pObjState;
 	List *pBraceObject;
 	List *pBraceObjects;
 	List *pActiveMem;
 	List *pActivePackage;
 	List *pSetProperty;
 	List *pForStep;
-	List *pBeforeObjState;
 	List *pCLibraries;
 	List *pTraceData;
 	List *pGlobalScopes;
@@ -149,6 +153,8 @@ typedef struct VM {
 	unsigned int nPC;
 	unsigned int nPausePC;
 	unsigned int nArgCacheCount;
+	unsigned int nCurrentObjState;
+	unsigned int nBeforeObjStateCount;
 	unsigned int nInsideEval : 8;
 	unsigned int nInClassRegion : 8;
 	unsigned int nGetSetObjType : 8;
@@ -190,6 +196,8 @@ typedef struct VM {
 	List aScopes[RING_VM_STACK_SIZE];
 	List *aArgCache[RING_VM_ARGCACHE_SIZE];
 	void *aCustomMutex[RING_VM_CUSTOMMUTEX_COUNT];
+	ObjState aObjState[RING_VM_STACK_SIZE];
+	ObjState aBeforeObjState[RING_VM_STACK_SIZE];
 } VM;
 /*
 **  Macro & Constants
@@ -354,7 +362,6 @@ typedef struct VM {
 #define RING_FUNCSTATUS_CALL 1
 #define RING_FUNCSTATUS_STARTED 2
 /* Util */
-#define RING_VM_LASTOBJSTATE pVM->pObjState->pLast->pValue->data.pList->pFirst->pValue->data.pPointer
 #define RING_VM_LASTFUNCCALL &(pVM->aFuncCall[pVM->nCurrentFuncCall])
 #define RING_VM_GETFUNCCALL(x) &(pVM->aFuncCall[x])
 #define RING_VM_FUNCCALLSCOUNT pVM->nCurrentFuncCall
@@ -365,6 +372,22 @@ typedef struct VM {
 	while (RING_VM_FUNCCALLSCOUNT > x) {                                                                           \
 		RING_VM_DELETELASTFUNCCALL;                                                                            \
 	}
+#define RING_VM_OBJSTATESCOUNT pVM->nCurrentObjState
+#define RING_VM_LASTOBJSTATE pVM->aObjState[pVM->nCurrentObjState].pScope
+#define RING_VM_LASTOBJSTATE_ENTRY (&pVM->aObjState[pVM->nCurrentObjState])
+#define RING_VM_GETOBJSTATE(x) (&pVM->aObjState[x])
+#define RING_VM_POPOBJSTATE pVM->nCurrentObjState--
+#define RING_VM_CLEANOBJSTATE pVM->nCurrentObjState = 0
+#define RING_VM_BACKOBJSTATE(n) pVM->nCurrentObjState = (n)
+#define RING_VM_BACKBEFOREOBJSTATE(n) pVM->nBeforeObjStateCount = (n)
+#define RING_VM_PUSHOBJSTATE(scope, methods, class, ismethod)                                                          \
+	do {                                                                                                           \
+		pVM->nCurrentObjState++;                                                                               \
+		pVM->aObjState[pVM->nCurrentObjState].pScope = scope;                                                  \
+		pVM->aObjState[pVM->nCurrentObjState].pMethods = methods;                                              \
+		pVM->aObjState[pVM->nCurrentObjState].pClass = class;                                                  \
+		pVM->aObjState[pVM->nCurrentObjState].lIsMethod = ismethod;                                            \
+	} while (0)
 /* Parameters */
 #define RING_FUNCPARA_EXPECTEDSIZE 32
 /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
@@ -937,7 +960,7 @@ void ring_vm_savestatefornewobjects(VM *pVM);
 
 void ring_vm_restorestatefornewobjects(VM *pVM);
 
-void ring_vm_savestateforbraces(VM *pVM, List *pObjState);
+void ring_vm_savestateforbraces(VM *pVM);
 
 void ring_vm_restorestateforbraces(VM *pVM, VMState *pVMState);
 
