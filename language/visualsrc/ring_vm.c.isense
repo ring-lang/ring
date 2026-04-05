@@ -131,6 +131,24 @@ struct FuncCall *
 Type: FuncCall
 Mark: ->
 FuncCall *
+Parent: ObjState
+Type: void *
+pScope
+Type: void *
+pMethods
+Type: void *
+pClass
+Type: unsigned int
+lIsMethod: 1
+END:
+Type: ObjState
+struct ObjState
+Type: ObjState
+Mark: ->
+struct ObjState *
+Type: ObjState
+Mark: ->
+ObjState *
 Parent: VM
 Type: RingState *
 pRingState
@@ -157,8 +175,6 @@ pTry
 Type: List *
 pScopeNewObj
 Type: List *
-pObjState
-Type: List *
 pBraceObject
 Type: List *
 pBraceObjects
@@ -170,8 +186,6 @@ Type: List *
 pSetProperty
 Type: List *
 pForStep
-Type: List *
-pBeforeObjState
 Type: List *
 pCLibraries
 Type: List *
@@ -332,6 +346,14 @@ Type: List *
 aArgCache[RING_VM_ARGCACHE_SIZE]
 Type: void *
 aCustomMutex[RING_VM_CUSTOMMUTEX_COUNT]
+Type: unsigned int
+nCurrentObjState
+Type: unsigned int
+nBeforeObjStateCount
+Type: ObjState
+aObjState[RING_VM_STACK_SIZE]
+Type: ObjState
+aBeforeObjState[RING_VM_STACK_SIZE]
 END:
 Type: VM
 struct VM
@@ -452,12 +474,20 @@ RING_FUNCTYPE_C
 RING_FUNCSTATUS_LOAD
 RING_FUNCSTATUS_CALL
 RING_FUNCSTATUS_STARTED
-RING_VM_LASTOBJSTATE
 RING_VM_LASTFUNCCALL
 RING_VM_GETFUNCCALL(x)
 RING_VM_FUNCCALLSCOUNT
 RING_VM_DELETELASTFUNCCALL
 RING_VM_BACKTOFUNCCALL(x)
+RING_VM_OBJSTATESCOUNT
+RING_VM_LASTOBJSTATE
+RING_VM_LASTOBJSTATE_ENTRY
+RING_VM_GETOBJSTATE(x)
+RING_VM_POPOBJSTATE
+RING_VM_CLEANOBJSTATE
+RING_VM_BACKOBJSTATE(n)
+RING_VM_BACKBEFOREOBJSTATE(n)
+RING_VM_PUSHOBJSTATE(scope, methods, class, ismethod)
 RING_FUNCPARA_EXPECTEDSIZE
 RING_FUNCMAP_NAME
 RING_FUNCMAP_PC
