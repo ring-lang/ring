@@ -81,8 +81,6 @@ pVar,*pList,*pList2,*pList3,*pSuper
 Type: unsigned int
 lResult
 ring_vm_oop_movetobeforeobjstate
-Type: List *
-pList, *pList2
 ring_vm_oop_parentmethods
 Type: const char *
 cClassName,*cClassName2
@@ -95,7 +93,7 @@ ring_vm_oop_printobj
 ring_vm_oop_setbraceobj
 ring_vm_oop_bracestart
 Type: List *
-pList, *pVar, *pStateList
+pList, *pVar
 Type: Item *
 pItem
 Type: unsigned int
@@ -120,7 +118,7 @@ ring_vm_oop_loadsuperobjmethod
 Type: unsigned int
 x
 Type: List *
-pState,*pMethods,*pClass,*pVar,*pList
+pState,*pMethods,*pClass,*pVar
 ring_vm_oop_import
 ring_vm_oop_import2
 Type: unsigned int
@@ -197,12 +195,14 @@ ring_vm_oop_callmethodfrombrace
 Type: ByteCode *
 pByteCodeIR
 ring_vm_oop_preparecallmethodfrombrace
-Type: List *
-pList,*pList2
+Type: unsigned int
+nSrcIndex
 Type: FuncCall *
 pFuncCall
 Type: const char *
 cStr
+Type: List *
+pList
 ring_vm_oop_isattribute
 Type: unsigned int
 x
