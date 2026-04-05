@@ -132,11 +132,11 @@ Type: FuncCall
 Mark: ->
 FuncCall *
 Parent: ObjState
-Type: void *
+Type: List *
 pScope
-Type: void *
+Type: List *
 pMethods
-Type: void *
+Type: List *
 pClass
 Type: unsigned int
 lIsMethod: 1
@@ -265,6 +265,10 @@ nPausePC
 Type: unsigned int
 nArgCacheCount
 Type: unsigned int
+nCurrentObjState
+Type: unsigned int
+nBeforeObjStateCount
+Type: unsigned int
 nInsideEval: 8
 Type: unsigned int
 nInClassRegion: 8
@@ -346,10 +350,6 @@ Type: List *
 aArgCache[RING_VM_ARGCACHE_SIZE]
 Type: void *
 aCustomMutex[RING_VM_CUSTOMMUTEX_COUNT]
-Type: unsigned int
-nCurrentObjState
-Type: unsigned int
-nBeforeObjStateCount
 Type: ObjState
 aObjState[RING_VM_STACK_SIZE]
 Type: ObjState
