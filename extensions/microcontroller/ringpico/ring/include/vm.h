@@ -381,13 +381,7 @@ typedef struct VM {
 #define RING_VM_BACKOBJSTATE(n) pVM->nCurrentObjState = (n)
 #define RING_VM_BACKBEFOREOBJSTATE(n) pVM->nBeforeObjStateCount = (n)
 #define RING_VM_PUSHOBJSTATE(scope, methods, class, ismethod)                                                          \
-	do {                                                                                                           \
-		pVM->nCurrentObjState++;                                                                               \
-		pVM->aObjState[pVM->nCurrentObjState].pScope = scope;                                                  \
-		pVM->aObjState[pVM->nCurrentObjState].pMethods = methods;                                              \
-		pVM->aObjState[pVM->nCurrentObjState].pClass = class;                                                  \
-		pVM->aObjState[pVM->nCurrentObjState].lIsMethod = ismethod;                                            \
-	} while (0)
+	ring_vm_oop_pushobjstate(pVM, scope, methods, class, ismethod)
 /* Parameters */
 #define RING_FUNCPARA_EXPECTEDSIZE 32
 /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */

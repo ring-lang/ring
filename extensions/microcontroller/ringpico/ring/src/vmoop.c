@@ -1274,3 +1274,15 @@ int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod) {
 	}
 	return RING_FALSE;
 }
+
+void ring_vm_oop_pushobjstate(VM *pVM, List *pScope, List *pMethods, List *pClass, unsigned int lIsMethod) {
+	pVM->nCurrentObjState++;
+	if (pVM->nCurrentObjState > RING_VM_STACK_CHECKOVERFLOW) {
+		ring_vm_error(pVM, RING_VM_ERROR_STACKOVERFLOW);
+		return;
+	}
+	pVM->aObjState[pVM->nCurrentObjState].pScope = pScope;
+	pVM->aObjState[pVM->nCurrentObjState].pMethods = pMethods;
+	pVM->aObjState[pVM->nCurrentObjState].pClass = pClass;
+	pVM->aObjState[pVM->nCurrentObjState].lIsMethod = lIsMethod;
+}
