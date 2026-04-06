@@ -39,7 +39,8 @@ More Improvements
 * Added: samples/General/RosettaCode/YinYang2.ring
 * Added: samples/UsingFreeGLUT/Hex_Sphere.ring
 * Added: samples/UsingFreeGLUT/Penta_Sphere.ring
-* Added: samples/UsingFreeGLUT/Octagon_Sphere.ring 
+* Added: samples/UsingFreeGLUT/Octagon_Sphere.ring
+* Added: samples/UsingFreeGLUT/SinCos_Surface.ring 
 * Added: samples/UsingRogueUtil/matrix_rain.ring
 * Added: samples/UsingRayLib/more/ex11_matrix_rain.ring
 * Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring
