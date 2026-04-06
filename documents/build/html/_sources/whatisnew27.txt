@@ -47,6 +47,7 @@ More Improvements
 * Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
 * Added: samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 * language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
+* language/build/buildgccstatic.bat - Build ringw.exe too
 * Ring for Linux - Modernize build scripts using pkg-config
 * RingFastPro - Better Performance
 * RingFastPro - Added Transform3D() function
