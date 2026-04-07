@@ -16,6 +16,10 @@ aTeam = [
 		[
 			'Mansour Ayouni<br/>Software Developer (Writing Master)',
 			'<img src="images/mansour.jpg" width="150" height="170">'
+		],
+		[
+			'Mounir IDRASSI<br/>Software Developer (Security Master)',
+			'<img src="images/mounir.png" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -45,10 +49,6 @@ aTopContributors = [
 		  [
 		    'Mohannad Al-Ayash (Creator of RingQML)',
 		    'Web/GUI Apps'				
-		  ],
-		  [
-                    'Mounir IDRASSI (Creator of VeraCrypt)',
-                    'C/C++ Expert'                    
 		  ]
 ]
 aManyThanks = [
