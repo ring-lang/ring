@@ -966,5 +966,9 @@ aPackagesRegistry = [
 	[ :name = "solitaire",
 	  :description = "The Solitaire game developed using Ring and RingRayLib",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring-cffi",
+	  :description = "Foreign Function Interface (FFI) for the Ring programming language",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
