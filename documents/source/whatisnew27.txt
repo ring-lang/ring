@@ -28,6 +28,7 @@ The following packages have been added to the RingPM registry.
 
 * Solitaire
 * Ring-Python
+* Ring-CFFI
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
