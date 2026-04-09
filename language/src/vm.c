@@ -714,7 +714,8 @@ RING_API void ring_vm_fetch2(VM *pVM) {
 		printf("\nScope Pointer : %p  ", pVM->pActiveMem);
 		printf("\nFile Name     : %s \nLine Number   : %d\n", pVM->cFileName, RING_VM_IR_GETLINENUMBER);
 		if ((pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) ||
-		    (pVM->nOPCode == ICO_LOADFUNC)) {
+		    (pVM->nOPCode == ICO_LOADFUNC) || (pVM->nOPCode == ICO_LOADMETHOD) ||
+		    (pVM->nOPCode == ICO_LOADMETHODP)) {
 			printf("Data          : %s \n", RING_VM_IR_READC);
 		}
 	}
@@ -1007,6 +1008,9 @@ void ring_vm_execute(VM *pVM) {
 		break;
 	case ICO_LOADMETHOD:
 		ring_vm_oop_loadmethod(pVM);
+		break;
+	case ICO_LOADMETHODP:
+		ring_vm_oop_loadmethodp(pVM);
 		break;
 	case ICO_AFTERCALLMETHOD:
 		ring_vm_oop_aftercallmethod(pVM);
