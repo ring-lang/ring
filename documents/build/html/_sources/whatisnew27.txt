@@ -67,3 +67,4 @@ More Improvements
 * Ring VM - ring_vm_oop_movetobeforeobjstate() - Better Performance
 * Ring VM - Save/Restore state when using Braces - Better Performance
 * Ring VM - pObjState information - Use array of structure instead of Ring Lists
+* Ring VM - New Instruction - ICO_LOADMETHODP
