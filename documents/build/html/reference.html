@@ -1123,22 +1123,25 @@ write(cFileName,cString)
 <tr class="row-odd"><td><p>ICO_LOADFUNCP</p></td>
 <td><p>Push function pointer</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_PUSHPLOCAL</p></td>
+<tr class="row-even"><td><p>ICO_LOADMETHODP</p></td>
+<td><p>Push method pointer</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICO_PUSHPLOCAL</p></td>
 <td><p>Push pointer to local variable</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_PUSHARG</p></td>
+<tr class="row-even"><td><p>ICO_PUSHARG</p></td>
 <td><p>Push pointer to argument variable using argument number (REG1)</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_INCLPJUMP</p></td>
+<tr class="row-odd"><td><p>ICO_INCLPJUMP</p></td>
 <td><p>Increment value using pointer to local variable then jump</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_INCPJUMPSTEP1</p></td>
+<tr class="row-even"><td><p>ICO_INCPJUMPSTEP1</p></td>
 <td><p>Increment value using variable pointer then jump (for loop step = 1)</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_INCLPJUMPSTEP1</p></td>
+<tr class="row-odd"><td><p>ICO_INCLPJUMPSTEP1</p></td>
 <td><p>Increment value using local variable pointer then jump (for loop step = 1)</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_LEN</p></td>
+<tr class="row-even"><td><p>ICO_LEN</p></td>
 <td><p>Remove list from the stack and push the list size</p></td>
 </tr>
 </tbody>
