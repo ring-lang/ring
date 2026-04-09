@@ -1302,36 +1302,26 @@ void ring_vm_oop_loadmethodp(VM *pVM) {
 	FuncCall *pFuncCall;
 	Item *pItem;
 	if (!RING_VM_STACK_ISPOINTER) {
-		RING_VM_IR_OPCODE = ICO_LOADMETHOD;
-		ring_vm_oop_loadmethod(pVM);
-		return;
+		RING_VM_LOADMETHODANDRETURN;
 	}
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pVar = (List *)RING_VM_STACK_READP;
 		if (!ring_list_islist(pVar, RING_VAR_VALUE)) {
-			RING_VM_IR_OPCODE = ICO_LOADMETHOD;
-			ring_vm_oop_loadmethod(pVM);
-			return;
+			RING_VM_LOADMETHODANDRETURN;
 		}
 		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		if (!ring_item_islist(pItem)) {
-			RING_VM_IR_OPCODE = ICO_LOADMETHOD;
-			ring_vm_oop_loadmethod(pVM);
-			return;
+			RING_VM_LOADMETHODANDRETURN;
 		}
 		pList = (List *)ring_item_getlist(pItem);
 	} else {
-		RING_VM_IR_OPCODE = ICO_LOADMETHOD;
-		ring_vm_oop_loadmethod(pVM);
-		return;
+		RING_VM_LOADMETHODANDRETURN;
 	}
 	pCachedClass = (List *)RING_VM_IR_READPVALUE(RING_VM_IR_REG2);
 	if ((List *)ring_list_getpointer(pList, RING_OBJECT_CLASSPOINTER) != pCachedClass) {
-		RING_VM_IR_OPCODE = ICO_LOADMETHOD;
-		ring_vm_oop_loadmethod(pVM);
-		return;
+		RING_VM_LOADMETHODANDRETURN;
 	}
 	RING_VM_STACK_POP;
 	pList2 = ring_list_getlist(pCachedClass, RING_CLASSMAP_METHODSLIST);
