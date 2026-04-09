@@ -304,7 +304,7 @@ void ring_vm_preparecallmethod(VM *pVM) {
 	/*
 	**  Now we make the object state visible by moving it from pBeforeObjState to pObjState
 	**  We do this here and not in LoadMethod to avoid accessing the object state when passing parameters
-	**  This fix a problem when we pass the self object to avoid passing ObjName that comes before the metho
+	**  This fix a problem when we pass the self object to avoid passing ObjName that comes before the method
 	*/
 	if (pVM->nBeforeObjStateCount > 0) {
 		pVM->nCurrentObjState++;
