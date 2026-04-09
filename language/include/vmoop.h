@@ -55,13 +55,6 @@
 #define RING_NOSETTERMETHOD_DEFAULT 0
 #define RING_NOSETTERMETHOD_ENABLE 1
 #define RING_NOSETTERMETHOD_IGNORESETPROPERTY 2
-/* Macro */
-#define RING_VM_LOADMETHODANDRETURN                                                                                    \
-	do {                                                                                                           \
-		RING_VM_IR_OPCODE = ICO_LOADMETHOD;                                                                    \
-		ring_vm_oop_loadmethod(pVM);                                                                           \
-		return;                                                                                                \
-	} while (0)
 /* Functions */
 
 void ring_vm_oop_newobj(VM *pVM);
