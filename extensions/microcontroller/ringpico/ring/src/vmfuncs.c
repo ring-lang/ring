@@ -74,7 +74,10 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 			pFuncCall->nListStart = pVM->nListStart;
 			pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists);
 			ring_vm_newnestedlists(pVM);
-			if ((strcmp(cStr, RING_CSTR_MAIN) != 0) && (pVM->lCallMethod != 1) && (y != 2)) {
+			/* Add nLoadAddressScope to pFuncCall */
+			pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
+			pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
+			if ((y != 2) && (pVM->lCallMethod != 1) && (strcmp(cStr, RING_CSTR_MAIN) != 0)) {
 				/* We check that we will convert Functions only, not methods */
 				if (pVM->lInsideBraceFlag == 0) {
 					ring_vm_funccalluseloadfuncp(pVM, pFuncCall, nPerformance);
@@ -101,9 +104,6 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 					}
 				}
 			}
-			/* Add nLoadAddressScope to pFuncCall */
-			pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
-			pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
 			return RING_TRUE;
 		}
 	}
