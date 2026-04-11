@@ -32,6 +32,7 @@ void ring_vm_addglobalvariables(VM *pVM) {
 	pList = ring_vm_addnewlistvar(pVM, RING_CSTR_RINGOPTIONALFUNCTIONS);
 	pList = ring_list_getlist(pList, RING_VAR_VALUE);
 	ring_list_enableerroronassignment_gc(pVM->pRingState, pList);
+	pVM->pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
 }
 /*
 **  Memory is a List and each item inside the list is another List (Represent Scope)
@@ -220,7 +221,7 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 		/* Check Setter/Getter for Public Attributes */
 		if (pVM->lGetSetProperty == 1) {
 			/* Avoid executing Setter/Getter when we use self.attribute and this.attribute */
-			pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+			pThis = pVM->pThis;
 			if (pThis != NULL) {
 				if (ring_list_getpointer(pThis, RING_VAR_VALUE) == pVM->pGetSetObject) {
 					return RING_TRUE;

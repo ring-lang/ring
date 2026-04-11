@@ -118,6 +118,7 @@ typedef struct VM {
 	List *pDefinedGlobals;
 	List *pTrackedVariables;
 	List *pLiterals;
+	List *pThis;
 	String *pPackageName;
 	String *pTrace;
 	ByteCode *pByteCode;

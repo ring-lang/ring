@@ -323,8 +323,7 @@ void ring_vm_return(VM *pVM) {
 	void *pThisObject, *pCallerThisObject;
 	int lThisCheck;
 	lThisCheck = RING_TRUE;
-	pThisObject =
-	    ring_list_getpointer(ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS), RING_VAR_VALUE);
+	pThisObject = ring_list_getpointer(pVM->pThis, RING_VAR_VALUE);
 	/* Support for nested "Load" instructions */
 	if (pVM->nBlockCounter >= 1) {
 		ring_vm_removeblockflag(pVM);
@@ -402,8 +401,7 @@ void ring_vm_return(VM *pVM) {
 		if (RING_VM_FUNCCALLSCOUNT > 0) {
 			pFuncCall = RING_VM_LASTFUNCCALL;
 			pVM->nFuncSP = pFuncCall->nSP;
-			pCallerThisObject = ring_list_getpointer(
-			    ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS), RING_VAR_VALUE);
+			pCallerThisObject = ring_list_getpointer(pVM->pThis, RING_VAR_VALUE);
 			if (lThisCheck && (!(pFuncCall->lMethod && (pThisObject == pCallerThisObject))) &&
 			    (pVM->nRetItemRef == 0) && (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE)) {
 				/*

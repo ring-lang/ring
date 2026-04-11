@@ -9,7 +9,7 @@ void ring_vm_savestate(VM *pVM, List *pList) {
 	pVMState = ring_vmstate_new(pVM->pRingState);
 	/* Save the state as Managed C Pointer */
 	ring_list_addcustomringpointer_gc(pVM->pRingState, pList, pVMState, ring_vmstate_delete);
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	/* Save the data */
 	pVMState->aNumbers[0] = RING_VM_SCOPESCOUNT;
 	pVMState->aNumbers[1] = RING_VM_FUNCCALLSCOUNT;
@@ -176,7 +176,7 @@ void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int 
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[27];
 	pVM->nCallClassInit = pVMState->aNumbers[28];
 	/* Restore This variable */
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	ring_list_setpointer_gc(pVM->pRingState, pThis, RING_VAR_VALUE, pVMState->aPointers[7]);
 	ring_list_setint_gc(pVM->pRingState, pThis, RING_VAR_PVALUETYPE, pVMState->aNumbers[29]);
 	/* Process aListsToDelete */
@@ -192,7 +192,7 @@ VMState *ring_vm_savestateformethods(VM *pVM) {
 	VMState *pVMState;
 	/* Using VMState */
 	pVMState = ring_vmstate_new(pVM->pRingState);
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	/* Save the Data */
 	pVMState->aNumbers[0] = pVM->lNoAssignment;
 	pVMState->aNumbers[1] = pVM->lGetSetProperty;
@@ -270,7 +270,7 @@ void ring_vm_restorestateformethods(VM *pVM, VMState *pVMState) {
 	pVM->nNoSetterMethod = pVMState->aNumbers[15];
 	pVM->pGetSetObject = (void *)pVMState->aPointers[4];
 	/* Restore This variable */
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	ring_list_setpointer_gc(pVM->pRingState, pThis, RING_VAR_VALUE, pVMState->aPointers[5]);
 	ring_list_setint_gc(pVM->pRingState, pThis, RING_VAR_PVALUETYPE, pVMState->aNumbers[11]);
 	/* Restore pSetProperty */
@@ -319,7 +319,7 @@ void ring_vm_savestatefornewobjects(VM *pVM) {
 	/* Save Current Global Scope */
 	pVMState->aNumbers[9] = pVM->nCurrentGlobalScope;
 	/* Save the This object */
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	pVMState->aPointers[5] = ring_list_getpointer(pThis, RING_VAR_VALUE);
 	pVMState->aNumbers[10] = ring_list_getint(pThis, RING_VAR_PVALUETYPE);
 	/* Save pObjState */
@@ -406,7 +406,7 @@ void ring_vm_restorestatefornewobjects(VM *pVM) {
 	/* Restore current Global Scope */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[9];
 	/* Restore the This object */
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	ring_list_setpointer_gc(pVM->pRingState, pThis, RING_VAR_VALUE, pVMState->aPointers[5]);
 	ring_list_setint_gc(pVM->pRingState, pThis, RING_VAR_PVALUETYPE, pVMState->aNumbers[10]);
 	/* Restore pObjState */

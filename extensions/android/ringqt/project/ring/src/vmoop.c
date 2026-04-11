@@ -1164,7 +1164,7 @@ void ring_vm_oop_updateselfpointer(VM *pVM, List *pObj, unsigned int nType, void
 
 void ring_vm_oop_setthethisvariable(VM *pVM) {
 	List *pList, *pThis;
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	if ((pVM->nCurrentObjState < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
 		ring_list_setpointer_gc(pVM->pRingState, pThis, RING_VAR_VALUE, NULL);
 		ring_list_setint_gc(pVM->pRingState, pThis, RING_VAR_PVALUETYPE, RING_OBJTYPE_NOTYPE);
@@ -1186,7 +1186,7 @@ void ring_vm_oop_setthethisvariable(VM *pVM) {
 
 void ring_vm_oop_setthethisvariableinclassregion(VM *pVM) {
 	List *pList, *pThis;
-	pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+	pThis = pVM->pThis;
 	/* Get Object Scope */
 	pList = pVM->aObjState[pVM->nCurrentObjState].pScope;
 	/* Get Self Attribute List */
@@ -1201,7 +1201,7 @@ unsigned int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMetho
 	List *pList, *pThis, *pClass, *pVar;
 	Item *pItem;
 	if (pVM->nInClassRegion != 0) {
-		pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
+		pThis = pVM->pThis;
 		if (pThis == NULL) {
 			return RING_FALSE;
 		}
