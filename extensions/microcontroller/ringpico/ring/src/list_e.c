@@ -605,23 +605,9 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 		}
 		if (nParaCount == 2) {
 			if (RING_API_ISSTRING(2)) {
-				/* Check that all items are strings */
-				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
-					if (!ring_list_isstring_gc(pVM->pRingState, pList, x)) {
-						RING_API_ERROR(RING_API_BADPARATYPE);
-						return;
-					}
-				}
 				RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
 				    pVM->pRingState, pList, RING_API_GETSTRING(2), RING_ZERO, RING_CSTR_EMPTY));
 			} else if (RING_API_ISNUMBER(2)) {
-				/* Check that all items are numbers */
-				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
-					if (!ring_list_isnumber_gc(pVM->pRingState, pList, x)) {
-						RING_API_ERROR(RING_API_BADPARATYPE);
-						return;
-					}
-				}
 				RING_API_RETNUMBER(ring_list_binarysearchnum_gc(
 				    pVM->pRingState, pList, RING_API_GETNUMBER(2), RING_ZERO, RING_CSTR_EMPTY));
 			} else {
@@ -630,25 +616,9 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 		} else {
 			nColumn = RING_API_GETNUMBER(3);
 			if (RING_API_ISSTRING(2)) {
-				/* Check that all items are strings */
-				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
-					pList2 = ring_list_getlist_gc(pVM->pRingState, pList, x);
-					if (!ring_list_isstring_gc(pVM->pRingState, pList2, nColumn)) {
-						RING_API_ERROR(RING_API_BADPARATYPE);
-						return;
-					}
-				}
 				RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
 				    pVM->pRingState, pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));
 			} else if (RING_API_ISNUMBER(2)) {
-				/* Check that all items are numbers */
-				for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pList); x++) {
-					pList2 = ring_list_getlist_gc(pVM->pRingState, pList, x);
-					if (!ring_list_isnumber_gc(pVM->pRingState, pList2, nColumn)) {
-						RING_API_ERROR(RING_API_BADPARATYPE);
-						return;
-					}
-				}
 				RING_API_RETNUMBER(ring_list_binarysearchnum_gc(
 				    pVM->pRingState, pList, RING_API_GETNUMBER(2), nColumn, RING_CSTR_EMPTY));
 			} else {
