@@ -772,7 +772,7 @@ void ring_vm_oop_setget(VM *pVM, List *pVar) {
 			pString = ring_string_new_gc(pVM->pRingState, "get");
 			ring_string_add_gc(pVM->pRingState, pString, ring_list_getstring(pVar, RING_VAR_NAME));
 			/* Set Variable ring_gettemp_var */
-			pList = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_GETTEMPVAR);
+			pList = pVM->pGetTempVar;
 			ring_list_setpointer_gc(pVM->pRingState, pList, RING_VAR_VALUE, pVM->pGetSetObject);
 			ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_PVALUETYPE, pVM->nGetSetObjType);
 			RING_VM_STACK_POP;
@@ -872,13 +872,13 @@ void ring_vm_oop_setproperty(VM *pVM) {
 		/* Set Before/After SetProperty Flag to After */
 		RING_VM_IR_SETFLAGREG2(RING_TRUE);
 		/* Set Variable ring_gettemp_var */
-		pList2 = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_GETTEMPVAR);
+		pList2 = pVM->pGetTempVar;
 		ring_list_setpointer_gc(pVM->pRingState, pList2, RING_VAR_VALUE,
 					ring_list_getpointer(pList, RING_SETPROPERTY_OBJPTR));
 		ring_list_setint_gc(pVM->pRingState, pList2, RING_VAR_PVALUETYPE,
 				    ring_list_getint(pList, RING_SETPROPERTY_OBJTYPE));
 		/* Set Variable ring_settemp_var */
-		pList2 = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_SETTEMPVAR);
+		pList2 = pVM->pSetTempVar;
 		if (RING_VM_STACK_ISNUMBER) {
 			ring_list_setint_gc(pVM->pRingState, pList2, RING_VAR_TYPE, RING_VM_NUMBER);
 			ring_list_setdouble_gc(pVM->pRingState, pList2, RING_VAR_VALUE, RING_VM_STACK_READN);
@@ -1034,7 +1034,7 @@ void ring_vm_oop_operatoroverloading2(VM *pVM, List *pObj, const char *cStr1, un
 	RING_VM_BYTECODE_START;
 	nObjType = ring_vm_oop_objtypefromobjlist(pVM, pObj);
 	/* Set Variable ring_gettemp_var */
-	pList2 = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_GETTEMPVAR);
+	pList2 = pVM->pGetTempVar;
 	if (nObjType == RING_OBJTYPE_VARIABLE) {
 		pObj = ring_vm_oop_objvarfromobjlist(pVM, pObj);
 		ring_list_setpointer_gc(pVM->pRingState, pList2, RING_VAR_VALUE, pObj);
@@ -1044,7 +1044,7 @@ void ring_vm_oop_operatoroverloading2(VM *pVM, List *pObj, const char *cStr1, un
 	}
 	ring_list_setint_gc(pVM->pRingState, pList2, RING_VAR_PVALUETYPE, nObjType);
 	/* Set Variable ring_settemp_var */
-	pList2 = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_SETTEMPVAR);
+	pList2 = pVM->pSetTempVar;
 	if (nType == RING_OOPARA_STRING) {
 		ring_list_setint_gc(pVM->pRingState, pList2, RING_VAR_TYPE, RING_VM_STRING);
 		ring_list_setstring_gc(pVM->pRingState, pList2, RING_VAR_VALUE, cStr2);
