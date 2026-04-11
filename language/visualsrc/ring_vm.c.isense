@@ -204,6 +204,12 @@ Type: List *
 pLiterals
 Type: List *
 pThis
+Type: List *
+pGetTempVar
+Type: List *
+pSetTempVar
+Type: List *
+pCatchError
 Type: String *
 pPackageName
 Type: String *

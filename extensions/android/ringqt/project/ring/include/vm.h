@@ -121,6 +121,7 @@ typedef struct VM {
 	List *pThis;
 	List *pGetTempVar;
 	List *pSetTempVar;
+	List *pErrorMsg;
 	String *pPackageName;
 	String *pTrace;
 	ByteCode *pByteCode;

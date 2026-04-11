@@ -36,6 +36,7 @@ void ring_vm_addglobalvariables(VM *pVM) {
 	pVM->pThis = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_THIS);
 	pVM->pGetTempVar = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_GETTEMPVAR);
 	pVM->pSetTempVar = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_SETTEMPVAR);
+	pVM->pErrorMsg = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG);
 }
 /*
 **  Memory is a List and each item inside the list is another List (Represent Scope)
