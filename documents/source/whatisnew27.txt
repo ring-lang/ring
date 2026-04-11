@@ -58,6 +58,7 @@ More Improvements
 * LoadLib() function - Return after displaying the error message
 * SysSleep() function - Return after displaying the error message
 * DiffDays() function - Better Code
+* BinarySearch() - Better Performance & Allows mixing types in the list
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
 * Ring VM - ring_list_updaterefcount_gc() - Better Code
