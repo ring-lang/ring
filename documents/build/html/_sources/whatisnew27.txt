@@ -68,4 +68,5 @@ More Improvements
 * Ring VM - ring_vm_loadfunc2() - Better Code - Logical order of instructions 
 * Ring VM - Save/Restore state when using Braces - Better Performance
 * Ring VM - pObjState information - Use array of structure instead of Ring Lists
-* Ring VM - New Instruction - ICO_LOADMETHODP
+* Ring VM - New Instruction for calling methods - ICO_LOADMETHODP
+* Ring VM - Cache the This variable list in the VM structure - Better Performance
