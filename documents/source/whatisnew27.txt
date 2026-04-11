@@ -71,3 +71,4 @@ More Improvements
 * Ring VM - New Instruction for calling methods - ICO_LOADMETHODP
 * Ring VM - Cache the This variable list in the VM structure - Better Performance
 * Ring VM - Cache the GetTempVar/SetTempVar variable list - Better Performance
+* Ring VM - Cache the ErrorMsg variable list - Better Performance
