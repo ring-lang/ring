@@ -295,6 +295,32 @@ typedef struct VM {
 #define RING_GLOBALVARPOS_SETTEMPVAR 3
 #define RING_GLOBALVARPOS_ERRORMSG 4
 #define RING_GLOBALVARPOS_OPTIONALFUNCTIONS 15
+/* Variable Access */
+#define RING_VAR_ITEMS_NAME(pVar) (pVar)->pFirst
+#define RING_VAR_ITEMS_TYPE(pVar) (pVar)->pFirst->pNext
+#define RING_VAR_ITEMS_VALUE(pVar) (pVar)->pFirst->pNext->pNext
+#define RING_VAR_ITEMS_PVALUETYPE(pVar) (pVar)->pFirst->pNext->pNext->pNext
+#define RING_VAR_GETNAME(pVar) ring_string_get(RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString)
+#define RING_VAR_GETNAMESIZE(pVar) ring_string_size(RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString)
+#define RING_VAR_GETTYPE(pVar) (RING_VAR_ITEMS_TYPE(pVar)->pValue->data.iNumber)
+#define RING_VAR_SETTYPE(pVar, n) (RING_VAR_ITEMS_TYPE(pVar)->pValue->data.iNumber = (n))
+#define RING_VAR_GETSTRING(pVar) ring_string_get(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_GETSTRINGSIZE(pVar) ring_string_size(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_GETSTRINGOBJ(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_GETNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.dNumber)
+#define RING_VAR_GETPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pPointer)
+#define RING_VAR_GETLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pList)
+#define RING_VAR_SETNUMBER(pVar, n) ring_list_setdouble_gc(pVM->pRingState, pVar, RING_VAR_VALUE, n)
+#define RING_VAR_SETNUMBERFAST(pVar, n) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.dNumber = (n))
+#define RING_VAR_GETPVALUETYPE(pVar) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber)
+#define RING_VAR_SETPVALUETYPE(pVar, n) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber = (n))
+#define RING_VAR_VALUEISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
+#define RING_VAR_VALUEISNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER)
+#define RING_VAR_VALUEISDOUBLE(pVar)                                                                                   \
+	((RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER) &&                                             \
+	 (RING_VAR_ITEMS_VALUE(pVar)->pValue->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE))
+#define RING_VAR_VALUEISLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_LIST)
+#define RING_VAR_VALUEISPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_POINTER)
 /* Variable Type */
 #define RING_VM_NULL 0
 #define RING_VM_STRING 1
