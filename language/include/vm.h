@@ -315,13 +315,13 @@ typedef struct VM {
 #define RING_VAR_SETNUMBERFAST(pVar, n) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.dNumber = (n))
 #define RING_VAR_GETPVALUETYPE(pVar) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber)
 #define RING_VAR_SETPVALUETYPE(pVar, n) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber = (n))
-#define RING_VAR_VALUEISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
-#define RING_VAR_VALUEISNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER)
-#define RING_VAR_VALUEISDOUBLE(pVar)                                                                                   \
+#define RING_VAR_ISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
+#define RING_VAR_ISNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER)
+#define RING_VAR_ISDOUBLE(pVar)                                                                                        \
 	((RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER) &&                                             \
 	 (RING_VAR_ITEMS_VALUE(pVar)->pValue->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE))
-#define RING_VAR_VALUEISLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_LIST)
-#define RING_VAR_VALUEISPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_POINTER)
+#define RING_VAR_ISLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_LIST)
+#define RING_VAR_ISPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_POINTER)
 /* Variable Type */
 #define RING_VM_NULL 0
 #define RING_VM_STRING 1
