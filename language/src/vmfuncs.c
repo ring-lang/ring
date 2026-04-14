@@ -125,7 +125,7 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 	/* Check Optional Functions */
 	if (pCFunc == NULL) {
 		pOptionalFunctions = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
-		pOptionalFunctions = ring_list_getlist(pOptionalFunctions, RING_VAR_VALUE);
+		pOptionalFunctions = RING_VAR_GETLIST(pOptionalFunctions);
 		nPos = ring_list_findstring_gc(pVM->pRingState, pOptionalFunctions, cStr, RING_ZERO);
 		if (nPos != RING_ZERO) {
 			pCFunc = &vCFunc;
@@ -323,7 +323,7 @@ void ring_vm_return(VM *pVM) {
 	void *pThisObject, *pCallerThisObject;
 	int lThisCheck;
 	lThisCheck = RING_TRUE;
-	pThisObject = ring_list_getpointer(pVM->pThis, RING_VAR_VALUE);
+	pThisObject = RING_VAR_GETPOINTER(pVM->pThis);
 	/* Support for nested "Load" instructions */
 	if (pVM->nBlockCounter >= 1) {
 		ring_vm_removeblockflag(pVM);
@@ -401,7 +401,7 @@ void ring_vm_return(VM *pVM) {
 		if (RING_VM_FUNCCALLSCOUNT > 0) {
 			pFuncCall = RING_VM_LASTFUNCCALL;
 			pVM->nFuncSP = pFuncCall->nSP;
-			pCallerThisObject = ring_list_getpointer(pVM->pThis, RING_VAR_VALUE);
+			pCallerThisObject = RING_VAR_GETPOINTER(pVM->pThis);
 			if (lThisCheck && (!(pFuncCall->lMethod && (pThisObject == pCallerThisObject))) &&
 			    (pVM->nRetItemRef == 0) && (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE)) {
 				/*
@@ -495,14 +495,14 @@ void ring_vm_newfunc(VM *pVM) {
 								      RING_VM_STACK_OBJTYPE);
 						if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 							pVar = (List *)RING_VM_STACK_READP;
-							if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-								pRef = ring_list_getlist(pVar, RING_VAR_VALUE);
+							if (RING_VAR_ISLIST(pVar)) {
+								pRef = RING_VAR_GETLIST(pVar);
 								ring_list_disablecopybyref_gc(pVM->pRingState, pRef);
 							}
 						}
 					} else {
 						pVar = (List *)RING_VM_STACK_READP;
-						pRef = ring_list_getlist(pVar, RING_VAR_VALUE);
+						pRef = RING_VAR_GETLIST(pVar);
 						if (aRefList == NULL) {
 							aRefList = ring_list_new_gc(pVM->pRingState, RING_ZERO);
 						}
@@ -582,8 +582,8 @@ void ring_vm_movetoprevscope(VM *pVM) {
 	*/
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		if (ring_list_islist(pList, RING_VAR_VALUE)) {
-			pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		if (RING_VAR_ISLIST(pList)) {
+			pList = RING_VAR_GETLIST(pList);
 		} else {
 			return;
 		}
@@ -597,9 +597,9 @@ void ring_vm_movetoprevscope(VM *pVM) {
 	ring_vm_createtemplist(pVM);
 	pList3 = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
-	ring_list_setint_gc(pVM->pRingState, pList3, RING_VAR_TYPE, RING_VM_LIST);
+	RING_VAR_SETTYPE(pList3, RING_VM_LIST);
 	ring_list_setlist_gc(pVM->pRingState, pList3, RING_VAR_VALUE);
-	pList2 = ring_list_getlist(pList3, RING_VAR_VALUE);
+	pList2 = RING_VAR_GETLIST(pList3);
 	/* Check Dont Ref flag to avoid reusage in wrong scope */
 	if (ring_list_isdontref_gc(pVM->pRingState, pList)) {
 		/*
