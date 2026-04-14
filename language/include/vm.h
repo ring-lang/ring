@@ -309,6 +309,7 @@ typedef struct VM {
 #define RING_VAR_GETSTRING(pVar) ring_string_get(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
 #define RING_VAR_GETSTRINGSIZE(pVar) ring_string_size(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
 #define RING_VAR_GETSTRINGOBJ(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_SETSTRING_GC(pState, pVar, cStr) ring_list_setstring_gc(pState, pVar, RING_VAR_VALUE, cStr)
 #define RING_VAR_SETSTRING2_GC(pState, pVar, cStr, nSize)                                                              \
 	ring_list_setstring2_gc(pState, pVar, RING_VAR_VALUE, cStr, nSize)
 #define RING_VAR_GETNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.dNumber)
