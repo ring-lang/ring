@@ -699,7 +699,7 @@ void ring_vm_refmeta_setattribute(void *pPointer) {
 				if (strcmp(RING_VAR_GETNAME(ring_list_getlist(pList, x)), cStr) == 0) {
 					pList = ring_list_getlist(pList, x);
 					if (RING_API_ISNUMBER(3)) {
-						RING_VAR_SETNUMBER(pList, RING_API_GETNUMBER(3));
+						RING_VAR_SETNUMBER_GC(pVM->pRingState, pList, RING_API_GETNUMBER(3));
 					} else if (RING_API_ISSTRING(3)) {
 						RING_VAR_SETSTRING2_GC(((VM *)pPointer)->pRingState, pList,
 								       RING_API_GETSTRING(3),
