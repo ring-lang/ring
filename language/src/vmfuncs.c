@@ -598,7 +598,7 @@ void ring_vm_movetoprevscope(VM *pVM) {
 	pList3 = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
 	RING_VAR_SETTYPE(pList3, RING_VM_LIST);
-	ring_list_setlist_gc(pVM->pRingState, pList3, RING_VAR_VALUE);
+	RING_VAR_SETLIST_GC(pVM->pRingState, pList3);
 	pList2 = RING_VAR_GETLIST(pList3);
 	/* Check Dont Ref flag to avoid reusage in wrong scope */
 	if (ring_list_isdontref_gc(pVM->pRingState, pList)) {
@@ -613,7 +613,7 @@ void ring_vm_movetoprevscope(VM *pVM) {
 	}
 	/* Copy the list */
 	if (ring_list_isref_gc(pVM->pRingState, pList)) {
-		ring_list_setlistbyref_gc(pVM->pRingState, pList3, RING_VAR_VALUE, pList);
+		RING_VAR_SETLISTBYREF_GC(pVM->pRingState, pList3, pList);
 	} else {
 		if (ring_list_iscopybyref_gc(pVM->pRingState, pList)) {
 			ring_list_swaptwolists(pList2, pList);
