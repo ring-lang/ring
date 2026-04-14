@@ -954,7 +954,7 @@ void ring_vm_exprppoo(VM *pVM, const char *cStr) {
 	char cNewOp[RING_SMALLBUF];
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		pList = ring_item_getlist(pItem);
@@ -969,7 +969,7 @@ void ring_vm_exprppoo(VM *pVM, const char *cStr) {
 	if (RING_VM_STACK_ISPOINTER) {
 		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 			pList2 = (List *)RING_VM_STACK_READP;
-			pList2 = ring_list_getlist(pList2, RING_VAR_VALUE);
+			pList2 = RING_VAR_GETLIST(pList2);
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pList2 = ring_item_getlist(pItem);
@@ -1121,7 +1121,7 @@ void ring_vm_exprnpoo(VM *pVM, const char *cStr, double nNum1) {
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		pList = ring_item_getlist(pItem);
@@ -1181,7 +1181,7 @@ void ring_vm_exprspoo(VM *pVM, const char *cStr, const char *pStr2, unsigned int
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		pList = ring_item_getlist(pItem);
