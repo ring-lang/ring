@@ -628,10 +628,9 @@ void ring_vm_movetoprevscope(VM *pVM) {
 				if (ring_vm_oop_objtypefromobjlist(pVM, pList) == RING_OBJTYPE_VARIABLE) {
 					/* Take in mind that pList could be stored in a Global Variable - Then
 					 * passed/returned from function */
-					ring_list_setstring_gc(
-					    pVM->pRingState, pList3, RING_VAR_NAME,
-					    ring_list_getstring(ring_vm_oop_objvarfromobjlist(pVM, pList),
-								RING_VAR_NAME));
+					RING_VAR_SETNAME_GC(
+					    pVM->pRingState, pList3,
+					    RING_VAR_GETNAME(ring_vm_oop_objvarfromobjlist(pVM, pList)));
 					ring_list_swaptwolists(pList3, ring_vm_oop_objvarfromobjlist(pVM, pList));
 					ring_vm_oop_updateselfpointer(pVM, pList, RING_OBJTYPE_VARIABLE, pList3);
 					RING_VM_STACK_SETPVALUE(pList3);
