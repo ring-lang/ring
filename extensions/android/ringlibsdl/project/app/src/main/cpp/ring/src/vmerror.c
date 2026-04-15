@@ -9,7 +9,7 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 	}
 	pVM->lActiveError = RING_TRUE;
 	/* Set Error Variable */
-	ring_list_setstring_gc(pVM->pRingState, pVM->pErrorMsg, RING_VAR_VALUE, cStr);
+	RING_VAR_SETSTRING_GC(pVM->pRingState, pVM->pErrorMsg, cStr);
 	/* Check BraceError() */
 	if (pVM->lCheckBraceError && (pVM->nCurrentObjState > 0)) {
 		fflush(stdout);

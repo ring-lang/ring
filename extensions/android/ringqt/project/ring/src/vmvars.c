@@ -411,7 +411,7 @@ void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const 
 	pList = ring_vm_newvar2(pVM, cStr, pVM->pActiveMem);
 	RING_VAR_SETTYPE(pList, RING_VM_LIST);
 	RING_VAR_SETLIST_GC(pVM->pRingState, pList);
-	pList2 = ring_list_getlist(pList, RING_VAR_VALUE);
+	pList2 = RING_VAR_GETLIST(pList);
 	/* Add Pointer */
 	ring_list_addpointer_gc(pVM->pRingState, pList2, pPointer);
 	/* Add Type */

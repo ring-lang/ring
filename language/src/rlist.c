@@ -1490,7 +1490,7 @@ RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDec
 		if (RING_VAR_ISSTRING(pList2)) {
 			printf("%s\n", RING_VAR_GETSTRING(pList2));
 		} else if (RING_VAR_ISNUMBER(pList2)) {
-			ring_general_numtostring(ring_list_getdouble(pList2, RING_VAR_VALUE), cStr, nDecimals);
+			ring_general_numtostring(RING_VAR_GETNUMBER(pList2), cStr, nDecimals);
 			printf("%s\n", cStr);
 		} else if (RING_VAR_ISLIST(pList2)) {
 			pList3 = RING_VAR_GETLIST(pList2);
