@@ -309,16 +309,18 @@ typedef struct VM {
 #define RING_VAR_GETSTRING(pVar) ring_string_get(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
 #define RING_VAR_GETSTRINGSIZE(pVar) ring_string_size(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
 #define RING_VAR_GETSTRINGOBJ(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
-#define RING_VAR_SETSTRING_GC(pState, pVar, cStr) ring_list_setstring_gc(pState, pVar, RING_VAR_VALUE, cStr)
+#define RING_VAR_SETSTRING_GC(pState, pVar, cStr)                                                                      \
+	ring_item_setstring_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, cStr)
 #define RING_VAR_SETSTRING2_GC(pState, pVar, cStr, nSize)                                                              \
-	ring_list_setstring2_gc(pState, pVar, RING_VAR_VALUE, cStr, nSize)
+	ring_item_setstring2_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, cStr, nSize)
 #define RING_VAR_GETNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.dNumber)
 #define RING_VAR_GETPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pPointer)
-#define RING_VAR_SETPOINTER_GC(pState, pVar, ptr) ring_list_setpointer_gc(pState, pVar, RING_VAR_VALUE, ptr)
+#define RING_VAR_SETPOINTER_GC(pState, pVar, ptr)                                                                      \
+	ring_item_setpointer_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, ptr)
 #define RING_VAR_GETLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pList)
 #define RING_VAR_SETLIST_GC(pState, pVar) ring_list_setlist_gc(pState, pVar, RING_VAR_VALUE)
 #define RING_VAR_SETLISTBYREF_GC(pState, pVar, pRef) ring_list_setlistbyref_gc(pState, pVar, RING_VAR_VALUE, pRef)
-#define RING_VAR_SETNUMBER_GC(pState, pVar, n) ring_list_setdouble_gc(pState, pVar, RING_VAR_VALUE, n)
+#define RING_VAR_SETNUMBER_GC(pState, pVar, n) ring_item_setdouble_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, n)
 #define RING_VAR_GETPVALUETYPE(pVar) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber)
 #define RING_VAR_SETPVALUETYPE(pVar, n) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber = (n))
 #define RING_VAR_ISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
