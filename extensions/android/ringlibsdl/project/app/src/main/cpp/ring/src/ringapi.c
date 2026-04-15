@@ -84,7 +84,7 @@ RING_API List *ring_vm_api_getlist(void *pPointer, int nPara) {
 		nType = RING_API_GETPOINTERTYPE(nPara);
 		if (nType == RING_OBJTYPE_VARIABLE) {
 			pList = (List *)RING_API_GETPOINTER(nPara);
-			return ring_list_getlist(pList, RING_VAR_VALUE);
+			return RING_VAR_GETLIST(pList);
 		} else if (nType == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_API_GETPOINTER(nPara);
 			return ring_item_getlist(pItem);
@@ -130,9 +130,9 @@ RING_API int ring_vm_api_ispointer(void *pPointer, int nPara) {
 			pList2 = RING_API_NEWLIST;
 			/* Create the variable */
 			pList = ring_vm_newvar2(pVM, RING_TEMP_VAR, pList2);
-			ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_LIST);
-			ring_list_setlist_gc(pVM->pRingState, pList, RING_VAR_VALUE);
-			pList2 = ring_list_getlist(pList, RING_VAR_VALUE);
+			RING_VAR_SETTYPE(pList, RING_VM_LIST);
+			RING_VAR_SETLIST_GC(pVM->pRingState, pList);
+			pList2 = RING_VAR_GETLIST(pList);
 			ring_vm_api_setptr(pPointer, nPara, pList, RING_OBJTYPE_VARIABLE);
 			/* The variable value will be a list contains the pointer */
 			ring_list_addpointer_gc(pVM->pRingState, pList2, NULL);
@@ -243,8 +243,8 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 	pVM->pActiveMem = pActiveMem;
 	pList = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
-	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_NUMBER) {
-		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
+	if (RING_VAR_GETTYPE(pList) == RING_VM_NUMBER) {
+		pItem = RING_VAR_ITEM_VALUE(pList);
 		if (strcmp(cStr2, "double") == 0) {
 			return &(pItem->data.dNumber);
 		} else if (strcmp(cStr2, "int") == 0) {
@@ -254,8 +254,8 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 			pItem->data.fNumber = (float)pItem->data.dNumber;
 			return &(pItem->data.fNumber);
 		}
-	} else if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_STRING) {
-		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
+	} else if (RING_VAR_GETTYPE(pList) == RING_VM_STRING) {
+		pItem = RING_VAR_ITEM_VALUE(pList);
 		return pItem->data.pString->cStr;
 	}
 	return NULL;
@@ -285,8 +285,8 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType) 
 	pVM->pActiveMem = pActiveMem;
 	pList = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
-	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_NUMBER) {
-		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
+	if (RING_VAR_GETTYPE(pList) == RING_VM_NUMBER) {
+		pItem = RING_VAR_ITEM_VALUE(pList);
 		if (nType == RING_VARVALUE_INT) {
 			pItem->data.dNumber = (double)pItem->data.iNumber;
 		} else {
@@ -392,9 +392,9 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 	}
 	/* Create the container variable */
 	pVariableList = ring_vm_newvar2(pVM, RING_TEMP_REF, pTempMem);
-	ring_list_setint_gc(((VM *)pPointer)->pRingState, pVariableList, RING_VAR_TYPE, RING_VM_LIST);
-	ring_list_setlist_gc(((VM *)pPointer)->pRingState, pVariableList, RING_VAR_VALUE);
-	pRealList = ring_list_getlist(pVariableList, RING_VAR_VALUE);
+	RING_VAR_SETTYPE(pVariableList, RING_VM_LIST);
+	RING_VAR_SETLIST_GC(((VM *)pPointer)->pRingState, pVariableList);
+	pRealList = RING_VAR_GETLIST(pVariableList);
 	/* Copy the list */
 	if (nRef == RING_OUTPUT_RETLIST) {
 		/* Used by RING_API_RETLIST */
