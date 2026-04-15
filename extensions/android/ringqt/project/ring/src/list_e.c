@@ -564,10 +564,10 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 				}
 				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, RING_OBJECT_OBJECTDATA);
 				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, nPos);
-				if (ring_list_isstring_gc(pVM->pRingState, pList3, RING_VAR_VALUE)) {
+				if (RING_VAR_ISSTRING(pList3)) {
 					ring_list_sortstr_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
 							     nColumn, cAttribute);
-				} else if (ring_list_isnumber_gc(pVM->pRingState, pList3, RING_VAR_VALUE)) {
+				} else if (RING_VAR_ISNUMBER(pList3)) {
 					ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE,
 							     ring_list_getsize_gc(pVM->pRingState, pList), nColumn,
 							     cAttribute);
