@@ -170,7 +170,7 @@ void ring_vm_generallib_optionalfunc(void *pPointer) {
 		*app code
 		*/
 		pList = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 		/* If the optional function is already defined, we pass the error */
 		if (ring_list_findstring_gc(pVM->pRingState, pList, cFunc, RING_ZERO) == RING_ZERO) {
 			ring_list_addstring_gc(pRingState, pList, cFunc);
@@ -1529,17 +1529,16 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISSTRING(3)) {
-		ring_list_setint_gc(pRingSubState, pList, RING_VAR_TYPE, RING_VM_STRING);
-		ring_list_setstring2_gc(pRingSubState, pList, RING_VAR_VALUE, RING_API_GETSTRING(3),
-					RING_API_GETSTRINGSIZE(3));
+		RING_VAR_SETTYPE(pList, RING_VM_STRING);
+		RING_VAR_SETSTRING2_GC(pRingSubState, pList, RING_API_GETSTRING(3), RING_API_GETSTRINGSIZE(3));
 	} else if (RING_API_ISNUMBER(3)) {
-		ring_list_setint_gc(pRingSubState, pList, RING_VAR_TYPE, RING_VM_NUMBER);
-		ring_list_setdouble_gc(pRingSubState, pList, RING_VAR_VALUE, RING_API_GETNUMBER(3));
+		RING_VAR_SETTYPE(pList, RING_VM_NUMBER);
+		RING_VAR_SETNUMBER_GC(pRingSubState, pList, RING_API_GETNUMBER(3));
 	} else if (RING_API_ISLIST(3)) {
 		pList2 = RING_API_GETLIST(3);
-		ring_list_setint_gc(pRingSubState, pList, RING_VAR_TYPE, RING_VM_LIST);
-		ring_list_setlist_gc(pRingSubState, pList, RING_VAR_VALUE);
-		pList3 = ring_list_getlist(pList, RING_VAR_VALUE);
+		RING_VAR_SETTYPE(pList, RING_VM_LIST);
+		RING_VAR_SETLIST_GC(pRingSubState, pList);
+		pList3 = RING_VAR_GETLIST(pList);
 		ring_vm_listcopy(pRingSubState->pVM, pList3, pList2);
 		/* Update self object pointer */
 		if (ring_vm_oop_isobject(pVM, pList3)) {
