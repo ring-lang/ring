@@ -421,16 +421,16 @@ void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const 
 }
 
 void ring_vm_setvarprivateflag(VM *pVM, List *pVar, unsigned int nFlag) {
-	if (ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1) {
-		ring_list_addint_gc(pVM->pRingState, pVar, nFlag);
-	} else if (ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG) {
-		ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_PRIVATEFLAG, nFlag);
+	if (RING_VAR_NEEDPRIVATEFLAGLOCATION(pVar)) {
+		RING_VAR_ADDPRIVATEFLAG_GC(pVM->pRingState, pVar, nFlag);
+	} else if (RING_VAR_HASPRIVATEFLAG(pVar)) {
+		RING_VAR_SETPRIVATEFLAG(pVar, nFlag);
 	}
 }
 
 unsigned int ring_vm_getvarprivateflag(VM *pVM, List *pVar) {
-	if (ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG) {
-		return ring_list_getint(pVar, RING_VAR_PRIVATEFLAG);
+	if (RING_VAR_HASPRIVATEFLAG(pVar)) {
+		return RING_VAR_GETPRIVATEFLAG(pVar);
 	}
 	return RING_FALSE;
 }

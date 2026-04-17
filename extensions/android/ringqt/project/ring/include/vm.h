@@ -300,6 +300,7 @@ typedef struct VM {
 #define RING_VAR_ITEMS_TYPE(pVar) (pVar)->pFirst->pNext
 #define RING_VAR_ITEMS_VALUE(pVar) (pVar)->pFirst->pNext->pNext
 #define RING_VAR_ITEMS_PVALUETYPE(pVar) (pVar)->pFirst->pNext->pNext->pNext
+#define RING_VAR_ITEMS_PRIVATEFLAG(pVar) (pVar)->pLast
 #define RING_VAR_ITEM_VALUE(pVar) RING_VAR_ITEMS_VALUE(pVar)->pValue
 #define RING_VAR_GETNAME(pVar) ring_string_get(RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString)
 #define RING_VAR_GETNAMESIZE(pVar) ring_string_size(RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString)
@@ -326,6 +327,11 @@ typedef struct VM {
 #define RING_VAR_HASPVALUETYPE(pVar) ring_list_getsize(pVar) >= RING_VAR_PVALUETYPE
 #define RING_VAR_GETPVALUETYPE(pVar) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber)
 #define RING_VAR_SETPVALUETYPE(pVar, n) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber = (n))
+#define RING_VAR_HASPRIVATEFLAG(pVar) ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG
+#define RING_VAR_GETPRIVATEFLAG(pVar) (RING_VAR_ITEMS_PRIVATEFLAG(pVar)->pValue->data.iNumber)
+#define RING_VAR_SETPRIVATEFLAG(pVar, n) (RING_VAR_ITEMS_PRIVATEFLAG(pVar)->pValue->data.iNumber = (n))
+#define RING_VAR_NEEDPRIVATEFLAGLOCATION(pVar) ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1
+#define RING_VAR_ADDPRIVATEFLAG_GC(pState, pVar, nFlag) ring_list_addint_gc(pState, pVar, nFlag)
 #define RING_VAR_ISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
 #define RING_VAR_ISNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER)
 #define RING_VAR_ISDOUBLE(pVar)                                                                                        \
