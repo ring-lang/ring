@@ -293,7 +293,7 @@ List *ring_vm_findvarusinghashtable(VM *pVM, List *pList, const char *cStr) {
 	pList2 = NULL;
 	if (ring_list_getsize(pList) < RING_VARSCOPE_SIZETOUSEHASHTABLE) {
 		/* Search Using Linear Search */
-		nPos = ring_list_findstring_gc(pVM->pRingState, pList, cStr, RING_VAR_NAME);
+		nPos = RING_VARS_FINDBYNAME(pList, cStr);
 		if (nPos != 0) {
 			if (ring_list_islist(pList, nPos)) {
 				pList2 = ring_list_getlist(pList, nPos);

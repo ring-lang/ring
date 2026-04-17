@@ -1245,8 +1245,7 @@ RING_API unsigned int ring_list_findinlistofobjs_gc(void *pState, List *pList, i
 			if (ring_list_isobject(pList2) == 0) {
 				continue;
 			}
-			nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA),
-						       cAttribute, RING_VAR_NAME);
+			nPos = RING_VARS_FINDBYNAME(ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA), cAttribute);
 			if (nPos == 0) {
 				return RING_LISTERROR_PROPERTYNOTFOUND;
 			}
@@ -1333,8 +1332,8 @@ RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
-							       cAttribute, RING_VAR_NAME);
+				nPos =
+				    RING_VARS_FINDBYNAME(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA), cAttribute);
 				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
 				pList = ring_list_getlist(pList, nPos);
 				if (RING_VAR_ISNUMBER(pList)) {
@@ -1361,8 +1360,8 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
-							       cAttribute, RING_VAR_NAME);
+				nPos =
+				    RING_VARS_FINDBYNAME(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA), cAttribute);
 				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
 				pList = ring_list_getlist(pList, nPos);
 				if (RING_VAR_ISSTRING(pList)) {
@@ -1389,8 +1388,8 @@ RING_API void ring_list_setstringcolumn_gc(void *pState, List *pList, unsigned i
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
-							       cAttribute, RING_VAR_NAME);
+				nPos =
+				    RING_VARS_FINDBYNAME(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA), cAttribute);
 				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
 				pList = ring_list_getlist(pList, nPos);
 				if (RING_VAR_ISSTRING(pList)) {

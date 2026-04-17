@@ -555,9 +555,8 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, nColumn);
 			}
 			if (ring_vm_oop_isobject(pVM, pList3)) {
-				nPos = ring_list_findstring_gc(pVM->pRingState,
-							       ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA),
-							       cAttribute, RING_VAR_NAME);
+				nPos =
+				    RING_VARS_FINDBYNAME(ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA), cAttribute);
 				if (nPos == 0) {
 					RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 					return;
