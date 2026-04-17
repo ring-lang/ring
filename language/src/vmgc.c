@@ -316,7 +316,7 @@ RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
 			if (ring_list_islnewref_gc(pVM->pRingState, pRef)) {
 				lRef = 1;
 				pVar = ring_vm_addlistarg(pVM, cVariable);
-				ring_list_assignreftovar_gc(pVM->pRingState, pRef, pVar, RING_VAR_VALUE);
+				RING_VAR_ASSIGNREF(pVM->pRingState, pRef, pVar);
 				/* If the same reference is passed as parameter multiple times then keep treating it as
 				 * new reference */
 				ring_list_enablelnewref_gc(pVM->pRingState, pRef);
@@ -365,7 +365,7 @@ RING_API List *ring_list_newref_gc(void *pState, List *pVariableList, List *pLis
 	/* Note: The list may already have a container variable (Previous Reference) */
 	ring_list_enablelnewref_gc(pState, pList);
 	if (pList->vGC.pContainer == NULL) {
-		ring_list_acceptlistbyref_gc(pState, pVariableList, RING_VAR_VALUE, pList);
+		RING_VAR_ACCEPTLISTBYREF(pState, pVariableList, pList);
 		/* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable
 		 */
 		if (ring_vm_oop_isobject(pVM, pList)) {

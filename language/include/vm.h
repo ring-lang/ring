@@ -341,6 +341,11 @@ typedef struct VM {
 #define RING_VAR_ISLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_LIST)
 #define RING_VAR_ISPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_POINTER)
 #define RING_VARS_FINDBYNAME(pVars, cName) ring_list_findstring(pVars, cName, RING_VAR_NAME)
+#define RING_VAR_CHECKNEWREFERENCE(pVM, pPointer, nType, pVar)                                                         \
+	ring_vm_gc_checknewreference(pVM, pPointer, nType, pVar, RING_VAR_VALUE)
+#define RING_VAR_ASSIGNREF(pState, pRef, pVar) ring_list_assignreftovar_gc(pState, pRef, pVar, RING_VAR_VALUE)
+#define RING_VAR_ACCEPTLISTBYREF(pState, pVariableList, pList)                                                         \
+	ring_list_acceptlistbyref_gc(pState, pVariableList, RING_VAR_VALUE, pList)
 /* Variable Type */
 #define RING_VM_NULL 0
 #define RING_VM_STRING 1

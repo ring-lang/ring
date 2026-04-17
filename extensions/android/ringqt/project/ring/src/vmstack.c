@@ -268,8 +268,7 @@ void ring_vm_assignment(VM *pVM) {
 					RING_VAR_SETTYPE(pVar, RING_VM_LIST);
 					/* Copy The List */
 					if (ring_list_isref_gc(pVM->pRingState, pList)) {
-						ring_list_assignreftovar_gc(pVM->pRingState, pList, pVar,
-									    RING_VAR_VALUE);
+						RING_VAR_ASSIGNREF(pVM->pRingState, pList, pVar);
 					} else {
 						RING_VAR_SETLIST_GC(pVM->pRingState, pVar);
 						if (ring_list_iscopybyref_gc(pVM->pRingState, pList)) {
@@ -416,7 +415,7 @@ void ring_vm_setreference(VM *pVM) {
 		ring_list_addint_gc(pVM->pRingState, pList, nType);
 	}
 	/* Reference Counting (To Source After copy to Destination) */
-	ring_vm_gc_checknewreference(pVM, pPointer, nType, pList, RING_VAR_VALUE);
+	RING_VAR_CHECKNEWREFERENCE(pVM, pPointer, nType, pList);
 }
 
 void ring_vm_beforeequallist(VM *pVM, List *pVar, double nNum1, int nBeforeEqual) {
