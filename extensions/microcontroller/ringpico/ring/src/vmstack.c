@@ -409,7 +409,7 @@ void ring_vm_setreference(VM *pVM) {
 	/* Copy by reference */
 	RING_VAR_SETTYPE(pList, RING_VM_POINTER);
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pList, pPointer);
-	if (ring_list_getsize(pList) >= RING_VAR_PVALUETYPE) {
+	if (RING_VAR_HASPVALUETYPE(pList)) {
 		RING_VAR_SETPVALUETYPE(pList, nType);
 	} else {
 		/* Happens when the (For-in) loop variable is similar to Function Argument */

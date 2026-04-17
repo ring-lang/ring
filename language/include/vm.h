@@ -323,6 +323,7 @@ typedef struct VM {
 	ring_item_settype_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, ITEMTYPE_LIST)
 #define RING_VAR_SETLISTBYREF_GC(pState, pVar, pRef) ring_list_setlistbyref_gc(pState, pVar, RING_VAR_VALUE, pRef)
 #define RING_VAR_SETNUMBER_GC(pState, pVar, n) ring_item_setdouble_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, n)
+#define RING_VAR_HASPVALUETYPE(pVar) ring_list_getsize(pVar) >= RING_VAR_PVALUETYPE
 #define RING_VAR_GETPVALUETYPE(pVar) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber)
 #define RING_VAR_SETPVALUETYPE(pVar, n) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber = (n))
 #define RING_VAR_ISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)

@@ -125,7 +125,7 @@ RING_API void ring_vm_gc_killreference(VM *pVM) {
 		RING_VM_STACK_POP;
 		if (RING_VAR_GETTYPE(pList) == RING_VM_POINTER) {
 			/* Delete Reference (Delete item using reference counting) */
-			if (ring_list_getint(pList, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) {
+			if (RING_VAR_GETPVALUETYPE(pList) == RING_OBJTYPE_LISTITEM) {
 				pItem = (Item *)RING_VAR_GETPOINTER(pList);
 				ring_item_delete_gc(pVM->pRingState, pItem);
 			}
