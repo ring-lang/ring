@@ -332,6 +332,7 @@ typedef struct VM {
 #define RING_VAR_SETPRIVATEFLAG(pVar, n) (RING_VAR_ITEMS_PRIVATEFLAG(pVar)->pValue->data.iNumber = (n))
 #define RING_VAR_NEEDPRIVATEFLAGLOCATION(pVar) ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1
 #define RING_VAR_ADDPRIVATEFLAG_GC(pState, pVar, nFlag) ring_list_addint_gc(pState, pVar, nFlag)
+#define RING_VAR_VALUETYPE(pVar) RING_VAR_ITEMS_VALUE(pVar)->pValue->nType
 #define RING_VAR_ISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
 #define RING_VAR_ISNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER)
 #define RING_VAR_ISDOUBLE(pVar)                                                                                        \

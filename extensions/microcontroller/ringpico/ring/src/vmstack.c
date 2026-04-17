@@ -79,7 +79,7 @@ void ring_vm_varpushv(VM *pVM) {
 	List *pVar, *pList;
 	pVar = (List *)RING_VM_STACK_READP;
 	/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
-	switch (ring_list_gettype_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
+	switch (RING_VAR_VALUETYPE(pVar)) {
 	case ITEMTYPE_NUMBER:
 		RING_VM_STACK_PUSHNVAR;
 		break;
