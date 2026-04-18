@@ -350,8 +350,6 @@ List *ring_vm_newvar2(VM *pVM, const char *cStr, List *pParent) {
 		ring_list_addint_gc(pVM->pRingState, pList, RING_VM_NULL);
 	}
 	ring_list_addstring_gc(pVM->pRingState, pList, RING_CSTR_NULL);
-	/* Pointer Type */
-	ring_list_addint_gc(pVM->pRingState, pList, RING_OBJTYPE_NOTYPE);
 	/* HashTable */
 	if (pParent != NULL) {
 		ring_vm_addvarpointertoscopehash(pVM, pParent, cStr, pList);
@@ -421,10 +419,15 @@ void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const 
 }
 
 void ring_vm_setvarprivateflag(VM *pVM, List *pVar, unsigned int nFlag) {
+	if (RING_VAR_HASPRIVATEFLAG(pVar)) {
+		RING_VAR_SETPRIVATEFLAG(pVar, nFlag);
+		return;
+	}
+	if (RING_VAR_NEEDPVALUETYPELOCATION(pVar)) {
+		RING_VAR_ADDPVALUETYPELOCATION_GC(pVM->pRingState, pVar);
+	}
 	if (RING_VAR_NEEDPRIVATEFLAGLOCATION(pVar)) {
 		RING_VAR_ADDPRIVATEFLAG_GC(pVM->pRingState, pVar, nFlag);
-	} else if (RING_VAR_HASPRIVATEFLAG(pVar)) {
-		RING_VAR_SETPRIVATEFLAG(pVar, nFlag);
 	}
 }
 
