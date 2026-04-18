@@ -1245,11 +1245,11 @@ RING_API unsigned int ring_list_findinlistofobjs_gc(void *pState, List *pList, i
 			if (ring_list_isobject(pList2) == 0) {
 				continue;
 			}
-			nPos = RING_VARS_FINDBYNAME(ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA), cAttribute);
+			nPos = RING_VARS_FINDBYNAME(RING_OBJECT_GETOBJECTDATA(pList2), cAttribute);
 			if (nPos == 0) {
 				return RING_LISTERROR_PROPERTYNOTFOUND;
 			}
-			pList2 = ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA);
+			pList2 = RING_OBJECT_GETOBJECTDATA(pList2);
 			pList2 = ring_list_getlist(pList2, nPos);
 			if (nType == RING_LISTOFOBJS_FINDSTRING) {
 				if (RING_VAR_ISSTRING(pList2)) {
@@ -1332,9 +1332,8 @@ RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos =
-				    RING_VARS_FINDBYNAME(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA), cAttribute);
-				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+				nPos = RING_VARS_FINDBYNAME(RING_OBJECT_GETOBJECTDATA(pList), cAttribute);
+				pList = RING_OBJECT_GETOBJECTDATA(pList);
 				pList = ring_list_getlist(pList, nPos);
 				if (RING_VAR_ISNUMBER(pList)) {
 					return RING_VAR_GETNUMBER(pList);
@@ -1360,9 +1359,8 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos =
-				    RING_VARS_FINDBYNAME(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA), cAttribute);
-				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+				nPos = RING_VARS_FINDBYNAME(RING_OBJECT_GETOBJECTDATA(pList), cAttribute);
+				pList = RING_OBJECT_GETOBJECTDATA(pList);
 				pList = ring_list_getlist(pList, nPos);
 				if (RING_VAR_ISSTRING(pList)) {
 					return RING_VAR_GETSTRING(pList);
@@ -1388,9 +1386,8 @@ RING_API void ring_list_setstringcolumn_gc(void *pState, List *pList, unsigned i
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos =
-				    RING_VARS_FINDBYNAME(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA), cAttribute);
-				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+				nPos = RING_VARS_FINDBYNAME(RING_OBJECT_GETOBJECTDATA(pList), cAttribute);
+				pList = RING_OBJECT_GETOBJECTDATA(pList);
 				pList = ring_list_getlist(pList, nPos);
 				if (RING_VAR_ISSTRING(pList)) {
 					RING_VAR_SETSTRING_GC(pState, pList, cValue);
@@ -1482,7 +1479,7 @@ RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDec
 	List *pList2, *pList3;
 	unsigned int x;
 	char cStr[RING_MEDIUMBUF];
-	pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+	pList = RING_OBJECT_GETOBJECTDATA(pList);
 	for (x = 3; x <= ring_list_getsize(pList); x++) {
 		pList2 = ring_list_getlist(pList, x);
 		printf("%s: ", RING_VAR_GETNAME(pList2));
@@ -1502,11 +1499,7 @@ RING_API void ring_list_printobj_gc(void *pState, List *pList, unsigned int nDec
 	}
 }
 
-RING_API unsigned int ring_list_isobject_gc(void *pState, List *pList) {
-	return ((pList != NULL) && (ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&
-		ring_list_ispointer(pList, RING_OBJECT_CLASSPOINTER) &&
-		ring_list_islist(pList, RING_OBJECT_OBJECTDATA));
-}
+RING_API unsigned int ring_list_isobject_gc(void *pState, List *pList) { return RING_OBJECT_ISOBJECT(pList); }
 
 RING_API unsigned int ring_list_iscpointerlist_gc(void *pState, List *pList) {
 	return ((ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE) &&

@@ -661,7 +661,7 @@ void ring_vm_assignmentpointer(VM *pVM) {
 		if (pVM->nCurrentObjState && ring_vm_oop_isobject(pVM, pList)) {
 			/* We loop to prevent passing self to function that destroy the self */
 			for (x = 1; x <= pVM->nCurrentObjState; x++) {
-				if (ring_list_getpointer(pList, RING_OBJECT_OBJECTDATA) == pVM->aObjState[x].pScope) {
+				if (RING_OBJECT_GETOBJECTDATA(pList) == pVM->aObjState[x].pScope) {
 					if ((ring_list_getrefcount_gc(pVM->pRingState, pList) == 1) ||
 					    pVM->lSelfLoadA) {
 						pVM->lSelfLoadA = 0;

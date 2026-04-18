@@ -350,8 +350,7 @@ void ring_vm_refmeta_classname(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
-			cStr = ring_list_getstring((List *)ring_list_getpointer(pList, RING_OBJECT_CLASSPOINTER),
-						   RING_CLASSMAP_CLASSNAME);
+			cStr = ring_list_getstring((List *)RING_OBJECT_GETCLASSPOINTER(pList), RING_CLASSMAP_CLASSNAME);
 			RING_API_RETSTRING(cStr);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -389,7 +388,7 @@ void ring_vm_refmeta_attributes(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
-			pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+			pList = RING_OBJECT_GETOBJECTDATA(pList);
 			pList2 = RING_API_NEWLIST;
 			for (x = 3; x <= ring_list_getsize(pList); x++) {
 				ring_list_addstring_gc(((VM *)pPointer)->pRingState, pList2,
@@ -416,7 +415,7 @@ void ring_vm_refmeta_methods(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
-			pList = (List *)ring_list_getpointer(pList, RING_OBJECT_CLASSPOINTER);
+			pList = (List *)RING_OBJECT_GETCLASSPOINTER(pList);
 			pList = ring_list_getlist(pList, RING_CLASSMAP_METHODSLIST);
 			pList2 = RING_API_NEWLIST;
 			for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -493,7 +492,7 @@ void ring_vm_refmeta_isprivateattribute(void *pPointer) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
 			cStr = ring_general_lower(RING_API_GETSTRING(2));
-			pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+			pList = RING_OBJECT_GETOBJECTDATA(pList);
 			for (x = 3; x <= ring_list_getsize(pList); x++) {
 				if (strcmp(cStr, RING_VAR_GETNAME(ring_list_getlist(pList, x))) == 0) {
 					if (ring_vm_getvarprivateflag(pVM, ring_list_getlist(pList, x)) == 1) {
@@ -603,7 +602,7 @@ void ring_vm_refmeta_addmethod(void *pPointer) {
 				RING_API_ERROR(RING_VM_ERROR_FUNCREDEFINE);
 				return;
 			}
-			pList = (List *)ring_list_getlist(pList, RING_OBJECT_CLASSPOINTER);
+			pList = (List *)RING_OBJECT_GETCLASSPOINTER(pList);
 			pList = (List *)ring_list_getlist(pList, RING_CLASSMAP_METHODSLIST);
 			cStr = RING_API_GETSTRING(3);
 			ring_general_lower(cStr);
@@ -653,7 +652,7 @@ void ring_vm_refmeta_getattribute(void *pPointer) {
 	if (RING_API_ISLIST(1) && RING_API_ISSTRING(2)) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
-			pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+			pList = RING_OBJECT_GETOBJECTDATA(pList);
 			cStr = RING_API_GETSTRING(2);
 			ring_general_lower(cStr);
 			for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -692,7 +691,7 @@ void ring_vm_refmeta_setattribute(void *pPointer) {
 	if (RING_API_ISLIST(1) && RING_API_ISSTRING(2)) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
-			pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
+			pList = RING_OBJECT_GETOBJECTDATA(pList);
 			cStr = RING_API_GETSTRING(2);
 			ring_general_lower(cStr);
 			for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -834,8 +833,8 @@ void ring_vm_refmeta_parentclassname(void *pPointer) {
 	if (RING_API_ISLIST(1)) {
 		pList = RING_API_GETLIST(1);
 		if (ring_vm_oop_isobject(pVM, pList)) {
-			cStr = ring_list_getstring((List *)ring_list_getpointer(pList, RING_OBJECT_CLASSPOINTER),
-						   RING_CLASSMAP_PARENTCLASS);
+			cStr =
+			    ring_list_getstring((List *)RING_OBJECT_GETCLASSPOINTER(pList), RING_CLASSMAP_PARENTCLASS);
 			RING_API_RETSTRING(cStr);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);

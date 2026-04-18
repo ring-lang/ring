@@ -466,8 +466,8 @@ void ring_vm_savestateforbraces(VM *pVM) {
 	**  Prepare to Access Object State
 	**  Store Object Class Methods
 	*/
-	pClass = (List *)ring_list_getpointer(pVM->pBraceObject, RING_OBJECT_CLASSPOINTER);
-	pVM->aObjState[pVM->nCurrentObjState].pScope = ring_list_getlist(pVM->pBraceObject, RING_OBJECT_OBJECTDATA);
+	pClass = (List *)RING_OBJECT_GETCLASSPOINTER(pVM->pBraceObject);
+	pVM->aObjState[pVM->nCurrentObjState].pScope = RING_OBJECT_GETOBJECTDATA(pVM->pBraceObject);
 	pVM->aObjState[pVM->nCurrentObjState].pMethods = ring_list_getlist(pClass, RING_CLASSMAP_METHODSLIST);
 	pVM->aObjState[pVM->nCurrentObjState].pClass = pClass;
 	pVM->aObjState[pVM->nCurrentObjState].lIsMethod = RING_FALSE;

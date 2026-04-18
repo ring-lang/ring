@@ -55,6 +55,19 @@
 #define RING_NOSETTERMETHOD_DEFAULT 0
 #define RING_NOSETTERMETHOD_ENABLE 1
 #define RING_NOSETTERMETHOD_IGNORESETPROPERTY 2
+/* Object Access */
+#define RING_OBJECT_ITEMS_CLASSPOINTER(pObj) (pObj)->pFirst
+#define RING_OBJECT_ITEMS_OBJECTDATA(pObj) (pObj)->pLast
+#define RING_OBJECT_ITEM_CLASSPOINTER(pObj) RING_OBJECT_ITEMS_CLASSPOINTER(pObj)->pValue
+#define RING_OBJECT_ITEM_OBJECTDATA(pObj) RING_OBJECT_ITEMS_OBJECTDATA(pObj)->pValue
+#define RING_OBJECT_GETCLASSPOINTER(pObj) (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->data.pPointer)
+#define RING_OBJECT_SETCLASSPOINTER(pObj, pClass) (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->data.pPointer = (pClass))
+#define RING_OBJECT_GETOBJECTDATA(pObj) (RING_OBJECT_ITEM_OBJECTDATA(pObj)->data.pList)
+#define RING_OBJECT_GETSELFATTRIBUTE(pObj) RING_OBJECT_GETOBJECTDATA(pObj)->pFirst
+#define RING_OBJECT_ISOBJECT(pObj)                                                                                     \
+	(((pObj) != NULL) && ((pObj)->nSize == RING_OBJECT_LISTSIZE) &&                                                \
+	 (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->nType == ITEMTYPE_POINTER) &&                                           \
+	 (RING_OBJECT_ITEM_OBJECTDATA(pObj)->nType == ITEMTYPE_LIST))
 /* Functions */
 
 void ring_vm_oop_newobj(VM *pVM);

@@ -555,13 +555,12 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, nColumn);
 			}
 			if (ring_vm_oop_isobject(pVM, pList3)) {
-				nPos =
-				    RING_VARS_FINDBYNAME(ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA), cAttribute);
+				nPos = RING_VARS_FINDBYNAME(RING_OBJECT_GETOBJECTDATA(pList3), cAttribute);
 				if (nPos == 0) {
 					RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 					return;
 				}
-				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, RING_OBJECT_OBJECTDATA);
+				pList3 = RING_OBJECT_GETOBJECTDATA(pList3);
 				pList3 = ring_list_getlist_gc(pVM->pRingState, pList3, nPos);
 				if (RING_VAR_ISSTRING(pList3)) {
 					ring_list_sortstr_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
