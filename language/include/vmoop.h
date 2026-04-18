@@ -61,9 +61,8 @@
 #define RING_OBJECT_ITEM_CLASSPOINTER(pObj) RING_OBJECT_ITEMS_CLASSPOINTER(pObj)->pValue
 #define RING_OBJECT_ITEM_OBJECTDATA(pObj) RING_OBJECT_ITEMS_OBJECTDATA(pObj)->pValue
 #define RING_OBJECT_GETCLASSPOINTER(pObj) (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->data.pPointer)
-#define RING_OBJECT_SETCLASSPOINTER(pObj, pClass) (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->data.pPointer = (pClass))
 #define RING_OBJECT_GETOBJECTDATA(pObj) (RING_OBJECT_ITEM_OBJECTDATA(pObj)->data.pList)
-#define RING_OBJECT_GETSELFATTRIBUTE(pObj) RING_OBJECT_GETOBJECTDATA(pObj)->pFirst
+#define RING_OBJECT_GETSELFATTRIBUTE(pObjData) pObjData->pFirst->pValue->data.pList
 #define RING_OBJECT_ISOBJECT(pObj)                                                                                     \
 	(((pObj) != NULL) && ((pObj)->nSize == RING_OBJECT_LISTSIZE) &&                                                \
 	 (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->nType == ITEMTYPE_POINTER) &&                                           \

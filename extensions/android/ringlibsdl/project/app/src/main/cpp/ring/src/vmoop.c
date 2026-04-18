@@ -976,7 +976,7 @@ List *ring_vm_oop_objvarfromobjlist(VM *pVM, List *pList) {
 	/* Get Object State List */
 	pList = RING_OBJECT_GETOBJECTDATA(pList);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
+	pList = RING_OBJECT_GETSELFATTRIBUTE(pList);
 	/* Get Object Pointer from Self Attribute List */
 	nType = RING_VAR_GETPVALUETYPE(pList);
 	if (nType == RING_OBJTYPE_VARIABLE) {
@@ -993,7 +993,7 @@ unsigned int ring_vm_oop_objtypefromobjlist(VM *pVM, List *pList) {
 	/* Get Object State List */
 	pList = RING_OBJECT_GETOBJECTDATA(pList);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
+	pList = RING_OBJECT_GETSELFATTRIBUTE(pList);
 	/* Get Object Type from Self Attribute List */
 	nType = RING_VAR_GETPVALUETYPE(pList);
 	return nType;
@@ -1004,7 +1004,7 @@ Item *ring_vm_oop_objitemfromobjlist(VM *pVM, List *pList) {
 	/* Get Object State List */
 	pList = RING_OBJECT_GETOBJECTDATA(pList);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
+	pList = RING_OBJECT_GETSELFATTRIBUTE(pList);
 	/* Get Object Pointer from Self Attribute List */
 	pItem = (Item *)RING_VAR_GETPOINTER(pList);
 	return pItem;
@@ -1150,7 +1150,7 @@ void ring_vm_oop_updateselfpointer(VM *pVM, List *pObj, unsigned int nType, void
 	/* Get Object State */
 	pList = RING_OBJECT_GETOBJECTDATA(pObj);
 	/* Get Self Attribute */
-	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
+	pList = RING_OBJECT_GETSELFATTRIBUTE(pList);
 	/* Set Object Pointer */
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pList, pContainer);
 	/* Set Object Type */
@@ -1173,7 +1173,7 @@ void ring_vm_oop_setthethisvariable(VM *pVM) {
 		return;
 	}
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
+	pList = RING_OBJECT_GETSELFATTRIBUTE(pList);
 	/* Save this */
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, RING_VAR_GETPOINTER(pList));
 	RING_VAR_SETPVALUETYPE(pThis, RING_VAR_GETPVALUETYPE(pList));
@@ -1185,7 +1185,7 @@ void ring_vm_oop_setthethisvariableinclassregion(VM *pVM) {
 	/* Get Object Scope */
 	pList = pVM->aObjState[pVM->nCurrentObjState].pScope;
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList, RING_OBJECT_SELFATTRIBUTE);
+	pList = RING_OBJECT_GETSELFATTRIBUTE(pList);
 	/* Save this */
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, RING_VAR_GETPOINTER(pList));
 	/* Create the Temp Variable for the new object */
