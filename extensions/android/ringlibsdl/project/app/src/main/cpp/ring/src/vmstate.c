@@ -495,6 +495,8 @@ void ring_vm_savestateforbraces(VM *pVM) {
 	pVMState->aNumbers[RING_BRACEOBJECTS_ISDONTREF] = ring_list_isdontref_gc(pVM->pRingState, pVM->pBraceObject);
 	pVMState->aNumbers[RING_BRACEOBJECTS_ISDONTREFAGAIN] =
 	    ring_list_isdontrefagain_gc(pVM->pRingState, pVM->pBraceObject);
+	/* Clear Cache for Brace Methods */
+	pVMState->aNumbers[RING_BRACEOBJECTS_VALIDMASK] = RING_ZERO;
 	pVM->pBraceObject = NULL;
 	pVM->lInsideBraceFlag = 1;
 }

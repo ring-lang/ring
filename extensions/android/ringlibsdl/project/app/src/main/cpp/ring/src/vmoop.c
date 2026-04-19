@@ -391,6 +391,59 @@ void ring_vm_oop_loadmethod2(VM *pVM, const char *cMethod) {
 	}
 }
 
+void ring_vm_oop_loadmethodp(VM *pVM) {
+	List *pVar, *pList, *pList2, *pObjData, *pCachedClass;
+	FuncCall *pFuncCall;
+	Item *pItem;
+	pList = NULL;
+	if (RING_VM_STACK_ISPOINTER) {
+		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
+			pVar = (List *)RING_VM_STACK_READP;
+			if (RING_VAR_ISLIST(pVar)) {
+				pList = RING_VAR_GETLIST(pVar);
+			}
+		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
+			pItem = (Item *)RING_VM_STACK_READP;
+			if (ring_item_islist(pItem)) {
+				pList = (List *)ring_item_getlist(pItem);
+			}
+		}
+	}
+	pCachedClass = (List *)RING_VM_IR_READPVALUE(RING_VM_IR_REG2);
+	if ((pList == NULL) || ((List *)RING_OBJECT_GETCLASSPOINTER(pList) != pCachedClass)) {
+		RING_VM_IR_OPCODE = ICO_LOADMETHOD;
+		ring_vm_oop_loadmethod(pVM);
+		return;
+	}
+	RING_VM_STACK_POP;
+	pList2 = ring_list_getlist(pCachedClass, RING_CLASSMAP_METHODSLIST);
+	pObjData = RING_OBJECT_GETOBJECTDATA(pList);
+	ring_vm_oop_pushclasspackage(pVM, pCachedClass);
+	RING_VM_PUSHOBJSTATE(pObjData, pList2, pCachedClass, 1);
+	pFuncCall = ring_vm_funccallnew(pVM);
+	if (pFuncCall == NULL) {
+		return;
+	}
+	pFuncCall->nType = RING_VM_IR_GETFLAGREG;
+	pFuncCall->cName = RING_VM_IR_READC;
+	pFuncCall->nPC = RING_VM_IR_GETINTREG;
+	pFuncCall->nSP = pVM->nSP;
+	pFuncCall->pFunc = NULL;
+	pFuncCall->lMethod = RING_VM_IR_GETFLAGREG2;
+	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER;
+	pFuncCall->cFileName = pVM->cFileName;
+	pFuncCall->cNewFileName = pVM->cFileName;
+	if (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) {
+		pVM->cPrevFileName = pVM->cFileName;
+	}
+	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
+	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
+	pFuncCall->nListStart = pVM->nListStart;
+	pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists);
+	ring_vm_newnestedlists(pVM);
+	ring_vm_oop_movetobeforeobjstate(pVM);
+}
+
 void ring_vm_oop_movetobeforeobjstate(VM *pVM) {
 	if (pVM->lActiveCatch == 1) {
 		/* Try/Catch restore aObjState and may become empty */
@@ -1145,6 +1198,43 @@ unsigned int ring_vm_oop_ismethod(VM *pVM, List *pList, const char *cStr) {
 	return RING_ISMETHOD_NOTFOUND;
 }
 
+unsigned int ring_vm_oop_cachedismethod(VM *pVM, VMState *pVMState, const char *cMethod) {
+	unsigned int nSlot, nBit, lResult, lMask;
+	switch (cMethod[5]) {
+	case 's':
+		nSlot = RING_BRACEOBJECTS_BRACESTART;
+		nBit = RING_BRACEBIT_BRACESTART;
+		break;
+	case 'n':
+		nSlot = RING_BRACEOBJECTS_BRACENEWLINE;
+		nBit = RING_BRACEBIT_BRACENEWLINE;
+		break;
+	case 'e':
+	default:
+		switch (cMethod[6]) {
+		case 'n':
+			nSlot = RING_BRACEOBJECTS_BRACEEND;
+			nBit = RING_BRACEBIT_BRACEEND;
+			break;
+		case 'x':
+			nSlot = RING_BRACEOBJECTS_BRACEEXPREVAL;
+			nBit = RING_BRACEBIT_BRACEEXPREVAL;
+			break;
+		default:
+			nSlot = RING_BRACEOBJECTS_BRACEERROR;
+			nBit = RING_BRACEBIT_BRACEERROR;
+		}
+	}
+	lMask = pVMState->aNumbers[RING_BRACEOBJECTS_VALIDMASK];
+	if (lMask & (RING_ONE << nBit)) {
+		return pVMState->aNumbers[nSlot];
+	}
+	lResult = ring_vm_oop_ismethod(pVM, (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT], cMethod);
+	pVMState->aNumbers[nSlot] = lResult;
+	pVMState->aNumbers[RING_BRACEOBJECTS_VALIDMASK] = lMask | (RING_ONE << nBit);
+	return lResult;
+}
+
 void ring_vm_oop_updateselfpointer(VM *pVM, List *pObj, unsigned int nType, void *pContainer) {
 	List *pList;
 	/* Get Object State */
@@ -1244,8 +1334,7 @@ void ring_vm_oop_checkbracemethod(VM *pVM) {
 	VMState *pVMState;
 	unsigned int lResult;
 	pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-	lResult =
-	    ring_vm_oop_ismethod(pVM, (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT], RING_VM_IR_READC);
+	lResult = ring_vm_oop_cachedismethod(pVM, pVMState, RING_VM_IR_READC);
 	RING_VM_STACK_PUSHNVALUE(lResult);
 }
 
@@ -1271,7 +1360,7 @@ int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod) {
 	if (pVM->nCurrentObjState && ring_list_getsize(pVM->pBraceObjects) && (pVM->lCallMethod == 0) &&
 	    (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
 		pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-		if (ring_vm_oop_ismethod(pVM, (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT], cMethod)) {
+		if (ring_vm_oop_cachedismethod(pVM, pVMState, cMethod)) {
 			RING_VM_STACK_POP;
 			ring_vm_callfuncwithouteval(pVM, cMethod, RING_TRUE);
 			return RING_TRUE;
@@ -1290,57 +1379,4 @@ void ring_vm_oop_pushobjstate(VM *pVM, List *pScope, List *pMethods, List *pClas
 	pVM->aObjState[pVM->nCurrentObjState].pMethods = pMethods;
 	pVM->aObjState[pVM->nCurrentObjState].pClass = pClass;
 	pVM->aObjState[pVM->nCurrentObjState].lIsMethod = lIsMethod;
-}
-
-void ring_vm_oop_loadmethodp(VM *pVM) {
-	List *pVar, *pList, *pList2, *pObjData, *pCachedClass;
-	FuncCall *pFuncCall;
-	Item *pItem;
-	pList = NULL;
-	if (RING_VM_STACK_ISPOINTER) {
-		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
-			pVar = (List *)RING_VM_STACK_READP;
-			if (RING_VAR_ISLIST(pVar)) {
-				pList = RING_VAR_GETLIST(pVar);
-			}
-		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
-			pItem = (Item *)RING_VM_STACK_READP;
-			if (ring_item_islist(pItem)) {
-				pList = (List *)ring_item_getlist(pItem);
-			}
-		}
-	}
-	pCachedClass = (List *)RING_VM_IR_READPVALUE(RING_VM_IR_REG2);
-	if ((pList == NULL) || ((List *)RING_OBJECT_GETCLASSPOINTER(pList) != pCachedClass)) {
-		RING_VM_IR_OPCODE = ICO_LOADMETHOD;
-		ring_vm_oop_loadmethod(pVM);
-		return;
-	}
-	RING_VM_STACK_POP;
-	pList2 = ring_list_getlist(pCachedClass, RING_CLASSMAP_METHODSLIST);
-	pObjData = RING_OBJECT_GETOBJECTDATA(pList);
-	ring_vm_oop_pushclasspackage(pVM, pCachedClass);
-	RING_VM_PUSHOBJSTATE(pObjData, pList2, pCachedClass, 1);
-	pFuncCall = ring_vm_funccallnew(pVM);
-	if (pFuncCall == NULL) {
-		return;
-	}
-	pFuncCall->nType = RING_VM_IR_GETFLAGREG;
-	pFuncCall->cName = RING_VM_IR_READC;
-	pFuncCall->nPC = RING_VM_IR_GETINTREG;
-	pFuncCall->nSP = pVM->nSP;
-	pFuncCall->pFunc = NULL;
-	pFuncCall->lMethod = RING_VM_IR_GETFLAGREG2;
-	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER;
-	pFuncCall->cFileName = pVM->cFileName;
-	pFuncCall->cNewFileName = pVM->cFileName;
-	if (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) {
-		pVM->cPrevFileName = pVM->cFileName;
-	}
-	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
-	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
-	pFuncCall->nListStart = pVM->nListStart;
-	pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists);
-	ring_vm_newnestedlists(pVM);
-	ring_vm_oop_movetobeforeobjstate(pVM);
 }

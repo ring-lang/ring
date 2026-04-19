@@ -28,6 +28,8 @@
 #define RING_OOPARA_NUMBER 2
 #define RING_OOPARA_POINTER 3
 /* pBraceObjects */
+#define RING_BRACEOBJECTS_BRACEOBJECT 0
+#define RING_BRACEOBJECTS_SETPROPERTY 1
 #define RING_BRACEOBJECTS_NSP 0
 #define RING_BRACEOBJECTS_NLISTSTART 1
 #define RING_BRACEOBJECTS_NNESTEDLISTS 2
@@ -35,8 +37,17 @@
 #define RING_BRACEOBJECTS_NNOSETTERMETHOD 4
 #define RING_BRACEOBJECTS_ISDONTREF 5
 #define RING_BRACEOBJECTS_ISDONTREFAGAIN 6
-#define RING_BRACEOBJECTS_BRACEOBJECT 0
-#define RING_BRACEOBJECTS_SETPROPERTY 1
+#define RING_BRACEOBJECTS_VALIDMASK 7
+#define RING_BRACEOBJECTS_BRACESTART 8
+#define RING_BRACEOBJECTS_BRACEEND 9
+#define RING_BRACEOBJECTS_BRACEEXPREVAL 10
+#define RING_BRACEOBJECTS_BRACEERROR 11
+#define RING_BRACEOBJECTS_BRACENEWLINE 12
+#define RING_BRACEBIT_BRACESTART 0
+#define RING_BRACEBIT_BRACEEND 1
+#define RING_BRACEBIT_BRACEEXPREVAL 2
+#define RING_BRACEBIT_BRACEERROR 3
+#define RING_BRACEBIT_BRACENEWLINE 4
 /* pScopeNewObj */
 #define RING_SCOPENEWOBJ_SP 2
 /* pSetProperty */
@@ -172,4 +183,6 @@ int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod);
 void ring_vm_oop_pushobjstate(VM *pVM, List *pScope, List *pMethods, List *pClass, unsigned int lIsMethod);
 
 void ring_vm_oop_loadmethodp(VM *pVM);
+
+unsigned int ring_vm_oop_cachedismethod(VM *pVM, VMState *pVMState, const char *cMethod);
 #endif
