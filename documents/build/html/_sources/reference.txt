@@ -810,7 +810,8 @@ ICO_PUSHPV			Push value of variable using variable pointer
 ICO_INCJUMP			Increment then jump
 ICO_INCPJUMP			Increment using pointer then jump
 ICO_LOADFUNCP			Push function pointer
-ICO_LOADMETHODP			Push method pointer
+ICO_LOADMETHODP			Push method pointer (When using the dot operator)
+ICO_LOADBRACEMETHODP		Push method pointer (When using braces to access the object)
 ICO_PUSHPLOCAL			Push pointer to local variable
 ICO_PUSHARG			Push pointer to argument variable using argument number (REG1)
 ICO_INCLPJUMP			Increment value using pointer to local variable then jump
