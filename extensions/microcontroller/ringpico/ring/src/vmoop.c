@@ -393,7 +393,6 @@ void ring_vm_oop_loadmethod2(VM *pVM, const char *cMethod) {
 
 void ring_vm_oop_loadmethodp(VM *pVM) {
 	List *pVar, *pList, *pList2, *pObjData, *pCachedClass;
-	FuncCall *pFuncCall;
 	Item *pItem;
 	pList = NULL;
 	if (RING_VM_STACK_ISPOINTER) {
@@ -420,30 +419,11 @@ void ring_vm_oop_loadmethodp(VM *pVM) {
 	pObjData = RING_OBJECT_GETOBJECTDATA(pList);
 	ring_vm_oop_pushclasspackage(pVM, pCachedClass);
 	RING_VM_PUSHOBJSTATE(pObjData, pList2, pCachedClass, 1);
-	pFuncCall = ring_vm_funccallnew(pVM);
-	if (pFuncCall == NULL) {
-		return;
-	}
-	pFuncCall->nType = RING_VM_IR_GETFLAGREG;
-	pFuncCall->cName = RING_VM_IR_READC;
-	pFuncCall->nPC = RING_VM_IR_GETINTREG;
-	pFuncCall->nSP = pVM->nSP;
-	pFuncCall->pFunc = NULL;
-	pFuncCall->lMethod = RING_VM_IR_GETFLAGREG2;
-	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER;
-	pFuncCall->cFileName = pVM->cFileName;
-	pFuncCall->cNewFileName = pVM->cFileName;
-	pVM->cPrevFileName = pVM->cFileName;
-	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
-	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
-	pFuncCall->nListStart = pVM->nListStart;
-	pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists);
-	ring_vm_newnestedlists(pVM);
+	ring_vm_oop_usemethodp(pVM);
 	ring_vm_oop_movetobeforeobjstate(pVM);
 }
 
 void ring_vm_oop_loadbracemethodp(VM *pVM) {
-	FuncCall *pFuncCall;
 	List *pCachedClass, *pMethods;
 	ObjState *pOS;
 	if ((pVM->lInsideBraceFlag == RING_FALSE) || (pVM->nCurrentObjState == RING_ZERO) ||
@@ -461,6 +441,11 @@ void ring_vm_oop_loadbracemethodp(VM *pVM) {
 		ring_vm_loadfunc(pVM);
 		return;
 	}
+	ring_vm_oop_usemethodp(pVM);
+}
+
+void ring_vm_oop_usemethodp(VM *pVM) {
+	FuncCall *pFuncCall;
 	pFuncCall = ring_vm_funccallnew(pVM);
 	if (pFuncCall == NULL) {
 		return;

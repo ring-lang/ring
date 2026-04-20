@@ -186,5 +186,7 @@ void ring_vm_oop_loadmethodp(VM *pVM);
 
 void ring_vm_oop_loadbracemethodp(VM *pVM);
 
+void ring_vm_oop_usemethodp(VM *pVM);
+
 unsigned int ring_vm_oop_cachedismethod(VM *pVM, VMState *pVMState, const char *cMethod);
 #endif

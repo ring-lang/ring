@@ -109,12 +109,13 @@ pFuncCall
 Type: Item *
 pItem
 ring_vm_oop_loadbracemethodp
-Type: FuncCall *
-pFuncCall
 Type: List *
 pCachedClass, *pMethods
 Type: ObjState *
 pOS
+ring_vm_oop_usemethodp
+Type: FuncCall *
+pFuncCall
 ring_vm_oop_movetobeforeobjstate
 ring_vm_oop_parentmethods
 Type: const char *
