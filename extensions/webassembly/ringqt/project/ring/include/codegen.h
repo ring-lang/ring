@@ -271,7 +271,8 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "SetOPCode",
 				   "CheckBraceMethod",
 				   "OptionalLoop",
-				   "LoadMethodP"};
+				   "LoadMethodP",
+				   "LoadBraceMethodP"};
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE 1
