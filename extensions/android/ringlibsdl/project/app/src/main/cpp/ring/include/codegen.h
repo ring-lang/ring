@@ -148,7 +148,8 @@ typedef enum IC_OPERATIONS {
 	ICO_CHECKBRACEMETHOD,
 	/* More */
 	ICO_OPTIONALLOOP,
-	ICO_LOADMETHODP
+	ICO_LOADMETHODP,
+	ICO_LOADBRACEMETHODP
 } IC_OPERATIONS;
 /* Operations Text (Array) */
 static const char *RING_IC_OP[] = {"NewLine",

@@ -433,15 +433,53 @@ void ring_vm_oop_loadmethodp(VM *pVM) {
 	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER;
 	pFuncCall->cFileName = pVM->cFileName;
 	pFuncCall->cNewFileName = pVM->cFileName;
-	if (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) {
-		pVM->cPrevFileName = pVM->cFileName;
-	}
+	pVM->cPrevFileName = pVM->cFileName;
 	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
 	pFuncCall->nListStart = pVM->nListStart;
 	pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists);
 	ring_vm_newnestedlists(pVM);
 	ring_vm_oop_movetobeforeobjstate(pVM);
+}
+
+void ring_vm_oop_loadbracemethodp(VM *pVM) {
+	FuncCall *pFuncCall;
+	List *pCachedClass, *pMethods;
+	ObjState *pOS;
+	if ((pVM->lInsideBraceFlag == RING_FALSE) || (pVM->nCurrentObjState == RING_ZERO) ||
+	    (pVM->lCallMethod == RING_TRUE)) {
+		RING_VM_IR_OPCODE = ICO_LOADFUNC;
+		ring_vm_loadfunc(pVM);
+		return;
+	}
+	pOS = &pVM->aObjState[pVM->nCurrentObjState];
+	pCachedClass = (List *)RING_VM_IR_READPVALUE(RING_VM_IR_REG2);
+	pMethods = pOS->pMethods;
+	if ((pOS->pClass != pCachedClass) || (pMethods == NULL) ||
+	    (ring_list_getsize(pMethods) != RING_VM_IR_GETSMALLINTREG)) {
+		RING_VM_IR_OPCODE = ICO_LOADFUNC;
+		ring_vm_loadfunc(pVM);
+		return;
+	}
+	pFuncCall = ring_vm_funccallnew(pVM);
+	if (pFuncCall == NULL) {
+		return;
+	}
+	pFuncCall->nType = RING_VM_IR_GETFLAGREG;
+	pFuncCall->cName = RING_VM_IR_READC;
+	pFuncCall->nPC = RING_VM_IR_GETINTREG;
+	pFuncCall->nSP = pVM->nSP;
+	pFuncCall->pFunc = NULL;
+	pFuncCall->lMethod = RING_VM_IR_GETFLAGREG2;
+	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER;
+	pFuncCall->cFileName = pVM->cFileName;
+	pFuncCall->cNewFileName = pVM->cFileName;
+	pVM->cPrevFileName = pVM->cFileName;
+	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
+	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
+	pFuncCall->nListStart = pVM->nListStart;
+	pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists);
+	ring_vm_newnestedlists(pVM);
 }
 
 void ring_vm_oop_movetobeforeobjstate(VM *pVM) {

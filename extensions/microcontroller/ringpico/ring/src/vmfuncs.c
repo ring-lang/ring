@@ -103,6 +103,19 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 						RING_VM_IR_OPCODEVALUE(pVM->nPC) = ICO_NOOP;
 					}
 				}
+			} else if ((y == 2) && (pVM->lInsideBraceFlag == 1) && (pVM->lCallMethod != 1) &&
+				   (pVM->nInsideEval == 0) && (nPerformance == 1) &&
+				   (pOS == &pVM->aObjState[pVM->nCurrentObjState])) {
+				RING_VM_IR_OPCODE = ICO_LOADBRACEMETHODP;
+				RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2), (void *)pOS->pClass);
+				RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
+				RING_VM_IR_SETINTREG(pFuncCall->nPC);
+				RING_VM_IR_SETSMALLINTREG(ring_list_getsize(pOS->pMethods));
+				RING_VM_IR_SETFLAGREG(RING_FUNCTYPE_SCRIPT);
+				RING_VM_IR_SETFLAGREG2(RING_TRUE);
+				if (RING_VM_IR_OPCODEVALUE(pVM->nPC) == ICO_NOOP) {
+					RING_VM_IR_OPCODEVALUE(pVM->nPC) = ICO_AFTERCALLMETHOD2;
+				}
 			}
 			return RING_TRUE;
 		}

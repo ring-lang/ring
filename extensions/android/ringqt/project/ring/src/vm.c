@@ -1012,6 +1012,9 @@ void ring_vm_execute(VM *pVM) {
 	case ICO_LOADMETHODP:
 		ring_vm_oop_loadmethodp(pVM);
 		break;
+	case ICO_LOADBRACEMETHODP:
+		ring_vm_oop_loadbracemethodp(pVM);
+		break;
 	case ICO_AFTERCALLMETHOD:
 		ring_vm_oop_aftercallmethod(pVM);
 		break;

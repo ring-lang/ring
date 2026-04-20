@@ -184,5 +184,7 @@ void ring_vm_oop_pushobjstate(VM *pVM, List *pScope, List *pMethods, List *pClas
 
 void ring_vm_oop_loadmethodp(VM *pVM);
 
+void ring_vm_oop_loadbracemethodp(VM *pVM);
+
 unsigned int ring_vm_oop_cachedismethod(VM *pVM, VMState *pVMState, const char *cMethod);
 #endif
