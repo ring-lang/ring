@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.27 comes with the next features!
 
 * More RingPM Packages
+* Better Performance
 * More Improvements
 
 .. index:: 
@@ -29,6 +30,73 @@ The following packages have been added to the RingPM registry.
 * Solitaire
 * Ring-Python
 * Ring-CFFI
+
+.. index:: 
+	pair: What is new in Ring  1.27; Better Performance
+
+Better Performance
+==================
+
+Ring 1.27 introduces performance improvements across all core operations. 
+
+.. list-table:: Performance Comparison: Ring 1.26 vs Ring 1.27 (10,000,000 operations)
+   :widths: 40 15 15 15
+   :header-rows: 1
+
+   * - Operation
+     - Ring 1.26 (s)
+     - Ring 1.27 (s)
+     - Speedup
+   * - Loop
+     - 0.09
+     - 0.08
+     - ~1.1x
+   * - Variable read
+     - 0.22
+     - 0.18
+     - ~1.2x
+   * - Variable write
+     - 0.35
+     - 0.24
+     - ~1.5x
+   * - List item read
+     - 0.39
+     - 0.29
+     - ~1.3x
+   * - List item write
+     - 0.43
+     - 0.36
+     - ~1.2x
+   * - Calling C functions
+     - 0.30
+     - 0.23
+     - ~1.3x
+   * - Calling Ring functions
+     - 0.53
+     - 0.34
+     - ~1.6x
+   * - Calling Ring methods using the dot operator
+     - 3.63
+     - 0.73
+     - ~5.0x
+   * - Calling Ring methods using braces (outside the loop)
+     - 2.61
+     - 0.69
+     - ~3.8x
+   * - Object brace open/close
+     - 3.18
+     - 1.05
+     - ~3.0x
+   * - Calling Ring methods using braces (inside the loop)
+     - 6.09
+     - 1.88
+     - ~3.2x
+
+.. note::
+
+   The most significant improvements are in OOP method dispatch. Calling Ring methods
+   via the dot operator is now **~5x faster**.
+
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
@@ -78,3 +146,4 @@ More Improvements
 * Ring VM - Cache the ErrorMsg variable list - Better Performance
 * Ring VM - Using preprocessor to access the members of the Object list
 * Ring VM - Using preprocessor to access the members of the Variable list
+* Ring VM - Support using Computed Goto (optional feature when building Ring VM)
