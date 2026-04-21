@@ -1123,4 +1123,8 @@ void ring_vm_divn(VM *pVM);
 void ring_vm_modn(VM *pVM);
 
 void ring_vm_pown(VM *pVM);
+#ifdef RING_VM_COMPUTEDGOTO
+
+void ring_vm_computedgoto(VM *pVM);
+#endif
 #endif
