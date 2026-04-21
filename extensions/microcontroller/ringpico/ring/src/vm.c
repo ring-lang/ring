@@ -685,9 +685,16 @@ void ring_vm_mainloop(VM *pVM) {
 			ring_vm_fetch2(pVM);
 		} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT);
 	} else {
+#ifdef RING_VM_COMPUTEDGOTO
+		if (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT) {
+			/* The next function must be written if RING_VM_COMPUTEDGOTO is enabled */
+			ring_vm_computedgoto(pVM);
+		}
+#else
 		do {
 			ring_vm_fetch(pVM);
 		} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT);
+#endif
 	}
 }
 
