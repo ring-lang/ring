@@ -111,6 +111,7 @@ More Improvements
 * Added: samples/General/RosettaCode/YinYang2.ring
 * Added: samples/General/FindAnadromes/process.ring
 * Added: samples/General/FindAnadromes/process2.ring
+* Added: samples/General/Performance/ringper.ring
 * Added: samples/UsingFreeGLUT/Hex_Sphere.ring
 * Added: samples/UsingFreeGLUT/Penta_Sphere.ring
 * Added: samples/UsingFreeGLUT/Octagon_Sphere.ring
