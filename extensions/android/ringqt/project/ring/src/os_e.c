@@ -123,7 +123,17 @@ void ring_vm_os_exefilename(void *pPointer) {
 	}
 }
 
-void ring_vm_os_chdir(void *pPointer) { RING_API_RETNUMBER(ring_general_chdir(RING_API_GETSTRING(1))); }
+void ring_vm_os_chdir(void *pPointer) {
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+	if (RING_API_ISSTRING(1)) {
+		RING_API_RETNUMBER(ring_general_chdir(RING_API_GETSTRING(1)));
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
 
 void ring_vm_os_exefolder(void *pPointer) {
 	char cDirPath[RING_PATHSIZE];
