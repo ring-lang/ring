@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.27 comes with the next features!
 
 * Research Article
+* Solitaire Game
 * More RingPM Packages
 * Better Performance
 * More Samples
@@ -34,6 +35,21 @@ URL: https://doi.org/10.3390/electronics15040903
 	:alt: Research Article
 
 .. index:: 
+	pair: What is new in Ring 1.27?; Solitaire Game
+
+Solitaire Game
+==============
+
+Install
+
+.. code-block:: none
+
+	ringpm install solitaire
+
+.. image:: solitaire.png
+	:alt: Solitaire Game
+
+.. index:: 
 	pair: What is new in Ring  1.27; More RingPM Packages
 
 More RingPM Packages
@@ -41,7 +57,6 @@ More RingPM Packages
 
 The following packages have been added to the RingPM registry.
 
-* Solitaire
 * Ring-Python
 * Ring-CFFI
 
