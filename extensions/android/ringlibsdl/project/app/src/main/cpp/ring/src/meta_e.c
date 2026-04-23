@@ -40,6 +40,10 @@ void ring_vm_refmeta_loadfunctions(RingState *pRingState) {
 void ring_vm_refmeta_locals(void *pPointer) {
 	unsigned int x;
 	List *pList, *pList2, *pList3;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	/* We skip the current scope of the locals() function */
 	pList = RING_API_CALLERSCOPE;
 	pList2 = RING_API_NEWLIST;
@@ -54,6 +58,10 @@ void ring_vm_refmeta_globals(void *pPointer) {
 	VM *pVM;
 	unsigned int x;
 	List *pList, *pList2, *pList3;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = ring_vm_getglobalscope(pVM);
 	pList2 = RING_API_NEWLIST;
@@ -69,6 +77,10 @@ void ring_vm_refmeta_functions(void *pPointer) {
 	VM *pVM;
 	unsigned int x;
 	List *pList, *pList2;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	for (x = 1; x <= ring_list_getsize(pVM->pFunctionsMap); x++) {
@@ -83,6 +95,10 @@ void ring_vm_refmeta_cfunctions(void *pPointer) {
 	VM *pVM;
 	List *pList;
 	CFunction *pCFunc;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	pCFunc = pVM->pCFunction;
@@ -190,6 +206,10 @@ void ring_vm_refmeta_packages(void *pPointer) {
 	VM *pVM;
 	unsigned int x;
 	List *pList, *pList2;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	for (x = 1; x <= ring_list_getsize(pVM->pPackagesMap); x++) {
@@ -230,6 +250,10 @@ void ring_vm_refmeta_classes(void *pPointer) {
 	VM *pVM;
 	unsigned int x;
 	List *pList, *pList2;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	for (x = 1; x <= ring_list_getsize(pVM->pClassesMap); x++) {
