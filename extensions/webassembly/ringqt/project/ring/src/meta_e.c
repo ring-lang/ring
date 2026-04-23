@@ -275,7 +275,7 @@ void ring_vm_refmeta_packageclasses(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
-	if (RING_API_GETSTRING(1)) {
+	if (RING_API_ISSTRING(1)) {
 		pVM = (VM *)pPointer;
 		cStr = RING_API_GETSTRING(1);
 		ring_general_lower(cStr);
