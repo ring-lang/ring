@@ -184,7 +184,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#research-article">Research Article</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
@@ -231,7 +232,8 @@
 <ul class="simple">
 <li><p>Research Article</p></li>
 <li><p>Solitaire Game</p></li>
-<li><p>More RingPM Packages</p></li>
+<li><p>Ring-Python Package</p></li>
+<li><p>Ring-CFFI Package</p></li>
 <li><p>Better Performance</p></li>
 <li><p>More Samples</p></li>
 <li><p>Better Functions</p></li>
@@ -253,16 +255,48 @@ ringpm run solitaire
 </div>
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
-<section id="more-ringpm-packages">
-<span id="index-4"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
-<p>The following packages have been added to the RingPM registry.</p>
+<section id="ring-python-package">
+<span id="index-4"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
+</pre></div>
+</div>
+<p>Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.</p>
+<p>Key Features</p>
 <ul class="simple">
-<li><p>Ring-Python</p></li>
-<li><p>Ring-CFFI</p></li>
+<li><p>Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.</p></li>
+<li><p>Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.</p></li>
+<li><p>Module Import — Import any installed Python package and call its functions directly.</p></li>
+<li><p>Object-Oriented API — Clean Ring wrapper classes (<cite>Python</cite>, <cite>PyObject</cite>, <cite>PyModule</cite>, etc.) alongside low-level functions for maximum control.</p></li>
+<li><p>Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.</p></li>
+<li><p>Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.</p></li>
+</ul>
+</section>
+<section id="ring-cffi-package">
+<span id="index-5"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<p>A Foreign Function Interface library for the Ring programming language!</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
+</pre></div>
+</div>
+<p>Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime</p></li>
+<li><p>C Function Calls: Call C functions directly from Ring with automatic type conversion</p></li>
+<li><p>Pointer Operations: Pointer arithmetic, dereferencing, read/write access</p></li>
+<li><p>Struct Support: Define and manipulate C structs with named field access</p></li>
+<li><p>Union &amp; Enum Support: Define and use C unions and enumerations</p></li>
+<li><p>Callbacks: Pass Ring functions as C callbacks</p></li>
+<li><p>Memory Management: Allocate and manage C memory directly</p></li>
+<li><p>C String Handling: Seamless conversion between Ring and C strings</p></li>
+<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
+<li><p>High-Level OOP API: Clean FFI class with intuitive method names</p></li>
 </ul>
 </section>
 <section id="better-performance">
-<span id="index-5"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
 <p>Ring 1.27 introduces performance improvements across many core operations.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Performance Comparison: Ring 1.26 vs Ring 1.27 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
@@ -348,7 +382,7 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 </div>
 </section>
 <section id="more-samples">
-<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The next samples are added:</p></li>
 </ol>
@@ -374,7 +408,7 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 </ol>
 </section>
 <section id="better-functions">
-<span id="index-7"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>DiffDays() function - Better Implementation</p></li>
 <li><p>Sort() function - Better Performance</p></li>
@@ -386,7 +420,7 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
