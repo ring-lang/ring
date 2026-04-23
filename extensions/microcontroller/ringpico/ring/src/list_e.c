@@ -612,13 +612,17 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
 		} else {
-			nColumn = RING_API_GETNUMBER(3);
-			if (RING_API_ISSTRING(2)) {
-				RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
-				    pVM->pRingState, pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));
-			} else if (RING_API_ISNUMBER(2)) {
-				RING_API_RETNUMBER(ring_list_binarysearchnum_gc(
-				    pVM->pRingState, pList, RING_API_GETNUMBER(2), nColumn, RING_CSTR_EMPTY));
+			if (RING_API_ISNUMBER(3)) {
+				nColumn = RING_API_GETNUMBER(3);
+				if (RING_API_ISSTRING(2)) {
+					RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
+					    pVM->pRingState, pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));
+				} else if (RING_API_ISNUMBER(2)) {
+					RING_API_RETNUMBER(ring_list_binarysearchnum_gc(
+					    pVM->pRingState, pList, RING_API_GETNUMBER(2), nColumn, RING_CSTR_EMPTY));
+				} else {
+					RING_API_ERROR(RING_API_BADPARATYPE);
+				}
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
