@@ -15,9 +15,21 @@ List of changes and new features
 
 Ring 1.27 comes with the next features!
 
+* Research Article
 * More RingPM Packages
 * Better Performance
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.27?; Research Article
+
+Research Article
+================
+
+URL: https://doi.org/10.3390/electronics15040903
+
+.. image:: researchcover3.png
+	:alt: Research Article
 
 .. index:: 
 	pair: What is new in Ring  1.27; More RingPM Packages
