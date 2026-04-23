@@ -1519,6 +1519,10 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return;
 	}
+	if (!(RING_API_ISPOINTER(1) && RING_API_ISSTRING(2))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
 	/*
 	**  It's very important to use pRingSubState instead of pRingState when using the Garbage Collector func
 	**  Because the Sub Ring State will own the memory values and will try to delete it in the end of the pr
@@ -1611,6 +1615,10 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
 	}
+	if (!(RING_API_ISPOINTER(1) && RING_API_ISSTRING(2))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
 	cFile = RING_API_GETSTRING(2);
 	/* Check the (Not Case Sensitive) feature */
@@ -1656,6 +1664,10 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 	int lCase, lComments, lScannerCommands;
 	if (RING_API_PARACOUNT < 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
+		return;
+	}
+	if (!(RING_API_ISPOINTER(1) && RING_API_ISSTRING(2))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
@@ -1858,6 +1870,10 @@ void ring_vm_generallib_print(void *pPointer) {
 }
 
 void ring_vm_generallib_print2str(void *pPointer) {
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
 	if (RING_API_ISSTRING(1)) {
 		if (strcmp(RING_API_GETSTRING(1), RING_CSTR_EMPTY) == 0) {
 			return;
