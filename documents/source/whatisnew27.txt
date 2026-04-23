@@ -19,6 +19,7 @@ Ring 1.27 comes with the next features!
 * More RingPM Packages
 * Better Performance
 * More Samples
+* Better Functions
 * More Improvements
 
 .. index:: 
@@ -142,18 +143,25 @@ More Samples
 (3) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
 
 .. index:: 
+	pair: What is new in Ring  1.27; Better Functions
+
+Better Functions
+================
+
+* DiffDays() function - Better Implementation
+* Sort() function - Better Performance
+* BinarySearch() - Better Performance and Allows mixing types in the list
+* Remove() function - Correct error message when the argument count is incorrect
+* LoadLib()/SysSleep() functions - Return after displaying the error message
+* RingFastPro - Better Performance
+* RingFastPro - Added Transform3D() function
+
+.. index:: 
 	pair: What is new in Ring  1.27; More Improvements
 
 More Improvements
 =================
 
-* RingFastPro - Better Performance
-* RingFastPro - Added Transform3D() function
-* Remove() function - Correct error message when the argument count is incorrect
-* LoadLib() function - Return after displaying the error message
-* SysSleep() function - Return after displaying the error message
-* DiffDays() function - Better Code
-* BinarySearch() - Better Performance and Allows mixing types in the list
 * language/build/locatevc.bat - Added: VS 2026 Community Edition support
 * language/build/buildgccstatic.bat - Build ringw.exe too
 * Ring for Linux - Modernize build scripts using pkg-config
