@@ -88,16 +88,24 @@ Example:
 
 	load "cffi.ring"
 
-	new FFI("libm.so.6") { # msvcrt.dll (Windows), libSystem.B.dylib (macOS)
+	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
+	new FFI("libm.so.6") { 
 		# Call a simple function (sqrt)
 		oSqrt = cFunc("sqrt", "double", ["double"])
 		result = invoke(oSqrt, [25.0])
-		? "sqrt(25) = " + result  # 5.0
+		? "sqrt(25) = " + result
 		
 		# Call printf (variadic function)
 		oPrintf = varFunc("printf", "int", ["string"])
 		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
 	}
+
+Output:
+
+.. code-block:: none
+
+	sqrt(25) = 5
+	Hello, World! Number: 123
 
 .. index:: 
 	pair: What is new in Ring  1.27; Ring-Python Package
@@ -124,6 +132,34 @@ Key Features:
 * Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
 * Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
 
+Example:
+
+.. code-block:: ring
+
+	load "python.ring"
+
+	py = new Python()
+	py.exec("import numpy as np")
+
+	# Create array and compute statistics
+	py.exec("
+	data = np.array([1, 2, 3, 4, 5])
+	_mean = str(np.mean(data))
+	_std  = str(np.std(data))
+	_dot  = str(np.dot(data, data))
+	")
+
+	? "Mean: " + py.getVar("_mean")
+	? "Std:  " + py.getVar("_std")
+	? "Dot:  " + py.getVar("_dot")
+
+Output:
+
+.. code-block:: none
+
+	Mean: 3.0
+	Std:  1.4142135623730951
+	Dot:  55	
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Performance

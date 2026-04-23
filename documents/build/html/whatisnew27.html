@@ -279,16 +279,22 @@ ringpm run solitaire
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;cffi.ring&quot;</span>
 
-<span class="kp">new</span> <span class="nc">FFI</span><span class="p">(</span><span class="s2">&quot;libm.so.6&quot;</span><span class="p">)</span> <span class="p">{</span> <span class="c1"># msvcrt.dll (Windows), libSystem.B.dylib (macOS)</span>
+<span class="c1"># msvcrt.dll (Windows), libSystem.B.dylib (macOS)</span>
+<span class="kp">new</span> <span class="nc">FFI</span><span class="p">(</span><span class="s2">&quot;libm.so.6&quot;</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1"># Call a simple function (sqrt)</span>
         <span class="n">oSqrt</span> <span class="o">=</span> <span class="nf">cFunc</span><span class="p">(</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;double&quot;</span><span class="p">])</span>
         <span class="n">result</span> <span class="o">=</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">oSqrt</span><span class="p">,</span> <span class="p">[</span><span class="mf">25.0</span><span class="p">])</span>
-        <span class="o">?</span> <span class="s2">&quot;sqrt(25) = &quot;</span> <span class="o">+</span> <span class="n">result</span>  <span class="c1"># 5.0</span>
+        <span class="o">?</span> <span class="s2">&quot;sqrt(25) = &quot;</span> <span class="o">+</span> <span class="n">result</span>
 
         <span class="c1"># Call printf (variadic function)</span>
         <span class="n">oPrintf</span> <span class="o">=</span> <span class="nf">varFunc</span><span class="p">(</span><span class="s2">&quot;printf&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">])</span>
         <span class="nf">varcall</span><span class="p">(</span><span class="n">oPrintf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hello, %s! Number: %d\n&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">])</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sqrt(25) = 5
+Hello, World! Number: 123
 </pre></div>
 </div>
 </section>
@@ -309,6 +315,31 @@ ringpm run solitaire
 <li><p>Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.</p></li>
 <li><p>Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.</p></li>
 </ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;python.ring&quot;</span>
+
+<span class="n">py</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Python</span><span class="p">()</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;import numpy as np&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create array and compute statistics</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">data = np.array([1, 2, 3, 4, 5])</span>
+<span class="s2">_mean = str(np.mean(data))</span>
+<span class="s2">_std  = str(np.std(data))</span>
+<span class="s2">_dot  = str(np.dot(data, data))</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_mean&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Std:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_std&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Dot:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_dot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Mean: 3.0
+Std:  1.4142135623730951
+Dot:  55
+</pre></div>
+</div>
 </section>
 <section id="better-performance">
 <span id="index-6"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
