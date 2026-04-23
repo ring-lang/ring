@@ -18,6 +18,7 @@ Ring 1.27 comes with the next features!
 * Research Article
 * More RingPM Packages
 * Better Performance
+* More Samples
 * More Improvements
 
 .. index:: 
@@ -114,37 +115,48 @@ Ring 1.27 introduces performance improvements across many core operations.
 
 
 .. index:: 
+	pair: What is new in Ring  1.27; More Samples
+
+More Samples
+============
+
+(1) The next samples are added:
+
+* samples/General/RosettaCode/YinYang.ring
+* samples/General/RosettaCode/YinYang2.ring
+* samples/General/FindAnadromes/process.ring
+* samples/General/FindAnadromes/process2.ring
+* samples/General/Performance/ringper.ring
+* samples/UsingFreeGLUT/Hex_Sphere.ring
+* samples/UsingFreeGLUT/Penta_Sphere.ring
+* samples/UsingFreeGLUT/Octagon_Sphere.ring
+* samples/UsingFreeGLUT/SinCos_Surface.ring 
+* samples/UsingRogueUtil/matrix_rain.ring
+* samples/UsingRayLib/more/ex11_matrix_rain.ring
+* samples/General/Orbital/Earth_Orbit_Zodiac.ring
+* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
+
+(2) The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
+
+(3) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
+
+.. index:: 
 	pair: What is new in Ring  1.27; More Improvements
 
 More Improvements
 =================
 
-* Added: samples/General/RosettaCode/YinYang.ring
-* Added: samples/General/RosettaCode/YinYang2.ring
-* Added: samples/General/FindAnadromes/process.ring
-* Added: samples/General/FindAnadromes/process2.ring
-* Added: samples/General/Performance/ringper.ring
-* Added: samples/UsingFreeGLUT/Hex_Sphere.ring
-* Added: samples/UsingFreeGLUT/Penta_Sphere.ring
-* Added: samples/UsingFreeGLUT/Octagon_Sphere.ring
-* Added: samples/UsingFreeGLUT/SinCos_Surface.ring 
-* Added: samples/UsingRogueUtil/matrix_rain.ring
-* Added: samples/UsingRayLib/more/ex11_matrix_rain.ring
-* Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring
-* Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
-* Added: samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
-* The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
-* The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
-* language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
-* language/build/buildgccstatic.bat - Build ringw.exe too
-* Ring for Linux - Modernize build scripts using pkg-config
 * RingFastPro - Better Performance
 * RingFastPro - Added Transform3D() function
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib() function - Return after displaying the error message
 * SysSleep() function - Return after displaying the error message
 * DiffDays() function - Better Code
-* BinarySearch() - Better Performance & Allows mixing types in the list
+* BinarySearch() - Better Performance and Allows mixing types in the list
+* language/build/locatevc.bat - Added: VS 2026 Community Edition support
+* language/build/buildgccstatic.bat - Build ringw.exe too
+* Ring for Linux - Modernize build scripts using pkg-config
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
 * Ring VM - ring_list_updaterefcount_gc() - Better Code
