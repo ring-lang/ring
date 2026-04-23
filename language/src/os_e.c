@@ -32,6 +32,10 @@ void ring_vm_os_loadfunctions(RingState *pRingState) {
 }
 
 void ring_vm_os_ismsdos(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #if RING_MSDOS
 	RING_API_RETNUMBER(1);
 #else
@@ -40,6 +44,10 @@ void ring_vm_os_ismsdos(void *pPointer) {
 }
 
 void ring_vm_os_iswindows(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #ifdef _WIN32
 	RING_API_RETNUMBER(1);
 #else
@@ -49,12 +57,20 @@ void ring_vm_os_iswindows(void *pPointer) {
 
 void ring_vm_os_iswindows64(void *pPointer) {
 #ifdef _WIN64
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	RING_API_RETNUMBER(1);
 	return;
 #elif _WIN32
 	HMODULE pModule;
 	int lSystem64;
 	lSystem64 = 0;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pModule = GetModuleHandle(TEXT("kernel32"));
 	if (pModule != NULL) {
 		fnCheckWindows64 = (LPFN_ISWOW64PROCESS)GetProcAddress(pModule, "IsWow64Process");
@@ -69,6 +85,10 @@ void ring_vm_os_iswindows64(void *pPointer) {
 }
 
 void ring_vm_os_isunix(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #if defined(unix) || defined(__unix__) || defined(__unix)
 	RING_API_RETNUMBER(1);
 #else
@@ -77,6 +97,10 @@ void ring_vm_os_isunix(void *pPointer) {
 }
 
 void ring_vm_os_ismacosx(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #if defined(__APPLE__) || defined(__MACH__)
 	RING_API_RETNUMBER(1);
 #else
@@ -85,6 +109,10 @@ void ring_vm_os_ismacosx(void *pPointer) {
 }
 
 void ring_vm_os_islinux(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #ifdef __linux__
 	RING_API_RETNUMBER(1);
 #else
@@ -93,6 +121,10 @@ void ring_vm_os_islinux(void *pPointer) {
 }
 
 void ring_vm_os_isfreebsd(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #ifdef __FreeBSD__
 	RING_API_RETNUMBER(1);
 #else
@@ -101,6 +133,10 @@ void ring_vm_os_isfreebsd(void *pPointer) {
 }
 
 void ring_vm_os_isandroid(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #ifdef __ANDROID__
 	RING_API_RETNUMBER(1);
 #else
@@ -108,16 +144,30 @@ void ring_vm_os_isandroid(void *pPointer) {
 #endif
 }
 
-void ring_vm_os_windowsnl(void *pPointer) { RING_API_RETSTRING("\r\n"); }
+void ring_vm_os_windowsnl(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	RING_API_RETSTRING("\r\n");
+}
 
 void ring_vm_os_currentdir(void *pPointer) {
 	char cDirPath[RING_PATHSIZE];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	ring_general_currentdir(cDirPath);
 	RING_API_RETSTRING(cDirPath);
 }
 
 void ring_vm_os_exefilename(void *pPointer) {
 	char cDirPath[RING_PATHSIZE];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	if (ring_general_exefilename(cDirPath)) {
 		RING_API_RETSTRING(cDirPath);
 	}
@@ -137,11 +187,19 @@ void ring_vm_os_chdir(void *pPointer) {
 
 void ring_vm_os_exefolder(void *pPointer) {
 	char cDirPath[RING_PATHSIZE];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	ring_general_exefolder(cDirPath);
 	RING_API_RETSTRING(cDirPath);
 }
 
 void ring_vm_os_getarch(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #if (defined(_M_X64) || defined(__x86_64__))
 	RING_API_RETSTRING("x64");
 #elif (defined(_M_IX86) || defined(__i386__) || defined(__i386) || defined(_X86_) || defined(__I86__))
@@ -307,6 +365,10 @@ void ring_vm_os_uptime(void *pPointer) {
 	/* Compensate to match 0.1 ms resolution on Windows */
 	nTime = ((ts.tv_sec * NANOSEC) + (ts.tv_nsec)) / 100;
 	#endif
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	RING_API_RETNUMBER(nTime);
 }
 /*
