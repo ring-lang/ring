@@ -114,6 +114,10 @@ void ring_vm_file_freopen(void *pPointer) {
 
 void ring_vm_file_tempfile(void *pPointer) {
 	FILE *pFile;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pFile = tmpfile();
 	RING_API_RETMANAGEDCPOINTER(pFile, RING_VM_POINTER_FILE, ring_vm_file_freefunc);
 }
@@ -870,5 +874,8 @@ void ring_vm_file_tempname(void *pPointer) {
 	close(fd);
 	RING_API_RETSTRING(_tmpfile);
 	#endif
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+	}
 }
 #endif
