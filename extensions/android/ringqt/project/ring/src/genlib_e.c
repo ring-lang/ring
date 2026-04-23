@@ -1490,6 +1490,14 @@ void ring_vm_generallib_state_main(void *pPointer) {
 	char *cStr;
 	int nArgc;
 	char *pArgv[2];
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+	if (!RING_API_ISSTRING(1)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
 	pArgv[0] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
 	pArgv[1] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
 	cStr = RING_API_GETSTRING(1);
