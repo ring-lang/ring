@@ -237,7 +237,11 @@ Ring 1.27 introduces performance improvements across many core operations.
 More Samples
 ============
 
-(1) The next samples are added:
+(1) The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
+
+(2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
+
+(3) The next samples are added to the samples foder:
 
 * samples/General/RosettaCode/YinYang.ring
 * samples/General/RosettaCode/YinYang2.ring
@@ -255,9 +259,8 @@ More Samples
 * samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 
-(2) The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
-
-(3) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
+.. image:: advancedfreeglut.png
+	:alt: Advanced FreeGLUT Samples
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
