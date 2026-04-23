@@ -262,6 +262,9 @@ More Samples
 .. image:: advancedfreeglut.png
 	:alt: Advanced FreeGLUT Samples
 
+.. image:: astronomyvisualization.png
+	:alt: Astronomy Visualization
+
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
 
