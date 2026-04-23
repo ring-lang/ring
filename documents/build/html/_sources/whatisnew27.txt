@@ -40,11 +40,14 @@ URL: https://doi.org/10.3390/electronics15040903
 Solitaire Game
 ==============
 
-Install
+The Solitaire Game (Developed using Ring and RayLib) 
+
+Install and run:
 
 .. code-block:: none
 
 	ringpm install solitaire
+	ringpm run solitaire
 
 .. image:: solitaire.png
 	:alt: Solitaire Game
