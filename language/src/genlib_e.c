@@ -1101,6 +1101,10 @@ void ring_vm_generallib_filename(void *pPointer) {
 	int lFunctionCall, x;
 	const char *cOldFile;
 	const char *cFile;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	/* Get the current file name */
 	cOldFile = NULL;
@@ -1135,7 +1139,13 @@ void ring_vm_generallib_filename(void *pPointer) {
 	RING_API_RETSTRING(cFile);
 }
 
-void ring_vm_generallib_prevfilename(void *pPointer) { RING_API_RETSTRING(((VM *)pPointer)->cPrevFileName); }
+void ring_vm_generallib_prevfilename(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	RING_API_RETSTRING(((VM *)pPointer)->cPrevFileName);
+}
 /* Check Characters */
 
 void ring_vm_generallib_isfunc(void *pPointer, int (*pFunc)(int)) {
@@ -1188,7 +1198,13 @@ void ring_vm_generallib_isupper(void *pPointer) { ring_vm_generallib_isfunc(pPoi
 void ring_vm_generallib_isxdigit(void *pPointer) { ring_vm_generallib_isfunc(pPointer, isxdigit); }
 /* Low Level */
 
-void ring_vm_generallib_callgc(void *pPointer) { ring_vm_gc_deletetemplists((VM *)pPointer); }
+void ring_vm_generallib_callgc(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	ring_vm_gc_deletetemplists((VM *)pPointer);
+}
 
 void ring_vm_generallib_varptr(void *pPointer) {
 	const char *cStr, *cStr2;
@@ -1252,7 +1268,13 @@ void ring_vm_generallib_pointer2object(void *pPointer) {
 	RING_API_RETNEWREF(pList);
 }
 
-void ring_vm_generallib_nullpointer(void *pPointer) { RING_API_RETCPOINTER(NULL, "NULLPOINTER"); }
+void ring_vm_generallib_nullpointer(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	RING_API_RETCPOINTER(NULL, "NULLPOINTER");
+}
 
 void ring_vm_generallib_space(void *pPointer) {
 	char *cString;
@@ -1384,6 +1406,10 @@ void ring_vm_generallib_memcpy(void *pPointer) {
 
 void ring_vm_generallib_state_init(void *pPointer) {
 	RingState *pState;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pState = ring_state_init();
 	pState->nRingInsideRing = 1;
 	RING_API_RETCPOINTER((void *)pState, "RINGSTATE");
@@ -1561,6 +1587,10 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 
 void ring_vm_generallib_state_new(void *pPointer) {
 	RingState *pState;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pState = ring_state_new();
 	pState->nRingInsideRing = 1;
 	RING_API_RETCPOINTER((void *)pState, "RINGSTATE");
@@ -1796,6 +1826,10 @@ void ring_vm_generallib_see(void *pPointer) {
 	List *pList;
 	VM *pVM;
 	pVM = (VM *)pPointer;
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
 	if (RING_API_ISSTRING(1)) {
 		cString = RING_API_GETSTRING(1);
 		if (strlen(cString) != (unsigned int)RING_API_GETSTRINGSIZE(1)) {
@@ -1822,6 +1856,10 @@ void ring_vm_generallib_see(void *pPointer) {
 void ring_vm_generallib_give(void *pPointer) {
 	int x;
 	char cLine[RING_LARGEBUF];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	/* Get Input From the User and save it in the variable */
 	fgets(cLine, RING_LARGEBUF, stdin);
 	/* Remove New Line */
@@ -1922,6 +1960,10 @@ void ring_vm_generallib_getnumber(void *pPointer) {
 	int x;
 	char cLine[RING_LARGEBUF];
 	double nNum;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	fgets(cLine, RING_LARGEBUF, stdin);
 	for (x = 0; x <= RING_LARGEBUF - 1; x++) {
 		if (cLine[x] == '\n') {
@@ -2064,6 +2106,10 @@ void ring_vm_generallib_input(void *pPointer) {
 
 void ring_vm_generallib_getchar(void *pPointer) {
 	char cStr[RING_CHARBUF];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	RING_SETBINARY;
 	cStr[0] = getchar();
 	RING_API_RETSTRING2(cStr, RING_ONE);
@@ -2072,16 +2118,30 @@ void ring_vm_generallib_getchar(void *pPointer) {
 
 void ring_vm_generallib_clock(void *pPointer) {
 	clock_t nNum1;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	nNum1 = clock();
 	RING_API_RETNUMBER((double)nNum1);
 }
 
-void ring_vm_generallib_clockspersecond(void *pPointer) { RING_API_RETNUMBER(CLOCKS_PER_SEC); }
+void ring_vm_generallib_clockspersecond(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	RING_API_RETNUMBER(CLOCKS_PER_SEC);
+}
 
 void ring_vm_generallib_time(void *pPointer) {
 	time_t vTimer;
 	char cBuffer[RING_SMALLBUF];
 	struct tm *vTimeInfo;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
 	strftime(cBuffer, RING_SMALLBUF, "%H:%M:%S", vTimeInfo);
@@ -2093,6 +2153,10 @@ void ring_vm_generallib_timelist(void *pPointer) {
 	char cBuffer[RING_SMALLBUF];
 	struct tm *vTimeInfo;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pList = RING_API_NEWLIST;
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
@@ -2169,6 +2233,10 @@ void ring_vm_generallib_date(void *pPointer) {
 	time_t vTimer;
 	char cBuffer[RING_SMALLBUF];
 	struct tm *vTimeInfo;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
 	strftime(cBuffer, RING_SMALLBUF, "%d/%m/%Y", vTimeInfo);
@@ -2250,8 +2318,6 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 	time_t vTimer, vTimer2;
 	char cBuffer[RING_SMALLBUF];
 	double nResult;
-	memset(&vTimeInfo, 0, sizeof(struct tm));
-	memset(&vTimeInfo2, 0, sizeof(struct tm));
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
@@ -2260,6 +2326,8 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
+	memset(&vTimeInfo, 0, sizeof(struct tm));
+	memset(&vTimeInfo2, 0, sizeof(struct tm));
 	cStr = (const unsigned char *)RING_API_GETSTRING(1);
 	cStr2 = (const unsigned char *)RING_API_GETSTRING(2);
 	if ((RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10)) {
