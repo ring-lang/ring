@@ -80,6 +80,11 @@ void ring_vm_os_iswindows64(void *pPointer) {
 			return;
 		}
 	}
+#else
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 #endif
 	RING_API_RETNUMBER(0.0);
 }
