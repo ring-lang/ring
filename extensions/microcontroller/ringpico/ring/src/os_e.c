@@ -407,6 +407,7 @@ void ring_vm_os_randomize(void *pPointer) {
 	#else
 		#ifdef __BORLANDC__
 	RING_API_ERROR(RING_VM_UNSUPPORTEDFUNCTION);
+	return;
 		#else
 	LARGE_INTEGER ElapsedMicroseconds;
 	unsigned int nNum;
@@ -427,6 +428,8 @@ void ring_vm_os_randomize(void *pPointer) {
 			nNum2 = RING_API_GETNUMBER(1);
 			if (nNum2 > 0) {
 				RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
+			} else {
+				RING_API_ERROR(RING_API_BADPARARANGE);
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
