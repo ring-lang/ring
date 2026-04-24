@@ -281,6 +281,7 @@ Better Functions
 * IsMethod()/IsPrivateMethod() functions - Produce error when the parameter type is not correct
 * Randomize() function - Produce error when the value range is not correct
 * Str2HexCStyle() - Terminate processing if the input is an empty string
+* FGetPos() - Free allocated memory when the function fail
 * Produce error when parameters are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
