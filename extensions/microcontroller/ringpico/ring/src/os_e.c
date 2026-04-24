@@ -328,9 +328,17 @@ void ring_vm_os_sysunset(void *pPointer) {
 void ring_vm_os_nofprocessors(void *pPointer) {
 	#ifdef _WIN32
 	SYSTEM_INFO sysinfo;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	GetSystemInfo(&sysinfo);
 	RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
 	#else
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
 	#endif
 }
@@ -354,6 +362,10 @@ void ring_vm_os_uptime(void *pPointer) {
 	double nTime;
 	#ifdef _WIN32
 	LARGE_INTEGER PerformanceCounterTicks, PerformanceCounterFrequency;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	QueryPerformanceFrequency(&PerformanceCounterFrequency);
 	QueryPerformanceCounter(&PerformanceCounterTicks);
 	/* Return the elapsed time in units of 0.1 microseconds for backward compatibility */
@@ -361,14 +373,14 @@ void ring_vm_os_uptime(void *pPointer) {
 		(double)10000000.0;
 	#else
 	struct timespec ts;
-	ring_vm_os_gettime(CLOCK_UPTIME, &ts);
-	/* Compensate to match 0.1 ms resolution on Windows */
-	nTime = ((ts.tv_sec * NANOSEC) + (ts.tv_nsec)) / 100;
-	#endif
 	if (RING_API_PARACOUNT != 0) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
+	ring_vm_os_gettime(CLOCK_UPTIME, &ts);
+	/* Compensate to match 0.1 ms resolution on Windows */
+	nTime = ((ts.tv_sec * NANOSEC) + (ts.tv_nsec)) / 100;
+	#endif
 	RING_API_RETNUMBER(nTime);
 }
 /*
