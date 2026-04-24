@@ -2,7 +2,7 @@ load "libcurl.ring"
 
 global_init = curl_global_init(CURL_GLOBAL_DEFAULT)
 
-if global_init = 0
+if global_init != CURLE_OK
 	see "curl_global_init() failed" + nl
 	bye
 ok
@@ -14,7 +14,7 @@ if easy_handle = NULL
 	bye
 ok
 
-curl_easy_setopt_2(easy_handle, CURLOPT_URL, "wss://echo.websocket.events")
+curl_easy_setopt_2(easy_handle, CURLOPT_URL, "wss://echo.websocket.org")
 curl_easy_setopt_1(easy_handle, CURLOPT_CONNECT_ONLY, 2)
 
 curl_easy_perform(easy_handle)

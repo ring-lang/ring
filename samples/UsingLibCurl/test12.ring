@@ -2,7 +2,7 @@ load "libcurl.ring"
 
 global_init = curl_global_init(CURL_GLOBAL_DEFAULT)
 
-if global_init = 0
+if global_init != CURLE_OK
 	see "curl_global_init() failed" + nl
 	bye
 ok
