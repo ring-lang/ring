@@ -513,6 +513,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 						     RING_ZERO, RING_CSTR_EMPTY);
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
+				return;
 			}
 		} else if ((nParaCount == 2) && RING_API_ISNUMBER(2) &&
 			   ring_list_islist_gc(pVM->pRingState, pList, RING_ONE)) {
@@ -544,6 +545,7 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 						     RING_CSTR_EMPTY);
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
+				return;
 			}
 		} else if ((nParaCount == 3) && RING_API_ISNUMBER(2) &&
 			   ring_list_islist_gc(pVM->pRingState, pList, RING_ONE) && RING_API_ISSTRING(3)) {
@@ -571,12 +573,15 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 							     cAttribute);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
+					return;
 				}
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
+				return;
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 		RING_API_RETLISTBYREF(pList);
 	} else {
