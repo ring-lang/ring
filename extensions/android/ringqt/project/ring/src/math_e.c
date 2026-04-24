@@ -347,7 +347,7 @@ void ring_vm_math_murmur3hash(void *pPointer) {
 /* 31 bit thread unsafe random generator using the seed (srand) */
 
 void ring_vm_math_random(void *pPointer) {
-	int nNum1, nNum2;
+	int nNum1 = 0, nNum2 = 0;
 	nNum1 = rand();
 #ifdef _MSC_VER
 	#ifdef rand_s
