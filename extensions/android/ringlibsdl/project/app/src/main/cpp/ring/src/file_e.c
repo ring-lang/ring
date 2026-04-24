@@ -850,6 +850,10 @@ void ring_vm_file_tempname(void *pPointer) {
 	/* Visual C/C++ */
 	char _tmpfile[L_tmpnam_s];
 	errno_t error;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	error = tmpnam_s(_tmpfile, L_tmpnam_s);
 	if (error) {
 		RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
@@ -857,15 +861,27 @@ void ring_vm_file_tempname(void *pPointer) {
 		RING_API_RETSTRING(_tmpfile);
 	}
 		#else
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	RING_API_RETSTRING(tmpnam(NULL));
 		#endif
 		/* Mac OS X */
 	#elif __MACH__
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	RING_API_RETSTRING(tmpnam(NULL));
 		/* Linux */
 	#else
 	char _tmpfile[RING_SMALLBUF] = "/tmp/ringtempXXXXXX";
 	int fd;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	fd = mkstemp(_tmpfile);
 	if (fd == -1) {
 		RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
@@ -874,8 +890,5 @@ void ring_vm_file_tempname(void *pPointer) {
 	close(fd);
 	RING_API_RETSTRING(_tmpfile);
 	#endif
-	if (RING_API_PARACOUNT != 0) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-	}
 }
 #endif
