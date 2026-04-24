@@ -614,6 +614,9 @@ void ring_vm_generallib_str2hexcstyle(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		cString = (unsigned char *)RING_API_GETSTRING(1);
 		nMax = RING_API_GETSTRINGSIZE(1);
+		if (nMax == 0) {
+			return;
+		}
 		cString2 = (char *)RING_API_MALLOC(nMax * 5);
 		for (x = 1; x <= nMax; x++) {
 			sprintf(cStr, "%x", (unsigned char)cString[x - 1]);
