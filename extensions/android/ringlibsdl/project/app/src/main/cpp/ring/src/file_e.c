@@ -188,6 +188,7 @@ void ring_vm_file_fgetpos(void *pPointer) {
 			if (nResult == 0) {
 				RING_API_RETMANAGEDCPOINTER(pPos, RING_VM_POINTER_FILEPOS, RING_API_FREEFUNC);
 			} else {
+				RING_API_FREE(pPos);
 				RING_API_RETNUMBER(nResult);
 			}
 		}
