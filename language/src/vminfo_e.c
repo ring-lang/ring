@@ -32,6 +32,10 @@ void ring_vm_info_loadfunctions(RingState *pRingState) {
 void ring_vm_info_ringvmfileslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pRingState->pRingFilesList);
@@ -43,6 +47,10 @@ void ring_vm_info_ringvmcalllist(void *pPointer) {
 	List *pList, *pList2;
 	unsigned int x;
 	FuncCall *pFuncCall;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	/* Copy Important Information */
@@ -64,6 +72,10 @@ void ring_vm_info_ringvmcalllist(void *pPointer) {
 void ring_vm_info_ringvmmemorylist(void *pPointer) {
 	VM *pVM;
 	List *pList, *pList2;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	RING_VM_COPYSCOPESTOLIST(pList);
@@ -75,6 +87,10 @@ void ring_vm_info_ringvmmemorylist(void *pPointer) {
 void ring_vm_info_ringvmfunctionslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pFunctionsMap);
@@ -84,6 +100,10 @@ void ring_vm_info_ringvmfunctionslist(void *pPointer) {
 void ring_vm_info_ringvmclasseslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pClassesMap);
@@ -93,6 +113,10 @@ void ring_vm_info_ringvmclasseslist(void *pPointer) {
 void ring_vm_info_ringvmpackageslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pPackagesMap);
@@ -103,6 +127,10 @@ void ring_vm_info_ringvmcfunctionslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
 	CFunction *pCFunc;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	/* Add C Functions to the list */
@@ -139,6 +167,10 @@ void ring_vm_info_ringvmsettrace(void *pPointer) {
 void ring_vm_info_ringvmtracedata(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pTraceData);
@@ -147,17 +179,29 @@ void ring_vm_info_ringvmtracedata(void *pPointer) {
 
 void ring_vm_info_ringvmtraceevent(void *pPointer) {
 	VM *pVM;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	RING_API_RETNUMBER(pVM->nTraceEvent);
 }
 
 void ring_vm_info_ringvmtracefunc(void *pPointer) {
 	VM *pVM;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	RING_API_RETSTRING(ring_string_get(pVM->pTrace));
 }
 
 void ring_vm_info_ringvmscopescount(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	/* We the current scope of this function */
 	RING_API_RETNUMBER(RING_API_SCOPESCOUNT);
 }
@@ -215,6 +259,10 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 
 void ring_vm_info_ringvmpasserror(void *pPointer) {
 	VM *pVM;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pVM->lPassError = 1;
 }
@@ -254,6 +302,10 @@ void ring_vm_info_ringvmcallfunc(void *pPointer) {
 void ring_vm_info_ringvminfo(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	/*
@@ -317,6 +369,10 @@ void ring_vm_info_ringvmgenarray(void *pPointer) {
 void ring_vm_info_ringvmcodelist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_vm_bytecode2list(pVM, pList);
@@ -326,6 +382,10 @@ void ring_vm_info_ringvmcodelist(void *pPointer) {
 void ring_vm_info_ringvmismempool(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	/* Try creating a large list */
 	pList = ring_list_new_gc(pVM->pRingState, RING_VMINFO_ITEMSTOCHECKMEMPOOL);
