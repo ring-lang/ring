@@ -278,6 +278,7 @@ Better Functions
 * LoadLib()/SysSleep() functions - Return after displaying the error message
 * Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
+* IsMethod()/IsPrivateMethod() functions - Produce error when the parameter type is not correct
 * Produce error when parameters are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
