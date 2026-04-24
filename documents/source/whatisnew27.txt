@@ -276,8 +276,9 @@ Better Functions
 * BinarySearch() - Better Performance and Allows mixing types in the list
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib()/SysSleep() functions - Return after displaying the error message
-* RingFastPro - Better Performance
-* RingFastPro - Added Transform3D() function
+* Produce error when parameters are passed to functions that do not accept any parameters
+* RingFastPro Extension - Better Performance
+* RingFastPro Extension - Added Transform3D() function
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
