@@ -1243,6 +1243,7 @@ void ring_vm_generallib_object2pointer(void *pPointer) {
 	}
 	if (!RING_API_ISLIST(1)) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
 	}
 	pList = RING_API_GETLIST(1);
 	RING_API_RETCPOINTER((void *)pList, "OBJECTPOINTER");
@@ -1258,6 +1259,7 @@ void ring_vm_generallib_pointer2object(void *pPointer) {
 	}
 	if (!RING_API_ISPOINTER(1)) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
 	}
 	pList = (List *)RING_API_GETCPOINTER(1, "OBJECTPOINTER");
 	if (pList == NULL) {
@@ -1320,6 +1322,7 @@ void ring_vm_generallib_pointer2string(void *pPointer) {
 	}
 	if (!(RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3))) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
 	}
 	RING_API_RETSTRING2(((const char *)RING_API_GETCPOINTER(1, "OBJECTPOINTER")) +
 				((unsigned int)RING_API_GETNUMBER(2)),
