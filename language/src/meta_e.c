@@ -496,6 +496,8 @@ void ring_vm_refmeta_ismethod(void *pPointer) {
 		if (RING_API_ISSTRING(2)) {
 			cStr = ring_general_lower(RING_API_GETSTRING(2));
 			RING_API_RETNUMBER(ring_vm_oop_ismethod((VM *)pPointer, pList, cStr));
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -560,6 +562,8 @@ void ring_vm_refmeta_isprivatemethod(void *pPointer) {
 			} else {
 				RING_API_RETNUMBER(0);
 			}
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
