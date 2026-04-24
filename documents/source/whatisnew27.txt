@@ -276,7 +276,8 @@ Better Functions
 * BinarySearch() - Better Performance and Allows mixing types in the list
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib()/SysSleep() functions - Return after displaying the error message
-* object2pointer()/pointer2object()/pointer2string() - Return after displaying the error message
+* Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message
+* Unsigneed() function - Better Implementation - Remove unnecessary checks
 * Produce error when parameters are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
