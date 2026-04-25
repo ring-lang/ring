@@ -385,6 +385,9 @@ void ring_vm_generallib_number(void *pPointer) {
 				/* Accept e in the number */
 				lExp = 1;
 				y++;
+				if ((cStr[y] == 'e') || (cStr[y] == 'E')) {
+					y++;
+				}
 			} else {
 				RING_API_ERROR(RING_VM_ERROR_NUMERICINVALID);
 				return;
