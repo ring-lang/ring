@@ -2384,20 +2384,37 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 	memset(&vTimeInfo2, 0, sizeof(struct tm));
 	cStr = (const unsigned char *)RING_API_GETSTRING(1);
 	cStr2 = (const unsigned char *)RING_API_GETSTRING(2);
-	if ((RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10)) {
-		if (isdigit(cStr[0]) && isdigit(cStr[1]) && isdigit(cStr[3]) && isdigit(cStr[4]) && isdigit(cStr[6]) &&
-		    isdigit(cStr[7]) && isdigit(cStr[8]) && isdigit(cStr[9])) {
-			vTimeInfo.tm_hour = 0;
-			vTimeInfo.tm_min = 0;
-			vTimeInfo.tm_sec = 0;
-			sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
-			vTimeInfo.tm_mday = atoi(cBuffer);
-			sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
-			vTimeInfo.tm_mon = atoi(cBuffer) - 1;
-			sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
-			vTimeInfo.tm_year = atoi(cBuffer) - 1900;
-			vTimer = mktime(&vTimeInfo);
-			if ((vTimer == (time_t)-1) || (vTimeInfo.tm_year > 1097)) {
+	if (ring_vm_generallib_datefuncs_isdate(cStr)) {
+		vTimeInfo.tm_hour = 0;
+		vTimeInfo.tm_min = 0;
+		vTimeInfo.tm_sec = 0;
+		sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
+		vTimeInfo.tm_mday = atoi(cBuffer);
+		sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
+		vTimeInfo.tm_mon = atoi(cBuffer) - 1;
+		sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
+		vTimeInfo.tm_year = atoi(cBuffer) - 1900;
+		vTimer = mktime(&vTimeInfo);
+		if ((vTimer == (time_t)-1) || (vTimeInfo.tm_year > 1097)) {
+			/*
+			**  1097 + 1900 = 2997
+			**  Values over limit may cause crash
+			*/
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		if (ring_vm_generallib_datefuncs_isdate(cStr2)) {
+			vTimeInfo2.tm_hour = 0;
+			vTimeInfo2.tm_min = 0;
+			vTimeInfo2.tm_sec = 0;
+			sprintf(cBuffer, "%c%c", cStr2[0], cStr2[1]);
+			vTimeInfo2.tm_mday = atoi(cBuffer);
+			sprintf(cBuffer, "%c%c", cStr2[3], cStr2[4]);
+			vTimeInfo2.tm_mon = atoi(cBuffer) - 1;
+			sprintf(cBuffer, "%c%c%c%c", cStr2[6], cStr2[7], cStr2[8], cStr2[9]);
+			vTimeInfo2.tm_year = atoi(cBuffer) - 1900;
+			vTimer2 = mktime(&vTimeInfo2);
+			if ((vTimer2 == (time_t)-1) || (vTimeInfo2.tm_year > 1097)) {
 				/*
 				**  1097 + 1900 = 2997
 				**  Values over limit may cause crash
@@ -2405,35 +2422,13 @@ void ring_vm_generallib_diffdays(void *pPointer) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
-			if (isdigit(cStr2[0]) && isdigit(cStr2[1]) && isdigit(cStr2[3]) && isdigit(cStr2[4]) &&
-			    isdigit(cStr2[6]) && isdigit(cStr2[7]) && isdigit(cStr2[8]) && isdigit(cStr2[9])) {
-				vTimeInfo2.tm_hour = 0;
-				vTimeInfo2.tm_min = 0;
-				vTimeInfo2.tm_sec = 0;
-				sprintf(cBuffer, "%c%c", cStr2[0], cStr2[1]);
-				vTimeInfo2.tm_mday = atoi(cBuffer);
-				sprintf(cBuffer, "%c%c", cStr2[3], cStr2[4]);
-				vTimeInfo2.tm_mon = atoi(cBuffer) - 1;
-				sprintf(cBuffer, "%c%c%c%c", cStr2[6], cStr2[7], cStr2[8], cStr2[9]);
-				vTimeInfo2.tm_year = atoi(cBuffer) - 1900;
-				vTimer2 = mktime(&vTimeInfo2);
-				if ((vTimer2 == (time_t)-1) || (vTimeInfo2.tm_year > 1097)) {
-					/*
-					**  1097 + 1900 = 2997
-					**  Values over limit may cause crash
-					*/
-					RING_API_ERROR(RING_API_BADPARARANGE);
-					return;
-				}
-				nResult = difftime(vTimer, vTimer2);
-				nResult = ceil(ceil(nResult) / 86400);
-				RING_API_RETNUMBER(nResult);
-				return;
-			}
+			nResult = difftime(vTimer, vTimer2);
+			nResult = ceil(ceil(nResult) / 86400);
+			RING_API_RETNUMBER(nResult);
+			return;
 		}
 	}
 	RING_API_ERROR(RING_API_BADPARATYPE);
-	return;
 }
 
 int ring_vm_generallib_adddays_isleapyear(int nYear) {
