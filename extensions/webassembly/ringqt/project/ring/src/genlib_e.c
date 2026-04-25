@@ -546,8 +546,8 @@ void ring_vm_generallib_list2str(void *pPointer) {
 	String *pString;
 	unsigned int x, nStart, nMax;
 	char cStr[RING_MEDIUMBUF];
-	if (RING_API_PARACOUNT < 1) {
-		RING_API_ERROR(RING_API_MISS1PARA);
+	if ((RING_API_PARACOUNT < 1) || (RING_API_PARACOUNT > 3)) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (!RING_API_ISLIST(1)) {
@@ -1647,8 +1647,8 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	char *cFile;
 	List *pList;
 	int lCase, lComments, lScannerCommands;
-	if (RING_API_PARACOUNT < 2) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ((RING_API_PARACOUNT < 2) || (RING_API_PARACOUNT > 5)) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (!(RING_API_ISPOINTER(1) && RING_API_ISSTRING(2))) {
@@ -1698,8 +1698,8 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 	char *cString;
 	List *pList;
 	int lCase, lComments, lScannerCommands;
-	if (RING_API_PARACOUNT < 2) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ((RING_API_PARACOUNT < 2) || (RING_API_PARACOUNT > 5)) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (!(RING_API_ISPOINTER(1) && RING_API_ISSTRING(2))) {
@@ -1746,7 +1746,7 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 
 void ring_vm_generallib_state_scannererror(void *pPointer) {
 	RingState *pState;
-	if (RING_API_PARACOUNT < 1) {
+	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
@@ -1782,8 +1782,8 @@ void ring_vm_generallib_state_runcodeatins(void *pPointer) {
 
 void ring_vm_generallib_state_resume(void *pPointer) {
 	RingState *pRingState;
-	if (RING_API_PARACOUNT < 1) {
-		RING_API_ERROR(RING_API_MISS1PARA);
+	if ((RING_API_PARACOUNT < 1) || (RING_API_PARACOUNT > 3)) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (!RING_API_ISPOINTER(1)) {
