@@ -21,7 +21,7 @@ ring_vm_math_pow
 ring_vm_math_sqrt
 ring_vm_math_unsigned
 Type: RING_UNSIGNEDLONGLONG
-nNum1,nNum2,nNum3
+nNum1 = 0,nNum2 = 0,nNum3 = 0
 Type: const char *
 cStr
 ring_vm_math_decimals
@@ -32,7 +32,7 @@ Type: unsigned int
 nResult
 ring_vm_math_random
 Type: int
-nNum1,nNum2
+nNum1=0,nNum2=0
 ring_vm_math_srandom
 Type: int
 nNum1

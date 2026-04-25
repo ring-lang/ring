@@ -255,61 +255,83 @@ void ring_vm_math_sqrt(void *pPointer) {
 }
 
 void ring_vm_math_unsigned(void *pPointer) {
-	RING_UNSIGNEDLONGLONG nNum1, nNum2, nNum3;
+	RING_UNSIGNEDLONGLONG nNum1 = 0, nNum2 = 0, nNum3 = 0;
 	const char *cStr;
+	if (RING_API_PARACOUNT == 2) {
+		if (RING_API_ISNUMBER(1) && RING_API_ISSTRING(2)) {
+			nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(1);
+			cStr = RING_API_GETSTRING(2);
+		} else if (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2)) {
+			cStr = RING_API_GETSTRING(1);
+			nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(2);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
+		}
+		if (!(strcmp(cStr, "~") == 0)) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
+		}
+	}
 	if (RING_API_PARACOUNT != 3) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2) && RING_API_ISSTRING(3)) {
 		nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(1);
 		nNum2 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(2);
 		cStr = RING_API_GETSTRING(3);
-		if (strcmp(cStr, ">>") == 0) {
-			nNum3 = nNum1 >> nNum2;
-		} else if (strcmp(cStr, "<<") == 0) {
-			nNum3 = nNum1 << nNum2;
-		} else if (strcmp(cStr, "+") == 0) {
-			nNum3 = nNum1 + nNum2;
-		} else if (strcmp(cStr, "-") == 0) {
-			nNum3 = nNum1 - nNum2;
-		} else if (strcmp(cStr, "*") == 0) {
-			nNum3 = nNum1 * nNum2;
-		} else if (strcmp(cStr, "/") == 0) {
-			if (nNum2 != 0) {
-				nNum3 = nNum1 / nNum2;
-			} else {
-				RING_API_ERROR(RING_VM_ERROR_DIVIDEBYZERO);
-				return;
-			}
-		} else if (strcmp(cStr, "^") == 0) {
-			nNum3 = nNum1 ^ nNum2;
-		} else if (strcmp(cStr, "<") == 0) {
-			nNum3 = nNum1 < nNum2;
-		} else if (strcmp(cStr, ">") == 0) {
-			nNum3 = nNum1 > nNum2;
-		} else if (strcmp(cStr, "<=") == 0) {
-			nNum3 = nNum1 <= nNum2;
-		} else if (strcmp(cStr, ">=") == 0) {
-			nNum3 = nNum1 >= nNum2;
-		} else if (strcmp(cStr, "=") == 0) {
-			nNum3 = nNum1 == nNum2;
-		} else if (strcmp(cStr, "!=") == 0) {
-			nNum3 = nNum1 != nNum2;
-		} else if (strcmp(cStr, "&") == 0) {
-			nNum3 = nNum1 & nNum2;
-		} else if (strcmp(cStr, "|") == 0) {
-			nNum3 = nNum1 | nNum2;
-		} else if (strcmp(cStr, "~") == 0) {
-			nNum3 = ~nNum1;
-		} else {
-			RING_API_ERROR(RING_API_BADPARATYPE);
-			return;
-		}
-		RING_API_RETNUMBER((double)nNum3);
+	} else if (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3)) {
+		cStr = RING_API_GETSTRING(1);
+		nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(2);
+		nNum2 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(3);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
 	}
+	/* Processing */
+	if (strcmp(cStr, ">>") == 0) {
+		nNum3 = nNum1 >> nNum2;
+	} else if (strcmp(cStr, "<<") == 0) {
+		nNum3 = nNum1 << nNum2;
+	} else if (strcmp(cStr, "+") == 0) {
+		nNum3 = nNum1 + nNum2;
+	} else if (strcmp(cStr, "-") == 0) {
+		nNum3 = nNum1 - nNum2;
+	} else if (strcmp(cStr, "*") == 0) {
+		nNum3 = nNum1 * nNum2;
+	} else if (strcmp(cStr, "/") == 0) {
+		if (nNum2 != 0) {
+			nNum3 = nNum1 / nNum2;
+		} else {
+			RING_API_ERROR(RING_VM_ERROR_DIVIDEBYZERO);
+			return;
+		}
+	} else if (strcmp(cStr, "^") == 0) {
+		nNum3 = nNum1 ^ nNum2;
+	} else if (strcmp(cStr, "<") == 0) {
+		nNum3 = nNum1 < nNum2;
+	} else if (strcmp(cStr, ">") == 0) {
+		nNum3 = nNum1 > nNum2;
+	} else if (strcmp(cStr, "<=") == 0) {
+		nNum3 = nNum1 <= nNum2;
+	} else if (strcmp(cStr, ">=") == 0) {
+		nNum3 = nNum1 >= nNum2;
+	} else if (strcmp(cStr, "=") == 0) {
+		nNum3 = nNum1 == nNum2;
+	} else if (strcmp(cStr, "!=") == 0) {
+		nNum3 = nNum1 != nNum2;
+	} else if (strcmp(cStr, "&") == 0) {
+		nNum3 = nNum1 & nNum2;
+	} else if (strcmp(cStr, "|") == 0) {
+		nNum3 = nNum1 | nNum2;
+	} else if (strcmp(cStr, "~") == 0) {
+		nNum3 = ~nNum1;
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	RING_API_RETNUMBER((double)nNum3);
 }
 
 void ring_vm_math_decimals(void *pPointer) {
