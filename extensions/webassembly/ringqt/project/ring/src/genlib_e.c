@@ -1681,34 +1681,44 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
 	cFile = RING_API_GETSTRING(2);
 	/* Check the (Not Case Sensitive) feature */
-	lCase = 1;
+	lCase = RING_TRUE;
 	if (RING_API_PARACOUNT >= 3) {
 		if (RING_API_ISNUMBER(3)) {
 			lCase = (int)RING_API_GETNUMBER(3);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	pState->lNotCaseSensitive = lCase;
-	pState->lOnlyTokens = 1;
+	pState->lOnlyTokens = RING_TRUE;
 	/* Check the (Comments As Tokens) feature */
-	lComments = 0;
+	lComments = RING_FALSE;
 	if (RING_API_PARACOUNT >= 4) {
 		if (RING_API_ISNUMBER(4)) {
 			lComments = (int)RING_API_GETNUMBER(4);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	pState->lCommentsAsTokens = lComments;
 	/* Check the (Scanner Commands As Tokens) feature */
-	lScannerCommands = 0;
+	lScannerCommands = RING_FALSE;
 	if (RING_API_PARACOUNT == 5) {
 		if (RING_API_ISNUMBER(5)) {
 			lScannerCommands = (int)RING_API_GETNUMBER(5);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	pState->lScannerCommandsAsTokens = lScannerCommands;
 	ring_state_runfile(pState, cFile);
-	pState->lNotCaseSensitive = 1;
-	pState->lOnlyTokens = 0;
-	pState->lCommentsAsTokens = 0;
+	pState->lNotCaseSensitive = RING_TRUE;
+	pState->lOnlyTokens = RING_FALSE;
+	pState->lCommentsAsTokens = RING_FALSE;
+	pState->lScannerCommandsAsTokens = RING_FALSE;
 	/* Copy The List */
 	pList = RING_API_NEWLIST;
 	ring_list_copy_tohighlevel_gc(((VM *)pPointer)->pRingState, pList, pState->pRingFileTokens);
@@ -1732,34 +1742,44 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
 	cString = RING_API_GETSTRING(2);
 	/* Check the (Not Case Sensitive) feature */
-	lCase = 1;
+	lCase = RING_TRUE;
 	if (RING_API_PARACOUNT >= 3) {
 		if (RING_API_ISNUMBER(3)) {
 			lCase = (int)RING_API_GETNUMBER(3);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	pState->lNotCaseSensitive = lCase;
-	pState->lOnlyTokens = 1;
+	pState->lOnlyTokens = RING_TRUE;
 	/* Check the (Comments As Tokens) feature */
-	lComments = 0;
+	lComments = RING_FALSE;
 	if (RING_API_PARACOUNT >= 4) {
 		if (RING_API_ISNUMBER(4)) {
 			lComments = (int)RING_API_GETNUMBER(4);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	pState->lCommentsAsTokens = lComments;
 	/* Check the (Scanner Commands As Tokens) feature */
-	lScannerCommands = 0;
+	lScannerCommands = RING_FALSE;
 	if (RING_API_PARACOUNT == 5) {
 		if (RING_API_ISNUMBER(5)) {
 			lScannerCommands = (int)RING_API_GETNUMBER(5);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	pState->lScannerCommandsAsTokens = lScannerCommands;
 	ring_state_runstring(pState, cString);
-	pState->lNotCaseSensitive = 1;
-	pState->lOnlyTokens = 0;
-	pState->lCommentsAsTokens = 0;
+	pState->lNotCaseSensitive = RING_TRUE;
+	pState->lOnlyTokens = RING_FALSE;
+	pState->lCommentsAsTokens = RING_FALSE;
+	pState->lScannerCommandsAsTokens = RING_FALSE;
 	/* Copy The List */
 	pList = RING_API_NEWLIST;
 	ring_list_copy_tohighlevel_gc(((VM *)pPointer)->pRingState, pList, pState->pRingFileTokens);
