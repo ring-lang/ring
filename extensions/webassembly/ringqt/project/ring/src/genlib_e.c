@@ -1283,10 +1283,7 @@ void ring_vm_generallib_pointer2object(void *pPointer) {
 		return;
 	}
 	pList = (List *)RING_API_GETCPOINTER(1, "OBJECTPOINTER");
-	if (pList == NULL) {
-		RING_API_ERROR(RING_API_NULLPOINTER);
-		return;
-	}
+	RING_API_CHECKNULLPOINTER(pList);
 	ring_list_disabledontref_gc(pVM->pRingState, pList);
 	RING_API_RETNEWREF(pList);
 }
@@ -1336,6 +1333,7 @@ void ring_vm_generallib_ptrcmp(void *pPointer) {
 }
 
 void ring_vm_generallib_pointer2string(void *pPointer) {
+	const char *pObj;
 	RING_API_IGNORECPOINTERTYPE;
 	if (RING_API_PARACOUNT != 3) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -1345,9 +1343,9 @@ void ring_vm_generallib_pointer2string(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	RING_API_RETSTRING2(((const char *)RING_API_GETCPOINTER(1, "OBJECTPOINTER")) +
-				((unsigned int)RING_API_GETNUMBER(2)),
-			    (unsigned int)RING_API_GETNUMBER(3));
+	pObj = (const char *)RING_API_GETCPOINTER(1, "OBJECTPOINTER");
+	RING_API_CHECKNULLPOINTER(pObj);
+	RING_API_RETSTRING2(pObj + ((unsigned int)RING_API_GETNUMBER(2)), (unsigned int)RING_API_GETNUMBER(3));
 }
 
 void ring_vm_generallib_setpointer(void *pPointer) {
@@ -1454,6 +1452,7 @@ void ring_vm_generallib_state_runcode(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
 	/* Check Ring VM */
 	if (pRingState->pVM == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
@@ -1463,6 +1462,7 @@ void ring_vm_generallib_state_runcode(void *pPointer) {
 }
 
 void ring_vm_generallib_state_delete(void *pPointer) {
+	RingState *pRingState;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
@@ -1471,11 +1471,14 @@ void ring_vm_generallib_state_delete(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	ring_state_delete((RingState *)RING_API_GETCPOINTER(1, "RINGSTATE"));
+	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
+	ring_state_delete(pRingState);
 	RING_API_SETNULLPOINTER(1);
 }
 
 void ring_vm_generallib_state_runfile(void *pPointer) {
+	RingState *pRingState;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1484,7 +1487,9 @@ void ring_vm_generallib_state_runfile(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	ring_state_runfile((RingState *)RING_API_GETCPOINTER(1, "RINGSTATE"), RING_API_GETSTRING(2));
+	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
+	ring_state_runfile(pRingState, RING_API_GETSTRING(2));
 }
 
 void ring_vm_generallib_state_findvar(void *pPointer) {
@@ -1499,6 +1504,7 @@ void ring_vm_generallib_state_findvar(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
 	/* Check Ring VM */
 	if (pRingState->pVM == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
@@ -1520,6 +1526,7 @@ void ring_vm_generallib_state_newvar(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
 	/* Check Ring VM */
 	if (pRingState->pVM == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
@@ -1530,6 +1537,7 @@ void ring_vm_generallib_state_newvar(void *pPointer) {
 }
 
 void ring_vm_generallib_state_runobjectfile(void *pPointer) {
+	RingState *pRingState;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1538,7 +1546,9 @@ void ring_vm_generallib_state_runobjectfile(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	ring_state_runobjectfile((RingState *)RING_API_GETCPOINTER(1, "RINGSTATE"), RING_API_GETSTRING(2));
+	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
+	ring_state_runobjectfile(pRingState, RING_API_GETSTRING(2));
 }
 
 void ring_vm_generallib_state_main(void *pPointer) {
@@ -1588,6 +1598,7 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 	**  So we must create it with the Garbage Collector of this sub state
 	*/
 	pRingSubState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingSubState);
 	/* Check Ring VM */
 	if (pRingSubState->pVM == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
@@ -1644,6 +1655,7 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
 	pArgv[0] = cOptional[0];
 	pArgv[1] = cOptional[1];
 	cStr = RING_API_GETSTRING(2);
@@ -1689,6 +1701,7 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 		return;
 	}
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pState);
 	cFile = RING_API_GETSTRING(2);
 	/* Check the (Not Case Sensitive) feature */
 	lCase = RING_TRUE;
@@ -1750,6 +1763,7 @@ void ring_vm_generallib_state_stringtokens(void *pPointer) {
 		return;
 	}
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pState);
 	cString = RING_API_GETSTRING(2);
 	/* Check the (Not Case Sensitive) feature */
 	lCase = RING_TRUE;
@@ -1808,6 +1822,7 @@ void ring_vm_generallib_state_scannererror(void *pPointer) {
 		return;
 	}
 	pState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pState);
 	RING_API_RETNUMBER(pState->nScannerError);
 }
 
@@ -1823,6 +1838,7 @@ void ring_vm_generallib_state_runcodeatins(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
 	/* Check Ring VM */
 	if (pRingState->pVM == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
@@ -1844,6 +1860,7 @@ void ring_vm_generallib_state_resume(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	RING_API_CHECKNULLPOINTER(pRingState);
 	/* Check Ring VM */
 	if (pRingState->pVM == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);

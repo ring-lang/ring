@@ -217,6 +217,8 @@ ring_vm_generallib_ptrcmp
 Type: List *
 pList, *pList2
 ring_vm_generallib_pointer2string
+Type: const char *
+pObj
 ring_vm_generallib_setpointer
 Type: List *
 pList
@@ -243,7 +245,11 @@ ring_vm_generallib_state_runcode
 Type: RingState *
 pRingState
 ring_vm_generallib_state_delete
+Type: RingState *
+pRingState
 ring_vm_generallib_state_runfile
+Type: RingState *
+pRingState
 ring_vm_generallib_state_findvar
 Type: RingState *
 pRingState
@@ -255,6 +261,8 @@ pRingState
 Type: List *
 pList
 ring_vm_generallib_state_runobjectfile
+Type: RingState *
+pRingState
 ring_vm_generallib_state_main
 Type: char *
 cStr
