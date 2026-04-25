@@ -74,6 +74,7 @@ void ring_vm_dll_closelib(void *pPointer) {
 	}
 	if (RING_API_ISPOINTER(1)) {
 		pHandle = RING_API_GETCPOINTER(1, RING_VM_POINTER_DLL);
+		RING_API_CHECKNULLPOINTER(pHandle);
 		CloseDLL(pHandle);
 		RING_API_SETNULLPOINTER(1);
 		/* Remove the pointer */
