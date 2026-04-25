@@ -415,3 +415,10 @@ cBuffer[RING_SMALLBUF]
 Type: double
 nResult
 ring_vm_generallib_adddays_isleapyear
+ring_vm_generallib_datefuncs_isdate
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: int
+nDay,nMonth,nYear
+Type: int
+aDaysInMonth[12]

@@ -2315,59 +2315,55 @@ void ring_vm_generallib_adddays(void *pPointer) {
 		return;
 	}
 	cStr = (const unsigned char *)RING_API_GETSTRING(1);
-	if ((RING_API_GETSTRINGSIZE(1) == 10)) {
-		if (isdigit(cStr[0]) && isdigit(cStr[1]) && isdigit(cStr[3]) && isdigit(cStr[4]) && isdigit(cStr[6]) &&
-		    isdigit(cStr[7]) && isdigit(cStr[8]) && isdigit(cStr[9])) {
-			sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
-			nDay = atoi(cBuffer) + ((int)RING_API_GETNUMBER(2));
-			sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
-			nMonth = atoi(cBuffer);
-			sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
-			nYear = atoi(cBuffer);
-			/* Fix Day Number */
-			nDaysInMonth = aDaysInMonth[nMonth - 1];
-			/* Fix Leap Year */
-			if ((nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear))) {
-				nDaysInMonth = 29;
-			}
-			while (nDay > nDaysInMonth) {
-				nDay = nDay - nDaysInMonth;
-				nMonth++;
-				if (nMonth == 13) {
-					nMonth = 1;
-					nYear++;
-				}
-				nDaysInMonth = aDaysInMonth[nMonth - 1];
-				/* Fix Leap Year */
-				if ((nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear))) {
-					nDaysInMonth = 29;
-				}
-			}
-			while (nDay < 1) {
-				nMonth--;
-				if (nMonth == 0) {
-					nMonth = 12;
-					nYear--;
-				}
-				nDaysInMonth = aDaysInMonth[nMonth - 1];
-				/* Fix Leap Year */
-				if ((nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear))) {
-					nDaysInMonth = 29;
-				}
-				nDay = nDaysInMonth - abs(nDay);
-			}
-			sprintf(cBuffer, "%2d/%2d/%4d", nDay, nMonth, nYear);
-			for (x = 0; x <= 9; x++) {
-				if (cBuffer[x] == ' ') {
-					cBuffer[x] = '0';
-				}
-			}
-			RING_API_RETSTRING(cBuffer);
-			return;
+	if (!ring_vm_generallib_datefuncs_isdate(cStr)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
+	nDay = atoi(cBuffer) + ((int)RING_API_GETNUMBER(2));
+	sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
+	nMonth = atoi(cBuffer);
+	sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
+	nYear = atoi(cBuffer);
+	/* Fix Day Number */
+	nDaysInMonth = aDaysInMonth[nMonth - 1];
+	/* Fix Leap Year */
+	if ((nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear))) {
+		nDaysInMonth = 29;
+	}
+	while (nDay > nDaysInMonth) {
+		nDay = nDay - nDaysInMonth;
+		nMonth++;
+		if (nMonth == 13) {
+			nMonth = 1;
+			nYear++;
+		}
+		nDaysInMonth = aDaysInMonth[nMonth - 1];
+		/* Fix Leap Year */
+		if ((nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear))) {
+			nDaysInMonth = 29;
 		}
 	}
-	RING_API_ERROR(RING_API_BADPARATYPE);
-	return;
+	while (nDay < 1) {
+		nMonth--;
+		if (nMonth == 0) {
+			nMonth = 12;
+			nYear--;
+		}
+		nDaysInMonth = aDaysInMonth[nMonth - 1];
+		/* Fix Leap Year */
+		if ((nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear))) {
+			nDaysInMonth = 29;
+		}
+		nDay = nDaysInMonth - abs(nDay);
+	}
+	sprintf(cBuffer, "%2d/%2d/%4d", nDay, nMonth, nYear);
+	for (x = 0; x <= 9; x++) {
+		if (cBuffer[x] == ' ') {
+			cBuffer[x] = '0';
+		}
+	}
+	RING_API_RETSTRING(cBuffer);
 }
 
 void ring_vm_generallib_diffdays(void *pPointer) {
@@ -2448,4 +2444,36 @@ int ring_vm_generallib_adddays_isleapyear(int nYear) {
 		return RING_FALSE;
 	}
 	return nYear % 4 == 0;
+}
+
+int ring_vm_generallib_datefuncs_isdate(const unsigned char *cStr) {
+	char cBuffer[RING_SMALLBUF];
+	int nDay, nMonth, nYear;
+	int aDaysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if ((strlen(cStr) == 10)) {
+		if (isdigit(cStr[0]) && isdigit(cStr[1]) && isdigit(cStr[3]) && isdigit(cStr[4]) && isdigit(cStr[6]) &&
+		    isdigit(cStr[7]) && isdigit(cStr[8]) && isdigit(cStr[9])) {
+			/* Check Separator */
+			if ((!((cStr[2] == '/') || (cStr[2] == '-') || (cStr[2] == '.') || (cStr[2] == ' '))) ||
+			    (!((cStr[5] == '/') || (cStr[5] == '-') || (cStr[5] == '.') || (cStr[5] == ' ')))) {
+				return RING_FALSE;
+			}
+			sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
+			nDay = atoi(cBuffer);
+			sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
+			nMonth = atoi(cBuffer);
+			sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
+			nYear = atoi(cBuffer);
+			if ((nDay >= 1) && (nDay <= 31) && (nMonth >= 1) && (nMonth <= 12)) {
+				if (nDay > aDaysInMonth[nMonth - 1]) {
+					if (!((nDay == 29) && (nMonth == 2) &&
+					      (ring_vm_generallib_adddays_isleapyear(nYear)))) {
+						return RING_FALSE;
+					}
+				}
+				return RING_TRUE;
+			}
+		}
+	}
+	return RING_FALSE;
 }
