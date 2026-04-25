@@ -364,7 +364,7 @@ void ring_vm_generallib_number(void *pPointer) {
 				lHex = 0;
 				lSign = 0;
 				lDot = 0;
-			} else if ((!lDot) && (cStr[y] == '.')) {
+			} else if ((!lDot) && (!lHex) && (cStr[y] == '.')) {
 				/* Accept the dot operator */
 				lDot = 1;
 			} else if ((!lHex) && (y > 0) && ((cStr[y] == 'x') || (cStr[y] == 'X')) &&
@@ -380,7 +380,8 @@ void ring_vm_generallib_number(void *pPointer) {
 				   (cStr[y - 1] == ' ')) {
 				/* Accept another positive or negative number */
 				lSign = 1;
-			} else if ((!lExp) && (y > 0) && (y < (nSize - 1)) && ((cStr[y] == 'e') || (cStr[y] == 'E')) &&
+			} else if ((!lHex) && (!lExp) && (y > 0) && (y < (nSize - 1)) &&
+				   ((cStr[y] == 'e') || (cStr[y] == 'E')) &&
 				   ((cStr[y + 1] == '+') || (cStr[y + 1] == '-') || isdigit(cStr[y + 1]))) {
 				/* Accept e in the number */
 				lExp = 1;
