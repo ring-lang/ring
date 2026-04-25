@@ -1805,6 +1805,7 @@ void ring_vm_generallib_state_resume(void *pPointer) {
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	if (RING_API_PARACOUNT >= 2) {
@@ -1819,6 +1820,7 @@ void ring_vm_generallib_state_resume(void *pPointer) {
 			ring_itemarray_setdouble(pRingState->pVM->aStack, pRingState->pVM->nSP, RING_API_GETNUMBER(2));
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	ring_vm_mainloop(pRingState->pVM);
