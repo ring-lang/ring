@@ -259,8 +259,8 @@ Type: char *
 cStr
 Type: int
 nArgc
-Type: char
-pArgv[2][RING_LARGEBUF]
+Type: char *
+pArgv[2]
 ring_vm_generallib_state_setvar
 Type: List *
 pList, *pList2, *pList3
@@ -278,8 +278,10 @@ Type: char *
 cStr
 Type: int
 nArgc, lOutput
-Type: char *
+Type: static char *
 pArgv[2]
+Type: static char
+cOptional[2][RING_LARGEBUF]
 ring_vm_generallib_state_filetokens
 Type: RingState *
 pState

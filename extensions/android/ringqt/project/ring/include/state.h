@@ -78,8 +78,6 @@ typedef struct RingState {
 	unsigned int lCreateListsUsingBlocks : 1;
 	/* Pool Manager */
 	PoolManager vPoolManager;
-	/* Optional Strings */
-	char cOptional[2][RING_LARGEBUF];
 } RingState;
 #define RING_VERSION_MAJOR 1
 #define RING_VERSION_MINOR 27

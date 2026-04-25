@@ -1610,7 +1610,8 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 	RingState *pRingState;
 	char *cStr;
 	int nArgc, lOutput;
-	char *pArgv[2];
+	static char *pArgv[2];
+	static char cOptional[2][RING_LARGEBUF];
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1620,8 +1621,8 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
-	pArgv[0] = pRingState->cOptional[0];
-	pArgv[1] = pRingState->cOptional[1];
+	pArgv[0] = cOptional[0];
+	pArgv[1] = cOptional[1];
 	cStr = RING_API_GETSTRING(2);
 	nArgc = 2;
 	if (strlen(cStr) < RING_LARGEBUF) {
