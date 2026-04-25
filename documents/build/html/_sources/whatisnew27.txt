@@ -300,6 +300,7 @@ Better Functions
 * MemCpy() function - Check negative size
 * MergeMethods() function - Avoid Self-merge
 * Log() function - Check divide by zero error
+* GetNumber() function - Check fgets() output
 * Date()/Time()/TimeList() functions - Check timer overflow
 * Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
