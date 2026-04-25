@@ -455,6 +455,10 @@ void ring_vm_os_syssleep(void *pPointer) {
 		return;
 	}
 	nTime = (int)RING_API_GETNUMBER(1);
+	if (nTime < 0) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return;
+	}
 	#ifdef _WIN32
 	Sleep(nTime);
 	RING_API_RETNUMBER(1.0);
