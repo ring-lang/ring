@@ -341,7 +341,7 @@ void ring_vm_generallib_dec(void *pPointer) {
 void ring_vm_generallib_number(void *pPointer) {
 	VM *pVM;
 	double x;
-	int y, nSize, lHex, lSign, lDot;
+	int y = 0, nSize = 0, lHex = 0, lSign = 0, lDot = 0, lExp = 0;
 	const char *cStr;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
@@ -356,9 +356,6 @@ void ring_vm_generallib_number(void *pPointer) {
 		/* Check if the string contains a number or a group of numbers */
 		cStr = RING_API_GETSTRING(1);
 		nSize = RING_API_GETSTRINGSIZE(1);
-		lHex = 0;
-		lSign = 0;
-		lDot = 0;
 		for (y = 0; y < nSize; y++) {
 			if (isdigit(cStr[y])) {
 				/* Accept digits */
@@ -381,9 +378,10 @@ void ring_vm_generallib_number(void *pPointer) {
 				   (cStr[y - 1] == ' ')) {
 				/* Accept another positive or negative number */
 				lSign = 1;
-			} else if ((y > 0) && (y < (nSize - 1)) && (cStr[y] == 'e') &&
+			} else if ((!lExp) && (y > 0) && (y < (nSize - 1)) && ((cStr[y] == 'e') || (cStr[y] == 'E')) &&
 				   ((cStr[y + 1] == '+') || (cStr[y + 1] == '-') || isdigit(cStr[y + 1]))) {
 				/* Accept e in the number */
+				lExp = 1;
 				y++;
 			} else {
 				RING_API_ERROR(RING_VM_ERROR_NUMERICINVALID);

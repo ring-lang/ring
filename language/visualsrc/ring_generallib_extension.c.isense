@@ -41,7 +41,7 @@ pVM
 Type: double
 x
 Type: int
-y, nSize, lHex, lSign, lDot
+y=0, nSize=0, lHex=0, lSign=0, lDot=0, lExp=0
 Type: const char *
 cStr
 ring_vm_generallib_string
