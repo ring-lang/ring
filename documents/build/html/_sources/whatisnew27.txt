@@ -288,6 +288,7 @@ Better Functions
 * Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage
 * Ring_State_MainFile() - Use static allocation for storing the file name
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
+* Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
 * IsMethod()/IsPrivateMethod() functions - Produce error when the argument type is incorrect
 * Randomize() function - Produce error when the value range is not correct
