@@ -1458,6 +1458,7 @@ void ring_vm_generallib_state_delete(void *pPointer) {
 		return;
 	}
 	ring_state_delete((RingState *)RING_API_GETCPOINTER(1, "RINGSTATE"));
+	RING_API_SETNULLPOINTER(1);
 }
 
 void ring_vm_generallib_state_runfile(void *pPointer) {
