@@ -293,7 +293,7 @@ Better Functions
 * Randomize() function - Produce error when the value range is not correct
 * Str2HexCStyle() function - Terminate processing if the input is an empty string
 * FGetPos() function - Free allocated memory when the function fail
-* FPutC() function - Check string size (Not less than 1 character)
+* FPutC()/UnGetC() functions - Check string size (Not less than 1 character)
 * SubStr() function - Check parameters count and use return after printing type errors
 * Unsigned() function - Accept the operator before/after the numbers 
 * Produce error when parameters are passed to functions that do not accept any parameters
