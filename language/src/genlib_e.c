@@ -2202,6 +2202,10 @@ void ring_vm_generallib_time(void *pPointer) {
 	}
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
+	if (vTimeInfo == NULL) {
+		RING_API_ERROR(RING_VM_GENERALLIB_TIMEROVERFLOW);
+		return;
+	}
 	strftime(cBuffer, RING_SMALLBUF, "%H:%M:%S", vTimeInfo);
 	RING_API_RETSTRING(cBuffer);
 }
@@ -2218,6 +2222,10 @@ void ring_vm_generallib_timelist(void *pPointer) {
 	pList = RING_API_NEWLIST;
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
+	if (vTimeInfo == NULL) {
+		RING_API_ERROR(RING_VM_GENERALLIB_TIMEROVERFLOW);
+		return;
+	}
 	/*
 	**  Add List Items
 	**  abbreviated weekday name
@@ -2297,6 +2305,10 @@ void ring_vm_generallib_date(void *pPointer) {
 	}
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
+	if (vTimeInfo == NULL) {
+		RING_API_ERROR(RING_VM_GENERALLIB_TIMEROVERFLOW);
+		return;
+	}
 	strftime(cBuffer, RING_SMALLBUF, "%d/%m/%Y", vTimeInfo);
 	RING_API_RETSTRING(cBuffer);
 }

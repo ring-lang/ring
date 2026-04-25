@@ -1,5 +1,6 @@
 ring_generallib_extension_h
 C_EXPRCODESIZE
+RING_VM_GENERALLIB_TIMEROVERFLOW
 ring_vm_generallib_loadfunctions
 ring_vm_generallib_version
 ring_vm_generallib_nothing

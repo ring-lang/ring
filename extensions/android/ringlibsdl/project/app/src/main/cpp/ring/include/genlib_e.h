@@ -4,6 +4,7 @@
 #define ring_generallib_extension_h
 /* Constants */
 #define C_EXPRCODESIZE 200
+#define RING_VM_GENERALLIB_TIMEROVERFLOW "Error: Timer Overflow!"
 
 RING_API void ring_vm_generallib_loadfunctions(RingState *pRingState);
 /* General */
