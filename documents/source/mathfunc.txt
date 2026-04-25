@@ -39,7 +39,8 @@ pow(x,y)		Returns x raised to the power of y
 sqrt(x)			Returns the square root of x
 random(x)		Returns a random number in the range [0,x] or [0,-x]
 srandom(x)		Initialize random number generator
-unsigned(n,n,c)		Perform operation using unsigned numbers 
+unsigned(n1,n2,cOp)	Perform operation using unsigned numbers
+unsigned(cOp,n1,n2)	Perform operation using unsigned numbers  
 decimals(n)		Determine the decimals digits after the point in float/double numbers
 =============== 	=============================================================================
 
@@ -233,6 +234,7 @@ Syntax:
 .. code-block:: ring
 
 	Unsigned(nNum1,nNum2,cOperator)	--> result of cOperator operation on nNum1,nNum2
+	Unsigned(cOperator,nNum1,nNum2)	--> result of cOperator operation on nNum1,nNum2
 
 Example:
 
