@@ -289,15 +289,15 @@ Better Functions
 * Ring_State_MainFile() - Use static allocation for storing the file name
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
-* IsMethod()/IsPrivateMethod() functions - Produce error when the parameter type is not correct
+* IsMethod()/IsPrivateMethod() functions - Produce error when the argument type is incorrect
 * Randomize() function - Produce error when the value range is not correct
 * Str2HexCStyle() function - Terminate processing if the input is an empty string
 * FGetPos() function - Free allocated memory when the function fail
 * FPutC()/UnGetC() functions - Check string size (Not less than 1 character)
-* SubStr() function - Check parameters count and use return after printing type errors
+* SubStr() function - Check argument count and use return after printing type errors
 * Unsigned() function - Accept the operator before/after the numbers 
 * MemCpy() function - Check negative size
-* Produce error when parameters are passed to functions that do not accept any parameters
+* Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 
