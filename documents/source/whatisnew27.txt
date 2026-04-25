@@ -297,6 +297,7 @@ Better Functions
 * SubStr() function - Check argument count and use return after printing type errors
 * Unsigned() function - Accept the operator before/after the numbers 
 * MemCpy() function - Check negative size
+* MergeMethods() function - Avoid Self-merge
 * Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
