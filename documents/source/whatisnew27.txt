@@ -277,7 +277,7 @@ More Samples
 Better Functions
 ================
 
-* DiffDays() function - Better Implementation
+* DiffDays()/AddDays() functions - Better Implementation
 * Sort() function - Better Performance
 * Sort()/Find() functions - Return after displaying the error message
 * BinarySearch() - Better Performance and Allows mixing types in the list
