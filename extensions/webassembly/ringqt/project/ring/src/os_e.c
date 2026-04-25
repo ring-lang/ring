@@ -461,22 +461,21 @@ void ring_vm_os_syssleep(void *pPointer) {
 	}
 	#ifdef _WIN32
 	Sleep(nTime);
-	RING_API_RETNUMBER(1.0);
-	return;
+	RING_API_RETNUMBER(RING_ONEF);
 	#elif _POSIX_C_SOURCE >= 199309L
 	struct timespec sTimeSpec;
 	sTimeSpec.tv_sec = nTime / 1000;
 	sTimeSpec.tv_nsec = (nTime % 1000) * 1000000;
-	nanosleep(&sTimeSpec, NULL);
-	RING_API_RETNUMBER(1.0);
-	return;
+	if (nanosleep(&sTimeSpec, NULL) == -1) {
+		RING_API_RETNUMBER(RING_ZEROF);
+	} else {
+		RING_API_RETNUMBER(RING_ONEF);
+	}
 	#elif __MACH__
 	usleep(nTime * 1000);
-	RING_API_RETNUMBER(1.0);
-	return;
+	RING_API_RETNUMBER(RING_ONEF);
 	#else
-	RING_API_RETNUMBER(0.0);
-	return;
+	RING_API_RETNUMBER(RING_ZEROF);
 	#endif
 }
 #endif
