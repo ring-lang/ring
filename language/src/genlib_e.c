@@ -1855,6 +1855,9 @@ void ring_vm_generallib_see(void *pPointer) {
 		} else {
 			ring_list_print2(pList, ((VM *)pPointer)->nDecimals);
 		}
+	} else {
+		/* This case should never happens because types are String/Number/List (List|Object|C Pointer) */
+		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 	fflush(stdout);
 }
@@ -2100,6 +2103,10 @@ void ring_vm_generallib_input(void *pPointer) {
 		return;
 	}
 	if (nSize > 0) {
+		/*
+		**  Using RETSTRINGSIZE will allocate an empty string on the stack
+		**  So, no need to check fread() output
+		*/
 		RING_API_RETSTRINGSIZE(nSize);
 		cLine = ring_string_get(RING_API_GETSTRINGRAW);
 		/* Get Input From the User and save it in the variable */
