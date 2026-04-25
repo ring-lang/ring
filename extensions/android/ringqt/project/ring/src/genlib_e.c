@@ -341,7 +341,7 @@ void ring_vm_generallib_dec(void *pPointer) {
 void ring_vm_generallib_number(void *pPointer) {
 	VM *pVM;
 	double x;
-	int y = 0, nSize = 0, lHex = 0, lSign = 0, lDot = 0, lExp = 0;
+	int y = 0, nSize = 0, lValue = 0, lHex = 0, lSign = 0, lDot = 0, lExp = 0;
 	const char *cStr;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
@@ -359,6 +359,7 @@ void ring_vm_generallib_number(void *pPointer) {
 		for (y = 0; y < nSize; y++) {
 			if (isdigit(cStr[y])) {
 				/* Accept digits */
+				lValue = 1;
 			} else if (isspace(cStr[y])) {
 				lHex = 0;
 				lSign = 0;
@@ -371,6 +372,7 @@ void ring_vm_generallib_number(void *pPointer) {
 				lHex = 1;
 			} else if (lHex && ((cStr[y] >= 97 && cStr[y] <= 102) || (cStr[y] >= 65 && cStr[y] <= 70))) {
 				/* Accept a-f and A-F for hex. values */
+				lValue = 1;
 			} else if ((y == 0) && (!lSign) && ((cStr[y] == '-') || (cStr[y] == '+'))) {
 				/* Accept the first positive or negative number */
 				lSign = 1;
@@ -388,6 +390,12 @@ void ring_vm_generallib_number(void *pPointer) {
 				return;
 			}
 		}
+		if (lValue == 0) {
+			/* If no digits then return zero */
+			RING_API_RETNUMBER(RING_ZEROF);
+			return;
+		}
+		/* If the input is a group of numbers (return the first number) */
 		pVM->lSubStringToNumError = 0;
 		x = ring_vm_stringtonum((VM *)pPointer, RING_API_GETSTRING(1));
 		pVM->lSubStringToNumError = 1;
