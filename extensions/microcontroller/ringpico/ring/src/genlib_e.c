@@ -843,6 +843,10 @@ void ring_vm_generallib_substr(void *pPointer) {
 	**  Substr(str,"nice","good",true) replace "nice" with "good" - not case sensitive
 	**  Parameters Count
 	*/
+	if ((RING_API_PARACOUNT < 2) || (RING_API_PARACOUNT > 4)) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	nParaCount = RING_API_PARACOUNT;
 	/* If parameter no. 4 is not True, Treat the case as we get 3 paramters only */
 	if (nParaCount == 4) {
@@ -917,6 +921,7 @@ void ring_vm_generallib_substr(void *pPointer) {
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
 	}
 	/* Transform/Replace */
 	if (nTransform > 0) {
