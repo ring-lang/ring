@@ -699,6 +699,7 @@ void ring_vm_generallib_left(void *pPointer) {
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
 				cString = ring_string_get(RING_API_GETSTRINGRAW);
+				/* The RING_MEMCPY macro uses the x variable */
 				RING_MEMCPY(cString, cStr, nNewSize);
 			} else if (nNum1 > RING_API_GETSTRINGSIZE(1)) {
 				RING_API_RETSTRING2(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1));
@@ -731,6 +732,7 @@ void ring_vm_generallib_right(void *pPointer) {
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
 				cString = ring_string_get(RING_API_GETSTRINGRAW);
+				/* The RING_MEMCPY macro uses the x variable */
 				RING_MEMCPY(cString, cStr + (nSize - nNewSize), nNewSize);
 			} else if (nNum1 > nSize) {
 				RING_API_RETSTRING2(cStr, nSize);
@@ -813,6 +815,7 @@ void ring_vm_generallib_copy(void *pPointer) {
 				nPos = 0;
 				/* Copy the input string nSize times */
 				for (i = 1; i <= nSize; i++) {
+					/* The RING_MEMCPY macro uses the x variable */
 					RING_MEMCPY(cRetStr + nPos, cStr, nStrSize);
 					nPos += nStrSize;
 				}
