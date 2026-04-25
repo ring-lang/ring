@@ -806,6 +806,11 @@ void ring_vm_refmeta_mergemethods(void *pPointer) {
 			RING_API_ERROR(RING_VM_ERROR_CLASSNOTFOUND);
 			return;
 		}
+		/* Avoid self-merge */
+		if (pList2 == pList3) {
+			RING_API_ERROR(RING_VM_ERROR_FUNCREDEFINE);
+			return;
+		}
 		/* Copy Methods from Source to Dest */
 		nSize = ring_list_getsize(pList2);
 		ring_list_copy_gc(pVM->pRingState, pList2, pList3);
