@@ -285,6 +285,8 @@ Better Functions
 * LoadLib()/SysSleep() functions - Return after displaying the error message
 * Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message
 * Ring_State_Resume() - Return after displaying the error message
+* Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage
+* Ring_State_MainFile() - Use Ring State structure for storing the file name 
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
 * IsMethod()/IsPrivateMethod() functions - Produce error when the parameter type is not correct
 * Randomize() function - Produce error when the value range is not correct
