@@ -302,6 +302,7 @@ Better Functions
 * Log() function - Check divide by zero error
 * GetNumber() function - Check fgets() output
 * Date()/Time()/TimeList() functions - Check timer overflow
+* Number() function - Accept one e/E in the number
 * Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
