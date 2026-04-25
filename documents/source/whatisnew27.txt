@@ -334,4 +334,5 @@ More Improvements
 * Ring VM - Cache the ErrorMsg variable list - Better Performance
 * Ring VM - Using preprocessor to access the members of the Object list
 * Ring VM - Using preprocessor to access the members of the Variable list
+* Ring VM - Check NULL in C extensions (RING_API_CHECKNULLPOINTER(ptr))
 * Ring VM - Support using Computed Goto (optional feature when building Ring VM)
