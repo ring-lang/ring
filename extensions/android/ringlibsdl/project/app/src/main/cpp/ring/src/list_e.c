@@ -237,6 +237,7 @@ void ring_vm_listfuncs_find(void *pPointer) {
 					nColumn = RING_API_GETNUMBER(3);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
+					return;
 				}
 			}
 			if (RING_API_PARACOUNT == 4) {
@@ -262,12 +263,15 @@ void ring_vm_listfuncs_find(void *pPointer) {
 						    RING_API_GETSTRING(4));
 					} else {
 						RING_API_ERROR(RING_API_BADPARATYPE);
+						return;
 					}
 					if (nNum1 == RING_LISTERROR_PROPERTYNOTFOUND) {
 						RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
+						return;
 					}
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
+					return;
 				}
 			} else {
 				if (RING_API_ISSTRING(2)) {
@@ -284,9 +288,11 @@ void ring_vm_listfuncs_find(void *pPointer) {
 									 nColumn);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
+					return;
 				}
 				if (nNum1 == RING_LISTERROR_COLUMNNOTFOUND) {
 					RING_API_ERROR(RING_VM_ERROR_BADCOLUMNNUMBER);
+					return;
 				}
 			}
 		}
