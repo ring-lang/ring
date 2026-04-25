@@ -1412,6 +1412,10 @@ void ring_vm_generallib_memcpy(void *pPointer) {
 		pList = RING_API_GETLIST(2);
 		pSrc = (const void *)ring_list_getpointer(pList, RING_CPOINTER_POINTER);
 	}
+	if (RING_API_GETNUMBER(3) < 0) {
+		RING_API_ERROR(RING_API_BADPARAVALUE);
+		return;
+	}
 	nNum = (size_t)RING_API_GETNUMBER(3);
 	/* Call Function */
 	memcpy(pDest, pSrc, nNum);
