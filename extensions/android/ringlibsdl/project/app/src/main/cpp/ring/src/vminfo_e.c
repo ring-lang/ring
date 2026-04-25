@@ -477,7 +477,7 @@ void ring_vm_info_ringvmtranslatecfunction(void *pPointer) {
 		pCFunc = pCFunc->pNext;
 	}
 	if (pCFunc == NULL) {
-		RING_API_ERROR("Can't find the C function!");
+		RING_API_ERROR(RING_VMINFO_CANTFINDTHECFUNCTION);
 		return;
 	}
 	/* Add the function to the optional functions list to have a static literal for the function name */
@@ -503,7 +503,7 @@ void ring_vm_info_ringvmwriteringo(void *pPointer) {
 	pList = RING_API_GETLIST(2);
 	if ((ring_list_getsize(pList) != 5) || (!ring_list_islist(pList, 1)) || (!ring_list_islist(pList, 2)) ||
 	    (!ring_list_islist(pList, 3)) || (!ring_list_islist(pList, 4)) || (!ring_list_islist(pList, 5))) {
-		RING_API_ERROR("The list must contain five items, and each item must be a sublist.");
+		RING_API_ERROR(RING_VMINFO_WRONGLIST);
 		return;
 	}
 	pListFiles = ring_list_getlist(pList, 1);

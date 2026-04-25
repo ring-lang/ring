@@ -1,5 +1,7 @@
 ring_vminfo_extension_h
 RING_VMINFO_ITEMSTOCHECKMEMPOOL
+RING_VMINFO_CANTFINDTHECFUNCTION
+RING_VMINFO_WRONGLIST
 ring_vm_info_loadfunctions
 ring_vm_info_ringvmfileslist
 Type: VM *
