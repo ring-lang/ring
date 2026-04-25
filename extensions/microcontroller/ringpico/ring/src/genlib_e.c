@@ -2316,8 +2316,8 @@ void ring_vm_generallib_adddays(void *pPointer) {
 	}
 	cStr = (const unsigned char *)RING_API_GETSTRING(1);
 	if ((RING_API_GETSTRINGSIZE(1) == 10)) {
-		if (isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) &&
-		    isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9])) {
+		if (isdigit(cStr[0]) && isdigit(cStr[1]) && isdigit(cStr[3]) && isdigit(cStr[4]) && isdigit(cStr[6]) &&
+		    isdigit(cStr[7]) && isdigit(cStr[8]) && isdigit(cStr[9])) {
 			sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
 			nDay = atoi(cBuffer) + ((int)RING_API_GETNUMBER(2));
 			sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
