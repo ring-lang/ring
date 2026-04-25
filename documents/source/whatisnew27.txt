@@ -292,6 +292,7 @@ Better Functions
 * Randomize() function - Produce error when the value range is not correct
 * Str2HexCStyle() - Terminate processing if the input is an empty string
 * FGetPos() - Free allocated memory when the function fail
+* FPutC() - Check string size (Not less than 1 character)
 * SubStr() - Check parameters count and use return after printing type errors
 * Produce error when parameters are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
