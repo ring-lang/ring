@@ -279,6 +279,7 @@ Better Functions
 
 * DiffDays() function - Better Implementation
 * Sort() function - Better Performance
+* Sort()/Find() functions - Return after displaying the error message
 * BinarySearch() - Better Performance and Allows mixing types in the list
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib()/SysSleep() functions - Return after displaying the error message
