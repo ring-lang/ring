@@ -162,6 +162,7 @@ void ring_vm_math_exp(void *pPointer) {
 }
 
 void ring_vm_math_log(void *pPointer) {
+	double nNum;
 	if ((RING_API_PARACOUNT != 1) && (RING_API_PARACOUNT != 2)) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
@@ -175,7 +176,12 @@ void ring_vm_math_log(void *pPointer) {
 	}
 	if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2)) {
-			RING_API_RETNUMBER(log10(RING_API_GETNUMBER(1)) / log10(RING_API_GETNUMBER(2)));
+			nNum = log10(RING_API_GETNUMBER(2));
+			if (nNum == RING_ZERO) {
+				RING_API_ERROR(RING_VM_ERROR_DIVIDEBYZERO);
+				return;
+			}
+			RING_API_RETNUMBER(log10(RING_API_GETNUMBER(1)) / nNum);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}

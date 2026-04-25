@@ -13,6 +13,8 @@ ring_vm_math_cosh
 ring_vm_math_tanh
 ring_vm_math_exp
 ring_vm_math_log
+Type: double
+nNum
 ring_vm_math_log10
 ring_vm_math_ceil
 ring_vm_math_floor
