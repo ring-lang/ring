@@ -1530,9 +1530,13 @@ void ring_vm_generallib_state_main(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	pArgv[0] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
-	pArgv[1] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
 	cStr = RING_API_GETSTRING(1);
+	if (!(strlen(cStr) < RING_LARGEBUF)) {
+		RING_API_ERROR(RING_API_BADPARALENGTH);
+		return;
+	}
+	pArgv[0] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
+	pArgv[1] = (char *)RING_API_MALLOC(RING_LARGEBUF);
 	nArgc = 2;
 	strcpy(pArgv[0], "ring");
 	strcpy(pArgv[1], cStr);
@@ -1607,8 +1611,6 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 	char *cStr;
 	int nArgc, lOutput;
 	char *pArgv[2];
-	pArgv[0] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
-	pArgv[1] = (char *)RING_API_MALLOC(RING_MEDIUMBUF);
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1618,10 +1620,17 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 		return;
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
+	pArgv[0] = pRingState->cOptional[0];
+	pArgv[1] = pRingState->cOptional[1];
 	cStr = RING_API_GETSTRING(2);
 	nArgc = 2;
-	strcpy(pArgv[0], "ring");
-	strcpy(pArgv[1], cStr);
+	if (strlen(cStr) < RING_LARGEBUF) {
+		strcpy(pArgv[0], "ring");
+		strcpy(pArgv[1], cStr);
+	} else {
+		RING_API_ERROR(RING_API_BADPARALENGTH);
+		return;
+	}
 	pRingState->nArgc = nArgc;
 	pRingState->pArgv = pArgv;
 	/*
