@@ -67,12 +67,9 @@ void ring_vm_file_fclose(void *pPointer) {
 	}
 	if (RING_API_ISPOINTER(1)) {
 		pFile = (FILE *)RING_API_GETCPOINTER(1, RING_VM_POINTER_FILE);
-		if (pFile != NULL) {
-			RING_API_RETNUMBER(fclose(pFile));
-			RING_API_SETNULLPOINTER(1);
-		} else {
-			RING_API_ERROR(RING_API_NULLPOINTER);
-		}
+		RING_API_CHECKNULLPOINTER(pFile);
+		RING_API_RETNUMBER(fclose(pFile));
+		RING_API_SETNULLPOINTER(1);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

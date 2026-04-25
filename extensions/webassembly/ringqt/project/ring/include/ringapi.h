@@ -83,6 +83,11 @@
 #define RING_API_NEWLISTUSINGBLOCKS2D(nRows, nCols) ring_vm_api_newlistusingblocks(pPointer, nRows, nCols)
 #define RING_API_CALLERSCOPE ring_vm_api_callerscope(pPointer)
 #define RING_API_SCOPESCOUNT ring_vm_api_scopescount(pPointer)
+#define RING_API_CHECKNULLPOINTER(ptr)                                                                                 \
+	if (ptr == NULL) {                                                                                             \
+		RING_API_ERROR(RING_API_NULLPOINTER);                                                                  \
+		return;                                                                                                \
+	}
 /*
 **  Note : The C Function Get Lists as pointers because of (List Pass by Reference)
 **  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List
