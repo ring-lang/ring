@@ -368,6 +368,10 @@ void ring_vm_file_fputc(void *pPointer) {
 	if (RING_API_ISPOINTER(1) && RING_API_ISSTRING(2)) {
 		pFile = (FILE *)RING_API_GETCPOINTER(1, RING_VM_POINTER_FILE);
 		if (pFile != NULL) {
+			if (RING_API_GETSTRINGSIZE(2) < 1) {
+				RING_API_RETNUMBER(0);
+				return;
+			}
 			c = fputc(RING_API_GETSTRING(2)[0], pFile);
 			if (c != EOF) {
 				RING_API_RETNUMBER(1);
