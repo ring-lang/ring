@@ -283,6 +283,7 @@ Better Functions
 * Remove() function - Correct error message when the argument count is incorrect
 * LoadLib()/SysSleep() functions - Return after displaying the error message
 * Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message
+* Ring_State_Resume() - Return after displaying the error message
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
 * IsMethod()/IsPrivateMethod() functions - Produce error when the parameter type is not correct
 * Randomize() function - Produce error when the value range is not correct
