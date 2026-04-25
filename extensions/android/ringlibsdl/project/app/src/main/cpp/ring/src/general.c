@@ -220,13 +220,16 @@ RING_API void ring_general_addosfileseparator(char *cFileName) {
 
 RING_API void ring_general_readline(char *cLine, unsigned int nSize) {
 	unsigned int x;
-	fgets(cLine, nSize, stdin);
-	/* Remove New Line */
-	for (x = 0; x < nSize; x++) {
-		if (cLine[x] == '\n') {
-			cLine[x] = '\0';
-			break;
+	if (fgets(cLine, nSize, stdin)) {
+		/* Remove New Line */
+		for (x = 0; x < nSize; x++) {
+			if (cLine[x] == '\n') {
+				cLine[x] = '\0';
+				break;
+			}
 		}
+	} else {
+		cLine[0] = '\0';
 	}
 }
 

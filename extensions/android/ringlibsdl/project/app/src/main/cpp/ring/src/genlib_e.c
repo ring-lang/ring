@@ -1915,13 +1915,16 @@ void ring_vm_generallib_give(void *pPointer) {
 		return;
 	}
 	/* Get Input From the User and save it in the variable */
-	fgets(cLine, RING_LARGEBUF, stdin);
-	/* Remove New Line */
-	for (x = 0; x <= RING_LARGEBUF - 1; x++) {
-		if (cLine[x] == '\n') {
-			cLine[x] = '\0';
-			break;
+	if (fgets(cLine, RING_LARGEBUF, stdin)) {
+		/* Remove New Line */
+		for (x = 0; x <= RING_LARGEBUF - 1; x++) {
+			if (cLine[x] == '\n') {
+				cLine[x] = '\0';
+				break;
+			}
 		}
+	} else {
+		cLine[0] = '\0';
 	}
 	RING_API_RETSTRING(cLine);
 }
@@ -2018,12 +2021,15 @@ void ring_vm_generallib_getnumber(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
-	fgets(cLine, RING_LARGEBUF, stdin);
-	for (x = 0; x <= RING_LARGEBUF - 1; x++) {
-		if (cLine[x] == '\n') {
-			cLine[x] = '\0';
-			break;
+	if (fgets(cLine, RING_LARGEBUF, stdin)) {
+		for (x = 0; x <= RING_LARGEBUF - 1; x++) {
+			if (cLine[x] == '\n') {
+				cLine[x] = '\0';
+				break;
+			}
 		}
+	} else {
+		cLine[0] = '\0';
 	}
 	nNum = ring_vm_stringtonum((VM *)pPointer, cLine);
 	RING_API_RETNUMBER(nNum);
