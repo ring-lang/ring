@@ -2459,7 +2459,7 @@ int ring_vm_generallib_datefuncs_isdate(const unsigned char *cStr) {
 			nMonth = atoi(cBuffer);
 			sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);
 			nYear = atoi(cBuffer);
-			if ((nDay >= 1) && (nDay <= 31) && (nMonth >= 1) && (nMonth <= 12)) {
+			if ((nDay >= 1) && (nDay <= 31) && (nMonth >= 1) && (nMonth <= 12) && (nYear >= 1)) {
 				if (nDay > aDaysInMonth[nMonth - 1]) {
 					if (!((nDay == 29) && (nMonth == 2) &&
 					      (ring_vm_generallib_adddays_isleapyear(nYear)))) {
