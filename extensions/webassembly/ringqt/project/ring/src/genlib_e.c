@@ -830,6 +830,10 @@ void ring_vm_generallib_copy(void *pPointer) {
 					RING_API_ERROR(RING_API_BADPARARANGE);
 					return;
 				}
+				if ((int)nSize > INT_MAX / nStrSize) {
+					RING_API_ERROR(RING_API_BADPARARANGE);
+					return;
+				}
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE((int)nSize * nStrSize);
 				cRetStr = ring_string_get(RING_API_GETSTRINGRAW);
