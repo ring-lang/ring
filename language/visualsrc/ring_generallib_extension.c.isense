@@ -376,6 +376,8 @@ nSize
 ring_vm_generallib_getchar
 Type: char
 cStr[RING_CHARBUF]
+Type: int
+c
 ring_vm_generallib_clock
 Type: clock_t
 nNum1

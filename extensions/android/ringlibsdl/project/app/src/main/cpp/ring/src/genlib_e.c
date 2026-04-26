@@ -2199,12 +2199,18 @@ void ring_vm_generallib_input(void *pPointer) {
 
 void ring_vm_generallib_getchar(void *pPointer) {
 	char cStr[RING_CHARBUF];
+	int c;
 	if (RING_API_PARACOUNT != 0) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	RING_SETBINARY;
-	cStr[0] = getchar();
+	c = getchar();
+	if (c == EOF) {
+		RING_API_RETSTRING(RING_CSTR_EMPTY);
+		return;
+	}
+	cStr[0] = (char)c;
 	RING_API_RETSTRING2(cStr, RING_ONE);
 }
 /* Date and Time */
