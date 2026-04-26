@@ -691,7 +691,7 @@ void ring_vm_generallib_ascii(void *pPointer) {
 }
 
 void ring_vm_generallib_char(void *pPointer) {
-	int x;
+	double x;
 	char cStr[RING_CHARBUF];
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -699,7 +699,11 @@ void ring_vm_generallib_char(void *pPointer) {
 	}
 	if (RING_API_ISNUMBER(1)) {
 		x = RING_API_GETNUMBER(1);
-		cStr[0] = (char)x;
+		if ((x < 0.0) || (x != x) || (x > 255.0)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		cStr[0] = (char)(int)x;
 		cStr[1] = '\0';
 		RING_API_RETSTRING2(cStr, RING_ONE);
 	} else {

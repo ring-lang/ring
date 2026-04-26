@@ -103,7 +103,7 @@ x
 Type: unsigned char *
 cString
 ring_vm_generallib_char
-Type: int
+Type: double
 x
 Type: char
 cStr[RING_CHARBUF]
