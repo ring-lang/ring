@@ -304,8 +304,9 @@ Better Functions
 * GetNumber() function - Check fgets() output
 * Date()/Time()/TimeList() functions - Check timer overflow
 * Number() function - Accept one e/E in the number
-* Hex2Str() - Move the first nibble into the high position when the second character is a space
+* Hex2Str() function - Always move the first nibble into the high position
 * Dir() function - Check the path length before using strcat() 
+* GetChar() function - Return an empty string when we the getchar() output is EOF
 * Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
