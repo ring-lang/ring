@@ -368,7 +368,7 @@ void ring_vm_generallib_number(void *pPointer) {
 				/* Accept the dot operator */
 				lDot = 1;
 			} else if ((!lHex) && (y > 0) && ((cStr[y] == 'x') || (cStr[y] == 'X')) &&
-				   (cStr[y - 1] == '0')) {
+				   (cStr[y - 1] == '0') && (!(((y - 1) > 0) && (cStr[y - 2] != ' ')))) {
 				lHex = 1;
 			} else if (lHex && ((cStr[y] >= 97 && cStr[y] <= 102) || (cStr[y] >= 65 && cStr[y] <= 70))) {
 				/* Accept a-f and A-F for hex. values */
