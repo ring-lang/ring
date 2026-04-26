@@ -110,14 +110,14 @@ c
 Type: FILE *
 pFile
 ring_vm_file_fread
+Type: FILE *
+pFile
 Type: char *
 cStr
 Type: int
+iSize,nResult
+Type: double
 nSize
-Type: int
-nResult
-Type: FILE *
-pFile
 ring_vm_file_fwrite
 Type: int
 nResult

@@ -419,10 +419,10 @@ void ring_vm_file_ungetc(void *pPointer) {
 }
 
 void ring_vm_file_fread(void *pPointer) {
-	char *cStr;
-	int nSize;
-	int nResult;
 	FILE *pFile;
+	char *cStr;
+	int iSize, nResult;
+	double nSize;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -431,16 +431,17 @@ void ring_vm_file_fread(void *pPointer) {
 		pFile = (FILE *)RING_API_GETCPOINTER(1, RING_VM_POINTER_FILE);
 		RING_API_CHECKNULLPOINTER(pFile);
 		nSize = RING_API_GETNUMBER(2);
-		if (nSize < 1) {
+		if ((nSize < 1) || (nSize != nSize) || (nSize > INT_MAX)) {
 			RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
 			return;
 		}
-		RING_API_RETSTRINGSIZE(nSize);
+		iSize = (int)nSize;
+		RING_API_RETSTRINGSIZE(iSize);
 		cStr = ring_string_get(RING_API_GETSTRINGRAW);
-		nResult = fread(cStr, RING_ONE, nSize, pFile);
+		nResult = fread(cStr, RING_ONE, iSize, pFile);
 		if (nResult == 0) {
 			RING_API_RETNUMBER(nResult);
-		} else if (nResult < nSize) {
+		} else if (nResult < iSize) {
 			(RING_API_GETSTRINGRAW)->nSize = nResult;
 			cStr[nResult] = '\0';
 		}
