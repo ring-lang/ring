@@ -297,13 +297,13 @@ void ring_vm_math_unsigned(void *pPointer) {
 	}
 	/* Processing */
 	if (strcmp(cStr, ">>") == 0) {
-		if (nNum2 >= sizeof(RING_UNSIGNEDLONGLONG)) {
+		if (nNum2 >= (sizeof(RING_UNSIGNEDLONGLONG) * 8)) {
 			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
 			return;
 		}
 		nNum3 = nNum1 >> nNum2;
 	} else if (strcmp(cStr, "<<") == 0) {
-		if (nNum2 >= sizeof(RING_UNSIGNEDLONGLONG)) {
+		if (nNum2 >= (sizeof(RING_UNSIGNEDLONGLONG) * 8)) {
 			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
 			return;
 		}
