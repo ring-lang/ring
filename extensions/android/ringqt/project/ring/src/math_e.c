@@ -415,12 +415,12 @@ void ring_vm_math_random(void *pPointer) {
 }
 
 void ring_vm_math_srandom(void *pPointer) {
-	int nNum1;
+	double nNum1;
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
 			nNum1 = RING_API_GETNUMBER(1);
-			if (nNum1 >= 0) {
-				srand(nNum1);
+			if ((nNum1 >= 0) && (nNum1 <= (double)UINT_MAX)) {
+				srand((unsigned int)nNum1);
 			} else {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 			}

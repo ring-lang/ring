@@ -36,6 +36,6 @@ ring_vm_math_random
 Type: int
 nNum1=0,nNum2=0
 ring_vm_math_srandom
-Type: int
+Type: double
 nNum1
 ring_vm_math_checkoverflow
