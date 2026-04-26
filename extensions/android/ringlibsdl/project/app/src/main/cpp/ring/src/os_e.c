@@ -234,10 +234,17 @@ void ring_vm_os_system(void *pPointer) {
 
 void ring_vm_os_shutdown(void *pPointer) {
 	int nExitCode;
+	double dExitCode;
 	nExitCode = RING_EXIT_OK;
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			nExitCode = RING_API_GETNUMBER(1);
+			dExitCode = RING_API_GETNUMBER(1);
+			if ((dExitCode < (double)INT_MIN) || (dExitCode != dExitCode) ||
+			    (dExitCode > (double)INT_MAX)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			nExitCode = (int)dExitCode;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;

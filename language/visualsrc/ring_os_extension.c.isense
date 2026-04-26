@@ -40,6 +40,8 @@ ring_vm_os_system
 ring_vm_os_shutdown
 Type: int
 nExitCode
+Type: double
+dExitCode
 ring_vm_os_sysget
 Type: char *
 pData
