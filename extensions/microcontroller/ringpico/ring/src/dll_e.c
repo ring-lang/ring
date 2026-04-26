@@ -50,6 +50,7 @@ void ring_vm_dll_loadlib(void *pPointer) {
 		pFunc = (loadlibfuncptr)GetDLLFunc(pHandle, RING_DLL_INITFUNC);
 		if (pFunc == NULL) {
 			printf("\n%s%s", RING_DLL_LIBFILEMSG, RING_API_GETSTRING(1));
+			CloseDLL(pHandle);
 			RING_API_ERROR(RING_VM_ERROR_NORINGLIBINIT);
 			return;
 		}
