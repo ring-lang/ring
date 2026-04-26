@@ -453,6 +453,7 @@ void ring_vm_os_randomize(void *pPointer) {
 
 void ring_vm_os_syssleep(void *pPointer) {
 	int nTime;
+	double dTime;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
@@ -461,7 +462,12 @@ void ring_vm_os_syssleep(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	nTime = (int)RING_API_GETNUMBER(1);
+	dTime = RING_API_GETNUMBER(1);
+	if ((dTime < RING_ZEROF) || (dTime != dTime) || (dTime > (double)INT_MAX)) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return;
+	}
+	nTime = (int)dTime;
 	if (nTime < 0) {
 		RING_API_ERROR(RING_API_BADPARARANGE);
 		return;

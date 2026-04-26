@@ -78,5 +78,7 @@ nNum
 ring_vm_os_syssleep
 Type: int
 nTime
+Type: double
+dTime
 Type: struct timespec
 sTimeSpec
