@@ -1187,7 +1187,7 @@ void ring_vm_generallib_isfunc(void *pPointer, int (*pFunc)(int)) {
 			return;
 		}
 		for (x = 0; x < nSize; x++) {
-			if (!(*pFunc)(cStr[x])) {
+			if (!(*pFunc)((unsigned char)cStr[x])) {
 				RING_API_RETNUMBER(0);
 				return;
 			}
