@@ -225,6 +225,8 @@ pList, *pList2
 ring_vm_generallib_pointer2string
 Type: const char *
 pObj
+Type: double
+nNum1,nNum2
 ring_vm_generallib_setpointer
 Type: List *
 pList

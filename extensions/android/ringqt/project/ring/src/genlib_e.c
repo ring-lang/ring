@@ -1362,6 +1362,7 @@ void ring_vm_generallib_ptrcmp(void *pPointer) {
 
 void ring_vm_generallib_pointer2string(void *pPointer) {
 	const char *pObj;
+	double nNum1, nNum2;
 	RING_API_IGNORECPOINTERTYPE;
 	if (RING_API_PARACOUNT != 3) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -1373,7 +1374,14 @@ void ring_vm_generallib_pointer2string(void *pPointer) {
 	}
 	pObj = (const char *)RING_API_GETCPOINTER(1, "OBJECTPOINTER");
 	RING_API_CHECKNULLPOINTER(pObj);
-	RING_API_RETSTRING2(pObj + ((unsigned int)RING_API_GETNUMBER(2)), (unsigned int)RING_API_GETNUMBER(3));
+	nNum1 = RING_API_GETNUMBER(2);
+	nNum2 = RING_API_GETNUMBER(3);
+	if ((nNum1 < RING_ZEROF) || (nNum1 != nNum1) || (nNum1 > (double)UINT_MAX) || (nNum2 < RING_ZEROF) ||
+	    (nNum2 != nNum2) || (nNum2 > (double)UINT_MAX)) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return;
+	}
+	RING_API_RETSTRING2(pObj + ((unsigned int)nNum1), (unsigned int)nNum2);
 }
 
 void ring_vm_generallib_setpointer(void *pPointer) {
