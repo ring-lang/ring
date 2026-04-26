@@ -307,6 +307,7 @@ Better Functions
 * Hex2Str() function - Always move the first nibble into the high position
 * Dir() function - Check the path length before using strcat() 
 * GetChar() function - Return an empty string when we the getchar() output is EOF
+* LoadLib() function - Close the DLL when the ringlib_init() function is missing
 * Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
