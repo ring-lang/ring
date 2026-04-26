@@ -1513,6 +1513,11 @@ void ring_vm_generallib_state_findvar(void *pPointer) {
 		return;
 	}
 	pList = ring_state_findvar(pRingState, RING_API_GETSTRING(2));
+	/* Check Variable before usage */
+	if (pList == NULL) {
+		RING_API_RETNUMBER(0);
+		return;
+	}
 	RING_API_RETLIST(pList);
 }
 
