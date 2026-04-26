@@ -167,15 +167,17 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 void ring_vm_listfuncs_list(void *pPointer) {
 	List *pList;
 	unsigned int x, nSize, nSize2;
+	double nNum1, nNum2;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > RING_LIST_MAXSIZE)) {
+			nNum1 = RING_API_GETNUMBER(1);
+			if ((nNum1 < 1.0) || (nNum1 != nNum1) || (nNum1 > RING_LIST_MAXSIZE)) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
-			nSize = RING_API_GETNUMBER(1);
+			nSize = (unsigned int)nNum1;
 			if (nSize <= RING_VM_SMALLLISTSIZE) {
 				pList = RING_API_NEWLIST;
 				for (x = 1; x <= nSize; x++) {
@@ -190,13 +192,15 @@ void ring_vm_listfuncs_list(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	} else if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2)) {
-			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > RING_LIST_MAXSIZE) ||
-			    (RING_API_GETNUMBER(2) < 1.0) || (RING_API_GETNUMBER(2) > RING_LIST_MAXSIZE)) {
+			nNum1 = RING_API_GETNUMBER(1);
+			nNum2 = RING_API_GETNUMBER(2);
+			if ((nNum1 < 1.0) || (nNum1 != nNum1) || (nNum1 > RING_LIST_MAXSIZE) || (nNum2 < 1.0) ||
+			    (nNum2 != nNum2) || (nNum2 > RING_LIST_MAXSIZE)) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
-			nSize = RING_API_GETNUMBER(1);
-			nSize2 = RING_API_GETNUMBER(2);
+			nSize = (unsigned int)nNum1;
+			nSize2 = (unsigned int)nNum2;
 			pList = RING_API_NEWLISTUSINGBLOCKS2D(nSize, nSize2);
 			RING_API_RETLISTBYREF(pList);
 			return;

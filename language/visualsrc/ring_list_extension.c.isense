@@ -28,6 +28,8 @@ Type: List *
 pList
 Type: unsigned int
 x,nSize,nSize2
+Type: double
+nNum1,nNum2
 Type: VM *
 pVM
 ring_vm_listfuncs_find
