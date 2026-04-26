@@ -86,6 +86,8 @@ Type: String *
 pString
 Type: unsigned int
 x,nStart,nMax
+Type: double
+dStart,dMax
 cStr
 ring_vm_generallib_str2hexcstyle
 cStr

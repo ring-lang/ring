@@ -557,6 +557,7 @@ void ring_vm_generallib_list2str(void *pPointer) {
 	List *pList;
 	String *pString;
 	unsigned int x, nStart, nMax;
+	double dStart, dMax;
 	char cStr[RING_MEDIUMBUF];
 	if ((RING_API_PARACOUNT < 1) || (RING_API_PARACOUNT > 3)) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -572,7 +573,12 @@ void ring_vm_generallib_list2str(void *pPointer) {
 	nStart = 1;
 	if (RING_API_PARACOUNT >= 2) {
 		if (RING_API_ISNUMBER(2)) {
-			nStart = (unsigned int)RING_API_GETNUMBER(2);
+			dStart = RING_API_GETNUMBER(2);
+			if ((dStart < 1) || (dStart != dStart) || (dStart > ring_list_getsize(pList))) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			nStart = (unsigned int)dStart;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
@@ -586,7 +592,12 @@ void ring_vm_generallib_list2str(void *pPointer) {
 	nMax = ring_list_getsize(pList);
 	if (RING_API_PARACOUNT == 3) {
 		if (RING_API_ISNUMBER(3)) {
-			nMax = (unsigned int)RING_API_GETNUMBER(3);
+			dMax = RING_API_GETNUMBER(3);
+			if ((dMax < nStart) || (dMax != dMax) || (dMax > ring_list_getsize(pList))) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			nMax = (unsigned int)dMax;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
