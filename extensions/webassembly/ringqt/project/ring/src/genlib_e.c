@@ -629,6 +629,10 @@ void ring_vm_generallib_str2hexcstyle(void *pPointer) {
 		if (nMax == 0) {
 			return;
 		}
+		if (nMax > INT_MAX / 5) {
+			RING_API_ERROR(RING_API_BADPARALENGTH);
+			return;
+		}
 		cString2 = (char *)RING_API_MALLOC(nMax * 5);
 		for (x = 1; x <= nMax; x++) {
 			sprintf(cStr, "%x", (unsigned char)cString[x - 1]);
