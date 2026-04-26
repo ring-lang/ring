@@ -294,7 +294,7 @@ Better Functions
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
 * IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect
 * Randomize() - Produce error when the value range is not correct
-* Str2HexCStyle() - Terminate processing if the input is an empty string
+* Str2HexCStyle() - Check the string length before processing
 * FGetPos() - Free allocated memory when the function fail
 * FPutC()/UnGetC() - Check string size (Not less than 1 character)
 * SubStr() - Check argument count and use return after printing type errors
