@@ -801,17 +801,22 @@ void ring_vm_file_dir(void *pPointer) {
 		ring_string_delete_gc(((VM *)pPointer)->pRingState, pString);
 	#else
 		pDir = opendir(cStr);
-		if (pDir != NULL) {
-			getcwd(cCurrentDir, FILENAME_MAX);
+		if ((pDir != NULL) && (getcwd(cCurrentDir, FILENAME_MAX) != NULL)) {
 			chdir(cStr);
 			while ((pDirent = readdir(pDir))) {
 				if (strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0) {
 					pList2 = ring_list_newlist_gc(((VM *)pPointer)->pRingState, pList);
 					ring_list_addstring_gc(((VM *)pPointer)->pRingState, pList2, pDirent->d_name);
 					/* Prepare Path */
-					getcwd(cPath, FILENAME_MAX);
-					strcat(cPath, "/");
-					strcat(cPath, pDirent->d_name);
+					if (getcwd(cPath, FILENAME_MAX) == NULL) {
+						break;
+					}
+					if ((strlen(cPath) + 1 + strlen(pDirent->d_name)) < FILENAME_MAX) {
+						strcat(cPath, "/");
+						strcat(cPath, pDirent->d_name);
+					} else {
+						break;
+					}
 					stat(cPath, &st);
 					if (S_ISDIR(st.st_mode)) {
 						ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList2,
