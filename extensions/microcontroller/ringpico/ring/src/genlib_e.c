@@ -1737,6 +1737,7 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	char *cFile;
 	List *pList;
 	int lCase, lComments, lScannerCommands;
+	double nNum;
 	if ((RING_API_PARACOUNT < 2) || (RING_API_PARACOUNT > 5)) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
@@ -1752,7 +1753,12 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	lCase = RING_TRUE;
 	if (RING_API_PARACOUNT >= 3) {
 		if (RING_API_ISNUMBER(3)) {
-			lCase = (int)RING_API_GETNUMBER(3);
+			nNum = RING_API_GETNUMBER(3);
+			if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > RING_ONEF)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			lCase = (int)nNum;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
@@ -1764,7 +1770,12 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	lComments = RING_FALSE;
 	if (RING_API_PARACOUNT >= 4) {
 		if (RING_API_ISNUMBER(4)) {
-			lComments = (int)RING_API_GETNUMBER(4);
+			nNum = RING_API_GETNUMBER(4);
+			if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > RING_ONEF)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			lComments = (int)nNum;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
@@ -1775,7 +1786,12 @@ void ring_vm_generallib_state_filetokens(void *pPointer) {
 	lScannerCommands = RING_FALSE;
 	if (RING_API_PARACOUNT == 5) {
 		if (RING_API_ISNUMBER(5)) {
-			lScannerCommands = (int)RING_API_GETNUMBER(5);
+			nNum = RING_API_GETNUMBER(5);
+			if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > RING_ONEF)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			lScannerCommands = (int)nNum;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
