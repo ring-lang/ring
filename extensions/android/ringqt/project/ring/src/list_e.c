@@ -219,6 +219,7 @@ void ring_vm_listfuncs_list(void *pPointer) {
 
 void ring_vm_listfuncs_find(void *pPointer) {
 	unsigned int nNum1, nColumn;
+	double dColumn;
 	List *pList;
 	VM *pVM;
 	pVM = (VM *)pPointer;
@@ -238,7 +239,13 @@ void ring_vm_listfuncs_find(void *pPointer) {
 			nColumn = 0;
 			if (RING_API_PARACOUNT >= 3) {
 				if (RING_API_ISNUMBER(3)) {
-					nColumn = RING_API_GETNUMBER(3);
+					dColumn = RING_API_GETNUMBER(3);
+					if ((dColumn < RING_ZEROF) || (dColumn != dColumn) ||
+					    (dColumn > (double)UINT_MAX)) {
+						RING_API_ERROR(RING_API_BADPARARANGE);
+						return;
+					}
+					nColumn = (unsigned int)dColumn;
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 					return;
