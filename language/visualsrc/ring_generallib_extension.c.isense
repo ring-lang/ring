@@ -319,6 +319,8 @@ Type: List *
 pList
 Type: int
 lCase,lComments,lScannerCommands
+Type: double
+nNum
 ring_vm_generallib_state_scannererror
 Type: RingState *
 pState
