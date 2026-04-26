@@ -323,6 +323,8 @@ Type: RingState *
 pRingState
 Type: unsigned int
 nPC
+Type: double
+dPC
 ring_vm_generallib_state_resume
 Type: RingState *
 pRingState

@@ -1862,6 +1862,7 @@ void ring_vm_generallib_state_scannererror(void *pPointer) {
 void ring_vm_generallib_state_runcodeatins(void *pPointer) {
 	RingState *pRingState;
 	unsigned int nPC;
+	double dPC;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1877,7 +1878,12 @@ void ring_vm_generallib_state_runcodeatins(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	nPC = (unsigned int)RING_API_GETNUMBER(2);
+	dPC = RING_API_GETNUMBER(2);
+	if ((dPC < 0.0) || (dPC != dPC) || (dPC > (double)UINT_MAX)) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return;
+	}
+	nPC = (unsigned int)dPC;
 	pRingState->pVM->nPC = nPC;
 	ring_vm_mainloop(pRingState->pVM);
 }
