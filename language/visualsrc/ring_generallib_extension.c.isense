@@ -133,10 +133,12 @@ cNewStr
 ring_vm_generallib_copy
 Type: const char *
 cStr
-Type: int
-x,nSize,nStrSize,nPos,i
 Type: char *
 cRetStr
+Type: int
+x,nStrSize,nPos,i
+Type: double
+nSize
 ring_vm_generallib_substr
 Type: char *
 cStr,*cStr2,*cStr3,*cString

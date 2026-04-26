@@ -813,8 +813,9 @@ void ring_vm_generallib_trim(void *pPointer) {
 
 void ring_vm_generallib_copy(void *pPointer) {
 	const char *cStr;
-	int x, nSize, nStrSize, nPos, i;
 	char *cRetStr;
+	int x, nStrSize, nPos, i;
+	double nSize;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -825,12 +826,16 @@ void ring_vm_generallib_copy(void *pPointer) {
 			nStrSize = RING_API_GETSTRINGSIZE(1);
 			nSize = RING_API_GETNUMBER(2);
 			if (nSize > 0) {
+				if (nSize > INT_MAX) {
+					RING_API_ERROR(RING_API_BADPARARANGE);
+					return;
+				}
 				/* Pre-allocated the return value on the stack */
-				RING_API_RETSTRINGSIZE(nSize * nStrSize);
+				RING_API_RETSTRINGSIZE((int)nSize * nStrSize);
 				cRetStr = ring_string_get(RING_API_GETSTRINGRAW);
 				nPos = 0;
 				/* Copy the input string nSize times */
-				for (i = 1; i <= nSize; i++) {
+				for (i = 1; i <= (int)nSize; i++) {
 					/* The RING_MEMCPY macro uses the x variable */
 					RING_MEMCPY(cRetStr + nPos, cStr, nStrSize);
 					nPos += nStrSize;
