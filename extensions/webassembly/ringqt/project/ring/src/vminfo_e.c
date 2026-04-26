@@ -210,9 +210,10 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 	VM *pVM;
 	List *pActiveMem;
 	const char *cStr;
-	int nScope, nSize, x;
 	VMState *pVMState;
 	List aScopes[RING_VM_STACK_SIZE];
+	double dScope;
+	int nScope, nSize, x;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -220,13 +221,14 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 	}
 	if (RING_API_ISNUMBER(1) && RING_API_ISSTRING(2)) {
 		/* We must get cStr before we change the pVM->pActiveMem */
-		nScope = (int)RING_API_GETNUMBER(1);
-		cStr = RING_API_GETSTRING(2);
 		nSize = RING_VM_SCOPESCOUNT;
-		if ((nScope < 1) || (nScope >= nSize)) {
+		dScope = RING_API_GETNUMBER(1);
+		if ((dScope < 1) || (dScope != dScope) || (dScope >= nSize)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
+		nScope = (int)dScope;
+		cStr = RING_API_GETSTRING(2);
 		/* Save State */
 		pVMState = ring_vm_savestateformethods(pVM);
 		pActiveMem = pVM->pActiveMem;
