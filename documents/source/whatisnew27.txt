@@ -298,6 +298,7 @@ Better Functions
 * FPutC()/UnGetC() functions - Check string size (Not less than 1 character)
 * SubStr() function - Check argument count and use return after printing type errors
 * Unsigned() function - Accept the operator before/after the numbers 
+* unsigned() function - Check variable size before the shift operation
 * MemCpy() function - Check negative size
 * MergeMethods() function - Avoid Self-merge
 * Log() function - Check divide by zero error
