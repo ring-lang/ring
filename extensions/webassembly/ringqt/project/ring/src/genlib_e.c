@@ -1314,16 +1314,18 @@ void ring_vm_generallib_nullpointer(void *pPointer) {
 void ring_vm_generallib_space(void *pPointer) {
 	char *cString;
 	unsigned int nStrSize;
+	double nSize;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > UINT_MAX)) {
+		nSize = RING_API_GETNUMBER(1);
+		if ((nSize < 1.0) || (nSize != nSize) || (nSize > UINT_MAX)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
-		nStrSize = (unsigned int)RING_API_GETNUMBER(1);
+		nStrSize = (unsigned int)nSize;
 		RING_API_RETSTRINGSIZE(nStrSize);
 		cString = ring_string_get(RING_API_GETSTRINGRAW);
 		memset(cString, ' ', nStrSize);

@@ -215,6 +215,8 @@ Type: char *
 cString
 Type: unsigned int
 nStrSize
+Type: double
+nSize
 ring_vm_generallib_ptrcmp
 Type: List *
 pList, *pList2
