@@ -499,6 +499,8 @@ void ring_vm_generallib_hex2str(void *pPointer) {
 					if (bNibble != 0xFF) {
 						bVal = (bVal << 4) + bNibble;
 					}
+				} else {
+					bVal <<= 4;
 				}
 			}
 			if (bNibble == 0xFF) {
