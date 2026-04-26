@@ -532,12 +532,18 @@ void ring_vm_file_write(void *pPointer) {
 
 void ring_vm_file_int2bytes(void *pPointer) {
 	NumData uData;
+	double nNum;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		uData.iNumber = (int)RING_API_GETNUMBER(1);
+		nNum = RING_API_GETNUMBER(1);
+		if ((nNum < (double)INT_MIN) || (nNum != nNum) || (nNum > (double)INT_MAX)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		uData.iNumber = (int)nNum;
 		RING_API_RETSTRING2(uData.cBytes, sizeof(int));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

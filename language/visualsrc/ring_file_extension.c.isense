@@ -138,6 +138,8 @@ pFile
 ring_vm_file_int2bytes
 Type: NumData
 uData
+Type: double
+nNum
 ring_vm_file_float2bytes
 Type: NumData
 uData
