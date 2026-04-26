@@ -277,38 +277,39 @@ More Samples
 Better Functions
 ================
 
-* DiffDays()/AddDays() functions - Better Implementation
+* DiffDays()/AddDays() - Better Implementation
 * Sort() function - Better Performance
-* Sort()/Find() functions - Return after displaying the error message
+* Sort()/Find() - Return after displaying the error message
 * BinarySearch() - Better Performance and Allows mixing types in the list
-* Remove() function - Correct error message when the argument count is incorrect
-* LoadLib()/SysSleep() functions - Return after displaying the error message
-* SysSleep() function - Check nanosleep() output
+* Remove() - Correct error message when the argument count is incorrect
+* LoadLib()/SysSleep() - Return after displaying the error message
+* SysSleep() - Check nanosleep() output
 * Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message
 * Ring_State_Resume() - Return after displaying the error message
 * Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage
 * Ring_State_MainFile() - Use static allocation for storing the file name
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
 * Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
+* Ring_State_FindVar() - return zero if the variable is not found
 * Unsigneed() function - Better Implementation - Remove unnecessary checks
-* IsMethod()/IsPrivateMethod() functions - Produce error when the argument type is incorrect
-* Randomize() function - Produce error when the value range is not correct
-* Str2HexCStyle() function - Terminate processing if the input is an empty string
-* FGetPos() function - Free allocated memory when the function fail
-* FPutC()/UnGetC() functions - Check string size (Not less than 1 character)
-* SubStr() function - Check argument count and use return after printing type errors
-* Unsigned() function - Accept the operator before/after the numbers 
-* unsigned() function - Check variable size before the shift operation
-* MemCpy() function - Check negative size
-* MergeMethods() function - Avoid Self-merge
-* Log() function - Check divide by zero error
-* GetNumber() function - Check fgets() output
-* Date()/Time()/TimeList() functions - Check timer overflow
-* Number() function - Accept one e/E in the number
-* Hex2Str() function - Always move the first nibble into the high position
-* Dir() function - Check the path length before using strcat() 
-* GetChar() function - Return an empty string when we the getchar() output is EOF
-* LoadLib() function - Close the DLL when the ringlib_init() function is missing
+* IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect
+* Randomize() - Produce error when the value range is not correct
+* Str2HexCStyle() - Terminate processing if the input is an empty string
+* FGetPos() - Free allocated memory when the function fail
+* FPutC()/UnGetC() - Check string size (Not less than 1 character)
+* SubStr() - Check argument count and use return after printing type errors
+* Unsigned() - Accept the operator before/after the numbers 
+* unsigned() - Check variable size before the shift operation
+* MemCpy() - Check negative size
+* MergeMethods() - Avoid Self-merge
+* Log() - Check divide by zero error
+* GetNumber() - Check fgets() output
+* Date()/Time()/TimeList() - Check timer overflow
+* Number() - Accept one e/E in the number
+* Hex2Str() - Always move the first nibble into the high position
+* Dir() - Check the path length before using strcat() 
+* GetChar() - Return an empty string when we the getchar() output is EOF
+* LoadLib() - Close the DLL when the ringlib_init() function is missing
 * Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
