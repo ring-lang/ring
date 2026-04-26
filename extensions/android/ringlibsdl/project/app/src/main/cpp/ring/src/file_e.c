@@ -315,10 +315,11 @@ void ring_vm_file_fgetc(void *pPointer) {
 }
 
 void ring_vm_file_fgets(void *pPointer) {
-	char *cStr;
-	int nSize;
 	FILE *pFile;
+	char *cStr;
 	char *cResult;
+	double nSize;
+	int iSize;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -327,14 +328,15 @@ void ring_vm_file_fgets(void *pPointer) {
 		pFile = (FILE *)RING_API_GETCPOINTER(1, RING_VM_POINTER_FILE);
 		RING_API_CHECKNULLPOINTER(pFile);
 		nSize = RING_API_GETNUMBER(2);
-		if (nSize < 1) {
+		if ((nSize < 1) || (nSize != nSize) || (nSize > INT_MAX - 1)) {
 			RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
 			return;
 		}
-		nSize++;
-		RING_API_RETSTRINGSIZE(nSize);
+		iSize = (int)nSize;
+		iSize++;
+		RING_API_RETSTRINGSIZE(iSize);
 		cStr = ring_string_get(RING_API_GETSTRINGRAW);
-		cResult = fgets(cStr, nSize, pFile);
+		cResult = fgets(cStr, iSize, pFile);
 		if (cResult == NULL) {
 			RING_API_RETNUMBER(0);
 			return;

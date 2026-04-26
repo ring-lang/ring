@@ -84,14 +84,16 @@ cStr
 Type: FILE *
 pFile
 ring_vm_file_fgets
-Type: char *
-cStr
-Type: int
-nSize
 Type: FILE *
 pFile
 Type: char *
+cStr
+Type: char *
 cResult
+Type: double
+nSize
+Type: int
+iSize
 ring_vm_file_fputc
 Type: int
 c
