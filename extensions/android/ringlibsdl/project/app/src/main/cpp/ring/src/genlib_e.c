@@ -2396,6 +2396,7 @@ void ring_vm_generallib_adddays(void *pPointer) {
 	char cBuffer[RING_SMALLBUF];
 	int x, nDay, nMonth, nYear, nDaysInMonth;
 	int aDaysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	double dDay;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
@@ -2410,7 +2411,12 @@ void ring_vm_generallib_adddays(void *pPointer) {
 		return;
 	}
 	sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
-	nDay = atoi(cBuffer) + ((int)RING_API_GETNUMBER(2));
+	dDay = RING_API_GETNUMBER(2);
+	if ((dDay < (double)INT_MIN) || (dDay != dDay) || (dDay > (double)INT_MAX)) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return;
+	}
+	nDay = atoi(cBuffer) + ((int)dDay);
 	sprintf(cBuffer, "%c%c", cStr[3], cStr[4]);
 	nMonth = atoi(cBuffer);
 	sprintf(cBuffer, "%c%c%c%c", cStr[6], cStr[7], cStr[8], cStr[9]);

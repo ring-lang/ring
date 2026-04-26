@@ -422,6 +422,8 @@ Type: int
 x,nDay,nMonth,nYear,nDaysInMonth
 Type: int
 aDaysInMonth[12]
+Type: double
+dDay
 ring_vm_generallib_diffdays
 Type: const unsigned char *
 cStr, *cStr2
