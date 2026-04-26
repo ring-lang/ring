@@ -34,7 +34,11 @@ Type: unsigned int
 nResult
 ring_vm_math_random
 Type: int
-nNum1=0,nNum2=0
+nNum1
+Type: unsigned int
+nRandS
+Type: double
+nNum2
 ring_vm_math_srandom
 Type: double
 nNum1

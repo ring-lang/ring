@@ -383,12 +383,14 @@ void ring_vm_math_murmur3hash(void *pPointer) {
 /* 31 bit thread unsafe random generator using the seed (srand) */
 
 void ring_vm_math_random(void *pPointer) {
-	int nNum1 = 0, nNum2 = 0;
+	int nNum1 = 0;
+	unsigned int nRandS = 0;
+	double nNum2 = 0;
 	nNum1 = rand();
 #ifdef _MSC_VER
 	#ifdef rand_s
-	rand_s(&nNum2);
-	nNum1 |= (nNum2 & 0xFFFF) << 15;
+	rand_s(&nRandS);
+	nNum1 |= (nRandS & 0xFFFF) << 15;
 	#endif
 #endif
 	if (RING_API_PARACOUNT == 0) {
@@ -396,15 +398,24 @@ void ring_vm_math_random(void *pPointer) {
 	} else if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
 			nNum2 = RING_API_GETNUMBER(1);
+			if (nNum2 != nNum2) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
 			if (nNum2 > 0) {
-				RING_API_RETNUMBER(nNum1 % ++nNum2);
+				if (nNum2 > (double)INT_MAX) {
+					RING_API_ERROR(RING_API_BADPARARANGE);
+					return;
+				}
+				RING_API_RETNUMBER(nNum1 % ((int)nNum2 + 1));
 			} else if (nNum2 == 0) {
 				RING_API_RETNUMBER(RING_ZEROF);
 			} else {
-				nNum2 = -1 * nNum2;
-				nNum2++;
-				nNum2 = nNum1 % nNum2;
-				RING_API_RETNUMBER(-1 * nNum2);
+				if (nNum2 < (double)INT_MIN) {
+					RING_API_ERROR(RING_API_BADPARARANGE);
+					return;
+				}
+				RING_API_RETNUMBER(-(nNum1 % ((int)(-nNum2) + 1)));
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
