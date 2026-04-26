@@ -349,12 +349,12 @@ void ring_vm_math_unsigned(void *pPointer) {
 }
 
 void ring_vm_math_decimals(void *pPointer) {
-	int nNum1;
+	double nNum1;
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			nNum1 = (int)RING_API_GETNUMBER(1);
+			nNum1 = RING_API_GETNUMBER(1);
 			if ((nNum1 >= 0) && (nNum1 <= RING_VM_DECIMALSLIMIT)) {
-				((VM *)pPointer)->nDecimals = nNum1;
+				((VM *)pPointer)->nDecimals = (int)nNum1;
 			} else {
 				RING_API_ERROR(RING_VM_ERROR_BADDECIMALNUMBER);
 			}

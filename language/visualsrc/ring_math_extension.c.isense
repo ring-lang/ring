@@ -27,7 +27,7 @@ nNum1 = 0,nNum2 = 0,nNum3 = 0
 Type: const char *
 cStr
 ring_vm_math_decimals
-Type: int
+Type: double
 nNum1
 ring_vm_math_murmur3hash
 Type: unsigned int
