@@ -82,6 +82,8 @@ pVM
 ring_vm_info_ringvmhideerrormsg
 Type: VM *
 pVM
+Type: double
+nFlag
 ring_vm_info_ringvmcallfunc
 Type: VM *
 pVM

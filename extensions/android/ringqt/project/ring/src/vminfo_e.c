@@ -271,13 +271,19 @@ void ring_vm_info_ringvmpasserror(void *pPointer) {
 
 void ring_vm_info_ringvmhideerrormsg(void *pPointer) {
 	VM *pVM;
+	double nFlag;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		pVM->lHideErrorMsg = (int)RING_API_GETNUMBER(1);
+		nFlag = RING_API_GETNUMBER(1);
+		if ((nFlag != nFlag)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		pVM->lHideErrorMsg = (nFlag != RING_ZEROF);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
