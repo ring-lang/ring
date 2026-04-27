@@ -253,7 +253,7 @@ pivot
 Type: const char *
 cur
 Type: long
-i
+i, j
 ring_list_general_quicksortnum
 Type: long
 pi

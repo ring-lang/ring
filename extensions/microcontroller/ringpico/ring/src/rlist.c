@@ -818,10 +818,10 @@ long ring_list_general_partitionnum(double *keys, long *idx, long low, long high
 long ring_list_general_partitionstr(char **keys, long *idx, long low, long high) {
 	const char *pivot;
 	const char *cur;
-	long i;
+	long i, j;
 	pivot = keys[idx[high]];
 	i = low - 1;
-	for (long j = low; j <= high - 1; j++) {
+	for (j = low; j <= high - 1; j++) {
 		cur = keys[idx[j]];
 		if (strcmp(cur, pivot) <= 0) {
 			i++;
