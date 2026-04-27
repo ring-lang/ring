@@ -611,6 +611,7 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 	List *pList, *pList2;
 	int nParaCount;
 	unsigned int x, nColumn;
+	double dColumn;
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	nParaCount = RING_API_PARACOUNT;
@@ -635,7 +636,12 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 			}
 		} else {
 			if (RING_API_ISNUMBER(3)) {
-				nColumn = RING_API_GETNUMBER(3);
+				dColumn = RING_API_GETNUMBER(3);
+				if ((dColumn < RING_ZEROF) || (dColumn != dColumn) || (dColumn > (double)UINT_MAX)) {
+					RING_API_ERROR(RING_API_BADPARARANGE);
+					return;
+				}
+				nColumn = (unsigned int)dColumn;
 				if (RING_API_ISSTRING(2)) {
 					RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
 					    pVM->pRingState, pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));

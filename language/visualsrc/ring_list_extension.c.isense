@@ -77,8 +77,6 @@ Type: int
 nParaCount
 Type: unsigned int
 x, nPos, nColumn
-Type: double
-dColumn
 Type: char *
 cAttribute
 Type: VM *
