@@ -1,6 +1,7 @@
 ring_os_extension_h
 RING_VM_POINTER_LIBNAME
 RING_VM_UNSUPPORTEDFUNCTION
+RING_VM_RANDOMIZELIMIT
 Type: static LPFN_ISWOW64PROCESS
 fnCheckWindows64
 ring_vm_os_gettime

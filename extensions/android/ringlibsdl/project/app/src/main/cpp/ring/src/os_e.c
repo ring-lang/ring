@@ -435,16 +435,16 @@ void ring_vm_os_randomize(void *pPointer) {
 	#endif
 	if (RING_API_PARACOUNT == 0) {
 		/* Double have Integer precision up to 2^53 */
-		RING_API_RETNUMBER(nNum1 & 0x001FFFFFFFFFFFFF);
+		RING_API_RETNUMBER(nNum1 & RING_VM_RANDOMIZELIMIT);
 	} else if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
 			dNum2 = RING_API_GETNUMBER(1);
-			if ((dNum2 < RING_ZEROF) || (dNum2 != dNum2) || (dNum2 > (double)0x001FFFFFFFFFFFFF)) {
+			if ((dNum2 < RING_ZEROF) || (dNum2 != dNum2) || (dNum2 > (double)RING_VM_RANDOMIZELIMIT)) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
 			nNum2 = (RING_UNSIGNEDLONGLONG)dNum2;
-			RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
+			RING_API_RETNUMBER((nNum1 & RING_VM_RANDOMIZELIMIT) % ++nNum2);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}

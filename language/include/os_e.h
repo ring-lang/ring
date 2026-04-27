@@ -55,6 +55,7 @@ void ring_vm_os_syssleep(void *pPointer);
 #endif
 #define RING_VM_POINTER_LIBNAME "os"
 #define RING_VM_UNSUPPORTEDFUNCTION "Warning: This function is not supported in this build!"
+#define RING_VM_RANDOMIZELIMIT 0x001FFFFFFFFFFFFF
 #ifdef _WIN32
 typedef int(WINAPI *LPFN_ISWOW64PROCESS)(HANDLE, PBOOL);
 ;
