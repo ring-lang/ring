@@ -451,7 +451,7 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 			return;
 		}
 		x = RING_API_GETNUMBER(2);
-		if ((x < 0) || (x > ring_list_getsize_gc(pVM->pRingState, pList))) {
+		if ((x < 0) || (x != x) || (x > ring_list_getsize_gc(pVM->pRingState, pList))) {
 			RING_API_ERROR(RING_VM_ERROR_INDEXOUTOFRANGE);
 			return;
 		}
