@@ -15,6 +15,7 @@ void ring_vm_dll_loadlib(void *pPointer) {
 	VM *pVM;
 	RingState *pRingState;
 	unsigned int lRegister;
+	double dRegister;
 	pVM = (VM *)pPointer;
 	pRingState = pVM->pRingState;
 	lRegister = RING_TRUE;
@@ -24,7 +25,12 @@ void ring_vm_dll_loadlib(void *pPointer) {
 	}
 	if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(2)) {
-			lRegister = (unsigned int)RING_API_GETNUMBER(2);
+			dRegister = RING_API_GETNUMBER(2);
+			if ((dRegister < RING_ZEROF) || (dRegister != dRegister) || (dRegister > RING_ONEF)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			lRegister = (unsigned int)dRegister;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
