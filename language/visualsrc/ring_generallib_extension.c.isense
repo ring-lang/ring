@@ -234,6 +234,8 @@ Type: List *
 pList
 Type: RING_UNSIGNEDINTEGERPOINTER
 nNum
+Type: double
+dNum
 ring_vm_generallib_getpointer
 Type: List *
 pList
