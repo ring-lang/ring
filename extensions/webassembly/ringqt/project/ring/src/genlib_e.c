@@ -839,6 +839,10 @@ void ring_vm_generallib_copy(void *pPointer) {
 		if (RING_API_ISNUMBER(2)) {
 			cStr = RING_API_GETSTRING(1);
 			nStrSize = RING_API_GETSTRINGSIZE(1);
+			if (nStrSize == 0) {
+				RING_API_RETSTRING(RING_CSTR_EMPTY);
+				return;
+			}
 			nSize = RING_API_GETNUMBER(2);
 			if (nSize > 0) {
 				if (nSize > INT_MAX) {
