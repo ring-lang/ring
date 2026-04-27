@@ -160,8 +160,8 @@
 #define RING_BYTEBITS 8
 /* General */
 #if RING_LOWMEM
-	#define RING_PATHSIZE 128
-	#define RING_PATHLIMIT 256
+	#define RING_PATHSIZE 256
+	#define RING_PATHLIMIT 128
 #else
 	#define RING_PATHSIZE 8192
 	#define RING_PATHLIMIT 4096
