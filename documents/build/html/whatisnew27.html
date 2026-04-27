@@ -466,29 +466,26 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
+<li><p>Revise each function to ensure it terminates execution after displaying an error.</p></li>
 <li><p>DiffDays()/AddDays() - Better Implementation</p></li>
 <li><p>Sort() function - Better Performance</p></li>
-<li><p>Sort()/Find() - Return after displaying the error message</p></li>
 <li><p>BinarySearch() - Better Performance and Allows mixing types in the list</p></li>
 <li><p>Remove() - Correct error message when the argument count is incorrect</p></li>
-<li><p>LoadLib()/SysSleep() - Return after displaying the error message</p></li>
 <li><p>SysSleep() - Check nanosleep() output</p></li>
-<li><p>Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message</p></li>
-<li><p>Ring_State_Resume() - Return after displaying the error message</p></li>
 <li><p>Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage</p></li>
 <li><p>Ring_State_MainFile() - Use static allocation for storing the file name</p></li>
 <li><p>Ring_State_Delete() - Use: RING_API_SETNULLPOINTER</p></li>
 <li><p>Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag</p></li>
 <li><p>Ring_State_FindVar() - return zero if the variable is not found</p></li>
-<li><p>Unsigneed() function - Better Implementation - Remove unnecessary checks</p></li>
+<li><p>Unsigned() - Better Implementation - Remove unnecessary checks</p></li>
+<li><p>Unsigned() - Accept the operator before/after the numbers</p></li>
+<li><p>Unsigned() - Check variable size before the shift operation</p></li>
 <li><p>IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect</p></li>
 <li><p>Randomize() - Produce error when the value range is not correct</p></li>
 <li><p>Str2HexCStyle() - Check the string length before processing</p></li>
 <li><p>FGetPos() - Free allocated memory when the function fail</p></li>
 <li><p>FPutC()/UnGetC() - Check string size (Not less than 1 character)</p></li>
-<li><p>SubStr() - Check argument count and use return after printing type errors</p></li>
-<li><p>Unsigned() - Accept the operator before/after the numbers</p></li>
-<li><p>unsigned() - Check variable size before the shift operation</p></li>
+<li><p>SubStr() - Check argument count</p></li>
 <li><p>MemCpy() - Check negative size</p></li>
 <li><p>MergeMethods() - Avoid Self-merge</p></li>
 <li><p>Log() - Check divide by zero error</p></li>

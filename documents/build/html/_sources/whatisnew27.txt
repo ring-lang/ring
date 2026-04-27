@@ -279,29 +279,26 @@ Better Functions
 
 * Validate arguments and reject NaN or Inf values when they are not allowed
 * Produce an error when arguments are passed to functions that do not accept parameters
+* Revise each function to ensure it terminates execution after displaying an error.
 * DiffDays()/AddDays() - Better Implementation
 * Sort() function - Better Performance
-* Sort()/Find() - Return after displaying the error message
 * BinarySearch() - Better Performance and Allows mixing types in the list
 * Remove() - Correct error message when the argument count is incorrect
-* LoadLib()/SysSleep() - Return after displaying the error message
 * SysSleep() - Check nanosleep() output
-* Object2Pointer()/Pointer2Object()/Pointer2String() - Return after displaying the error message
-* Ring_State_Resume() - Return after displaying the error message
 * Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage
 * Ring_State_MainFile() - Use static allocation for storing the file name
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
 * Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
 * Ring_State_FindVar() - return zero if the variable is not found
-* Unsigneed() function - Better Implementation - Remove unnecessary checks
+* Unsigned() - Better Implementation - Remove unnecessary checks
+* Unsigned() - Accept the operator before/after the numbers 
+* Unsigned() - Check variable size before the shift operation
 * IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect
 * Randomize() - Produce error when the value range is not correct
 * Str2HexCStyle() - Check the string length before processing
 * FGetPos() - Free allocated memory when the function fail
 * FPutC()/UnGetC() - Check string size (Not less than 1 character)
-* SubStr() - Check argument count and use return after printing type errors
-* Unsigned() - Accept the operator before/after the numbers 
-* unsigned() - Check variable size before the shift operation
+* SubStr() - Check argument count 
 * MemCpy() - Check negative size
 * MergeMethods() - Avoid Self-merge
 * Log() - Check divide by zero error
