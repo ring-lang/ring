@@ -81,8 +81,6 @@ Type: unsigned int
 lCreateListsUsingBlocks : 1
 Type: PoolManager
 vPoolManager
-Type: char
-cOptional[2][RING_LARGEBUF]
 END:
 Type: RingState
 struct RingState
