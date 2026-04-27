@@ -709,7 +709,7 @@ void ring_vm_generallib_char(void *pPointer) {
 	}
 	if (RING_API_ISNUMBER(1)) {
 		x = RING_API_GETNUMBER(1);
-		if ((x < 0.0) || (x != x) || (x > 255.0)) {
+		if ((x < 0.0) || (x != x) || (x > (double)INT_MAX)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
