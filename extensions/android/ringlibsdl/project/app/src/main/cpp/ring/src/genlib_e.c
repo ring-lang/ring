@@ -442,6 +442,10 @@ void ring_vm_generallib_str2hex(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		cString = (unsigned char *)RING_API_GETSTRING(1);
 		nMax = RING_API_GETSTRINGSIZE(1);
+		if (nMax > (INT_MAX / 2)) {
+			RING_API_ERROR(RING_API_BADPARALENGTH);
+			return;
+		}
 		/* Pre-allocated the return value on the stack */
 		RING_API_RETSTRINGSIZE(nMax * 2);
 		cString2 = ring_string_get(RING_API_GETSTRINGRAW);
