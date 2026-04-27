@@ -26,6 +26,8 @@ Type: RING_UNSIGNEDLONGLONG
 nNum1 = 0,nNum2 = 0,nNum3 = 0
 Type: const char *
 cStr
+Type: double
+nNum
 ring_vm_math_decimals
 Type: double
 nNum1

@@ -263,6 +263,29 @@ void ring_vm_math_sqrt(void *pPointer) {
 void ring_vm_math_unsigned(void *pPointer) {
 	RING_UNSIGNEDLONGLONG nNum1 = 0, nNum2 = 0, nNum3 = 0;
 	const char *cStr;
+	double nNum;
+	/* Check numbers */
+	if ((RING_API_PARACOUNT >= 1) && RING_API_ISNUMBER(1)) {
+		nNum = RING_API_GETNUMBER(1);
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)(RING_LONGLONG_HIGHVALUE * 2))) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+	}
+	if ((RING_API_PARACOUNT >= 2) && RING_API_ISNUMBER(2)) {
+		nNum = RING_API_GETNUMBER(2);
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)(RING_LONGLONG_HIGHVALUE * 2))) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+	}
+	if ((RING_API_PARACOUNT == 3) && RING_API_ISNUMBER(3)) {
+		nNum = RING_API_GETNUMBER(3);
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)(RING_LONGLONG_HIGHVALUE * 2))) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+	}
 	if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISSTRING(2)) {
 			nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(1);
@@ -278,6 +301,9 @@ void ring_vm_math_unsigned(void *pPointer) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
 		}
+		nNum3 = ~nNum1;
+		RING_API_RETNUMBER((double)nNum3);
+		return;
 	}
 	if (RING_API_PARACOUNT != 3) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
