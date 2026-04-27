@@ -1437,8 +1437,9 @@ void ring_vm_generallib_getpointer(void *pPointer) {
 void ring_vm_generallib_memcpy(void *pPointer) {
 	void *pDest;
 	const void *pSrc;
-	size_t nNum;
 	List *pList;
+	size_t nNum;
+	double dNum;
 	RING_API_IGNORECPOINTERTYPE;
 	if (RING_API_PARACOUNT != 3) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -1464,11 +1465,12 @@ void ring_vm_generallib_memcpy(void *pPointer) {
 		pList = RING_API_GETLIST(2);
 		pSrc = (const void *)ring_list_getpointer(pList, RING_CPOINTER_POINTER);
 	}
-	if (RING_API_GETNUMBER(3) < 0) {
-		RING_API_ERROR(RING_API_BADPARAVALUE);
+	dNum = RING_API_GETNUMBER(3);
+	if ((dNum < 0) || (dNum != dNum) || (dNum > (double)UINT_MAX)) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
 		return;
 	}
-	nNum = (size_t)RING_API_GETNUMBER(3);
+	nNum = (size_t)dNum;
 	/* Call Function */
 	memcpy(pDest, pSrc, nNum);
 }

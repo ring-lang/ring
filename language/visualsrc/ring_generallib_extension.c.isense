@@ -242,10 +242,12 @@ Type: void *
 pDest
 Type: const void *
 pSrc
-Type: size_t
-nNum
 Type: List *
 pList
+Type: size_t
+nNum
+Type: double
+dNum
 ring_vm_generallib_state_init
 Type: RingState *
 pState
