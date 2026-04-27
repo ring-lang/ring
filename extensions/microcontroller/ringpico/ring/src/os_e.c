@@ -404,6 +404,7 @@ void ring_vm_os_uptime(void *pPointer) {
 
 void ring_vm_os_randomize(void *pPointer) {
 	RING_UNSIGNEDLONGLONG nNum1, nNum2;
+	double dNum2;
 	#if !defined(_WIN32)
 	struct timespec ts;
 	ring_vm_os_gettime(CLOCK_UPTIME, &ts);
@@ -437,12 +438,13 @@ void ring_vm_os_randomize(void *pPointer) {
 		RING_API_RETNUMBER(nNum1 & 0x001FFFFFFFFFFFFF);
 	} else if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			nNum2 = RING_API_GETNUMBER(1);
-			if (nNum2 > 0) {
-				RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
-			} else {
+			dNum2 = RING_API_GETNUMBER(1);
+			if ((dNum2 < RING_ZEROF) || (dNum2 != dNum2) || (dNum2 > (double)0x001FFFFFFFFFFFFF)) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
 			}
+			nNum2 = (RING_UNSIGNEDLONGLONG)dNum2;
+			RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}

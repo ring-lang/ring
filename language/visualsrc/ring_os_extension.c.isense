@@ -69,6 +69,8 @@ ts
 ring_vm_os_randomize
 Type: RING_UNSIGNEDLONGLONG
 nNum1,nNum2
+Type: double
+dNum2
 Type: struct timespec
 ts
 Type: LARGE_INTEGER
