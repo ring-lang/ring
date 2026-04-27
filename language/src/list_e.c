@@ -485,7 +485,8 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 void ring_vm_listfuncs_sort(void *pPointer) {
 	List *pList, *pList2, *pList3;
 	int nParaCount;
-	unsigned int x, nPos, nColumn;
+	unsigned int x, nPos, nColumn = 0;
+	double dColumn;
 	char *cAttribute;
 	VM *pVM;
 	pVM = (VM *)pPointer;
@@ -506,6 +507,15 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 		if (ring_list_getsize_gc(pVM->pRingState, pList) < 2) {
 			RING_API_RETLIST(pList2);
 			return;
+		}
+		/* Process column number */
+		if ((nParaCount >= 2) && RING_API_ISNUMBER(2)) {
+			dColumn = RING_API_GETNUMBER(2);
+			if ((dColumn < RING_ZEROF) || (dColumn != dColumn) || (dColumn > (double)UINT_MAX)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			nColumn = (unsigned int)dColumn;
 		}
 		if (nParaCount == 1) {
 			if (ring_list_isnumber_gc(pVM->pRingState, pList, RING_ONE)) {
@@ -534,7 +544,6 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 			}
 		} else if ((nParaCount == 2) && RING_API_ISNUMBER(2) &&
 			   ring_list_islist_gc(pVM->pRingState, pList, RING_ONE)) {
-			nColumn = RING_API_GETNUMBER(2);
 			pList3 = ring_list_getlist_gc(pVM->pRingState, pList, RING_ONE);
 			if (ring_list_isnumber_gc(pVM->pRingState, pList3, nColumn)) {
 				/* Check that all items are numbers */
@@ -566,7 +575,6 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 			}
 		} else if ((nParaCount == 3) && RING_API_ISNUMBER(2) &&
 			   ring_list_islist_gc(pVM->pRingState, pList, RING_ONE) && RING_API_ISSTRING(3)) {
-			nColumn = RING_API_GETNUMBER(2);
 			cAttribute = RING_API_GETSTRING(3);
 			ring_general_lower(cAttribute);
 			pList3 = ring_list_getlist_gc(pVM->pRingState, pList, RING_ONE);
