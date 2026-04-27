@@ -305,12 +305,18 @@ void ring_vm_generallib_ispointer(void *pPointer) {
 
 void ring_vm_generallib_hex(void *pPointer) {
 	char cStr[RING_MEDIUMBUF];
+	double nNum;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		sprintf(cStr, RING_UNSIGNEDLONGLONG_FORMAT, (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(1));
+		nNum = RING_API_GETNUMBER(1);
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > RING_LONGLONG_HIGHVALUE)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		sprintf(cStr, RING_UNSIGNEDLONGLONG_FORMAT, (RING_UNSIGNEDLONGLONG)nNum);
 		RING_API_RETSTRING(cStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

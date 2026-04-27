@@ -30,6 +30,8 @@ pVM
 ring_vm_generallib_ispointer
 ring_vm_generallib_hex
 cStr
+Type: double
+nNum
 ring_vm_generallib_dec
 Type: RING_UNSIGNEDLONGLONG
 x
