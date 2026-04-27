@@ -2251,6 +2251,7 @@ void ring_vm_generallib_input(void *pPointer) {
 	char cInput[RING_LARGEBUF];
 	char *cLine;
 	int nSize;
+	double dSize;
 	if (RING_API_PARACOUNT == 0) {
 		ring_general_readline(cInput, RING_LARGEBUF);
 		RING_API_RETSTRING(cInput);
@@ -2262,13 +2263,18 @@ void ring_vm_generallib_input(void *pPointer) {
 	}
 	/* Set nSize value */
 	if (RING_API_ISNUMBER(1)) {
-		nSize = RING_API_GETNUMBER(1);
+		dSize = RING_API_GETNUMBER(1);
 	} else if (RING_API_ISSTRING(1)) {
-		nSize = ring_vm_stringtonum((VM *)pPointer, RING_API_GETSTRING(1));
+		dSize = ring_vm_stringtonum((VM *)pPointer, RING_API_GETSTRING(1));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
+	if ((dSize < RING_ZEROF) || (dSize != dSize) || (dSize > (double)INT_MAX)) {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+		return;
+	}
+	nSize = (int)dSize;
 	if (nSize > 0) {
 		/*
 		**  Using RETSTRINGSIZE will allocate an empty string on the stack

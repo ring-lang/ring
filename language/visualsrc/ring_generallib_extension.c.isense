@@ -389,6 +389,8 @@ Type: char *
 cLine
 Type: int
 nSize
+Type: double
+dSize
 ring_vm_generallib_getchar
 Type: char
 cStr[RING_CHARBUF]
