@@ -2606,7 +2606,7 @@ int ring_vm_generallib_datefuncs_isdate(const unsigned char *cStr) {
 	char cBuffer[RING_SMALLBUF];
 	int nDay, nMonth, nYear;
 	int aDaysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	if ((strlen(cStr) == 10)) {
+	if ((strlen((const char *)cStr) == 10)) {
 		if (isdigit(cStr[0]) && isdigit(cStr[1]) && isdigit(cStr[3]) && isdigit(cStr[4]) && isdigit(cStr[6]) &&
 		    isdigit(cStr[7]) && isdigit(cStr[8]) && isdigit(cStr[9])) {
 			/* Check Separator */
