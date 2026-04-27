@@ -104,7 +104,7 @@ void ring_vm_listfuncs_del(void *pPointer) {
 		}
 		if (RING_API_ISNUMBER(2)) {
 			nNum1 = RING_API_GETNUMBER(2);
-			if ((nNum1 < 1) || (nNum1 > ring_list_getsize_gc(pVM->pRingState, pList))) {
+			if ((nNum1 < 1) || (nNum1 != nNum1) || (nNum1 > ring_list_getsize_gc(pVM->pRingState, pList))) {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
