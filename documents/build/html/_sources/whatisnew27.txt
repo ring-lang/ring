@@ -277,6 +277,8 @@ More Samples
 Better Functions
 ================
 
+* Validate arguments and reject NaN or Inf values when they are not allowed
+* Produce an error when arguments are passed to functions that do not accept parameters
 * DiffDays()/AddDays() - Better Implementation
 * Sort() function - Better Performance
 * Sort()/Find() - Return after displaying the error message
@@ -310,7 +312,6 @@ Better Functions
 * Dir() - Check the path length before using strcat() 
 * GetChar() - Return an empty string when we the getchar() output is EOF
 * LoadLib() - Close the DLL when the ringlib_init() function is missing
-* Produce error when arguments are passed to functions that do not accept any parameters
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 
