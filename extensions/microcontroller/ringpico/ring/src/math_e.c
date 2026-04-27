@@ -368,13 +368,19 @@ void ring_vm_math_decimals(void *pPointer) {
 
 void ring_vm_math_murmur3hash(void *pPointer) {
 	unsigned int nResult;
+	double nNum;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
 	}
 	if (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2)) {
+		nNum = RING_API_GETNUMBER(2);
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)UINT_MAX)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
 		nResult =
-		    ring_hashlib_murmurthree32(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1), RING_API_GETNUMBER(2));
+		    ring_hashlib_murmurthree32(RING_API_GETSTRING(1), RING_API_GETSTRINGSIZE(1), (unsigned int)nNum);
 		RING_API_RETNUMBER(nResult);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
