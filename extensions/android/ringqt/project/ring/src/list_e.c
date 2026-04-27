@@ -201,6 +201,10 @@ void ring_vm_listfuncs_list(void *pPointer) {
 			}
 			nSize = (unsigned int)nNum1;
 			nSize2 = (unsigned int)nNum2;
+			if ((nSize != 0) && (nSize2 > (unsigned int)RING_LIST_MAXSIZE / nSize)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
 			pList = RING_API_NEWLISTUSINGBLOCKS2D(nSize, nSize2);
 			RING_API_RETLISTBYREF(pList);
 			return;
