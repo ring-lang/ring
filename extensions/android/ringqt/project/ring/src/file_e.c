@@ -119,8 +119,9 @@ void ring_vm_file_tempfile(void *pPointer) {
 }
 
 void ring_vm_file_fseek(void *pPointer) {
-	int nResult;
 	FILE *pFile;
+	int nResult;
+	double dOffset, dWhence;
 	if (RING_API_PARACOUNT != 3) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return;
@@ -128,7 +129,17 @@ void ring_vm_file_fseek(void *pPointer) {
 	if (RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3)) {
 		pFile = (FILE *)RING_API_GETCPOINTER(1, RING_VM_POINTER_FILE);
 		RING_API_CHECKNULLPOINTER(pFile);
-		nResult = fseek(pFile, RING_API_GETNUMBER(2), RING_API_GETNUMBER(3));
+		dOffset = RING_API_GETNUMBER(2);
+		if ((dOffset < (double)LONG_MIN) || (dOffset != dOffset) || (dOffset > (double)LONG_MAX)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		dWhence = RING_API_GETNUMBER(3);
+		if (dWhence != 0.0 && dWhence != 1.0 && dWhence != 2.0) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		nResult = fseek(pFile, (long)dOffset, (int)dWhence);
 		RING_API_RETNUMBER(nResult);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

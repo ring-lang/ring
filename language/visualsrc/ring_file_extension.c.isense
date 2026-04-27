@@ -41,10 +41,12 @@ ring_vm_file_tempfile
 Type: FILE *
 pFile
 ring_vm_file_fseek
-Type: int
-nResult
 Type: FILE *
 pFile
+Type: int
+nResult
+Type: double
+dOffset,dWhence
 ring_vm_file_ftell
 Type: FILE *
 pFile
