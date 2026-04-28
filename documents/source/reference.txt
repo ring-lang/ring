@@ -549,6 +549,7 @@ Environment Errors
 * Error (E12) : HashTable size overflow!
 * Error (E13) : Reference count overflow!
 * Error (E14) : Can't read file
+* Error (E15) : Internal error (Unexpected Value)
 
 .. index:: 
 	pair: Language Specification; Language Grammar
