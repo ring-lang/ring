@@ -372,7 +372,7 @@ RING_API void ring_general_word(const char *cStr, unsigned int nIndex, char *cOu
 	nStart = 0;
 	if (nIndex != 1) {
 		nWord = 1;
-		while (nWord != nIndex) {
+		while ((nWord != nIndex) && (nStart != nSize)) {
 			if (cStr[++nStart] == ' ') {
 				nStart++;
 				nWord++;
