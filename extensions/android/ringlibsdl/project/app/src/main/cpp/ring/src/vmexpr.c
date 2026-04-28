@@ -825,7 +825,8 @@ void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 			RING_VM_STACK_SETNVALUE(0.0);
 		} else {
 			if (strcmp(cOperator, "<<") == 0) {
-				RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 << (RING_LONGLONG)nNum1));
+				RING_VM_STACK_SETNVALUE(
+				    (RING_LONGLONG)((RING_UNSIGNEDLONGLONG)nNum2 << (RING_LONGLONG)nNum1));
 			} else {
 				RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 >> (RING_LONGLONG)nNum1));
 			}
