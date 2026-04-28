@@ -123,6 +123,8 @@
 	#define RING_LONGLONG_HIGHVALUE 9007199254740991LL
 	#define RING_UNSIGNEDINTEGERPOINTER uintptr_t
 #endif
+/* Check NaN/Inf */
+#define RING_ISNOTFINITE(x) (((volatile double)(x)) != (x) || ((volatile double)(x)) * 0.0 != 0.0)
 /* DLL/So */
 #if RING_USEDLL
 	#if RING_BUILDLIB

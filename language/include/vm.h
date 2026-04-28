@@ -624,6 +624,7 @@ typedef struct VM {
 #define RING_VM_ERROR_RETURNINPARA "Error (R52) : Using Return inside function parameters is not allowed"
 #define RING_VM_ERROR_FUNCREDEFINE "Error (R53) : Function redefinition, function is already defined!"
 #define RING_VM_ERROR_ATTRREDEFINE "Error (R54) : Object attribute redefinition, attribute is already defined!"
+#define RING_VM_ERROR_VALUEISNOTFINITE "Error (R55) : The value is not finite (NaN/Inf)"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE (1024 * 128)
 #define RING_MAX(a, b) (((a) > (b)) ? (a) : (b))

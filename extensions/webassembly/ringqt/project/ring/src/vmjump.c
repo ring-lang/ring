@@ -30,6 +30,10 @@ void ring_vm_jumpfor(VM *pVM) {
 	**  nEnd = Items Count , nStart = Index
 	**  Here we write a condition to terminate the loop
 	*/
+	if (RING_ISNOTFINITE(nStart) || RING_ISNOTFINITE(nEnd) || RING_ISNOTFINITE(nStep)) {
+		ring_vm_error(pVM, RING_VM_ERROR_VALUEISNOTFINITE);
+		return;
+	}
 	if (((nStep < 0) && (nStart < nEnd)) || ((nStep > 0) && (nStart > nEnd)) || (nStep == 0)) {
 		RING_VM_JUMP;
 	}
