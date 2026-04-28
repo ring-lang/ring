@@ -778,19 +778,15 @@ void ring_vm_bitshr(VM *pVM) { ring_vm_bitshift(pVM, ">>"); }
 void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 	double nNum1, nNum2;
 	String *pStr1;
-	int lShift;
 	RING_LIST_CHECKOPERATIONONSUBLIST;
-	lShift = RING_FALSE;
 	if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;
 		RING_VM_STACK_POP;
 		if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISSTRING) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISPOINTER) {
 			ring_vm_exprnpoo(pVM, cOperator, nNum1);
 			return;
@@ -804,32 +800,28 @@ void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 		RING_VM_STACK_POP;
 		if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISSTRING) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISPOINTER) {
 			ring_vm_exprspoo(pVM, cOperator, ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
 		ring_vm_exprppoo(pVM, cOperator);
+		return;
 	}
-	if (lShift) {
-		if (nNum1 < 0) {
-			ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
-		} else if (nNum1 == 0) {
-			RING_VM_STACK_SETNVALUE(nNum2);
-		} else if (nNum1 >= (sizeof(RING_LONGLONG) * RING_BYTEBITS)) {
-			RING_VM_STACK_SETNVALUE(0.0);
+	if (nNum1 < 0) {
+		ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
+	} else if (nNum1 == 0) {
+		RING_VM_STACK_SETNVALUE(nNum2);
+	} else if (nNum1 >= (sizeof(RING_LONGLONG) * RING_BYTEBITS)) {
+		RING_VM_STACK_SETNVALUE(0.0);
+	} else {
+		if (strcmp(cOperator, "<<") == 0) {
+			RING_VM_STACK_SETNVALUE((RING_LONGLONG)((RING_UNSIGNEDLONGLONG)nNum2 << (RING_LONGLONG)nNum1));
 		} else {
-			if (strcmp(cOperator, "<<") == 0) {
-				RING_VM_STACK_SETNVALUE(
-				    (RING_LONGLONG)((RING_UNSIGNEDLONGLONG)nNum2 << (RING_LONGLONG)nNum1));
-			} else {
-				RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 >> (RING_LONGLONG)nNum1));
-			}
+			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 >> (RING_LONGLONG)nNum1));
 		}
 	}
 }
