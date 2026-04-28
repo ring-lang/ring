@@ -578,7 +578,6 @@ void ring_vm_generallib_list2str(void *pPointer) {
 		return;
 	}
 	pList = RING_API_GETLIST(1);
-	pString = ring_string_new_gc(((VM *)pPointer)->pRingState, RING_CSTR_EMPTY);
 	/* Set nStart */
 	nStart = 1;
 	if (RING_API_PARACOUNT >= 2) {
@@ -617,6 +616,7 @@ void ring_vm_generallib_list2str(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARARANGE);
 		return;
 	}
+	pString = ring_string_new_gc(((VM *)pPointer)->pRingState, RING_CSTR_EMPTY);
 	for (x = nStart; x <= nMax; x++) {
 		if (ring_list_isstring(pList, x)) {
 			if (x != 1) {
