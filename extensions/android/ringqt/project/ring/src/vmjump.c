@@ -57,10 +57,16 @@ void ring_vm_jumpzero(VM *pVM) {
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pList = ring_item_getlist(pItem);
+		} else {
+			ring_vm_error(pVM, RING_INTERNALERROR);
+			return;
 		}
 		if (ring_vm_listtologicvalue(pVM, pList) == 0) {
 			RING_VM_JUMP;
 		}
+	} else {
+		ring_vm_error(pVM, RING_INTERNALERROR);
+		return;
 	}
 	RING_VM_STACK_POP;
 }
@@ -83,10 +89,16 @@ void ring_vm_jumpone(VM *pVM) {
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pList = ring_item_getlist(pItem);
+		} else {
+			ring_vm_error(pVM, RING_INTERNALERROR);
+			return;
 		}
 		if (ring_vm_listtologicvalue(pVM, pList) != 0) {
 			RING_VM_JUMP;
 		}
+	} else {
+		ring_vm_error(pVM, RING_INTERNALERROR);
+		return;
 	}
 	RING_VM_STACK_POP;
 }
@@ -113,6 +125,9 @@ void ring_vm_jumpone2(VM *pVM) {
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pList = ring_item_getlist(pItem);
+		} else {
+			ring_vm_error(pVM, RING_INTERNALERROR);
+			return;
 		}
 		if (ring_vm_listtologicvalue(pVM, pList) != 0) {
 			if (!(ring_vm_oop_isobject(pVM, pList) &&
@@ -122,6 +137,9 @@ void ring_vm_jumpone2(VM *pVM) {
 			}
 			return;
 		}
+	} else {
+		ring_vm_error(pVM, RING_INTERNALERROR);
+		return;
 	}
 	/* Add zero, required for jump in many 'OR' in conditions */
 	RING_VM_STACK_POP;
@@ -151,6 +169,9 @@ void ring_vm_jumpzero2(VM *pVM) {
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pList = ring_item_getlist(pItem);
+		} else {
+			ring_vm_error(pVM, RING_INTERNALERROR);
+			return;
 		}
 		if (ring_vm_listtologicvalue(pVM, pList) == 0) {
 			RING_VM_STACK_SETNVALUE(RING_FALSEF);
@@ -160,6 +181,9 @@ void ring_vm_jumpzero2(VM *pVM) {
 		if (ring_vm_oop_isobject(pVM, pList) && ring_vm_oop_ismethod(pVM, pList, RING_CSTR_OPERATOR)) {
 			return;
 		}
+	} else {
+		ring_vm_error(pVM, RING_INTERNALERROR);
+		return;
 	}
 	/* Add one, required for jump in many 'AND' in conditions */
 	RING_VM_STACK_POP;
