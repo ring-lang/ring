@@ -170,8 +170,9 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		return RING_FALSE;
 	}
 	fseek(fObj, 0, SEEK_SET);
-	cBuffer = (char *)ring_state_malloc(pRingState, nSize);
+	cBuffer = (char *)ring_state_malloc(pRingState, nSize + 1);
 	nCount = fread(cBuffer, 1, nSize, fObj);
+	cBuffer[nSize] = '\0';
 	if ((nSize == RING_ZERO) || (nCount != nSize) || (nSize < RING_OBJFILE_MINSIZE) ||
 	    (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
 		printf(RING_OBJFILEWRONGTYPE);
