@@ -459,11 +459,31 @@ void ring_vm_beforeequallist(VM *pVM, List *pVar, double nNum1, int nBeforeEqual
 			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, (int)RING_VAR_GETNUMBER(pVar) ^ (int)nNum1);
 			break;
 		case OP_SHLEQUAL:
-			nOutput = (int)RING_VAR_GETNUMBER(pVar) << (int)nNum1;
-			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, (double)nOutput);
+			/* Check values */
+			if (nNum1 < RING_ZERO) {
+				ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
+			} else if (nNum1 == RING_ZERO) {
+				break;
+			} else if (nNum1 >= (sizeof(RING_LONGLONG) * RING_BYTEBITS)) {
+				RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, RING_ZERO);
+			} else {
+				nOutput = (RING_LONGLONG)((RING_UNSIGNEDLONGLONG)RING_VAR_GETNUMBER(pVar)
+							  << (RING_LONGLONG)nNum1);
+				RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, (double)nOutput);
+			}
 			break;
 		case OP_SHREQUAL:
-			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, (int)RING_VAR_GETNUMBER(pVar) >> (int)nNum1);
+			/* Check values */
+			if (nNum1 < RING_ZERO) {
+				ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
+			} else if (nNum1 == RING_ZERO) {
+				break;
+			} else if (nNum1 >= (sizeof(RING_LONGLONG) * RING_BYTEBITS)) {
+				RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, RING_ZERO);
+			} else {
+				nOutput = (RING_LONGLONG)RING_VAR_GETNUMBER(pVar) >> (RING_LONGLONG)nNum1;
+				RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, (double)nOutput);
+			}
 			break;
 		case OP_POWEQUAL:
 			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, pow(RING_VAR_GETNUMBER(pVar), nNum1));
