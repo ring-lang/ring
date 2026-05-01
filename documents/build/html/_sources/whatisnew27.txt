@@ -309,6 +309,7 @@ Better Functions
 * Dir() - Check the path length before using strcat() 
 * GetChar() - Return an empty string when we the getchar() output is EOF
 * LoadLib() - Close the DLL when the ringlib_init() function is missing
+* System() - Return the function output
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 
