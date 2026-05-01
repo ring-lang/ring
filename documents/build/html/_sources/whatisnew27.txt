@@ -310,6 +310,7 @@ Better Functions
 * GetChar() - Return an empty string when we the getchar() output is EOF
 * LoadLib() - Close the DLL when the ringlib_init() function is missing
 * System() - Return the function output
+* Assert() - Follow Ring's rules for evaluating values as True or False
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 
