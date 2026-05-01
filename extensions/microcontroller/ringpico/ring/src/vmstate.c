@@ -44,10 +44,10 @@ void ring_vm_savestate(VM *pVM, List *pList) {
 	pVMState->aPointers[0] = pVM->pBraceObject;
 	pVMState->aPointers[1] = (void *)pVM->cFileName;
 	pVMState->aPointers[2] = pVM->pActiveMem;
+	pVMState->aPointers[3] = RING_VAR_GETPOINTER(pThis);
 	pVMState->aPointers[4] = pVM->pPCBlockFlag;
 	pVMState->aPointers[5] = pVM->pGetSetObject;
 	pVMState->aPointers[6] = pVM->pAssignment;
-	pVMState->aPointers[7] = RING_VAR_GETPOINTER(pThis);
 }
 
 void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int nFlag) {
@@ -177,7 +177,7 @@ void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int 
 	pVM->nCallClassInit = pVMState->aNumbers[28];
 	/* Restore This variable */
 	pThis = pVM->pThis;
-	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, pVMState->aPointers[7]);
+	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, pVMState->aPointers[3]);
 	RING_VAR_SETPVALUETYPE(pThis, pVMState->aNumbers[29]);
 	/* Process aListsToDelete */
 	for (x = 1; x <= ring_list_getsize(aListsToDelete); x++) {
