@@ -311,6 +311,7 @@ Better Functions
 * LoadLib() - Close the DLL when the ringlib_init() function is missing
 * System() - Return the function output
 * Assert() - Follow Ring's rules for evaluating values as True or False
+* Time()/TimeList()/Date() - Thread safe usage for localtime() 
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 
