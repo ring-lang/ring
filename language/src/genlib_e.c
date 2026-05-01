@@ -1143,17 +1143,30 @@ void ring_vm_generallib_raise(void *pPointer) {
 }
 
 void ring_vm_generallib_assert(void *pPointer) {
+	int lPass = RING_TRUE;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		if (RING_API_GETNUMBER(1) != 1) {
-			RING_API_ERROR(RING_VM_ERROR_ASSERTIONFAILED);
-			return;
+		if (RING_API_GETNUMBER(1) == RING_ZERO) {
+			lPass = RING_FALSE;
+		}
+	} else if (RING_API_ISSTRING(1)) {
+		if (strcmp(RING_API_GETSTRING(1), RING_CSTR_EMPTY) == 0) {
+			lPass = RING_FALSE;
+		}
+	} else if (RING_API_ISLIST(1)) {
+		if ((ring_list_getsize(RING_API_GETLIST(1)) == RING_ZERO) ||
+		    (RING_API_ISCPOINTER(1) &&
+		     ring_list_getpointer(RING_API_GETLIST(1), RING_CPOINTER_POINTER) == NULL)) {
+			lPass = RING_FALSE;
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	if (!lPass) {
+		RING_API_ERROR(RING_VM_ERROR_ASSERTIONFAILED);
 	}
 }
 

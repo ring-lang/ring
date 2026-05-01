@@ -170,6 +170,8 @@ Type: VM *
 pVM
 ring_vm_generallib_raise
 ring_vm_generallib_assert
+Type: int
+lPass
 ring_vm_generallib_filename
 Type: VM *
 pVM
