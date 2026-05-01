@@ -348,3 +348,4 @@ More Improvements
 * Ring VM - Support using Computed Goto (optional feature when building Ring VM)
 * Ring VM - Added Zero-Divisor Check to /= and %= operators
 * Ring VM - Check values before the shift operations 
+* Ring VM - Object File - Check ring_general_fopen() output before usage
