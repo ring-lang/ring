@@ -436,9 +436,17 @@ void ring_vm_beforeequallist(VM *pVM, List *pVar, double nNum1, int nBeforeEqual
 			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, RING_VAR_GETNUMBER(pVar) * nNum1);
 			break;
 		case OP_DIVEQUAL:
+			if (nNum1 == RING_ZERO) {
+				ring_vm_error(pVM, RING_VM_ERROR_DIVIDEBYZERO);
+				return;
+			}
 			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, RING_VAR_GETNUMBER(pVar) / nNum1);
 			break;
 		case OP_MODEQUAL:
+			if (nNum1 == RING_ZERO) {
+				ring_vm_error(pVM, RING_VM_ERROR_DIVIDEBYZERO);
+				return;
+			}
 			RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, fmod(RING_VAR_GETNUMBER(pVar), nNum1));
 			break;
 		case OP_BITANDEQUAL:
@@ -492,9 +500,17 @@ void ring_vm_beforeequalitem(VM *pVM, Item *pItem, double nNum1, int nBeforeEqua
 			ring_item_setdouble_gc(pVM->pRingState, pItem, ring_item_getdouble(pItem) * nNum1);
 			break;
 		case OP_DIVEQUAL:
+			if (nNum1 == RING_ZERO) {
+				ring_vm_error(pVM, RING_VM_ERROR_DIVIDEBYZERO);
+				return;
+			}
 			ring_item_setdouble_gc(pVM->pRingState, pItem, ring_item_getdouble(pItem) / nNum1);
 			break;
 		case OP_MODEQUAL:
+			if (nNum1 == RING_ZERO) {
+				ring_vm_error(pVM, RING_VM_ERROR_DIVIDEBYZERO);
+				return;
+			}
 			ring_item_setdouble_gc(pVM->pRingState, pItem, fmod(ring_item_getdouble(pItem), nNum1));
 			break;
 		case OP_BITANDEQUAL:
