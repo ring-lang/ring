@@ -413,6 +413,8 @@ Type: char
 cBuffer[RING_SMALLBUF]
 Type: struct tm*
 vTimeInfo
+Type: VM *
+pVM
 ring_vm_generallib_timelist
 Type: time_t
 vTimer
@@ -422,6 +424,8 @@ Type: struct tm*
 vTimeInfo
 Type: List *
 pList
+Type: VM *
+pVM
 ring_vm_generallib_date
 Type: time_t
 vTimer
@@ -429,6 +433,8 @@ Type: char
 cBuffer[RING_SMALLBUF]
 Type: struct tm*
 vTimeInfo
+Type: VM *
+pVM
 ring_vm_generallib_adddays
 Type: const unsigned char *
 cStr
