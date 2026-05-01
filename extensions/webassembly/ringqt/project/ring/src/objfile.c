@@ -16,6 +16,10 @@ RING_API void ring_objfile_writecontent(RingState *pRingState, char *cFileName, 
 	FILE *fObj;
 	/* Create File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "w+b");
+	if (fObj == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, cFileName);
+		return;
+	}
 	fprintf(fObj, "# Ring Object File\n");
 	fprintf(fObj, RING_OBJFILE_VERSION);
 	fprintf(fObj, "\n");
@@ -382,6 +386,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	cCodeFileName[nSize - 4] = 'c';
 	cCodeFileName[nSize - 3] = '\0';
 	fCode = (FILE *)ring_general_fopen(cCodeFileName, "w+b");
+	if (fCode == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, cCodeFileName);
+		return;
+	}
 	/* write the main function */
 	fprintf(fCode, "#include \"ring.h\" \n\n");
 	fprintf(fCode, "#include \"ringappcode.h\" \n\n");
@@ -405,6 +413,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	/* Create ringappcode.c */
 	fclose(fCode);
 	fCode = (FILE *)ring_general_fopen("ringappcode.c", "w+b");
+	if (fCode == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, "ringappcode.c");
+		return;
+	}
 	fprintf(fCode, "#include \"ringappcode.h\" \n\n");
 	fprintf(fCode, "void loadRingCode(RingState *pRingState) {\n");
 	fprintf(fCode, "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n");
@@ -431,6 +443,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	fclose(fCode);
 	/* Declare functions that load the Ring code */
 	fCode2 = (FILE *)ring_general_fopen("ringappcode.h", "w+b");
+	if (fCode2 == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, "ringappcode.h");
+		return;
+	}
 	fprintf(fCode2, "#include \"ring.h\" \n\n");
 	fprintf(fCode2, "void loadRingCode(RingState *pRingState) ;\n\n");
 	for (x = 1; x <= nFunction; x++) {
@@ -468,6 +484,10 @@ RING_API int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List
 				/* Create another source file */
 				sprintf(cFileName, "ringappcode%d.c", nFunction);
 				fCode = (FILE *)ring_general_fopen(cFileName, "w+b");
+				if (fCode == NULL) {
+					printf("%s %s \n", RING_CANTOPENFILE, cFileName);
+					return RING_FALSE;
+				}
 				fprintf(fCode, "#include \"ring.h\" \n\n");
 				fprintf(fCode, "#include \"ringappcode.h\" \n\n");
 				/* Start New Functions */
