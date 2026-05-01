@@ -2349,17 +2349,22 @@ void ring_vm_generallib_time(void *pPointer) {
 	time_t vTimer;
 	char cBuffer[RING_SMALLBUF];
 	struct tm *vTimeInfo;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 0) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
+	ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
 	if (vTimeInfo == NULL) {
+		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 		RING_API_ERROR(RING_VM_GENERALLIB_TIMEROVERFLOW);
 		return;
 	}
 	strftime(cBuffer, RING_SMALLBUF, "%H:%M:%S", vTimeInfo);
+	ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 	RING_API_RETSTRING(cBuffer);
 }
 
@@ -2368,14 +2373,18 @@ void ring_vm_generallib_timelist(void *pPointer) {
 	char cBuffer[RING_SMALLBUF];
 	struct tm *vTimeInfo;
 	List *pList;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 0) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	pList = RING_API_NEWLIST;
+	ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
 	if (vTimeInfo == NULL) {
+		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 		RING_API_ERROR(RING_VM_GENERALLIB_TIMEROVERFLOW);
 		return;
 	}
@@ -2445,6 +2454,7 @@ void ring_vm_generallib_timelist(void *pPointer) {
 	/* percent sign */
 	strftime(cBuffer, RING_SMALLBUF, "%%", vTimeInfo);
 	ring_list_addstring_gc(((VM *)pPointer)->pRingState, pList, cBuffer);
+	ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 	RING_API_RETLISTBYREF(pList);
 }
 
@@ -2452,18 +2462,23 @@ void ring_vm_generallib_date(void *pPointer) {
 	time_t vTimer;
 	char cBuffer[RING_SMALLBUF];
 	struct tm *vTimeInfo;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 0) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
+	ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 	time(&vTimer);
 	vTimeInfo = localtime(&vTimer);
 	if (vTimeInfo == NULL) {
+		ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 		RING_API_ERROR(RING_VM_GENERALLIB_TIMEROVERFLOW);
 		return;
 	}
 	strftime(cBuffer, RING_SMALLBUF, "%d/%m/%Y", vTimeInfo);
 	RING_API_RETSTRING(cBuffer);
+	ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_LOCALTIME]);
 }
 
 void ring_vm_generallib_adddays(void *pPointer) {

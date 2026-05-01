@@ -206,4 +206,6 @@ void ring_vm_generallib_diffdays(void *pPointer);
 int ring_vm_generallib_adddays_isleapyear(int nYear);
 
 int ring_vm_generallib_datefuncs_isdate(const unsigned char *cStr);
+
+struct tm *safelocaltime(VM *pVM, const time_t *timer);
 #endif
