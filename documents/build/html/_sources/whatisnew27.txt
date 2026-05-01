@@ -346,4 +346,5 @@ More Improvements
 * Ring VM - Using preprocessor to access the members of the Variable list
 * Ring VM - Check NULL in C extensions (RING_API_CHECKNULLPOINTER(ptr))
 * Ring VM - Support using Computed Goto (optional feature when building Ring VM)
-* Ring VM - Added Zero-Divisor Check to /= and %= operators 
+* Ring VM - Added Zero-Divisor Check to /= and %= operators
+* Ring VM - Check values before the shift operations 
