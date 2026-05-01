@@ -260,7 +260,7 @@ RING_API char *ring_general_lower(char *cStr) {
 	nLen = strlen(cStr);
 	for (x = RING_ZERO; x < nLen; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
-			cStr[x] = tolower(cStr[x]);
+			cStr[x] = tolower((unsigned char)cStr[x]);
 		}
 	}
 	return cStr;
@@ -270,7 +270,7 @@ RING_API char *ring_general_lower2(char *cStr, unsigned int nStrSize) {
 	unsigned int x;
 	for (x = RING_ZERO; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
-			cStr[x] = tolower(cStr[x]);
+			cStr[x] = tolower((unsigned char)cStr[x]);
 		}
 	}
 	return cStr;
@@ -281,7 +281,7 @@ RING_API char *ring_general_upper(char *cStr) {
 	nLen = strlen(cStr);
 	for (x = RING_ZERO; x < nLen; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
-			cStr[x] = toupper(cStr[x]);
+			cStr[x] = toupper((unsigned char)cStr[x]);
 		}
 	}
 	return cStr;
@@ -291,7 +291,7 @@ RING_API char *ring_general_upper2(char *cStr, unsigned int nStrSize) {
 	unsigned int x;
 	for (x = RING_ZERO; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
-			cStr[x] = toupper(cStr[x]);
+			cStr[x] = toupper((unsigned char)cStr[x]);
 		}
 	}
 	return cStr;
