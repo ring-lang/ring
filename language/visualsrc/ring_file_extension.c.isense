@@ -134,6 +134,8 @@ Type: size_t
 nCount
 Type: char *
 cBuffer
+Type: unsigned int
+lError
 ring_vm_file_write
 Type: FILE *
 pFile

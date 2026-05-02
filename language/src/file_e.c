@@ -483,6 +483,7 @@ void ring_vm_file_read(void *pPointer) {
 	long int nSize;
 	size_t nCount;
 	char *cBuffer;
+	unsigned int lError = RING_TRUE;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
@@ -493,14 +494,17 @@ void ring_vm_file_read(void *pPointer) {
 			RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
 			return;
 		}
-		fseek(pFile, 0, SEEK_END);
-		nSize = ftell(pFile);
-		if (nSize == -1) {
+		if (fseek(pFile, 0, SEEK_END) == 0) {
+			nSize = ftell(pFile);
+			if ((nSize != -1) && (fseek(pFile, 0, SEEK_SET) == 0)) {
+				lError = RING_FALSE;
+			}
+		}
+		if (lError) {
 			fclose(pFile);
 			RING_API_ERROR(RING_CANTREADFILE);
 			return;
 		}
-		fseek(pFile, 0, SEEK_SET);
 		RING_API_RETSTRINGSIZE(nSize);
 		cBuffer = ring_string_get(RING_API_GETSTRINGRAW);
 		nCount = fread(cBuffer, 1, nSize, pFile);
