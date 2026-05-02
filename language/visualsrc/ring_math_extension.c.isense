@@ -14,13 +14,15 @@ ring_vm_math_tanh
 ring_vm_math_exp
 ring_vm_math_log
 Type: double
-nNum
+nValue, nBase
 ring_vm_math_log10
 ring_vm_math_ceil
 ring_vm_math_floor
 ring_vm_math_fabs
 ring_vm_math_pow
 ring_vm_math_sqrt
+Type: double
+nNum
 ring_vm_math_unsigned
 Type: RING_UNSIGNEDLONGLONG
 nNum1 = 0,nNum2 = 0,nNum3 = 0

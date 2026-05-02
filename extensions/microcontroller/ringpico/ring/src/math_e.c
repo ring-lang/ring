@@ -162,26 +162,37 @@ void ring_vm_math_exp(void *pPointer) {
 }
 
 void ring_vm_math_log(void *pPointer) {
-	double nNum;
+	double nValue, nBase;
 	if ((RING_API_PARACOUNT != 1) && (RING_API_PARACOUNT != 2)) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			RING_API_RETNUMBER(log(RING_API_GETNUMBER(1)));
+			nValue = RING_API_GETNUMBER(1);
+			if (nValue <= RING_ZERO) {
+				RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+				return;
+			}
+			RING_API_RETNUMBER(log(nValue));
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
 	}
 	if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2)) {
-			nNum = log10(RING_API_GETNUMBER(2));
-			if (nNum == RING_ZERO) {
+			nValue = RING_API_GETNUMBER(1);
+			nBase = RING_API_GETNUMBER(2);
+			if (nValue <= RING_ZERO || nBase <= RING_ZERO) {
+				RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+				return;
+			}
+			nBase = log10(nBase);
+			if (nBase == RING_ZERO) {
 				RING_API_ERROR(RING_VM_ERROR_DIVIDEBYZERO);
 				return;
 			}
-			RING_API_RETNUMBER(log10(RING_API_GETNUMBER(1)) / nNum);
+			RING_API_RETNUMBER(log10(nValue) / nBase);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
@@ -249,12 +260,18 @@ void ring_vm_math_pow(void *pPointer) {
 }
 
 void ring_vm_math_sqrt(void *pPointer) {
+	double nNum;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		RING_API_RETNUMBER(sqrt(RING_API_GETNUMBER(1)));
+		nNum = RING_API_GETNUMBER(1);
+		if (nNum < RING_ZERO) {
+			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+			return;
+		}
+		RING_API_RETNUMBER(sqrt(nNum));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
