@@ -334,7 +334,7 @@ More Improvements
 * Ring VM - ring_vm_oop_preparecallmethodfrombrace() - Better Code
 * Ring VM - ring_vm_oop_movetobeforeobjstate() - Better Performance
 * Ring VM - ring_vm_loadfunc2() - Better Code - Logical order of instructions 
-* Ring VM - ring_objfile_processfile() - Better Code  
+* Ring VM - ring_objfile_processfile() - Check fseek()/ftell() output  
 * Ring VM - ring_vm_mod() - Check values before processing  
 * Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers
 * Ring VM - Save/Restore state when using Braces - Better Performance
