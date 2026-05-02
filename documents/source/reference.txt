@@ -527,7 +527,7 @@ Runtime Errors
 * Error (R52) : Using Return inside function parameters is not allowed
 * Error (R53) : Function redefinition, function is already defined!
 * Error (R54) : Object attribute redefinition, attribute is already defined!
-
+* Error (R55) : The value is not finite (NaN/Inf)
 
 .. index:: 
 	pair: Language Specification; Environment Errors
