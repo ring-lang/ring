@@ -66,24 +66,36 @@ void ring_vm_math_tan(void *pPointer) {
 }
 
 void ring_vm_math_asin(void *pPointer) {
+	double nNum;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		RING_API_RETNUMBER(asin(RING_API_GETNUMBER(1)));
+		nNum = RING_API_GETNUMBER(1);
+		if ((nNum < -1.0) || (nNum > 1.0)) {
+			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+			return;
+		}
+		RING_API_RETNUMBER(asin(nNum));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
 
 void ring_vm_math_acos(void *pPointer) {
+	double nNum;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		RING_API_RETNUMBER(acos(RING_API_GETNUMBER(1)));
+		nNum = RING_API_GETNUMBER(1);
+		if ((nNum < -1.0) || (nNum > 1.0)) {
+			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+			return;
+		}
+		RING_API_RETNUMBER(acos(nNum));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

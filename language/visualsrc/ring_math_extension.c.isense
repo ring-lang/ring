@@ -5,7 +5,11 @@ ring_vm_math_sin
 ring_vm_math_cos
 ring_vm_math_tan
 ring_vm_math_asin
+Type: double
+nNum
 ring_vm_math_acos
+Type: double
+nNum
 ring_vm_math_atan
 ring_vm_math_atan2
 ring_vm_math_sinh
