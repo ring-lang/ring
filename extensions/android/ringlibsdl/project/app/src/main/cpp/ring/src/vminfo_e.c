@@ -424,7 +424,7 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 	VM *pVM;
 	List *pList;
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack;
-	unsigned int nSize;
+	size_t nSize;
 	int lOutput;
 	char *cBuffer;
 	pVM = (VM *)pPointer;
@@ -437,7 +437,7 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 		return;
 	}
 	cBuffer = RING_API_GETSTRING(1);
-	nSize = RING_API_GETSTRINGSIZE(1);
+	nSize = (size_t)RING_API_GETSTRINGSIZE(1);
 	if ((nSize == RING_ZERO) || (nSize < RING_OBJFILE_MINSIZE) || (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
 		RING_API_ERROR(RING_OBJFILEWRONGTYPE);
 		return;

@@ -34,12 +34,12 @@ Type: int
 lFail
 ring_objfile_processfile
 fObj
-Type: long int
-nSize
-Type: size_t
-nCount
 Type: char *
 cBuffer
+Type: size_t
+nSize, nCount
+Type: long int
+nTemp
 Type: unsigned int
 lOutput,lError=RING_TRUE
 ring_objfile_processstring
@@ -58,10 +58,10 @@ cFileType[RING_MEDIUMBUF]
 Type: List *
 pList
 ring_objfile_xorstring
-Type: unsigned int
+Type: size_t
 x
 ring_objfile_readc
-Type: unsigned int
+Type: size_t
 x
 ring_objfile_getc
 ring_objfile_writeCfile

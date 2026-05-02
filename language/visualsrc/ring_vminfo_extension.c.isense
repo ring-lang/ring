@@ -115,7 +115,7 @@ Type: List *
 pList
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack
-Type: unsigned int
+Type: size_t
 nSize
 Type: int
 lOutput
