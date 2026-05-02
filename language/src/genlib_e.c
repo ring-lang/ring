@@ -658,11 +658,12 @@ void ring_vm_generallib_str2hexcstyle(void *pPointer) {
 			cString2[(x - 1) * 5] = ',';
 			cString2[(x - 1) * 5 + 1] = '0';
 			cString2[(x - 1) * 5 + 2] = 'x';
-			cString2[(x - 1) * 5 + 3] = cStr[0];
 			if (cStr[1] != '\0') {
+				cString2[(x - 1) * 5 + 3] = cStr[0];
 				cString2[((x - 1) * 5) + 4] = cStr[1];
 			} else {
-				cString2[((x - 1) * 5) + 4] = ' ';
+				cString2[(x - 1) * 5 + 3] = '0';
+				cString2[((x - 1) * 5) + 4] = cStr[0];
 			}
 		}
 		/* Pass the first letter to avoid the first comma */
