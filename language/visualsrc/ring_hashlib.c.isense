@@ -30,6 +30,4 @@ i
 Type: const unsigned char *
 tail
 Type: unsigned int
-k1
-Type: unsigned int
-k
+k, k1
