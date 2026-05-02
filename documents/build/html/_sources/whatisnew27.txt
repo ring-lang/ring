@@ -334,6 +334,7 @@ More Improvements
 * Ring VM - ring_vm_oop_movetobeforeobjstate() - Better Performance
 * Ring VM - ring_vm_loadfunc2() - Better Code - Logical order of instructions 
 * Ring VM - ring_objfile_processfile() - Check fseek()/ftell() output  
+* Ring VM - ring_vm_file_read() - Check fseek() output
 * Ring VM - ring_vm_mod() - Check values before processing  
 * Ring VM - ring_hashtable_rebuild_gc() - Check overflow 
 * Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read
