@@ -340,6 +340,7 @@ More Improvements
 * Ring VM - ring_vm_mod() - Check values before processing  
 * Ring VM - ring_hashtable_rebuild_gc() - Check overflow 
 * Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read
+* Ring VM - ring_string_add2_gc() - Check string capacity overflow 
 * Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers
 * Ring VM - Save/Restore state when using Braces - Better Performance
 * Ring VM - pObjState information - Use array of structure instead of Ring Lists
