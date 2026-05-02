@@ -295,6 +295,7 @@ Better Functions
 * Unsigned() - Check variable size before the shift operation
 * IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect
 * Randomize() - Produce error when the value range is not correct
+* Randomize() - Respect C strict-aliasing rules
 * Str2HexCStyle() - Check the string length before processing
 * FGetPos() - Free allocated memory when the function fail
 * FPutC()/UnGetC() - Check string size (Not less than 1 character)
