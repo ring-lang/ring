@@ -356,3 +356,4 @@ More Improvements
 * Ring VM - Check values before the shift operations 
 * Ring VM - Object File - Check ring_general_fopen() output before usage
 * Ring VM - Object File - Check buffer overflow with user-controlled filename
+* Ring VM - Object File - Use size_t in functions used for processing the file
