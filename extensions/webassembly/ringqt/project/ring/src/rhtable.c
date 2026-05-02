@@ -163,6 +163,10 @@ RING_API void ring_hashtable_rebuild_gc(void *pRingState, HashTable *pHashTable)
 	pOldArray = pHashTable->pArray;
 	nOldLinkedLists = pHashTable->nLinkedLists;
 	/* Create the new, larger table structure */
+	if ((pHashTable->nLinkedLists >= (UINT_MAX / 2)) || (pHashTable->nRebuildSize >= (UINT_MAX / 2))) {
+		printf(RING_HASHTABLESIZEOVERFLOW);
+		exit(RING_EXIT_FAIL);
+	}
 	pHashTable->nRebuildSize *= 2;
 	pHashTable->nLinkedLists *= 2;
 	pHashTable->pArray = (HashItem **)ring_state_calloc(pRingState, pHashTable->nLinkedLists, sizeof(HashItem *));
