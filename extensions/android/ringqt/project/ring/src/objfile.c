@@ -5,6 +5,10 @@
 RING_API void ring_objfile_writefile(RingState *pRingState) {
 	char cFileName[RING_HUGEBUF];
 	/* Set the file name */
+	if (ring_list_getstringsize(pRingState->pRingFilesList, RING_ONE) + 2 > RING_HUGEBUF) {
+		printf(RING_BUFFEROVERFLOW);
+		return;
+	}
 	sprintf(cFileName, "%so", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
 	/* Write the file */
 	ring_objfile_writecontent(pRingState, cFileName, pRingState->pRingFilesList, pRingState->pRingFunctionsMap,
@@ -381,6 +385,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	**  Write C file
 	**  Set the file name
 	*/
+	if (ring_list_getstringsize(pRingState->pRingFilesList, RING_ONE) + 1 > RING_HUGEBUF) {
+		printf(RING_BUFFEROVERFLOW);
+		return;
+	}
 	sprintf(cCodeFileName, "%s", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
 	nSize = strlen(cCodeFileName);
 	cCodeFileName[nSize - 4] = 'c';
