@@ -312,7 +312,7 @@ Better Functions
 * System() - Return the function output
 * Assert() - Follow Ring's rules for evaluating values as True or False
 * Time()/TimeList()/Date() - Thread safe usage for localtime() 
-* Sqrt()/Log()/Log10()/ASin()/ACos() - Check input before usage
+* Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 
