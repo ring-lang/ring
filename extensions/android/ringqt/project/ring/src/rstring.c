@@ -107,6 +107,10 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 			nNewCapacity = RING_STRING_ARRAYSIZE;
 		}
 		while ((nRequiredSize + 1) > nNewCapacity) {
+			if (nNewCapacity > UINT_MAX / 2) {
+				nNewCapacity = UINT_MAX;
+				break;
+			}
 			nNewCapacity *= 2;
 		}
 		/* Perform the actual reallocation */
