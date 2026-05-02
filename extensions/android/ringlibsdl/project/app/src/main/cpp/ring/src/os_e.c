@@ -417,7 +417,7 @@ void ring_vm_os_randomize(void *pPointer) {
 	return;
 		#else
 	nSeed = (unsigned int)ts.tv_nsec;
-				nNum1 = rand_r( &nSeed | ( nNum1 << 32 ) ;
+	nNum1 = (RING_UNSIGNEDLONGLONG)rand_r(&nSeed) | (nNum1 << 32);
 		#endif
 	#else
 		#ifdef __BORLANDC__
