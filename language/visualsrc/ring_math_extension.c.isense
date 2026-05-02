@@ -26,6 +26,8 @@ ring_vm_math_ceil
 ring_vm_math_floor
 ring_vm_math_fabs
 ring_vm_math_pow
+Type: double
+nNum1,nNum2
 ring_vm_math_sqrt
 Type: double
 nNum

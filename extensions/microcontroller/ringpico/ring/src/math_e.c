@@ -266,12 +266,19 @@ void ring_vm_math_fabs(void *pPointer) {
 }
 
 void ring_vm_math_pow(void *pPointer) {
+	double nNum1, nNum2;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
 	}
 	if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2)) {
-		RING_API_RETNUMBER(pow(RING_API_GETNUMBER(1), RING_API_GETNUMBER(2)));
+		nNum1 = RING_API_GETNUMBER(1);
+		nNum2 = RING_API_GETNUMBER(2);
+		if ((nNum1 == 0.0 && nNum2 < 0) || (nNum1 < 0 && nNum2 != floor(nNum2))) {
+			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+			return;
+		}
+		RING_API_RETNUMBER(pow(nNum1, nNum2));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}

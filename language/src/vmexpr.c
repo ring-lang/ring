@@ -288,6 +288,11 @@ void ring_vm_pow(VM *pVM) {
 	}
 	/* Check Overflow */
 	RING_VM_CHECKOVERFLOW(nNum1, nNum2);
+	/* Check Values */
+	if ((nNum2 == 0.0 && nNum1 < 0) || (nNum2 < 0 && nNum1 != floor(nNum1))) {
+		ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
+		return;
+	}
 	RING_VM_STACK_SETNVALUE(pow(nNum2, nNum1));
 }
 
