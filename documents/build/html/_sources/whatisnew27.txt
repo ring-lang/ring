@@ -325,6 +325,7 @@ More Improvements
 * language/build/locatevc.bat - Added: VS 2026 Community Edition support
 * language/build/buildgccstatic.bat - Build ringw.exe too
 * Ring for Linux - Modernize build scripts using pkg-config
+* Ring VM - ring_hashtable_rebuild_gc() - Check overflow 
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
 * Ring VM - ring_list_updaterefcount_gc() - Better Code
