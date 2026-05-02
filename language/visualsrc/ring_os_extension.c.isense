@@ -72,6 +72,8 @@ Type: RING_UNSIGNEDLONGLONG
 nNum1,nNum2
 Type: double
 dNum2
+Type: unsigned int
+nSeed
 Type: struct timespec
 ts
 Type: LARGE_INTEGER

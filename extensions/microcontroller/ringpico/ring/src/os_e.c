@@ -405,6 +405,7 @@ void ring_vm_os_uptime(void *pPointer) {
 void ring_vm_os_randomize(void *pPointer) {
 	RING_UNSIGNEDLONGLONG nNum1, nNum2;
 	double dNum2;
+	unsigned int nSeed;
 	#if !defined(_WIN32)
 	struct timespec ts;
 	ring_vm_os_gettime(CLOCK_UPTIME, &ts);
@@ -415,7 +416,8 @@ void ring_vm_os_randomize(void *pPointer) {
 	RING_API_ERROR(RING_VM_ERROR_FUNCNOTSUPPORTED);
 	return;
 		#else
-	nNum1 = rand_r((unsigned int *)&ts.tv_nsec) | (nNum1 << 32);
+	nSeed = (unsigned int)ts.tv_nsec;
+				nNum1 = rand_r( &nSeed | ( nNum1 << 32 ) ;
 		#endif
 	#else
 		#ifdef __BORLANDC__
