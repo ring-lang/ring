@@ -302,7 +302,7 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, s
 				ring_objfile_readc(pRingState, &cData, cString, (size_t)nValue);
 				/* Decrypt String */
 				ring_objfile_xorstring(pRingState, cString, (size_t)nValue, cKey, RING_OBJFILE_KEYSIZE);
-				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
+				ring_list_addstring2_gc(pRingState, pList, cString, (unsigned int)nValue);
 				ring_state_free(pRingState, cString);
 			} else {
 				ring_list_addstring_gc(pRingState, pList, "");
