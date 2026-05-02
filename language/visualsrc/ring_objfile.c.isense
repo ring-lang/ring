@@ -41,7 +41,7 @@ nCount
 Type: char *
 cBuffer
 Type: unsigned int
-lOutput
+lOutput,lError=RING_TRUE
 ring_objfile_processstring
 Type: signed char
 c

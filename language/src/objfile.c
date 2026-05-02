@@ -162,7 +162,7 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 	long int nSize;
 	size_t nCount;
 	char *cBuffer;
-	unsigned int lOutput;
+	unsigned int lOutput, lError = RING_TRUE;
 	/* Open File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "rb");
 	if (fObj == NULL) {
@@ -170,14 +170,17 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		return RING_FALSE;
 	}
 	/* Process File */
-	fseek(fObj, 0, SEEK_END);
-	nSize = ftell(fObj);
-	if (nSize == -1) {
+	if (fseek(fObj, 0, SEEK_END) == 0) {
+		nSize = ftell(fObj);
+		if ((nSize != -1) && (fseek(fObj, 0, SEEK_SET) == 0)) {
+			lError = RING_FALSE;
+		}
+	}
+	if (lError) {
 		printf(RING_CANTREADFILE);
 		fclose(fObj);
 		return RING_FALSE;
 	}
-	fseek(fObj, 0, SEEK_SET);
 	cBuffer = (char *)ring_state_malloc(pRingState, nSize + 1);
 	nCount = fread(cBuffer, 1, nSize, fObj);
 	cBuffer[nSize] = '\0';
