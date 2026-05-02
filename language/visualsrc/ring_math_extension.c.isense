@@ -16,6 +16,8 @@ ring_vm_math_log
 Type: double
 nValue, nBase
 ring_vm_math_log10
+Type: double
+nValue
 ring_vm_math_ceil
 ring_vm_math_floor
 ring_vm_math_fabs
