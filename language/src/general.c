@@ -125,7 +125,7 @@ RING_API int ring_general_justfilename(char *cFileName) {
 	for (x = nSize - 1; x >= 0; x--) {
 		if ((cFileName[x] == '\\') || (cFileName[x] == '/')) {
 			r = 0;
-			for (x = x + 1; x <= nSize + 1; x++) {
+			for (x = x + 1; x <= nSize; x++) {
 				cFileName[r] = cFileName[x];
 				r++;
 			}
