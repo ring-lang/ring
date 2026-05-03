@@ -457,6 +457,7 @@ Compiler Errors
 * Error (C31) : Parentheses '(' is expected
 
 * Error (S1) : Literal not closed!
+* Error (S2) : Unclosed comment
 
 * Warning (W1) : Unrecognized option 
 * Warning (W2) : Duplication in file name
