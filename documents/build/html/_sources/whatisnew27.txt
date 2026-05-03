@@ -328,6 +328,7 @@ More Improvements
 * Ring for Linux - Modernize build scripts using pkg-config
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
+* Ring VM - ring_general_justfilename() - Better Code
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
 * Ring VM - ring_list_updaterefcount_gc() - Better Code
