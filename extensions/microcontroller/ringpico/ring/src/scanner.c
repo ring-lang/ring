@@ -66,6 +66,7 @@ void ring_scanner_readchar(Scanner *pScanner, char c) {
 							ring_list_deleteitem_gc(pScanner->pRingState, pScanner->pTokens,
 										ring_list_getsize(pScanner->pTokens));
 							pScanner->cState = SCANNER_STATE_MLCOMMENT;
+							pScanner->nLiteralLine = pScanner->nLinesCount;
 							ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken,
 									   "/*");
 							return;
@@ -410,14 +411,6 @@ void ring_scanner_processnumber(String *pTokenString) {
 }
 
 unsigned int ring_scanner_checklasttoken(Scanner *pScanner) {
-	if (ring_list_getsize(pScanner->pTokens) == 0) {
-		if (pScanner->cState == SCANNER_STATE_COMMENT) {
-			if (pScanner->pRingState->lCommentsAsTokens) {
-				ring_scanner_addtoken(pScanner, SCANNER_TOKEN_COMMENT);
-			}
-			return RING_TRUE;
-		}
-	}
 	if (pScanner->cState == SCANNER_STATE_LITERAL) {
 		if (pScanner->pRingState->lOnlyTokens) {
 			pScanner->pRingState->nScannerError = 1;
@@ -434,10 +427,24 @@ unsigned int ring_scanner_checklasttoken(Scanner *pScanner) {
 		return RING_FALSE;
 	} else if (pScanner->cState == SCANNER_STATE_GENERAL) {
 		ring_scanner_checktoken(pScanner);
-	} else if ((pScanner->cState == SCANNER_STATE_COMMENT) || (pScanner->cState == SCANNER_STATE_MLCOMMENT)) {
+	} else if (pScanner->cState == SCANNER_STATE_COMMENT) {
 		if (pScanner->pRingState->lCommentsAsTokens) {
 			ring_scanner_addtoken(pScanner, SCANNER_TOKEN_COMMENT);
 		}
+	} else if (pScanner->cState == SCANNER_STATE_MLCOMMENT) {
+		if (pScanner->pRingState->lOnlyTokens) {
+			pScanner->pRingState->nScannerError = 1;
+			return RING_FALSE;
+		}
+		ring_state_cgiheader(pScanner->pRingState);
+		printf("Error (S2) In file: %s \n",
+		       ring_list_getstring(pScanner->pRingState->pRingFilesList,
+					   ring_list_getsize(pScanner->pRingState->pRingFilesList)));
+		printf("In Line (%d) Unclosed comment \n", pScanner->nLiteralLine);
+		if (ring_list_getsize(pScanner->pRingState->pRingFilesList) > 1) {
+			printf("Called from other source code file");
+		}
+		return RING_FALSE;
 	} else if (pScanner->cState == SCANNER_STATE_LOADSYNTAX) {
 		pScanner->cState = SCANNER_STATE_GENERAL;
 		ring_scanner_loadsyntax(pScanner);
