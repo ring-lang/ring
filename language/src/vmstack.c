@@ -203,9 +203,9 @@ void ring_vm_assignment(VM *pVM) {
 					ring_string_add2_gc(pVM->pRingState, pString, ring_string_get(pStr1),
 							    ring_string_size(pStr1));
 				} else if (RING_VAR_ISNUMBER(pVar)) {
-					RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar,
-							      RING_VAR_GETNUMBER(pVar) +
-								  ring_vm_stringtonum(pVM, ring_string_get(pStr1)));
+					nNum1 = ring_vm_stringtonum(pVM, ring_string_get(pStr1));
+					RING_VM_RETURNIFACTIVECATCH;
+					RING_VAR_SETNUMBER_GC(pVM->pRingState, pVar, RING_VAR_GETNUMBER(pVar) + nNum1);
 				} else {
 					ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 				}
