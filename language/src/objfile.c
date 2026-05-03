@@ -395,6 +395,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	}
 	sprintf(cCodeFileName, "%s", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
 	nSize = strlen(cCodeFileName);
+	if (nSize < 4) {
+		printf(RING_FILENAMETOOSHORT);
+		return;
+	}
 	cCodeFileName[nSize - 4] = 'c';
 	cCodeFileName[nSize - 3] = '\0';
 	fCode = (FILE *)ring_general_fopen(cCodeFileName, "w+b");

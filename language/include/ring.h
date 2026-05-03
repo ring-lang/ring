@@ -154,6 +154,7 @@
 #define RING_CANTREADFILE "\nError (E14) : Can't read file"
 #define RING_INTERNALERROR "\nError (E15) : Internal error (Unexpected Value)\n"
 #define RING_BUFFEROVERFLOW "\nError (E16) : Internal error (Buffer Overflow)\n"
+#define RING_FILENAMETOOSHORT "\nError (E17) : Internal error (Filename too short)\n"
 /* Buffer Size */
 #define RING_CHARBUF 2
 #define RING_HEXCHARBUF 3
