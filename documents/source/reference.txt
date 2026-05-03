@@ -551,6 +551,7 @@ Environment Errors
 * Error (E14) : Can't read file
 * Error (E15) : Internal error (Unexpected Value)
 * Error (E16) : Internal error (Buffer Overflow)
+* Error (E17) : Internal error (Filename too short)
 
 .. index:: 
 	pair: Language Specification; Language Grammar
