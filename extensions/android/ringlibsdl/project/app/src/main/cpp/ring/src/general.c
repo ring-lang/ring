@@ -135,8 +135,10 @@ RING_API int ring_general_justfilename(char *cFileName) {
 	return RING_FALSE;
 }
 
-RING_API int ring_general_issourcefile(const char *cStr) {
+RING_API int ring_general_issourcefile(const char *cFileName) {
 	int x;
+	const unsigned char *cStr;
+	cStr = (const unsigned char *)cFileName;
 	x = strlen(cStr) - 1;
 	if (x >= 5) {
 		if (tolower(cStr[x]) == 'g' && tolower(cStr[x - 1]) == 'n' && tolower(cStr[x - 2]) == 'i' &&
@@ -147,8 +149,10 @@ RING_API int ring_general_issourcefile(const char *cStr) {
 	return RING_FALSE;
 }
 
-RING_API int ring_general_isobjectfile(const char *cStr) {
+RING_API int ring_general_isobjectfile(const char *cFileName) {
 	int x;
+	const unsigned char *cStr;
+	cStr = (const unsigned char *)cFileName;
 	x = strlen(cStr) - 1;
 	if (x >= 6) {
 		if (tolower(cStr[x]) == 'o' && tolower(cStr[x - 1]) == 'g' && tolower(cStr[x - 2]) == 'n' &&
@@ -165,7 +169,7 @@ RING_API int ring_general_folderexistinfilename(const char *cFolderName, const c
 	if (nSize < strlen(cFileName)) {
 #ifdef _WIN32
 		for (x = 0; x < nSize; x++) {
-			if ((tolower(cFolderName[x]) != tolower(cFileName[x]))) {
+			if ((tolower((unsigned char)cFolderName[x]) != tolower((unsigned char)cFileName[x]))) {
 				return RING_FALSE;
 			}
 		}
@@ -405,7 +409,7 @@ RING_API int ring_general_looksempty(const char *cStr, unsigned int nSize) {
 RING_API int ring_general_strcmpnotcasesensitive(const char *cStr1, const char *cStr2) {
 	int nNum1;
 	while (RING_TRUE) {
-		nNum1 = tolower(*cStr1) - tolower(*cStr2);
+		nNum1 = tolower((unsigned char)(*cStr1)) - tolower((unsigned char)(*cStr2));
 		if (nNum1 != 0 || !*cStr1 || !*cStr2) {
 			return nNum1;
 		}
