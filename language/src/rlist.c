@@ -1344,10 +1344,9 @@ RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned
 	return RING_ZEROF;
 }
 
-RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
-					    const char *cAttribute) {
+RING_API const char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+						  const char *cAttribute) {
 	unsigned int nPos;
-	static char nullstring[] = RING_CSTR_EMPTY;
 	if (nColumn == 0) {
 		return ring_list_getstring(pList, nIndex);
 	} else {
@@ -1368,13 +1367,12 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 			}
 		}
 	}
-	return nullstring;
+	return RING_CSTR_EMPTY;
 }
 
 RING_API void ring_list_setstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
 					   const char *cAttribute, const char *cValue) {
 	unsigned int nPos;
-	static char nullstring[] = RING_CSTR_EMPTY;
 	if (nColumn == 0) {
 		ring_list_setstring_gc(pState, pList, nIndex, cValue);
 	} else {
