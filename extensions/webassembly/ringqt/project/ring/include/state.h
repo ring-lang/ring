@@ -78,6 +78,9 @@ typedef struct RingState {
 	unsigned int lCreateListsUsingBlocks : 1;
 	/* Pool Manager */
 	PoolManager vPoolManager;
+	/* For Embedding Ring in Ring (ring_state_mainfile) */
+	char *pCustomArgv[2];
+	char cCustomPara[2][RING_LARGEBUF];
 } RingState;
 #define RING_VERSION_MAJOR 1
 #define RING_VERSION_MINOR 27

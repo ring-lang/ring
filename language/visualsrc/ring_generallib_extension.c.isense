@@ -303,10 +303,6 @@ Type: char *
 cStr
 Type: int
 nArgc, lOutput
-Type: static char *
-pArgv[2]
-Type: static char
-cOptional[2][RING_LARGEBUF]
 ring_vm_generallib_state_filetokens
 Type: RingState *
 pState

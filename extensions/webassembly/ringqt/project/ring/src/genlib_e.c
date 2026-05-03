@@ -1715,8 +1715,6 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 	RingState *pRingState;
 	char *cStr;
 	int nArgc, lOutput;
-	static char *pArgv[2];
-	static char cOptional[2][RING_LARGEBUF];
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1727,19 +1725,19 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
 	RING_API_CHECKNULLPOINTER(pRingState);
-	pArgv[0] = cOptional[0];
-	pArgv[1] = cOptional[1];
+	pRingState->pCustomArgv[0] = pRingState->cCustomPara[0];
+	pRingState->pCustomArgv[1] = pRingState->cCustomPara[1];
 	cStr = RING_API_GETSTRING(2);
 	nArgc = 2;
 	if (strlen(cStr) < RING_LARGEBUF) {
-		strcpy(pArgv[0], "ring");
-		strcpy(pArgv[1], cStr);
+		strcpy(pRingState->pCustomArgv[0], "ring");
+		strcpy(pRingState->pCustomArgv[1], cStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARALENGTH);
 		return;
 	}
 	pRingState->nArgc = nArgc;
-	pRingState->pArgv = pArgv;
+	pRingState->pArgv = pRingState->pCustomArgv;
 	/*
 	**  Don't Delete the VM after execution
 	**  We may run GUI app from GUI app

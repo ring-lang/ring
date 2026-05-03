@@ -21,6 +21,10 @@ Type: List *
 pRingPackagesMap
 Type: List *
 pCustomGlobalScopeStack
+Type: char *
+pCustomArgv[2]
+Type: char
+cCustPara[2][RING_LARGEBUF]
 Type: int
 nArgc
 Type: unsigned int
