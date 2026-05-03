@@ -286,7 +286,7 @@ Better Functions
 * Remove() - Correct error message when the argument count is incorrect
 * SysSleep() - Check nanosleep() output
 * Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage
-* Ring_State_MainFile() - Use static allocation for storing the file name
+* Ring_State_MainFile() - Thread safe implementation
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
 * Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
 * Ring_State_FindVar() - return zero if the variable is not found
