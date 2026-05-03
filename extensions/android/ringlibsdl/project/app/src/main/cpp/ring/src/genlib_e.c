@@ -2503,7 +2503,7 @@ void ring_vm_generallib_adddays(void *pPointer) {
 	}
 	sprintf(cBuffer, "%c%c", cStr[0], cStr[1]);
 	dDay = RING_API_GETNUMBER(2);
-	if ((dDay < (double)INT_MIN) || (dDay != dDay) || (dDay > (double)INT_MAX)) {
+	if ((dDay < (double)(INT_MIN + 31)) || (dDay != dDay) || (dDay > (double)(INT_MAX - 31))) {
 		RING_API_ERROR(RING_API_BADPARARANGE);
 		return;
 	}
