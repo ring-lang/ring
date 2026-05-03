@@ -60,11 +60,11 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 
 void ring_vm_error2(VM *pVM, const char *cStr, const char *cStr2) {
 	String *pError;
-	pError = ring_string_new_gc(pVM->pRingState, cStr);
+	pError = RING_VAR_GETSTRINGOBJ(pVM->pErrorMsg);
+	ring_string_set_gc(pVM->pRingState, pError, cStr);
 	ring_string_add_gc(pVM->pRingState, pError, ": ");
 	ring_string_add_gc(pVM->pRingState, pError, cStr2);
 	ring_vm_error(pVM, ring_string_get(pError));
-	ring_string_delete_gc(pVM->pRingState, pError);
 }
 
 RING_API void ring_vm_shutdown(VM *pVM, int nExitCode) {
