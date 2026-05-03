@@ -296,17 +296,17 @@ Better Functions
 * IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect
 * Randomize() - Produce error when the value range is not correct
 * Randomize() - Respect C strict-aliasing rules
+* Hex2Str() - Always move the first nibble into the high position
 * Str2HexCStyle() - Check the string length before processing
+* Str2HexCStyle() - Pads single-digit bytes with space instead of zero 
 * FGetPos() - Free allocated memory when the function fail
 * FPutC()/UnGetC() - Check string size (Not less than 1 character)
 * SubStr() - Check argument count 
 * MemCpy() - Check negative size
 * MergeMethods() - Avoid Self-merge
-* Log() - Check divide by zero error
 * GetNumber() - Check fgets() output
 * Date()/Time()/TimeList() - Check timer overflow
 * Number() - Accept one e/E in the number
-* Hex2Str() - Always move the first nibble into the high position
 * Dir() - Check the path length before using strcat() 
 * GetChar() - Return an empty string when we the getchar() output is EOF
 * LoadLib() - Close the DLL when the ringlib_init() function is missing
@@ -314,7 +314,6 @@ Better Functions
 * Assert() - Follow Ring's rules for evaluating values as True or False
 * Time()/TimeList()/Date() - Thread safe usage for localtime() 
 * Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage
-* Str2HexCStyle() - Pads single-digit bytes with space instead of zero 
 * RingFastPro Extension - Better Performance
 * RingFastPro Extension - Added Transform3D() function
 

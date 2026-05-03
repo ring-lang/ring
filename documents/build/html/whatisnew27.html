@@ -483,17 +483,17 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 <li><p>IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect</p></li>
 <li><p>Randomize() - Produce error when the value range is not correct</p></li>
 <li><p>Randomize() - Respect C strict-aliasing rules</p></li>
+<li><p>Hex2Str() - Always move the first nibble into the high position</p></li>
 <li><p>Str2HexCStyle() - Check the string length before processing</p></li>
+<li><p>Str2HexCStyle() - Pads single-digit bytes with space instead of zero</p></li>
 <li><p>FGetPos() - Free allocated memory when the function fail</p></li>
 <li><p>FPutC()/UnGetC() - Check string size (Not less than 1 character)</p></li>
 <li><p>SubStr() - Check argument count</p></li>
 <li><p>MemCpy() - Check negative size</p></li>
 <li><p>MergeMethods() - Avoid Self-merge</p></li>
-<li><p>Log() - Check divide by zero error</p></li>
 <li><p>GetNumber() - Check fgets() output</p></li>
 <li><p>Date()/Time()/TimeList() - Check timer overflow</p></li>
 <li><p>Number() - Accept one e/E in the number</p></li>
-<li><p>Hex2Str() - Always move the first nibble into the high position</p></li>
 <li><p>Dir() - Check the path length before using strcat()</p></li>
 <li><p>GetChar() - Return an empty string when we the getchar() output is EOF</p></li>
 <li><p>LoadLib() - Close the DLL when the ringlib_init() function is missing</p></li>
@@ -501,7 +501,6 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 <li><p>Assert() - Follow Ring’s rules for evaluating values as True or False</p></li>
 <li><p>Time()/TimeList()/Date() - Thread safe usage for localtime()</p></li>
 <li><p>Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage</p></li>
-<li><p>Str2HexCStyle() - Pads single-digit bytes with space instead of zero</p></li>
 <li><p>RingFastPro Extension - Better Performance</p></li>
 <li><p>RingFastPro Extension - Added Transform3D() function</p></li>
 </ul>
