@@ -553,6 +553,7 @@ Environment Errors
 * Error (E15) : Internal error (Unexpected Value)
 * Error (E16) : Internal error (Buffer Overflow)
 * Error (E17) : Internal error (Filename too short)
+* Error (E18) : Internal error (Filename too long)
 
 .. index:: 
 	pair: Language Specification; Language Grammar
