@@ -65,8 +65,9 @@ RING_API int ring_general_exefilename(char *cDirPath) {
 	_NSGetExecutablePath(cDirPath, &nSize);
 	char *cCorrectPath = realpath(cDirPath, NULL);
 	if (cCorrectPath != NULL) {
-		strncpy(cDirPath, cCorrectPath, nSize);
+		strncpy(cDirPath, cCorrectPath, RING_PATHSIZE - 1);
 		free(cCorrectPath);
+		cDirPath[RING_PATHSIZE - 1] = '\0';
 	}
 #elif __FreeBSD__
 	/* FreeBSD */
