@@ -16,11 +16,11 @@ List of changes and new features
 Ring 1.27 comes with the next features!
 
 * Research Article
-* Solitaire Game
-* Ring-CFFI Package
-* Ring-Python Package
 * Better Performance
+* Solitaire Game
 * More Samples
+* Ring-Python Package
+* Ring-CFFI Package
 * Better Functions
 * More Improvements
 
@@ -34,132 +34,6 @@ URL: https://doi.org/10.3390/electronics15040903
 
 .. image:: researchcover3.png
 	:alt: Research Article
-
-.. index:: 
-	pair: What is new in Ring 1.27?; Solitaire Game
-
-Solitaire Game
-==============
-
-The Solitaire Game (Developed using Ring and RayLib) 
-
-Install and run:
-
-.. code-block:: none
-
-	ringpm install solitaire
-	ringpm run solitaire
-
-.. image:: solitaire.png
-	:alt: Solitaire Game
-
-.. index:: 
-	pair: What is new in Ring  1.27; Ring-CFFI Package
-
-Ring-CFFI Package
-=================
-
-A Foreign Function Interface library for the Ring programming language!
-
-Install:
-
-.. code-block:: none
-
-	ringpm install ring-cffi
-
-Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
-
-Key Features:
-
-* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
-* C Function Calls: Call C functions directly from Ring with automatic type conversion
-* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
-* Struct Support: Define and manipulate C structs with named field access
-* Union & Enum Support: Define and use C unions and enumerations
-* Callbacks: Pass Ring functions as C callbacks
-* Memory Management: Allocate and manage C memory directly
-* C String Handling: Seamless conversion between Ring and C strings
-* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
-* High-Level OOP API: Clean FFI class with intuitive method names
-
-Example:
-
-.. code-block:: ring
-
-	load "cffi.ring"
-
-	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
-	new FFI("libm.so.6") { 
-		# Call a simple function (sqrt)
-		oSqrt = cFunc("sqrt", "double", ["double"])
-		result = invoke(oSqrt, [25.0])
-		? "sqrt(25) = " + result
-		
-		# Call printf (variadic function)
-		oPrintf = varFunc("printf", "int", ["string"])
-		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
-	}
-
-Output:
-
-.. code-block:: none
-
-	sqrt(25) = 5
-	Hello, World! Number: 123
-
-.. index:: 
-	pair: What is new in Ring  1.27; Ring-Python Package
-
-Ring-Python Package
-===================
-
-A library that brings the entire Python ecosystem to the Ring programming language.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install ring-python
-
-Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
-
-Key Features:
-
-* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
-* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
-* Module Import — Import any installed Python package and call its functions directly.
-* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
-* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
-* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
-
-Example:
-
-.. code-block:: ring
-
-	load "python.ring"
-
-	py = new Python()
-	py.exec("import numpy as np")
-
-	# Create array and compute statistics
-	py.exec("
-	data = np.array([1, 2, 3, 4, 5])
-	_mean = str(np.mean(data))
-	_std  = str(np.std(data))
-	_dot  = str(np.dot(data, data))
-	")
-
-	? "Mean: " + py.getVar("_mean")
-	? "Std:  " + py.getVar("_std")
-	? "Dot:  " + py.getVar("_dot")
-
-Output:
-
-.. code-block:: none
-
-	Mean: 3.0
-	Std:  1.4142135623730951
-	Dot:  55	
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Performance
@@ -232,6 +106,24 @@ Ring 1.27 introduces performance improvements across many core operations.
 
 
 .. index:: 
+	pair: What is new in Ring 1.27?; Solitaire Game
+
+Solitaire Game
+==============
+
+The Solitaire Game (Developed using Ring and RayLib) 
+
+Install and run:
+
+.. code-block:: none
+
+	ringpm install solitaire
+	ringpm run solitaire
+
+.. image:: solitaire.png
+	:alt: Solitaire Game
+
+.. index:: 
 	pair: What is new in Ring  1.27; More Samples
 
 More Samples
@@ -270,6 +162,115 @@ More Samples
 
 .. image:: astronomyvisualization.png
 	:alt: Astronomy Visualization
+
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-Python Package
+
+Ring-Python Package
+===================
+
+A library that brings the entire Python ecosystem to the Ring programming language.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-python
+
+Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
+
+Key Features:
+
+* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
+* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
+* Module Import — Import any installed Python package and call its functions directly.
+* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
+* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
+* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
+
+Example:
+
+.. code-block:: ring
+
+	load "python.ring"
+
+	py = new Python()
+	py.exec("import numpy as np")
+
+	# Create array and compute statistics
+	py.exec("
+	data = np.array([1, 2, 3, 4, 5])
+	_mean = str(np.mean(data))
+	_std  = str(np.std(data))
+	_dot  = str(np.dot(data, data))
+	")
+
+	? "Mean: " + py.getVar("_mean")
+	? "Std:  " + py.getVar("_std")
+	? "Dot:  " + py.getVar("_dot")
+
+Output:
+
+.. code-block:: none
+
+	Mean: 3.0
+	Std:  1.4142135623730951
+	Dot:  55	
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-CFFI Package
+
+Ring-CFFI Package
+=================
+
+A Foreign Function Interface library for the Ring programming language!
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-cffi
+
+Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
+
+Key Features:
+
+* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
+* C Function Calls: Call C functions directly from Ring with automatic type conversion
+* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
+* Struct Support: Define and manipulate C structs with named field access
+* Union & Enum Support: Define and use C unions and enumerations
+* Callbacks: Pass Ring functions as C callbacks
+* Memory Management: Allocate and manage C memory directly
+* C String Handling: Seamless conversion between Ring and C strings
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level OOP API: Clean FFI class with intuitive method names
+
+Example:
+
+.. code-block:: ring
+
+	load "cffi.ring"
+
+	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
+	new FFI("libm.so.6") { 
+		# Call a simple function (sqrt)
+		oSqrt = cFunc("sqrt", "double", ["double"])
+		result = invoke(oSqrt, [25.0])
+		? "sqrt(25) = " + result
+		
+		# Call printf (variadic function)
+		oPrintf = varFunc("printf", "int", ["string"])
+		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
+	}
+
+Output:
+
+.. code-block:: none
+
+	sqrt(25) = 5
+	Hello, World! Number: 123
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
