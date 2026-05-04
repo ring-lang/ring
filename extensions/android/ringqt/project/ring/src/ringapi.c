@@ -247,12 +247,36 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 		pItem = RING_VAR_ITEM_VALUE(pList);
 		if (strcmp(cStr2, "double") == 0) {
 			return &(pItem->data.dNumber);
-		} else if (strcmp(cStr2, "int") == 0) {
-			pItem->data.iNumber = (int)pItem->data.dNumber;
-			return &(pItem->data.iNumber);
 		} else if (strcmp(cStr2, "float") == 0) {
 			pItem->data.fNumber = (float)pItem->data.dNumber;
 			return &(pItem->data.fNumber);
+		} else if (strcmp(cStr2, "long int") == 0) {
+			pItem->data.lNumber = (long int)pItem->data.dNumber;
+			return &(pItem->data.lNumber);
+		} else if (strcmp(cStr2, "unsigned long int") == 0) {
+			pItem->data.ulNumber = (unsigned long int)pItem->data.dNumber;
+			return &(pItem->data.ulNumber);
+		} else if (strcmp(cStr2, "int") == 0) {
+			pItem->data.iNumber = (int)pItem->data.dNumber;
+			return &(pItem->data.iNumber);
+		} else if (strcmp(cStr2, "unsigned int") == 0) {
+			pItem->data.uiNumber = (unsigned int)pItem->data.dNumber;
+			return &(pItem->data.uiNumber);
+		} else if (strcmp(cStr2, "short int") == 0) {
+			pItem->data.sNumber = (short int)pItem->data.dNumber;
+			return &(pItem->data.sNumber);
+		} else if (strcmp(cStr2, "unsigned short int") == 0) {
+			pItem->data.usNumber = (unsigned short int)pItem->data.dNumber;
+			return &(pItem->data.usNumber);
+		} else if (strcmp(cStr2, "char") == 0) {
+			pItem->data.cCharacter = (char)pItem->data.dNumber;
+			return &(pItem->data.cCharacter);
+		} else if (strcmp(cStr2, "signed char") == 0) {
+			pItem->data.sCharacter = (signed char)pItem->data.dNumber;
+			return &(pItem->data.sCharacter);
+		} else if (strcmp(cStr2, "unsigned char") == 0) {
+			pItem->data.uCharacter = (unsigned char)pItem->data.dNumber;
+			return &(pItem->data.uCharacter);
 		}
 	} else if (RING_VAR_GETTYPE(pList) == RING_VM_STRING) {
 		pItem = RING_VAR_ITEM_VALUE(pList);
