@@ -21,10 +21,6 @@ Type: List *
 pRingPackagesMap
 Type: List *
 pCustomGlobalScopeStack
-Type: char *
-pCustomArgv[2]
-Type: char
-cCustPara[2][RING_LARGEBUF]
 Type: int
 nArgc
 Type: unsigned int
@@ -85,6 +81,10 @@ Type: unsigned int
 lCreateListsUsingBlocks : 1
 Type: PoolManager
 vPoolManager
+Type: char *
+pCustomArgv[2]
+Type: char
+cCustomPara[2][RING_LARGEBUF]
 END:
 Type: RingState
 struct RingState
@@ -183,6 +183,8 @@ Type: int
 x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn
 Type: char *
 cStr
+Type: char
+cFileName[RING_SMALLBUF]
 ring_state_execute
 Type: RingState *
 pRingState
