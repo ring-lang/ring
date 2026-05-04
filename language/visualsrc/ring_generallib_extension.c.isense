@@ -390,7 +390,7 @@ cInput[RING_LARGEBUF]
 Type: char *
 cLine
 Type: int
-nSize
+nSize,nResult
 Type: double
 dSize
 ring_vm_generallib_getchar

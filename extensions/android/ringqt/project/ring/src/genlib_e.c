@@ -2268,7 +2268,7 @@ void ring_vm_generallib_customprint(void *pPointer, const char *cCommand) {
 void ring_vm_generallib_input(void *pPointer) {
 	char cInput[RING_LARGEBUF];
 	char *cLine;
-	int nSize;
+	int nSize, nResult;
 	double dSize;
 	if (RING_API_PARACOUNT == 0) {
 		ring_general_readline(cInput, RING_LARGEBUF);
@@ -2294,15 +2294,15 @@ void ring_vm_generallib_input(void *pPointer) {
 	}
 	nSize = (int)dSize;
 	if (nSize > 0) {
-		/*
-		**  Using RETSTRINGSIZE will allocate an empty string on the stack
-		**  So, no need to check fread() output
-		*/
+		/* Using RETSTRINGSIZE will allocate an empty string on the stack */
 		RING_API_RETSTRINGSIZE(nSize);
 		cLine = ring_string_get(RING_API_GETSTRINGRAW);
 		/* Get Input From the User and save it in the variable */
 		RING_SETBINARY;
-		fread(cLine, sizeof(char), nSize, stdin);
+		nResult = fread(cLine, sizeof(char), nSize, stdin);
+		if (nResult == RING_ZERO) {
+			cLine[0] = '\0';
+		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARARANGE);
 	}
