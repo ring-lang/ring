@@ -139,7 +139,7 @@ RING_API int ring_general_issourcefile(const char *cFileName) {
 	int x;
 	const unsigned char *cStr;
 	cStr = (const unsigned char *)cFileName;
-	x = strlen(cStr) - 1;
+	x = strlen(cFileName) - 1;
 	if (x >= 5) {
 		if (tolower(cStr[x]) == 'g' && tolower(cStr[x - 1]) == 'n' && tolower(cStr[x - 2]) == 'i' &&
 		    tolower(cStr[x - 3]) == 'r' && cStr[x - 4] == '.') {
@@ -153,7 +153,7 @@ RING_API int ring_general_isobjectfile(const char *cFileName) {
 	int x;
 	const unsigned char *cStr;
 	cStr = (const unsigned char *)cFileName;
-	x = strlen(cStr) - 1;
+	x = strlen(cFileName) - 1;
 	if (x >= 6) {
 		if (tolower(cStr[x]) == 'o' && tolower(cStr[x - 1]) == 'g' && tolower(cStr[x - 2]) == 'n' &&
 		    tolower(cStr[x - 3]) == 'i' && tolower(cStr[x - 4]) == 'r' && cStr[x - 5] == '.') {
