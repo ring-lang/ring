@@ -328,6 +328,7 @@ More Improvements
 
 * language/build/locatevc.bat - Added: VS 2026 Community Edition support
 * language/build/buildgccstatic.bat - Build ringw.exe too
+* language/build/builddos.bat - Set stack size to 64K
 * Ring for Linux - Modernize build scripts using pkg-config
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
