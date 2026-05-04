@@ -11,7 +11,6 @@ rename dll_e.c dll_e.no
 rename ringw.c ringw.no
 
 wcl386 -k65536 ring.c *.c
-wcl386 -k65536 ring.obj *.obj
 
 rename dll_e.no dll_e.c
 rename ringw.no ringw.c
