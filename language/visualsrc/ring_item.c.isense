@@ -1,18 +1,34 @@
 ring_item_h
 Parent: Item
 Parent: data
-Type: struct String *
-pString
-Type: double
-dNumber
+Type: char
+cCharacter
+Type: signed char
+sCharacter
+Type: unsigned char
+uCharacter
+Type: short int
+sNumber
+Type: unsigned short int
+usNumber
 Type: int
 iNumber
-Type: void *
-pPointer
-Type: struct List *
-pList
+Type: unsigned int
+uiNumber
+Type: long int
+lNumber
+Type: unsigned long int
+uliNumber
 Type: float
 fNumber
+Type: double
+dNumber
+Type: struct String *
+pString
+Type: struct List *
+pList
+Type: void *
+pPointer
 END:
 Type: unsigned int
 nType:3

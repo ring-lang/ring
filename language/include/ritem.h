@@ -6,13 +6,21 @@
 typedef struct Item {
 	/* Data */
 	union {
-		struct String *pString;
-		double dNumber;
+		char cCharacter;
+		signed char sCharacter;
+		unsigned char uCharacter;
+		short int sNumber;
+		unsigned short int usNumber;
 		int iNumber;
-		void *pPointer;
-		struct List *pList;
-		void (*pFunc)(void *);
+		unsigned int uiNumber;
+		long int lNumber;
+		unsigned long int ulNumber;
 		float fNumber;
+		double dNumber;
+		struct String *pString;
+		struct List *pList;
+		void *pPointer;
+		void (*pFunc)(void *);
 	} data;
 	/* Item Type */
 	unsigned int nType : 3;
