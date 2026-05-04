@@ -790,6 +790,7 @@ void ring_vm_file_dir(void *pPointer) {
 	struct stat st;
 	char cPath[FILENAME_MAX];
 	char cCurrentDir[FILENAME_MAX];
+	int nResult;
 	#endif
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -826,34 +827,40 @@ void ring_vm_file_dir(void *pPointer) {
 	#else
 		pDir = opendir(cStr);
 		if ((pDir != NULL) && (getcwd(cCurrentDir, FILENAME_MAX) != NULL)) {
-			chdir(cStr);
-			while ((pDirent = readdir(pDir))) {
-				if (strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0) {
-					pList2 = ring_list_newlist_gc(((VM *)pPointer)->pRingState, pList);
-					ring_list_addstring_gc(((VM *)pPointer)->pRingState, pList2, pDirent->d_name);
-					/* Prepare Path */
-					if (getcwd(cPath, FILENAME_MAX) == NULL) {
-						break;
-					}
-					if ((strlen(cPath) + 1 + strlen(pDirent->d_name)) < FILENAME_MAX) {
-						strcat(cPath, "/");
-						strcat(cPath, pDirent->d_name);
-					} else {
-						break;
-					}
-					stat(cPath, &st);
-					if (S_ISDIR(st.st_mode)) {
-						ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList2,
-								       RING_TRUEF);
-					} else {
-						ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList2,
-								       RING_ZEROF);
+			nResult = chdir(cStr);
+			if (nResult == 0) {
+				while ((pDirent = readdir(pDir))) {
+					if (strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0) {
+						pList2 = ring_list_newlist_gc(((VM *)pPointer)->pRingState, pList);
+						ring_list_addstring_gc(((VM *)pPointer)->pRingState, pList2,
+								       pDirent->d_name);
+						/* Prepare Path */
+						if (getcwd(cPath, FILENAME_MAX) == NULL) {
+							break;
+						}
+						if ((strlen(cPath) + 1 + strlen(pDirent->d_name)) < FILENAME_MAX) {
+							strcat(cPath, "/");
+							strcat(cPath, pDirent->d_name);
+						} else {
+							break;
+						}
+						stat(cPath, &st);
+						if (S_ISDIR(st.st_mode)) {
+							ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList2,
+									       RING_TRUEF);
+						} else {
+							ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList2,
+									       RING_ZEROF);
+						}
 					}
 				}
+				closedir(pDir);
+				RING_API_RETLISTBYREF(pList);
+				nResult = chdir(cCurrentDir);
 			}
-			closedir(pDir);
-			RING_API_RETLISTBYREF(pList);
-			chdir(cCurrentDir);
+			if (nResult == -1) {
+				RING_API_ERROR(RING_API_BADDIRECTORY);
+			}
 		} else {
 			RING_API_ERROR(RING_API_BADDIRECTORY);
 		}
