@@ -666,6 +666,8 @@ Func GenFuncCodeGetParaValues aList
 			on C_TYPE_POINTER
 				if GenPointerType(x) = "int"
 					cCode += "RING_API_GETINTPOINTER(" + t + ")"
+				but GenPointerType(x) = "unsigned int"
+					cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + t + ")"
 				but GenPointerType(x) = "double"
 					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
 				else
@@ -704,6 +706,9 @@ Func GenFuncCodeGetIntValues aList
 				if GenPointerType(x) = "int"
 					cCode += C_TABS_1 + 
 					"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
+				but GenPointerType(x) = "unsigned int"
+					cCode += C_TABS_1 + 
+					"RING_API_ACCEPTUNSIGNEDINTVALUE(" + t + ") ;" + nl
 				ok
 			ok
 		next
@@ -1264,6 +1269,8 @@ Func GenMethodCodeGetParaValues aList
 			on C_TYPE_POINTER
 				if GenPointerType(x) = "int"
 					cCode += "RING_API_GETINTPOINTER(" + t + ")"
+				but GenPointerType(x) = "unsigned int"
+					cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + t + ")"
 				but GenPointerType(x) = "double"
 					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
 				else
