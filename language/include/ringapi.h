@@ -22,6 +22,7 @@
 #define RING_OUTPUT_RETNEWREF 2
 #define RING_VARVALUE_INT 1
 #define RING_VARVALUE_FLOAT 2
+#define RING_VARVALUE_UNSIGNEDINT 3
 #define RING_API_MINLISTSIZEFORUSINGBLOCKS 30
 /* API For C Functions */
 #define RING_API_STATE (((VM *)pPointer)->pRingState)
@@ -51,11 +52,15 @@
 #define RING_API_ISCPOINTERNOTASSIGNED(nPara) (RING_API_GETCPOINTERSTATUS(nPara) == RING_CPOINTERSTATUS_NOTASSIGNED)
 #define RING_API_VARPOINTER(cName, cType) (ring_vm_api_varptr(pPointer, cName, cType))
 #define RING_API_INTVALUE(nPara) (ring_vm_api_intvalue(pPointer, nPara))
+#define RING_API_UNSIGNEDINTVALUE(nPara) (ring_vm_api_unsignedintvalue(pPointer, nPara))
 #define RING_API_FLOATVALUE(nPara) (ring_vm_api_floatvalue(pPointer, nPara))
 #define RING_API_GETINTPOINTER(nPara) (int *)RING_API_VARPOINTER(RING_API_GETSTRING(nPara), "int")
+#define RING_API_GETUNSIGNEDINTPOINTER(nPara)                                                                          \
+	(unsigned int *)RING_API_VARPOINTER(RING_API_GETSTRING(nPara), "unsigned int")
 #define RING_API_GETFLOATPOINTER(nPara) (float *)RING_API_VARPOINTER(RING_API_GETSTRING(nPara), "float")
 #define RING_API_GETDOUBLEPOINTER(nPara) RING_API_VARPOINTER(RING_API_GETSTRING(nPara), "double")
 #define RING_API_ACCEPTINTVALUE(nPara) RING_API_INTVALUE(RING_API_GETSTRING(nPara))
+#define RING_API_ACCEPTUNSIGNEDINTVALUE(nPara) RING_API_UNSIGNEDINTVALUE(RING_API_GETSTRING(nPara))
 #define RING_API_ACCEPTFLOATVALUE(nPara) RING_API_FLOATVALUE(RING_API_GETSTRING(nPara))
 #define RING_API_IGNORECPOINTERTYPE ring_vm_api_ignorecpointertypecheck(pPointer)
 #define RING_API_ISCPOINTER(nPara) ring_vm_api_iscpointer(pPointer, nPara)
@@ -155,6 +160,8 @@ RING_API void ring_vm_api_retcpointer2(void *pPointer, void *pGeneral, const cha
 RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef);
 
 RING_API void ring_vm_api_intvalue(void *pPointer, const char *cStr);
+
+RING_API void ring_vm_api_unsignedintvalue(void *pPointer, const char *cStr);
 
 RING_API void ring_vm_api_floatvalue(void *pPointer, const char *cStr);
 

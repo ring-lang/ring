@@ -313,7 +313,9 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType) 
 		pItem = RING_VAR_ITEM_VALUE(pList);
 		if (nType == RING_VARVALUE_INT) {
 			pItem->data.dNumber = (double)pItem->data.iNumber;
-		} else {
+		} else if (nType == RING_VARVALUE_UNSIGNEDINT) {
+			pItem->data.dNumber = (double)pItem->data.uiNumber;
+		} else if (nType == RING_VARVALUE_FLOAT) {
 			pItem->data.dNumber = (double)pItem->data.fNumber;
 		}
 	}
@@ -443,6 +445,10 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 
 RING_API void ring_vm_api_intvalue(void *pPointer, const char *cStr) {
 	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_INT);
+}
+
+RING_API void ring_vm_api_unsignedintvalue(void *pPointer, const char *cStr) {
+	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_UNSIGNEDINT);
 }
 
 RING_API void ring_vm_api_floatvalue(void *pPointer, const char *cStr) {
