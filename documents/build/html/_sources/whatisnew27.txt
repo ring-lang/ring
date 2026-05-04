@@ -310,6 +310,8 @@ Better Functions
 * Date()/Time()/TimeList() - Thread safe usage for localtime() 
 * Number() - Accept one e/E in the number
 * Dir() - Check the path length before using strcat() 
+* Dir() - Check chdir() output
+* Input() - Check fread() output
 * GetChar() - Return an empty string when we the getchar() output is EOF
 * LoadLib() - Close the DLL when the ringlib_init() function is missing
 * System() - Return the function output
