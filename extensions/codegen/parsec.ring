@@ -575,7 +575,7 @@ Func GenFuncCodeCheckParaType aList
 					 C_TABS_2 + "return ;" + nl +
 					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
+				if GenPointerType(x) = "int" or GenPointerType(x) = "unsigned int" or GenPointerType(x) = "double"
 					# pointer to int, i.e. int *
 					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -1124,7 +1124,7 @@ Func GenMethodCodeCheckParaType aList
 					 C_TABS_2 + "return ;" + nl +
 					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
+				if GenPointerType(x) = "int" or GenPointerType(x) = "unsigned int" or GenPointerType(x) = "double"
 					# pointer to int, i.e. int *
 					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
