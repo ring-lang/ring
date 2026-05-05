@@ -89,6 +89,17 @@ aNumberTypes 	= [
 	"float","double","long double"
 ]
 
+aPassPointers = [
+	[True,"int","RING_API_GETINTPOINTER","RING_API_ACCEPTINTVALUE"],
+	[True,"unsigned int","RING_API_GETUNSIGNEDINTPOINTER","RING_API_ACCEPTUNSIGNEDINTVALUE"],
+	[True,"double","RING_API_GETDOUBLEPOINTER",NULL]
+]
+
+C_PASSPOINTERS_STATUS = 1
+C_PASSPOINTERS_TYPE   = 2
+C_PASSPOINTERS_GET    = 3
+C_PASSPOINTERS_ACCEPT = 4
+
 aEnumTypes 	= []
 
 aStringTypes 	= ["const char *","char const *","char *"]
@@ -581,7 +592,8 @@ Func GenCheckParaType cStr,nPara
 			 C_TABS_2 + "return ;" + nl +
 			 C_TABS_1 + "}" + nl
 	on C_TYPE_POINTER
-		if find(["int","unsigned int","double"],GenPointerType(cStr))
+		nCheckPointer = find(aPassPointers,GenPointerType(cStr),C_PASSPOINTERS_TYPE)
+		if nCheckPointer and aPassPointers[nCheckPointer][C_PASSPOINTERS_STATUS]
 			# pointer to int, i.e. int *
 			cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+nPara+") ) {" + nl +
 				 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -664,12 +676,9 @@ Func GenFuncCodeCallFunc aList
 
 Func ProcessPointerType cLine,nPara
 	cCode = ""
-	if GenPointerType(cLine) = "int"
-		cCode += "RING_API_GETINTPOINTER(" + nPara + ")"
-	but GenPointerType(cLine) = "unsigned int"
-		cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + nPara + ")"
-	but GenPointerType(cLine) = "double"
-		cCode += "RING_API_GETDOUBLEPOINTER(" + nPara + ")"
+	nCheckPointer = find(aPassPointers,GenPointerType(cLine),C_PASSPOINTERS_TYPE)
+	if nCheckPointer and aPassPointers[nCheckPointer][C_PASSPOINTERS_STATUS]
+		cCode += aPassPointers[nCheckPointer][C_PASSPOINTERS_GET]+"(" + nPara + ")"
 	else
 		if not IsPointer2Pointer(cLine)
 			cCode += "(" + GenPointerType(cLine) + " *) RING_API_GETCPOINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'
@@ -685,12 +694,11 @@ Func ProcessPointerType cLine,nPara
 
 Func AcceptPointerValue cLine,nPara
 	cCode = ""
-	if GenPointerType(cLine) = "int"
+	nCheckPointer = find(aPassPointers,GenPointerType(cLine),C_PASSPOINTERS_TYPE)
+	if nCheckPointer and aPassPointers[nCheckPointer][C_PASSPOINTERS_STATUS] and
+	   aPassPointers[nCheckPointer][C_PASSPOINTERS_ACCEPT]
 		cCode += C_TABS_1 + 
-		"RING_API_ACCEPTINTVALUE(" + nPara + ") ;" + nl
-	but GenPointerType(cLine) = "unsigned int"
-		cCode += C_TABS_1 + 
-		"RING_API_ACCEPTUNSIGNEDINTVALUE(" + nPara + ") ;" + nl
+		aPassPointers[nCheckPointer][C_PASSPOINTERS_ACCEPT]+"(" + nPara + ") ;" + nl
 	ok
 	return cCode
 
