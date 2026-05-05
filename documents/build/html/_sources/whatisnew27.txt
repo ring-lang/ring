@@ -343,6 +343,7 @@ More Improvements
 * Ring API - Added RING_API_ACCEPTLONGINTVALUE()
 * Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() 
 * Ring API - Added RING_API_ACCEPTUNSIGNEDLONGINTVALUE()
+* Code generator for extensions - The aNumberTypes list is revised 
 * Code generator for extensions - Support RING_API_GETUNSIGNEDINTPOINTER() 
 * Code generator for extensions - Support RING_API_ACCEPTUNSIGNEDINTVALUE()
 * Ring Compiler - Detect unclosed comment error
