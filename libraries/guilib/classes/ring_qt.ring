@@ -33991,6 +33991,87 @@ Class QQmlContext from QObject
 		pTempObj.pObject = QQmlContext_contextProperty(pObject,P1)
 		return pTempObj
 
+Class QQmlProperty
+
+	pObject
+
+	Func init P1,P2
+		pObject = QQmlProperty_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QQmlProperty_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QQmlProperty_type(pObject)
+
+	Func isValid 
+		return QQmlProperty_isValid(pObject)
+
+	Func isProperty 
+		return QQmlProperty_isProperty(pObject)
+
+	Func isSignalProperty 
+		return QQmlProperty_isSignalProperty(pObject)
+
+	Func isWritable 
+		return QQmlProperty_isWritable(pObject)
+
+	Func isDesignable 
+		return QQmlProperty_isDesignable(pObject)
+
+	Func isResettable 
+		return QQmlProperty_isResettable(pObject)
+
+	Func hasNotifySignal 
+		return QQmlProperty_hasNotifySignal(pObject)
+
+	Func needsNotifySignal 
+		return QQmlProperty_needsNotifySignal(pObject)
+
+	Func propertyType 
+		return QQmlProperty_propertyType(pObject)
+
+	Func propertyTypeName 
+		return QQmlProperty_propertyTypeName(pObject)
+
+	Func name 
+		return QQmlProperty_name(pObject)
+
+	Func read 
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlProperty_read(pObject)
+		return pTempObj
+
+	Func write P1
+		return QQmlProperty_write(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func reset 
+		return QQmlProperty_reset(pObject)
+
+	Func object 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlProperty_object(pObject)
+		return pTempObj
+
+	Func index 
+		return QQmlProperty_index(pObject)
+
+	Func method 
+		return QQmlProperty_method(pObject)
+
+	Func property 
+		return QQmlProperty_property(pObject)
+
+	Func connectNotifySignal P1,P2
+		return QQmlProperty_connectNotifySignal(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func connectNotifySignal_2 P1,P2
+		return QQmlProperty_connectNotifySignal_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 Class QTextToSpeech from QObject
 
 	pObject
