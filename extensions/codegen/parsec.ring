@@ -645,35 +645,35 @@ Func GenFuncCodeCallFunc aList
 	cCode += GenFuncCodeGetIntValues(aList)
 	return cCode
 
-Func ProcessPointerType x,t
+Func ProcessPointerType cLine,nPara
 	cCode = ""
-	if GenPointerType(x) = "int"
-		cCode += "RING_API_GETINTPOINTER(" + t + ")"
-	but GenPointerType(x) = "unsigned int"
-		cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + t + ")"
-	but GenPointerType(x) = "double"
-		cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
+	if GenPointerType(cLine) = "int"
+		cCode += "RING_API_GETINTPOINTER(" + nPara + ")"
+	but GenPointerType(cLine) = "unsigned int"
+		cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + nPara + ")"
+	but GenPointerType(cLine) = "double"
+		cCode += "RING_API_GETDOUBLEPOINTER(" + nPara + ")"
 	else
-		if not IsPointer2Pointer(x)
-			cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
+		if not IsPointer2Pointer(cLine)
+			cCode += "(" + GenPointerType(cLine) + " *) RING_API_GETCPOINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'
 		else
-			if substr(x,"const") 
-				cCode += "(" + x + ") RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'			
+			if substr(cLine,"const") 
+				cCode += "(" + cLine + ") RING_API_GETCPOINTER2POINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'			
 			else 
-				cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
+				cCode += "(" + GenPointerType(cLine) + " **) RING_API_GETCPOINTER2POINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'
 			ok
 		ok
 	ok
 	return cCode
 
-func AcceptPointerValue x,t
+func AcceptPointerValue cLine,nPara
 	cCode = ""
-	if GenPointerType(x) = "int"
+	if GenPointerType(cLine) = "int"
 		cCode += C_TABS_1 + 
-		"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
-	but GenPointerType(x) = "unsigned int"
+		"RING_API_ACCEPTINTVALUE(" + nPara + ") ;" + nl
+	but GenPointerType(cLine) = "unsigned int"
 		cCode += C_TABS_1 + 
-		"RING_API_ACCEPTUNSIGNEDINTVALUE(" + t + ") ;" + nl
+		"RING_API_ACCEPTUNSIGNEDINTVALUE(" + nPara + ") ;" + nl
 	ok
 	return cCode
 
@@ -741,20 +741,20 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 	ok
 	return cCode
 
-Func IsPointer2Pointer x
-	if substr(x,"**") or substr(x,"* const *")
+Func IsPointer2Pointer cLine
+	if substr(cLine,"**") or substr(cLine,"* const *")
 		return True
 	ok
 	return false
 
-Func GenPointerType x
-	x = substr(x,"const","")
-	x = substr(x,"*","")
-	x = trim(x)
-	return x
+Func GenPointerType cLine
+	cLine = substr(cLine,"const","")
+	cLine = substr(cLine,"*","")
+	cLine = trim(cLine)
+	return cLine
 
-Func GenTabs x
-	return copy(char(9),x)
+Func GenTabs cLine
+	return copy(char(9),cLine)
 
 Func ParaCount aList
 	# get list of parameters, return parameters count
