@@ -81,10 +81,12 @@ aNumberTypes 	= [
 	"unsigned","unsigned int",
 	"long","long int","signed long","signed long int",
 	"unsigned long","unsigned long int",
+	"long long","long long int","signed long long","signed long long int",
+	"unsigned long long","unsigned long long int",
 	"int8_t","int16_t","int32_t","int64_t",
 	"uint8_t","uint16_t","uint32_t","uint64_t",
 	"size_t",
-	"float","double"
+	"float","double","long double"
 ]
 
 aEnumTypes 	= []
