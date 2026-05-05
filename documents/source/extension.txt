@@ -276,10 +276,18 @@ We can use the next functions
 .. code-block:: C
 
 	char *RING_API_GETCHARPOINTER(int nParameterNumber);
+	short int *RING_API_GETSHORTINTPOINTER(int nParameterNumber);
+	void RING_API_ACCEPTSHORTINTVALUE(int nParameterNumber);
+	unsigned short int *RING_API_GETUNSIGNEDSHORTINTPOINTER(int nParameterNumber);
+	void RING_API_ACCEPTUNSIGNEDSHORTINTVALUE(int nParameterNumber);
 	int *RING_API_GETINTPOINTER(int nParameterNumber);
 	void RING_API_ACCEPTINTVALUE(int nParameterNumber);
 	unsigned int *RING_API_GETUNSIGNEDINTPOINTER(int nParameterNumber);
 	void RING_API_ACCEPTUNSIGNEDINTVALUE(int nParameterNumber);
+	long int *RING_API_GETLONGINTPOINTER(int nParameterNumber);
+	void RING_API_ACCEPTLONGINTVALUE(int nParameterNumber);
+	unsigned long int *RING_API_GETUNSIGNEDLONGINTPOINTER(int nParameterNumber);
+	void RING_API_ACCEPTUNSIGNEDLONGINTVALUE(int nParameterNumber);
 	float *RING_API_GETFLOATPOINTER(int nParameterNumber);
 	void RING_API_ACCEPTFLOATVALUE(int nParameterNumber);
 	double *RING_API_GETDOUBLEPOINTER(int nParameterNumber);
