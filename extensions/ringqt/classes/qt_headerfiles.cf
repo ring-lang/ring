@@ -216,6 +216,7 @@ extern "C" {
 #include <QQmlContext>
 #include <QQmlProperty>
 #include <QQmlComponent>
+#include <QQmlApplicationEngine>
 </filter>
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = ""

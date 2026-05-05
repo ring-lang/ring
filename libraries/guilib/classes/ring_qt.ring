@@ -34131,6 +34131,32 @@ Class QQmlComponent from QObject
 	Func errors 
 		return QQmlComponent_errors(pObject)
 
+Class QQmlApplicationEngine from QQmlEngine
+
+	pObject
+
+	Func init 
+		pObject = QQmlApplicationEngine_new()
+		return self
+
+	Func delete
+		pObject = QQmlApplicationEngine_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func rootObjects 
+		return QQmlApplicationEngine_rootObjects(pObject)
+
+	Func load P1
+		return QQmlApplicationEngine_load(pObject,P1)
+
+	Func load_2 P1
+		return QQmlApplicationEngine_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func loadData P1,P2
+		return QQmlApplicationEngine_loadData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
 Class QTextToSpeech from QObject
 
 	pObject

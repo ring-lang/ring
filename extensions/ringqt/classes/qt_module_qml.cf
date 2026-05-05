@@ -7,3 +7,4 @@
 <loadfile> qml/qqmlcontext.cf
 <loadfile> qml/qqmlproperty.cf
 <loadfile> qml/qqmlcomponent.cf
+<loadfile> qml/qqmlapplicationengine.cf
