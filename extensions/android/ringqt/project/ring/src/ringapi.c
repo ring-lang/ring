@@ -459,12 +459,28 @@ RING_API void ring_vm_api_retlist2(void *pPointer, List *pList, int nRef) {
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE;
 }
 
+RING_API void ring_vm_api_shortintvalue(void *pPointer, const char *cStr) {
+	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_SHORTINT);
+}
+
+RING_API void ring_vm_api_unsignedshortintvalue(void *pPointer, const char *cStr) {
+	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_UNSIGNEDSHORTINT);
+}
+
 RING_API void ring_vm_api_intvalue(void *pPointer, const char *cStr) {
 	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_INT);
 }
 
 RING_API void ring_vm_api_unsignedintvalue(void *pPointer, const char *cStr) {
 	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_UNSIGNEDINT);
+}
+
+RING_API void ring_vm_api_longintvalue(void *pPointer, const char *cStr) {
+	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_LONGINT);
+}
+
+RING_API void ring_vm_api_unsignedlongintvalue(void *pPointer, const char *cStr) {
+	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_UNSIGNEDLONGINT);
 }
 
 RING_API void ring_vm_api_floatvalue(void *pPointer, const char *cStr) {
