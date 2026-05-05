@@ -551,8 +551,11 @@ Querying SDL Version
 </comment>
 
 const char * SDL_GetRevision(void)
-int SDL_GetRevisionNumber(void)
 void SDL_GetVersion(SDL_version *ver)
+
+<comment>
+int SDL_GetRevisionNumber(void)
+</comment>
 
 <comment>
 SDL_COMPILEDVERSION

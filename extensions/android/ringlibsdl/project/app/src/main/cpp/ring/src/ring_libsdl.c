@@ -8428,16 +8428,6 @@ RING_FUNC(ring_SDL_GetRevision)
 }
 
 
-RING_FUNC(ring_SDL_GetRevisionNumber)
-{
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_RETNUMBER(SDL_GetRevisionNumber());
-}
-
-
 RING_FUNC(ring_SDL_GetVersion)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -18339,7 +18329,6 @@ RING_LIBINIT
 	RING_API_REGISTER("sdl_assert_paranoid",ring_SDL_assert_paranoid);
 	RING_API_REGISTER("sdl_assert_release",ring_SDL_assert_release);
 	RING_API_REGISTER("sdl_getrevision",ring_SDL_GetRevision);
-	RING_API_REGISTER("sdl_getrevisionnumber",ring_SDL_GetRevisionNumber);
 	RING_API_REGISTER("sdl_getversion",ring_SDL_GetVersion);
 	RING_API_REGISTER("sdl_createwindow",ring_SDL_CreateWindow);
 	RING_API_REGISTER("sdl_createwindowfrom",ring_SDL_CreateWindowFrom);
