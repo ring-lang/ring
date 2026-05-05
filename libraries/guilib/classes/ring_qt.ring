@@ -34157,6 +34157,75 @@ Class QQmlApplicationEngine from QQmlEngine
 	Func loadData P1,P2
 		return QQmlApplicationEngine_loadData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
+Class QQmlExpression from QObject
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QQmlExpression_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+		return self
+
+	Func delete
+		pObject = QQmlExpression_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func context 
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlExpression_context(pObject)
+		return pTempObj
+
+	Func engine 
+		pTempObj = new QQmlEngine
+		pTempObj.pObject = QQmlExpression_engine(pObject)
+		return pTempObj
+
+	Func error 
+		pTempObj = new QQmlError
+		pTempObj.pObject = QQmlExpression_error(pObject)
+		return pTempObj
+
+	Func expression 
+		return QQmlExpression_expression(pObject)
+
+	Func evaluate P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlExpression_evaluate(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func hasError 
+		return QQmlExpression_hasError(pObject)
+
+	Func notifyOnValueChanged 
+		return QQmlExpression_notifyOnValueChanged(pObject)
+
+	Func scopeObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlExpression_scopeObject(pObject)
+		return pTempObj
+
+	Func lineNumber 
+		return QQmlExpression_lineNumber(pObject)
+
+	Func columnNumber 
+		return QQmlExpression_columnNumber(pObject)
+
+	Func sourceFile 
+		return QQmlExpression_sourceFile(pObject)
+
+	Func clearError 
+		return QQmlExpression_clearError(pObject)
+
+	Func setExpression P1
+		return QQmlExpression_setExpression(pObject,P1)
+
+	Func setNotifyOnValueChanged P1
+		return QQmlExpression_setNotifyOnValueChanged(pObject,P1)
+
+	Func setSourceLocation P1,P2,P3
+		return QQmlExpression_setSourceLocation(pObject,P1,P2,P3)
+
 Class QTextToSpeech from QObject
 
 	pObject
