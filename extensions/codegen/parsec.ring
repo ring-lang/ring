@@ -753,8 +753,8 @@ Func GenPointerType cLine
 	cLine = trim(cLine)
 	return cLine
 
-Func GenTabs cLine
-	return copy(char(9),cLine)
+Func GenTabs nCount
+	return copy(char(9),nCount)
 
 Func ParaCount aList
 	# get list of parameters, return parameters count
