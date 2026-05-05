@@ -4321,12 +4321,7 @@ RING_FUNC(ring_QByteArray_toLong)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		long *pValue ; 
-		pValue = (long *) RING_API_MALLOC(sizeof(long)) ;
-		*pValue = pObject->toLong((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"long",RING_API_FREEFUNC);
-	}
+	RING_API_RETNUMBER(pObject->toLong((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -4433,12 +4428,7 @@ RING_FUNC(ring_QByteArray_toShort)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		short *pValue ; 
-		pValue = (short *) RING_API_MALLOC(sizeof(short)) ;
-		*pValue = pObject->toShort((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"short",RING_API_FREEFUNC);
-	}
+	RING_API_RETNUMBER(pObject->toShort((bool *) RING_API_GETCPOINTER(2,"bool"), (int ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -22660,12 +22650,7 @@ RING_FUNC(ring_QLocale_toShort)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		short *pValue ; 
-		pValue = (short *) RING_API_MALLOC(sizeof(short)) ;
-		*pValue = pObject->toShort(RING_API_GETSTRING(2),(bool *) RING_API_GETCPOINTER(3,"bool"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"short",RING_API_FREEFUNC);
-	}
+	RING_API_RETNUMBER(pObject->toShort(RING_API_GETSTRING(2),(bool *) RING_API_GETCPOINTER(3,"bool")));
 }
 
 
@@ -22686,14 +22671,9 @@ RING_FUNC(ring_QLocale_toShort_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		short *pValue ; 
-		pValue = (short *) RING_API_MALLOC(sizeof(short)) ;
-		*pValue = pObject->toShort(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),(bool *) RING_API_GETCPOINTER(3,"bool"));
+	RING_API_RETNUMBER(pObject->toShort(* (QStringRef  *) RING_API_GETCPOINTER(2,"QStringRef"),(bool *) RING_API_GETCPOINTER(3,"bool")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QStringRef"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"short",RING_API_FREEFUNC);
-	}
 }
 
 
@@ -22748,9 +22728,11 @@ RING_FUNC(ring_QLocale_toString_4)
 		return ;
 	}
 	pObject = (QLocale *) RING_API_GETCPOINTER(1,"QLocale");
-	RING_API_RETSTRING(pObject->toString(* (short  *) RING_API_GETCPOINTER(2,"short")).toStdString().c_str());
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"short"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->toString( (short ) RING_API_GETNUMBER(2)).toStdString().c_str());
 }
 
 
@@ -23690,9 +23672,11 @@ RING_FUNC(ring_QThread_wait)
 		return ;
 	}
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
-	RING_API_RETNUMBER(pObject->wait(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"unsigned long"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->wait( (unsigned long ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -23820,9 +23804,11 @@ RING_FUNC(ring_QThread_msleep)
 		return ;
 	}
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
-	pObject->msleep(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"unsigned long"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->msleep( (unsigned long ) RING_API_GETNUMBER(2));
 }
 
 
@@ -23839,9 +23825,11 @@ RING_FUNC(ring_QThread_sleep)
 		return ;
 	}
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
-	pObject->sleep(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"unsigned long"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sleep( (unsigned long ) RING_API_GETNUMBER(2));
 }
 
 
@@ -23858,9 +23846,11 @@ RING_FUNC(ring_QThread_usleep)
 		return ;
 	}
 	pObject = (GThread *) RING_API_GETCPOINTER(1,"QThread");
-	pObject->usleep(* (unsigned long  *) RING_API_GETCPOINTER(2,"unsigned long"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"unsigned long"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->usleep( (unsigned long ) RING_API_GETNUMBER(2));
 }
 
 
