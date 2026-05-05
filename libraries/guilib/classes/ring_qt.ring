@@ -34072,6 +34072,65 @@ Class QQmlProperty
 	Func connectNotifySignal_2 P1,P2
 		return QQmlProperty_connectNotifySignal_2(pObject,GetObjectPointerFromRingObject(P1),P2)
 
+Class QQmlComponent from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QQmlComponent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QQmlComponent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlComponent_url(pObject)
+		return pTempObj
+
+	Func status 
+		return QQmlComponent_status(pObject)
+
+	Func isNull 
+		return QQmlComponent_isNull(pObject)
+
+	Func isReady 
+		return QQmlComponent_isReady(pObject)
+
+	Func isError 
+		return QQmlComponent_isError(pObject)
+
+	Func isLoading 
+		return QQmlComponent_isLoading(pObject)
+
+	Func progress 
+		return QQmlComponent_progress(pObject)
+
+	Func creationContext 
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlComponent_creationContext(pObject)
+		return pTempObj
+
+	Func create P1
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlComponent_create(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func loadUrl P1
+		return QQmlComponent_loadUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func loadUrl_2 P1,P2
+		return QQmlComponent_loadUrl_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setData P1,P2
+		return QQmlComponent_setData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func errors 
+		return QQmlComponent_errors(pObject)
+
 Class QTextToSpeech from QObject
 
 	pObject
