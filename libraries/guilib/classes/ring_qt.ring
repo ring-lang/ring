@@ -33665,7 +33665,9 @@ Class QQuickWidget from QWidget
 		return QQuickWidget_resizeMode(pObject)
 
 	Func rootContext 
-		return QQuickWidget_rootContext(pObject)
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQuickWidget_rootContext(pObject)
+		return pTempObj
 
 	Func rootObject 
 		return QQuickWidget_rootObject(pObject)
@@ -33733,7 +33735,9 @@ Class QQuickView from QWindow
 		return QQuickView_resizeMode(pObject)
 
 	Func rootContext 
-		return QQuickView_rootContext(pObject)
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQuickView_rootContext(pObject)
+		return pTempObj
 
 	Func rootObject 
 		return QQuickView_rootObject(pObject)
@@ -33880,7 +33884,9 @@ Class QQmlEngine
 		return QQmlEngine_removeImageProvider(pObject,P1)
 
 	Func rootContext 
-		return QQmlEngine_rootContext(pObject)
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlEngine_rootContext(pObject)
+		return pTempObj
 
 	Func setBaseUrl P1
 		return QQmlEngine_setBaseUrl(pObject,GetObjectPointerFromRingObject(P1))
@@ -33910,7 +33916,9 @@ Class QQmlEngine
 		return QQmlEngine_retranslate(pObject)
 
 	Func contextForObject P1
-		return QQmlEngine_contextForObject(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlEngine_contextForObject(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func objectOwnership P1
 		return QQmlEngine_objectOwnership(pObject,GetObjectPointerFromRingObject(P1))
@@ -33920,6 +33928,68 @@ Class QQmlEngine
 
 	Func setObjectOwnership P1,P2
 		return QQmlEngine_setObjectOwnership(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QQmlContext from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QQmlContext_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QQmlContext_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func baseUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlContext_baseUrl(pObject)
+		return pTempObj
+
+	Func parentContext 
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlContext_parentContext(pObject)
+		return pTempObj
+
+	Func engine 
+		pTempObj = new QQmlEngine
+		pTempObj.pObject = QQmlContext_engine(pObject)
+		return pTempObj
+
+	Func isValid 
+		return QQmlContext_isValid(pObject)
+
+	Func nameForObject P1
+		return QQmlContext_nameForObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resolvedUrl P1
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlContext_resolvedUrl(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setBaseUrl P1
+		return QQmlContext_setBaseUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContextObject P1
+		return QQmlContext_setContextObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContextProperty P1,P2
+		return QQmlContext_setContextProperty(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setContextProperty_2 P1,P2
+		return QQmlContext_setContextProperty_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func contextObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlContext_contextObject(pObject)
+		return pTempObj
+
+	Func contextProperty P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlContext_contextProperty(pObject,P1)
+		return pTempObj
 
 Class QTextToSpeech from QObject
 

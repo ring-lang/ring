@@ -4,3 +4,4 @@
 
 <loadfile> qml/qqmlerror.cf
 <loadfile> qml/qqmlengine.cf
+<loadfile> qml/qqmlcontext.cf
