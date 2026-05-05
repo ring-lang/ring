@@ -317,6 +317,20 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType) 
 			pItem->data.dNumber = (double)pItem->data.uiNumber;
 		} else if (nType == RING_VARVALUE_FLOAT) {
 			pItem->data.dNumber = (double)pItem->data.fNumber;
+		} else if (nType == RING_VARVALUE_SHORTINT) {
+			pItem->data.dNumber = (short int)pItem->data.sNumber;
+		} else if (nType == RING_VARVALUE_UNSIGNEDSHORTINT) {
+			pItem->data.dNumber = (unsigned short int)pItem->data.usNumber;
+		} else if (nType == RING_VARVALUE_LONGINT) {
+			pItem->data.dNumber = (long int)pItem->data.lNumber;
+		} else if (nType == RING_VARVALUE_UNSIGNEDLONGINT) {
+			pItem->data.dNumber = (unsigned long int)pItem->data.ulNumber;
+		} else if (nType == RING_VARVALUE_CHAR) {
+			pItem->data.dNumber = (char)pItem->data.cCharacter;
+		} else if (nType == RING_VARVALUE_SIGNEDCHAR) {
+			pItem->data.dNumber = (signed char)pItem->data.sCharacter;
+		} else if (nType == RING_VARVALUE_UNSIGNEDCHAR) {
+			pItem->data.dNumber = (unsigned char)pItem->data.uCharacter;
 		}
 	}
 }
