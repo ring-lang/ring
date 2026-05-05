@@ -146,6 +146,7 @@ More Samples
 * samples/General/FindAnadromes/process2.ring
 * samples/General/Performance/ringper.ring
 * samples/General/Performance/nqueensbitmask.ring
+* samples/Language/ClassMethods/nestedanonymous.ring
 * samples/UsingFreeGLUT/Hex_Sphere.ring
 * samples/UsingFreeGLUT/Penta_Sphere.ring
 * samples/UsingFreeGLUT/Octagon_Sphere.ring
