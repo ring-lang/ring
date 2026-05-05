@@ -575,7 +575,7 @@ Func GenFuncCodeCheckParaType aList
 					 C_TABS_2 + "return ;" + nl +
 					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "unsigned int" or GenPointerType(x) = "double"
+				if find(["int","unsigned int","double"],GenPointerType(x))
 					# pointer to int, i.e. int *
 					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -645,6 +645,38 @@ Func GenFuncCodeCallFunc aList
 	cCode += GenFuncCodeGetIntValues(aList)
 	return cCode
 
+Func ProcessPointerType x,t
+	cCode = ""
+	if GenPointerType(x) = "int"
+		cCode += "RING_API_GETINTPOINTER(" + t + ")"
+	but GenPointerType(x) = "unsigned int"
+		cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + t + ")"
+	but GenPointerType(x) = "double"
+		cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
+	else
+		if not IsPointer2Pointer(x)
+			cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
+		else
+			if substr(x,"const") 
+				cCode += "(" + x + ") RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'			
+			else 
+				cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
+			ok
+		ok
+	ok
+	return cCode
+
+func AcceptPointerValue x,t
+	cCode = ""
+	if GenPointerType(x) = "int"
+		cCode += C_TABS_1 + 
+		"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
+	but GenPointerType(x) = "unsigned int"
+		cCode += C_TABS_1 + 
+		"RING_API_ACCEPTUNSIGNEDINTVALUE(" + t + ") ;" + nl
+	ok
+	return cCode
+
 Func GenFuncCodeGetParaValues aList
 	cCode = ""
 	aPara = aList[C_FUNC_PARA]
@@ -664,23 +696,7 @@ Func GenFuncCodeGetParaValues aList
 			on C_TYPE_STRING
 				cCode += "RING_API_GETSTRING(" + t + ")"
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int"
-					cCode += "RING_API_GETINTPOINTER(" + t + ")"
-				but GenPointerType(x) = "unsigned int"
-					cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + t + ")"
-				but GenPointerType(x) = "double"
-					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
-				else
-					if not IsPointer2Pointer(x)
-						cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
-					else
-						if substr(x,"const") 
-							cCode += "(" + x + ") RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'			
-						else 
-							cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
-						ok
-					ok
-				ok
+				cCode += ProcessPointerType(x,t)
 			on C_TYPE_UNKNOWN
 				if find(aFunctionCallback,trim(x))
 					# Here we avoid the cast 
@@ -703,13 +719,7 @@ Func GenFuncCodeGetIntValues aList
 		for t = 1 to nMax
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_POINTER
-				if GenPointerType(x) = "int"
-					cCode += C_TABS_1 + 
-					"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
-				but GenPointerType(x) = "unsigned int"
-					cCode += C_TABS_1 + 
-					"RING_API_ACCEPTUNSIGNEDINTVALUE(" + t + ") ;" + nl
-				ok
+				cCode += AcceptPointerValue(x,t)
 			ok
 		next
 	ok
@@ -1124,7 +1134,7 @@ Func GenMethodCodeCheckParaType aList
 					 C_TABS_2 + "return ;" + nl +
 					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "unsigned int" or GenPointerType(x) = "double"
+				if find(["int","unsigned int","double"],GenPointerType(x)) 
 					# pointer to int, i.e. int *
 					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -1267,16 +1277,7 @@ Func GenMethodCodeGetParaValues aList
 			on C_TYPE_STRING
 				cCode += "RING_API_GETSTRING(" + t + ")"
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int"
-					cCode += "RING_API_GETINTPOINTER(" + t + ")"
-				but GenPointerType(x) = "unsigned int"
-					cCode += "RING_API_GETUNSIGNEDINTPOINTER(" + t + ")"
-				but GenPointerType(x) = "double"
-					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
-				else
-					cCode += "(" + GenPointerType(x) + " *) " + 
-					"RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
-				ok
+				cCode += ProcessPointerType(x,t)
 			on C_TYPE_UNKNOWN
 				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
 			off
