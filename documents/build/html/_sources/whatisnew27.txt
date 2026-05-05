@@ -339,8 +339,8 @@ More Improvements
 * Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()
 * Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()
 * Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()
-* Extensions generator - The aNumberTypes list is revised 
-* Extensions generator - Using aPassPointers list to control passing pointers to functions
+* Extensions Generator - The aNumberTypes list is revised 
+* Extensions Generator - Using aPassPointers list to control passing pointers to functions
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
 * Ring VM - ring_general_justfilename() - Better Code

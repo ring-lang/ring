@@ -13678,12 +13678,7 @@ RING_FUNC(ring_SDL_HapticQuery)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		unsigned int *pValue ; 
-		pValue = (unsigned int *) RING_API_MALLOC(sizeof(unsigned int)) ;
-		*pValue = SDL_HapticQuery((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"unsigned int",RING_API_FREEFUNC);
-	}
+	RING_API_RETNUMBER(SDL_HapticQuery((SDL_Haptic *) RING_API_GETCPOINTER(1,"SDL_Haptic")));
 }
 
 
@@ -15587,9 +15582,11 @@ RING_FUNC(ring_TTF_OpenFontIndex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(TTF_OpenFontIndex(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),* (long  *) RING_API_GETCPOINTER(3,"long")),"TTF_Font");
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		RING_API_FREE(RING_API_GETCPOINTER(3,"long"));
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(TTF_OpenFontIndex(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (long ) RING_API_GETNUMBER(3)),"TTF_Font");
 }
 
 
@@ -15611,9 +15608,11 @@ RING_FUNC(ring_TTF_OpenFontIndexRW)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(TTF_OpenFontIndexRW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (long  *) RING_API_GETCPOINTER(4,"long")),"TTF_Font");
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		RING_API_FREE(RING_API_GETCPOINTER(4,"long"));
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(TTF_OpenFontIndexRW((SDL_RWops *) RING_API_GETCPOINTER(1,"SDL_RWops"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (long ) RING_API_GETNUMBER(4)),"TTF_Font");
 }
 
 
@@ -15839,12 +15838,7 @@ RING_FUNC(ring_TTF_FontFaces)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		long *pValue ; 
-		pValue = (long *) RING_API_MALLOC(sizeof(long)) ;
-		*pValue = TTF_FontFaces((TTF_Font *) RING_API_GETCPOINTER(1,"TTF_Font"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"long",RING_API_FREEFUNC);
-	}
+	RING_API_RETNUMBER(TTF_FontFaces((TTF_Font *) RING_API_GETCPOINTER(1,"TTF_Font")));
 }
 
 
