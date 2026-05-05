@@ -6,9 +6,6 @@
 typedef struct Item {
 	/* Data */
 	union {
-		char cCharacter;
-		signed char sCharacter;
-		unsigned char uCharacter;
 		short int sNumber;
 		unsigned short int usNumber;
 		int iNumber;

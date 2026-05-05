@@ -245,16 +245,7 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 	RING_VM_STACK_POP;
 	if (RING_VAR_GETTYPE(pList) == RING_VM_NUMBER) {
 		pItem = RING_VAR_ITEM_VALUE(pList);
-		if (strcmp(cStr2, "char") == 0) {
-			pItem->data.cCharacter = (char)pItem->data.dNumber;
-			return &(pItem->data.cCharacter);
-		} else if (strcmp(cStr2, "signed char") == 0) {
-			pItem->data.sCharacter = (signed char)pItem->data.dNumber;
-			return &(pItem->data.sCharacter);
-		} else if (strcmp(cStr2, "unsigned char") == 0) {
-			pItem->data.uCharacter = (unsigned char)pItem->data.dNumber;
-			return &(pItem->data.uCharacter);
-		} else if (strcmp(cStr2, "short int") == 0) {
+		if (strcmp(cStr2, "short int") == 0) {
 			pItem->data.sNumber = (short int)pItem->data.dNumber;
 			return &(pItem->data.sNumber);
 		} else if (strcmp(cStr2, "unsigned short int") == 0) {
@@ -311,13 +302,7 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType) 
 	RING_VM_STACK_POP;
 	if (RING_VAR_GETTYPE(pList) == RING_VM_NUMBER) {
 		pItem = RING_VAR_ITEM_VALUE(pList);
-		if (nType == RING_VARVALUE_CHAR) {
-			pItem->data.dNumber = (char)pItem->data.cCharacter;
-		} else if (nType == RING_VARVALUE_SIGNEDCHAR) {
-			pItem->data.dNumber = (signed char)pItem->data.sCharacter;
-		} else if (nType == RING_VARVALUE_UNSIGNEDCHAR) {
-			pItem->data.dNumber = (unsigned char)pItem->data.uCharacter;
-		} else if (nType == RING_VARVALUE_SHORTINT) {
+		if (nType == RING_VARVALUE_SHORTINT) {
 			pItem->data.dNumber = (short int)pItem->data.sNumber;
 		} else if (nType == RING_VARVALUE_UNSIGNEDSHORTINT) {
 			pItem->data.dNumber = (unsigned short int)pItem->data.usNumber;
