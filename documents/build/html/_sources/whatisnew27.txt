@@ -328,6 +328,9 @@ Better Functions
 * RingQt Extension - Added: QQmlComponent 
 * RingQt Extension - Added: QQmlApplicationEngine
 * RingQt Extension - Added: QStorageInfo
+* RingQt Extension - Added: QSvgWidget
+* RingQt Extension - Added: QSvgRenderer
+* RingQt Extension - Added: QSvgGenerator
 * RingQt Extension - Revised QOpenGLTexture_borderColor_4() function
 
 .. index:: 
