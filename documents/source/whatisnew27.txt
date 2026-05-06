@@ -164,6 +164,8 @@ More Samples
 * samples/UsingQML/RingQML_Communication/test3.ring
 * samples/UsingQML/RingQML_Communication/test4.ring
 * samples/UsingQML/RingQML_Communication/test5.ring
+* samples/UsingQML/RingQML_Communication/test6.ring
+
 
 .. image:: advancedfreeglut.png
 	:alt: Advanced FreeGLUT Samples
