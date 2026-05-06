@@ -322,7 +322,12 @@ Better Functions
 * RingFastPro Extension - Added Transform3D() function
 * RingLibSDL Extension - Revised SDL_QueryTexture()
 * RingLibSDL Extension - Removed SDL_GetRevisionNumber()
-* RingQt - Revised QOpenGLTexture_borderColor_4() function
+* RingQt Extension - Added: QQmlContext 
+* RingQt Extension - Added: QQmlProperty 
+* RingQt Extension - Added: QQmlExpression 
+* RingQt Extension - Added: QQmlComponent 
+* RingQt Extension - Added: QQmlApplicationEngine
+* RingQt Extension - Revised QOpenGLTexture_borderColor_4() function
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
