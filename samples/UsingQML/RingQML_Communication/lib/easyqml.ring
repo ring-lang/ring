@@ -14,5 +14,6 @@ class RingCode from QPushButton
 		setClickEvent(cCode)
 		oContext = oParent.rootContext()
 		oContext.setContextPropertyUsingObject(cName,self)
+		setFocusPolicy(0)	// Qt_NoFocus
 		hide()
 		return self
