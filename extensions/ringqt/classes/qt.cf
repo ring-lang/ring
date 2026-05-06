@@ -80,3 +80,7 @@
 <filter> sysget("RINGQT_NOCHARTS") = ""
 <loadfile> qt_module_charts.cf
 </filter>
+
+<filter> sysget("RINGQT_NOSVG") = ""
+<loadfile> qt_module_svg.cf
+</filter>

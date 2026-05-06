@@ -1,0 +1,7 @@
+<comment>
+				Module (svg)
+</comment>
+
+<loadfile> svg/qsvgwidget.cf
+<loadfile> svg/qsvggenerator.cf
+<loadfile> svg/qsvgrenderer.cf

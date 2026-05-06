@@ -35,7 +35,6 @@ extern "C" {
 
 
 
-
 extern "C" {
 
 	RING_API void ring_qt_start(RingState *pRingState);

@@ -1,0 +1,22 @@
+<class>
+name: QSvgGenerator
+para: void
+parent: QPaintDevice
+</class>
+
+QString description(void)
+QString fileName(void)
+QIODevice *outputDevice(void)
+int resolution(void)
+QSize size(void)
+QString title(void)
+QRect viewBox(void)
+QRectF viewBoxF(void)
+void setDescription(QString description)
+void setFileName(QString fileName)
+void setOutputDevice(QIODevice *outputDevice)
+void setResolution(int dpi)
+void setSize(QSize size)
+void setTitle(QString title)
+void setViewBox(QRect viewBox)
+void setViewBox@2(QRectF viewBox)
