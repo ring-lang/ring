@@ -21,6 +21,7 @@ Ring 1.27 comes with the next features!
 * More Samples
 * Ring-Python Package
 * Ring-CFFI Package
+* Better Extensions
 * Better Functions
 * More Improvements
 
@@ -275,6 +276,26 @@ Output:
 	Hello, World! Number: 123
 
 .. index:: 
+	pair: What is new in Ring  1.27; Better Extensions
+
+Better Extensions
+=================
+
+* RingFastPro Extension - Better Performance
+* RingFastPro Extension - Added Transform3D() function
+* RingQt Extension - Added: QStorageInfo class
+* RingQt Extension - Added: QSvgWidget class
+* RingQt Extension - Added: QSvgRenderer class
+* RingQt Extension - Added: QSvgGenerator class
+* RingQt Extension - Added: QQmlContext class
+* RingQt Extension - Added: QQmlProperty class
+* RingQt Extension - Added: QQmlExpression class
+* RingQt Extension - Added: QQmlComponent class
+* RingQt Extension - Added: QQmlApplicationEngine class
+* RingLibSDL Extension - Revised SDL_QueryTexture()
+* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
+
+.. index:: 
 	pair: What is new in Ring  1.27; Better Functions
 
 Better Functions
@@ -319,20 +340,6 @@ Better Functions
 * System() - Return the function output
 * Assert() - Follow Ring's rules for evaluating values as True or False
 * Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage
-* RingFastPro Extension - Better Performance
-* RingFastPro Extension - Added Transform3D() function
-* RingLibSDL Extension - Revised SDL_QueryTexture()
-* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
-* RingQt Extension - Added: QQmlContext 
-* RingQt Extension - Added: QQmlProperty 
-* RingQt Extension - Added: QQmlExpression 
-* RingQt Extension - Added: QQmlComponent 
-* RingQt Extension - Added: QQmlApplicationEngine
-* RingQt Extension - Added: QStorageInfo
-* RingQt Extension - Added: QSvgWidget
-* RingQt Extension - Added: QSvgRenderer
-* RingQt Extension - Added: QSvgGenerator
-* RingQt Extension - Revised QOpenGLTexture_borderColor_4() function
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
