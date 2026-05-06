@@ -34259,9 +34259,14 @@ Class QQmlExpression from QObject
 	Func expression 
 		return QQmlExpression_expression(pObject)
 
-	Func evaluate P1
+	Func evaluate 
 		pTempObj = new QVariant
-		pTempObj.pObject = QQmlExpression_evaluate(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QQmlExpression_evaluate(pObject)
+		return pTempObj
+
+	Func evaluate_2 P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlExpression_evaluate_2(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 	Func hasError 
