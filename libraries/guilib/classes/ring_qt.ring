@@ -34148,7 +34148,7 @@ Class QQmlApplicationEngine from QQmlEngine
 	Func rootObjects 
 		return QQmlApplicationEngine_rootObjects(pObject)
 
-	Func load P1
+	Func loadfile P1
 		return QQmlApplicationEngine_load(pObject,P1)
 
 	Func load_2 P1

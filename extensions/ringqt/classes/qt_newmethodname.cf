@@ -3,6 +3,7 @@
 aNewMethodName + ["QWebView","load","loadpage"]
 aNewMethodName + ["QWebEngineView","load","loadpage"]
 aNewMethodName + ["QMediaPlaylist","load","loadfile"]
+aNewMethodName + ["QQmlApplicationEngine","load","loadfile"]
 aNewMethodName + ["QMediaPlaylist","next","movenext"]
 aNewMethodName + ["QPainter","end","endpaint"]
 aNewMethodName + ["QPicture","load","loadfile"]
