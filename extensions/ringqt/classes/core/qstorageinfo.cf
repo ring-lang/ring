@@ -1,0 +1,21 @@
+<class>
+name: QStorageInfo
+para: QString path
+</class>
+
+int blockSize(void)
+QByteArray device(void)
+QString displayName(void)
+QByteArray fileSystemType(void)
+qint64 bytesAvailable(void)
+qint64 bytesFree(void)
+qint64 bytesTotal(void)
+bool isReadOnly(void)
+bool isReady(void)
+bool isRoot(void)
+bool isValid(void)
+QString name(void)
+void refresh(void)
+QString rootPath(void)
+QByteArray subvolume(void)
+void setPath(QString path)

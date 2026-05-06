@@ -5898,6 +5898,74 @@ Class QSaveFile from QFileDevice
 	Func open P1
 		return QSaveFile_open(pObject,P1)
 
+Class QStorageInfo
+
+	pObject
+
+	Func init P1
+		pObject = QStorageInfo_new(P1)
+		return self
+
+	Func delete
+		pObject = QStorageInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func blockSize 
+		return QStorageInfo_blockSize(pObject)
+
+	Func device 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStorageInfo_device(pObject)
+		return pTempObj
+
+	Func displayName 
+		return QStorageInfo_displayName(pObject)
+
+	Func fileSystemType 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStorageInfo_fileSystemType(pObject)
+		return pTempObj
+
+	Func bytesAvailable 
+		return QStorageInfo_bytesAvailable(pObject)
+
+	Func bytesFree 
+		return QStorageInfo_bytesFree(pObject)
+
+	Func bytesTotal 
+		return QStorageInfo_bytesTotal(pObject)
+
+	Func isReadOnly 
+		return QStorageInfo_isReadOnly(pObject)
+
+	Func isReady 
+		return QStorageInfo_isReady(pObject)
+
+	Func isRoot 
+		return QStorageInfo_isRoot(pObject)
+
+	Func isValid 
+		return QStorageInfo_isValid(pObject)
+
+	Func name 
+		return QStorageInfo_name(pObject)
+
+	Func refresh 
+		return QStorageInfo_refresh(pObject)
+
+	Func rootPath 
+		return QStorageInfo_rootPath(pObject)
+
+	Func subvolume 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStorageInfo_subvolume(pObject)
+		return pTempObj
+
+	Func setPath P1
+		return QStorageInfo_setPath(pObject,P1)
+
 Class QDesktopServices
 
 	pObject
