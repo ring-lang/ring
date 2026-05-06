@@ -168,6 +168,7 @@ More Samples
 * samples/UsingQML/RingQML_Communication/FormBuilder.ring
 * samples/UsingQML/RingQML_Communication/TodoList.ring
 * samples/UsingQML/RingQML_Communication/ChatInterface.ring
+* samples/UsingQML/RingQML_Communication/QuizGame.ring
 
 .. image:: advancedfreeglut.png
 	:alt: Advanced FreeGLUT Samples
