@@ -9,7 +9,7 @@
 */
 
 load "guilib.ring"
-load "lib/ringcode.ring"
+load "lib/easyqml.ring"
 
 cDisplay = "0"
 nFirst = 0

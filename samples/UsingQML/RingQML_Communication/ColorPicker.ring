@@ -8,7 +8,7 @@
 */
 
 load "guilib.ring"
-load "lib/ringcode.ring"
+load "lib/easyqml.ring"
 
 nRed = 128
 nGreen = 128

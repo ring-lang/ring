@@ -10,7 +10,7 @@
 */
 
 load "guilib.ring"
-load "lib/ringcode.ring"
+load "lib/easyqml.ring"
 
 cUserName = "You"
 cBotName = "RingBot"

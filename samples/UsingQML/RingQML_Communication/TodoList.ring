@@ -9,7 +9,7 @@
 */
 
 load "guilib.ring"
-load "lib/ringcode.ring"
+load "lib/easyqml.ring"
 
 # Task data managed by Ring
 aTasks = []
