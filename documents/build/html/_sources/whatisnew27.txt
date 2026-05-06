@@ -161,6 +161,7 @@ More Samples
 * samples/UsingQt/SVG/test2.ring
 * samples/UsingQML/RingQML_Communication/test1.ring
 * samples/UsingQML/RingQML_Communication/test2.ring
+* samples/UsingQML/RingQML_Communication/test3.ring
 
 
 .. image:: advancedfreeglut.png
