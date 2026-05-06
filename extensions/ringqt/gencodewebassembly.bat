@@ -9,6 +9,7 @@ set RINGQT_NOAXCONTAINER=1
 set RINGQT_NOQT3D=1
 set RINGQT_NOWEBKIT=1
 set RINGQT_NOBLUETOOTH=1
+set RINGQT_NOSVG=
 
 ..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
 cd events
