@@ -159,6 +159,7 @@ More Samples
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 * samples/UsingQt/SVG/test1.ring
 * samples/UsingQt/SVG/test2.ring
+* samples/UsingQML/RingQMLCommunication/test1.ring
 
 
 .. image:: advancedfreeglut.png
