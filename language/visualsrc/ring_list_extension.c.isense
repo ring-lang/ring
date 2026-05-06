@@ -28,11 +28,15 @@ Type: List *
 pList
 Type: unsigned int
 x,nSize,nSize2
+Type: double
+nNum1,nNum2
 Type: VM *
 pVM
 ring_vm_listfuncs_find
 Type: unsigned int
 nNum1, nColumn
+Type: double
+dColumn
 Type: List *
 pList
 Type: VM *
@@ -72,7 +76,9 @@ pList, *pList2, *pList3
 Type: int
 nParaCount
 Type: unsigned int
-x, nPos, nColumn
+x, nPos, nColumn=0
+Type: double
+dColumn
 Type: char *
 cAttribute
 Type: VM *
@@ -84,6 +90,8 @@ Type: int
 nParaCount
 Type: unsigned int
 x, nColumn
+Type: double
+dColumn
 Type: VM *
 pVM
 ring_vm_listfuncs_reverse

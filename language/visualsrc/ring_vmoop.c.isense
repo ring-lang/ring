@@ -12,7 +12,6 @@ RING_OBJECT_LISTSIZE
 RING_OBJECT_CLASSPOINTER
 RING_OBJECT_OBJECTDATA
 RING_OBJECT_SELFATTRIBUTE
-RING_OBJECT_ISATTRIBUTESEARCHSTART
 RING_OBJSTATE_SCOPE
 RING_OBJSTATE_METHODS
 RING_OBJSTATE_CLASS
@@ -20,14 +19,25 @@ RING_OOPARA_STRING
 RING_OOPARA_NUMBER
 RING_OOPARA_POINTER
 RING_BRACEOBJECTS_BRACEOBJECT
+RING_BRACEOBJECTS_SETPROPERTY
 RING_BRACEOBJECTS_NSP
 RING_BRACEOBJECTS_NLISTSTART
 RING_BRACEOBJECTS_NNESTEDLISTS
-RING_BRACEOBJECTS_SETPROPERTY
 RING_BRACEOBJECTS_NLOADASCOPE
 RING_BRACEOBJECTS_NNOSETTERMETHOD
 RING_BRACEOBJECTS_ISDONTREF
 RING_BRACEOBJECTS_ISDONTREFAGAIN
+RING_BRACEOBJECTS_VALIDMASK
+RING_BRACEOBJECTS_BRACESTART
+RING_BRACEOBJECTS_BRACEEND
+RING_BRACEOBJECTS_BRACEEXPREVAL
+RING_BRACEOBJECTS_BRACEERROR
+RING_BRACEOBJECTS_BRACENEWLINE
+RING_BRACEBIT_BRACESTART
+RING_BRACEBIT_BRACEEND
+RING_BRACEBIT_BRACEEXPREVAL
+RING_BRACEBIT_BRACEERROR
+RING_BRACEBIT_BRACENEWLINE
 RING_SCOPENEWOBJ_SP
 RING_SETPROPERTY_OBJPTR
 RING_SETPROPERTY_OBJTYPE
@@ -42,6 +52,14 @@ RING_ISMETHOD_PRIVATEMETHOD
 RING_NOSETTERMETHOD_DEFAULT
 RING_NOSETTERMETHOD_ENABLE
 RING_NOSETTERMETHOD_IGNORESETPROPERTY
+RING_OBJECT_ITEMS_CLASSPOINTER(pObj)
+RING_OBJECT_ITEMS_OBJECTDATA(pObj)
+RING_OBJECT_ITEM_CLASSPOINTER(pObj)
+RING_OBJECT_ITEM_OBJECTDATA(pObj)
+RING_OBJECT_GETCLASSPOINTER(pObj)
+RING_OBJECT_GETOBJECTDATA(pObj)
+RING_OBJECT_GETSELFATTRIBUTE(pObjData)
+RING_OBJECT_ISOBJECT(pObj)
 ring_vm_oop_newobj
 Type: const char *
 cClassName,*cClassName2
@@ -81,9 +99,24 @@ Type: List *
 pVar,*pList,*pList2,*pList3,*pSuper
 Type: unsigned int
 lResult
-ring_vm_oop_movetobeforeobjstate
+Type: FuncCall *
+pFuncCall
+ring_vm_oop_loadmethodp
 Type: List *
-pList, *pList2
+pVar, *pList, *pList2, *pObjData, *pCachedClass
+Type: FuncCall *
+pFuncCall
+Type: Item *
+pItem
+ring_vm_oop_loadbracemethodp
+Type: List *
+pCachedClass, *pMethods
+Type: ObjState *
+pOS
+ring_vm_oop_usemethodp
+Type: FuncCall *
+pFuncCall
+ring_vm_oop_movetobeforeobjstate
 ring_vm_oop_parentmethods
 Type: const char *
 cClassName,*cClassName2
@@ -96,17 +129,17 @@ ring_vm_oop_printobj
 ring_vm_oop_setbraceobj
 ring_vm_oop_bracestart
 Type: List *
-pList, *pVar, *pStateList
+pList, *pVar
 Type: Item *
 pItem
 Type: unsigned int
 lShowError
 ring_vm_oop_braceend
-Type: List *
-pList
+Type: VMState *
+pVMState
 ring_vm_oop_bracestack
-Type: List *
-pList
+Type: VMState *
+pVMState
 ring_vm_oop_newsuperobj
 Type: List *
 pSuper,*pSuper2,*pMethods,*pList
@@ -121,7 +154,7 @@ ring_vm_oop_loadsuperobjmethod
 Type: unsigned int
 x
 Type: List *
-pState,*pMethods,*pClass,*pVar,*pList
+pState,*pMethods,*pClass,*pVar
 ring_vm_oop_import
 ring_vm_oop_import2
 Type: unsigned int
@@ -195,13 +228,17 @@ pItem
 Type: unsigned int
 nObjType, nIns
 ring_vm_oop_callmethodfrombrace
+Type: ByteCode *
+pByteCodeIR
 ring_vm_oop_preparecallmethodfrombrace
-Type: List *
-pList,*pList2
+Type: unsigned int
+nSrcIndex
 Type: FuncCall *
 pFuncCall
 Type: const char *
 cStr
+Type: List *
+pList
 ring_vm_oop_isattribute
 Type: unsigned int
 x
@@ -210,6 +247,9 @@ Type: List *
 pList2,*pList3
 Type: unsigned int
 x
+ring_vm_oop_cachedismethod
+Type: unsigned int
+nSlot, nBit, lResult, lMask
 ring_vm_oop_updateselfpointer
 Type: List *
 pList
@@ -226,12 +266,13 @@ Type: Item *
 pItem
 ring_vm_oop_callclassinit
 ring_vm_oop_checkbracemethod
-Type: List *
-pList
+Type: VMState *
+pVMState
 Type: unsigned int
 lResult
 ring_vm_oop_addattribute
 ring_vm_oop_cleansetpropertylist
 ring_vm_oop_internalcallforbracemethod
-Type: List *
-pList
+Type: VMState *
+pVMState
+ring_vm_oop_pushobjstate

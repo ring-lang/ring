@@ -250,7 +250,7 @@ int ring_parser_class(Parser *pParser) {
 int ring_parser_stmt(Parser *pParser) {
 	unsigned int x, nMark1, nMark2, nMark3, nStart, nEnd, nDiff, lFastLen;
 	unsigned int nLoadPackage, lLoopOrExitCommand, nLoadAgain, nForInVarsCount;
-	unsigned int nVar, nLine, nLine2, lRetItemRef;
+	unsigned int nVar, nLine, nLine2, lRetItemRef, nRequiredSize;
 	String *pString;
 	List *pMark, *pMark2, *pMark3, *pMark4, *pList2;
 	char cStr[RING_MEDIUMBUF];
@@ -274,6 +274,18 @@ int ring_parser_stmt(Parser *pParser) {
 			pParser->pRingState->nLoadAgain++;
 		}
 		if (ring_parser_isliteral(pParser)) {
+			/* Check the maximum required size for the filename */
+			nRequiredSize = strlen("/load/") + strlen(pParser->cTokenText) + 1;
+			strcpy(cFileName, RING_CSTR_EMPTY);
+			ring_general_exefolder(cFileName);
+			nRequiredSize += strlen(cFileName);
+			strcpy(cFileName, RING_CSTR_EMPTY);
+			ring_general_currentdir(cFileName);
+			nRequiredSize += strlen(cFileName);
+			if (nRequiredSize >= RING_PATHSIZE) {
+				ring_parser_error(pParser, RING_FILENAMETOOLONG);
+				return RING_PARSER_FAIL;
+			}
 			/* Check File in the Ring/bin folder */
 			strcpy(cFileName, pParser->cTokenText);
 			if (ring_general_fexists(pParser->cTokenText) == 0) {

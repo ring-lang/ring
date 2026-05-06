@@ -11,7 +11,6 @@ RING_API unsigned ring_hashlib_xorhash(unsigned char *cKey, int nLen) {
 	}
 	return nHash;
 }
-/* See: https://en.wikipedia.org/wiki/MurmurHash */
 
 RING_API unsigned int ring_hashlib_murmurthree32(const char *cKey, unsigned int nLen, unsigned int nSeed) {
 	static const unsigned int c1 = 0xcc9e2d51;
@@ -22,12 +21,11 @@ RING_API unsigned int ring_hashlib_murmurthree32(const char *cKey, unsigned int 
 	static const unsigned int n = 0xe6546b64;
 	unsigned int cHash = nSeed;
 	const int nBlocks = nLen / 4;
-	const unsigned int *pBlocks = (const unsigned int *)cKey;
 	int i;
 	const unsigned char *tail;
-	unsigned int k1 = 0;
+	unsigned int k, k1 = 0;
 	for (i = 0; i < nBlocks; i++) {
-		unsigned int k = pBlocks[i];
+		memcpy(&k, cKey + i * 4, sizeof(unsigned int));
 		k *= c1;
 		k = (k << r1) | (k >> (32 - r1));
 		k *= c2;

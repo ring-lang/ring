@@ -4,3 +4,8 @@
 
 <loadfile> qml/qqmlerror.cf
 <loadfile> qml/qqmlengine.cf
+<loadfile> qml/qqmlcontext.cf
+<loadfile> qml/qqmlproperty.cf
+<loadfile> qml/qqmlcomponent.cf
+<loadfile> qml/qqmlapplicationengine.cf
+<loadfile> qml/qqmlexpression.cf

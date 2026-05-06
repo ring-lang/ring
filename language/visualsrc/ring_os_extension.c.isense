@@ -1,6 +1,7 @@
 ring_os_extension_h
 RING_VM_POINTER_LIBNAME
 RING_VM_UNSUPPORTEDFUNCTION
+RING_VM_RANDOMIZELIMIT
 Type: static LPFN_ISWOW64PROCESS
 fnCheckWindows64
 ring_vm_os_gettime
@@ -40,6 +41,8 @@ ring_vm_os_system
 ring_vm_os_shutdown
 Type: int
 nExitCode
+Type: double
+dExitCode
 ring_vm_os_sysget
 Type: char *
 pData
@@ -67,6 +70,10 @@ ts
 ring_vm_os_randomize
 Type: RING_UNSIGNEDLONGLONG
 nNum1,nNum2
+Type: double
+dNum2
+Type: unsigned int
+nSeed
 Type: struct timespec
 ts
 Type: LARGE_INTEGER
@@ -76,5 +83,7 @@ nNum
 ring_vm_os_syssleep
 Type: int
 nTime
+Type: double
+dTime
 Type: struct timespec
 sTimeSpec

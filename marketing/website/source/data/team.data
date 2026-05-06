@@ -1,21 +1,25 @@
 ﻿aFounder = [
 		[
-			'Mahmoud Samir Fayed<br/>Software Developer (The Creator of Ring)',
+			'Mahmoud Samir Fayed (The Creator of Ring)',
 			'<img src="images/fayed.jpg" width="150" height="170">'
 		]
 ]
 aTeam = [
 		[
-			'Youssef Saeed<br/>Software Developer (Packages Master)',
+			'Youssef Saeed (Packages Master)',
 			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
 		],
 		[
-			'Ahmed Hassouna<br/>Software Developer (Training Master)',
+			'Ahmed Hassouna (Training Master)',
 			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
 		],
 		[
-			'Mansour Ayouni<br/>Software Developer (Writing Master)',
+			'Mansour Ayouni (Writing Master)',
 			'<img src="images/mansour.jpg" width="150" height="170">'
+		],
+		[
+			'Mounir IDRASSI (Security Master)',
+			'<img src="images/mounir.png" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -45,10 +49,6 @@ aTopContributors = [
 		  [
 		    'Mohannad Al-Ayash (Creator of RingQML)',
 		    'Web/GUI Apps'				
-		  ],
-		  [
-                    'Mounir IDRASSI (Creator of VeraCrypt)',
-                    'C/C++ Expert'                    
 		  ]
 ]
 aManyThanks = [
@@ -937,5 +937,13 @@ aTeam2 = [
 		  [
 		    'Antonio F.S.',
 		    'Tester'
-		  ] 
+		  ],
+		  [
+		    'Weixie Cui',
+		    'Tester'
+		  ],
+		  [
+		    'Hassan Harby',
+		    'Tester'
+		  ]   
 ]

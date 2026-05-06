@@ -1,0 +1,18 @@
+<class>
+name: QQmlContext
+para: QQmlEngine *engine
+parent: QObject
+</class>
+
+QUrl baseUrl(void)
+QQmlContext *parentContext(void)
+QQmlEngine *engine(void)
+bool isValid(void)
+QString nameForObject(QObject *object)
+QUrl resolvedUrl(QUrl src)
+void setBaseUrl(QUrl baseUrl)
+void setContextObject(QObject *object)
+void setContextProperty(QString name, QObject *value)
+void setContextProperty@2(QString name, QVariant value)
+QObject *contextObject(void)
+QVariant contextProperty(QString name)

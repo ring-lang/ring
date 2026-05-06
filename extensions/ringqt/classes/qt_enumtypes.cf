@@ -583,4 +583,7 @@ aEnumTypes + "QMediaRecorder::Error"
 aEnumTypes + "QMediaRecorder::State"
 aEnumTypes + "QMediaRecorder::Status"
 aEnumTypes + "QSoundEffect::Status"
+aEnumTypes + "QQmlProperty::Type"
+aEnumTypes + "QQmlComponent::Status"
+aEnumTypes + "QQmlComponent::CompilationMode"
 </runcode>

@@ -226,6 +226,10 @@ Example:
 	next  
 
 
+.. note:: If the step value in a for loop is set to 0, Ring will skip the loop body entirely without raising an error or entering an infinite loop.
+
+.. tip:: Ring evaluates the step expression once at the beginning of the loop, before the first iteration.
+
 .. index:: 
 	pair: Control Structures - First Style; for in to modify lists
 

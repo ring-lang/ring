@@ -5,7 +5,11 @@ ring_vm_math_sin
 ring_vm_math_cos
 ring_vm_math_tan
 ring_vm_math_asin
+Type: double
+nNum
 ring_vm_math_acos
+Type: double
+nNum
 ring_vm_math_atan
 ring_vm_math_atan2
 ring_vm_math_sinh
@@ -13,27 +17,43 @@ ring_vm_math_cosh
 ring_vm_math_tanh
 ring_vm_math_exp
 ring_vm_math_log
+Type: double
+nValue, nBase
 ring_vm_math_log10
+Type: double
+nValue
 ring_vm_math_ceil
 ring_vm_math_floor
 ring_vm_math_fabs
 ring_vm_math_pow
+Type: double
+nNum1,nNum2
 ring_vm_math_sqrt
+Type: double
+nNum
 ring_vm_math_unsigned
 Type: RING_UNSIGNEDLONGLONG
-nNum1,nNum2,nNum3
+nNum1 = 0,nNum2 = 0,nNum3 = 0
 Type: const char *
 cStr
+Type: double
+nNum
 ring_vm_math_decimals
-Type: int
+Type: double
 nNum1
 ring_vm_math_murmur3hash
 Type: unsigned int
 nResult
+Type: double
+nNum
 ring_vm_math_random
 Type: int
-nNum1,nNum2
+nNum1
+Type: unsigned int
+nRandS
+Type: double
+nNum2
 ring_vm_math_srandom
-Type: int
+Type: double
 nNum1
 ring_vm_math_checkoverflow

@@ -15,19 +15,319 @@ List of changes and new features
 
 Ring 1.27 comes with the next features!
 
-* More RingPM Packages
+* Research Article
+* Better Performance
+* Solitaire Game
+* More Samples
+* Ring-Python Package
+* Ring-CFFI Package
+* Better Functions
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring  1.27; More RingPM Packages
+	pair: What is new in Ring 1.27?; Research Article
 
-More RingPM Packages
-====================
+Research Article
+================
 
-The following packages have been added to the RingPM registry.
+URL: https://doi.org/10.3390/electronics15040903
 
-* Solitaire
-* Ring-Python
+.. image:: researchcover3.png
+	:alt: Research Article
+
+.. index:: 
+	pair: What is new in Ring  1.27; Better Performance
+
+Better Performance
+==================
+
+Ring 1.27 introduces performance improvements across many core operations. 
+
+.. list-table:: Performance Comparison: Ring 1.26 vs Ring 1.27 (Using loop from 1 to 10,000,000)
+   :widths: 40 15 15 15
+   :header-rows: 1
+
+   * - Test Program
+     - Ring 1.26 (s)
+     - Ring 1.27 (s)
+     - Speedup
+   * - Loop
+     - 0.09
+     - 0.08
+     - ~1.1x
+   * - Variable read
+     - 0.22
+     - 0.18
+     - ~1.2x
+   * - Variable write
+     - 0.35
+     - 0.24
+     - ~1.5x
+   * - List item read
+     - 0.39
+     - 0.29
+     - ~1.3x
+   * - List item write
+     - 0.43
+     - 0.36
+     - ~1.2x
+   * - Calling C functions
+     - 0.30
+     - 0.23
+     - ~1.3x
+   * - Calling Ring functions
+     - 0.53
+     - 0.34
+     - ~1.6x
+   * - Calling Ring methods using the dot operator
+     - 3.63
+     - 0.73
+     - ~5.0x
+   * - Calling Ring methods using braces (outside the loop)
+     - 2.61
+     - 0.69
+     - ~3.8x
+   * - Object brace open/close
+     - 3.18
+     - 1.05
+     - ~3.0x
+   * - Calling Ring methods using braces (inside the loop)
+     - 6.09
+     - 1.88
+     - ~3.2x
+
+.. note::
+
+   The most significant improvements are in OOP method dispatch. Calling Ring methods
+   via the dot operator is now **~5x faster**.
+
+
+.. tip:: Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+
+
+.. index:: 
+	pair: What is new in Ring 1.27?; Solitaire Game
+
+Solitaire Game
+==============
+
+The Solitaire Game (Developed using Ring and RayLib) 
+
+Install and run:
+
+.. code-block:: none
+
+	ringpm install solitaire
+	ringpm run solitaire
+
+.. image:: solitaire.png
+	:alt: Solitaire Game
+
+.. index:: 
+	pair: What is new in Ring  1.27; More Samples
+
+More Samples
+============
+
+(1) The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
+
+(2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
+
+(3) The next samples are revised
+
+* samples/UsingLibCurl/test12.ring
+* samples/UsingLibCurl/test13.ring
+
+(4) The next samples are added to the samples foder:
+
+* samples/General/RosettaCode/YinYang.ring
+* samples/General/RosettaCode/YinYang2.ring
+* samples/General/FindAnadromes/process.ring
+* samples/General/FindAnadromes/process2.ring
+* samples/General/Performance/ringper.ring
+* samples/General/Performance/nqueensbitmask.ring
+* samples/Language/ClassMethods/nestedanonymous.ring
+* samples/UsingFreeGLUT/Hex_Sphere.ring
+* samples/UsingFreeGLUT/Penta_Sphere.ring
+* samples/UsingFreeGLUT/Octagon_Sphere.ring
+* samples/UsingFreeGLUT/SinCos_Surface.ring 
+* samples/UsingRogueUtil/matrix_rain.ring
+* samples/UsingRayLib/more/ex11_matrix_rain.ring
+* samples/General/Orbital/Earth_Orbit_Zodiac.ring
+* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
+
+
+.. image:: advancedfreeglut.png
+	:alt: Advanced FreeGLUT Samples
+
+.. image:: astronomyvisualization.png
+	:alt: Astronomy Visualization
+
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-Python Package
+
+Ring-Python Package
+===================
+
+A library that brings the entire Python ecosystem to the Ring programming language.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-python
+
+Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
+
+Key Features:
+
+* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
+* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
+* Module Import — Import any installed Python package and call its functions directly.
+* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
+* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
+* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
+
+Example:
+
+.. code-block:: ring
+
+	load "python.ring"
+
+	py = new Python()
+	py.exec("import numpy as np")
+
+	# Create array and compute statistics
+	py.exec("
+	data = np.array([1, 2, 3, 4, 5])
+	_mean = str(np.mean(data))
+	_std  = str(np.std(data))
+	_dot  = str(np.dot(data, data))
+	")
+
+	? "Mean: " + py.getVar("_mean")
+	? "Std:  " + py.getVar("_std")
+	? "Dot:  " + py.getVar("_dot")
+
+Output:
+
+.. code-block:: none
+
+	Mean: 3.0
+	Std:  1.4142135623730951
+	Dot:  55	
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-CFFI Package
+
+Ring-CFFI Package
+=================
+
+A Foreign Function Interface library for the Ring programming language!
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-cffi
+
+Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
+
+Key Features:
+
+* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
+* C Function Calls: Call C functions directly from Ring with automatic type conversion
+* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
+* Struct Support: Define and manipulate C structs with named field access
+* Union & Enum Support: Define and use C unions and enumerations
+* Callbacks: Pass Ring functions as C callbacks
+* Memory Management: Allocate and manage C memory directly
+* C String Handling: Seamless conversion between Ring and C strings
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level OOP API: Clean FFI class with intuitive method names
+
+Example:
+
+.. code-block:: ring
+
+	load "cffi.ring"
+
+	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
+	new FFI("libm.so.6") { 
+		# Call a simple function (sqrt)
+		oSqrt = cFunc("sqrt", "double", ["double"])
+		result = invoke(oSqrt, [25.0])
+		? "sqrt(25) = " + result
+		
+		# Call printf (variadic function)
+		oPrintf = varFunc("printf", "int", ["string"])
+		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
+	}
+
+Output:
+
+.. code-block:: none
+
+	sqrt(25) = 5
+	Hello, World! Number: 123
+
+.. index:: 
+	pair: What is new in Ring  1.27; Better Functions
+
+Better Functions
+================
+
+* Validate arguments and reject NaN or Inf values when they are not allowed
+* Produce an error when arguments are passed to functions that do not accept parameters
+* Revise each function to ensure it terminates execution after displaying an error.
+* DiffDays()/AddDays() - Better Implementation
+* Sort() function - Better Performance
+* BinarySearch() - Better Performance and Allows mixing types in the list
+* Remove() - Correct error message when the argument count is incorrect
+* SysSleep() - Check nanosleep() output
+* Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage
+* Ring_State_MainFile() - Thread safe implementation
+* Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
+* Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
+* Ring_State_FindVar() - return zero if the variable is not found
+* Unsigned() - Better Implementation - Remove unnecessary checks
+* Unsigned() - Accept the operator before/after the numbers 
+* Unsigned() - Check variable size before the shift operation
+* IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect
+* Randomize() - Produce error when the value range is not correct
+* Randomize() - Respect C strict-aliasing rules
+* Hex2Str() - Always move the first nibble into the high position
+* Str2HexCStyle() - Check the string length before processing
+* Str2HexCStyle() - Pads single-digit bytes with space instead of zero 
+* FGetPos() - Free allocated memory when the function fail
+* FPutC()/UnGetC() - Check string size (Not less than 1 character)
+* SubStr() - Check argument count 
+* MemCpy() - Check negative size
+* MergeMethods() - Avoid Self-merge
+* GetNumber() - Check fgets() output
+* Date()/Time()/TimeList() - Check timer overflow
+* Date()/Time()/TimeList() - Thread safe usage for localtime() 
+* Number() - Accept one e/E in the number
+* Dir() - Check the path length before using strcat() 
+* Dir() - Check chdir() output
+* Input() - Check fread() output
+* GetChar() - Return an empty string when we the getchar() output is EOF
+* LoadLib() - Close the DLL when the ringlib_init() function is missing
+* System() - Return the function output
+* Assert() - Follow Ring's rules for evaluating values as True or False
+* Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage
+* RingFastPro Extension - Better Performance
+* RingFastPro Extension - Added Transform3D() function
+* RingLibSDL Extension - Revised SDL_QueryTexture()
+* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
+* RingQt Extension - Added: QQmlContext 
+* RingQt Extension - Added: QQmlProperty 
+* RingQt Extension - Added: QQmlExpression 
+* RingQt Extension - Added: QQmlComponent 
+* RingQt Extension - Added: QQmlApplicationEngine
+* RingQt Extension - Revised QOpenGLTexture_borderColor_4() function
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
@@ -35,12 +335,49 @@ The following packages have been added to the RingPM registry.
 More Improvements
 =================
 
-* Added: samples/General/RosettaCode/YinYang.ring
-* Added: samples/General/RosettaCode/YinYang2.ring
-* Added: samples/UsingRogueUtil/matrix_rain.ring
-* Added: samples/UsingRayLib/more/ex11_matrix_rain.ring
-* Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring
-* Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
-* language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support
+* language/build/locatevc.bat - Added: VS 2026 Community Edition support
+* language/build/buildgccstatic.bat - Build ringw.exe too
+* language/build/builddos.bat - Set stack size to 64K
+* Ring for Linux - Modernize build scripts using pkg-config
+* Ring API - Added RING_API_GETUNSIGNEDINTPOINTER() and RING_API_ACCEPTUNSIGNEDINTVALUE() 
+* Ring API - Added RING_API_GETSHORTINTPOINTER() and RING_API_ACCEPTSHORTINTVALUE()
+* Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()
+* Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()
+* Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()
+* Extensions Generator - The aNumberTypes list is revised 
+* Extensions Generator - Using aPassPointers list to control passing pointers to functions
+* Ring Compiler - Detect unclosed comment error
+* Ring Compiler - Check filename size before loading
+* Ring VM - ring_general_justfilename() - Better Code
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
+* Ring VM - ring_list_updaterefcount_gc() - Better Code
+* Ring VM - ring_vm_statecustmutexunlock() - Better Code
+* Ring VM - ring_vm_oop_callmethodfrombrace() - Better Code
+* Ring VM - ring_vm_oop_preparecallmethodfrombrace() - Better Code
+* Ring VM - ring_vm_oop_movetobeforeobjstate() - Better Performance
+* Ring VM - ring_vm_loadfunc2() - Better Code - Logical order of instructions 
+* Ring VM - ring_objfile_processfile() - Check fseek()/ftell() output  
+* Ring VM - ring_vm_file_read() - Check fseek() output
+* Ring VM - ring_vm_mod() - Check values before processing  
+* Ring VM - ring_hashtable_rebuild_gc() - Check overflow 
+* Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read
+* Ring VM - ring_string_add2_gc() - Check string capacity overflow 
+* Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)
+* Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers
+* Ring VM - Save/Restore state when using Braces - Better Performance
+* Ring VM - pObjState information - Use array of structure instead of Ring Lists
+* Ring VM - New Instruction for calling methods using the dot operator - ICO_LOADMETHODP
+* Ring VM - New Instruction for calling methods using braces - ICO_LOADBRACEMETHODP
+* Ring VM - Cache the This variable list in the VM structure - Better Performance
+* Ring VM - Cache the GetTempVar/SetTempVar variable list - Better Performance
+* Ring VM - Cache the ErrorMsg variable list - Better Performance
+* Ring VM - Using preprocessor to access the members of the Object list
+* Ring VM - Using preprocessor to access the members of the Variable list
+* Ring VM - Check NULL in C extensions (RING_API_CHECKNULLPOINTER(ptr))
+* Ring VM - Support using Computed Goto (optional feature when building Ring VM)
+* Ring VM - Added Zero-Divisor Check to /= and %= operators
+* Ring VM - Check values before the shift operations 
+* Ring VM - Object File - Check ring_general_fopen() output before usage
+* Ring VM - Object File - Check buffer overflow with user-controlled filename
+* Ring VM - Object File - Use size_t in functions used for processing the file

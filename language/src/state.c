@@ -451,8 +451,9 @@ RING_API void ring_state_cgiheader(RingState *pRingState) {
 }
 
 RING_API void ring_state_main(int nArgc, char *pArgv[]) {
-	int x, lCGI, lRun, lPrintIC, lPrintICFinal, lTokens, lRules, lIns, lPerformance, lSrc, lGenObj, lGenCObj, lWarn;
 	char *cStr;
+	char cFileName[RING_SMALLBUF];
+	int x, lCGI, lRun, lPrintIC, lPrintICFinal, lTokens, lRules, lIns, lPerformance, lSrc, lGenObj, lGenCObj, lWarn;
 	/* Init Values */
 	lCGI = 0;
 	lRun = 1;
@@ -471,12 +472,14 @@ RING_API void ring_state_main(int nArgc, char *pArgv[]) {
 	lRingStateCGI = 0;
 	signal(SIGSEGV, ring_state_segfaultaction);
 	/* Check Startup files (ring.ring and ring.ringo) */
-	if (ring_general_fexists(RING_FILES_AUTOLOADSRC) && lSrc == RING_FALSE) {
+	if (ring_general_fexists(RING_FILES_AUTOLOADSRC)) {
 		lSrc = RING_TRUE;
-		strcpy(cStr, RING_FILES_AUTOLOADSRC);
-	} else if (ring_general_fexists(RING_FILES_AUTOLOADOBJ) && lSrc == RING_FALSE) {
+		strcpy(cFileName, RING_FILES_AUTOLOADSRC);
+		cStr = cFileName;
+	} else if (ring_general_fexists(RING_FILES_AUTOLOADOBJ)) {
 		lSrc = RING_TRUE;
-		strcpy(cStr, RING_FILES_AUTOLOADOBJ);
+		strcpy(cFileName, RING_FILES_AUTOLOADOBJ);
+		cStr = cFileName;
 	}
 	if ((nArgc > 1) && (lSrc == RING_FALSE)) {
 		for (x = 1; x < nArgc; x++) {

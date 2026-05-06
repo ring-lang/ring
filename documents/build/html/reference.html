@@ -612,6 +612,7 @@ trim(string) ---&gt; Remove spaces from right and left
 type(value) ---&gt; The Type as String
 ungetc(FileHandle,character)
 unsigned(nNum1,nNum2,cOperator) ---&gt; Perform operation using unsigned numbers
+unsigned(cOperator,nNum1,nNum2) ---&gt; Perform operation using unsigned numbers
 upper(string) ---&gt; convert string letters to UPPER case
 uptime() ---&gt; nTime
 variablepointer(cVariableName,cPointerType) ---&gt; Low Level Object (C Pointer)
@@ -657,6 +658,7 @@ write(cFileName,cString)
 <li><p>Error (C30) : Argument redefinition, argument is already defined!</p></li>
 <li><p>Error (C31) : Parentheses ‘(’ is expected</p></li>
 <li><p>Error (S1) : Literal not closed!</p></li>
+<li><p>Error (S2) : Unclosed comment</p></li>
 <li><p>Warning (W1) : Unrecognized option</p></li>
 <li><p>Warning (W2) : Duplication in file name</p></li>
 <li><p>Warning (W3) : The Compiler command ChangeRingKeyword requires two words as parameters</p></li>
@@ -724,6 +726,7 @@ write(cFileName,cString)
 <li><p>Error (R52) : Using Return inside function parameters is not allowed</p></li>
 <li><p>Error (R53) : Function redefinition, function is already defined!</p></li>
 <li><p>Error (R54) : Object attribute redefinition, attribute is already defined!</p></li>
+<li><p>Error (R55) : The value is not finite (NaN/Inf)</p></li>
 </ul>
 </section>
 <section id="environment-errors">
@@ -743,6 +746,10 @@ write(cFileName,cString)
 <li><p>Error (E12) : HashTable size overflow!</p></li>
 <li><p>Error (E13) : Reference count overflow!</p></li>
 <li><p>Error (E14) : Can’t read file</p></li>
+<li><p>Error (E15) : Internal error (Unexpected Value)</p></li>
+<li><p>Error (E16) : Internal error (Buffer Overflow)</p></li>
+<li><p>Error (E17) : Internal error (Filename too short)</p></li>
+<li><p>Error (E18) : Internal error (Filename too long)</p></li>
 </ul>
 </section>
 <section id="language-grammar">
@@ -1122,6 +1129,12 @@ write(cFileName,cString)
 </tr>
 <tr class="row-odd"><td><p>ICO_LOADFUNCP</p></td>
 <td><p>Push function pointer</p></td>
+</tr>
+<tr class="row-even"><td><p>ICO_LOADMETHODP</p></td>
+<td><p>Push method pointer (When using the dot operator)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICO_LOADBRACEMETHODP</p></td>
+<td><p>Push method pointer (When using braces to access the object)</p></td>
 </tr>
 <tr class="row-even"><td><p>ICO_PUSHPLOCAL</p></td>
 <td><p>Push pointer to local variable</p></td>

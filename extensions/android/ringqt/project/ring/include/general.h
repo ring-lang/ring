@@ -34,9 +34,9 @@ RING_API int ring_general_justfilepath(char *cFileName);
 
 RING_API int ring_general_justfilename(char *cFileName);
 
-RING_API int ring_general_issourcefile(const char *cStr);
+RING_API int ring_general_issourcefile(const char *cFileName);
 
-RING_API int ring_general_isobjectfile(const char *cStr);
+RING_API int ring_general_isobjectfile(const char *cFileName);
 
 RING_API int ring_general_folderexistinfilename(const char *cFolderName, const char *cFileName);
 

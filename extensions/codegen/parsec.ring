@@ -72,10 +72,33 @@ C_TYPE_ENUM	= 6
 $cFuncStart 	= ""
 $aStructFuncs 	= []
 
-aNumberTypes 	= ["int","float","double","bool",
-"char","unsigned char","signed char","size_t",
-"long int","int8_t","int16_t","int32_t","int64_t",
-"uint8_t","uint16_t","uint32_t","uint64_t"]
+aNumberTypes 	= [
+	"bool",
+	"char","unsigned char","signed char",
+	"short","short int","signed short","signed short int",
+	"unsigned short","unsigned short int",
+	"int","signed","signed int",
+	"unsigned","unsigned int",
+	"long","long int","signed long","signed long int",
+	"unsigned long","unsigned long int",
+	"long long","long long int","signed long long","signed long long int",
+	"unsigned long long","unsigned long long int",
+	"int8_t","int16_t","int32_t","int64_t",
+	"uint8_t","uint16_t","uint32_t","uint64_t",
+	"size_t",
+	"float","double","long double"
+]
+
+aPassPointers = [
+	[True,"int","RING_API_GETINTPOINTER","RING_API_ACCEPTINTVALUE"],
+	[True,"unsigned int","RING_API_GETUNSIGNEDINTPOINTER","RING_API_ACCEPTUNSIGNEDINTVALUE"],
+	[True,"double","RING_API_GETDOUBLEPOINTER",NULL]
+]
+
+C_PASSPOINTERS_STATUS = 1
+C_PASSPOINTERS_TYPE   = 2
+C_PASSPOINTERS_GET    = 3
+C_PASSPOINTERS_ACCEPT = 4
 
 aEnumTypes 	= []
 
@@ -550,6 +573,41 @@ Func GenFuncCodeCheckParaCount aList
 		C_TABS_1 +"}" + nl
 	return cCode
 
+Func GenCheckParaType cStr,nPara
+	cCode = ""
+	switch VarTypeID(cStr)
+	on C_TYPE_NUMBER
+		cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+nPara+") ) {" + nl +
+			 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+			 C_TABS_2 + "return ;" + nl +
+			 C_TABS_1 + "}" + nl
+	on C_TYPE_ENUM
+		cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+nPara+") ) {" + nl +
+			 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+			 C_TABS_2 + "return ;" + nl +
+			 C_TABS_1 + "}" + nl
+	on C_TYPE_STRING
+		cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+nPara+") ) {" + nl +
+			 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+			 C_TABS_2 + "return ;" + nl +
+			 C_TABS_1 + "}" + nl
+	on C_TYPE_POINTER
+		nCheckPointer = find(aPassPointers,GenPointerType(cStr),C_PASSPOINTERS_TYPE)
+		if nCheckPointer and aPassPointers[nCheckPointer][C_PASSPOINTERS_STATUS]
+			# pointer to int, i.e. int *
+			cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+nPara+") ) {" + nl +
+				 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				 C_TABS_2 + "return ;" + nl +
+				 C_TABS_1 + "}" + nl
+		else
+			cCode += C_TABS_1 + "if ( ! RING_API_ISCPOINTER("+nPara+") ) {" + nl +
+				 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				 C_TABS_2 + "return ;" + nl +
+				 C_TABS_1 + "}" + nl
+		ok
+	off
+	return cCode
+
 Func GenFuncCodeCheckParaType aList
 	cCode = ""
 	aPara = aList[C_FUNC_PARA]
@@ -558,36 +616,7 @@ Func GenFuncCodeCheckParaType aList
 		nMax = len(aPara)
 		for t = 1 to nMax
 			x = aPara[t]
-			switch VarTypeID(x)
-			on C_TYPE_NUMBER
-				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 C_TABS_2 + "return ;" + nl +
-					 C_TABS_1 + "}" + nl
-			on C_TYPE_ENUM
-				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 C_TABS_2 + "return ;" + nl +
-					 C_TABS_1 + "}" + nl
-			on C_TYPE_STRING
-				cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 C_TABS_2 + "return ;" + nl +
-					 C_TABS_1 + "}" + nl
-			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
-					# pointer to int, i.e. int *
-					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 C_TABS_2 + "return ;" + nl +
-						 C_TABS_1 + "}" + nl
-				else
-					cCode += C_TABS_1 + "if ( ! RING_API_ISCPOINTER("+t+") ) {" + nl +
-						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 C_TABS_2 + "return ;" + nl +
-						 C_TABS_1 + "}" + nl
-				ok
-			off
+			cCode += GenCheckParaType(x,t)
 		next
 	ok
 	return cCode
@@ -645,6 +674,34 @@ Func GenFuncCodeCallFunc aList
 	cCode += GenFuncCodeGetIntValues(aList)
 	return cCode
 
+Func ProcessPointerType cLine,nPara
+	cCode = ""
+	nCheckPointer = find(aPassPointers,GenPointerType(cLine),C_PASSPOINTERS_TYPE)
+	if nCheckPointer and aPassPointers[nCheckPointer][C_PASSPOINTERS_STATUS]
+		cCode += aPassPointers[nCheckPointer][C_PASSPOINTERS_GET]+"(" + nPara + ")"
+	else
+		if not IsPointer2Pointer(cLine)
+			cCode += "(" + GenPointerType(cLine) + " *) RING_API_GETCPOINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'
+		else
+			if substr(cLine,"const") 
+				cCode += "(" + cLine + ") RING_API_GETCPOINTER2POINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'			
+			else 
+				cCode += "(" + GenPointerType(cLine) + " **) RING_API_GETCPOINTER2POINTER(" + nPara +',"'+GenPointerType(cLine)+ '")'
+			ok
+		ok
+	ok
+	return cCode
+
+Func AcceptPointerValue cLine,nPara
+	cCode = ""
+	nCheckPointer = find(aPassPointers,GenPointerType(cLine),C_PASSPOINTERS_TYPE)
+	if nCheckPointer and aPassPointers[nCheckPointer][C_PASSPOINTERS_STATUS] and
+	   aPassPointers[nCheckPointer][C_PASSPOINTERS_ACCEPT]
+		cCode += C_TABS_1 + 
+		aPassPointers[nCheckPointer][C_PASSPOINTERS_ACCEPT]+"(" + nPara + ") ;" + nl
+	ok
+	return cCode
+
 Func GenFuncCodeGetParaValues aList
 	cCode = ""
 	aPara = aList[C_FUNC_PARA]
@@ -664,21 +721,7 @@ Func GenFuncCodeGetParaValues aList
 			on C_TYPE_STRING
 				cCode += "RING_API_GETSTRING(" + t + ")"
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int"
-					cCode += "RING_API_GETINTPOINTER(" + t + ")"
-				but GenPointerType(x) = "double"
-					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
-				else
-					if not IsPointer2Pointer(x)
-						cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
-					else
-						if substr(x,"const") 
-							cCode += "(" + x + ") RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'			
-						else 
-							cCode += "(" + GenPointerType(x) + " **) RING_API_GETCPOINTER2POINTER(" + t +',"'+GenPointerType(x)+ '")'
-						ok
-					ok
-				ok
+				cCode += ProcessPointerType(x,t)
 			on C_TYPE_UNKNOWN
 				if find(aFunctionCallback,trim(x))
 					# Here we avoid the cast 
@@ -701,10 +744,7 @@ Func GenFuncCodeGetIntValues aList
 		for t = 1 to nMax
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_POINTER
-				if GenPointerType(x) = "int"
-					cCode += C_TABS_1 + 
-					"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
-				ok
+				cCode += AcceptPointerValue(x,t)
 			ok
 		next
 	ok
@@ -726,20 +766,20 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 	ok
 	return cCode
 
-Func IsPointer2Pointer x
-	if substr(x,"**") or substr(x,"* const *")
+Func IsPointer2Pointer cLine
+	if substr(cLine,"**") or substr(cLine,"* const *")
 		return True
 	ok
 	return false
 
-Func GenPointerType x
-	x = substr(x,"const","")
-	x = substr(x,"*","")
-	x = trim(x)
-	return x
+Func GenPointerType cLine
+	cLine = substr(cLine,"const","")
+	cLine = substr(cLine,"*","")
+	cLine = trim(cLine)
+	return cLine
 
-Func GenTabs x
-	return copy(char(9),x)
+Func GenTabs nCount
+	return copy(char(9),nCount)
 
 Func ParaCount aList
 	# get list of parameters, return parameters count
@@ -1102,36 +1142,7 @@ Func GenMethodCodeCheckParaType aList
 			if not GenMethodCodeISStaticMethods()
 				t++ # avoid the object pointer
 			ok
-			switch VarTypeID(x)
-			on C_TYPE_NUMBER
-				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 C_TABS_2 + "return ;" + nl +
-					 C_TABS_1 + "}" + nl
-			on C_TYPE_ENUM
-				cCode += C_TABS_1 + "if ( ! RING_API_ISNUMBER("+t+") ) {" + nl +
-					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 C_TABS_2 + "return ;" + nl +
-					 C_TABS_1 + "}" + nl
-			on C_TYPE_STRING
-				cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-					 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-					 C_TABS_2 + "return ;" + nl +
-					 C_TABS_1 + "}" + nl
-			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
-					# pointer to int, i.e. int *
-					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
-						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 C_TABS_2 + "return ;" + nl +
-						 C_TABS_1 + "}" + nl
-				else
-					cCode += C_TABS_1 + "if ( ! RING_API_ISCPOINTER("+t+") ) {" + nl +
-						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
-						 C_TABS_2 + "return ;" + nl +
-						 C_TABS_1 + "}" + nl
-				ok
-			off
+			cCode += GenCheckParaType(x,t)
 			if not GenMethodCodeISStaticMethods()
 				t-- # ignore effect of avoiding the object pointer
 			ok
@@ -1262,14 +1273,7 @@ Func GenMethodCodeGetParaValues aList
 			on C_TYPE_STRING
 				cCode += "RING_API_GETSTRING(" + t + ")"
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int"
-					cCode += "RING_API_GETINTPOINTER(" + t + ")"
-				but GenPointerType(x) = "double"
-					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
-				else
-					cCode += "(" + GenPointerType(x) + " *) " + 
-					"RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
-				ok
+				cCode += ProcessPointerType(x,t)
 			on C_TYPE_UNKNOWN
 				cCode += "* (" + x + " *) RING_API_GETCPOINTER(" + t +',"'+trim(x)+'")'
 			off

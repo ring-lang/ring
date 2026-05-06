@@ -105,9 +105,9 @@ RING_API void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, L
 RING_API void ring_vm_gc_checkupdatereference(VM *pVM, List *pList) {
 	Item *pItem;
 	/* Reference Counting to Destination before copy from Source */
-	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_POINTER) {
-		if (ring_list_getint(pList, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) {
-			pItem = (Item *)ring_list_getpointer(pList, RING_VAR_VALUE);
+	if (RING_VAR_GETTYPE(pList) == RING_VM_POINTER) {
+		if (RING_VAR_GETPVALUETYPE(pList) == RING_OBJTYPE_LISTITEM) {
+			pItem = (Item *)RING_VAR_GETPOINTER(pList);
 			ring_item_delete_gc(pVM->pRingState, pItem);
 		}
 	}
@@ -123,14 +123,14 @@ RING_API void ring_vm_gc_killreference(VM *pVM) {
 		/* Kill the reference */
 		pList = (List *)RING_VM_STACK_READP;
 		RING_VM_STACK_POP;
-		if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_POINTER) {
+		if (RING_VAR_GETTYPE(pList) == RING_VM_POINTER) {
 			/* Delete Reference (Delete item using reference counting) */
-			if (ring_list_getint(pList, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) {
-				pItem = (Item *)ring_list_getpointer(pList, RING_VAR_VALUE);
+			if (RING_VAR_GETPVALUETYPE(pList) == RING_OBJTYPE_LISTITEM) {
+				pItem = (Item *)RING_VAR_GETPOINTER(pList);
 				ring_item_delete_gc(pVM->pRingState, pItem);
 			}
-			ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
-			ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
+			RING_VAR_SETTYPE(pList, RING_VM_STRING);
+			RING_VAR_SETSTRING_GC(pVM->pRingState, pList, RING_CSTR_EMPTY);
 		}
 		return;
 	}
@@ -140,57 +140,56 @@ RING_API void ring_vm_gc_killreference(VM *pVM) {
 		RING_VM_STACK_POP;
 		/* If we have a String then clear it (Like using for t in "test" , i.e. using literal instead of
 		 * variable) */
-		if (((ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_STRING) ||
-		     (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_NULL)) &&
+		if (((RING_VAR_GETTYPE(pList) == RING_VM_STRING) || (RING_VAR_GETTYPE(pList) == RING_VM_NULL)) &&
 		    (pVM->lExitFlag == 0)) {
-			ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
-			ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
+			RING_VAR_SETTYPE(pList, RING_VM_STRING);
+			RING_VAR_SETSTRING_GC(pVM->pRingState, pList, RING_CSTR_EMPTY);
 			return;
 		}
 		/* Be sure that it's a Pointer */
-		if (ring_list_getint(pList, RING_VAR_TYPE) != RING_VM_POINTER) {
+		if (RING_VAR_GETTYPE(pList) != RING_VM_POINTER) {
 			return;
 		}
 		/* Get the Real Value that this reference points to */
-		switch (ring_list_getint(pList, RING_VAR_PVALUETYPE)) {
+		switch (RING_VAR_GETPVALUETYPE(pList)) {
 		case RING_OBJTYPE_VARIABLE:
 			/* We know that this case will never happens according to how (For In) loop works */
 			break;
 		case RING_OBJTYPE_LISTITEM:
-			pItem = (Item *)ring_list_getpointer(pList, RING_VAR_VALUE);
+			pItem = (Item *)RING_VAR_GETPOINTER(pList);
 			switch (ring_item_gettype(pItem)) {
 			case ITEMTYPE_STRING:
 				/* Set variable value to String */
-				ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
+				RING_VAR_SETTYPE(pList, RING_VM_STRING);
 				if (pVM->lExitFlag == 1) {
-					ring_list_setstring2_gc(pVM->pRingState, pList, RING_VAR_VALUE,
-								ring_string_get(ring_item_getstring(pItem)),
-								ring_string_size(ring_item_getstring(pItem)));
+					RING_VAR_SETSTRING2_GC(pVM->pRingState, pList,
+							       ring_string_get(ring_item_getstring(pItem)),
+							       ring_string_size(ring_item_getstring(pItem)));
 				} else {
-					ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
+					RING_VAR_SETSTRING_GC(pVM->pRingState, pList, RING_CSTR_EMPTY);
 				}
 				break;
 			case ITEMTYPE_NUMBER:
 				if (pVM->lExitFlag == 1) {
 					/* Set variable value to Number */
-					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_NUMBER);
-					ring_list_setdouble_gc(pVM->pRingState, pList, RING_VAR_VALUE,
-							       ring_item_getnumber_gc(pVM->pRingState, pItem));
+					RING_VAR_SETTYPE(pList, RING_VM_NUMBER);
+					RING_VAR_SETNUMBER_GC(pVM->pRingState, pList,
+							      ring_item_getnumber_gc(pVM->pRingState, pItem));
 				} else {
-					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
-					ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
+					RING_VAR_SETTYPE(pList, RING_VM_STRING);
+					RING_VAR_SETSTRING_GC(pVM->pRingState, pList, RING_CSTR_EMPTY);
 				}
 				break;
 			case ITEMTYPE_LIST:
 				if (pVM->lExitFlag == 1) {
 					/* Set variable value to List */
-					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_LIST);
-					ring_list_setlist_gc(pVM->pRingState, pList, RING_VAR_VALUE);
-					pList2 = ring_list_getlist(pList, RING_VAR_VALUE);
+					RING_VAR_SETTYPE(pList, RING_VM_LIST);
+					RING_VAR_SETLIST_GC(pVM->pRingState, pList);
+					pList2 = RING_VAR_GETLIST(pList);
 					ring_vm_listcopy(pVM, pList2, ring_item_getlist(pItem));
 				} else {
-					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
-					ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
+					RING_VAR_SETTYPE(pList, RING_VM_STRING);
+					RING_VAR_SETSTRING_GC(pVM->pRingState, pList, RING_CSTR_EMPTY);
 				}
 				break;
 			}
@@ -198,15 +197,15 @@ RING_API void ring_vm_gc_killreference(VM *pVM) {
 			ring_item_delete_gc(pVM->pRingState, pItem);
 			break;
 		case RING_OBJTYPE_SUBSTRING:
-			newstr = (char *)ring_list_getpointer(pList, RING_VAR_VALUE);
+			newstr = (char *)RING_VAR_GETPOINTER(pList);
 			cStr[0] = newstr[0];
 			cStr[1] = '\0';
 			/* Set variable value to String that equal the Character */
-			ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
+			RING_VAR_SETTYPE(pList, RING_VM_STRING);
 			if (pVM->lExitFlag == 1) {
-				ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, cStr);
+				RING_VAR_SETSTRING_GC(pVM->pRingState, pList, cStr);
 			} else {
-				ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);
+				RING_VAR_SETSTRING_GC(pVM->pRingState, pList, RING_CSTR_EMPTY);
 			}
 			break;
 		}
@@ -240,8 +239,8 @@ RING_API void ring_vm_gc_deletetemplists(VM *pVM) {
 
 RING_API int ring_vm_gc_checkvarerroronassignment(VM *pVM, List *pVar) {
 	List *pList;
-	if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
+	if (RING_VAR_ISLIST(pVar)) {
+		pList = RING_VAR_GETLIST(pVar);
 		if (ring_list_iserroronassignment_gc(pVM->pRingState, pList) ||
 		    ring_list_iserroronassignment2_gc(pVM->pRingState, pList)) {
 			ring_vm_error(pVM, RING_VM_ERROR_PROTECTEDVALUE);
@@ -313,11 +312,11 @@ RING_API int ring_vm_gc_isrefparameter(VM *pVM, const char *cVariable) {
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
 		if (ring_list_isrefcontainer_gc(pVM->pRingState, pList)) {
-			pRef = ring_list_getlist(pList, RING_VAR_VALUE);
+			pRef = RING_VAR_GETLIST(pList);
 			if (ring_list_islnewref_gc(pVM->pRingState, pRef)) {
 				lRef = 1;
 				pVar = ring_vm_addlistarg(pVM, cVariable);
-				ring_list_assignreftovar_gc(pVM->pRingState, pRef, pVar, RING_VAR_VALUE);
+				RING_VAR_ASSIGNREF(pVM->pRingState, pRef, pVar);
 				/* If the same reference is passed as parameter multiple times then keep treating it as
 				 * new reference */
 				ring_list_enablelnewref_gc(pVM->pRingState, pRef);
@@ -349,7 +348,7 @@ RING_API void ring_list_setlistbyref_gc(void *pState, List *pList, unsigned int 
 RING_API void ring_list_updaterefcount_gc(void *pState, List *pList, int nChange) {
 	ring_vm_statecustmutexlock(pState, RING_VM_CUSTOMMUTEX_LISTREFCOUNT);
 	if ((pList->vGC.nReferenceCount == RING_VM_REFCOUNTMAX) && (nChange > 0)) {
-		ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_ITEMREFCOUNT);
+		ring_vm_statecustmutexunlock(pState, RING_VM_CUSTOMMUTEX_LISTREFCOUNT);
 		printf(RING_REFCOUNTOVERFLOW);
 		exit(RING_EXIT_FAIL);
 	}
@@ -366,7 +365,7 @@ RING_API List *ring_list_newref_gc(void *pState, List *pVariableList, List *pLis
 	/* Note: The list may already have a container variable (Previous Reference) */
 	ring_list_enablelnewref_gc(pState, pList);
 	if (pList->vGC.pContainer == NULL) {
-		ring_list_acceptlistbyref_gc(pState, pVariableList, RING_VAR_VALUE, pList);
+		RING_VAR_ACCEPTLISTBYREF(pState, pVariableList, pList);
 		/* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable
 		 */
 		if (ring_vm_oop_isobject(pVM, pList)) {
@@ -632,12 +631,12 @@ RING_API int ring_list_checkrefvarinleftside_gc(void *pState, List *pVar) {
 	**  If we used RING_TEMP_VAR in all cases (Even when we create var using Ref())
 	**  This could prevent assignment to variables contains temp. lists created while passing para. to functions
 	*/
-	if (strcmp(ring_list_getstring(pVar, RING_VAR_NAME), RING_TEMP_REF) == 0) {
+	if (strcmp(RING_VAR_GETNAME(pVar), RING_TEMP_REF) == 0) {
 		return RING_TRUE;
 	}
-	if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_LIST) {
-		if (ring_list_islist(pVar, RING_VAR_VALUE)) {
-			return ring_list_checkrefinleftside_gc(pState, ring_list_getlist(pVar, RING_VAR_VALUE));
+	if (RING_VAR_GETTYPE(pVar) == RING_VM_LIST) {
+		if (RING_VAR_ISLIST(pVar)) {
+			return ring_list_checkrefinleftside_gc(pState, RING_VAR_GETLIST(pVar));
 		}
 	}
 	return RING_FALSE;
@@ -715,8 +714,8 @@ RING_API void ring_list_disablelnewref_gc(void *pState, List *pRef) {
 
 RING_API void ring_list_resetlnewref_gc(void *pState, List *pVar) {
 	List *pList;
-	if (ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_LIST) {
-		pList = ring_list_getlist(pVar, RING_VAR_VALUE);
+	if (RING_VAR_GETTYPE(pVar) == RING_VM_LIST) {
+		pList = RING_VAR_GETLIST(pVar);
 		ring_list_disablelnewref_gc(pState, pList);
 	}
 }
@@ -988,29 +987,26 @@ RING_API void ring_state_willunregisterblock(void *pState, void *pStart) {
 			/* Check Tracked Variables that have items inside this block */
 			for (x2 = 1; x2 <= ring_list_getsize(pRingState->pVM->pTrackedVariables); x2++) {
 				pVar = (List *)ring_list_getpointer(pRingState->pVM->pTrackedVariables, x2);
-				if ((ring_list_getint(pVar, RING_VAR_TYPE) == RING_VM_POINTER) &&
-				    (ring_list_getint(pVar, RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM)) {
-					pItem = (Item *)ring_list_getpointer(pVar, RING_VAR_VALUE);
+				if ((RING_VAR_GETTYPE(pVar) == RING_VM_POINTER) &&
+				    (RING_VAR_GETPVALUETYPE(pVar) == RING_OBJTYPE_LISTITEM)) {
+					pItem = (Item *)RING_VAR_GETPOINTER(pVar);
 					if ((((void *)pItem) >= pBlockStart) && (((void *)pItem) <= pBlockEnd)) {
 						pNewItem = ring_item_new_gc(pRingState, ITEMTYPE_NOTHING);
 						memcpy(&vTempItem, pNewItem, sizeof(Item));
 						memcpy(pNewItem, pItem, sizeof(Item));
 						memcpy(pItem, &vTempItem, sizeof(Item));
-						ring_list_setpointer_gc(pRingState, pVar, RING_VAR_VALUE, pNewItem);
+						RING_VAR_SETPOINTER_GC(pRingState, pVar, pNewItem);
 						/* Delete Reference (Delete item using reference counting) */
 						ring_item_delete_gc(pRingState, pItem);
 						for (x3 = ring_list_getsize(pRingState->pVM->pTrackedVariables);
 						     x3 >= x2; x3--) {
 							pVar = (List *)ring_list_getpointer(
 							    pRingState->pVM->pTrackedVariables, x3);
-							if ((ring_list_getint(pVar, RING_VAR_TYPE) ==
-							     RING_VM_POINTER) &&
-							    (ring_list_getint(pVar, RING_VAR_PVALUETYPE) ==
-							     RING_OBJTYPE_LISTITEM)) {
-								if (ring_list_getpointer(pVar, RING_VAR_VALUE) ==
-								    pItem) {
-									ring_list_setpointer_gc(
-									    pRingState, pVar, RING_VAR_VALUE, pNewItem);
+							if ((RING_VAR_GETTYPE(pVar) == RING_VM_POINTER) &&
+							    (RING_VAR_GETPVALUETYPE(pVar) == RING_OBJTYPE_LISTITEM)) {
+								if (RING_VAR_GETPOINTER(pVar) == pItem) {
+									RING_VAR_SETPOINTER_GC(pRingState, pVar,
+											       pNewItem);
 									ring_list_deleteitem_gc(
 									    pRingState,
 									    pRingState->pVM->pTrackedVariables, x3);

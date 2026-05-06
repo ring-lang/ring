@@ -1,0 +1,21 @@
+<class>
+name: QQmlExpression
+para: QQmlContext *ctxt, QObject *scope, QString expression
+parent: QObject
+</class>
+
+QQmlContext *context(void)
+QQmlEngine *engine(void)
+QQmlError error(void)
+QString expression(void)
+QVariant evaluate(bool *valueIsUndefined)
+bool hasError(void)
+bool notifyOnValueChanged(void)
+QObject *scopeObject(void)
+int lineNumber(void)
+int columnNumber(void)
+QString sourceFile(void)
+void clearError(void)
+void setExpression(QString expression)
+void setNotifyOnValueChanged(bool notifyOnChange)
+void setSourceLocation(QString url, int line, int column)

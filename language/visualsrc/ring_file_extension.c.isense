@@ -41,10 +41,12 @@ ring_vm_file_tempfile
 Type: FILE *
 pFile
 ring_vm_file_fseek
-Type: int
-nResult
 Type: FILE *
 pFile
+Type: int
+nResult
+Type: double
+dOffset,dWhence
 ring_vm_file_ftell
 Type: FILE *
 pFile
@@ -84,14 +86,16 @@ cStr
 Type: FILE *
 pFile
 ring_vm_file_fgets
-Type: char *
-cStr
-Type: int
-nSize
 Type: FILE *
 pFile
 Type: char *
+cStr
+Type: char *
 cResult
+Type: double
+nSize
+Type: int
+iSize
 ring_vm_file_fputc
 Type: int
 c
@@ -108,14 +112,14 @@ c
 Type: FILE *
 pFile
 ring_vm_file_fread
+Type: FILE *
+pFile
 Type: char *
 cStr
 Type: int
+iSize,nResult
+Type: double
 nSize
-Type: int
-nResult
-Type: FILE *
-pFile
 ring_vm_file_fwrite
 Type: int
 nResult
@@ -130,12 +134,16 @@ Type: size_t
 nCount
 Type: char *
 cBuffer
+Type: unsigned int
+lError
 ring_vm_file_write
 Type: FILE *
 pFile
 ring_vm_file_int2bytes
 Type: NumData
 uData
+Type: double
+nNum
 ring_vm_file_float2bytes
 Type: NumData
 uData
@@ -203,6 +211,8 @@ Type: char
 cPath[FILENAME_MAX]
 Type: char
 cCurrentDir[FILENAME_MAX]
+Type: int
+nResult
 ring_vm_file_tempname
 _tmpfile
 Type: errno_t

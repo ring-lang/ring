@@ -32,6 +32,10 @@ void ring_vm_info_loadfunctions(RingState *pRingState) {
 void ring_vm_info_ringvmfileslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pRingState->pRingFilesList);
@@ -43,6 +47,10 @@ void ring_vm_info_ringvmcalllist(void *pPointer) {
 	List *pList, *pList2;
 	unsigned int x;
 	FuncCall *pFuncCall;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	/* Copy Important Information */
@@ -64,6 +72,10 @@ void ring_vm_info_ringvmcalllist(void *pPointer) {
 void ring_vm_info_ringvmmemorylist(void *pPointer) {
 	VM *pVM;
 	List *pList, *pList2;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	RING_VM_COPYSCOPESTOLIST(pList);
@@ -75,6 +87,10 @@ void ring_vm_info_ringvmmemorylist(void *pPointer) {
 void ring_vm_info_ringvmfunctionslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pFunctionsMap);
@@ -84,6 +100,10 @@ void ring_vm_info_ringvmfunctionslist(void *pPointer) {
 void ring_vm_info_ringvmclasseslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pClassesMap);
@@ -93,6 +113,10 @@ void ring_vm_info_ringvmclasseslist(void *pPointer) {
 void ring_vm_info_ringvmpackageslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pPackagesMap);
@@ -103,6 +127,10 @@ void ring_vm_info_ringvmcfunctionslist(void *pPointer) {
 	VM *pVM;
 	List *pList;
 	CFunction *pCFunc;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	/* Add C Functions to the list */
@@ -139,6 +167,10 @@ void ring_vm_info_ringvmsettrace(void *pPointer) {
 void ring_vm_info_ringvmtracedata(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_list_copy_gc(pVM->pRingState, pList, pVM->pTraceData);
@@ -147,17 +179,29 @@ void ring_vm_info_ringvmtracedata(void *pPointer) {
 
 void ring_vm_info_ringvmtraceevent(void *pPointer) {
 	VM *pVM;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	RING_API_RETNUMBER(pVM->nTraceEvent);
 }
 
 void ring_vm_info_ringvmtracefunc(void *pPointer) {
 	VM *pVM;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	RING_API_RETSTRING(ring_string_get(pVM->pTrace));
 }
 
 void ring_vm_info_ringvmscopescount(void *pPointer) {
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	/* We the current scope of this function */
 	RING_API_RETNUMBER(RING_API_SCOPESCOUNT);
 }
@@ -166,9 +210,10 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 	VM *pVM;
 	List *pActiveMem;
 	const char *cStr;
-	int nScope, nSize, x;
 	VMState *pVMState;
 	List aScopes[RING_VM_STACK_SIZE];
+	double dScope;
+	int nScope, nSize, x;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -176,13 +221,14 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 	}
 	if (RING_API_ISNUMBER(1) && RING_API_ISSTRING(2)) {
 		/* We must get cStr before we change the pVM->pActiveMem */
-		nScope = (int)RING_API_GETNUMBER(1);
-		cStr = RING_API_GETSTRING(2);
 		nSize = RING_VM_SCOPESCOUNT;
-		if ((nScope < 1) || (nScope >= nSize)) {
+		dScope = RING_API_GETNUMBER(1);
+		if ((dScope < 1) || (dScope != dScope) || (dScope >= nSize)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
+		nScope = (int)dScope;
+		cStr = RING_API_GETSTRING(2);
 		/* Save State */
 		pVMState = ring_vm_savestateformethods(pVM);
 		pActiveMem = pVM->pActiveMem;
@@ -215,19 +261,29 @@ void ring_vm_info_ringvmevalinscope(void *pPointer) {
 
 void ring_vm_info_ringvmpasserror(void *pPointer) {
 	VM *pVM;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pVM->lPassError = 1;
 }
 
 void ring_vm_info_ringvmhideerrormsg(void *pPointer) {
 	VM *pVM;
+	double nFlag;
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return;
 	}
 	if (RING_API_ISNUMBER(1)) {
-		pVM->lHideErrorMsg = (int)RING_API_GETNUMBER(1);
+		nFlag = RING_API_GETNUMBER(1);
+		if ((nFlag != nFlag)) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return;
+		}
+		pVM->lHideErrorMsg = (nFlag != RING_ZEROF);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -254,6 +310,10 @@ void ring_vm_info_ringvmcallfunc(void *pPointer) {
 void ring_vm_info_ringvminfo(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	/*
@@ -267,7 +327,7 @@ void ring_vm_info_ringvminfo(void *pPointer) {
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)ring_list_getsize(pVM->pTempMem));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)ring_list_getsize(pVM->pPCBlockFlag));
 	ring_list_adddouble_gc(pVM->pRingState, pList, pVM->nLoadAddressScope);
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double)ring_list_getsize(pVM->pBeforeObjState));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double)pVM->nBeforeObjStateCount);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)RING_VM_FUNCCALLSCOUNT);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)ring_list_getsize(pVM->pTry));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double)ring_list_getsize(pVM->pScopeNewObj));
@@ -317,6 +377,10 @@ void ring_vm_info_ringvmgenarray(void *pPointer) {
 void ring_vm_info_ringvmcodelist(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	pList = RING_API_NEWLIST;
 	ring_vm_bytecode2list(pVM, pList);
@@ -326,6 +390,10 @@ void ring_vm_info_ringvmcodelist(void *pPointer) {
 void ring_vm_info_ringvmismempool(void *pPointer) {
 	VM *pVM;
 	List *pList;
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
 	pVM = (VM *)pPointer;
 	/* Try creating a large list */
 	pList = ring_list_new_gc(pVM->pRingState, RING_VMINFO_ITEMSTOCHECKMEMPOOL);
@@ -356,7 +424,7 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 	VM *pVM;
 	List *pList;
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack;
-	unsigned int nSize;
+	size_t nSize;
 	int lOutput;
 	char *cBuffer;
 	pVM = (VM *)pPointer;
@@ -369,7 +437,7 @@ void ring_vm_info_ringvmringolists(void *pPointer) {
 		return;
 	}
 	cBuffer = RING_API_GETSTRING(1);
-	nSize = RING_API_GETSTRINGSIZE(1);
+	nSize = (size_t)RING_API_GETSTRINGSIZE(1);
 	if ((nSize == RING_ZERO) || (nSize < RING_OBJFILE_MINSIZE) || (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
 		RING_API_ERROR(RING_OBJFILEWRONGTYPE);
 		return;
@@ -417,7 +485,7 @@ void ring_vm_info_ringvmtranslatecfunction(void *pPointer) {
 		pCFunc = pCFunc->pNext;
 	}
 	if (pCFunc == NULL) {
-		RING_API_ERROR("Can't find the C function!");
+		RING_API_ERROR(RING_VMINFO_CANTFINDTHECFUNCTION);
 		return;
 	}
 	/* Add the function to the optional functions list to have a static literal for the function name */
@@ -443,7 +511,7 @@ void ring_vm_info_ringvmwriteringo(void *pPointer) {
 	pList = RING_API_GETLIST(2);
 	if ((ring_list_getsize(pList) != 5) || (!ring_list_islist(pList, 1)) || (!ring_list_islist(pList, 2)) ||
 	    (!ring_list_islist(pList, 3)) || (!ring_list_islist(pList, 4)) || (!ring_list_islist(pList, 5))) {
-		RING_API_ERROR("The list must contain five items, and each item must be a sublist.");
+		RING_API_ERROR(RING_VMINFO_WRONGLIST);
 		return;
 	}
 	pListFiles = ring_list_getlist(pList, 1);

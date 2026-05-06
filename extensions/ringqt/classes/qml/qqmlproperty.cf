@@ -1,0 +1,26 @@
+<class>
+name: QQmlProperty
+para: QObject *obj, QString name
+</class>
+
+QQmlProperty::Type type(void)
+bool isValid(void)
+bool isProperty(void)
+bool isSignalProperty(void)
+bool isWritable(void)
+bool isDesignable(void)
+bool isResettable(void)
+bool hasNotifySignal(void)
+bool needsNotifySignal(void)
+int propertyType(void)
+const char *propertyTypeName(void)
+QString name(void)
+QVariant read(void)
+bool write(QVariant value)
+bool reset(void)
+QObject *object(void)
+int index(void)
+QMetaMethod method(void)
+QMetaProperty property(void)
+bool connectNotifySignal(QObject *dest, int method)
+bool connectNotifySignal@2(QObject *dest, const char *slot)

@@ -198,10 +198,6 @@ void ring_vm_mod(VM *pVM) {
 	if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;
 		RING_VM_STACK_POP;
-		if (nNum1 == 0) {
-			ring_vm_error(pVM, RING_VM_ERROR_DIVIDEBYZERO);
-			return;
-		}
 		if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
 		} else if (RING_VM_STACK_ISSTRING) {
@@ -229,6 +225,10 @@ void ring_vm_mod(VM *pVM) {
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
 		ring_vm_exprppoo(pVM, "%");
+		return;
+	}
+	if (nNum1 == 0) {
+		ring_vm_error(pVM, RING_VM_ERROR_DIVIDEBYZERO);
 		return;
 	}
 	/* Check Overflow */
@@ -288,6 +288,11 @@ void ring_vm_pow(VM *pVM) {
 	}
 	/* Check Overflow */
 	RING_VM_CHECKOVERFLOW(nNum1, nNum2);
+	/* Check Values */
+	if ((nNum2 == 0.0 && nNum1 < 0) || (nNum2 < 0 && nNum1 != floor(nNum1))) {
+		ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
+		return;
+	}
 	RING_VM_STACK_SETNVALUE(pow(nNum2, nNum1));
 }
 
@@ -778,19 +783,15 @@ void ring_vm_bitshr(VM *pVM) { ring_vm_bitshift(pVM, ">>"); }
 void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 	double nNum1, nNum2;
 	String *pStr1;
-	int lShift;
 	RING_LIST_CHECKOPERATIONONSUBLIST;
-	lShift = RING_FALSE;
 	if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;
 		RING_VM_STACK_POP;
 		if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISSTRING) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISPOINTER) {
 			ring_vm_exprnpoo(pVM, cOperator, nNum1);
 			return;
@@ -804,31 +805,28 @@ void ring_vm_bitshift(VM *pVM, const char *cOperator) {
 		RING_VM_STACK_POP;
 		if (RING_VM_STACK_ISNUMBER) {
 			nNum2 = RING_VM_STACK_READN;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISSTRING) {
 			nNum2 = ring_vm_stringtonum(pVM, RING_VM_STACK_READC);
 			RING_VM_RETURNIFACTIVECATCH;
-			lShift = RING_TRUE;
 		} else if (RING_VM_STACK_ISPOINTER) {
 			ring_vm_exprspoo(pVM, cOperator, ring_string_get(pStr1), ring_string_size(pStr1));
 			return;
 		}
 	} else if (RING_VM_STACK_ISPOINTER) {
 		ring_vm_exprppoo(pVM, cOperator);
+		return;
 	}
-	if (lShift) {
-		if (nNum1 < 0) {
-			ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
-		} else if (nNum1 == 0) {
-			RING_VM_STACK_SETNVALUE(nNum2);
-		} else if (nNum1 > (sizeof(RING_LONGLONG) * RING_BYTEBITS)) {
-			RING_VM_STACK_SETNVALUE(0.0);
+	if (nNum1 < 0) {
+		ring_vm_error(pVM, RING_VM_ERROR_VALUEERROR);
+	} else if (nNum1 == 0) {
+		RING_VM_STACK_SETNVALUE(nNum2);
+	} else if (nNum1 >= (sizeof(RING_LONGLONG) * RING_BYTEBITS)) {
+		RING_VM_STACK_SETNVALUE(0.0);
+	} else {
+		if (strcmp(cOperator, "<<") == 0) {
+			RING_VM_STACK_SETNVALUE((RING_LONGLONG)((RING_UNSIGNEDLONGLONG)nNum2 << (RING_LONGLONG)nNum1));
 		} else {
-			if (strcmp(cOperator, "<<") == 0) {
-				RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 << (RING_LONGLONG)nNum1));
-			} else {
-				RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 >> (RING_LONGLONG)nNum1));
-			}
+			RING_VM_STACK_SETNVALUE(((RING_LONGLONG)nNum2 >> (RING_LONGLONG)nNum1));
 		}
 	}
 }
@@ -954,7 +952,7 @@ void ring_vm_exprppoo(VM *pVM, const char *cStr) {
 	char cNewOp[RING_SMALLBUF];
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		pList = ring_item_getlist(pItem);
@@ -969,7 +967,7 @@ void ring_vm_exprppoo(VM *pVM, const char *cStr) {
 	if (RING_VM_STACK_ISPOINTER) {
 		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 			pList2 = (List *)RING_VM_STACK_READP;
-			pList2 = ring_list_getlist(pList2, RING_VAR_VALUE);
+			pList2 = RING_VAR_GETLIST(pList2);
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pList2 = ring_item_getlist(pItem);
@@ -1121,7 +1119,7 @@ void ring_vm_exprnpoo(VM *pVM, const char *cStr, double nNum1) {
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		pList = ring_item_getlist(pItem);
@@ -1181,7 +1179,7 @@ void ring_vm_exprspoo(VM *pVM, const char *cStr, const char *pStr2, unsigned int
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 		pList = (List *)RING_VM_STACK_READP;
-		pList = ring_list_getlist(pList, RING_VAR_VALUE);
+		pList = RING_VAR_GETLIST(pList);
 	} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 		pItem = (Item *)RING_VM_STACK_READP;
 		pList = ring_item_getlist(pItem);

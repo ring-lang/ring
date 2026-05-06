@@ -101,9 +101,9 @@ List *ring_vm_rangenewlist(VM *pVM) {
 	/* Create List Variable */
 	ring_vm_createtemplist(pVM);
 	pVar = (List *)RING_VM_STACK_READP;
-	ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
-	ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
-	ring_list_deleteallitems_gc(pVM->pRingState, ring_list_getlist(pVar, RING_VAR_VALUE));
-	pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
+	RING_VAR_SETTYPE(pVar, RING_VM_LIST);
+	RING_VAR_SETLIST_GC(pVM->pRingState, pVar);
+	ring_list_deleteallitems_gc(pVM->pRingState, RING_VAR_GETLIST(pVar));
+	pVar = RING_VAR_GETLIST(pVar);
 	return pVar;
 }

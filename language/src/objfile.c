@@ -5,6 +5,10 @@
 RING_API void ring_objfile_writefile(RingState *pRingState) {
 	char cFileName[RING_HUGEBUF];
 	/* Set the file name */
+	if (ring_list_getstringsize(pRingState->pRingFilesList, RING_ONE) + 2 > RING_HUGEBUF) {
+		printf(RING_BUFFEROVERFLOW);
+		return;
+	}
 	sprintf(cFileName, "%so", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
 	/* Write the file */
 	ring_objfile_writecontent(pRingState, cFileName, pRingState->pRingFilesList, pRingState->pRingFunctionsMap,
@@ -16,6 +20,10 @@ RING_API void ring_objfile_writecontent(RingState *pRingState, char *cFileName, 
 	FILE *fObj;
 	/* Create File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "w+b");
+	if (fObj == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, cFileName);
+		return;
+	}
 	fprintf(fObj, "# Ring Object File\n");
 	fprintf(fObj, RING_OBJFILE_VERSION);
 	fprintf(fObj, "\n");
@@ -91,11 +99,11 @@ RING_API int ring_objfile_readfile(RingState *pRingState, char *cFileName) {
 	return ring_objfile_readfromsource(pRingState, cFileName, RING_ZERO, RING_OBJFILE_READFROMFILE);
 }
 
-RING_API int ring_objfile_readstring(RingState *pRingState, char *cString, unsigned int nSize) {
+RING_API int ring_objfile_readstring(RingState *pRingState, char *cString, size_t nSize) {
 	return ring_objfile_readfromsource(pRingState, cString, nSize, RING_OBJFILE_READFROMSTRING);
 }
 
-RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, unsigned int nSize, int nSource) {
+RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, size_t nSize, int nSource) {
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack;
 	int lFail;
 	lFail = RING_FALSE;
@@ -151,10 +159,10 @@ RING_API int ring_objfile_readfromsource(RingState *pRingState, char *cSource, u
 RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pListFiles, List *pListFunctions,
 				      List *pListClasses, List *pListPackages, List *pListCode, List *pListStack) {
 	FILE *fObj;
-	long int nSize;
-	size_t nCount;
 	char *cBuffer;
-	unsigned int lOutput;
+	size_t nSize, nCount;
+	long int nTemp;
+	unsigned int lOutput, lError = RING_TRUE;
 	/* Open File */
 	fObj = (FILE *)ring_general_fopen(cFileName, "rb");
 	if (fObj == NULL) {
@@ -162,16 +170,21 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		return RING_FALSE;
 	}
 	/* Process File */
-	fseek(fObj, 0, SEEK_END);
-	nSize = ftell(fObj);
-	if (nSize == -1) {
+	if (fseek(fObj, 0, SEEK_END) == 0) {
+		nTemp = ftell(fObj);
+		if ((nTemp != -1) && (fseek(fObj, 0, SEEK_SET) == 0)) {
+			nSize = (size_t)nTemp;
+			lError = RING_FALSE;
+		}
+	}
+	if (lError) {
 		printf(RING_CANTREADFILE);
 		fclose(fObj);
 		return RING_FALSE;
 	}
-	fseek(fObj, 0, SEEK_SET);
-	cBuffer = (char *)ring_state_malloc(pRingState, nSize);
+	cBuffer = (char *)ring_state_malloc(pRingState, nSize + 1);
 	nCount = fread(cBuffer, 1, nSize, fObj);
+	cBuffer[nSize] = '\0';
 	if ((nSize == RING_ZERO) || (nCount != nSize) || (nSize < RING_OBJFILE_MINSIZE) ||
 	    (strcmp(cBuffer + nSize - 6, "\n$!${$") != 0)) {
 		printf(RING_OBJFILEWRONGTYPE);
@@ -179,15 +192,15 @@ RING_API int ring_objfile_processfile(RingState *pRingState, char *cFileName, Li
 		fclose(fObj);
 		return RING_FALSE;
 	}
-	lOutput = ring_objfile_processstring(pRingState, cBuffer, (unsigned int)nSize, pListFiles, pListFunctions,
-					     pListClasses, pListPackages, pListCode, pListStack);
+	lOutput = ring_objfile_processstring(pRingState, cBuffer, nSize, pListFiles, pListFunctions, pListClasses,
+					     pListPackages, pListCode, pListStack);
 	ring_state_free(pRingState, cBuffer);
 	/* Close File */
 	fclose(fObj);
 	return lOutput;
 }
 
-RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, unsigned int nSize, List *pListFiles,
+RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, size_t nSize, List *pListFiles,
 					List *pListFunctions, List *pListClasses, List *pListPackages, List *pListCode,
 					List *pListStack) {
 	signed char c;
@@ -284,12 +297,12 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, u
 			while (ring_objfile_getc(pRingState, &cData) != '!') {
 				/* Pass digits (string size as int) */
 			}
-			if ((nValue > 0) && (nValue < nSize) && ((cData + nValue) < (cContent + nSize))) {
-				cString = (char *)ring_state_malloc(pRingState, nValue);
-				ring_objfile_readc(pRingState, &cData, cString, nValue);
+			if ((nValue > 0) && ((size_t)nValue < nSize) && ((cData + nValue) < (cContent + nSize))) {
+				cString = (char *)ring_state_malloc(pRingState, (size_t)nValue);
+				ring_objfile_readc(pRingState, &cData, cString, (size_t)nValue);
 				/* Decrypt String */
-				ring_objfile_xorstring(pRingState, cString, nValue, cKey, RING_OBJFILE_KEYSIZE);
-				ring_list_addstring2_gc(pRingState, pList, cString, nValue);
+				ring_objfile_xorstring(pRingState, cString, (size_t)nValue, cKey, RING_OBJFILE_KEYSIZE);
+				ring_list_addstring2_gc(pRingState, pList, cString, (unsigned int)nValue);
 				ring_state_free(pRingState, cString);
 			} else {
 				ring_list_addstring_gc(pRingState, pList, "");
@@ -352,16 +365,16 @@ RING_API int ring_objfile_processstring(RingState *pRingState, char *cContent, u
 	return RING_TRUE;
 }
 
-RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, unsigned int nStringSize, char *cKey,
-				     unsigned int nKeySize) {
-	unsigned int x;
+RING_API void ring_objfile_xorstring(RingState *pRingState, char *cString, size_t nStringSize, char *cKey,
+				     size_t nKeySize) {
+	size_t x;
 	for (x = 0; x < nStringSize; x++) {
 		cString[x] = cString[x] ^ cKey[(x) % nKeySize];
 	}
 }
 
-RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, int nCount) {
-	unsigned int x;
+RING_API void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, size_t nCount) {
+	size_t x;
 	RING_MEMCPY(cDest, *cSource, nCount);
 	*cSource += nCount;
 }
@@ -376,11 +389,23 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	**  Write C file
 	**  Set the file name
 	*/
+	if (ring_list_getstringsize(pRingState->pRingFilesList, RING_ONE) + 1 > RING_HUGEBUF) {
+		printf(RING_BUFFEROVERFLOW);
+		return;
+	}
 	sprintf(cCodeFileName, "%s", ring_list_getstring(pRingState->pRingFilesList, RING_ONE));
 	nSize = strlen(cCodeFileName);
+	if (nSize < 4) {
+		printf(RING_FILENAMETOOSHORT);
+		return;
+	}
 	cCodeFileName[nSize - 4] = 'c';
 	cCodeFileName[nSize - 3] = '\0';
 	fCode = (FILE *)ring_general_fopen(cCodeFileName, "w+b");
+	if (fCode == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, cCodeFileName);
+		return;
+	}
 	/* write the main function */
 	fprintf(fCode, "#include \"ring.h\" \n\n");
 	fprintf(fCode, "#include \"ringappcode.h\" \n\n");
@@ -404,6 +429,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	/* Create ringappcode.c */
 	fclose(fCode);
 	fCode = (FILE *)ring_general_fopen("ringappcode.c", "w+b");
+	if (fCode == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, "ringappcode.c");
+		return;
+	}
 	fprintf(fCode, "#include \"ringappcode.h\" \n\n");
 	fprintf(fCode, "void loadRingCode(RingState *pRingState) {\n");
 	fprintf(fCode, "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n");
@@ -430,6 +459,10 @@ RING_API void ring_objfile_writeCfile(RingState *pRingState) {
 	fclose(fCode);
 	/* Declare functions that load the Ring code */
 	fCode2 = (FILE *)ring_general_fopen("ringappcode.h", "w+b");
+	if (fCode2 == NULL) {
+		printf("%s %s \n", RING_CANTOPENFILE, "ringappcode.h");
+		return;
+	}
 	fprintf(fCode2, "#include \"ring.h\" \n\n");
 	fprintf(fCode2, "void loadRingCode(RingState *pRingState) ;\n\n");
 	for (x = 1; x <= nFunction; x++) {
@@ -467,6 +500,10 @@ RING_API int ring_objfile_writelistcode(RingState *pRingState, FILE *fCode, List
 				/* Create another source file */
 				sprintf(cFileName, "ringappcode%d.c", nFunction);
 				fCode = (FILE *)ring_general_fopen(cFileName, "w+b");
+				if (fCode == NULL) {
+					printf("%s %s \n", RING_CANTOPENFILE, cFileName);
+					return RING_FALSE;
+				}
 				fprintf(fCode, "#include \"ring.h\" \n\n");
 				fprintf(fCode, "#include \"ringappcode.h\" \n\n");
 				/* Start New Functions */

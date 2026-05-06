@@ -4285,7 +4285,7 @@ Class QLocale
 		return QLocale_toString_2(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func toString_4 P1
-		return QLocale_toString_4(pObject,GetObjectPointerFromRingObject(P1))
+		return QLocale_toString_4(pObject,P1)
 
 	Func toString_5 P1
 		return QLocale_toString_5(pObject,P1)
@@ -4437,7 +4437,7 @@ Class QThread from QObject
 		return QThread_stackSize(pObject)
 
 	Func wait P1
-		return QThread_wait(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_wait(pObject,P1)
 
 	Func quit 
 		return QThread_quit(pObject)
@@ -4460,13 +4460,13 @@ Class QThread from QObject
 		return QThread_idealThreadCount(pObject)
 
 	Func msleep P1
-		return QThread_msleep(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_msleep(pObject,P1)
 
 	Func sleep P1
-		return QThread_sleep(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_sleep(pObject,P1)
 
 	Func usleep P1
-		return QThread_usleep(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_usleep(pObject,P1)
 
 	Func yieldCurrentThread 
 		return QThread_yieldCurrentThread(pObject)

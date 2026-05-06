@@ -182,7 +182,13 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew26.html">Release Notes: Version 1.26</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.27</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#research-article">Research Article</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -224,30 +230,341 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
 <p>Ring 1.27 comes with the next features!</p>
 <ul class="simple">
-<li><p>More RingPM Packages</p></li>
+<li><p>Research Article</p></li>
+<li><p>Better Performance</p></li>
+<li><p>Solitaire Game</p></li>
+<li><p>More Samples</p></li>
+<li><p>Ring-Python Package</p></li>
+<li><p>Ring-CFFI Package</p></li>
+<li><p>Better Functions</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
-<section id="more-ringpm-packages">
-<span id="index-2"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
-<p>The following packages have been added to the RingPM registry.</p>
+<section id="research-article">
+<span id="index-2"></span><h2>Research Article<a class="headerlink" href="#research-article" title="Permalink to this heading"></a></h2>
+<p>URL: <a class="reference external" href="https://doi.org/10.3390/electronics15040903">https://doi.org/10.3390/electronics15040903</a></p>
+<img alt="Research Article" src="_images/researchcover3.png" />
+</section>
+<section id="better-performance">
+<span id="index-3"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 introduces performance improvements across many core operations.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Performance Comparison: Ring 1.26 vs Ring 1.27 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Test Program</p></th>
+<th class="head"><p>Ring 1.26 (s)</p></th>
+<th class="head"><p>Ring 1.27 (s)</p></th>
+<th class="head"><p>Speedup</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Loop</p></td>
+<td><p>0.09</p></td>
+<td><p>0.08</p></td>
+<td><p>~1.1x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Variable read</p></td>
+<td><p>0.22</p></td>
+<td><p>0.18</p></td>
+<td><p>~1.2x</p></td>
+</tr>
+<tr class="row-even"><td><p>Variable write</p></td>
+<td><p>0.35</p></td>
+<td><p>0.24</p></td>
+<td><p>~1.5x</p></td>
+</tr>
+<tr class="row-odd"><td><p>List item read</p></td>
+<td><p>0.39</p></td>
+<td><p>0.29</p></td>
+<td><p>~1.3x</p></td>
+</tr>
+<tr class="row-even"><td><p>List item write</p></td>
+<td><p>0.43</p></td>
+<td><p>0.36</p></td>
+<td><p>~1.2x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calling C functions</p></td>
+<td><p>0.30</p></td>
+<td><p>0.23</p></td>
+<td><p>~1.3x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring functions</p></td>
+<td><p>0.53</p></td>
+<td><p>0.34</p></td>
+<td><p>~1.6x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calling Ring methods using the dot operator</p></td>
+<td><p>3.63</p></td>
+<td><p>0.73</p></td>
+<td><p>~5.0x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring methods using braces (outside the loop)</p></td>
+<td><p>2.61</p></td>
+<td><p>0.69</p></td>
+<td><p>~3.8x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object brace open/close</p></td>
+<td><p>3.18</p></td>
+<td><p>1.05</p></td>
+<td><p>~3.0x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring methods using braces (inside the loop)</p></td>
+<td><p>6.09</p></td>
+<td><p>1.88</p></td>
+<td><p>~3.2x</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most significant improvements are in OOP method dispatch. Calling Ring methods
+via the dot operator is now <strong>~5x faster</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
+</div>
+</section>
+<section id="solitaire-game">
+<span id="index-4"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<p>The Solitaire Game (Developed using Ring and RayLib)</p>
+<p>Install and run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
+ringpm run solitaire
+</pre></div>
+</div>
+<img alt="Solitaire Game" src="_images/solitaire.png" />
+</section>
+<section id="more-samples">
+<span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
+<li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
+<li><p>The next samples are revised</p></li>
+</ol>
 <ul class="simple">
-<li><p>Solitaire</p></li>
-<li><p>Ring-Python</p></li>
+<li><p>samples/UsingLibCurl/test12.ring</p></li>
+<li><p>samples/UsingLibCurl/test13.ring</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>The next samples are added to the samples foder:</p></li>
+</ol>
+<ul class="simple">
+<li><p>samples/General/RosettaCode/YinYang.ring</p></li>
+<li><p>samples/General/RosettaCode/YinYang2.ring</p></li>
+<li><p>samples/General/FindAnadromes/process.ring</p></li>
+<li><p>samples/General/FindAnadromes/process2.ring</p></li>
+<li><p>samples/General/Performance/ringper.ring</p></li>
+<li><p>samples/General/Performance/nqueensbitmask.ring</p></li>
+<li><p>samples/Language/ClassMethods/nestedanonymous.ring</p></li>
+<li><p>samples/UsingFreeGLUT/Hex_Sphere.ring</p></li>
+<li><p>samples/UsingFreeGLUT/Penta_Sphere.ring</p></li>
+<li><p>samples/UsingFreeGLUT/Octagon_Sphere.ring</p></li>
+<li><p>samples/UsingFreeGLUT/SinCos_Surface.ring</p></li>
+<li><p>samples/UsingRogueUtil/matrix_rain.ring</p></li>
+<li><p>samples/UsingRayLib/more/ex11_matrix_rain.ring</p></li>
+<li><p>samples/General/Orbital/Earth_Orbit_Zodiac.ring</p></li>
+<li><p>samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring</p></li>
+<li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring</p></li>
+</ul>
+<img alt="Advanced FreeGLUT Samples" src="_images/advancedfreeglut.png" />
+<img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
+</section>
+<section id="ring-python-package">
+<span id="index-6"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
+</pre></div>
+</div>
+<p>Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.</p></li>
+<li><p>Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.</p></li>
+<li><p>Module Import — Import any installed Python package and call its functions directly.</p></li>
+<li><p>Object-Oriented API — Clean Ring wrapper classes (<cite>Python</cite>, <cite>PyObject</cite>, <cite>PyModule</cite>, etc.) alongside low-level functions for maximum control.</p></li>
+<li><p>Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.</p></li>
+<li><p>Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;python.ring&quot;</span>
+
+<span class="n">py</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Python</span><span class="p">()</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;import numpy as np&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create array and compute statistics</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">data = np.array([1, 2, 3, 4, 5])</span>
+<span class="s2">_mean = str(np.mean(data))</span>
+<span class="s2">_std  = str(np.std(data))</span>
+<span class="s2">_dot  = str(np.dot(data, data))</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_mean&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Std:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_std&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Dot:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_dot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Mean: 3.0
+Std:  1.4142135623730951
+Dot:  55
+</pre></div>
+</div>
+</section>
+<section id="ring-cffi-package">
+<span id="index-7"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<p>A Foreign Function Interface library for the Ring programming language!</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
+</pre></div>
+</div>
+<p>Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime</p></li>
+<li><p>C Function Calls: Call C functions directly from Ring with automatic type conversion</p></li>
+<li><p>Pointer Operations: Pointer arithmetic, dereferencing, read/write access</p></li>
+<li><p>Struct Support: Define and manipulate C structs with named field access</p></li>
+<li><p>Union &amp; Enum Support: Define and use C unions and enumerations</p></li>
+<li><p>Callbacks: Pass Ring functions as C callbacks</p></li>
+<li><p>Memory Management: Allocate and manage C memory directly</p></li>
+<li><p>C String Handling: Seamless conversion between Ring and C strings</p></li>
+<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
+<li><p>High-Level OOP API: Clean FFI class with intuitive method names</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;cffi.ring&quot;</span>
+
+<span class="c1"># msvcrt.dll (Windows), libSystem.B.dylib (macOS)</span>
+<span class="kp">new</span> <span class="nc">FFI</span><span class="p">(</span><span class="s2">&quot;libm.so.6&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1"># Call a simple function (sqrt)</span>
+        <span class="n">oSqrt</span> <span class="o">=</span> <span class="nf">cFunc</span><span class="p">(</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;double&quot;</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">oSqrt</span><span class="p">,</span> <span class="p">[</span><span class="mf">25.0</span><span class="p">])</span>
+        <span class="o">?</span> <span class="s2">&quot;sqrt(25) = &quot;</span> <span class="o">+</span> <span class="n">result</span>
+
+        <span class="c1"># Call printf (variadic function)</span>
+        <span class="n">oPrintf</span> <span class="o">=</span> <span class="nf">varFunc</span><span class="p">(</span><span class="s2">&quot;printf&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">])</span>
+        <span class="nf">varcall</span><span class="p">(</span><span class="n">oPrintf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hello, %s! Number: %d\n&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sqrt(25) = 5
+Hello, World! Number: 123
+</pre></div>
+</div>
+</section>
+<section id="better-functions">
+<span id="index-8"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
+<li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
+<li><p>Revise each function to ensure it terminates execution after displaying an error.</p></li>
+<li><p>DiffDays()/AddDays() - Better Implementation</p></li>
+<li><p>Sort() function - Better Performance</p></li>
+<li><p>BinarySearch() - Better Performance and Allows mixing types in the list</p></li>
+<li><p>Remove() - Correct error message when the argument count is incorrect</p></li>
+<li><p>SysSleep() - Check nanosleep() output</p></li>
+<li><p>Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage</p></li>
+<li><p>Ring_State_MainFile() - Thread safe implementation</p></li>
+<li><p>Ring_State_Delete() - Use: RING_API_SETNULLPOINTER</p></li>
+<li><p>Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag</p></li>
+<li><p>Ring_State_FindVar() - return zero if the variable is not found</p></li>
+<li><p>Unsigned() - Better Implementation - Remove unnecessary checks</p></li>
+<li><p>Unsigned() - Accept the operator before/after the numbers</p></li>
+<li><p>Unsigned() - Check variable size before the shift operation</p></li>
+<li><p>IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect</p></li>
+<li><p>Randomize() - Produce error when the value range is not correct</p></li>
+<li><p>Randomize() - Respect C strict-aliasing rules</p></li>
+<li><p>Hex2Str() - Always move the first nibble into the high position</p></li>
+<li><p>Str2HexCStyle() - Check the string length before processing</p></li>
+<li><p>Str2HexCStyle() - Pads single-digit bytes with space instead of zero</p></li>
+<li><p>FGetPos() - Free allocated memory when the function fail</p></li>
+<li><p>FPutC()/UnGetC() - Check string size (Not less than 1 character)</p></li>
+<li><p>SubStr() - Check argument count</p></li>
+<li><p>MemCpy() - Check negative size</p></li>
+<li><p>MergeMethods() - Avoid Self-merge</p></li>
+<li><p>GetNumber() - Check fgets() output</p></li>
+<li><p>Date()/Time()/TimeList() - Check timer overflow</p></li>
+<li><p>Date()/Time()/TimeList() - Thread safe usage for localtime()</p></li>
+<li><p>Number() - Accept one e/E in the number</p></li>
+<li><p>Dir() - Check the path length before using strcat()</p></li>
+<li><p>Dir() - Check chdir() output</p></li>
+<li><p>Input() - Check fread() output</p></li>
+<li><p>GetChar() - Return an empty string when we the getchar() output is EOF</p></li>
+<li><p>LoadLib() - Close the DLL when the ringlib_init() function is missing</p></li>
+<li><p>System() - Return the function output</p></li>
+<li><p>Assert() - Follow Ring’s rules for evaluating values as True or False</p></li>
+<li><p>Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage</p></li>
+<li><p>RingFastPro Extension - Better Performance</p></li>
+<li><p>RingFastPro Extension - Added Transform3D() function</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_QueryTexture()</p></li>
+<li><p>RingLibSDL Extension - Removed SDL_GetRevisionNumber()</p></li>
+<li><p>RingQt Extension - Added: QQmlContext</p></li>
+<li><p>RingQt Extension - Added: QQmlProperty</p></li>
+<li><p>RingQt Extension - Added: QQmlExpression</p></li>
+<li><p>RingQt Extension - Added: QQmlComponent</p></li>
+<li><p>RingQt Extension - Added: QQmlApplicationEngine</p></li>
+<li><p>RingQt Extension - Revised QOpenGLTexture_borderColor_4() function</p></li>
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-3"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Added: samples/General/RosettaCode/YinYang.ring</p></li>
-<li><p>Added: samples/General/RosettaCode/YinYang2.ring</p></li>
-<li><p>Added: samples/UsingRogueUtil/matrix_rain.ring</p></li>
-<li><p>Added: samples/UsingRayLib/more/ex11_matrix_rain.ring</p></li>
-<li><p>Added: samples/General/Orbital/Earth_Orbit_Zodiac.ring</p></li>
-<li><p>Added: samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring</p></li>
-<li><p>language/build/locatevc.bat - Added: Visual Studio 2026 Community Edition support</p></li>
+<li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
+<li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
+<li><p>language/build/builddos.bat - Set stack size to 64K</p></li>
+<li><p>Ring for Linux - Modernize build scripts using pkg-config</p></li>
+<li><p>Ring API - Added RING_API_GETUNSIGNEDINTPOINTER() and RING_API_ACCEPTUNSIGNEDINTVALUE()</p></li>
+<li><p>Ring API - Added RING_API_GETSHORTINTPOINTER() and RING_API_ACCEPTSHORTINTVALUE()</p></li>
+<li><p>Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()</p></li>
+<li><p>Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()</p></li>
+<li><p>Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()</p></li>
+<li><p>Extensions Generator - The aNumberTypes list is revised</p></li>
+<li><p>Extensions Generator - Using aPassPointers list to control passing pointers to functions</p></li>
+<li><p>Ring Compiler - Detect unclosed comment error</p></li>
+<li><p>Ring Compiler - Check filename size before loading</p></li>
+<li><p>Ring VM - ring_general_justfilename() - Better Code</p></li>
 <li><p>Ring VM - ring_list_sortnum_gc() - Better Performance</p></li>
 <li><p>Ring VM - ring_list_sortstr_gc() - Better Performance</p></li>
+<li><p>Ring VM - ring_list_updaterefcount_gc() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_statecustmutexunlock() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_oop_callmethodfrombrace() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_oop_preparecallmethodfrombrace() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_oop_movetobeforeobjstate() - Better Performance</p></li>
+<li><p>Ring VM - ring_vm_loadfunc2() - Better Code - Logical order of instructions</p></li>
+<li><p>Ring VM - ring_objfile_processfile() - Check fseek()/ftell() output</p></li>
+<li><p>Ring VM - ring_vm_file_read() - Check fseek() output</p></li>
+<li><p>Ring VM - ring_vm_mod() - Check values before processing</p></li>
+<li><p>Ring VM - ring_hashtable_rebuild_gc() - Check overflow</p></li>
+<li><p>Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read</p></li>
+<li><p>Ring VM - ring_string_add2_gc() - Check string capacity overflow</p></li>
+<li><p>Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)</p></li>
+<li><p>Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers</p></li>
+<li><p>Ring VM - Save/Restore state when using Braces - Better Performance</p></li>
+<li><p>Ring VM - pObjState information - Use array of structure instead of Ring Lists</p></li>
+<li><p>Ring VM - New Instruction for calling methods using the dot operator - ICO_LOADMETHODP</p></li>
+<li><p>Ring VM - New Instruction for calling methods using braces - ICO_LOADBRACEMETHODP</p></li>
+<li><p>Ring VM - Cache the This variable list in the VM structure - Better Performance</p></li>
+<li><p>Ring VM - Cache the GetTempVar/SetTempVar variable list - Better Performance</p></li>
+<li><p>Ring VM - Cache the ErrorMsg variable list - Better Performance</p></li>
+<li><p>Ring VM - Using preprocessor to access the members of the Object list</p></li>
+<li><p>Ring VM - Using preprocessor to access the members of the Variable list</p></li>
+<li><p>Ring VM - Check NULL in C extensions (RING_API_CHECKNULLPOINTER(ptr))</p></li>
+<li><p>Ring VM - Support using Computed Goto (optional feature when building Ring VM)</p></li>
+<li><p>Ring VM - Added Zero-Divisor Check to /= and %= operators</p></li>
+<li><p>Ring VM - Check values before the shift operations</p></li>
+<li><p>Ring VM - Object File - Check ring_general_fopen() output before usage</p></li>
+<li><p>Ring VM - Object File - Check buffer overflow with user-controlled filename</p></li>
+<li><p>Ring VM - Object File - Use size_t in functions used for processing the file</p></li>
 </ul>
 </section>
 </section>

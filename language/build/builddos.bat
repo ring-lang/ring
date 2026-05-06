@@ -10,8 +10,7 @@ set watcom=C:\WATCOM\.
 rename dll_e.c dll_e.no
 rename ringw.c ringw.no
 
-wcl386 ring.c *.c
-wcl386 ring.obj *.obj
+wcl386 -k65536 ring.c *.c
 
 rename dll_e.no dll_e.c
 rename ringw.no ringw.c

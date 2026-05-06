@@ -4,6 +4,7 @@
 #define ring_generallib_extension_h
 /* Constants */
 #define C_EXPRCODESIZE 200
+#define RING_VM_GENERALLIB_TIMEROVERFLOW "Error: Timer Overflow!"
 
 RING_API void ring_vm_generallib_loadfunctions(RingState *pRingState);
 /* General */
@@ -203,4 +204,6 @@ void ring_vm_generallib_adddays(void *pPointer);
 void ring_vm_generallib_diffdays(void *pPointer);
 
 int ring_vm_generallib_adddays_isleapyear(int nYear);
+
+int ring_vm_generallib_datefuncs_isdate(const unsigned char *cStr);
 #endif

@@ -9,10 +9,9 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 	}
 	pVM->lActiveError = RING_TRUE;
 	/* Set Error Variable */
-	ring_list_setstring_gc(pVM->pRingState, ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG),
-			       RING_VAR_VALUE, cStr);
+	RING_VAR_SETSTRING_GC(pVM->pRingState, pVM->pErrorMsg, cStr);
 	/* Check BraceError() */
-	if (pVM->lCheckBraceError && (ring_list_getsize(pVM->pObjState) > 0)) {
+	if (pVM->lCheckBraceError && (pVM->nCurrentObjState > 0)) {
 		fflush(stdout);
 		pVM->lActiveError = RING_FALSE;
 		if (ring_vm_oop_internalcallforbracemethod(pVM, RING_CSTR_BRACEERROR)) {
@@ -61,11 +60,11 @@ RING_API void ring_vm_error(VM *pVM, const char *cStr) {
 
 void ring_vm_error2(VM *pVM, const char *cStr, const char *cStr2) {
 	String *pError;
-	pError = ring_string_new_gc(pVM->pRingState, cStr);
+	pError = RING_VAR_GETSTRINGOBJ(pVM->pErrorMsg);
+	ring_string_set_gc(pVM->pRingState, pError, cStr);
 	ring_string_add_gc(pVM->pRingState, pError, ": ");
 	ring_string_add_gc(pVM->pRingState, pError, cStr2);
 	ring_vm_error(pVM, ring_string_get(pError));
-	ring_string_delete_gc(pVM->pRingState, pError);
 }
 
 RING_API void ring_vm_shutdown(VM *pVM, int nExitCode) {

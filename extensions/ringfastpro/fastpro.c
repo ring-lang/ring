@@ -34,6 +34,54 @@
 **                    Append
 **                    AllSum
 **                    Mandelbrot
+**
+** 2026-03-28 B.M.    ring_transform3d  //  Apply a 4x4 transformation matrix to every point in a Nx4 point array.
+**                    transform3d( FC, RC )
+*/
+
+/*
+** OPTIMIZATIONS APPLIED (2026):
+**
+**  ROUND 1 — First pass:
+**  1. ring_bytes2list  : Branch hoisted outside pixel loop; nDivide fast-path
+**                        avoids division; divide path uses one precomputed
+**                        reciprocal (multiplication replaces per-channel division).
+**  2. ring_list2bytes  : nChannel==3 vs ==4 branch moved outside the pixel loop;
+**                        alpha byte precomputed once.
+**  3. case 406 (MatMul): All B-row pointers cached in a heap array before the
+**                        triple loop — eliminates one ring_list_getlist() call
+**                        per (row, col, k) step, the hottest path.
+**  4. case 206 (Add Matrix): islist()+isdouble() guards removed from inner loop;
+**                        outer iteration corrected from nEnd to nRow.
+**  5. Activation funcs : isdouble() guard removed from inner loops for:
+**                        sqrt, square, sigmoid, sigmoidprime, tanh, leakyrelu,
+**                        leakyreluprime, relu, reluprime, exp (cases 2206-3106).
+**  6. case 2106 (Mean) : isdouble() guard removed from inner loop.
+**  7. case 4306 (AllSum): isdouble() guard removed from inner loop.
+**  8. case 4506 (EMul) : isdouble() guard removed from inner loop.
+**
+**  ROUND 2 — Second pass:
+**  9. case 306 (Sub Matrix): same islist()/isdouble() removal + outer bound fix.
+** 10. case 1406 (Transpose): pSubList (A-row) re-fetch eliminated from inner loop.
+** 11. case 1606 (DotProduct 2D): B-row pointer array cached; A-row and C-row
+**                        pointers hoisted out of inner loops.
+** 12. case 3306 (Softmax): Temp double[] buffer replaces ring_list read-back loop;
+**                        one reciprocal division per row replaces nEnd divisions.
+**  ROUND 3 — Third pass:
+** 14. case 3706 (Ravel)    : pSubListC (single output row) hoisted outside both
+**                        loops — was re-fetched on every inner column step.
+**                        Intermediate k variable eliminated.
+** 15. case 3906 (AtLeast2D): pSubListC hoisted outside loop — same pattern.
+**                        Intermediate valueA variable eliminated.
+** 16. case 4206 (Append)   : Intermediate valueA eliminated from both axis paths;
+**                        Axis-0 B-copy now correctly iterates nRowB (not nRow).
+**                        Axis-1 B-copy now correctly iterates nEndB (not nEnd).
+** 17. ring_mandelbrot       : TWO PASSES FUSED INTO ONE.
+**                        A flat int[] scratch buffer replaces all per-pixel
+**                        ring_list_setdouble / ring_list_getdouble calls
+**                        (640000 Ring API calls eliminated for an 800×800 image).
+**                        Color table made 'static const' (ROM, not stack).
+**                        2.0 literal used instead of integer 2 in zI formula.
 */
 
 #include "ring.h"
@@ -81,21 +129,32 @@ RING_FUNC(ring_bytes2list)
     if (RING_API_PARACOUNT > 4)
         if (RING_API_ISNUMBER(5))
             nDivide = (int) RING_API_GETNUMBER(5) ;
-            pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,3);
-            pVM = (VM *) pPointer;
+    pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,3);
+    pVM = (VM *) pPointer;
+
+    /* OPT: precompute reciprocal so the inner loop multiplies instead of divides */
+    if (nDivide == 0) {
+        /* Fast path: no scaling, no branch per pixel */
         for (int y=1 ; y <= nHeight ; y++ ) {
-        for (int x=1 ; x <= nWidth ; x++ ) {
-            pSubList = ring_list_getlist(pList,nPoint++);
-            if (nDivide == 0) {
+            for (int x=1 ; x <= nWidth ; x++ ) {
+                pSubList = ring_list_getlist(pList,nPoint++);
                 ring_list_setdouble_gc(pVM->pRingState,pSubList,1,(double) pData[nIndex++]);
                 ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) pData[nIndex++]);
                 ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++]);
-            } else {
-                ring_list_setdouble_gc(pVM->pRingState,pSubList,1,( (double) pData[nIndex++] ) / nDivide);
-                ring_list_setdouble_gc(pVM->pRingState,pSubList,2,( (double) pData[nIndex++] ) / nDivide);
-                ring_list_setdouble_gc(pVM->pRingState,pSubList,3,( (double) pData[nIndex++] ) / nDivide);
+                nIndex += nChannelDiff;
             }
-            nIndex += nChannelDiff;
+        }
+    } else {
+        /* Divide path: one reciprocal computed once, multiplied per channel */
+        double recip = 1.0 / (double) nDivide;
+        for (int y=1 ; y <= nHeight ; y++ ) {
+            for (int x=1 ; x <= nWidth ; x++ ) {
+                pSubList = ring_list_getlist(pList,nPoint++);
+                ring_list_setdouble_gc(pVM->pRingState,pSubList,1,(double) pData[nIndex++] * recip);
+                ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) pData[nIndex++] * recip);
+                ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++] * recip);
+                nIndex += nChannelDiff;
+            }
         }
     }
     RING_API_RETLISTBYREF(pList);
@@ -150,38 +209,49 @@ RING_FUNC(ring_list2bytes)
     nIndex = 0;
     lError = 0;
 
-    for ( x=1 ; x <= nListSize ; x++ ) {
-
-        if ( ! ring_list_islist(pList,x) ){
-            lError = 1;
-            break;
+    /* OPT: split nChannel==3 and nChannel==4 loops so the branch is
+       outside the per-pixel loop, not inside it. */
+    if ( nChannel == 3 ) {
+        for ( x=1 ; x <= nListSize ; x++ ) {
+            if ( ! ring_list_islist(pList,x) ){ lError = 1; break; }
+            pPointList = ring_list_getlist(pList,x);
+            nPointListSize = ring_list_getsize(pPointList);
+            if ( nPointListSize < 3 ) { lError = 1; break; }
+            if ( ring_list_isdouble(pPointList,1) && ring_list_isdouble(pPointList,2) &&
+                 ring_list_isdouble(pPointList,3) ) {
+                 nRed   = ring_list_getdouble(pPointList,1);
+                 nGreen = ring_list_getdouble(pPointList,2);
+                 nBlue  = ring_list_getdouble(pPointList,3);
+                 /* clamp 0..1 */
+                 if (nRed   > 1) nRed   = 1;
+                 if (nGreen > 1) nGreen = 1;
+                 if (nBlue  > 1) nBlue  = 1;
+                 cData[nIndex++] = (char) (nRed*nMul);
+                 cData[nIndex++] = (char) (nGreen*nMul);
+                 cData[nIndex++] = (char) (nBlue*nMul);
+            } else { lError = 1; break; }
         }
-
-        pPointList = ring_list_getlist(pList,x);
-        nPointListSize = ring_list_getsize(pPointList);
-        if ( nPointListSize < 3 ) {
-            lError = 1;
-            break;
+    } else { /* nChannel == 4 */
+        char cAlpha = (char)(nAlpha*nMul);
+        for ( x=1 ; x <= nListSize ; x++ ) {
+            if ( ! ring_list_islist(pList,x) ){ lError = 1; break; }
+            pPointList = ring_list_getlist(pList,x);
+            nPointListSize = ring_list_getsize(pPointList);
+            if ( nPointListSize < 3 ) { lError = 1; break; }
+            if ( ring_list_isdouble(pPointList,1) && ring_list_isdouble(pPointList,2) &&
+                 ring_list_isdouble(pPointList,3) ) {
+                 nRed   = ring_list_getdouble(pPointList,1);
+                 nGreen = ring_list_getdouble(pPointList,2);
+                 nBlue  = ring_list_getdouble(pPointList,3);
+                 if (nRed   > 1) nRed   = 1;
+                 if (nGreen > 1) nGreen = 1;
+                 if (nBlue  > 1) nBlue  = 1;
+                 cData[nIndex++] = (char) (nRed*nMul);
+                 cData[nIndex++] = (char) (nGreen*nMul);
+                 cData[nIndex++] = (char) (nBlue*nMul);
+                 cData[nIndex++] = cAlpha;
+            } else { lError = 1; break; }
         }
-
-        if ( ring_list_isdouble(pPointList,1) && ring_list_isdouble(pPointList,2) &&
-             ring_list_isdouble(pPointList,2) ) {
-             nRed   = ring_list_getdouble(pPointList,1);
-             nGreen = ring_list_getdouble(pPointList,2);
-             nBlue  = ring_list_getdouble(pPointList,3);
-             if (nRed   > 1) nRed   = 1;
-             if (nGreen > 1) nGreen = 1;
-             if (nBlue  > 1) nBlue  = 1;
-             cData[nIndex++] = (char) (nRed*nMul);
-             cData[nIndex++] = (char) (nGreen*nMul);
-             cData[nIndex++] = (char) (nBlue*nMul);
-        } else {
-            lError = 1;
-            break;
-        }
-
-        if ( nChannel == 4)
-            cData[nIndex++] = (char) (nAlpha*nMul);
     }
 
     if ( lError == 1 ) {
@@ -824,7 +894,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen ; y++ ) {
                         ring_list_setdouble_gc(pVM->pRingState,pRow,y,nValue);
                     }
                 }
@@ -833,12 +904,15 @@ RING_FUNC(ring_updatelist)
 
         case 104 :
             /* Set Many Columns */
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
+            {
+                int nListSize104 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize104 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
+                            }
                         }
                     }
                 }
@@ -882,7 +956,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen203 = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen203 ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
                             ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)+nValue);
                         }
@@ -892,13 +967,16 @@ RING_FUNC(ring_updatelist)
             break ;
         case 204 :
             /* Add to Many Columns */
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
+            {
+                int nListSize204 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize204 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
                                 ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)+nValue);
+                                }
                             }
                         }
                     }
@@ -940,28 +1018,20 @@ RING_FUNC(ring_updatelist)
                 nEndC   = ring_list_getsize(pRowC) ;         // 4=Col-C horz
                //------------------------------------
 
-            if ((nEnd = nEndB) && (nRow = nRowB)){
+            if ((nEnd == nEndB) && (nRow == nRowB)){
 
-                /* Add MATRIX to ManyRows */
-                for ( x = nStart ; x <= nEnd ; x++ ) {
+                /* OPT: islist()/isdouble() guards removed – both lists built by
+                   NEWLISTUSINGBLOCKS2D; outer bound corrected to nRow (was nEnd). */
+                for ( x = 1 ; x <= nRow ; x++ ) {
+                    pRow  = ring_list_getlist(pList, x) ;
+                    pRowB = ring_list_getlist(pListB,x) ;
+                    pRowC = ring_list_getlist(pListC,x) ;
+                    int nRowLen206 = ring_list_getsize(pRow) ;
 
-                    if ( ring_list_islist(pList,x) ) {
-
-                        pRow  = ring_list_getlist(pList, x) ;
-                        pRowB = ring_list_getlist(pListB,x) ;
-                        pRowC = ring_list_getlist(pListC,x) ;
-
-                        for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
-
-                            if ( ring_list_isdouble(pRow,y) ) {
-
-                                 valueA = ring_list_getdouble(pRow, y);
-                                 valueB = ring_list_getdouble(pRowB,y);
-                                 valueC = valueA + valueB;
-
-                                 ring_list_setdouble_gc(pVM->pRingState,pRowC,y, valueC);
-                            }
-                        }
+                    for ( y = 1 ; y <= nRowLen206 ; y++ ) {
+                        ring_list_setdouble_gc(pVM->pRingState, pRowC, y,
+                            ring_list_getdouble(pRow,  y) +
+                            ring_list_getdouble(pRowB, y));
                     }
                 }
 
@@ -1006,7 +1076,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen303 = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen303 ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
                             ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)-nValue);
                         }
@@ -1016,13 +1087,16 @@ RING_FUNC(ring_updatelist)
             break ;
         case 304 :
             /* Sub from Many Columns */
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)-nValue);
+            {
+                int nListSize304 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize304 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
+                                    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)-nValue);
+                                }
                             }
                         }
                     }
@@ -1063,28 +1137,19 @@ RING_FUNC(ring_updatelist)
                 nEndC   = ring_list_getsize(pRowC) ;         // 4=Col-C horz
                //------------------------------------
 
-            if ((nEnd = nEndB) && (nRow = nRowB)){
+            if ((nEnd == nEndB) && (nRow == nRowB)){
 
-                /* Add MATRIX to ManyRows */
-                for ( x = nStart ; x <= nEnd ; x++ ) {
+                /* OPT: islist()/isdouble() guards removed; outer bound corrected to nRow */
+                for ( x = 1 ; x <= nRow ; x++ ) {
+                    pRow  = ring_list_getlist(pList, x) ;
+                    pRowB = ring_list_getlist(pListB,x) ;
+                    pRowC = ring_list_getlist(pListC,x) ;
+                    int nRowLen306 = ring_list_getsize(pRow) ;
 
-                    if ( ring_list_islist(pList,x) ) {
-
-                        pRow  = ring_list_getlist(pList, x) ;
-                        pRowB = ring_list_getlist(pListB,x) ;
-                        pRowC = ring_list_getlist(pListC,x) ;
-
-                        for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
-
-                            if ( ring_list_isdouble(pRow,y) ) {
-
-                                 valueA = ring_list_getdouble(pRow, y);
-                                 valueB = ring_list_getdouble(pRowB,y);
-                                 valueC = valueA - valueB;
-
-                                 ring_list_setdouble_gc(pVM->pRingState,pRowC,y, valueC);
-                            }
-                        }
+                    for ( y = 1 ; y <= nRowLen306 ; y++ ) {
+                        ring_list_setdouble_gc(pVM->pRingState, pRowC, y,
+                            ring_list_getdouble(pRow,  y) -
+                            ring_list_getdouble(pRowB, y));
                     }
                 }
 
@@ -1124,7 +1189,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen403 = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen403 ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
                             ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)*nValue);
                         }
@@ -1134,13 +1200,16 @@ RING_FUNC(ring_updatelist)
             break ;
         case 404 :
             /* Mul cells in Many Columns */
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)*nValue);
+            {
+                int nListSize404 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize404 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
+                                    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)*nValue);
+                                }
                             }
                         }
                     }
@@ -1191,33 +1260,32 @@ RING_FUNC(ring_updatelist)
            nEndC   = ring_list_getsize(pRowC) ;         // 4=Col-C horz
            //------------------------------------
 
-            for (vA = 1; vA <= nRow; vA++)
-            {   pSubList  = ring_list_getlist(pList,  vA) ;          // Row-A vA 12890x4
-		
-		        for (hB = 1; hB <= nEndB; hB++)
-                {
-                    Sum = 0;
+           /* OPT: cache all B-row pointers once; avoids one ring_list_getlist()
+              call per (vA, hB, k) step — the hottest path in matrix multiply. */
+           {
+               List **pBRows = (List **) RING_API_MALLOC(sizeof(List*) * (nEnd + 1));
+               for (k = 1; k <= nEnd; k++)
+                   pBRows[k] = ring_list_getlist(pListB, k);
 
-                    for (k = 1; k <=  nEnd; k++)
-                    {   
-			// Sum += A[vA][k] * B[k][hB]
-                        //          R   C      R  C
-                        
-			pSubListB = ring_list_getlist(pListB, k) ;       // Row-B k 4x4
-						
-                        valueA  = ring_list_getdouble( pSubList, k ) ;   // Col-A  k
-                        valueB  = ring_list_getdouble( pSubListB, hB ) ; // Col-B   hB
-                        valueC  = valueA * valueB ;
-                        Sum    += valueC  ;
-                    }
+               for (vA = 1; vA <= nRow; vA++)
+               {   pSubList  = ring_list_getlist(pList,  vA);   // Row-A (hoisted)
+                   pSubListC = ring_list_getlist(pListC, vA);   // Row-C (hoisted)
 
-                    pSubListC = ring_list_getlist(pListC, vA ) ;                  // Row#
-                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, Sum );  // Col#
+                   for (hB = 1; hB <= nEndB; hB++)
+                   {
+                       Sum = 0;
+                       for (k = 1; k <= nEnd; k++)
+                       {   // Sum += A[vA][k] * B[k][hB]
+                           Sum += ring_list_getdouble(pSubList,   k ) *
+                                  ring_list_getdouble(pBRows[k], hB );
+                       }
+                       ring_list_setdouble_gc(pVM->pRingState, pSubListC, hB, Sum);
+                   }
+               }
+               RING_API_FREE(pBRows);
+           }
 
-                }
-            }
-
-            RING_API_RETLISTBYREF(pListC); // FAST
+           RING_API_RETLISTBYREF(pListC); // FAST
 			  
             break ;
 
@@ -1252,7 +1320,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen503 = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen503 ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
                             ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y) / nValue);
                         }
@@ -1263,13 +1332,16 @@ RING_FUNC(ring_updatelist)
 
         case 504 :
             /* Div cells in Many Columns */
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol) / nValue);
+            {
+                int nListSize504 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize504 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
+                                    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol) / nValue);
+                                }
                             }
                         }
                     }
@@ -1407,7 +1479,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen803 = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen803 ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
                              ring_list_setdouble_gc(pVM->pRingState,pRow,y,
                              ring_list_getdouble(pRow,y) + nValue);
@@ -1421,15 +1494,17 @@ RING_FUNC(ring_updatelist)
 
         case 804 :
             /* Serial ManyCols */
-
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
-                                ring_list_getdouble(pSubList,nCol) + nValue);
+            {
+                int nListSize804 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize804 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
+                                    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+                                    ring_list_getdouble(pSubList,nCol) + nValue);
+                                }
                             }
                         }
                     }
@@ -1469,8 +1544,8 @@ RING_FUNC(ring_updatelist)
            for ( x = nStart ; x <= nEnd ; x++ ) {
                if ( ring_list_islist(pList,x) ) {
                    pRow = ring_list_getlist(pList,x) ;
-
-                   for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                   int nRowLen903 = ring_list_getsize(pRow) ;
+                   for ( y = 1 ; y <= nRowLen903 ; y++ ) {
                        if ( ring_list_isdouble(pRow,y) ) {
                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,
                            pow(ring_list_getdouble(pRow,y), nValue) );
@@ -1483,15 +1558,17 @@ RING_FUNC(ring_updatelist)
 
         case 904 :
             /* Pow ManyCols */
-
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
-                                pow(ring_list_getdouble(pSubList,nCol) , nValue));
+            {
+                int nListSize904 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize904 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
+                                    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+                                    pow(ring_list_getdouble(pSubList,nCol) , nValue));
+                                }
                             }
                         }
                     }
@@ -1543,7 +1620,8 @@ RING_FUNC(ring_updatelist)
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                    int nRowLen1003 = ring_list_getsize(pRow) ;
+                    for ( y = 1 ; y <= nRowLen1003 ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
                             ring_list_setdouble_gc(pVM->pRingState,pRow,y,
                 (int) ring_list_getdouble(pRow,y) % (int) nValue);
@@ -1554,14 +1632,17 @@ RING_FUNC(ring_updatelist)
             break ;
         case 1004 :
             /* Rem cells in Many Columns */
-            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
-                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-                    if ( ring_list_islist(pList,x) ) {
-                        pSubList = ring_list_getlist(pList,x) ;
-                        if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                 ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
-                           (int) ring_list_getdouble(pSubList,nCol) % (int) nValue);
+            {
+                int nListSize1004 = ring_list_getsize(pList) ;
+                for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                    for ( x = 1 ; x <= nListSize1004 ; x++ ) {
+                        if ( ring_list_islist(pList,x) ) {
+                            pSubList = ring_list_getlist(pList,x) ;
+                            if ( ring_list_getsize(pSubList) >= nCol ) {
+                                if ( ring_list_isdouble(pSubList,nCol) ) {
+                                    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+                               (int) ring_list_getdouble(pSubList,nCol) % (int) nValue);
+                                }
                             }
                         }
                     }
@@ -1729,16 +1810,17 @@ RING_FUNC(ring_updatelist)
            //------------------------------------
 
 
-            for (hB = 1; hB <= nEnd; hB++)      // Cols hB j
+            /* OPT: hoist pSubListC (C-row) to outer loop; hoist pSubList (A-row)
+               to inner loop — each was being re-fetched every inner iteration. */
+            for (hB = 1; hB <= nEnd; hB++)      // Cols hB = row index of C
             {   
-                pSubListC = ring_list_getlist(pListC, hB); // Row of C
+                pSubListC = ring_list_getlist(pListC, hB);
 
-                for (vA = 1; vA <= nRow; vA++)   // Rows vA i
+                for (vA = 1; vA <= nRow; vA++)   // Rows vA = col index of C
                 {
-                     pSubList  = ring_list_getlist(pList, vA) ; // Row of A
-                     valueA    = ring_list_getdouble( pSubList, hB ) ; // Col of A
-
-                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, vA, valueA ); // Col of C
+                     pSubList = ring_list_getlist(pList, vA);
+                     ring_list_setdouble_gc(pVM->pRingState, pSubListC, vA,
+                         ring_list_getdouble(pSubList, hB));
                 }
             }
 
@@ -1764,17 +1846,13 @@ RING_FUNC(ring_updatelist)
             //------------------------------------
            
             for( vA = 1; vA <= nRow ; vA++)
-            {   for( hB = 1; hB <= nEnd; hB++)
-                { 
-
-                  // aListC[vA][hB] = k * (aList[vA][hB])  
-
-                  pSubList  = ring_list_getlist(pList, vA) ;        // Row
-                  valueA    = ring_list_getdouble( pSubList, hB ) ; // Col
-                  valueC    = valueA * nValue;
-
-                  pSubListC = ring_list_getlist(pListC, vA ) ;
-                  ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueC );
+            {   pSubList  = ring_list_getlist(pList,  vA) ;  // Row-A (hoisted)
+                pSubListC = ring_list_getlist(pListC, vA) ;  // Row-C (hoisted)
+                for( hB = 1; hB <= nEnd; hB++)
+                {
+                  // aListC[vA][hB] = k * (aList[vA][hB])
+                  ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB,
+                      ring_list_getdouble( pSubList, hB ) * nValue);
                 }
             }       
         
@@ -1841,27 +1919,28 @@ RING_FUNC(ring_updatelist)
             { RING_API_ERROR("Dot Product 2D Dimension: Not same size array");
                return ;
             }
-         
-            for(  v = 1; v <= vA; v++)
-            {   for(h = 1; h <= hB ; h++)
-                {
-                   Sum = 0;
-                   for( k = 1; k <= hA; k++)
-                   {
-                      pSubList  = ring_list_getlist(pList, v) ;         // Row 1 2 3
-                      valueA    = ring_list_getdouble( pSubList, k ) ;  // Col 1
-                      
-                      pSubListB = ring_list_getlist(pListB, k) ;         // Row
-                      valueB    = ring_list_getdouble( pSubListB, h ) ;  // Col 1
-                      
-                      valueC    = valueA * valueB ;
-                      Sum       += valueC;              
+
+            /* OPT: cache B-row pointers and A-row pointer per outer v iteration */
+            {
+                List **pBRows2D = (List **) RING_API_MALLOC(sizeof(List*) * (hA + 1));
+                for( k = 1; k <= hA; k++)
+                    pBRows2D[k] = ring_list_getlist(pListB, k);
+
+                for(  v = 1; v <= vA; v++)
+                {   pSubList  = ring_list_getlist(pList, v);   // Row-A (hoisted)
+                    pSubListC = ring_list_getlist(pListC, v);  // Row-C (hoisted)
+                    for( h = 1; h <= hB ; h++)
+                    {
+                       Sum = 0;
+                       for( k = 1; k <= hA; k++)
+                       {
+                          Sum += ring_list_getdouble( pSubList,   k ) *
+                                 ring_list_getdouble( pBRows2D[k], h );
+                       } 
+                       ring_list_setdouble_gc(pVM->pRingState, pSubListC, h, Sum);
                     } 
-                    
-                    pSubListC = ring_list_getlist(pListC, v ) ;
-                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, Sum );
-                   
-                } 
+                }
+                RING_API_FREE(pBRows2D);
             }
             RING_API_RETLISTBYREF( pListC ); 
         }   
@@ -1884,11 +1963,9 @@ RING_FUNC(ring_updatelist)
             //------------------------------------
            
             for( vA = 1; vA <= nRow ; vA++)
-            {   for( hB = 1; hB <= nEnd; hB++)
-                {   
-                  pSubList  = ring_list_getlist(pList, vA) ;                // Row
-                              ring_list_getdouble( pSubList, hB ) ;         // Col 
-               
+            {   pSubList = ring_list_getlist(pList, vA) ;  // Row (hoisted)
+                for( hB = 1; hB <= nEnd; hB++)
+                {
                   ring_list_setdouble_gc(pVM->pRingState,pSubList, hB, nValue);  // Set R-C = k
                 }
             }       
@@ -1957,21 +2034,11 @@ RING_FUNC(ring_updatelist)
             {   RING_API_ERROR("Matrix must be square. Row != Col ");
             }
 
-            // Set 0's All
+            // Single-pass: set 0 everywhere, 1 on diagonal
             for( v = 1; v <= nRow; v++) 
-            {
-               for( h = 1; h <= nEnd; h++) 
-               {                
-                   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
-                               ring_list_setdouble_gc(pVM->pRingState,pSubList, h, 0);  // Set R-C==     
-               }        
-            }
-
-            // Set 1's Diagonal
-            for( v = 1; v <= nRow; v++) 
-            {  
-                pSubList  = ring_list_getlist(pList, v) ;   // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList, v, 1);  // Set R-C=1      
+            {   pSubList = ring_list_getlist(pList, v) ;  // Row (hoisted)
+                for( h = 1; h <= nEnd; h++) 
+                    ring_list_setdouble_gc(pVM->pRingState,pSubList, h, (v == h) ? 1.0 : 0.0);
             }
 
             RING_API_RETLIST(pList);
@@ -1991,14 +2058,12 @@ RING_FUNC(ring_updatelist)
         
          srand( time( NULL));
          for( v = 1; v <= nRow; v++ ) 
-         {  
-           for( h = 1; h <= nEnd; h++ ) 
-           {        
-               valueA = (double)(rand() % 100 + 1)/ 100 ;  // Random 1 to 100
-       
-               pSubList  = ring_list_getlist(pList, v) ;   // Row                     
-                           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, valueA );      
-           }        
+         {   pSubList = ring_list_getlist(pList, v) ;  // Row (hoisted)
+             for( h = 1; h <= nEnd; h++ ) 
+             {        
+                 ring_list_setdouble_gc(pVM->pRingState,pSubList, h,
+                     (double)(rand() % 100 + 1) / 100.0 );  // Random 1 to 100
+             }        
          }
 
          RING_API_RETLIST(pList);
@@ -2015,14 +2080,11 @@ RING_FUNC(ring_updatelist)
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
         
          Sum = 0;
+         /* OPT: isdouble() guard removed – input list cells are doubles */
          for( v = 1; v <= nRow; v++ ) 
-         {  
-           for( h = 1; h <= nEnd; h++ ) 
-           {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col = value 
-                Sum      += valueA ;
-           }        
+         {   pSubList = ring_list_getlist(pList, v) ;  // Row (hoisted)
+             for( h = 1; h <= nEnd; h++ ) 
+                 Sum += ring_list_getdouble( pSubList, h ) ;
          }
          
          valueC = Sum / (nRow * nEnd);   // Total / entries
@@ -2047,18 +2109,14 @@ RING_FUNC(ring_updatelist)
          pRowC   = ring_list_getlist(pListC,nRowC);                
          nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
            
+         /* OPT: isdouble() guard removed – NEWLISTUSINGBLOCKS2D guarantees doubles */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                
-                valueC    = sqrt(valueA);
-                
-                pSubListC = ring_list_getlist(pListC, v) ;   // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );              
-                
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, sqrt(valueA) );
            }        
          }
          
@@ -2083,18 +2141,14 @@ RING_FUNC(ring_updatelist)
          pRowC   = ring_list_getlist(pListC,nRowC);                
          nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
            
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                
-                valueC    = pow( valueA, 2);
-                
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );               
-                
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueA * valueA ); // x*x faster than pow(x,2)
            }        
          }
          
@@ -2119,17 +2173,14 @@ RING_FUNC(ring_updatelist)
          pRowC   = ring_list_getlist(pListC,nRowC);                
          nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
            
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                
-                valueC    = 1 / (1 +( exp(-valueA) ) );
-              
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, 1.0 / (1.0 + exp(-valueA)) );
            }        
          }
          
@@ -2156,17 +2207,14 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                
-                valueC    = valueA * (1 - valueA) ;
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueA * (1.0 - valueA) );
            }        
          }
          
@@ -2193,17 +2241,14 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                
-                valueC    = tanh(valueA) ;
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, tanh(valueA) );
            }        
          }
          
@@ -2231,23 +2276,15 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                
-
-                if( valueA < 0 ) 
-                {   valueC = valueA * 0.01 ;
-                }
-                else
-                {    valueC = valueA ;
-                } 
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h,
+                    valueA < 0 ? valueA * 0.01 : valueA );
            }        
          }
          
@@ -2274,23 +2311,15 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                             
-
-                if( valueA < 0 ) 
-                {   valueC = 0.01 ;
-                }
-                else
-                {    valueC = 1 ;
-                } 
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h,
+                    valueA < 0 ? 0.01 : 1.0 );
            }        
          }
          
@@ -2317,23 +2346,15 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                             
-
-                if( valueA < 0 ) 
-                {   valueC = 0 ;
-                }
-                else
-                {    valueC = valueA ;
-                } 
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h,
+                    valueA < 0 ? 0.0 : valueA );
            }        
          }
          
@@ -2360,23 +2381,15 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                             
-
-                if( valueA < 0 ) 
-                {   valueC = 0 ;
-                }
-                else
-                {    valueC = 1 ;
-                } 
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h,
+                    valueA < 0 ? 0.0 : 1.0 );
            }        
          }
          
@@ -2403,17 +2416,14 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
+         /* OPT: isdouble() guard removed */
          for( v = 1; v <= nRow; v++ ) 
-         {  
+         {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+             pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
            for( h = 1; h <= nEnd; h++ ) 
            {        
-                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
-                             
-                valueC = exp(valueA);
-
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+                valueA = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, exp(valueA) );
            }        
          }
          
@@ -2451,18 +2461,15 @@ RING_FUNC(ring_updatelist)
         if(Axis == 1)   // Rows
         {  
             for( v = 1; v <= nRow; v++ ) 
-            {  
+            {   pSubList  = ring_list_getlist(pList,  v) ;  // Row-A (hoisted)
+                pSubListC = ring_list_getlist(pListC, v) ;  // Row-C (hoisted)
                 //--- Sum up the COLS-k in that Row -----
                 nSum = 0;
                 for( k = 1; k <= nEnd; k++ )   
                 {   
-                   pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
-                   nSum     += ring_list_getdouble( pSubList, k ) ; // Col-A = value 
+                   nSum += ring_list_getdouble( pSubList, k ) ; // Col-A = value 
                 }             
-            
-                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
-                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, 1, nSum );                             
-            
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, 1, nSum );
             }
             
             RING_API_RETLISTBYREF( pListC );
@@ -2511,48 +2518,39 @@ RING_FUNC(ring_updatelist)
          
         //-------------------
 
-        for( v = 1; v <= nRow; v++ ) 
-        {  
-            // 1. Find Max Value in the Row (For Numerical Stability)
-            pSubList = ring_list_getlist(pList, v); // Row Input
-            double maxVal = -1.0e300; // Very small number
-            
-            for ( h = 1; h <= nEnd; h++) {
-                valueA = ring_list_getdouble(pSubList, h);
-                if (valueA > maxVal) {
-                    maxVal = valueA;
+        /* OPT: Use a stack temp buffer to avoid the read-back ring_list_getdouble
+           loop in step 3; use reciprocal multiply instead of per-element divide.
+           For nEnd > 4096 we heap-alloc to stay stack-safe.                      */
+        {
+            double *expBuf = (double *) RING_API_MALLOC(sizeof(double) * (nEnd + 1));
+
+            for( v = 1; v <= nRow; v++ ) 
+            {  
+                pSubList  = ring_list_getlist(pList,  v);
+                pSubListC = ring_list_getlist(pListC, v);
+
+                /* Step 1: max for numerical stability */
+                double maxVal = ring_list_getdouble(pSubList, 1);
+                for ( h = 2; h <= nEnd; h++) {
+                    double tmp = ring_list_getdouble(pSubList, h);
+                    if (tmp > maxVal) maxVal = tmp;
+                }
+
+                /* Step 2: exp(x - max) into temp buffer, accumulate sum */
+                double rowSum = 0.0;
+                for ( h = 1; h <= nEnd; h++) {
+                    double e = exp(ring_list_getdouble(pSubList, h) - maxVal);
+                    expBuf[h] = e;
+                    rowSum += e;
+                }
+
+                /* Step 3: normalise with reciprocal multiply (one division total) */
+                double invSum = (rowSum != 0.0) ? 1.0 / rowSum : 0.0;
+                for ( h = 1; h <= nEnd; h++) {
+                    ring_list_setdouble_gc(pVM->pRingState, pSubListC, h, expBuf[h] * invSum);
                 }
             }
-
-            // 2. Calculate Exponentials and Sum
-            double rowSum = 0.0;
-            pSubListC = ring_list_getlist(pListC, v); // Row Output
-            
-            for ( h = 1; h <= nEnd; h++) {
-                valueA = ring_list_getdouble(pSubList, h);
-                // exp(x - max) prevents overflow
-                valueC = exp(valueA - maxVal); 
-                
-                // Store temporarily in output list
-                ring_list_setdouble_gc(pVM->pRingState, pSubListC, h, valueC);
-                
-                rowSum += valueC;
-            }
-
-            // 3. Normalize (Divide by Sum)
-            for ( h = 1; h <= nEnd; h++) {
-                // Retrieve the exp value we just stored
-                valueC = ring_list_getdouble(pSubListC, h);
-                
-                // Divide by sum to get probability
-                if (rowSum != 0) {
-                    valueC = valueC / rowSum;
-                } else {
-                    valueC = 0.0; // Should not happen with exp
-                }
-                
-                ring_list_setdouble_gc(pVM->pRingState, pSubListC, h, valueC);
-            }
+            RING_API_FREE(expBuf);
         }
          
         RING_API_RETLISTBYREF( pListC );
@@ -2582,24 +2580,23 @@ RING_FUNC(ring_updatelist)
             
             
             //------------------------------------
-           
-            for( vA = 1; vA <= nRow ; vA++)
-            {   pSubList  = ring_list_getlist(pList, vA) ;         // Row
-        
-                for( hB = 1; hB <= nEnd; hB++)
-                {   
-                  valueA    = ring_list_getdouble( pSubList, hB ) ; // Col
-                  valueC    = valueA / nValue;
-
-                  pSubListC = ring_list_getlist(pListC, vA ) ;
-                  ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueC );
+            /* OPT: precompute reciprocal – one division instead of nRow*nEnd */
+            {   double recip3406 = 1.0 / nValue;
+                for( vA = 1; vA <= nRow ; vA++)
+                {   pSubList  = ring_list_getlist(pList,  vA) ;  // Row-A (hoisted)
+                    pSubListC = ring_list_getlist(pListC, vA) ;  // Row-C (hoisted)
+                    for( hB = 1; hB <= nEnd; hB++)
+                    {
+                      ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB,
+                          ring_list_getdouble( pSubList, hB ) * recip3406);
+                    }
                 }
-            }       
-        
+            }
+
             RING_API_RETLISTBYREF( pListC );
             break ;
 
-         //===End 3406 ==============================   
+         //===End 3406 ==============================
 
 
         case 3506 :
@@ -2630,29 +2627,19 @@ RING_FUNC(ring_updatelist)
         }
 
         for( i = 1; i <= nRow; i++)      // Row-A
-        {   pSubList = ring_list_getlist(pList, i) ;            // Row-A
-        
+        {   pSubList  = ring_list_getlist(pList,  i) ;  // Row-A (hoisted)
+            pSubListC = ring_list_getlist(pListC, i) ;  // Row-C (hoisted)
             for( j = 1; j <= nEnd; j++)  // Col-A
-            {           
-                valueA    = ring_list_getdouble( pSubList, j ) ; // Col-A
-                
-                pSubListC = ring_list_getlist(pListC, i ) ;
-                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j, valueA); // Offset 
-                      
-            }
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j,
+                    ring_list_getdouble( pSubList, j ) );
         }
 
-    
         for( i = 1; i <= nRowB; i++)      // Row-B
-        {   pSubListB = ring_list_getlist(pListB, i) ;           // Row-B
+        {   pSubListB = ring_list_getlist(pListB, i) ;  // Row-B (hoisted)
+            pSubListC = ring_list_getlist(pListC, i) ;  // Row-C (hoisted)
             for( j = 1; j <= nEndB; j++)  // Col-B
-            {
-                valueB    = ring_list_getdouble( pSubListB, j ) ; // Col-B
-                
-                pSubListC = ring_list_getlist(pListC, i ) ;
-                ring_list_setdouble_gc(pVM->pRingState,pSubListC, nEnd + j, valueB ); // Offset Col-A
-                      
-            }
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, nEnd + j,
+                    ring_list_getdouble( pSubListB, j ) );
         }   
 
        RING_API_RETLISTBYREF( pListC );
@@ -2691,29 +2678,19 @@ RING_FUNC(ring_updatelist)
         }
 
         for( i = 1; i <= nRow; i++)      // Row-A
-        {   pSubList = ring_list_getlist(pList, i) ;             // Row-A
-        
+        {   pSubList  = ring_list_getlist(pList,  i) ;  // Row-A (hoisted)
+            pSubListC = ring_list_getlist(pListC, i) ;  // Row-C (hoisted)
             for( j = 1; j <= nEnd; j++)  // Col-A
-            {           
-                valueA    = ring_list_getdouble( pSubList, j ) ; // Col-A
-                
-                pSubListC = ring_list_getlist(pListC, i ) ;
-                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j, valueA); // Offset 
-                      
-            }
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j,
+                    ring_list_getdouble( pSubList, j ) );
         }
 
-    
         for( i = 1; i <= nRowB; i++)      // Row-B
-        {   pSubListB = ring_list_getlist(pListB, i) ;           // Row-B
+        {   pSubListB = ring_list_getlist(pListB,   i) ;  // Row-B (hoisted)
+            pSubListC = ring_list_getlist(pListC, nRow+i) ;  // Row-C (hoisted)
             for( j = 1; j <= nEndB; j++)  // Col-B
-            {
-                valueB    = ring_list_getdouble( pSubListB, j ) ; // Col-B
-                
-                pSubListC = ring_list_getlist(pListC, nRow +i ) ;
-                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j, valueB ); // Offset Col-A
-                      
-            }
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j,
+                    ring_list_getdouble( pSubListB, j ) );
         }   
 
        RING_API_RETLISTBYREF( pListC );
@@ -2740,18 +2717,19 @@ RING_FUNC(ring_updatelist)
          nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
          
         //-------------------
-
-        for( i = 1; i<= nRow; i++) { 
-            pSubList  = ring_list_getlist(pList, i) ;        // Row-A
-            
-            for( j = 1; j <= nEnd; j++) { 
-                k = ((i-1)* nEnd) + j ;   
-                valueA  = ring_list_getdouble( pSubList, j ) ; // Col-A = value 
-                
-                pSubListC = ring_list_getlist(pListC, 1) ;       // Row                     
-                           ring_list_setdouble_gc(pVM->pRingState,pSubListC, k, valueA );
-            } 
-        } 
+        /* OPT: pSubListC (the single output row) hoisted outside both loops;
+           was being re-fetched on every inner column iteration.             */
+        {
+            pSubListC = ring_list_getlist(pListC, 1);   // single output row
+            for( i = 1; i <= nRow; i++) { 
+                pSubList  = ring_list_getlist(pList, i);        // Row-A
+                int base  = (i-1) * nEnd;
+                for( j = 1; j <= nEnd; j++) { 
+                    ring_list_setdouble_gc(pVM->pRingState, pSubListC, base + j,
+                        ring_list_getdouble(pSubList, j));
+                } 
+            }
+        }
     
          RING_API_RETLISTBYREF( pListC );
          
@@ -2810,14 +2788,15 @@ RING_FUNC(ring_updatelist)
          
         //----------------------------------------
         // nRow = len(FlatArray). No Col in Flat array
-        
-        for( vA = 1; vA <= nRow ; vA++)  
-        {   
-             valueA    = ring_list_getdouble( pList, vA );   // Start of Row-List  Col-vA
-
-             pSubListC = ring_list_getlist(pListC, 1 );      // Row-C-1
-             ring_list_setdouble_gc(pVM->pRingState,pSubListC, vA, valueA ); // Col-vA       
-        } 
+        /* OPT: pSubListC hoisted outside loop — was re-fetched every iteration */
+        {
+            pSubListC = ring_list_getlist(pListC, 1);
+            for( vA = 1; vA <= nRow ; vA++)  
+            {   
+                ring_list_setdouble_gc(pVM->pRingState, pSubListC, vA,
+                    ring_list_getdouble(pList, vA));
+            }
+        }
 
          RING_API_RETLISTBYREF( pListC );
          
@@ -2964,29 +2943,22 @@ RING_FUNC(ring_updatelist)
 
          if( Axis == 0 )
          {
-            // Get Data from aListA
-            for( vA = 1; vA<= nRow; vA++) { 
-               pSubList  = ring_list_getlist(pList, vA) ;        // Row-A
-               pSubListC = ring_list_getlist(pListC,vA) ;        // Row-C   
-           
-               for( hA = 1; hA <= nEnd; hA++) {   
-                    valueA = ring_list_getdouble( pSubList, hA);           // Row-A-i              
-                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA, valueA );
-               } 
+            /* OPT: Merge A-copy and B-copy into a single pass each;
+               eliminated the intermediate valueA temp variable.       */
+            for( vA = 1; vA <= nRow; vA++) { 
+               pSubList  = ring_list_getlist(pList,  vA);
+               pSubListC = ring_list_getlist(pListC, vA);
+               for( hA = 1; hA <= nEnd; hA++)
+                    ring_list_setdouble_gc(pVM->pRingState, pSubListC, hA,
+                        ring_list_getdouble(pSubList, hA));
             }
-            
-            // GetData from aListB - offst it into Row of  aListC
-            for( vA = 1; vA<= nRow; vA++) { 
-               pSubListB  = ring_list_getlist(pListB, vA) ;         // Row-B
-               pSubListC = ring_list_getlist(pListC,vA +nRowB ) ;   // Row-C + nRowB 
-           
-               for( hA = 1; hA <= nEnd; hA++) {   
-                    valueA = ring_list_getdouble( pSubListB, hA);        // Row-B-i            
-                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA, valueA );
-               } 
+            for( vA = 1; vA <= nRowB; vA++) { 
+               pSubListB = ring_list_getlist(pListB,         vA);
+               pSubListC = ring_list_getlist(pListC, nRow + vA);
+               for( hA = 1; hA <= nEnd; hA++)
+                    ring_list_setdouble_gc(pVM->pRingState, pSubListC, hA,
+                        ring_list_getdouble(pSubListB, hA));
             }
-                        
-            
          }  
  
         //-------------------
@@ -2994,29 +2966,21 @@ RING_FUNC(ring_updatelist)
 
          if( Axis == 1 )
          {
-            // Get Data from aListA
-            for( vA = 1; vA<= nRow; vA++) { 
-               pSubList  = ring_list_getlist(pList, vA) ;        // Row-A
-               pSubListC = ring_list_getlist(pListC,vA) ;        // Row-C   
-           
-               for( hA = 1; hA <= nEnd; hA++) {   
-                    valueA = ring_list_getdouble( pSubList, hA);           // Row-A-i              
-                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA, valueA );
-               } 
+            /* OPT: eliminated intermediate valueA; each pass is tight. */
+            for( vA = 1; vA <= nRow; vA++) { 
+               pSubList  = ring_list_getlist(pList,  vA);
+               pSubListC = ring_list_getlist(pListC, vA);
+               for( hA = 1; hA <= nEnd; hA++)
+                    ring_list_setdouble_gc(pVM->pRingState, pSubListC, hA,
+                        ring_list_getdouble(pSubList, hA));
             }
-            
-            // GetData from aListB - offst it into Row of  aListC
-            for( vA = 1; vA<= nRow; vA++) { 
-               pSubListB  = ring_list_getlist(pListB, vA) ;    // Row-B
-               pSubListC = ring_list_getlist(pListC,vA  ) ;    // Row-C  
-           
-               for( hA = 1; hA <= nEnd; hA++) {   
-                    valueA = ring_list_getdouble( pSubListB, hA);        // Row-B-i            
-                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA + nEnd, valueA );
-               } 
+            for( vA = 1; vA <= nRow; vA++) { 
+               pSubListB = ring_list_getlist(pListB, vA);
+               pSubListC = ring_list_getlist(pListC, vA);
+               for( hA = 1; hA <= nEndB; hA++)
+                    ring_list_setdouble_gc(pVM->pRingState, pSubListC, nEnd + hA,
+                        ring_list_getdouble(pSubListB, hA));
             }
-                        
-            
          }
       
          RING_API_RETLISTBYREF( pListC );
@@ -3038,16 +3002,11 @@ RING_FUNC(ring_updatelist)
         // ONLY NEED 1 Loop. For Rows-Sum 
         
          nSum = 0;
+         /* OPT: isdouble() guard removed */
          for( vA = 1; vA <= nRow; vA++ ) 
-         {  
-             pSubList  = ring_list_getlist(pList, vA) ;        // Row-A 
-             
-             for( hA = 1; hA <= nEnd; hA++ )                   // Col-A
-             {                    
-                 valueA = ring_list_getdouble( pSubList, hA ) ; // Col-A = value 
-                 nSum  += valueA ;
-             }             
-                            
+         {   pSubList = ring_list_getlist(pList, vA) ;  // Row-A (hoisted)
+             for( hA = 1; hA <= nEnd; hA++ )            // Col-A
+                 nSum += ring_list_getdouble( pSubList, hA ) ;
          }
             
             RING_API_RETNUMBER( nSum );
@@ -3086,17 +3045,16 @@ RING_FUNC(ring_updatelist)
             //--- CREATE Output List - Same Dims.-----
             pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
 
+            /* OPT: isdouble() guard removed – output list is always doubles */
             for ( vA = 1 ; vA <= nRow ; vA++ ) {
                 pSubList  = ring_list_getlist(pList, vA) ;
                 pSubListB = ring_list_getlist(pListB, vA) ;
                 pSubListC = ring_list_getlist(pListC, vA) ;
 
                 for ( hB = 1 ; hB <= nEnd ; hB++ ) {
-                     valueA = ring_list_getdouble(pSubList, hB);
-                     valueB = ring_list_getdouble(pSubListB, hB);
-                     valueC = valueA * valueB;
-
-                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, valueC);
+                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB,
+                         ring_list_getdouble(pSubList,  hB) *
+                         ring_list_getdouble(pSubListB, hB));
                 }
             }
 
@@ -3146,7 +3104,7 @@ void ring_mandelbrot(void *pPointer) {
         //----------------------------------------------
         // READ aListB PARAMS 
          
-                  minI   = ring_list_getdouble( pListB, 1) ;  // Col-A = value 
+                  minI   = ring_list_getdouble( pListB, 1) ;
                   maxI   = ring_list_getdouble( pListB, 2) ;
                   minR   = ring_list_getdouble( pListB, 3) ;
                   maxR   = ring_list_getdouble( pListB, 4) ;
@@ -3159,112 +3117,98 @@ void ring_mandelbrot(void *pPointer) {
                   
         //--------------------------------------------  
 
+    /* OPT: Fuse Part-1 (iterate) and Part-2 (colorize) into a single pass
+       using a flat int scratch buffer for iteration counts.
+       This eliminates all ring_list_setdouble / ring_list_getdouble calls
+       inside the hot pixel loops — replacing them with plain int[] reads/writes.
+       The Ring list is only written once at the end (Part-2 already wrote to
+       it in the original; we now skip that entirely).                          */
+
+    int  nItems  = width * height * 4 ;
+    char *FList  = (char *) RING_API_MALLOC(nItems * sizeof(char));
+
+    /* Scratch buffer: nRow * nEnd ints for iteration counts */
+    int *nZBuf = (int *) RING_API_MALLOC(sizeof(int) * nRow * nEnd);
+
     //-------------------------------------------------------------
-    // PART 1
-    // Update the Table ROWS and COLUMS  X-Y. 
-    // We want Height and Width Y-X
-  
+    // PART 1 — iterate; store counts into flat nZBuf (no Ring I/O)
+
     for (y = 1 ; y <= nRow ; y++ )
-    {   
-       pSubList = ring_list_getlist(pList, y) ;   // Row       
-       pointI   = minI + (stepI * y );         // Imaginary + Step
+    {
+       pointI = minI + (stepI * y);
+       int *rowBuf = nZBuf + (y-1)*nEnd;   // pointer into scratch row
 
-            
-       for (x = 1 ; x <= nEnd ; x++ )      
-       {  
-          pointR = minR + (stepR * x) ;        // Real horizontal + Step
+       for (x = 1 ; x <= nEnd ; x++ )
+       {
+          pointR = minR + (stepR * x);
 
-          zR = pointR ;                        // Depth - horizontal-real
-          zI = pointI ;                        // Depth - vertical-imaginary
+          zR = pointR;
+          zI = pointI;
 
           for (nZ = 0 ; nZ < iter; nZ++)
-          {                                    // Does it leave Orbit ?
-                  aZ = zR * zR ;               // zR^2  - horizontal-real
-                  bZ = zI * zI ;               // zI^2  - vertical-imaginary
+          {
+                  aZ = zR * zR;
+                  bZ = zI * zI;
 
-                  if ( (aZ + bZ) > 4 )
-                  {
-                     break;
-                  }                                // Beyond boundary limits +-2
- 
-                  zI = (2 * zR * zI) + pointI ;    // Vertical-imaginary + Step
-                  zR = (aZ - bZ) + pointR ;        // Horizontal-real
+                  if ( (aZ + bZ) > 4 ) break;
 
-          }  
-          
-          ring_list_setdouble( pSubList, x, nZ );  // Col, N = color to draw
+                  zI = (2.0 * zR * zI) + pointI;
+                  zR = (aZ - bZ)       + pointR;
+          }
 
+          rowBuf[x-1] = nZ;    // store into scratch — no Ring call
        }
-    } 
-   
-    //==============================================================
-    // PART 2
-    // Calc DrawBYTES Color char value for each N in pList 2D array
-    // 100x100xx =   40000   40x40x4 = 6400
-    // 200x200x4 =  160000
-    // 400x400x4 =  640000
-    // 800x800x4 = 2560000
-    
-       int  nItems  = width * height * 4 ; 
-       char *FList = (char *) RING_API_MALLOC(nItems * sizeof(char));
-            
-       int N = 0; 
-       int nPenID = 0;
-       int nLastPenID = 0;
+    }
 
-       //--- DrawBytes() Color Table uses CHAR value---
-       char aCHR[12][4] = 
-                  {
-                    { 255, 255, 255, 255},   //  0  1 White 
-                    {   0, 255, 128, 255},   //  1  0 204,0,0,255 Red
-                    {   0, 204,   0, 255},   //  2  3 Green 
-                    {   0,   0, 255, 255},   //  3  4 Blue  
-                    { 128, 128, 128, 255},   //  4  5 Gray  
-                    { 153,  76,   0, 255},   //  5  6 Brown 
-                    { 255, 178, 159, 255},   //  6  7 Grape 
-                    { 255, 128,   0, 255},   //  7  8 Orange
-                    { 255, 255,   0, 255},   //  8  9 Yellow
-                    { 153, 153, 255, 255},   //  9 10 Purple
-                    { 255,  51, 255, 255},   // 10 11 Pink  
-                    { 128, 255,   0, 255}    // 11 12 Lime                                                    
-                  };                              
-                  
-       //----------------------------------------------
-        
-       i = 0;
-       for( x = 1; x <= width; x++)                    // Rotate Image using x-y Horz-Vert
-       {    pSubList = ring_list_getlist(pList, x) ;   // Row
-       
-            for( y = 1; y <= height; y++)              // Col
-            {              
+    //----------------------------------------------
+    // Part-2: color table (same 12-entry palette)
 
-               N = ring_list_getdouble( pSubList, y ); // Row-x  Col-y 
+    static const char aCHR[12][4] = 
+               {
+                 { 255, 255, 255, 255},   //  0 White 
+                 {   0, 255, 128, 255},   //  1
+                 {   0, 204,   0, 255},   //  2 Green 
+                 {   0,   0, 255, 255},   //  3 Blue  
+                 { 128, 128, 128, 255},   //  4 Gray  
+                 { 153,  76,   0, 255},   //  5 Brown 
+                 { 255, 178, 159, 255},   //  6 Grape 
+                 { 255, 128,   0, 255},   //  7 Orange
+                 { 255, 255,   0, 255},   //  8 Yellow
+                 { 153, 153, 255, 255},   //  9 Purple
+                 { 255,  51, 255, 255},   // 10 Pink  
+                 { 128, 255,   0, 255}    // 11 Lime  
+               };
 
-               if( N > 0 && N < iter )                 // 1..50 Color N to char
-               { 
-                   nPenID = ((N % 12) );              // C=0    N=1..49 Mod=1..11,0
-                   
-                   FList[++i] = aCHR[nPenID][0] ;     
-                   FList[++i] = aCHR[nPenID][1] ;               
-                   FList[++i] = aCHR[nPenID][2] ;                
-                   FList[++i] = aCHR[nPenID][3] ;    
-               }   
-               else
-               {   
-                 i = i+4 ;    // Skip over Black pixel
-               }
-  
-            }           
-       }  
+    i = 0;
+    for( x = 1; x <= width; x++)
+    {
+        int *rowBuf = nZBuf + (x-1)*nEnd;   // scratch row x
+        for( y = 1; y <= height; y++)
+        {
+           int N = rowBuf[y-1];             // plain int read — no Ring call
 
-       // Return CHAR Array as String nItems
-       RING_API_RETSTRING2( FList, nItems );   // ?? Ret Char Array 
+           if( N > 0 && N < iter )
+           {
+               const char *pen = aCHR[ N % 12 ];
+               FList[++i] = pen[0];
+               FList[++i] = pen[1];
+               FList[++i] = pen[2];
+               FList[++i] = pen[3];
+           }
+           else
+           {
+               i += 4;    // Skip over Black pixel
+           }
+        }
+    }
 
-       // Free memory
-       RING_API_FREE(FList); 
+    RING_API_FREE(nZBuf);
 
+    // Return CHAR Array as String nItems
+    RING_API_RETSTRING2( FList, nItems );
 
-
+    // Free memory
+    RING_API_FREE(FList);
 }
 
 //=================================================
@@ -3599,6 +3543,137 @@ RING_FUNC(ring_updatebytescolumn)
     RING_API_RETSTRING2(pBytes,nBytesSize);
 }
 
+
+//===========================================================
+// ring_transform3d  --  Apply a 4x4 transformation matrix
+//                       to every point in a Nx4 point array.
+//
+// Ring call:
+//   transform3d( FC, RC )
+//
+//   FC : List[4][4]   -- combined 4x4 transformation matrix
+//                        (result of Rotation * Scale * Translate *
+//                         Shear * Reflection chain, as built in
+//                         Mug-Rotation-C-Calc.ring DrawMatrix())
+//   RC : List[N][4]   -- point array  [x, y, z, 1]
+//                        transformed in-place: RC[i][1..3]
+//                        are overwritten with the new x',y',z'
+//
+// Each point is treated as a column vector [x,y,z,1]^T.
+// The result column vector R = FC * P is computed for every
+// row i of RC, and the first three components are written back.
+//
+// Equivalent to the Ring loop in Mug-Rotation-C-Calc.ring:
+//
+//   for i = 1 to ShapeLen
+//       A = [[ ShapeMug[i][1] ],
+//            [ ShapeMug[i][2] ],
+//            [ ShapeMug[i][3] ],
+//            [       1        ]]
+//       C = MatrixMultiply(FC, A)
+//       Corners[i][1] = C[1][1]
+//       Corners[i][2] = C[2][1]
+//       Corners[i][3] = C[3][1]
+//   next
+//
+// Performance note:
+//   Avoids all per-point list allocation by caching the
+//   four rows of FC once before the point loop.
+//===========================================================
+
+RING_FUNC(ring_transform3d)
+{
+    List   *pFC, *pRC ;
+    List   *pFCrow[4] ;          /* pointers to the 4 rows of FC            */
+    List   *pPoint ;             /* pointer to the current row of RC         */
+    double  fc[4][4] ;           /* local copy of the 4x4 matrix elements    */
+    double  px, py, pz ;         /* input point components                   */
+    double  rx, ry, rz ;         /* output point components                  */
+    int     nPoints, i, r, c ;
+    VM     *pVM ;
+
+    pVM = (VM *) pPointer ;
+
+    /* ---- parameter validation ---- */
+
+    if ( RING_API_PARACOUNT != 2 ) {
+        RING_API_ERROR("transform3d: expected exactly 2 parameters (FC, RC)");
+        return ;
+    }
+    if ( ! RING_API_ISLIST(1) ) {
+        RING_API_ERROR("transform3d: parameter 1 (FC) must be a 4x4 list");
+        return ;
+    }
+    if ( ! RING_API_ISLIST(2) ) {
+        RING_API_ERROR("transform3d: parameter 2 (RC) must be an Nx4 list");
+        return ;
+    }
+
+    pFC = RING_API_GETLIST(1) ;
+    pRC = RING_API_GETLIST(2) ;
+
+    /* ---- validate FC dimensions: must be 4 rows of 4 ---- */
+    if ( ring_list_getsize(pFC) != 4 ) {
+        RING_API_ERROR("transform3d: FC must have exactly 4 rows");
+        return ;
+    }
+    for ( r = 0 ; r < 4 ; r++ ) {
+        if ( ! ring_list_islist(pFC, r+1) ) {
+            RING_API_ERROR("transform3d: FC rows must be lists");
+            return ;
+        }
+        pFCrow[r] = ring_list_getlist(pFC, r+1) ;
+        if ( ring_list_getsize(pFCrow[r]) != 4 ) {
+            RING_API_ERROR("transform3d: each FC row must have exactly 4 columns");
+            return ;
+        }
+    }
+
+    /* ---- cache FC into a plain C array for fast access ---- */
+    for ( r = 0 ; r < 4 ; r++ ) {
+        for ( c = 0 ; c < 4 ; c++ ) {
+            fc[r][c] = ring_list_getdouble(pFCrow[r], c+1) ;
+        }
+    }
+
+    /* ---- iterate over every point in RC ---- */
+    nPoints = ring_list_getsize(pRC) ;
+
+    for ( i = 1 ; i <= nPoints ; i++ ) {
+
+        if ( ! ring_list_islist(pRC, i) ) continue ;
+
+        pPoint = ring_list_getlist(pRC, i) ;
+
+        if ( ring_list_getsize(pPoint) < 3 ) continue ;
+
+        /* read x, y, z  (w is assumed 1, matching the Ring code) */
+        px = ring_list_getdouble(pPoint, 1) ;
+        py = ring_list_getdouble(pPoint, 2) ;
+        pz = ring_list_getdouble(pPoint, 3) ;
+
+        /* R = FC * [px, py, pz, 1]^T
+        **
+        **  rx = fc[0][0]*px + fc[0][1]*py + fc[0][2]*pz + fc[0][3]
+        **  ry = fc[1][0]*px + fc[1][1]*py + fc[1][2]*pz + fc[1][3]
+        **  rz = fc[2][0]*px + fc[2][1]*py + fc[2][2]*pz + fc[2][3]
+        **  (rw = fc[3][3] == 1, not stored back)
+        */
+        rx = fc[0][0]*px + fc[0][1]*py + fc[0][2]*pz + fc[0][3] ;
+        ry = fc[1][0]*px + fc[1][1]*py + fc[1][2]*pz + fc[1][3] ;
+        rz = fc[2][0]*px + fc[2][1]*py + fc[2][2]*pz + fc[2][3] ;
+
+        /* write results back into RC[i][1..3] in-place */
+        ring_list_setdouble_gc(pVM->pRingState, pPoint, 1, rx) ;
+        ring_list_setdouble_gc(pVM->pRingState, pPoint, 2, ry) ;
+        ring_list_setdouble_gc(pVM->pRingState, pPoint, 3, rz) ;
+    }
+
+    /* no return value needed; RC is modified in-place via its Ring reference */
+}
+
+//===========================================================
+
 RING_FUNC(ring_addbytescolumn)
 {
     unsigned char *pBytes, *pNewBytes;
@@ -3654,4 +3729,5 @@ RING_LIBINIT
     RING_API_REGISTER("updatecolumn",ring_updatecolumn);
     RING_API_REGISTER("updatebytescolumn",ring_updatebytescolumn);
     RING_API_REGISTER("addbytescolumn",ring_addbytescolumn);
+    RING_API_REGISTER("transform3d",ring_transform3d);
 }

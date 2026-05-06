@@ -16,9 +16,8 @@ void ring_vm_catch(VM *pVM, const char *cError) {
 	pList = ring_list_getlist(pVM->pTry, ring_list_getsize(pVM->pTry));
 	pVM->nPC = ring_list_getint(pList, RING_TRY_PC);
 	pVM->nInsideEval = ring_list_getint(pList, RING_TRY_INSIDEEVAL);
-	/* Define variable cCatchError to contain the error message */
-	ring_list_setstring_gc(pVM->pRingState, ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_ERRORMSG),
-			       RING_VAR_VALUE, cError);
+	/* Set the cCatchError variable to contain the error message */
+	RING_VAR_SETSTRING_GC(pVM->pRingState, pVM->pErrorMsg, cError);
 	/* Avoid invalidated cError (variable) content by restore */
 	ring_vm_restorestate(pVM, pList, RING_TRY_STATE, RING_STATE_TRYCATCH);
 	/* Tell C-API caller (CALL command) that catch happens! */

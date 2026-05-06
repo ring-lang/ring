@@ -253,7 +253,7 @@ pivot
 Type: const char *
 cur
 Type: long
-i
+i, j
 ring_list_general_quicksortnum
 Type: long
 pi
@@ -374,13 +374,9 @@ nPos
 ring_list_getstringcolumn_gc
 Type: unsigned int
 nPos
-Type: static char
-nullstring[]
 ring_list_setstringcolumn_gc
 Type: unsigned int
 nPos
-Type: static char
-nullstring[]
 ring_list_addcustomringpointer_gc
 Type: Item *
 pItem

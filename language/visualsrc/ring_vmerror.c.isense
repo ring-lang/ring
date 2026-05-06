@@ -1,6 +1,4 @@
 ring_vm_error
-Type: List *
-pList
 ring_vm_error2
 Type: String *
 pError

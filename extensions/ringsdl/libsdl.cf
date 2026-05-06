@@ -551,8 +551,11 @@ Querying SDL Version
 </comment>
 
 const char * SDL_GetRevision(void)
-int SDL_GetRevisionNumber(void)
 void SDL_GetVersion(SDL_version *ver)
+
+<comment>
+int SDL_GetRevisionNumber(void)
+</comment>
 
 <comment>
 SDL_COMPILEDVERSION
@@ -697,7 +700,7 @@ int SDL_GetTextureAlphaMod(SDL_Texture *texture,Uint8 *alpha)
 int SDL_GetTextureBlendMode(SDL_Texture *texture,SDL_BlendMode *blendMode)
 int SDL_GetTextureColorMod(SDL_Texture *texture,Uint8 *r,Uint8 *g,Uint8 *b)
 int SDL_LockTexture(SDL_Texture *texture,const SDL_Rect *rect,void **pixels,int *pitch)
-int SDL_QueryTexture(SDL_Texture *texture,int *format,int *access,int *w,int *h)
+int SDL_QueryTexture(SDL_Texture *texture,unsigned int *format,int *access,int *w,int *h)
 int SDL_RenderClear(SDL_Renderer *renderer)
 int SDL_RenderCopy(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect)
 int SDL_RenderCopyEx(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect,const double angle,const SDL_Point *center,const SDL_RendererFlip flip)

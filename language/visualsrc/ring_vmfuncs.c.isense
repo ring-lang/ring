@@ -10,6 +10,8 @@ Type: CFunction *
 pCFunc
 Type: CFunction
 vCFunc
+Type: ObjState *
+pOS
 ring_vm_call
 ring_vm_call2
 Type: List *
@@ -86,6 +88,8 @@ Type: unsigned int
 x,x2,lFound,nStart,lListsDeleted
 Type: FuncCall *
 pFuncCall
+Type: VMState *
+pVMState
 ring_vm_retitemref
 Type: FuncCall *
 pFuncCall

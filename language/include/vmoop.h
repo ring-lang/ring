@@ -28,15 +28,26 @@
 #define RING_OOPARA_NUMBER 2
 #define RING_OOPARA_POINTER 3
 /* pBraceObjects */
-#define RING_BRACEOBJECTS_BRACEOBJECT 1
-#define RING_BRACEOBJECTS_NSP 2
-#define RING_BRACEOBJECTS_NLISTSTART 3
-#define RING_BRACEOBJECTS_NNESTEDLISTS 4
-#define RING_BRACEOBJECTS_SETPROPERTY 5
-#define RING_BRACEOBJECTS_NLOADASCOPE 6
-#define RING_BRACEOBJECTS_NNOSETTERMETHOD 7
-#define RING_BRACEOBJECTS_ISDONTREF 8
-#define RING_BRACEOBJECTS_ISDONTREFAGAIN 9
+#define RING_BRACEOBJECTS_BRACEOBJECT 0
+#define RING_BRACEOBJECTS_SETPROPERTY 1
+#define RING_BRACEOBJECTS_NSP 0
+#define RING_BRACEOBJECTS_NLISTSTART 1
+#define RING_BRACEOBJECTS_NNESTEDLISTS 2
+#define RING_BRACEOBJECTS_NLOADASCOPE 3
+#define RING_BRACEOBJECTS_NNOSETTERMETHOD 4
+#define RING_BRACEOBJECTS_ISDONTREF 5
+#define RING_BRACEOBJECTS_ISDONTREFAGAIN 6
+#define RING_BRACEOBJECTS_VALIDMASK 7
+#define RING_BRACEOBJECTS_BRACESTART 8
+#define RING_BRACEOBJECTS_BRACEEND 9
+#define RING_BRACEOBJECTS_BRACEEXPREVAL 10
+#define RING_BRACEOBJECTS_BRACEERROR 11
+#define RING_BRACEOBJECTS_BRACENEWLINE 12
+#define RING_BRACEBIT_BRACESTART 0
+#define RING_BRACEBIT_BRACEEND 1
+#define RING_BRACEBIT_BRACEEXPREVAL 2
+#define RING_BRACEBIT_BRACEERROR 3
+#define RING_BRACEBIT_BRACENEWLINE 4
 /* pScopeNewObj */
 #define RING_SCOPENEWOBJ_SP 2
 /* pSetProperty */
@@ -55,6 +66,18 @@
 #define RING_NOSETTERMETHOD_DEFAULT 0
 #define RING_NOSETTERMETHOD_ENABLE 1
 #define RING_NOSETTERMETHOD_IGNORESETPROPERTY 2
+/* Object Access */
+#define RING_OBJECT_ITEMS_CLASSPOINTER(pObj) (pObj)->pFirst
+#define RING_OBJECT_ITEMS_OBJECTDATA(pObj) (pObj)->pLast
+#define RING_OBJECT_ITEM_CLASSPOINTER(pObj) RING_OBJECT_ITEMS_CLASSPOINTER(pObj)->pValue
+#define RING_OBJECT_ITEM_OBJECTDATA(pObj) RING_OBJECT_ITEMS_OBJECTDATA(pObj)->pValue
+#define RING_OBJECT_GETCLASSPOINTER(pObj) (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->data.pPointer)
+#define RING_OBJECT_GETOBJECTDATA(pObj) (RING_OBJECT_ITEM_OBJECTDATA(pObj)->data.pList)
+#define RING_OBJECT_GETSELFATTRIBUTE(pObjData) pObjData->pFirst->pValue->data.pList
+#define RING_OBJECT_ISOBJECT(pObj)                                                                                     \
+	(((pObj) != NULL) && ((pObj)->nSize == RING_OBJECT_LISTSIZE) &&                                                \
+	 (RING_OBJECT_ITEM_CLASSPOINTER(pObj)->nType == ITEMTYPE_POINTER) &&                                           \
+	 (RING_OBJECT_ITEM_OBJECTDATA(pObj)->nType == ITEMTYPE_LIST))
 /* Functions */
 
 void ring_vm_oop_newobj(VM *pVM);
@@ -156,4 +179,14 @@ unsigned int ring_vm_oop_addattribute(VM *pVM, List *pList, char *cStr);
 void ring_vm_oop_cleansetpropertylist(VM *pVM);
 
 int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod);
+
+void ring_vm_oop_pushobjstate(VM *pVM, List *pScope, List *pMethods, List *pClass, unsigned int lIsMethod);
+
+void ring_vm_oop_loadmethodp(VM *pVM);
+
+void ring_vm_oop_loadbracemethodp(VM *pVM);
+
+void ring_vm_oop_usemethodp(VM *pVM);
+
+unsigned int ring_vm_oop_cachedismethod(VM *pVM, VMState *pVMState, const char *cMethod);
 #endif

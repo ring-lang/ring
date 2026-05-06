@@ -37,12 +37,19 @@ Type: VMState *
 pVMState
 ring_vm_savestateforbraces
 Type: List *
-pList, *pClass,*pSetProperty
+pClass,*pSetProperty
+Type: VMState *
+pVMState
 ring_vm_restorestateforbraces
 Type: List *
-pObject
+pObject, *pSetProperty
 Type: int
 lDontRef,lDontRefAgain
+ring_vmstate_deleteforbraces
+Type: VMState *
+pVMState
+Type: List *
+pSetProperty
 ring_vm_backstate
 ring_vm_savestack
 Type: int

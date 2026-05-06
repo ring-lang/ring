@@ -26,6 +26,8 @@ Type: RingState *
 pRingState
 Type: unsigned int
 lRegister
+Type: double
+dRegister
 ring_vm_dll_closelib
 Type: LpHandleType
 pHandle

@@ -283,7 +283,7 @@ ring_list_collectcycles_gc
 Type: List *
 aProcess, *pActiveList, *pSubList
 Type: unsigned int
-x,y,lDelete
+x,y,lDelete,lDeleteTheCycle
 Type: Item *
 pItem
 ring_list_containssublist_gc

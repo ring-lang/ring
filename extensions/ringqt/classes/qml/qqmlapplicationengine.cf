@@ -1,0 +1,10 @@
+<class>
+name: QQmlApplicationEngine
+para: void
+parent: QQmlEngine
+</class>
+
+QList<QObject *> rootObjects(void)
+void load(QString filePath)
+void load@2(QUrl url)
+void loadData(QByteArray data, QUrl url)

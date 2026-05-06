@@ -32,9 +32,13 @@ x,nSize,r
 ring_general_issourcefile
 Type: int
 x
+Type: const unsigned char *
+cStr
 ring_general_isobjectfile
 Type: int
 x
+Type: const unsigned char *
+cStr
 ring_general_folderexistinfilename
 Type: unsigned int
 x, nSize

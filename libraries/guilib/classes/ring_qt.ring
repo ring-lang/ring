@@ -4285,7 +4285,7 @@ Class QLocale
 		return QLocale_toString_2(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func toString_4 P1
-		return QLocale_toString_4(pObject,GetObjectPointerFromRingObject(P1))
+		return QLocale_toString_4(pObject,P1)
 
 	Func toString_5 P1
 		return QLocale_toString_5(pObject,P1)
@@ -4437,7 +4437,7 @@ Class QThread from QObject
 		return QThread_stackSize(pObject)
 
 	Func wait P1
-		return QThread_wait(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_wait(pObject,P1)
 
 	Func quit 
 		return QThread_quit(pObject)
@@ -4460,13 +4460,13 @@ Class QThread from QObject
 		return QThread_idealThreadCount(pObject)
 
 	Func msleep P1
-		return QThread_msleep(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_msleep(pObject,P1)
 
 	Func sleep P1
-		return QThread_sleep(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_sleep(pObject,P1)
 
 	Func usleep P1
-		return QThread_usleep(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_usleep(pObject,P1)
 
 	Func yieldCurrentThread 
 		return QThread_yieldCurrentThread(pObject)
@@ -33665,7 +33665,9 @@ Class QQuickWidget from QWidget
 		return QQuickWidget_resizeMode(pObject)
 
 	Func rootContext 
-		return QQuickWidget_rootContext(pObject)
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQuickWidget_rootContext(pObject)
+		return pTempObj
 
 	Func rootObject 
 		return QQuickWidget_rootObject(pObject)
@@ -33733,7 +33735,9 @@ Class QQuickView from QWindow
 		return QQuickView_resizeMode(pObject)
 
 	Func rootContext 
-		return QQuickView_rootContext(pObject)
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQuickView_rootContext(pObject)
+		return pTempObj
 
 	Func rootObject 
 		return QQuickView_rootObject(pObject)
@@ -33880,7 +33884,9 @@ Class QQmlEngine
 		return QQmlEngine_removeImageProvider(pObject,P1)
 
 	Func rootContext 
-		return QQmlEngine_rootContext(pObject)
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlEngine_rootContext(pObject)
+		return pTempObj
 
 	Func setBaseUrl P1
 		return QQmlEngine_setBaseUrl(pObject,GetObjectPointerFromRingObject(P1))
@@ -33910,7 +33916,9 @@ Class QQmlEngine
 		return QQmlEngine_retranslate(pObject)
 
 	Func contextForObject P1
-		return QQmlEngine_contextForObject(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlEngine_contextForObject(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func objectOwnership P1
 		return QQmlEngine_objectOwnership(pObject,GetObjectPointerFromRingObject(P1))
@@ -33920,6 +33928,303 @@ Class QQmlEngine
 
 	Func setObjectOwnership P1,P2
 		return QQmlEngine_setObjectOwnership(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QQmlContext from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QQmlContext_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QQmlContext_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func baseUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlContext_baseUrl(pObject)
+		return pTempObj
+
+	Func parentContext 
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlContext_parentContext(pObject)
+		return pTempObj
+
+	Func engine 
+		pTempObj = new QQmlEngine
+		pTempObj.pObject = QQmlContext_engine(pObject)
+		return pTempObj
+
+	Func isValid 
+		return QQmlContext_isValid(pObject)
+
+	Func nameForObject P1
+		return QQmlContext_nameForObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resolvedUrl P1
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlContext_resolvedUrl(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setBaseUrl P1
+		return QQmlContext_setBaseUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContextObject P1
+		return QQmlContext_setContextObject(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContextProperty P1,P2
+		return QQmlContext_setContextProperty(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setContextProperty_2 P1,P2
+		return QQmlContext_setContextProperty_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func contextObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlContext_contextObject(pObject)
+		return pTempObj
+
+	Func contextProperty P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlContext_contextProperty(pObject,P1)
+		return pTempObj
+
+Class QQmlProperty
+
+	pObject
+
+	Func init P1,P2
+		pObject = QQmlProperty_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QQmlProperty_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QQmlProperty_type(pObject)
+
+	Func isValid 
+		return QQmlProperty_isValid(pObject)
+
+	Func isProperty 
+		return QQmlProperty_isProperty(pObject)
+
+	Func isSignalProperty 
+		return QQmlProperty_isSignalProperty(pObject)
+
+	Func isWritable 
+		return QQmlProperty_isWritable(pObject)
+
+	Func isDesignable 
+		return QQmlProperty_isDesignable(pObject)
+
+	Func isResettable 
+		return QQmlProperty_isResettable(pObject)
+
+	Func hasNotifySignal 
+		return QQmlProperty_hasNotifySignal(pObject)
+
+	Func needsNotifySignal 
+		return QQmlProperty_needsNotifySignal(pObject)
+
+	Func propertyType 
+		return QQmlProperty_propertyType(pObject)
+
+	Func propertyTypeName 
+		return QQmlProperty_propertyTypeName(pObject)
+
+	Func name 
+		return QQmlProperty_name(pObject)
+
+	Func read 
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlProperty_read(pObject)
+		return pTempObj
+
+	Func write P1
+		return QQmlProperty_write(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func reset 
+		return QQmlProperty_reset(pObject)
+
+	Func object 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlProperty_object(pObject)
+		return pTempObj
+
+	Func index 
+		return QQmlProperty_index(pObject)
+
+	Func method 
+		return QQmlProperty_method(pObject)
+
+	Func property 
+		return QQmlProperty_property(pObject)
+
+	Func connectNotifySignal P1,P2
+		return QQmlProperty_connectNotifySignal(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func connectNotifySignal_2 P1,P2
+		return QQmlProperty_connectNotifySignal_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QQmlComponent from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QQmlComponent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QQmlComponent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QQmlComponent_url(pObject)
+		return pTempObj
+
+	Func status 
+		return QQmlComponent_status(pObject)
+
+	Func isNull 
+		return QQmlComponent_isNull(pObject)
+
+	Func isReady 
+		return QQmlComponent_isReady(pObject)
+
+	Func isError 
+		return QQmlComponent_isError(pObject)
+
+	Func isLoading 
+		return QQmlComponent_isLoading(pObject)
+
+	Func progress 
+		return QQmlComponent_progress(pObject)
+
+	Func creationContext 
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlComponent_creationContext(pObject)
+		return pTempObj
+
+	Func create P1
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlComponent_create(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func loadUrl P1
+		return QQmlComponent_loadUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func loadUrl_2 P1,P2
+		return QQmlComponent_loadUrl_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setData P1,P2
+		return QQmlComponent_setData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func errors 
+		return QQmlComponent_errors(pObject)
+
+Class QQmlApplicationEngine from QQmlEngine
+
+	pObject
+
+	Func init 
+		pObject = QQmlApplicationEngine_new()
+		return self
+
+	Func delete
+		pObject = QQmlApplicationEngine_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func rootObjects 
+		return QQmlApplicationEngine_rootObjects(pObject)
+
+	Func load P1
+		return QQmlApplicationEngine_load(pObject,P1)
+
+	Func load_2 P1
+		return QQmlApplicationEngine_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func loadData P1,P2
+		return QQmlApplicationEngine_loadData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+Class QQmlExpression from QObject
+
+	pObject
+
+	Func init P1,P2,P3
+		pObject = QQmlExpression_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
+		return self
+
+	Func delete
+		pObject = QQmlExpression_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func context 
+		pTempObj = new QQmlContext
+		pTempObj.pObject = QQmlExpression_context(pObject)
+		return pTempObj
+
+	Func engine 
+		pTempObj = new QQmlEngine
+		pTempObj.pObject = QQmlExpression_engine(pObject)
+		return pTempObj
+
+	Func error 
+		pTempObj = new QQmlError
+		pTempObj.pObject = QQmlExpression_error(pObject)
+		return pTempObj
+
+	Func expression 
+		return QQmlExpression_expression(pObject)
+
+	Func evaluate P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlExpression_evaluate(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func hasError 
+		return QQmlExpression_hasError(pObject)
+
+	Func notifyOnValueChanged 
+		return QQmlExpression_notifyOnValueChanged(pObject)
+
+	Func scopeObject 
+		pTempObj = new QObject
+		pTempObj.pObject = QQmlExpression_scopeObject(pObject)
+		return pTempObj
+
+	Func lineNumber 
+		return QQmlExpression_lineNumber(pObject)
+
+	Func columnNumber 
+		return QQmlExpression_columnNumber(pObject)
+
+	Func sourceFile 
+		return QQmlExpression_sourceFile(pObject)
+
+	Func clearError 
+		return QQmlExpression_clearError(pObject)
+
+	Func setExpression P1
+		return QQmlExpression_setExpression(pObject,P1)
+
+	Func setNotifyOnValueChanged P1
+		return QQmlExpression_setNotifyOnValueChanged(pObject,P1)
+
+	Func setSourceLocation P1,P2,P3
+		return QQmlExpression_setSourceLocation(pObject,P1,P2,P3)
 
 Class QTextToSpeech from QObject
 

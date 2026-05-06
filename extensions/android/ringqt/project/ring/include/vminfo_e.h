@@ -4,6 +4,8 @@
 #define ring_vminfo_extension_h
 /* Constants */
 #define RING_VMINFO_ITEMSTOCHECKMEMPOOL 10000
+#define RING_VMINFO_CANTFINDTHECFUNCTION "Can't find the C function!"
+#define RING_VMINFO_WRONGLIST "The list must contain five items, and each item must be a sublist."
 
 void ring_vm_info_loadfunctions(RingState *pRingState);
 

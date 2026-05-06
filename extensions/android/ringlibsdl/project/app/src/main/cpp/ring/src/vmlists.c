@@ -50,9 +50,9 @@ void ring_vm_liststart(VM *pVM) {
 			if (ring_vm_gc_checkvarerroronassignment(pVM, pVar)) {
 				return;
 			}
-			ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
-			ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
-			pNewList = ring_list_getlist(pVar, RING_VAR_VALUE);
+			RING_VAR_SETTYPE(pVar, RING_VM_LIST);
+			RING_VAR_SETLIST_GC(pVM->pRingState, pVar);
+			pNewList = RING_VAR_GETLIST(pVar);
 			ring_list_deleteallitems_gc(pVM->pRingState, pNewList);
 			ring_list_addpointer_gc(pVM->pRingState, pVM->pNestedLists, pNewList);
 		} else if ((nType == RING_OBJTYPE_LISTITEM) && (pItem != NULL)) {
@@ -98,7 +98,7 @@ void ring_vm_listitem(VM *pVM) {
 		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 			pList2 = (List *)RING_VM_STACK_READP;
 			RING_VM_STACK_POP;
-			pList2 = ring_list_getlist(pList2, RING_VAR_VALUE);
+			pList2 = RING_VAR_GETLIST(pList2);
 			pList3 = ring_list_newlist_gc(pVM->pRingState, pList);
 			if (ring_list_isref_gc(pVM->pRingState, pList2)) {
 				/* Copy by ref (pList2 to pList3) */
@@ -165,8 +165,8 @@ void ring_vm_loadindexaddress(VM *pVM) {
 		if (RING_VM_STACK_ISPOINTER) {
 			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 				pVar = (List *)RING_VM_STACK_READP;
-				if (ring_list_islist_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
-					pVar = ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
+				if (RING_VAR_ISLIST(pVar)) {
+					pVar = RING_VAR_GETLIST(pVar);
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						ring_vm_exprnpoo(pVM, "[]", nNum1);
@@ -179,13 +179,13 @@ void ring_vm_loadindexaddress(VM *pVM) {
 					}
 					pItem = ring_list_getitem_gc(pVM->pRingState, pVar, nNum1);
 					RING_VM_STACK_PUSHPVALUE(pItem);
-				} else if (ring_list_isstring_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
+				} else if (RING_VAR_ISSTRING(pVar)) {
 					RING_VM_STACK_POP;
-					if (ring_list_getint_gc(pVM->pRingState, pVar, RING_VAR_TYPE) == RING_VM_NULL) {
+					if (RING_VAR_GETTYPE(pVar) == RING_VM_NULL) {
 						ring_vm_error(pVM, RING_VM_ERROR_USINGNULLVARIABLE);
 						return;
 					}
-					pString = ring_list_getstringobject_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
+					pString = RING_VAR_GETSTRINGOBJ(pVar);
 					ring_vm_stringindex(pVM, pString, nNum1);
 					return;
 				} else {
@@ -246,8 +246,8 @@ void ring_vm_loadindexaddress(VM *pVM) {
 			if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 				pVar = (List *)RING_VM_STACK_READP;
 				RING_VM_STACK_POP;
-				if (ring_list_islist_gc(pVM->pRingState, pVar, RING_VAR_VALUE)) {
-					pVar = ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
+				if (RING_VAR_ISLIST(pVar)) {
+					pVar = RING_VAR_GETLIST(pVar);
 					/* Check that it's list not object */
 					if (ring_vm_oop_isobject(pVM, pVar) == 1) {
 						RING_VM_SP_INC;
@@ -374,7 +374,7 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 		nType = RING_VM_STACK_OBJTYPE;
 		if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
 			pVar = (List *)RING_VM_STACK_READP;
-			pVar = ring_list_getlist(pVar, RING_VAR_VALUE);
+			pVar = RING_VAR_GETLIST(pVar);
 		} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 			pItem = (Item *)RING_VM_STACK_READP;
 			pVar = ring_item_getlist(pItem);
@@ -530,11 +530,10 @@ unsigned int ring_vm_isoperationaftersublist(VM *pVM) {
 			/* Create a Temp. variable for the sub list */
 			ring_vm_createtemplist(pVM);
 			pVar = (List *)RING_VM_STACK_READP;
-			ring_list_setint_gc(pVM->pRingState, pVar, RING_VAR_TYPE, RING_VM_LIST);
-			ring_list_setlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
-			ring_list_deleteallitems_gc(pVM->pRingState,
-						    ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE));
-			ring_vm_listcopy(pVM, ring_list_getlist_gc(pVM->pRingState, pVar, RING_VAR_VALUE), pSub);
+			RING_VAR_SETTYPE(pVar, RING_VM_LIST);
+			RING_VAR_SETLIST_GC(pVM->pRingState, pVar);
+			ring_list_deleteallitems_gc(pVM->pRingState, RING_VAR_GETLIST(pVar));
+			ring_vm_listcopy(pVM, RING_VAR_GETLIST(pVar), pSub);
 			/* Delete the sub list from the Parent List */
 			ring_list_deleteitem_gc(pVM->pRingState, pParent,
 						ring_list_getsize_gc(pVM->pRingState, pParent));

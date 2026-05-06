@@ -1,5 +1,6 @@
 ring_generallib_extension_h
 C_EXPRCODESIZE
+RING_VM_GENERALLIB_TIMEROVERFLOW
 ring_vm_generallib_loadfunctions
 ring_vm_generallib_version
 ring_vm_generallib_nothing
@@ -29,6 +30,8 @@ pVM
 ring_vm_generallib_ispointer
 ring_vm_generallib_hex
 cStr
+Type: double
+nNum
 ring_vm_generallib_dec
 Type: RING_UNSIGNEDLONGLONG
 x
@@ -40,7 +43,7 @@ pVM
 Type: double
 x
 Type: int
-y, nSize, lHex, lSign, lDot
+y=0, nSize=0, lValue=0, lHex=0, lSign=0, lDot=0, lExp=0
 Type: const char *
 cStr
 ring_vm_generallib_string
@@ -85,6 +88,8 @@ Type: String *
 pString
 Type: unsigned int
 x,nStart,nMax
+Type: double
+dStart,dMax
 cStr
 ring_vm_generallib_str2hexcstyle
 cStr
@@ -100,7 +105,7 @@ x
 Type: unsigned char *
 cString
 ring_vm_generallib_char
-Type: int
+Type: double
 x
 Type: char
 cStr[RING_CHARBUF]
@@ -132,10 +137,12 @@ cNewStr
 ring_vm_generallib_copy
 Type: const char *
 cStr
-Type: int
-x,nSize,nStrSize,nPos,i
 Type: char *
 cRetStr
+Type: int
+x,nStrSize,nPos,i
+Type: double
+nSize
 ring_vm_generallib_substr
 Type: char *
 cStr,*cStr2,*cStr3,*cString
@@ -163,6 +170,8 @@ Type: VM *
 pVM
 ring_vm_generallib_raise
 ring_vm_generallib_assert
+Type: int
+lPass
 ring_vm_generallib_filename
 Type: VM *
 pVM
@@ -212,15 +221,23 @@ Type: char *
 cString
 Type: unsigned int
 nStrSize
+Type: double
+nSize
 ring_vm_generallib_ptrcmp
 Type: List *
 pList, *pList2
 ring_vm_generallib_pointer2string
+Type: const char *
+pObj
+Type: double
+nNum1,nNum2
 ring_vm_generallib_setpointer
 Type: List *
 pList
 Type: RING_UNSIGNEDINTEGERPOINTER
 nNum
+Type: double
+dNum
 ring_vm_generallib_getpointer
 Type: List *
 pList
@@ -231,10 +248,12 @@ Type: void *
 pDest
 Type: const void *
 pSrc
-Type: size_t
-nNum
 Type: List *
 pList
+Type: size_t
+nNum
+Type: double
+dNum
 ring_vm_generallib_state_init
 Type: RingState *
 pState
@@ -242,7 +261,11 @@ ring_vm_generallib_state_runcode
 Type: RingState *
 pRingState
 ring_vm_generallib_state_delete
+Type: RingState *
+pRingState
 ring_vm_generallib_state_runfile
+Type: RingState *
+pRingState
 ring_vm_generallib_state_findvar
 Type: RingState *
 pRingState
@@ -254,6 +277,8 @@ pRingState
 Type: List *
 pList
 ring_vm_generallib_state_runobjectfile
+Type: RingState *
+pRingState
 ring_vm_generallib_state_main
 Type: char *
 cStr
@@ -278,8 +303,6 @@ Type: char *
 cStr
 Type: int
 nArgc, lOutput
-Type: char *
-pArgv[2]
 ring_vm_generallib_state_filetokens
 Type: RingState *
 pState
@@ -289,6 +312,8 @@ Type: List *
 pList
 Type: int
 lCase,lComments,lScannerCommands
+Type: double
+nNum
 ring_vm_generallib_state_stringtokens
 Type: RingState *
 pState
@@ -298,6 +323,8 @@ Type: List *
 pList
 Type: int
 lCase,lComments,lScannerCommands
+Type: double
+nNum
 ring_vm_generallib_state_scannererror
 Type: RingState *
 pState
@@ -306,6 +333,8 @@ Type: RingState *
 pRingState
 Type: unsigned int
 nPC
+Type: double
+dPC
 ring_vm_generallib_state_resume
 Type: RingState *
 pRingState
@@ -361,10 +390,14 @@ cInput[RING_LARGEBUF]
 Type: char *
 cLine
 Type: int
-nSize
+nSize,nResult
+Type: double
+dSize
 ring_vm_generallib_getchar
 Type: char
 cStr[RING_CHARBUF]
+Type: int
+c
 ring_vm_generallib_clock
 Type: clock_t
 nNum1
@@ -376,6 +409,8 @@ Type: char
 cBuffer[RING_SMALLBUF]
 Type: struct tm*
 vTimeInfo
+Type: VM *
+pVM
 ring_vm_generallib_timelist
 Type: time_t
 vTimer
@@ -385,6 +420,8 @@ Type: struct tm*
 vTimeInfo
 Type: List *
 pList
+Type: VM *
+pVM
 ring_vm_generallib_date
 Type: time_t
 vTimer
@@ -392,6 +429,8 @@ Type: char
 cBuffer[RING_SMALLBUF]
 Type: struct tm*
 vTimeInfo
+Type: VM *
+pVM
 ring_vm_generallib_adddays
 Type: const unsigned char *
 cStr
@@ -401,6 +440,8 @@ Type: int
 x,nDay,nMonth,nYear,nDaysInMonth
 Type: int
 aDaysInMonth[12]
+Type: double
+dDay
 ring_vm_generallib_diffdays
 Type: const unsigned char *
 cStr, *cStr2
@@ -413,3 +454,10 @@ cBuffer[RING_SMALLBUF]
 Type: double
 nResult
 ring_vm_generallib_adddays_isleapyear
+ring_vm_generallib_datefuncs_isdate
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: int
+nDay,nMonth,nYear
+Type: int
+aDaysInMonth[12]

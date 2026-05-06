@@ -350,8 +350,8 @@ RING_API unsigned int ring_list_findcpointer_gc(void *pState, List *pList, List 
 RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
 					     const char *cAttribute);
 
-RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
-					    const char *cAttribute);
+RING_API const char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+						  const char *cAttribute);
 
 RING_API void ring_list_setstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
 					   const char *cAttribute, const char *cValue);

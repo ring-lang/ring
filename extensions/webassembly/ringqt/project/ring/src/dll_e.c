@@ -15,6 +15,7 @@ void ring_vm_dll_loadlib(void *pPointer) {
 	VM *pVM;
 	RingState *pRingState;
 	unsigned int lRegister;
+	double dRegister;
 	pVM = (VM *)pPointer;
 	pRingState = pVM->pRingState;
 	lRegister = RING_TRUE;
@@ -24,9 +25,15 @@ void ring_vm_dll_loadlib(void *pPointer) {
 	}
 	if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(2)) {
-			lRegister = (unsigned int)RING_API_GETNUMBER(2);
+			dRegister = RING_API_GETNUMBER(2);
+			if ((dRegister < RING_ZEROF) || (dRegister != dRegister) || (dRegister > RING_ONEF)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return;
+			}
+			lRegister = (unsigned int)dRegister;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
 		}
 	}
 	if (RING_API_ISSTRING(1)) {
@@ -49,6 +56,7 @@ void ring_vm_dll_loadlib(void *pPointer) {
 		pFunc = (loadlibfuncptr)GetDLLFunc(pHandle, RING_DLL_INITFUNC);
 		if (pFunc == NULL) {
 			printf("\n%s%s", RING_DLL_LIBFILEMSG, RING_API_GETSTRING(1));
+			CloseDLL(pHandle);
 			RING_API_ERROR(RING_VM_ERROR_NORINGLIBINIT);
 			return;
 		}
@@ -73,6 +81,7 @@ void ring_vm_dll_closelib(void *pPointer) {
 	}
 	if (RING_API_ISPOINTER(1)) {
 		pHandle = RING_API_GETCPOINTER(1, RING_VM_POINTER_DLL);
+		RING_API_CHECKNULLPOINTER(pHandle);
 		CloseDLL(pHandle);
 		RING_API_SETNULLPOINTER(1);
 		/* Remove the pointer */

@@ -1,5 +1,7 @@
 ring_vminfo_extension_h
 RING_VMINFO_ITEMSTOCHECKMEMPOOL
+RING_VMINFO_CANTFINDTHECFUNCTION
+RING_VMINFO_WRONGLIST
 ring_vm_info_loadfunctions
 ring_vm_info_ringvmfileslist
 Type: VM *
@@ -66,18 +68,22 @@ Type: List *
 pActiveMem
 Type: const char *
 cStr
-Type: int
-nScope,nSize,x
 Type: VMState *
 pVMState
 Type: List
 aScopes[RING_VM_STACK_SIZE]
+Type: double
+dScope
+Type: int
+nScope,nSize,x
 ring_vm_info_ringvmpasserror
 Type: VM *
 pVM
 ring_vm_info_ringvmhideerrormsg
 Type: VM *
 pVM
+Type: double
+nFlag
 ring_vm_info_ringvmcallfunc
 Type: VM *
 pVM
@@ -109,7 +115,7 @@ Type: List *
 pList
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack
-Type: unsigned int
+Type: size_t
 nSize
 Type: int
 lOutput

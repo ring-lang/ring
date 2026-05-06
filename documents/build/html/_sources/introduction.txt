@@ -229,8 +229,8 @@ The Ring language comes with the next features
 * Visual Implementation - Developed using Visual Programming (PWCT) 
 * Written in ANSI C (The code is generated + Looks identical to Handwritten Code)
 * A small language
-	* The Compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code
-	* The other 500,000 lines of code are related to libraries!
+	* The compiler, VM, and standard library collectively contain approximately 25,000 lines of C code.
+	* The remaining 500,000 lines of code belong to the libraries
 * Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, 32-bit Microcontrollers, etc)
 * Portable Ring Object File Format
 * Comments (One line & Multi-lines)

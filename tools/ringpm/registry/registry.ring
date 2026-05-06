@@ -966,5 +966,17 @@ aPackagesRegistry = [
 	[ :name = "solitaire",
 	  :description = "The Solitaire game developed using Ring and RingRayLib",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ring-cffi",
+	  :description = "Foreign Function Interface (FFI) for the Ring programming language",
+	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "piano",
+	  :description = "Musical Notes, Chords and WAV Generator",
+	  :ProviderUserName = "ringeg"
+	],
+	[ :name = "emoji",
+	  :description = "lightweight and efficient emoji processing library for the Ring Programming Language",
+	  :ProviderUserName = "ringeg"
 	]
 ]

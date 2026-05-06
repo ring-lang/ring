@@ -17,12 +17,13 @@
 #endif
 #define RING_VM_ARGCACHE_SIZE RING_VM_STACK_SIZE
 /* Mutex Data */
-#define RING_VM_CUSTOMMUTEX_COUNT 5
+#define RING_VM_CUSTOMMUTEX_COUNT 6
 #define RING_VM_CUSTOMMUTEX_VARHASHTABLE 0
 #define RING_VM_CUSTOMMUTEX_FUNCHASHTABLE 1
 #define RING_VM_CUSTOMMUTEX_ITEMREFCOUNT 2
 #define RING_VM_CUSTOMMUTEX_LISTREFCOUNT 3
 #define RING_VM_CUSTOMMUTEX_LNEWREF 4
+#define RING_VM_CUSTOMMUTEX_LOCALTIME 5
 #define RING_VM_BC_ITEMS_COUNT 2
 #define RING_VM_MAXDIGITSINNUMBER 15
 /* Check if we can use double in the byte code */
@@ -85,6 +86,12 @@ typedef struct FuncCall {
 	unsigned int nLoadAddressScope : 8;
 	unsigned int lMethod : 8;
 } FuncCall;
+typedef struct ObjState {
+	List *pScope;
+	List *pMethods;
+	List *pClass;
+	unsigned int lIsMethod : 1;
+} ObjState;
 typedef struct VM {
 	RingState *pRingState;
 	List *pCode;
@@ -98,14 +105,12 @@ typedef struct VM {
 	List *pLoopMark;
 	List *pTry;
 	List *pScopeNewObj;
-	List *pObjState;
 	List *pBraceObject;
 	List *pBraceObjects;
 	List *pActiveMem;
 	List *pActivePackage;
 	List *pSetProperty;
 	List *pForStep;
-	List *pBeforeObjState;
 	List *pCLibraries;
 	List *pTraceData;
 	List *pGlobalScopes;
@@ -114,6 +119,10 @@ typedef struct VM {
 	List *pDefinedGlobals;
 	List *pTrackedVariables;
 	List *pLiterals;
+	List *pThis;
+	List *pGetTempVar;
+	List *pSetTempVar;
+	List *pErrorMsg;
 	String *pPackageName;
 	String *pTrace;
 	ByteCode *pByteCode;
@@ -149,6 +158,8 @@ typedef struct VM {
 	unsigned int nPC;
 	unsigned int nPausePC;
 	unsigned int nArgCacheCount;
+	unsigned int nCurrentObjState;
+	unsigned int nBeforeObjStateCount;
 	unsigned int nInsideEval : 8;
 	unsigned int nInClassRegion : 8;
 	unsigned int nGetSetObjType : 8;
@@ -190,6 +201,8 @@ typedef struct VM {
 	List aScopes[RING_VM_STACK_SIZE];
 	List *aArgCache[RING_VM_ARGCACHE_SIZE];
 	void *aCustomMutex[RING_VM_CUSTOMMUTEX_COUNT];
+	ObjState aObjState[RING_VM_STACK_SIZE];
+	ObjState aBeforeObjState[RING_VM_STACK_SIZE];
 } VM;
 /*
 **  Macro & Constants
@@ -278,11 +291,69 @@ typedef struct VM {
 #define RING_VAR_PVALUETYPE 4
 #define RING_VAR_PRIVATEFLAG 5
 /* Global variable position */
-#define RING_GLOBALVARPOS_GETTEMPVAR 5
-#define RING_GLOBALVARPOS_ERRORMSG 6
-#define RING_GLOBALVARPOS_SETTEMPVAR 7
-#define RING_GLOBALVARPOS_THIS 11
+#define RING_GLOBALVARPOS_THIS 1
+#define RING_GLOBALVARPOS_GETTEMPVAR 2
+#define RING_GLOBALVARPOS_SETTEMPVAR 3
+#define RING_GLOBALVARPOS_ERRORMSG 4
 #define RING_GLOBALVARPOS_OPTIONALFUNCTIONS 15
+/* Variable Access */
+#define RING_VAR_ITEMS_NAME(pVar) (pVar)->pFirst
+#define RING_VAR_ITEMS_TYPE(pVar) (pVar)->pFirst->pNext
+#define RING_VAR_ITEMS_VALUE(pVar) (pVar)->pFirst->pNext->pNext
+#define RING_VAR_ITEMS_PVALUETYPE(pVar) (pVar)->pFirst->pNext->pNext->pNext
+#define RING_VAR_ITEMS_PRIVATEFLAG(pVar) (pVar)->pLast
+#define RING_VAR_ITEM_VALUE(pVar) RING_VAR_ITEMS_VALUE(pVar)->pValue
+#define RING_VAR_GETNAME(pVar) ring_string_get(RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString)
+#define RING_VAR_GETNAMESIZE(pVar) ring_string_size(RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString)
+#define RING_VAR_SETNAME_GC(pState, pVar, cValue)                                                                      \
+	ring_string_set_gc(pState, RING_VAR_ITEMS_NAME(pVar)->pValue->data.pString, cValue)
+#define RING_VAR_GETTYPE(pVar) (RING_VAR_ITEMS_TYPE(pVar)->pValue->data.iNumber)
+#define RING_VAR_SETTYPE(pVar, n) (RING_VAR_ITEMS_TYPE(pVar)->pValue->data.iNumber = (n))
+#define RING_VAR_GETSTRING(pVar) ring_string_get(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_GETSTRINGSIZE(pVar) ring_string_size(RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_GETSTRINGOBJ(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pString)
+#define RING_VAR_SETSTRING_GC(pState, pVar, cStr)                                                                      \
+	ring_item_setstring_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, cStr)
+#define RING_VAR_SETSTRING2_GC(pState, pVar, cStr, nSize)                                                              \
+	ring_item_setstring2_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, cStr, nSize)
+#define RING_VAR_GETNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.dNumber)
+#define RING_VAR_GETPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pPointer)
+#define RING_VAR_SETPOINTER_GC(pState, pVar, ptr)                                                                      \
+	ring_item_setpointer_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, ptr)
+#define RING_VAR_GETLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->data.pList)
+#define RING_VAR_SETLIST_GC(pState, pVar)                                                                              \
+	ring_item_settype_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, ITEMTYPE_LIST)
+#define RING_VAR_SETLISTBYREF_GC(pState, pVar, pRef) ring_list_setlistbyref_gc(pState, pVar, RING_VAR_VALUE, pRef)
+#define RING_VAR_SETNUMBER_GC(pState, pVar, n) ring_item_setdouble_gc(pState, RING_VAR_ITEMS_VALUE(pVar)->pValue, n)
+#define RING_VAR_HASPVALUETYPE(pVar) ring_list_getsize(pVar) >= RING_VAR_PVALUETYPE
+#define RING_VAR_NEEDPVALUETYPELOCATION(pVar) (ring_list_getsize(pVar) == RING_VAR_PVALUETYPE - 1)
+#define RING_VAR_ADDPVALUETYPELOCATION_GC(pState, pVar) ring_list_addint_gc(pState, pVar, RING_OBJTYPE_NOTYPE)
+#define RING_VAR_GETPVALUETYPE(pVar) (RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber)
+#define RING_VAR_SETPVALUETYPE(pVar, n)                                                                                \
+	if (RING_VAR_NEEDPVALUETYPELOCATION(pVar)) {                                                                   \
+		ring_list_addint_gc(NULL, (pVar), (n));                                                                \
+	} else if (RING_VAR_HASPVALUETYPE(pVar)) {                                                                     \
+		RING_VAR_ITEMS_PVALUETYPE(pVar)->pValue->data.iNumber = (n);                                           \
+	}
+#define RING_VAR_HASPRIVATEFLAG(pVar) ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG
+#define RING_VAR_GETPRIVATEFLAG(pVar) (RING_VAR_ITEMS_PRIVATEFLAG(pVar)->pValue->data.iNumber)
+#define RING_VAR_SETPRIVATEFLAG(pVar, n) (RING_VAR_ITEMS_PRIVATEFLAG(pVar)->pValue->data.iNumber = (n))
+#define RING_VAR_NEEDPRIVATEFLAGLOCATION(pVar) ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1
+#define RING_VAR_ADDPRIVATEFLAG_GC(pState, pVar, nFlag) ring_list_addint_gc(pState, pVar, nFlag)
+#define RING_VAR_VALUETYPE(pVar) RING_VAR_ITEMS_VALUE(pVar)->pValue->nType
+#define RING_VAR_ISSTRING(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_STRING)
+#define RING_VAR_ISNUMBER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER)
+#define RING_VAR_ISDOUBLE(pVar)                                                                                        \
+	((RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_NUMBER) &&                                             \
+	 (RING_VAR_ITEMS_VALUE(pVar)->pValue->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE))
+#define RING_VAR_ISLIST(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_LIST)
+#define RING_VAR_ISPOINTER(pVar) (RING_VAR_ITEMS_VALUE(pVar)->pValue->nType == ITEMTYPE_POINTER)
+#define RING_VARS_FINDBYNAME(pVars, cName) ring_list_findstring(pVars, cName, RING_VAR_NAME)
+#define RING_VAR_CHECKNEWREFERENCE(pVM, pPointer, nType, pVar)                                                         \
+	ring_vm_gc_checknewreference(pVM, pPointer, nType, pVar, RING_VAR_VALUE)
+#define RING_VAR_ASSIGNREF(pState, pRef, pVar) ring_list_assignreftovar_gc(pState, pRef, pVar, RING_VAR_VALUE)
+#define RING_VAR_ACCEPTLISTBYREF(pState, pVariableList, pList)                                                         \
+	ring_list_acceptlistbyref_gc(pState, pVariableList, RING_VAR_VALUE, pList)
 /* Variable Type */
 #define RING_VM_NULL 0
 #define RING_VM_STRING 1
@@ -354,7 +425,6 @@ typedef struct VM {
 #define RING_FUNCSTATUS_CALL 1
 #define RING_FUNCSTATUS_STARTED 2
 /* Util */
-#define RING_VM_LASTOBJSTATE pVM->pObjState->pLast->pValue->data.pList->pFirst->pValue->data.pPointer
 #define RING_VM_LASTFUNCCALL &(pVM->aFuncCall[pVM->nCurrentFuncCall])
 #define RING_VM_GETFUNCCALL(x) &(pVM->aFuncCall[x])
 #define RING_VM_FUNCCALLSCOUNT pVM->nCurrentFuncCall
@@ -365,6 +435,16 @@ typedef struct VM {
 	while (RING_VM_FUNCCALLSCOUNT > x) {                                                                           \
 		RING_VM_DELETELASTFUNCCALL;                                                                            \
 	}
+#define RING_VM_OBJSTATESCOUNT pVM->nCurrentObjState
+#define RING_VM_LASTOBJSTATE pVM->aObjState[pVM->nCurrentObjState].pScope
+#define RING_VM_LASTOBJSTATE_ENTRY (&pVM->aObjState[pVM->nCurrentObjState])
+#define RING_VM_GETOBJSTATE(x) (&pVM->aObjState[x])
+#define RING_VM_POPOBJSTATE pVM->nCurrentObjState--
+#define RING_VM_CLEANOBJSTATE pVM->nCurrentObjState = 0
+#define RING_VM_BACKOBJSTATE(n) pVM->nCurrentObjState = (n)
+#define RING_VM_BACKBEFOREOBJSTATE(n) pVM->nBeforeObjStateCount = (n)
+#define RING_VM_PUSHOBJSTATE(scope, methods, class, ismethod)                                                          \
+	ring_vm_oop_pushobjstate(pVM, scope, methods, class, ismethod)
 /* Parameters */
 #define RING_FUNCPARA_EXPECTEDSIZE 32
 /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
@@ -545,6 +625,7 @@ typedef struct VM {
 #define RING_VM_ERROR_RETURNINPARA "Error (R52) : Using Return inside function parameters is not allowed"
 #define RING_VM_ERROR_FUNCREDEFINE "Error (R53) : Function redefinition, function is already defined!"
 #define RING_VM_ERROR_ATTRREDEFINE "Error (R54) : Object attribute redefinition, attribute is already defined!"
+#define RING_VM_ERROR_VALUEISNOTFINITE "Error (R55) : The value is not finite (NaN/Inf)"
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE (1024 * 128)
 #define RING_MAX(a, b) (((a) > (b)) ? (a) : (b))
@@ -937,9 +1018,11 @@ void ring_vm_savestatefornewobjects(VM *pVM);
 
 void ring_vm_restorestatefornewobjects(VM *pVM);
 
-void ring_vm_savestateforbraces(VM *pVM, List *pObjState);
+void ring_vm_savestateforbraces(VM *pVM);
 
-void ring_vm_restorestateforbraces(VM *pVM, List *pList);
+void ring_vm_restorestateforbraces(VM *pVM, VMState *pVMState);
+
+void ring_vmstate_deleteforbraces(void *pState, void *pMemory);
 
 unsigned int ring_vm_newobjectstackpointer(VM *pVM);
 
@@ -1042,4 +1125,8 @@ void ring_vm_divn(VM *pVM);
 void ring_vm_modn(VM *pVM);
 
 void ring_vm_pown(VM *pVM);
+#ifdef RING_VM_COMPUTEDGOTO
+
+void ring_vm_computedgoto(VM *pVM);
+#endif
 #endif

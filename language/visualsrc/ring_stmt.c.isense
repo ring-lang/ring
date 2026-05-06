@@ -11,7 +11,7 @@ x,nMark1,nMark2,nMark3,nStart,nEnd,nDiff,lFastLen
 Type: unsigned int
 nLoadPackage,lLoopOrExitCommand,nLoadAgain,nForInVarsCount
 Type: unsigned int
-nVar,nLine,nLine2,lRetItemRef
+nVar,nLine,nLine2,lRetItemRef,nRequiredSize
 Type: String *
 pString
 Type: List *

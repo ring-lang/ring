@@ -409,6 +409,7 @@ Functions Count: 258
         type(value) ---> The Type as String
         ungetc(FileHandle,character)
         unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
+        unsigned(cOperator,nNum1,nNum2) ---> Perform operation using unsigned numbers
 	upper(string) ---> convert string letters to UPPER case
         uptime() ---> nTime
         variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
@@ -456,6 +457,7 @@ Compiler Errors
 * Error (C31) : Parentheses '(' is expected
 
 * Error (S1) : Literal not closed!
+* Error (S2) : Unclosed comment
 
 * Warning (W1) : Unrecognized option 
 * Warning (W2) : Duplication in file name
@@ -526,7 +528,7 @@ Runtime Errors
 * Error (R52) : Using Return inside function parameters is not allowed
 * Error (R53) : Function redefinition, function is already defined!
 * Error (R54) : Object attribute redefinition, attribute is already defined!
-
+* Error (R55) : The value is not finite (NaN/Inf)
 
 .. index:: 
 	pair: Language Specification; Environment Errors
@@ -548,6 +550,10 @@ Environment Errors
 * Error (E12) : HashTable size overflow!
 * Error (E13) : Reference count overflow!
 * Error (E14) : Can't read file
+* Error (E15) : Internal error (Unexpected Value)
+* Error (E16) : Internal error (Buffer Overflow)
+* Error (E17) : Internal error (Filename too short)
+* Error (E18) : Internal error (Filename too long)
 
 .. index:: 
 	pair: Language Specification; Language Grammar
@@ -810,6 +816,8 @@ ICO_PUSHPV			Push value of variable using variable pointer
 ICO_INCJUMP			Increment then jump
 ICO_INCPJUMP			Increment using pointer then jump
 ICO_LOADFUNCP			Push function pointer
+ICO_LOADMETHODP			Push method pointer (When using the dot operator)
+ICO_LOADBRACEMETHODP		Push method pointer (When using braces to access the object)
 ICO_PUSHPLOCAL			Push pointer to local variable
 ICO_PUSHARG			Push pointer to argument variable using argument number (REG1)
 ICO_INCLPJUMP			Increment value using pointer to local variable then jump
