@@ -158,6 +158,7 @@ More Samples
 * samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 * samples/UsingQt/SVG/test1.ring
+* samples/UsingQt/SVG/test2.ring
 
 
 .. image:: advancedfreeglut.png
