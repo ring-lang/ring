@@ -24,7 +24,7 @@ new qApp {
 
 		oContext = oQuick.rootContext()
 		oContext.setContextProperty("appTitle", new QVariantString("Hello from Ring!"))
-		oContext.setContextProperty("appVersion", new QVariantString("RingQt 2025"))
+		oContext.setContextProperty("appVersion", new QVariantString("RingQt 2026 - Ring version " + version()))
 		oContext.setContextProperty("counter", new QVariantInt(0))
 
 		oBtn1 = new qPushButton(w) {
