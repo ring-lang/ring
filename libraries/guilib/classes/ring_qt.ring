@@ -34048,7 +34048,7 @@ Class QQmlContext from QObject
 	Func setContextProperty P1,P2
 		return QQmlContext_setContextProperty(pObject,P1,GetObjectPointerFromRingObject(P2))
 
-	Func setContextProperty_2 P1,P2
+	Func setcontextpropertyusingobject P1,P2
 		return QQmlContext_setContextProperty_2(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func contextObject 
