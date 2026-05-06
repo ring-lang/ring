@@ -49,7 +49,7 @@ new qApp {
 
 		# Load QML after setting context properties
 		oQuick {
-			setSource(AppURL("test2.qml"))
+			setSource(AppURL("qml/buttons.qml"))
 			setResizeMode(1)
 		}
 

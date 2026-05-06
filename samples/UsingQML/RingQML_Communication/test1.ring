@@ -18,7 +18,7 @@ new qApp {
 
 		oQuick = new qQuickWidget(w) {
 			engine().AddImportPath(exefolder() + "qml")
-			setSource(AppURL("test1.qml"))
+			setSource(AppURL("qml/communication.qml"))
 			setResizeMode(1)
 		}
 
