@@ -31235,7 +31235,7 @@ RING_FUNC(ring_QVariant_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant();
-	RING_API_RETCPOINTER(pObject,"QVariant");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariant",ring_QVariant_freefunc);
 }
 
 RING_FUNC(ring_QVariant2_new)
@@ -31250,7 +31250,7 @@ RING_FUNC(ring_QVariant2_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant((int) RING_API_GETNUMBER(1));
-	RING_API_RETCPOINTER(pObject,"QVariant2");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariant2",ring_QVariant2_freefunc);
 }
 
 RING_FUNC(ring_QVariant3_new)
@@ -31265,7 +31265,7 @@ RING_FUNC(ring_QVariant3_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant((float) RING_API_GETNUMBER(1));
-	RING_API_RETCPOINTER(pObject,"QVariant3");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariant3",ring_QVariant3_freefunc);
 }
 
 RING_FUNC(ring_QVariant4_new)
@@ -31280,7 +31280,7 @@ RING_FUNC(ring_QVariant4_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant((double) RING_API_GETNUMBER(1));
-	RING_API_RETCPOINTER(pObject,"QVariant4");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariant4",ring_QVariant4_freefunc);
 }
 
 RING_FUNC(ring_QVariant5_new)
@@ -31295,7 +31295,7 @@ RING_FUNC(ring_QVariant5_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant(RING_API_GETSTRING(1));
-	RING_API_RETCPOINTER(pObject,"QVariant5");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariant5",ring_QVariant5_freefunc);
 }
 
 RING_FUNC(ring_QVariantInt_new)
@@ -31310,7 +31310,7 @@ RING_FUNC(ring_QVariantInt_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant((int) RING_API_GETNUMBER(1));
-	RING_API_RETCPOINTER(pObject,"QVariantInt");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariantInt",ring_QVariantInt_freefunc);
 }
 
 RING_FUNC(ring_QVariantFloat_new)
@@ -31325,7 +31325,7 @@ RING_FUNC(ring_QVariantFloat_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant((float) RING_API_GETNUMBER(1));
-	RING_API_RETCPOINTER(pObject,"QVariantFloat");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariantFloat",ring_QVariantFloat_freefunc);
 }
 
 RING_FUNC(ring_QVariantDouble_new)
@@ -31340,7 +31340,7 @@ RING_FUNC(ring_QVariantDouble_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant((double) RING_API_GETNUMBER(1));
-	RING_API_RETCPOINTER(pObject,"QVariantDouble");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariantDouble",ring_QVariantDouble_freefunc);
 }
 
 RING_FUNC(ring_QVariantString_new)
@@ -31355,7 +31355,7 @@ RING_FUNC(ring_QVariantString_new)
 		return ;
 	}
 	QVariant *pObject = new QVariant(RING_API_GETSTRING(1));
-	RING_API_RETCPOINTER(pObject,"QVariantString");
+	RING_API_RETMANAGEDCPOINTER(pObject,"QVariantString",ring_QVariantString_freefunc);
 }
 
 RING_FUNC(ring_QXmlStreamReader_new)
