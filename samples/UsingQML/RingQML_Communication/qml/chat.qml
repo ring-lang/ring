@@ -221,6 +221,7 @@ Rectangle {
             time: time,
             isUser: isUser
         })
+        messageList.positionViewAtEnd()
     }
 
     function clearInput() {
