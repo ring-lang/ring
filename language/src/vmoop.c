@@ -515,7 +515,7 @@ void ring_vm_oop_parentmethods(VM *pVM, List *pList) {
 				break;
 			}
 			/* Exit when the parent class already contains it's parent classes data */
-			if (ring_list_getint(pList, RING_CLASSMAP_ISPARENTINFO) == 1) {
+			if (ring_list_getint(pList4, RING_CLASSMAP_ISPARENTINFO) == 1) {
 				break;
 			}
 		}
