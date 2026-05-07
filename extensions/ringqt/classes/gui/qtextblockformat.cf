@@ -1,6 +1,7 @@
 <class>
 name: QTextBlockFormat
 para: void
+managed
 </class>
 
 Qt::Alignment alignment(void)

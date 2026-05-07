@@ -1,6 +1,7 @@
 <class>
 name: QSslKey
 para: void
+managed
 </class>
 
 QSsl::KeyAlgorithm algorithm(void)

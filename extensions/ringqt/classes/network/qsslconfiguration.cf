@@ -1,6 +1,7 @@
 <class>
 name: QSslConfiguration
 para: void
+managed
 </class>
 
 QList<QByteArray> allowedNextProtocols(void)

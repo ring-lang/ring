@@ -1,6 +1,7 @@
 <class>
 name: QOpenGLTexture
 para: QOpenGLTexture::Target
+managed
 </class>
 
 void allocateStorage(void)

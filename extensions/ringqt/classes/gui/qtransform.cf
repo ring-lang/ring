@@ -2,6 +2,7 @@
 name: QTransform2
 para: qreal,qreal,qreal,qreal,qreal,qreal
 codename: QTransform
+managed
 </class>
 
 qreal m11(void)

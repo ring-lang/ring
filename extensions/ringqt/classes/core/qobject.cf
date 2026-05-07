@@ -1,6 +1,7 @@
 <class>
 name: QObject
 para: void
+managed
 </class>
 
 bool blockSignals(bool block)

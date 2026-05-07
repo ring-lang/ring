@@ -1,6 +1,7 @@
 <class>
 name: QChar
 para: int
+managed
 </class>
 
 QChar::Category category(void)

@@ -1,6 +1,7 @@
 <class>
 name: QPen
 para: void
+managed
 </class>
 
 QBrush brush(void)

@@ -1,6 +1,7 @@
 <class>
 name: QRectF
 para: qreal,qreal,qreal,qreal
+managed
 </class>
 
 void adjust(qreal dx1, qreal dy1, qreal dx2, qreal dy2)

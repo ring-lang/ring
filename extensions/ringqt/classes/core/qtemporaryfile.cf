@@ -2,6 +2,7 @@
 name: QTemporaryFile
 para: void
 parent: QFile
+managed
 </class>
 
 bool autoRemove(void)

@@ -1,6 +1,7 @@
 <class>
 name: QMutex
 para: QMutex::RecursionMode
+managed
 </class>
 
 bool isRecursive(void)

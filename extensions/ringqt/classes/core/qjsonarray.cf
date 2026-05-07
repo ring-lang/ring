@@ -1,6 +1,7 @@
 <class>
 name: QJsonArray 
 para: void
+managed
 </class>
 
 void append(QJsonValue  value)

@@ -1,6 +1,7 @@
 <class>
 name: QBluetoothHostInfo
 para: void
+managed
 </class>
 
 QBluetoothAddress address(void)

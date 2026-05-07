@@ -1,6 +1,7 @@
 <class>
 name: QImage
 para: void
+managed
 </class>
 
 <comment>

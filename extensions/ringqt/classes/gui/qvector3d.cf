@@ -1,6 +1,7 @@
 <class>
 name: QVector3D
 para: float,float,float
+managed
 </class>
 
 float distanceToLine(QVector3D point, QVector3D direction)

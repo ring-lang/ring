@@ -1,6 +1,7 @@
 <class>
 name: QDateTime
 para: void
+managed
 </class>
 
 QDateTime addDays(int ndays)

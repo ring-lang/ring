@@ -1,6 +1,7 @@
 <class>
 name: QByteArray
 para: void
+managed
 </class>
 
 QByteArray append(const char *str)

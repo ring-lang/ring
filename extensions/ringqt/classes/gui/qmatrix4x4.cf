@@ -1,6 +1,7 @@
 <class>
 name: QMatrix4x4
 para: qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
+managed
 </class>
 
 QVector4D column(int index)

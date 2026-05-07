@@ -2,6 +2,7 @@
 name: QOpenGLPaintDevice
 para: void
 parent: QPaintDevice
+managed
 </class>
 
 

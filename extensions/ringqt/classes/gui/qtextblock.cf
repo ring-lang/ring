@@ -1,6 +1,7 @@
 <class>
 name: QTextBlock
 para: void
+managed
 </class>
 
 <comment>

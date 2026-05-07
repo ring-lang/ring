@@ -1,6 +1,7 @@
 <class>
 name: QJsonObject
 para: void
+managed
 </class>
 
 

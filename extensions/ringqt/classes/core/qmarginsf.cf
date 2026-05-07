@@ -1,6 +1,7 @@
 <class>
 name: QMarginsF
 para: void
+managed
 </class>
 
 qreal bottom(void)

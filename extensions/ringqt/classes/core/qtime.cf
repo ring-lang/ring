@@ -1,6 +1,7 @@
 <class>
 name: QTime
 para: void
+managed
 </class>
 
 QTime addMSecs(int ms)

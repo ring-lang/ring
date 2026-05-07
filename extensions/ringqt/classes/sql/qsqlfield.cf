@@ -1,6 +1,7 @@
 <class>
 name: QSqlField
 para:  QString,QVariant::Type
+managed
 </class>
 
 void clear(void)

@@ -1,6 +1,7 @@
 <class>
 name: QGeoPositionInfo
 para: void
+managed
 </class>
 
 qreal attribute(QGeoPositionInfo::Attribute attribute)

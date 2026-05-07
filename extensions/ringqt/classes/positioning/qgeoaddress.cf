@@ -1,6 +1,7 @@
 <class>
 name: QGeoAddress
 para: void
+managed
 </class>
 
 QString city(void)

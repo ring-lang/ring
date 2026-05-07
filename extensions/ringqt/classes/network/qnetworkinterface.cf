@@ -1,6 +1,7 @@
 <class>
 name: QNetworkInterface
 para: void
+managed
 </class>
 
 QList<QNetworkAddressEntry> addressEntries(void)

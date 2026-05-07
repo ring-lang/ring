@@ -1,6 +1,7 @@
 <class>
 name: QPrinterInfo
 para: void
+managed
 </class>
 
 <comment>

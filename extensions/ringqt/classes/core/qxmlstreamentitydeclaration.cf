@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamEntityDeclaration
 para: void
+managed
 </class>
 
 QStringRef name(void)

@@ -1,6 +1,7 @@
 <class>
 name: QFileInfo
 para: void
+managed
 </class>
 
 QDir absoluteDir(void)

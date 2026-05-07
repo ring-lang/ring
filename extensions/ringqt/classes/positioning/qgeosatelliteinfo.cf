@@ -1,6 +1,7 @@
 <class>
 name: QGeoSatelliteInfo
 para: void
+managed
 </class>
 
 qreal attribute(QGeoSatelliteInfo::Attribute attribute)

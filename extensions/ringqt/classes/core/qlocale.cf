@@ -1,6 +1,7 @@
 <class>
 name: QLocale
 para: QString
+managed
 </class>
 
 QString amText(void)

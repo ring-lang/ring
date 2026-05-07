@@ -1,6 +1,7 @@
 <class>
 name: QVersionNumber
 para: void
+managed
 </class>
 
 bool isNormalized(void)

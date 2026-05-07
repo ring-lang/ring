@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamAttribute
 para: void
+managed
 </class>
 
 bool isDefault(void)

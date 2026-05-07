@@ -1,6 +1,7 @@
 <class>
 name: QRegion
 para: void
+managed
 </class>
 
 QRect boundingRect(void)

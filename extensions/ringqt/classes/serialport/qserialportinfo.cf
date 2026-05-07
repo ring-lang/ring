@@ -1,6 +1,7 @@
 <class>
 name: QSerialPortInfo
 para: void
+managed
 </class>
 
 QString description(void)

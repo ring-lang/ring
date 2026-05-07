@@ -1,6 +1,7 @@
 <class>
 name: QOpenGLBuffer
 para: void
+managed
 </class>
 
 void allocate(void *data, int count)

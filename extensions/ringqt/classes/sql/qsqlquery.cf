@@ -1,6 +1,7 @@
 <class>
 name: QSqlQuery
 para: void
+managed
 </class>
 
 void addBindValue(QVariant, QSql::ParamType paramType)

@@ -1,6 +1,7 @@
 <class>
 name: QSqlError
 para: QString, QString, QSqlError::ErrorType
+managed
 </class>
 
 QString databaseText(void)

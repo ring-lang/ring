@@ -1,6 +1,7 @@
 <class>
 name: QRegularExpression
 para: void
+managed
 </class>
 
 int captureCount(void)

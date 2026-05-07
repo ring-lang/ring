@@ -1,6 +1,7 @@
 <class>
 name: QPolygonF
 para: void
+managed
 </class>
 
 QRectF boundingRect(void)

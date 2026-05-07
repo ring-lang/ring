@@ -1,6 +1,7 @@
 <class>
 name: QRegularExpressionMatch
 para: void
+managed
 </class>
 
 QString captured(int nth)

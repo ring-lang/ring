@@ -1,6 +1,7 @@
 <class>
 name: QPicture
 para: void
+managed
 </class>
 
 QRect boundingRect(void)

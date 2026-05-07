@@ -1,6 +1,7 @@
 <class>
 name: QBluetoothTransferRequest
 para: QBluetoothAddress
+managed
 </class>
 
 QBluetoothAddress address(void)

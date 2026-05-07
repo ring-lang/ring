@@ -1,6 +1,7 @@
 <class>
 name: QGeoCoordinate
 para: void
+managed
 </class>
 
 double altitude(void)

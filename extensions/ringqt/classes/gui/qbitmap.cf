@@ -2,6 +2,7 @@
 name: QBitmap
 para: void
 parent: QPixmap
+managed
 </class>
 
 void clear(void)

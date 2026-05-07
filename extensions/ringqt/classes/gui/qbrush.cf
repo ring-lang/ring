@@ -1,6 +1,7 @@
 <class>
 name: QBrush
 para: void
+managed
 </class>
 
 QColor color(void)

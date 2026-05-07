@@ -1,6 +1,7 @@
 <class>
 name: QDataStream
 para: QIODevice *
+managed
 </class>
 
 bool atEnd(void)

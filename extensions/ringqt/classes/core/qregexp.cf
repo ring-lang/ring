@@ -1,6 +1,7 @@
 <class>
 name: QRegExp
 para: void
+managed
 </class>
 
 QString cap(int nth)

@@ -1,6 +1,7 @@
 <class>
 name: QColor
 para: void
+managed
 </class>
 
 int alpha(void)

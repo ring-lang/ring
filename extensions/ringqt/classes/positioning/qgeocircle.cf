@@ -1,6 +1,7 @@
 <class>
 name: QGeoCircle
 para: void
+managed
 </class>
 
 QGeoCoordinate center(void)

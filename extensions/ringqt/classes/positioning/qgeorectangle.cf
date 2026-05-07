@@ -2,6 +2,7 @@
 name: QGeoRectangle
 para: void
 parent: QGeoShape
+managed
 </class>
 
 QGeoCoordinate bottomLeft(void)

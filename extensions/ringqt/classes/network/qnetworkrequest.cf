@@ -1,6 +1,7 @@
 <class>
 name: QNetworkRequest
 para: QUrl
+managed
 </class>
 
 QVariant attribute(QNetworkRequest::Attribute, QVariant)

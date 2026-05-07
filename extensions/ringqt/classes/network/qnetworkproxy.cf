@@ -1,6 +1,7 @@
 <class>
 name: QNetworkProxy
 para: void
+managed
 </class>
 
 int capabilities(void)

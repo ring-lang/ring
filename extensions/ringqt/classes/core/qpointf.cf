@@ -1,6 +1,7 @@
 <class>
 name: QPointF
 para: void
+managed
 </class>
 
 bool isNull(void)

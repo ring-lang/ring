@@ -1,6 +1,7 @@
 <class>
 name: QHostAddress
 para: void
+managed
 </class>
 
 void clear(void)

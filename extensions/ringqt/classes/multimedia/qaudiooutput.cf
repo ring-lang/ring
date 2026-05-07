@@ -1,6 +1,7 @@
 <class>
 name: QAudioOutput
 para: void
+managed
 </class>
 
 void setVolume(float volume)

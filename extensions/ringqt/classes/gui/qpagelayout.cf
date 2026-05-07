@@ -1,6 +1,7 @@
 <class>
 name: QPageLayout
 para: void
+managed
 </class>
 
 QRectF fullRect(QPageLayout::Unit units)

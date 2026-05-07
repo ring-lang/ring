@@ -1,6 +1,7 @@
 <class>
 name: QStringRef
 para: void
+managed
 </class>
 
 

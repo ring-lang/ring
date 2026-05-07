@@ -1,6 +1,7 @@
 <class>
 name: QStorageInfo
 para: QString path
+managed
 </class>
 
 int blockSize(void)

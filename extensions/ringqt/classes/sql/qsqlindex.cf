@@ -2,6 +2,7 @@
 name: QSqlIndex
 para: QString, QString 
 parent: QSqlRecord
+managed
 </class>
 
 void append(QSqlField, bool)

@@ -1,6 +1,7 @@
 <class>
 name: QOpenGLFunctions
 para: void
+managed
 </class>
 
 <runcode>
