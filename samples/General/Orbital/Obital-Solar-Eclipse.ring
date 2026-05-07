@@ -464,5 +464,5 @@ DATE            TIME            TYPE        MAGNITUDE
 
 2030 Jun 01 06:29:13    Annular     0.944   
 2030 Nov 25 06:51:37    Total       1.047   
-
+*/
 
