@@ -1056,9 +1056,9 @@ void ring_vm_generallib_lines(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		cStr = RING_API_GETSTRING(1);
 		nSize = RING_API_GETSTRINGSIZE(1);
-		nCount = 1;
+		nCount = (nSize > 0) ? 1 : 0;
 		for (x = 0; x < nSize; x++) {
-			if (cStr[x] == '\n') {
+			if (cStr[x] == '\n' && x != nSize - 1) {
 				nCount++;
 			}
 		}
