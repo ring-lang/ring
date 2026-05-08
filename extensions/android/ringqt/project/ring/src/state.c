@@ -265,11 +265,11 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 	return lRunVM;
 }
 
-RING_API void ring_state_runobjectfile(RingState *pRingState, char *cFileName) {
+RING_API int ring_state_runobjectfile(RingState *pRingState, char *cFileName) {
 	/* Check Path Size */
 	if (strlen(cFileName) > RING_PATHLIMIT) {
 		printf("%s %s %s %d \n", RING_CANTOPENFILE, cFileName, RING_VERYLONGPATH, RING_PATHLIMIT);
-		return;
+		return RING_FALSE;
 	}
 	/* Files List */
 	pRingState->pRingFilesList = ring_list_new_gc(pRingState, RING_ZERO);
@@ -279,7 +279,9 @@ RING_API void ring_state_runobjectfile(RingState *pRingState, char *cFileName) {
 	if (ring_objfile_readfile(pRingState, cFileName)) {
 		pRingState->lRunFromObjectFile = 1;
 		ring_state_runprogram(pRingState);
+		return RING_TRUE;
 	}
+	return RING_FALSE;
 }
 
 RING_API void ring_state_runobjectstring(RingState *pRingState, char *cString, unsigned int nSize,
@@ -561,7 +563,7 @@ RING_API void ring_state_execute(char *cFileName, int lISCGI, int lRun, int lPri
 	pRingState->pArgv = pArgv;
 	lCont = RING_TRUE;
 	if (ring_general_isobjectfile(cFileName)) {
-		ring_state_runobjectfile(pRingState, cFileName);
+		lCont = ring_state_runobjectfile(pRingState, cFileName);
 	} else {
 		lCont = ring_state_runfile(pRingState, cFileName);
 	}
