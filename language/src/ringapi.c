@@ -374,7 +374,8 @@ RING_API void *ring_vm_api_getcpointer2pointer(void *pPointer, int nPara, const 
 				RING_API_ERROR(RING_API_BADPARATYPE);
 				return NULL;
 			} else {
-				if (strcmp(ring_list_getstring(pList, RING_CPOINTER_TYPE), "NULLPOINTER") == 0) {
+				if (strcmp(ring_list_getstring(pList, RING_CPOINTER_TYPE), "NULLPOINTER") == 0 ||
+				    strcmp(ring_list_getstring(pList, RING_CPOINTER_TYPE), cType) == 0) {
 					return NULL;
 				}
 			}
