@@ -616,12 +616,12 @@ void ring_vm_generallib_list2str(void *pPointer) {
 	pString = ring_string_new_gc(((VM *)pPointer)->pRingState, RING_CSTR_EMPTY);
 	for (x = nStart; x <= nMax; x++) {
 		if (ring_list_isstring(pList, x)) {
-			if (x != 1) {
+			if (x != nStart) {
 				ring_string_add_gc(((VM *)pPointer)->pRingState, pString, "\n");
 			}
 			ring_string_add_gc(((VM *)pPointer)->pRingState, pString, ring_list_getstring(pList, x));
 		} else if (ring_list_isnumber(pList, x)) {
-			if (x != 1) {
+			if (x != nStart) {
 				ring_string_add_gc(((VM *)pPointer)->pRingState, pString, "\n");
 			}
 			ring_vm_numtostring((VM *)pPointer, ring_list_getdouble(pList, x), cStr);
