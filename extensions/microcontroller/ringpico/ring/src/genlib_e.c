@@ -1619,7 +1619,7 @@ void ring_vm_generallib_state_runobjectfile(void *pPointer) {
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
 	RING_API_CHECKNULLPOINTER(pRingState);
-	ring_state_runobjectfile(pRingState, RING_API_GETSTRING(2));
+	RING_API_RETNUMBER(ring_state_runobjectfile(pRingState, RING_API_GETSTRING(2)));
 }
 
 void ring_vm_generallib_state_main(void *pPointer) {
@@ -1749,7 +1749,7 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 	pRingState->lDontDeleteTheVM = 1;
 	lOutput = 1;
 	if (ring_general_isobjectfile(cStr)) {
-		ring_state_runobjectfile(pRingState, cStr);
+		lOutput = ring_state_runobjectfile(pRingState, cStr);
 	} else {
 		lOutput = ring_state_runfile(pRingState, cStr);
 	}
