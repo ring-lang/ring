@@ -2,6 +2,7 @@
 name: QQmlExpression
 para: QQmlContext *ctxt, QObject *scope, QString expression
 parent: QObject
+managed
 </class>
 
 QQmlContext *context(void)
