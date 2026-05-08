@@ -325,7 +325,8 @@ Better Functions
 * Ring_State_MainFile() - Thread safe implementation
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
 * Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
-* Ring_State_FindVar() - return zero if the variable is not found
+* Ring_State_FindVar() - Return zero if the variable is not found
+* Ring_State_RunObjectFile() - Return True/False
 * Unsigned() - Better Implementation - Remove unnecessary checks
 * Unsigned() - Accept the operator before/after the numbers 
 * Unsigned() - Check variable size before the shift operation
@@ -352,6 +353,9 @@ Better Functions
 * System() - Return the function output
 * Assert() - Follow Ring's rules for evaluating values as True or False
 * Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage
+* Lines() - Return zero if the input is an empty string
+* Lines() - Don't increment the line count for a new line at the last index
+* List2Str() - Don't add extra line at start when processing sub list
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
@@ -388,6 +392,7 @@ More Improvements
 * Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read
 * Ring VM - ring_string_add2_gc() - Check string capacity overflow 
 * Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)
+* Ring VM - ring_vm_oop_parentmethods() - Better Code
 * Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers
 * Ring VM - Save/Restore state when using Braces - Better Performance
 * Ring VM - pObjState information - Use array of structure instead of Ring Lists

@@ -511,7 +511,8 @@ Hello, World! Number: 123
 <li><p>Ring_State_MainFile() - Thread safe implementation</p></li>
 <li><p>Ring_State_Delete() - Use: RING_API_SETNULLPOINTER</p></li>
 <li><p>Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag</p></li>
-<li><p>Ring_State_FindVar() - return zero if the variable is not found</p></li>
+<li><p>Ring_State_FindVar() - Return zero if the variable is not found</p></li>
+<li><p>Ring_State_RunObjectFile() - Return True/False</p></li>
 <li><p>Unsigned() - Better Implementation - Remove unnecessary checks</p></li>
 <li><p>Unsigned() - Accept the operator before/after the numbers</p></li>
 <li><p>Unsigned() - Check variable size before the shift operation</p></li>
@@ -538,6 +539,9 @@ Hello, World! Number: 123
 <li><p>System() - Return the function output</p></li>
 <li><p>Assert() - Follow Ring’s rules for evaluating values as True or False</p></li>
 <li><p>Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage</p></li>
+<li><p>Lines() - Return zero if the input is an empty string</p></li>
+<li><p>Lines() - Don’t increment the line count for a new line at the last index</p></li>
+<li><p>List2Str() - Don’t add extra line at start when processing sub list</p></li>
 </ul>
 </section>
 <section id="more-improvements">
@@ -572,6 +576,7 @@ Hello, World! Number: 123
 <li><p>Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read</p></li>
 <li><p>Ring VM - ring_string_add2_gc() - Check string capacity overflow</p></li>
 <li><p>Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)</p></li>
+<li><p>Ring VM - ring_vm_oop_parentmethods() - Better Code</p></li>
 <li><p>Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers</p></li>
 <li><p>Ring VM - Save/Restore state when using Braces - Better Performance</p></li>
 <li><p>Ring VM - pObjState information - Use array of structure instead of Ring Lists</p></li>
