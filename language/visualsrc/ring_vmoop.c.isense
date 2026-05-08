@@ -104,8 +104,6 @@ pFuncCall
 ring_vm_oop_loadmethodp
 Type: List *
 pVar, *pList, *pList2, *pObjData, *pCachedClass
-Type: FuncCall *
-pFuncCall
 Type: Item *
 pItem
 ring_vm_oop_loadbracemethodp
