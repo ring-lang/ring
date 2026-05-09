@@ -185,10 +185,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#research-article">Research Article</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -234,10 +234,10 @@
 <li><p>Research Article</p></li>
 <li><p>Better Performance</p></li>
 <li><p>Solitaire Game</p></li>
+<li><p>Better Extensions</p></li>
 <li><p>More Samples</p></li>
 <li><p>Ring-Python Package</p></li>
 <li><p>Ring-CFFI Package</p></li>
-<li><p>Better Extensions</p></li>
 <li><p>Better Functions</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -343,8 +343,47 @@ ringpm run solitaire
 </div>
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
+<section id="better-extensions">
+<span id="index-5"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>RingFastPro Extension - Better Performance</p></li>
+<li><p>RingFastPro Extension - Added Transform3D() function</p></li>
+<li><p>RingQt Extension - Added: QStorageInfo class</p></li>
+<li><p>RingQt Extension - Added: QSvgWidget class</p></li>
+<li><p>RingQt Extension - Added: QSvgRenderer class</p></li>
+<li><p>RingQt Extension - Added: QSvgGenerator class</p></li>
+<li><p>RingQt Extension - Added: QQmlContext class</p></li>
+<li><p>RingQt Extension - Added: QQmlProperty class</p></li>
+<li><p>RingQt Extension - Added: QQmlExpression class</p></li>
+<li><p>RingQt Extension - Added: QQmlComponent class</p></li>
+<li><p>RingQt Extension - Added: QQmlApplicationEngine class</p></li>
+<li><p>RingQt Extension - Many classes have been converted into managed classes</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_QueryTexture()</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_RenderGetScale()</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_GL_BindTexture()</p></li>
+<li><p>RingLibSDL Extension - Removed SDL_GetRevisionNumber()</p></li>
+</ul>
+<p>The next samples are added to demonstrates some of the new features</p>
+<ul class="simple">
+<li><p>samples/UsingQt/SVG/test1.ring</p></li>
+<li><p>samples/UsingQt/SVG/test2.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test1.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test2.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test3.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/AnalogClock.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/Calculator.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/ColorPicker.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/FormBuilder.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/TodoList.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/QuizGame.ring</p></li>
+<li><p>samples/UsingQML/WebAsm_ChatInterface</p></li>
+<li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring</p></li>
+</ul>
+<p>The next screen shot from the Ring Chat sample developed using Ring and QML</p>
+<img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
+</section>
 <section id="more-samples">
-<span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -377,26 +416,13 @@ ringpm run solitaire
 <li><p>samples/UsingFreeGLUT/Octagon_Sphere.ring</p></li>
 <li><p>samples/UsingFreeGLUT/SinCos_Surface.ring</p></li>
 <li><p>samples/UsingRogueUtil/matrix_rain.ring</p></li>
-<li><p>samples/UsingQt/SVG/test1.ring</p></li>
-<li><p>samples/UsingQt/SVG/test2.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/test1.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/test2.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/test3.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/AnalogClock.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/Calculator.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/ColorPicker.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/FormBuilder.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/TodoList.ring</p></li>
-<li><p>samples/UsingQML/RingQML_Communication/QuizGame.ring</p></li>
-<li><p>samples/UsingQML/WebAsm_ChatInterface</p></li>
 <li><p>samples/UsingRayLib/more/ex11_matrix_rain.ring</p></li>
-<li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring</p></li>
 </ul>
 <img alt="Advanced FreeGLUT Samples" src="_images/advancedfreeglut.png" />
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="ring-python-package">
-<span id="index-6"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
 <p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
@@ -439,7 +465,7 @@ Dot:  55
 </div>
 </section>
 <section id="ring-cffi-package">
-<span id="index-7"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
 <p>A Foreign Function Interface library for the Ring programming language!</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
@@ -480,27 +506,6 @@ Dot:  55
 Hello, World! Number: 123
 </pre></div>
 </div>
-</section>
-<section id="better-extensions">
-<span id="index-8"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>RingFastPro Extension - Better Performance</p></li>
-<li><p>RingFastPro Extension - Added Transform3D() function</p></li>
-<li><p>RingQt Extension - Added: QStorageInfo class</p></li>
-<li><p>RingQt Extension - Added: QSvgWidget class</p></li>
-<li><p>RingQt Extension - Added: QSvgRenderer class</p></li>
-<li><p>RingQt Extension - Added: QSvgGenerator class</p></li>
-<li><p>RingQt Extension - Added: QQmlContext class</p></li>
-<li><p>RingQt Extension - Added: QQmlProperty class</p></li>
-<li><p>RingQt Extension - Added: QQmlExpression class</p></li>
-<li><p>RingQt Extension - Added: QQmlComponent class</p></li>
-<li><p>RingQt Extension - Added: QQmlApplicationEngine class</p></li>
-<li><p>RingQt Extension - Many classes have been converted into managed classes</p></li>
-<li><p>RingLibSDL Extension - Revised SDL_QueryTexture()</p></li>
-<li><p>RingLibSDL Extension - Revised SDL_RenderGetScale()</p></li>
-<li><p>RingLibSDL Extension - Revised SDL_GL_BindTexture()</p></li>
-<li><p>RingLibSDL Extension - Removed SDL_GetRevisionNumber()</p></li>
-</ul>
 </section>
 <section id="better-functions">
 <span id="index-9"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
