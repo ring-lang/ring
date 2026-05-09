@@ -31,7 +31,7 @@ Motivation (1)
 In Nov. 2011, I started to think about creating a new version of the 
 `Programming Without Coding Technology (PWCT) <https://doublesvsoop.sourceforge.net/>`_ software from scratch.
 
-I was interested in creating multi-platform edition of the software beside adding support for
+I was interested in creating `multi-platform edition of the software <https://pwct.github.io/>`_ beside adding support for
 Web & Mobile development.
 
 What I was looking for is a programming language that can be used to build the development 
