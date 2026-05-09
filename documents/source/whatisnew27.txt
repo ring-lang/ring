@@ -163,7 +163,7 @@ The next samples are added to demonstrates some of the new features
 * samples/UsingQML/WebAsm_ChatInterface
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 
-The next screen shot from the Ring Chat sample developed using Ring and QML
+The next screen shot for the Chat Interface sample developed using Ring and QML
 
 .. image:: ringchatandroid.png
 	:alt: Ring Chat (Android)
