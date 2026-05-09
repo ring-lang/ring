@@ -11,7 +11,7 @@ load "functions.ring"
 cUserName = "You"
 cBotName = "RingBot"
 
-new QApp {
+new RingQMLApp {
 
 	oQuick = new QQuickView() {
 		setTitle("Ring/QML Chat")
@@ -34,5 +34,4 @@ new QApp {
 
 	exec()
 
-	cleanRingCode()
 }

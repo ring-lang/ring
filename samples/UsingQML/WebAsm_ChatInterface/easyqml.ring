@@ -1,5 +1,5 @@
 /*
-	We can create objects from this class then pass it to QML	
+	We can create objects from the RingCode class then pass it to QML	
 	QML can execute the click event to call Ring Code from QML
 
 */
@@ -35,3 +35,9 @@ class RingCode from QPushButton
 		setFocusPolicy(0)	// Qt_NoFocus
 		hide()
 		return self
+
+class RingQMLApp from QApp
+
+	func braceEnd
+
+		cleanRingCode()
