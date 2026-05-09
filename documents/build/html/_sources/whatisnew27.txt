@@ -134,6 +134,8 @@ More Samples
 
 (2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
 
+(3) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
+
 (3) The next samples are revised
 
 * samples/UsingLibCurl/test12.ring
