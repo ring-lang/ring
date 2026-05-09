@@ -1,0 +1,6 @@
+<RCC>
+	<qresource>
+		<file>main.ringo</file>
+		<file>chat.qml</file>
+	</qresource>
+</RCC>
