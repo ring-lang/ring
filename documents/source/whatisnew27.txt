@@ -144,22 +144,21 @@ More Samples
 
 (4) The next samples are added to the samples foder:
 
+* samples/Language/ClassMethods/nestedanonymous.ring
 * samples/General/RosettaCode/YinYang.ring
 * samples/General/RosettaCode/YinYang2.ring
 * samples/General/FindAnadromes/process.ring
 * samples/General/FindAnadromes/process2.ring
 * samples/General/Performance/ringper.ring
 * samples/General/Performance/nqueensbitmask.ring
-* samples/Language/ClassMethods/nestedanonymous.ring
+* samples/General/Orbital/Earth_Orbit_Zodiac.ring
+* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
+* samples/UsingArabic/WriteArabicDate/DateServices.ring 
 * samples/UsingFreeGLUT/Hex_Sphere.ring
 * samples/UsingFreeGLUT/Penta_Sphere.ring
 * samples/UsingFreeGLUT/Octagon_Sphere.ring
 * samples/UsingFreeGLUT/SinCos_Surface.ring 
 * samples/UsingRogueUtil/matrix_rain.ring
-* samples/UsingRayLib/more/ex11_matrix_rain.ring
-* samples/General/Orbital/Earth_Orbit_Zodiac.ring
-* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
-* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 * samples/UsingQt/SVG/test1.ring
 * samples/UsingQt/SVG/test2.ring
 * samples/UsingQML/RingQML_Communication/test1.ring
@@ -172,6 +171,8 @@ More Samples
 * samples/UsingQML/RingQML_Communication/TodoList.ring
 * samples/UsingQML/RingQML_Communication/QuizGame.ring
 * samples/UsingQML/WebAsm_ChatInterface
+* samples/UsingRayLib/more/ex11_matrix_rain.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
 
 .. image:: advancedfreeglut.png
 	:alt: Advanced FreeGLUT Samples
