@@ -390,11 +390,10 @@ The next features are added to Ring API (Useful when writing C extensions for Ri
 * RING_API_GETUNSIGNEDLONGINTPOINTER(nParameter) 
 * RING_API_ACCEPTUNSIGNEDLONGINTVALUE(nParameter)
 
-Also, the Code Generator for Extensions is revised to support the added features automatically
+Also, the Code Generator for Extensions is revised to support the added features 
 
-* The aNumberTypes list is revised 
 * The aPassPointers list is used to control passing pointers to functions
-
+* The aNumberTypes list is revised to detect many numeric types automatically
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
