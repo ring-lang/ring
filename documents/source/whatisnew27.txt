@@ -180,13 +180,13 @@ More Samples
 
 (3) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
 
-(3) The next samples are revised
+(4) The next samples are revised
 
 * samples/UsingLibCurl/test12.ring
 * samples/UsingLibCurl/test13.ring
 * samples/UsingQt/TableWidget/QTableWidget.ring 
 
-(4) The next samples are added to the samples foder:
+(5) The next samples are added to the samples foder:
 
 * samples/Language/ClassMethods/nestedanonymous.ring
 * samples/General/RosettaCode/YinYang.ring
