@@ -23,6 +23,7 @@ Ring 1.27 comes with the next features!
 * Ring-Python Package
 * Ring-CFFI Package
 * Better Functions
+* Better Ring API
 * More Improvements
 
 .. index:: 
@@ -371,6 +372,31 @@ Better Functions
 * List2Str() - Don't add extra line at start when processing sub list
 
 .. index:: 
+	pair: What is new in Ring  1.27; Better Ring API
+
+Better Ring API
+===============
+
+The next features are added to Ring API (Useful when writing C extensions for Ring)
+
+* RING_API_GETUNSIGNEDINTPOINTER(nParameter) 
+* RING_API_ACCEPTUNSIGNEDINTVALUE(nParameter) 
+* RING_API_GETSHORTINTPOINTER(nParameter) 
+* RING_API_ACCEPTSHORTINTVALUE(nParameter)
+* RING_API_GETUNSIGNEDSHORTINTPOINTER(nParameter) 
+* RING_API_ACCEPTUNSIGNEDSHORTINTVALUE(nParameter)
+* RING_API_GETLONGINTPOINTER(nParameter) 
+* RING_API_ACCEPTLONGINTVALUE(nParameter)
+* RING_API_GETUNSIGNEDLONGINTPOINTER(nParameter) 
+* RING_API_ACCEPTUNSIGNEDLONGINTVALUE(nParameter)
+
+Also, the Code Generator for Extensions is revised to support the added features automatically
+
+* The aNumberTypes list is revised 
+* The aPassPointers list is used to control passing pointers to functions
+
+
+.. index:: 
 	pair: What is new in Ring  1.27; More Improvements
 
 More Improvements
@@ -380,13 +406,6 @@ More Improvements
 * language/build/buildgccstatic.bat - Build ringw.exe too
 * language/build/builddos.bat - Set stack size to 64K
 * Ring for Linux - Modernize build scripts using pkg-config
-* Ring API - Added RING_API_GETUNSIGNEDINTPOINTER() and RING_API_ACCEPTUNSIGNEDINTVALUE() 
-* Ring API - Added RING_API_GETSHORTINTPOINTER() and RING_API_ACCEPTSHORTINTVALUE()
-* Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()
-* Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()
-* Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()
-* Extensions Generator - The aNumberTypes list is revised 
-* Extensions Generator - Using aPassPointers list to control passing pointers to functions
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
 * Ring VM - ring_general_justfilename() - Better Code

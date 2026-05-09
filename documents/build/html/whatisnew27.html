@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -239,6 +240,7 @@
 <li><p>Ring-Python Package</p></li>
 <li><p>Ring-CFFI Package</p></li>
 <li><p>Better Functions</p></li>
+<li><p>Better Ring API</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -553,20 +555,34 @@ Hello, World! Number: 123
 <li><p>List2Str() - Don’t add extra line at start when processing sub list</p></li>
 </ul>
 </section>
+<section id="better-ring-api">
+<span id="index-10"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
+<ul class="simple">
+<li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETSHORTINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTSHORTINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETUNSIGNEDSHORTINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDSHORTINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETLONGINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTLONGINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETUNSIGNEDLONGINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDLONGINTVALUE(nParameter)</p></li>
+</ul>
+<p>Also, the Code Generator for Extensions is revised to support the added features automatically</p>
+<ul class="simple">
+<li><p>The aNumberTypes list is revised</p></li>
+<li><p>The aPassPointers list is used to control passing pointers to functions</p></li>
+</ul>
+</section>
 <section id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
 <li><p>language/build/builddos.bat - Set stack size to 64K</p></li>
 <li><p>Ring for Linux - Modernize build scripts using pkg-config</p></li>
-<li><p>Ring API - Added RING_API_GETUNSIGNEDINTPOINTER() and RING_API_ACCEPTUNSIGNEDINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETSHORTINTPOINTER() and RING_API_ACCEPTSHORTINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()</p></li>
-<li><p>Extensions Generator - The aNumberTypes list is revised</p></li>
-<li><p>Extensions Generator - Using aPassPointers list to control passing pointers to functions</p></li>
 <li><p>Ring Compiler - Detect unclosed comment error</p></li>
 <li><p>Ring Compiler - Check filename size before loading</p></li>
 <li><p>Ring VM - ring_general_justfilename() - Better Code</p></li>
