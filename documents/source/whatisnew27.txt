@@ -305,6 +305,8 @@ Better Extensions
 * RingQt Extension - Added: QQmlApplicationEngine class
 * RingQt Extension - Many classes have been converted into managed classes
 * RingLibSDL Extension - Revised SDL_QueryTexture()
+* RingLibSDL Extension - Revised SDL_RenderGetScale()
+* RingLibSDL Extension - Revised SDL_GL_BindTexture()
 * RingLibSDL Extension - Removed SDL_GetRevisionNumber()
 
 .. index:: 
