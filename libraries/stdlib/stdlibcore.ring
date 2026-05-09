@@ -339,15 +339,16 @@ Func Factorial n  if n = 0 return 1 ok nRes = 1 for t=1 to n nRes *= t next retu
 */
 
 Func Fibonacci n
-	if n = 0 return 0 ok
-	if n = 1 return 1 ok 
-	aFibRes = [ ["0", 0], ["1", 1] ]
-	if n > 1
-		for t=2 to n
-			aFibRes[""+t] = aFibRes[""+(t-1)] + aFibRes[""+(t-2)]
-		next 
-		return aFibRes[""+n]
-	ok
+	if n < 0 raise("Error: Fibonacci - negative input") return ok
+	if (n = 0) or (n = 1) return n ok
+	prev  = 0
+	curr  = 1
+	for t = 2 to n
+		next_val = prev + curr
+		prev     = curr
+		curr     = next_val
+	next
+	return curr
     
 /*
 	Function Name	: isprime
