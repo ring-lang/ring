@@ -336,7 +336,6 @@ Functions
 * ``void SDL_assert_paranoid(int)``
 * ``void SDL_assert_release(int)``
 * ``const char * SDL_GetRevision(void)``
-* ``int SDL_GetRevisionNumber(void)``
 * ``void SDL_GetVersion(SDL_version *ver)``
 * ``SDL_Window *SDL_CreateWindow(const char * title,int x, int y,int w,int h,Uint32 flags)``
 * ``SDL_Window *SDL_CreateWindowFrom(const void *data)``
@@ -430,7 +429,7 @@ Functions
 * ``int SDL_GetTextureBlendMode(SDL_Texture *texture,SDL_BlendMode *blendMode)``
 * ``int SDL_GetTextureColorMod(SDL_Texture *texture,Uint8 *r,Uint8 *g,Uint8 *b)``
 * ``int SDL_LockTexture(SDL_Texture *texture,const SDL_Rect *rect,void **pixels,int *pitch)``
-* ``int SDL_QueryTexture(SDL_Texture *texture,int *format,int *access,int *w,int *h)``
+* ``int SDL_QueryTexture(SDL_Texture *texture,unsigned int *format,int *access,int *w,int *h)``
 * ``int SDL_RenderClear(SDL_Renderer *renderer)``
 * ``int SDL_RenderCopy(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect)``
 * ``int SDL_RenderCopyEx(SDL_Renderer *renderer,SDL_Texture *texture,const SDL_Rect *srcrect,const SDL_Rect *dstrect,const double angle,const SDL_Point *center,const SDL_RendererFlip flip)``
