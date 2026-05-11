@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamWriter
 para: void
+managed
 </class>
 
 bool autoFormatting(void)

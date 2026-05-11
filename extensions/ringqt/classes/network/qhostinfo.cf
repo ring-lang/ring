@@ -1,6 +1,7 @@
 <class>
 name: QHostInfo
 para: void
+managed
 </class>
 
 int error(void)

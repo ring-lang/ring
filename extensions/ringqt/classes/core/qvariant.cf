@@ -1,6 +1,7 @@
 <class>
 name: QVariant
 para: void
+managed
 </class>
 
 bool canConvert(int targetTypeId)
@@ -56,6 +57,7 @@ name: QVariant2
 parent: QVariant
 para: int
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -63,6 +65,7 @@ name: QVariant3
 parent: QVariant
 para: float
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -70,6 +73,7 @@ name: QVariant4
 parent: QVariant
 para: double
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -77,6 +81,7 @@ name: QVariant5
 parent: QVariant
 para: QString
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -84,6 +89,7 @@ name: QVariantInt
 parent: QVariant
 para: int
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -91,6 +97,7 @@ name: QVariantFloat
 parent: QVariant
 para: float
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -98,6 +105,7 @@ name: QVariantDouble
 parent: QVariant
 para: double
 codename: QVariant
+managed
 </class>
 
 <class>
@@ -105,4 +113,5 @@ name: QVariantString
 parent: QVariant
 para: QString
 codename: QVariant
+managed
 </class>

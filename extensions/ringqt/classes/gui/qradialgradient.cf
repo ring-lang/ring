@@ -2,6 +2,7 @@
 name: QRadialGradient
 para: void
 parent: QGradient
+managed
 </class>
 
 QPointF center(void)

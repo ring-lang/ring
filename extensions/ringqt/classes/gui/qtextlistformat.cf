@@ -1,6 +1,7 @@
 <class>
 name: QTextListFormat
 para: void
+managed
 </class>
 
 int indent(void)

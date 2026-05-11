@@ -1,6 +1,7 @@
 <class>
 name: QUuid
 para: void
+managed
 </class>
 
 QString toString(void) 

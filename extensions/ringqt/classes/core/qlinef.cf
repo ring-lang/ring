@@ -1,6 +1,7 @@
 <class>
 name: QLineF
 para: qreal,qreal,qreal,qreal
+managed
 </class>
 QPointF p1(void)
 QPointF p2(void)

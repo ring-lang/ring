@@ -1,6 +1,7 @@
 <class>
 name: QRect
 para: void
+managed
 </class>
 
 void adjust(int dx1, int dy1, int dx2, int dy2)

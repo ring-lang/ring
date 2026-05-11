@@ -1,6 +1,7 @@
 <class>
 name: QSqlDatabase
 para: void
+managed
 </class>
 
 void close(void)

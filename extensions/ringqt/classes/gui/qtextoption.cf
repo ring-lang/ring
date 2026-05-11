@@ -1,6 +1,7 @@
 <class>
 name: QTextOption
 para: Qt::Alignment
+managed
 </class>
 
 Qt::Alignment alignment(void)

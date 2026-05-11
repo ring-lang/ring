@@ -1,6 +1,7 @@
 <class>
 name: QPainterPath
 para: void
+managed
 </class>
 
 void addEllipse(qreal x, qreal y, qreal width, qreal height)

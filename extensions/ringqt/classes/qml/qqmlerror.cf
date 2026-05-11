@@ -1,6 +1,7 @@
 <class>
 name: QQmlError
 para: void
+managed
 </class>
 
 int column(void)

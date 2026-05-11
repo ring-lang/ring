@@ -1,6 +1,7 @@
 <class>
 name: QQuaternion
 para: float,float,float,float
+managed
 </class>
 
 <comment>

@@ -1,6 +1,7 @@
 <class>
 name: QSqlRelation
 para: QString tableName, QString indexColumn, QString displayColumn
+managed
 </class>
 
 QString displayColumn(void)

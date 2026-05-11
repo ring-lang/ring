@@ -1,6 +1,7 @@
 <class>
 name: QBluetoothServiceInfo
 para: void
+managed
 </class>
 
 QVariant attribute(quint16 attributeId)

@@ -1,6 +1,7 @@
 <class>
 name: QModelIndex
 para: void
+managed
 </class>
 
 int column(void)

@@ -1,6 +1,7 @@
 <class>
 name: QVoice
 para: void
+managed
 </class>
 
 QVoice::Age age(void)

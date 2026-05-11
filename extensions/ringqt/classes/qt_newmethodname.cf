@@ -22,4 +22,8 @@ aNewMethodName + ["QBluetoothTransferManager","put","putdata"]
 aNewMethodName + ["QCoreApplication","exit","exitfromapplication"]
 aNewMethodName + ["QOpenGLTimerQuery","end","endtimer"]
 aNewMethodName + ["QWizard","next","nextpage"]
+aNewMethodName + ["QSvgWidget","load","loadfile"]
+aNewMethodName + ["QSvgRenderer","load","loadfile"]
+aNewMethodName + ["QQmlApplicationEngine","load","loadfile"]
+aNewMethodName + ["QQmlContext","setcontextproperty@2","setcontextpropertyusingobject"]
 </runcode>

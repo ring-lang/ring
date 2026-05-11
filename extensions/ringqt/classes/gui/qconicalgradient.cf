@@ -2,6 +2,7 @@
 name: QConicalGradient
 para: void
 parent: QGradient
+managed
 </class>
 
 qreal angle(void)

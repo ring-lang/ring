@@ -1,6 +1,7 @@
 <class>
 name: QNetworkCookie
 para: QByteArray name, QByteArray value
+managed
 </class>
 
 QString domain(void)

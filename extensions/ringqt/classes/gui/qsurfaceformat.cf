@@ -1,6 +1,7 @@
 <class>
 name: QSurfaceFormat
 para: void
+managed
 </class>
 
 int alphaBufferSize(void)

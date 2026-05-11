@@ -1,6 +1,7 @@
 <class>
 name: QPrinter
 para: QPrinter::PrinterMode
+managed
 </class>
 
 bool abort(void)

@@ -9362,7 +9362,7 @@ RING_FUNC(ring_oscomwin_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(oscomwin_file((OSWindow *) RING_API_GETCPOINTER(1,"OSWindow"),(char_t **) RING_API_GETCPOINTER2POINTER(2,"char_t"), (const uint32_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (const bool_t ) RING_API_GETNUMBER(5)));
+	RING_API_RETSTRING(oscomwin_file((OSWindow *) RING_API_GETCPOINTER(1,"OSWindow"),(const char_t **) RING_API_GETCPOINTER2POINTER(2,"char_t"), (const uint32_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (const bool_t ) RING_API_GETNUMBER(5)));
 }
 
 
@@ -19349,7 +19349,7 @@ RING_FUNC(ring_comwin_open_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(comwin_open_file((Window *) RING_API_GETCPOINTER(1,"Window"),(char_t **) RING_API_GETCPOINTER2POINTER(2,"char_t"), (const uint32_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4)));
+	RING_API_RETSTRING(comwin_open_file((Window *) RING_API_GETCPOINTER(1,"Window"),(const char_t **) RING_API_GETCPOINTER2POINTER(2,"char_t"), (const uint32_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4)));
 }
 
 
@@ -19376,7 +19376,7 @@ RING_FUNC(ring_comwin_save_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(comwin_save_file((Window *) RING_API_GETCPOINTER(1,"Window"),(char_t **) RING_API_GETCPOINTER2POINTER(2,"char_t"), (const uint32_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4)));
+	RING_API_RETSTRING(comwin_save_file((Window *) RING_API_GETCPOINTER(1,"Window"),(const char_t **) RING_API_GETCPOINTER2POINTER(2,"char_t"), (const uint32_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4)));
 }
 
 
@@ -32149,7 +32149,7 @@ RING_FUNC(ring_hfile_dir_sync)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(hfile_dir_sync(RING_API_GETSTRING(1),RING_API_GETSTRING(2), (const bool_t ) RING_API_GETNUMBER(3), (const bool_t ) RING_API_GETNUMBER(4),(char_t **) RING_API_GETCPOINTER2POINTER(5,"char_t"), (const uint32_t ) RING_API_GETNUMBER(6),(ferror_t *) RING_API_GETCPOINTER(7,"ferror_t")));
+	RING_API_RETNUMBER(hfile_dir_sync(RING_API_GETSTRING(1),RING_API_GETSTRING(2), (const bool_t ) RING_API_GETNUMBER(3), (const bool_t ) RING_API_GETNUMBER(4),(const char_t **) RING_API_GETCPOINTER2POINTER(5,"char_t"), (const uint32_t ) RING_API_GETNUMBER(6),(ferror_t *) RING_API_GETCPOINTER(7,"ferror_t")));
 }
 
 

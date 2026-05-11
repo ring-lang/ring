@@ -2,6 +2,7 @@
 name: QLinearGradient
 para: void
 parent: QGradient
+managed
 </class>
 
 QPointF finalStop(void)

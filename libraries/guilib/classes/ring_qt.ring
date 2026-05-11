@@ -5898,6 +5898,74 @@ Class QSaveFile from QFileDevice
 	Func open P1
 		return QSaveFile_open(pObject,P1)
 
+Class QStorageInfo
+
+	pObject
+
+	Func init P1
+		pObject = QStorageInfo_new(P1)
+		return self
+
+	Func delete
+		pObject = QStorageInfo_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func blockSize 
+		return QStorageInfo_blockSize(pObject)
+
+	Func device 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStorageInfo_device(pObject)
+		return pTempObj
+
+	Func displayName 
+		return QStorageInfo_displayName(pObject)
+
+	Func fileSystemType 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStorageInfo_fileSystemType(pObject)
+		return pTempObj
+
+	Func bytesAvailable 
+		return QStorageInfo_bytesAvailable(pObject)
+
+	Func bytesFree 
+		return QStorageInfo_bytesFree(pObject)
+
+	Func bytesTotal 
+		return QStorageInfo_bytesTotal(pObject)
+
+	Func isReadOnly 
+		return QStorageInfo_isReadOnly(pObject)
+
+	Func isReady 
+		return QStorageInfo_isReady(pObject)
+
+	Func isRoot 
+		return QStorageInfo_isRoot(pObject)
+
+	Func isValid 
+		return QStorageInfo_isValid(pObject)
+
+	Func name 
+		return QStorageInfo_name(pObject)
+
+	Func refresh 
+		return QStorageInfo_refresh(pObject)
+
+	Func rootPath 
+		return QStorageInfo_rootPath(pObject)
+
+	Func subvolume 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QStorageInfo_subvolume(pObject)
+		return pTempObj
+
+	Func setPath P1
+		return QStorageInfo_setPath(pObject,P1)
+
 Class QDesktopServices
 
 	pObject
@@ -27909,7 +27977,9 @@ Class QGraphicsSvgItem from QGraphicsObject
 		return pTempObj
 
 	Func renderer 
-		return QGraphicsSvgItem_renderer(pObject)
+		pTempObj = new QSvgRenderer
+		pTempObj.pObject = QGraphicsSvgItem_renderer(pObject)
+		return pTempObj
 
 	Func setElementId P1
 		return QGraphicsSvgItem_setElementId(pObject,P1)
@@ -33978,7 +34048,7 @@ Class QQmlContext from QObject
 	Func setContextProperty P1,P2
 		return QQmlContext_setContextProperty(pObject,P1,GetObjectPointerFromRingObject(P2))
 
-	Func setContextProperty_2 P1,P2
+	Func setcontextpropertyusingobject P1,P2
 		return QQmlContext_setContextProperty_2(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func contextObject 
@@ -34148,7 +34218,7 @@ Class QQmlApplicationEngine from QQmlEngine
 	Func rootObjects 
 		return QQmlApplicationEngine_rootObjects(pObject)
 
-	Func load P1
+	Func loadfile P1
 		return QQmlApplicationEngine_load(pObject,P1)
 
 	Func load_2 P1
@@ -34189,9 +34259,14 @@ Class QQmlExpression from QObject
 	Func expression 
 		return QQmlExpression_expression(pObject)
 
-	Func evaluate P1
+	Func evaluate 
 		pTempObj = new QVariant
-		pTempObj.pObject = QQmlExpression_evaluate(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QQmlExpression_evaluate(pObject)
+		return pTempObj
+
+	Func evaluate_2 P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QQmlExpression_evaluate_2(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 	Func hasError 
@@ -40742,6 +40817,171 @@ Class QXYSeries from QAbstractSeries
 
 	Func getreleasedEvent 
 		return QXYSeries_getreleasedEvent(pObject)
+
+Class QSvgWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QSvgWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSvgWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func renderer 
+		pTempObj = new QSvgRenderer
+		pTempObj.pObject = QSvgWidget_renderer(pObject)
+		return pTempObj
+
+	Func loadfile P1
+		return QSvgWidget_load(pObject,P1)
+
+	Func load_2 P1
+		return QSvgWidget_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QSvgGenerator from QPaintDevice
+
+	pObject
+
+	Func init 
+		pObject = QSvgGenerator_new()
+		return self
+
+	Func delete
+		pObject = QSvgGenerator_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func description 
+		return QSvgGenerator_description(pObject)
+
+	Func fileName 
+		return QSvgGenerator_fileName(pObject)
+
+	Func outputDevice 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QSvgGenerator_outputDevice(pObject)
+		return pTempObj
+
+	Func resolution 
+		return QSvgGenerator_resolution(pObject)
+
+	Func size 
+		pTempObj = new QSize
+		pTempObj.pObject = QSvgGenerator_size(pObject)
+		return pTempObj
+
+	Func title 
+		return QSvgGenerator_title(pObject)
+
+	Func viewBox 
+		pTempObj = new QRect
+		pTempObj.pObject = QSvgGenerator_viewBox(pObject)
+		return pTempObj
+
+	Func viewBoxF 
+		pTempObj = new QRectF
+		pTempObj.pObject = QSvgGenerator_viewBoxF(pObject)
+		return pTempObj
+
+	Func setDescription P1
+		return QSvgGenerator_setDescription(pObject,P1)
+
+	Func setFileName P1
+		return QSvgGenerator_setFileName(pObject,P1)
+
+	Func setOutputDevice P1
+		return QSvgGenerator_setOutputDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setResolution P1
+		return QSvgGenerator_setResolution(pObject,P1)
+
+	Func setSize P1
+		return QSvgGenerator_setSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTitle P1
+		return QSvgGenerator_setTitle(pObject,P1)
+
+	Func setViewBox P1
+		return QSvgGenerator_setViewBox(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewBox_2 P1
+		return QSvgGenerator_setViewBox_2(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QSvgRenderer from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QSvgRenderer_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSvgRenderer_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func animated 
+		return QSvgRenderer_animated(pObject)
+
+	Func boundsOnElement P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QSvgRenderer_boundsOnElement(pObject,P1)
+		return pTempObj
+
+	Func defaultSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QSvgRenderer_defaultSize(pObject)
+		return pTempObj
+
+	Func elementExists P1
+		return QSvgRenderer_elementExists(pObject,P1)
+
+	Func framesPerSecond 
+		return QSvgRenderer_framesPerSecond(pObject)
+
+	Func isValid 
+		return QSvgRenderer_isValid(pObject)
+
+	Func setFramesPerSecond P1
+		return QSvgRenderer_setFramesPerSecond(pObject,P1)
+
+	Func setViewBox P1
+		return QSvgRenderer_setViewBox(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setViewBox_2 P1
+		return QSvgRenderer_setViewBox_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func viewBox 
+		pTempObj = new QRect
+		pTempObj.pObject = QSvgRenderer_viewBox(pObject)
+		return pTempObj
+
+	Func viewBoxF 
+		pTempObj = new QRectF
+		pTempObj.pObject = QSvgRenderer_viewBoxF(pObject)
+		return pTempObj
+
+	Func loadfile P1
+		return QSvgRenderer_load(pObject,P1)
+
+	Func load_2 P1
+		return QSvgRenderer_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func render P1
+		return QSvgRenderer_render(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func render_2 P1,P2
+		return QSvgRenderer_render_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func render_3 P1,P2,P3
+		return QSvgRenderer_render_3(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
 
 Class QSize
 

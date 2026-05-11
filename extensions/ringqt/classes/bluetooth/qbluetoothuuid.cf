@@ -2,6 +2,7 @@
 name: QBluetoothUuid
 para: void
 parent: QUuid
+managed
 </class>
 
 int minimumSize(void)

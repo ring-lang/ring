@@ -2,13 +2,15 @@
 name: QQmlExpression
 para: QQmlContext *ctxt, QObject *scope, QString expression
 parent: QObject
+managed
 </class>
 
 QQmlContext *context(void)
 QQmlEngine *engine(void)
 QQmlError error(void)
 QString expression(void)
-QVariant evaluate(bool *valueIsUndefined)
+QVariant evaluate(void)
+QVariant evaluate@2(bool *valueIsUndefined)
 bool hasError(void)
 bool notifyOnValueChanged(void)
 QObject *scopeObject(void)

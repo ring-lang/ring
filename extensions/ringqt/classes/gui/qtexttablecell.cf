@@ -1,6 +1,7 @@
 <class>
 name: QTextTableCell
 para: void
+managed
 </class>
 
 int column(void)

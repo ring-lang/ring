@@ -1,6 +1,7 @@
 <class>
 name: QAudioDeviceInfo
 para: void
+managed
 </class>
 
 QString deviceName(void)

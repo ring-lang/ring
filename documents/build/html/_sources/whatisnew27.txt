@@ -18,10 +18,12 @@ Ring 1.27 comes with the next features!
 * Research Article
 * Better Performance
 * Solitaire Game
+* Better Extensions
 * More Samples
 * Ring-Python Package
 * Ring-CFFI Package
 * Better Functions
+* Better Ring API
 * More Improvements
 
 .. index:: 
@@ -124,6 +126,50 @@ Install and run:
 	:alt: Solitaire Game
 
 .. index:: 
+	pair: What is new in Ring  1.27; Better Extensions
+
+Better Extensions
+=================
+
+* RingFastPro Extension - Better Performance
+* RingFastPro Extension - Added Transform3D() function
+* RingQt Extension - Added: QStorageInfo class
+* RingQt Extension - Added: QSvgWidget class
+* RingQt Extension - Added: QSvgRenderer class
+* RingQt Extension - Added: QSvgGenerator class
+* RingQt Extension - Added: QQmlContext class
+* RingQt Extension - Added: QQmlProperty class
+* RingQt Extension - Added: QQmlExpression class
+* RingQt Extension - Added: QQmlComponent class
+* RingQt Extension - Added: QQmlApplicationEngine class
+* RingQt Extension - Many classes have been converted into managed classes
+* RingLibSDL Extension - Revised SDL_QueryTexture()
+* RingLibSDL Extension - Revised SDL_RenderGetScale()
+* RingLibSDL Extension - Revised SDL_GL_BindTexture()
+* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
+
+The next samples are added to demonstrates some of the new features
+
+* samples/UsingQt/SVG/test1.ring
+* samples/UsingQt/SVG/test2.ring
+* samples/UsingQML/WebAsm_ChatInterface/main.ring
+* samples/UsingQML/RingQML_Communication/test1.ring
+* samples/UsingQML/RingQML_Communication/test2.ring
+* samples/UsingQML/RingQML_Communication/test3.ring
+* samples/UsingQML/RingQML_Communication/AnalogClock.ring
+* samples/UsingQML/RingQML_Communication/Calculator.ring
+* samples/UsingQML/RingQML_Communication/ColorPicker.ring
+* samples/UsingQML/RingQML_Communication/FormBuilder.ring
+* samples/UsingQML/RingQML_Communication/TodoList.ring
+* samples/UsingQML/RingQML_Communication/QuizGame.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
+
+The next screen shot for the Chat Interface sample developed using Ring and QML
+
+.. image:: ringchatandroid.png
+	:alt: Ring Chat (Android)
+
+.. index:: 
 	pair: What is new in Ring  1.27; More Samples
 
 More Samples
@@ -133,37 +179,38 @@ More Samples
 
 (2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
 
-(3) The next samples are revised
+(3) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
+
+(4) The next samples are revised
 
 * samples/UsingLibCurl/test12.ring
 * samples/UsingLibCurl/test13.ring
+* samples/UsingQt/TableWidget/QTableWidget.ring 
 
-(4) The next samples are added to the samples foder:
+(5) The next samples are added to the samples foder:
 
+* samples/Language/ClassMethods/nestedanonymous.ring
 * samples/General/RosettaCode/YinYang.ring
 * samples/General/RosettaCode/YinYang2.ring
 * samples/General/FindAnadromes/process.ring
 * samples/General/FindAnadromes/process2.ring
 * samples/General/Performance/ringper.ring
 * samples/General/Performance/nqueensbitmask.ring
-* samples/Language/ClassMethods/nestedanonymous.ring
+* samples/General/Orbital/Earth_Orbit_Zodiac.ring
+* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
+* samples/UsingArabic/WriteArabicDate/DateServices.ring 
 * samples/UsingFreeGLUT/Hex_Sphere.ring
 * samples/UsingFreeGLUT/Penta_Sphere.ring
 * samples/UsingFreeGLUT/Octagon_Sphere.ring
 * samples/UsingFreeGLUT/SinCos_Surface.ring 
 * samples/UsingRogueUtil/matrix_rain.ring
 * samples/UsingRayLib/more/ex11_matrix_rain.ring
-* samples/General/Orbital/Earth_Orbit_Zodiac.ring
-* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
-* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
-
 
 .. image:: advancedfreeglut.png
 	:alt: Advanced FreeGLUT Samples
 
 .. image:: astronomyvisualization.png
 	:alt: Astronomy Visualization
-
 
 .. index:: 
 	pair: What is new in Ring  1.27; Ring-Python Package
@@ -273,6 +320,7 @@ Output:
 	sqrt(25) = 5
 	Hello, World! Number: 123
 
+
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
 
@@ -291,7 +339,8 @@ Better Functions
 * Ring_State_MainFile() - Thread safe implementation
 * Ring_State_Delete() - Use: RING_API_SETNULLPOINTER 
 * Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag
-* Ring_State_FindVar() - return zero if the variable is not found
+* Ring_State_FindVar() - Return zero if the variable is not found
+* Ring_State_RunObjectFile() - Return True/False
 * Unsigned() - Better Implementation - Remove unnecessary checks
 * Unsigned() - Accept the operator before/after the numbers 
 * Unsigned() - Check variable size before the shift operation
@@ -318,16 +367,33 @@ Better Functions
 * System() - Return the function output
 * Assert() - Follow Ring's rules for evaluating values as True or False
 * Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage
-* RingFastPro Extension - Better Performance
-* RingFastPro Extension - Added Transform3D() function
-* RingLibSDL Extension - Revised SDL_QueryTexture()
-* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
-* RingQt Extension - Added: QQmlContext 
-* RingQt Extension - Added: QQmlProperty 
-* RingQt Extension - Added: QQmlExpression 
-* RingQt Extension - Added: QQmlComponent 
-* RingQt Extension - Added: QQmlApplicationEngine
-* RingQt Extension - Revised QOpenGLTexture_borderColor_4() function
+* Lines() - Return zero if the input is an empty string
+* Lines() - Don't increment the line count for a new line at the last index
+* List2Str() - Don't add extra line at start when processing sub list
+
+.. index:: 
+	pair: What is new in Ring  1.27; Better Ring API
+
+Better Ring API
+===============
+
+The next features are added to Ring API (Useful when writing C extensions for Ring)
+
+* RING_API_GETUNSIGNEDINTPOINTER(nParameter) 
+* RING_API_ACCEPTUNSIGNEDINTVALUE(nParameter) 
+* RING_API_GETSHORTINTPOINTER(nParameter) 
+* RING_API_ACCEPTSHORTINTVALUE(nParameter)
+* RING_API_GETUNSIGNEDSHORTINTPOINTER(nParameter) 
+* RING_API_ACCEPTUNSIGNEDSHORTINTVALUE(nParameter)
+* RING_API_GETLONGINTPOINTER(nParameter) 
+* RING_API_ACCEPTLONGINTVALUE(nParameter)
+* RING_API_GETUNSIGNEDLONGINTPOINTER(nParameter) 
+* RING_API_ACCEPTUNSIGNEDLONGINTVALUE(nParameter)
+
+Also, the Code Generator for Extensions is revised to support the added features 
+
+* The aPassPointers list is used to control passing pointers to functions
+* The aNumberTypes list is revised to detect many numeric types automatically
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Improvements
@@ -339,13 +405,6 @@ More Improvements
 * language/build/buildgccstatic.bat - Build ringw.exe too
 * language/build/builddos.bat - Set stack size to 64K
 * Ring for Linux - Modernize build scripts using pkg-config
-* Ring API - Added RING_API_GETUNSIGNEDINTPOINTER() and RING_API_ACCEPTUNSIGNEDINTVALUE() 
-* Ring API - Added RING_API_GETSHORTINTPOINTER() and RING_API_ACCEPTSHORTINTVALUE()
-* Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()
-* Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()
-* Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()
-* Extensions Generator - The aNumberTypes list is revised 
-* Extensions Generator - Using aPassPointers list to control passing pointers to functions
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
 * Ring VM - ring_general_justfilename() - Better Code
@@ -364,6 +423,7 @@ More Improvements
 * Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read
 * Ring VM - ring_string_add2_gc() - Check string capacity overflow 
 * Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)
+* Ring VM - ring_vm_oop_parentmethods() - Better Code
 * Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers
 * Ring VM - Save/Restore state when using Braces - Better Performance
 * Ring VM - pObjState information - Use array of structure instead of Ring Lists

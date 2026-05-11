@@ -3,4 +3,5 @@ name: QTextStream5
 para: QByteArray *, QIODevice::OpenMode
 parent: QTextStream
 codename: QTextStream
+managed
 </class>

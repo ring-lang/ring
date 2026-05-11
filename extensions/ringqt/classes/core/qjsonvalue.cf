@@ -1,6 +1,7 @@
 <class>
 name: QJsonValue
 para: void
+managed
 </class>
 
 bool isArray(void)

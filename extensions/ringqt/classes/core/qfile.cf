@@ -2,6 +2,7 @@
 name: QFile
 para: void
 parent: QFileDevice
+managed
 </class>
 
 bool copy(QString newName)

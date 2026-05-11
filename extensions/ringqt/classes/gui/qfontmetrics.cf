@@ -1,6 +1,7 @@
 <class>
 name: QFontMetrics
 para: QFont
+managed
 </class>
 
 int ascent(void)

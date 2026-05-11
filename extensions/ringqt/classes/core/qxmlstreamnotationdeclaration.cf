@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamNotationDeclaration
 para: void
+managed
 </class>
 
 QStringRef name(void)

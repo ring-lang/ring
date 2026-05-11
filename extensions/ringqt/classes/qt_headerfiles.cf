@@ -361,6 +361,8 @@ extern "C" {
 #include <QtCharts>
 </filter>
 
-
+<filter> sysget("RINGQT_NOSVG") = ""
+#include <QtSvg>
+</filter>
 
 </code>

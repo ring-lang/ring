@@ -1,6 +1,7 @@
 <class>
 name: QSizePolicy
 para: void
+managed
 </class>
 
 Qt::Orientations expandingDirections(void)

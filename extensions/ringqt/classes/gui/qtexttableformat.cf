@@ -1,6 +1,7 @@
 <class>
 name: QTextTableFormat
 para: void
+managed
 </class>
 
 Qt::Alignment alignment(void)

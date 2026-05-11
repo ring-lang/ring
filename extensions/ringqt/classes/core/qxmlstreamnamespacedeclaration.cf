@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamNamespaceDeclaration
 para: void
+managed
 </class>
 
 QStringRef namespaceUri(void)

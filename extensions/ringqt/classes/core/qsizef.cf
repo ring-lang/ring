@@ -1,6 +1,7 @@
 <class>
 name: QSizeF
 para: void
+managed
 </class>
 
 qreal height(void)

@@ -616,12 +616,12 @@ void ring_vm_generallib_list2str(void *pPointer) {
 	pString = ring_string_new_gc(((VM *)pPointer)->pRingState, RING_CSTR_EMPTY);
 	for (x = nStart; x <= nMax; x++) {
 		if (ring_list_isstring(pList, x)) {
-			if (x != 1) {
+			if (x != nStart) {
 				ring_string_add_gc(((VM *)pPointer)->pRingState, pString, "\n");
 			}
 			ring_string_add_gc(((VM *)pPointer)->pRingState, pString, ring_list_getstring(pList, x));
 		} else if (ring_list_isnumber(pList, x)) {
-			if (x != 1) {
+			if (x != nStart) {
 				ring_string_add_gc(((VM *)pPointer)->pRingState, pString, "\n");
 			}
 			ring_vm_numtostring((VM *)pPointer, ring_list_getdouble(pList, x), cStr);
@@ -1056,9 +1056,9 @@ void ring_vm_generallib_lines(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		cStr = RING_API_GETSTRING(1);
 		nSize = RING_API_GETSTRINGSIZE(1);
-		nCount = 1;
+		nCount = (nSize > 0);
 		for (x = 0; x < nSize; x++) {
-			if (cStr[x] == '\n') {
+			if ((cStr[x] == '\n') && (x != nSize - 1)) {
 				nCount++;
 			}
 		}
@@ -1619,7 +1619,7 @@ void ring_vm_generallib_state_runobjectfile(void *pPointer) {
 	}
 	pRingState = (RingState *)RING_API_GETCPOINTER(1, "RINGSTATE");
 	RING_API_CHECKNULLPOINTER(pRingState);
-	ring_state_runobjectfile(pRingState, RING_API_GETSTRING(2));
+	RING_API_RETNUMBER(ring_state_runobjectfile(pRingState, RING_API_GETSTRING(2)));
 }
 
 void ring_vm_generallib_state_main(void *pPointer) {
@@ -1749,7 +1749,7 @@ void ring_vm_generallib_state_mainfile(void *pPointer) {
 	pRingState->lDontDeleteTheVM = 1;
 	lOutput = 1;
 	if (ring_general_isobjectfile(cStr)) {
-		ring_state_runobjectfile(pRingState, cStr);
+		lOutput = ring_state_runobjectfile(pRingState, cStr);
 	} else {
 		lOutput = ring_state_runfile(pRingState, cStr);
 	}

@@ -23,6 +23,7 @@ export RINGQT_NOWEBKIT=1
 export RINGQT_NOBLUETOOTH=1
 export RINGQT_NOCHARTS=1
 export RINGQT_NOGRAPHICSSVG=1
+export RINGQT_NOSVG=1
 
 ../../bin/ring ../codegen/parsec.ring classes/qt.cf cpp/src/ring_qt_light.cpp ../../libraries/guilib/classes/ring_qt_light.ring
 cd events

@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamAttributes
 para: void
+managed
 </class>
 
 void append(QString  namespaceUri, QString  name, QString  value)

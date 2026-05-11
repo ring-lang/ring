@@ -2,6 +2,7 @@
 name: QSaveFile
 para: QString name
 parent: QFileDevice
+managed
 </class>
 
 void cancelWriting(void)

@@ -1,6 +1,7 @@
 <class>
 name: QOpenGLVersionProfile
 para: void
+managed
 </class>
 
 bool hasProfiles(void)

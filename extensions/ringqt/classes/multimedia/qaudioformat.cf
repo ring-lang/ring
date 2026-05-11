@@ -1,6 +1,7 @@
 <class>
 name: QAudioFormat
 para: void
+managed
 </class>
 
 QAudioFormat::Endian byteOrder(void)

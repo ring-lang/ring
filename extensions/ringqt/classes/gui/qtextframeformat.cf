@@ -1,6 +1,7 @@
 <class>
 name: QTextFrameFormat
 para: void
+managed
 </class>
 
 qreal border(void)

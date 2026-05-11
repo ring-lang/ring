@@ -1,6 +1,7 @@
 <class>
 name: QTextCursor
 para: void
+managed
 </class>
 
 int anchor(void)

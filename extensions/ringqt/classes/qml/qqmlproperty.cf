@@ -1,6 +1,7 @@
 <class>
 name: QQmlProperty
 para: QObject *obj, QString name
+managed
 </class>
 
 QQmlProperty::Type type(void)

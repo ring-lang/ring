@@ -2,6 +2,7 @@
 <class>
 name: QPixmap
 para: const char *
+managed
 </class>
 
 QPixmap transformed(QTransform transform, Qt::TransformationMode mode)

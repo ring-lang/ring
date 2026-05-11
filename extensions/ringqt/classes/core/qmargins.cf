@@ -1,6 +1,7 @@
 <class>
 name: QMargins
 para: void
+managed
 </class>
 
 int bottom(void)

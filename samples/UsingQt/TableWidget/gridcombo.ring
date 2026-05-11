@@ -49,7 +49,6 @@ New qApp
 
 func pKeyPress
 	nKeyCode = myfilter.getkeycode()
-	#see "keycode " + nKeyCode +  nl
 	if nKeyCode = 16777220
 		Table1 { 
 			if currentcolumn() = ColumnCount()-1

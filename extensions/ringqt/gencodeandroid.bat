@@ -2,6 +2,7 @@ set RINGQT_WEBASSEMBLY=
 set RINGQT_ANDROID=1
 set RINGQT_NOWEBKIT=
 set RINGQT_NOBLUETOOTH=1
+set RINGQT_NOSVG=
 ..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
 cd events
 ..\..\..\bin\ring qtevents.ring

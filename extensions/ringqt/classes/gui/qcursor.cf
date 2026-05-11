@@ -1,6 +1,7 @@
 <class>
 name: QCursor
 para: void
+managed
 </class>
 
 <comment>

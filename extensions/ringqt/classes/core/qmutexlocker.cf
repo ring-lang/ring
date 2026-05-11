@@ -1,6 +1,7 @@
 <class>
 name: QMutexLocker
 para: QMutex *
+managed
 </class>
 
 QMutex * mutex(void)

@@ -1,6 +1,7 @@
 <class>
 name: QXmlStreamReader
 para: void
+managed
 </class>
 
 void addData(QByteArray)

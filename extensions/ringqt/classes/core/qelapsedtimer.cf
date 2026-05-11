@@ -1,6 +1,7 @@
 <class>
 name: QElapsedTimer
 para: void
+managed
 </class>
 
 qint64 elapsed(void)

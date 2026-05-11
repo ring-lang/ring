@@ -1,6 +1,7 @@
 <class>
 name: QPageSize
 para: void
+managed
 </class>
 
 QSizeF definitionSize(void)

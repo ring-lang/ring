@@ -1,6 +1,7 @@
 <class>
 name: QTextStream
 para: void
+managed
 </class>
 
 <runcode>

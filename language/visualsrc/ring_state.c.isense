@@ -179,12 +179,12 @@ c
 ring_state_exit
 ring_state_cgiheader
 ring_state_main
-Type: int
-x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn
 Type: char *
 cStr
 Type: char
 cFileName[RING_SMALLBUF]
+Type: int
+x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn
 ring_state_execute
 Type: RingState *
 pRingState

@@ -1,6 +1,7 @@
 <class>
 name: QOpenGLFramebufferObject
 para: int,int,GLenum
+managed
 </class>
 
 <comment>

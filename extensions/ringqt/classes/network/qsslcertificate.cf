@@ -1,6 +1,7 @@
 <class>
 name: QSslCertificate
 para: void
+managed
 </class>
 
 void clear(void)

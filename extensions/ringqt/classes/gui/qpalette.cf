@@ -1,6 +1,7 @@
 <class>
 name: QPalette
 para: void
+managed
 </class>
 
 QBrush alternateBase(void)

@@ -1,6 +1,7 @@
 <class>
 name: QSqlRecord
 para: void
+managed
 </class>
 
 void append(QSqlField)

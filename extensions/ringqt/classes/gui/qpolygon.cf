@@ -1,6 +1,7 @@
 <class>
 name: QPolygon
 para: void
+managed
 </class>
 
 QRect boundingRect(void)

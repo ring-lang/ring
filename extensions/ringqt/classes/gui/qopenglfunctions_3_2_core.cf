@@ -1,6 +1,7 @@
 <class>
 name: QOpenGLFunctions_3_2_Core
 para: void
+managed
 </class>
 
 void glActiveTexture(GLenum texture)

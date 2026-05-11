@@ -1,6 +1,7 @@
 <class>
 name: QVector4D
 para: float,float,float,float
+managed
 </class>
 
 bool isNull(void)

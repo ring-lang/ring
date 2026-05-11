@@ -11244,6 +11244,83 @@ Parent Class : QAbstractButton
 * const char *getClickEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QQmlApplicationEngine Class
+
+QQmlApplicationEngine Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qqmlapplicationengine.html
+
+
+Parameters : void
+
+
+Parent Class : QQmlEngine
+
+* QList<QObject *> rootObjects(void)
+* void load(QString filePath)
+* void load_2(QUrl url)
+* void loadData(QByteArray data, QUrl url)
+
+.. index::
+	pair: RingQt Classes Reference; QQmlComponent Class
+
+QQmlComponent Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qqmlcomponent.html
+
+
+Parameters : QQmlEngine *engine
+
+
+Parent Class : QObject
+
+* QUrl url(void)
+* QQmlComponent::Status status(void)
+* bool isNull(void)
+* bool isReady(void)
+* bool isError(void)
+* bool isLoading(void)
+* qreal progress(void)
+* QQmlContext *creationContext(void)
+* QObject *create(QQmlContext *context)
+* void loadUrl(QUrl url)
+* void loadUrl_2(QUrl url, QQmlComponent::CompilationMode mode)
+* void setData(QByteArray data, QUrl url)
+* QList<QQmlError> errors(void)
+
+.. index::
+	pair: RingQt Classes Reference; QQmlContext Class
+
+QQmlContext Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qqmlcontext.html
+
+
+Parameters : QQmlEngine *engine
+
+
+Parent Class : QObject
+
+* QUrl baseUrl(void)
+* QQmlContext *parentContext(void)
+* QQmlEngine *engine(void)
+* bool isValid(void)
+* QString nameForObject(QObject *object)
+* QUrl resolvedUrl(QUrl src)
+* void setBaseUrl(QUrl baseUrl)
+* void setContextObject(QObject *object)
+* void setContextProperty(QString name, QVariant value)
+* void setContextProperty_2(QString name, QObject *value)
+* QObject *contextObject(void)
+* QVariant contextProperty(QString name)
+
+.. index::
 	pair: RingQt Classes Reference; QQmlEngine Class
 
 QQmlEngine Class
@@ -11310,6 +11387,72 @@ Parameters : void
 * void setUrl(QUrl url)
 * QString toString(void)
 * QUrl url(void)
+
+.. index::
+	pair: RingQt Classes Reference; QQmlExpression Class
+
+QQmlExpression Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qqmlexpression.html
+
+
+Parameters : QQmlContext *ctxt, QObject *scope, QString expression
+
+
+Parent Class : QObject
+
+* QQmlContext *context(void)
+* QQmlEngine *engine(void)
+* QQmlError error(void)
+* QString expression(void)
+* QVariant evaluate(void)
+* QVariant evaluate_2(bool *valueIsUndefined)
+* bool hasError(void)
+* bool notifyOnValueChanged(void)
+* QObject *scopeObject(void)
+* int lineNumber(void)
+* int columnNumber(void)
+* QString sourceFile(void)
+* void clearError(void)
+* void setExpression(QString expression)
+* void setNotifyOnValueChanged(bool notifyOnChange)
+* void setSourceLocation(QString url, int line, int column)
+
+.. index::
+	pair: RingQt Classes Reference; QQmlProperty Class
+
+QQmlProperty Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qqmlproperty.html
+
+
+Parameters : QObject *obj, QString name
+
+* QQmlProperty::Type type(void)
+* bool isValid(void)
+* bool isProperty(void)
+* bool isSignalProperty(void)
+* bool isWritable(void)
+* bool isDesignable(void)
+* bool isResettable(void)
+* bool hasNotifySignal(void)
+* bool needsNotifySignal(void)
+* int propertyType(void)
+* const char *propertyTypeName(void)
+* QString name(void)
+* QVariant read(void)
+* bool write(QVariant value)
+* bool reset(void)
+* QObject *object(void)
+* int index(void)
+* QMetaMethod method(void)
+* QMetaProperty property(void)
+* bool connectNotifySignal(QObject *dest, int method)
+* bool connectNotifySignal_2(QObject *dest, const char *slot)
 
 .. index::
 	pair: RingQt Classes Reference; QQuaternion Class
@@ -13422,6 +13565,35 @@ Parent Class : QWidget
 * void showMessage(QString , int timeout)
 
 .. index::
+	pair: RingQt Classes Reference; QStorageInfo Class
+
+QStorageInfo Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qstorageinfo.html
+
+
+Parameters : QString path
+
+* int blockSize(void)
+* QByteArray device(void)
+* QString displayName(void)
+* QByteArray fileSystemType(void)
+* qint64 bytesAvailable(void)
+* qint64 bytesFree(void)
+* qint64 bytesTotal(void)
+* bool isReadOnly(void)
+* bool isReady(void)
+* bool isRoot(void)
+* bool isValid(void)
+* QString name(void)
+* void refresh(void)
+* QString rootPath(void)
+* QByteArray subvolume(void)
+* void setPath(QString path)
+
+.. index::
 	pair: RingQt Classes Reference; QString2 Class
 
 QString2 Class
@@ -13724,6 +13896,88 @@ Parameters : void
 * bool testOption(QSurfaceFormat::FormatOption option)
 * QSurfaceFormat defaultFormat(void)
 * void setDefaultFormat(QSurfaceFormat format)
+
+.. index::
+	pair: RingQt Classes Reference; QSvgGenerator Class
+
+QSvgGenerator Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qsvggenerator.html
+
+
+Parameters : void
+
+
+Parent Class : QPaintDevice
+
+* QString description(void)
+* QString fileName(void)
+* QIODevice *outputDevice(void)
+* int resolution(void)
+* QSize size(void)
+* QString title(void)
+* QRect viewBox(void)
+* QRectF viewBoxF(void)
+* void setDescription(QString description)
+* void setFileName(QString fileName)
+* void setOutputDevice(QIODevice *outputDevice)
+* void setResolution(int dpi)
+* void setSize(QSize size)
+* void setTitle(QString title)
+* void setViewBox(QRect viewBox)
+* void setViewBox_2(QRectF viewBox)
+
+.. index::
+	pair: RingQt Classes Reference; QSvgRenderer Class
+
+QSvgRenderer Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qsvgrenderer.html
+
+
+Parameters : QObject *parent
+
+
+Parent Class : QObject
+
+* bool animated(void)
+* QRectF boundsOnElement(QString id)
+* QSize defaultSize(void)
+* bool elementExists(QString id)
+* int framesPerSecond(void)
+* bool isValid(void)
+* void setFramesPerSecond(int num)
+* void setViewBox(QRect viewbox)
+* void setViewBox_2(QRectF viewbox)
+* QRect viewBox(void)
+* QRectF viewBoxF(void)
+* bool load(QString filename)
+* bool load_2(QByteArray contents)
+* void render(QPainter *painter)
+* void render_2(QPainter *painter, QRectF bounds)
+* void render_3(QPainter *painter, QString elementId, QRectF bounds)
+.. index::
+	pair: RingQt Classes Reference; QSvgWidget Class
+
+QSvgWidget Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qsvgwidget.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWidget
+
+* QSvgRenderer *renderer(void)
+* void load(QString file)
+* void load_2(QByteArray contents)
 
 .. index::
 	pair: RingQt Classes Reference; QSystemTrayIcon Class
@@ -17385,6 +17639,7 @@ Parent Class : QAbstractSeries
 * const char *getpointsReplacedEvent(void)
 * const char *getpressedEvent(void)
 * const char *getreleasedEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QXmlStreamAttribute Class
 

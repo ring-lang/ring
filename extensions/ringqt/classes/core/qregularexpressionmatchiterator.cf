@@ -1,6 +1,7 @@
 <class>
 name: QRegularExpressionMatchIterator
 para: void
+managed
 </class>
 
 bool hasNext(void)

@@ -1,6 +1,7 @@
 <class>
 name: QFontDatabase
 para: void
+managed
 </class>
 
 bool bold(QString family, QString style)

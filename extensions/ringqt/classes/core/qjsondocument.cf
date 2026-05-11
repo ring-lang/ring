@@ -1,6 +1,7 @@
 <class>
 name: QJsonDocument
 para: void
+managed
 </class>
 
 QJsonArray array(void)

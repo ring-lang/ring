@@ -185,10 +185,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#research-article">Research Article</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -233,10 +235,12 @@
 <li><p>Research Article</p></li>
 <li><p>Better Performance</p></li>
 <li><p>Solitaire Game</p></li>
+<li><p>Better Extensions</p></li>
 <li><p>More Samples</p></li>
 <li><p>Ring-Python Package</p></li>
 <li><p>Ring-CFFI Package</p></li>
 <li><p>Better Functions</p></li>
+<li><p>Better Ring API</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -341,43 +345,84 @@ ringpm run solitaire
 </div>
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
+<section id="better-extensions">
+<span id="index-5"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>RingFastPro Extension - Better Performance</p></li>
+<li><p>RingFastPro Extension - Added Transform3D() function</p></li>
+<li><p>RingQt Extension - Added: QStorageInfo class</p></li>
+<li><p>RingQt Extension - Added: QSvgWidget class</p></li>
+<li><p>RingQt Extension - Added: QSvgRenderer class</p></li>
+<li><p>RingQt Extension - Added: QSvgGenerator class</p></li>
+<li><p>RingQt Extension - Added: QQmlContext class</p></li>
+<li><p>RingQt Extension - Added: QQmlProperty class</p></li>
+<li><p>RingQt Extension - Added: QQmlExpression class</p></li>
+<li><p>RingQt Extension - Added: QQmlComponent class</p></li>
+<li><p>RingQt Extension - Added: QQmlApplicationEngine class</p></li>
+<li><p>RingQt Extension - Many classes have been converted into managed classes</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_QueryTexture()</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_RenderGetScale()</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_GL_BindTexture()</p></li>
+<li><p>RingLibSDL Extension - Removed SDL_GetRevisionNumber()</p></li>
+</ul>
+<p>The next samples are added to demonstrates some of the new features</p>
+<ul class="simple">
+<li><p>samples/UsingQt/SVG/test1.ring</p></li>
+<li><p>samples/UsingQt/SVG/test2.ring</p></li>
+<li><p>samples/UsingQML/WebAsm_ChatInterface/main.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test1.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test2.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test3.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/AnalogClock.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/Calculator.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/ColorPicker.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/FormBuilder.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/TodoList.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/QuizGame.ring</p></li>
+<li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring</p></li>
+</ul>
+<p>The next screen shot for the Chat Interface sample developed using Ring and QML</p>
+<img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
+</section>
 <section id="more-samples">
-<span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
+<li><p>Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures</p></li>
 <li><p>The next samples are revised</p></li>
 </ol>
 <ul class="simple">
 <li><p>samples/UsingLibCurl/test12.ring</p></li>
 <li><p>samples/UsingLibCurl/test13.ring</p></li>
+<li><p>samples/UsingQt/TableWidget/QTableWidget.ring</p></li>
 </ul>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li><p>The next samples are added to the samples foder:</p></li>
 </ol>
 <ul class="simple">
+<li><p>samples/Language/ClassMethods/nestedanonymous.ring</p></li>
 <li><p>samples/General/RosettaCode/YinYang.ring</p></li>
 <li><p>samples/General/RosettaCode/YinYang2.ring</p></li>
 <li><p>samples/General/FindAnadromes/process.ring</p></li>
 <li><p>samples/General/FindAnadromes/process2.ring</p></li>
 <li><p>samples/General/Performance/ringper.ring</p></li>
 <li><p>samples/General/Performance/nqueensbitmask.ring</p></li>
-<li><p>samples/Language/ClassMethods/nestedanonymous.ring</p></li>
+<li><p>samples/General/Orbital/Earth_Orbit_Zodiac.ring</p></li>
+<li><p>samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring</p></li>
+<li><p>samples/UsingArabic/WriteArabicDate/DateServices.ring</p></li>
 <li><p>samples/UsingFreeGLUT/Hex_Sphere.ring</p></li>
 <li><p>samples/UsingFreeGLUT/Penta_Sphere.ring</p></li>
 <li><p>samples/UsingFreeGLUT/Octagon_Sphere.ring</p></li>
 <li><p>samples/UsingFreeGLUT/SinCos_Surface.ring</p></li>
 <li><p>samples/UsingRogueUtil/matrix_rain.ring</p></li>
 <li><p>samples/UsingRayLib/more/ex11_matrix_rain.ring</p></li>
-<li><p>samples/General/Orbital/Earth_Orbit_Zodiac.ring</p></li>
-<li><p>samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring</p></li>
-<li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring</p></li>
 </ul>
 <img alt="Advanced FreeGLUT Samples" src="_images/advancedfreeglut.png" />
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="ring-python-package">
-<span id="index-6"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
 <p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
@@ -420,7 +465,7 @@ Dot:  55
 </div>
 </section>
 <section id="ring-cffi-package">
-<span id="index-7"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
 <p>A Foreign Function Interface library for the Ring programming language!</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
@@ -463,7 +508,7 @@ Hello, World! Number: 123
 </div>
 </section>
 <section id="better-functions">
-<span id="index-8"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -477,7 +522,8 @@ Hello, World! Number: 123
 <li><p>Ring_State_MainFile() - Thread safe implementation</p></li>
 <li><p>Ring_State_Delete() - Use: RING_API_SETNULLPOINTER</p></li>
 <li><p>Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag</p></li>
-<li><p>Ring_State_FindVar() - return zero if the variable is not found</p></li>
+<li><p>Ring_State_FindVar() - Return zero if the variable is not found</p></li>
+<li><p>Ring_State_RunObjectFile() - Return True/False</p></li>
 <li><p>Unsigned() - Better Implementation - Remove unnecessary checks</p></li>
 <li><p>Unsigned() - Accept the operator before/after the numbers</p></li>
 <li><p>Unsigned() - Check variable size before the shift operation</p></li>
@@ -504,32 +550,39 @@ Hello, World! Number: 123
 <li><p>System() - Return the function output</p></li>
 <li><p>Assert() - Follow Ring’s rules for evaluating values as True or False</p></li>
 <li><p>Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage</p></li>
-<li><p>RingFastPro Extension - Better Performance</p></li>
-<li><p>RingFastPro Extension - Added Transform3D() function</p></li>
-<li><p>RingLibSDL Extension - Revised SDL_QueryTexture()</p></li>
-<li><p>RingLibSDL Extension - Removed SDL_GetRevisionNumber()</p></li>
-<li><p>RingQt Extension - Added: QQmlContext</p></li>
-<li><p>RingQt Extension - Added: QQmlProperty</p></li>
-<li><p>RingQt Extension - Added: QQmlExpression</p></li>
-<li><p>RingQt Extension - Added: QQmlComponent</p></li>
-<li><p>RingQt Extension - Added: QQmlApplicationEngine</p></li>
-<li><p>RingQt Extension - Revised QOpenGLTexture_borderColor_4() function</p></li>
+<li><p>Lines() - Return zero if the input is an empty string</p></li>
+<li><p>Lines() - Don’t increment the line count for a new line at the last index</p></li>
+<li><p>List2Str() - Don’t add extra line at start when processing sub list</p></li>
+</ul>
+</section>
+<section id="better-ring-api">
+<span id="index-10"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
+<ul class="simple">
+<li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETSHORTINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTSHORTINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETUNSIGNEDSHORTINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDSHORTINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETLONGINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTLONGINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETUNSIGNEDLONGINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDLONGINTVALUE(nParameter)</p></li>
+</ul>
+<p>Also, the Code Generator for Extensions is revised to support the added features</p>
+<ul class="simple">
+<li><p>The aPassPointers list is used to control passing pointers to functions</p></li>
+<li><p>The aNumberTypes list is revised to detect many numeric types automatically</p></li>
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
 <li><p>language/build/builddos.bat - Set stack size to 64K</p></li>
 <li><p>Ring for Linux - Modernize build scripts using pkg-config</p></li>
-<li><p>Ring API - Added RING_API_GETUNSIGNEDINTPOINTER() and RING_API_ACCEPTUNSIGNEDINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETSHORTINTPOINTER() and RING_API_ACCEPTSHORTINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETUNSIGNEDSHORTINTPOINTER() and RING_API_ACCEPTUNSIGNEDSHORTINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETLONGINTPOINTER() and RING_API_ACCEPTLONGINTVALUE()</p></li>
-<li><p>Ring API - Added RING_API_GETUNSIGNEDLONGINTPOINTER() and RING_API_ACCEPTUNSIGNEDLONGINTVALUE()</p></li>
-<li><p>Extensions Generator - The aNumberTypes list is revised</p></li>
-<li><p>Extensions Generator - Using aPassPointers list to control passing pointers to functions</p></li>
 <li><p>Ring Compiler - Detect unclosed comment error</p></li>
 <li><p>Ring Compiler - Check filename size before loading</p></li>
 <li><p>Ring VM - ring_general_justfilename() - Better Code</p></li>
@@ -548,6 +601,7 @@ Hello, World! Number: 123
 <li><p>Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read</p></li>
 <li><p>Ring VM - ring_string_add2_gc() - Check string capacity overflow</p></li>
 <li><p>Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)</p></li>
+<li><p>Ring VM - ring_vm_oop_parentmethods() - Better Code</p></li>
 <li><p>Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers</p></li>
 <li><p>Ring VM - Save/Restore state when using Braces - Better Performance</p></li>
 <li><p>Ring VM - pObjState information - Use array of structure instead of Ring Lists</p></li>

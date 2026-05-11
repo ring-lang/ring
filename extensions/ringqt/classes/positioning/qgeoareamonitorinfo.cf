@@ -1,6 +1,7 @@
 <class>
 name: QGeoAreaMonitorInfo
 para: QString
+managed
 </class>
 
 QGeoShape area(void)

@@ -1,6 +1,7 @@
 <class>
 name: QStaticText
 para: void
+managed
 </class>
 
 QStaticText::PerformanceHint performanceHint(void)

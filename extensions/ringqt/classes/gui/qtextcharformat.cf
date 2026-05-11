@@ -1,6 +1,7 @@
 <class>
 name: QTextCharFormat 
 para: void
+managed
 </class>
 
 QString anchorHref(void)
