@@ -438,9 +438,6 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 	Item *pItem;
 	const char *cStr2;
 	/* Check if we have HashTable */
-	if (!pVar->nIsHashMap) {
-		pVar->nIsHashMap = RING_TRUE;
-	}
 	if (pVar->pHashTable != NULL) {
 		pList = (List *)ring_hashtable_findpointer_gc(pVM->pRingState, pVar->pHashTable, cStr);
 		if (pList != NULL) {
@@ -458,6 +455,7 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 		return;
 	}
 	if (ring_list_getsize_gc(pVM->pRingState, pVar) >= RING_HASHMAP_THRESHOLD) {
+		pVar->nIsHashMap = RING_TRUE;
 		pVar->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
 		for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pVar); x++) {
 			if (ring_list_islist_gc(pVM->pRingState, pVar, x)) {
