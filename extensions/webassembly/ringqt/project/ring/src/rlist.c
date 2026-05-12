@@ -469,7 +469,7 @@ RING_API void ring_list_addstring_gc(void *pState, List *pList, const char *cStr
 	ring_list_setstring_gc(pState, pList, ring_list_getsize(pList), cStr);
 	if (pList->nHashSubList && ring_list_getsize(pList) == RING_LISTHASH_KEY && pList->pHashParent != NULL &&
 	    pList->pHashParent->pHashTable != NULL) {
-		ring_hashtable_newpointer_gc(pState, pList->pHashParent->pHashTable, cStr, pList);
+		ring_hashtable_newpointernocase_gc(pState, pList->pHashParent->pHashTable, cStr, pList);
 	}
 }
 

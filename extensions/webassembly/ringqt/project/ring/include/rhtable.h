@@ -51,6 +51,11 @@ RING_API HashTable *ring_hashtable_delete_gc(void *pRingState, HashTable *pHashT
 RING_API void ring_hashtable_print_gc(void *pRingState, HashTable *pHashTable);
 
 RING_API void ring_hashtable_rebuild_gc(void *pRingState, HashTable *pHashTable);
+
+RING_API void ring_hashtable_newpointernocase_gc(void *pRingState, HashTable *pHashTable, const char *cKey,
+						 void *pPointer);
+
+RING_API void *ring_hashtable_findpointernocase_gc(void *pRingState, HashTable *pHashTable, const char *cKey);
 /* Functions without the State pointer */
 
 RING_API HashTable *ring_hashtable_new(void);

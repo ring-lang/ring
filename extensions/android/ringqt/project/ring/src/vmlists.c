@@ -439,7 +439,7 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 	const char *cStr2;
 	/* Check if we have HashTable */
 	if (pVar->pHashTable != NULL) {
-		pList = (List *)ring_hashtable_findpointer_gc(pVM->pRingState, pVar->pHashTable, cStr);
+		pList = (List *)ring_hashtable_findpointernocase_gc(pVM->pRingState, pVar->pHashTable, cStr);
 		if (pList != NULL) {
 			pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_LISTHASH_VALUE);
 			RING_VM_STACK_PUSHPVALUE(pItem);
@@ -463,12 +463,13 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 				if ((ring_list_getsize_gc(pVM->pRingState, pExist) == RING_LISTHASH_SIZE) &&
 				    (ring_list_isstring_gc(pVM->pRingState, pExist, RING_LISTHASH_KEY))) {
 					cStr2 = ring_list_getstring_gc(pVM->pRingState, pExist, RING_LISTHASH_KEY);
-					ring_hashtable_newpointer_gc(pVM->pRingState, pVar->pHashTable, cStr2, pExist);
+					ring_hashtable_newpointernocase_gc(pVM->pRingState, pVar->pHashTable, cStr2,
+									   pExist);
 					ring_hashmap_attachsublist(pExist, pVar);
 				}
 			}
 		}
-		pList = (List *)ring_hashtable_findpointer_gc(pVM->pRingState, pVar->pHashTable, cStr);
+		pList = (List *)ring_hashtable_findpointernocase_gc(pVM->pRingState, pVar->pHashTable, cStr);
 		if (pList != NULL) {
 			pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_LISTHASH_VALUE);
 			RING_VM_STACK_PUSHPVALUE(pItem);

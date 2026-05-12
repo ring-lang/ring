@@ -95,6 +95,14 @@ Type: unsigned int
 x
 Type: HashItem *
 pItem
+ring_hashtable_newpointernocase_gc
+Type: char *
+cLower
+ring_hashtable_findpointernocase_gc
+Type: char *
+cLower
+Type: void *
+pResult
 ring_hashtable_new
 ring_hashtable_hashkey
 ring_hashtable_newitem
