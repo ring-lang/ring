@@ -20,10 +20,6 @@ Type: struct Items *
 pFirst
 Type: struct Items *
 pLast
-Type: unsigned int
-nSize
-Type: unsigned int
-nNextItem
 Type: struct Items *
 pLastItem
 Type: struct Item **
@@ -32,6 +28,16 @@ Type: struct HashTable *
 pHashTable
 Type: struct ListBlocks *
 pBlocks
+Type: struct List *
+pHashParent
+Type: unsigned int
+nNextItem
+Type: unsigned int
+nSize
+Type: unsigned char
+nIsHashMap
+Type: unsigned char
+nHashSubList
 Type: ListGCData
 vGC
 END:
@@ -55,6 +61,7 @@ RING_LISTOFOBJS_FINDLISTREF
 RING_LISTBLOCKTYPE_ITEM
 RING_LISTBLOCKTYPE_ITEMS
 RING_LISTBLOCKTYPE_LIST
+RING_HASHMAP_THRESHOLD
 ring_list_isdouble_gc(pState,pList,nIndex)
 ring_list_isint_gc(pState,pList,nIndex)
 ring_list_gethashtable_gc(pState,pList)
@@ -70,6 +77,7 @@ ring_list_getstringsize_gc(pState,pList,nIndex)
 ring_list_getsize_gc(pState,pList)
 ring_list_incdouble_gc(pState,pList,nIndex)
 ring_list_deletelastitem_gc(pState,pList)
+ring_hashmap_invalidate_gc(pState,pList)
 ring_list_isdouble(pList,nIndex)
 ring_list_isint(pList,nIndex)
 ring_list_gethashtable(pList)
@@ -85,6 +93,8 @@ ring_list_getstringsize(pList,nIndex)
 ring_list_getsize(pList)
 ring_list_incdouble(pList,nIndex)
 ring_list_deletelastitem(pList)
+ring_hashmap_attachsublist(pSubList,pParent)
+ring_hashmap_detachsublist(pSubList)
 ring_list_new_gc
 Type: List *
 pList
@@ -168,6 +178,8 @@ ring_list_addstring2_gc
 ring_list_newlist_gc
 Type: Item *
 pItem
+Type: List *
+pSubList
 ring_list_setlist_gc
 Type: Item *
 pItem

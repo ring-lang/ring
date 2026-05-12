@@ -11,12 +11,15 @@ typedef struct ListBlocks {
 typedef struct List {
 	struct Items *pFirst;
 	struct Items *pLast;
-	unsigned int nSize;
-	unsigned int nNextItem;
 	struct Items *pLastItem;
 	struct Item **pItemsArray;
 	struct HashTable *pHashTable;
 	struct ListBlocks *pBlocks;
+	struct List *pHashParent;
+	unsigned int nNextItem;
+	unsigned int nSize;
+	unsigned char nIsHashMap;
+	unsigned char nHashSubList;
 	/* Garbage Collector Data (Reference Counting) */
 	ListGCData vGC;
 } List;
@@ -33,6 +36,7 @@ typedef struct List {
 #define RING_LISTBLOCKTYPE_ITEM 1
 #define RING_LISTBLOCKTYPE_ITEMS 2
 #define RING_LISTBLOCKTYPE_LIST 3
+#define RING_HASHMAP_THRESHOLD 8
 /* Macro */
 #define ring_list_isdouble_gc(pState, pList, nIndex)                                                                   \
 	(ring_list_gettype_gc(pState, pList, nIndex) == ITEMTYPE_NUMBER) &&                                            \
@@ -57,6 +61,10 @@ typedef struct List {
 #define ring_list_getsize_gc(pState, pList) (pList->nSize)
 #define ring_list_incdouble_gc(pState, pList, nIndex) ++ring_list_getitem_gc(pState, pList, nIndex)->data.dNumber
 #define ring_list_deletelastitem_gc(pState, pList) ring_list_deleteitem_gc(pState, pList, ring_list_getsize(pList))
+#define ring_hashmap_invalidate_gc(pState, pList)                                                                      \
+	if ((pList)->pHashTable != NULL) {                                                                             \
+		(pList)->pHashTable = ring_hashtable_delete_gc((pState), (pList)->pHashTable);                         \
+	}
 /* Macro (Without State Pointer) */
 #define ring_list_isdouble(pList, nIndex) ring_list_isdouble_gc(NULL, pList, nIndex)
 #define ring_list_isint(pList, nIndex) ring_list_isint_gc(NULL, pList, nIndex)
@@ -73,6 +81,12 @@ typedef struct List {
 #define ring_list_getsize(pList) ring_list_getsize_gc(NULL, pList)
 #define ring_list_incdouble(pList, nIndex) ring_list_incdouble_gc(NULL, pList, nIndex)
 #define ring_list_deletelastitem(pList) ring_list_deletelastitem_gc(NULL, pList)
+#define ring_hashmap_attachsublist(pSubList, pParent)                                                                  \
+	(pSubList)->nHashSubList = 1;                                                                                  \
+	(pSubList)->pHashParent = (pParent);
+#define ring_hashmap_detachsublist(pSubList)                                                                           \
+	(pSubList)->nHashSubList = 0;                                                                                  \
+	(pSubList)->pHashParent = NULL;
 /*
 **  Functions
 **  Main List Functions

@@ -12,7 +12,7 @@ RING_API List *ring_list_new2_gc(void *pState, List *pList, unsigned int nSize) 
 	unsigned int x;
 	Items *pItems, *pItemsLast;
 	pList->nSize = nSize;
-	if (nSize > 0) {
+	if (nSize > RING_ZERO) {
 		pItems = ring_items_new_gc(pState);
 		/* Set Item type and value */
 		ring_item_settype_gc(pState, pItems->pValue, ITEMTYPE_NUMBER);
@@ -34,6 +34,9 @@ RING_API List *ring_list_new2_gc(void *pState, List *pList, unsigned int nSize) 
 	pList->pItemsArray = NULL;
 	pList->pHashTable = NULL;
 	pList->pBlocks = NULL;
+	pList->pHashParent = NULL;
+	pList->nIsHashMap = RING_FALSE;
+	pList->nHashSubList = RING_FALSE;
 	ring_list_clearcache_gc(pState, pList);
 	ring_list_clearrefdata_gc(pState, pList);
 	return pList;
@@ -329,6 +332,13 @@ RING_API void ring_list_deleteitem_gc(void *pState, List *pList, unsigned int nI
 	Items *pItems, *pItemsPrev;
 	/* Goto the Item */
 	if (nIndex > 0 && nIndex <= ring_list_getsize(pList)) {
+		/* Check if we have HashTable */
+		if (pList->nHashSubList && nIndex == RING_LISTHASH_KEY && pList->pHashParent != NULL) {
+			ring_hashmap_invalidate_gc(pState, pList->pHashParent);
+		}
+		if (pList->nIsHashMap) {
+			ring_hashmap_invalidate_gc(pState, pList);
+		}
 		/* Quickly get the First Item */
 		if (ring_list_getsize(pList) == 1) {
 			pItems = pList->pFirst;
@@ -457,6 +467,10 @@ RING_API void ring_list_setstring2_gc(void *pState, List *pList, unsigned int nI
 RING_API void ring_list_addstring_gc(void *pState, List *pList, const char *cStr) {
 	ring_list_newitem_gc(pState, pList);
 	ring_list_setstring_gc(pState, pList, ring_list_getsize(pList), cStr);
+	if (pList->nHashSubList && ring_list_getsize(pList) == RING_LISTHASH_KEY && pList->pHashParent != NULL &&
+	    pList->pHashParent->pHashTable != NULL) {
+		ring_hashtable_newpointer_gc(pState, pList->pHashParent->pHashTable, cStr, pList);
+	}
 }
 
 RING_API void ring_list_addstring2_gc(void *pState, List *pList, const char *cStr, unsigned int nStrSize) {
@@ -467,9 +481,14 @@ RING_API void ring_list_addstring2_gc(void *pState, List *pList, const char *cSt
 
 RING_API List *ring_list_newlist_gc(void *pState, List *pList) {
 	Item *pItem;
+	List *pSubList;
 	pItem = ring_list_newitem_gc(pState, pList);
 	ring_item_settype_gc(pState, pItem, ITEMTYPE_LIST);
-	return ring_item_getlist(pItem);
+	pSubList = ring_item_getlist(pItem);
+	if (pList->nIsHashMap && pList->pHashTable != NULL) {
+		ring_hashmap_attachsublist(pSubList, pList);
+	}
+	return pSubList;
 }
 
 RING_API void ring_list_setlist_gc(void *pState, List *pList, unsigned int nIndex) {
@@ -521,6 +540,10 @@ RING_API void ring_list_insertitem_gc(void *pState, List *pList, unsigned int x)
 	if (ring_list_getsize(pList) == RING_LIST_MAXSIZE) {
 		printf(RING_LISTSIZEOVERFLOW);
 		exit(RING_EXIT_FAIL);
+	}
+	/* Check if we have HashTable */
+	if (pList->nIsHashMap && pList->pHashTable != NULL) {
+		ring_hashmap_invalidate_gc(pState, pList);
 	}
 	if (x > ring_list_getsize(pList)) {
 		return;
