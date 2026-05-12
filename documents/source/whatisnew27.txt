@@ -194,6 +194,7 @@ More Samples
 * samples/General/RosettaCode/YinYang2.ring
 * samples/General/FindAnadromes/process.ring
 * samples/General/FindAnadromes/process2.ring
+* samples/General/FindAnadromes/process3.ring
 * samples/General/Performance/ringper.ring
 * samples/General/Performance/nqueensbitmask.ring
 * samples/General/Orbital/Earth_Orbit_Zodiac.ring
