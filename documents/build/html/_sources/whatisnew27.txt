@@ -130,7 +130,7 @@ Example:
 
 	Decimals(3)
 	t1 = clock()
-	aList = [1,2,3,4,5]
+	aList = 1:5	    # [1,2,3,4,5]
 
 	for t=1 to 100
 		aList + [ "key"+t , t*t ]
@@ -139,7 +139,7 @@ Example:
 	? "Size: " + len(aList)
 
 	// Test Performance
-	for m=1 to 1_000_000
+	for t=1 to 1_000_000
 		aList["key1"]
 		aList["key10"]
 		aList["key100"]
@@ -152,7 +152,7 @@ Example:
 	t2 = clock()
 	? "Time: " + (t2-t1) + " ms"
 
-Output:
+Output (Using Ring 1.27):
 
 .. code-block:: none
 
@@ -160,13 +160,17 @@ Output:
 	1
 	100
 	10000
-	Time: 239 ms	# (Ring 1.27)
+	Time: 239 ms
+
+Output (Using Ring 1.26):
+
+.. code-block:: none
 
 	Size: 105
 	1
 	100
 	10000
-	Time: 2702 ms	# (Ring 1.26)
+	Time: 2702 ms
 
 .. note:: Ring 1.27 completes in 239 ms versus 2702 ms in Ring 1.26 — a **~11x faster**.
 

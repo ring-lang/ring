@@ -352,7 +352,7 @@ that aList[“Name”] and aList[“name”] correctly refer to the same entry.<
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>         <span class="c1"># [1,2,3,4,5]</span>
 
 <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
         <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="s2">&quot;key&quot;</span><span class="o">+</span><span class="n">t</span> <span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
@@ -361,7 +361,7 @@ that aList[“Name”] and aList[“name”] correctly refer to the same entry.<
 <span class="o">?</span> <span class="s2">&quot;Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
 <span class="c1">// Test Performance</span>
-<span class="k">for</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
         <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
         <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>
         <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>
@@ -375,18 +375,20 @@ that aList[“Name”] and aList[“name”] correctly refer to the same entry.<
 <span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ms&quot;</span>
 </pre></div>
 </div>
-<p>Output:</p>
+<p>Output (Using Ring 1.27):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size: 105
 1
 100
 10000
-Time: 239 ms    # (Ring 1.27)
-
-Size: 105
+Time: 239 ms
+</pre></div>
+</div>
+<p>Output (Using Ring 1.26):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size: 105
 1
 100
 10000
-Time: 2702 ms   # (Ring 1.26)
+Time: 2702 ms
 </pre></div>
 </div>
 <div class="admonition note">
