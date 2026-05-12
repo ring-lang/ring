@@ -184,6 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#research-article">Research Article</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
@@ -234,6 +235,7 @@
 <ul class="simple">
 <li><p>Research Article</p></li>
 <li><p>Better Performance</p></li>
+<li><p>Automatic Hash Table</p></li>
 <li><p>Solitaire Game</p></li>
 <li><p>Better Extensions</p></li>
 <li><p>More Samples</p></li>
@@ -335,8 +337,73 @@ via the dot operator is now <strong>~5x faster</strong>.</p>
 <p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
 </div>
 </section>
+<section id="automatic-hash-table">
+<span id="index-4"></span><h2>Automatic Hash Table<a class="headerlink" href="#automatic-hash-table" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 introduces automatic hash table acceleration for lists used as hash maps with
+string keys. When a list is accessed using string keys with the aList[“key”] syntax, Ring
+now automatically builds an internal hash table once the number of entries reaches a
+threshold, replacing the previous linear scan with O(1) lookups.
+This happens transparently with no changes required to existing Ring code. Small lists continue
+to use the efficient linear scan, while larger lists seamlessly transition to hash table
+lookups the moment they grow beyond the threshold. The feature is fully compatible with
+all existing Ring features including add(), del(), and insert() operations on
+hash-map style lists, and preserves Ring’s case-insensitive key matching behavior so
+that aList[“Name”] and aList[“name”] correctly refer to the same entry.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+        <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="s2">&quot;key&quot;</span><span class="o">+</span><span class="n">t</span> <span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="s2">&quot;Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+<span class="c1">// Test Performance</span>
+<span class="k">for</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ms&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size: 105
+1
+100
+10000
+Time: 239 ms    # (Ring 1.27)
+
+Size: 105
+1
+100
+10000
+Time: 2702 ms   # (Ring 1.26)
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring 1.27 completes in 239 ms versus 2702 ms in Ring 1.26 — a <strong>~11x faster</strong>.</p>
+</div>
+<p>The improvement comes entirely from eliminating the linear scan on a 105-entry list.
+In Ring 1.26 each aList[“key”] call walked up to 105 items comparing strings.
+In Ring 1.27 the hash table is built once on first access and every subsequent lookup is O(1).
+With 3 million lookups the difference compounds dramatically</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The 5 initial numeric items [1,2,3,4,5] at the start of the list confirm that the hash-map acceleration works correctly on a mixed list, not just a pure hash-map list.</p>
+</div>
+</section>
 <section id="solitaire-game">
-<span id="index-4"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
 <p>The Solitaire Game (Developed using Ring and RayLib)</p>
 <p>Install and run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
@@ -346,7 +413,7 @@ ringpm run solitaire
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
 <section id="better-extensions">
-<span id="index-5"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingFastPro Extension - Better Performance</p></li>
 <li><p>RingFastPro Extension - Added Transform3D() function</p></li>
@@ -385,7 +452,7 @@ ringpm run solitaire
 <img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
 </section>
 <section id="more-samples">
-<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -423,7 +490,7 @@ ringpm run solitaire
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="ring-python-package">
-<span id="index-7"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
 <p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
@@ -466,7 +533,7 @@ Dot:  55
 </div>
 </section>
 <section id="ring-cffi-package">
-<span id="index-8"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
 <p>A Foreign Function Interface library for the Ring programming language!</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
@@ -509,7 +576,7 @@ Hello, World! Number: 123
 </div>
 </section>
 <section id="better-functions">
-<span id="index-9"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -557,7 +624,7 @@ Hello, World! Number: 123
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-10"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -578,7 +645,7 @@ Hello, World! Number: 123
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
