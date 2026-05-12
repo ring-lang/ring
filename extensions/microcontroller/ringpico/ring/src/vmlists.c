@@ -396,6 +396,11 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 			if (pList == pVar) {
 				return;
 			}
+			/* Check if we have a HashTable */
+			if (pList->nHashSubList && pList->pHashParent != NULL) {
+				ring_hashmap_invalidate_gc(pVM->pRingState, pList->pHashParent);
+				ring_hashmap_detachsublist(pList);
+			}
 			if (ring_list_isref_gc(pVM->pRingState, pVar)) {
 				ring_list_assignreftoitem_gc(pVM->pRingState, pVar, pItem);
 			} else {
@@ -429,24 +434,62 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual) {
 
 void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 	unsigned int x;
-	List *pList;
+	List *pList, *pExist;
 	Item *pItem;
 	const char *cStr2;
-	if (ring_list_getsize_gc(pVM->pRingState, pVar) > 0) {
+	/* Check if we have HashTable */
+	if (!pVar->nIsHashMap) {
+		pVar->nIsHashMap = RING_TRUE;
+	}
+	if (pVar->pHashTable != NULL) {
+		pList = (List *)ring_hashtable_findpointer_gc(pVM->pRingState, pVar->pHashTable, cStr);
+		if (pList != NULL) {
+			pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_LISTHASH_VALUE);
+			RING_VM_STACK_PUSHPVALUE(pItem);
+			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
+			return;
+		}
+		pList = ring_list_newlist_gc(pVM->pRingState, pVar);
+		ring_list_addstring_gc(pVM->pRingState, pList, cStr);
+		ring_list_addstring_gc(pVM->pRingState, pList, RING_CSTR_EMPTY);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_LISTHASH_VALUE);
+		RING_VM_STACK_PUSHPVALUE(pItem);
+		RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
+		return;
+	}
+	if (ring_list_getsize_gc(pVM->pRingState, pVar) >= RING_HASHMAP_THRESHOLD) {
+		pVar->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
 		for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pVar); x++) {
 			if (ring_list_islist_gc(pVM->pRingState, pVar, x)) {
-				pList = ring_list_getlist_gc(pVM->pRingState, pVar, x);
-				if (ring_list_getsize_gc(pVM->pRingState, pList) == RING_LISTHASH_SIZE) {
-					if (ring_list_isstring_gc(pVM->pRingState, pList, RING_LISTHASH_KEY)) {
-						cStr2 =
-						    ring_list_getstring_gc(pVM->pRingState, pList, RING_LISTHASH_KEY);
-						if (ring_general_strcmpnotcasesensitive(cStr, cStr2) == 0) {
-							pItem = ring_list_getitem_gc(pVM->pRingState, pList,
-										     RING_LISTHASH_VALUE);
-							RING_VM_STACK_PUSHPVALUE(pItem);
-							RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
-							return;
-						}
+				pExist = ring_list_getlist_gc(pVM->pRingState, pVar, x);
+				if ((ring_list_getsize_gc(pVM->pRingState, pExist) == RING_LISTHASH_SIZE) &&
+				    (ring_list_isstring_gc(pVM->pRingState, pExist, RING_LISTHASH_KEY))) {
+					cStr2 = ring_list_getstring_gc(pVM->pRingState, pExist, RING_LISTHASH_KEY);
+					ring_hashtable_newpointer_gc(pVM->pRingState, pVar->pHashTable, cStr2, pExist);
+					ring_hashmap_attachsublist(pExist, pVar);
+				}
+			}
+		}
+		pList = (List *)ring_hashtable_findpointer_gc(pVM->pRingState, pVar->pHashTable, cStr);
+		if (pList != NULL) {
+			pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_LISTHASH_VALUE);
+			RING_VM_STACK_PUSHPVALUE(pItem);
+			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
+			return;
+		}
+	} else {
+		for (x = 1; x <= ring_list_getsize_gc(pVM->pRingState, pVar); x++) {
+			if (ring_list_islist_gc(pVM->pRingState, pVar, x)) {
+				pExist = ring_list_getlist_gc(pVM->pRingState, pVar, x);
+				if (ring_list_getsize_gc(pVM->pRingState, pExist) == RING_LISTHASH_SIZE &&
+				    ring_list_isstring_gc(pVM->pRingState, pExist, RING_LISTHASH_KEY)) {
+					cStr2 = ring_list_getstring_gc(pVM->pRingState, pExist, RING_LISTHASH_KEY);
+					if (ring_general_strcmpnotcasesensitive(cStr, cStr2) == 0) {
+						pItem =
+						    ring_list_getitem_gc(pVM->pRingState, pExist, RING_LISTHASH_VALUE);
+						RING_VM_STACK_PUSHPVALUE(pItem);
+						RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
+						return;
 					}
 				}
 			}

@@ -54,7 +54,7 @@ ring_vm_listgetvalue
 Type: unsigned int
 x
 Type: List *
-pList
+pList, *pExist
 Type: Item *
 pItem
 Type: const char *
