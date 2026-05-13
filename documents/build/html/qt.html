@@ -4742,89 +4742,92 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 <span class="kn">import</span> <span class="nn">System.GUI</span>
 
 <span class="kp">new</span> <span class="nc">qApp</span> <span class="p">{</span>
-        <span class="nf">open_window</span><span class="p">(</span><span class="ss">:CustomersReportController</span><span class="p">)</span>
+        <span class="nf">openWindow</span><span class="p">(</span><span class="ss">:CustomersReportController</span><span class="p">)</span>
         <span class="nf">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">CustomersReportView</span>
+
+<span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">window</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Report Window&quot;</span><span class="p">)</span>
+        <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="n">web</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">webview</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+                <span class="nf">loadpage</span><span class="p">(</span> <span class="kp">new</span> <span class="nc">QURL</span><span class="p">(</span><span class="s2">&quot;file:///&quot;</span><span class="o">+</span><span class="nb">substr</span><span class="p">(</span><span class="nb">currentdir</span><span class="p">(),</span> <span class="s2">&quot;\&quot;</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;/report.html&quot;</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="kp">new</span> <span class="nc">pushbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nf">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+                <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;Print&quot;</span><span class="p">)</span>
+                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:PrintEvent</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="nf">showMaximized</span><span class="p">()</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">CustomersReportController</span> <span class="kd">from</span> <span class="nc">WindowsControllerParent</span>
 
+        <span class="n">oPrinter</span>
+
         <span class="n">oView</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">CustomersReportView</span>
 
         <span class="kd">func</span> <span class="nf">Start</span>
+
                 <span class="nf">CreateReport</span><span class="p">()</span>
 
+
         <span class="kd">func</span> <span class="nf">CreateReport</span>
+
                 <span class="n">mypage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
-                        <span class="n">h1</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="n">h1</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)}</span>
                         <span class="n">Table</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s2">&quot;10%&quot;</span>
-                                                <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="s2">&quot;10%&quot;</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span><span class="p">)}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="mi">100</span><span class="p">)}</span>
                                 <span class="p">}</span>
                         <span class="p">}</span>
                         <span class="n">Table</span>
                         <span class="p">{</span>
-                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
                                 <span class="n">TR</span>
                                 <span class="p">{</span>
-                                        <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
-                                                <span class="nf">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="nf">stylewidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span><span class="p">)}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span><span class="p">)}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span><span class="p">)}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span><span class="p">)}</span>
                                 <span class="p">}</span>
-                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                                         <span class="n">TR</span>
                                         <span class="p">{</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
-                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span><span class="p">)}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span><span class="p">)}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">)}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span><span class="p">)}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span><span class="p">)}</span>
                                         <span class="p">}</span>
                                 <span class="k">next</span>
                         <span class="p">}</span>
                 <span class="p">}</span>
-                <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="o">.</span><span class="nf">output</span><span class="p">())</span>
+                <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span> <span class="n">mypage</span><span class="o">.</span><span class="nf">output</span><span class="p">())</span>
+
 
         <span class="kd">func</span> <span class="nf">PrintEvent</span>
-                <span class="n">printer1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+
+                <span class="n">oPrinter</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">QPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
                         <span class="nf">setoutputformat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                         <span class="nf">setoutputfilename</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
-                <span class="n">oView</span> <span class="p">{</span>
-                        <span class="n">web</span><span class="o">.</span><span class="nb">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span> <span class="ss">:OpenPDF</span> <span class="p">)</span> <span class="p">)</span>
-                        <span class="n">web</span><span class="o">.</span><span class="nf">show</span><span class="p">()</span>
-                <span class="p">}</span>
+                <span class="n">oView</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="nb">print</span><span class="p">(</span><span class="n">oPrinter</span><span class="p">,</span> <span class="nf">Method</span><span class="p">(</span><span class="ss">:OpenPDF</span><span class="p">))</span>
 
         <span class="kd">func</span> <span class="nf">OpenPDF</span>
+
+                <span class="n">oPrinter</span><span class="o">.</span><span class="nf">Delete</span><span class="p">()</span>
                 <span class="kp">new</span> <span class="nc">QDesktopServices</span> <span class="p">{</span>
-                        <span class="nf">OpenURL</span><span class="p">(</span><span class="kp">new</span> <span class="nc">qURL</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">)</span> <span class="p">)</span>
+                        <span class="nf">OpenURL</span><span class="p">(</span> <span class="kp">new</span> <span class="nc">qURL</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">))</span>
                 <span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">CustomersReportView</span>
-
-                <span class="n">win</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">window</span><span class="p">()</span> <span class="p">{</span>
-                                <span class="nf">setwindowtitle</span><span class="p">(</span><span class="s2">&quot;Report Window&quot;</span><span class="p">)</span>
-                                <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                                <span class="n">web</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">webview</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                        <span class="nf">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                                        <span class="nf">loadpage</span><span class="p">(</span><span class="kp">new</span> <span class="nc">qurl</span><span class="p">(</span><span class="s2">&quot;file:///&quot;</span><span class="o">+</span>
-                                        <span class="nb">currentdir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/report.html&quot;</span><span class="p">))</span>
-                                <span class="p">}</span>
-                                <span class="kp">new</span> <span class="nc">pushbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                                                <span class="nf">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-                                                <span class="nf">settext</span><span class="p">(</span><span class="s2">&quot;Print&quot;</span><span class="p">)</span>
-                                                <span class="nf">setclickevent</span><span class="p">(</span><span class="nf">Method</span><span class="p">(</span><span class="ss">:PrintEvent</span><span class="p">))</span>
-                                <span class="p">}</span>
-                                <span class="nf">showMaximized</span><span class="p">()</span>
-                        <span class="p">}</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
