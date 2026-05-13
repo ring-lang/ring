@@ -481,6 +481,7 @@ More Improvements
 * language/build/buildgccstatic.bat - Build ringw.exe too
 * language/build/builddos.bat - Set stack size to 64K
 * Ring for Linux - Modernize build scripts using pkg-config
+* Ring for Android - Avoid setting RING_SIMPLEHASHFUNC 
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
 * Ring VM - ring_general_justfilename() - Better Code
