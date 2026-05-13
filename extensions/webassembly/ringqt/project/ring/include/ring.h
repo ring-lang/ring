@@ -29,9 +29,6 @@
 	/* Support compiling using a Microchip C compiler for 32-bit PIC Microcontrollers */
 	#define RING_MICROCONTROLLER 1
 #endif
-#ifdef __ANDROID__
-	#define RING_SIMPLEHASHFUNC 1
-#endif
 #ifdef __FreeBSD__
 	#include <sys/sysctl.h>
 #endif
