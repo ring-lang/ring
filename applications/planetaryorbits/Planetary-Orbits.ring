@@ -1517,8 +1517,10 @@ See ""+ PlanetName +" Called"+ nl
            x =  k + h                                // H - horz offset to center    
            z =  j                                    // Set to 0 for 2D Trace, Flip for Back Perpective        
            try
-           y =  v +  ( ( (bSMA^^2) * ( 1  - (( (x-h)^^2 ) / (aSMA^^2))  ) )^^(1/2) )    // Vary X     
-           catch done
+               y =  v +  ( ( (bSMA^^2) * ( 1  - (( (x-h)^^2 ) / (aSMA^^2))  ) )^^(1/2) )    // Vary X     
+           catch
+               loop 
+           done
            y = -y                                         // Flip Y to do other side
                      
            MC[i][1] = x
