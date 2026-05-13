@@ -17,12 +17,12 @@ Ring 1.27 comes with the next features!
 
 * Research Article
 * Better Performance
-* Automatic Hash Table
 * Solitaire Game
 * Better Extensions
 * More Samples
 * Ring-Python Package
 * Ring-CFFI Package
+* Automatic Hash Table
 * Better Functions
 * Better Ring API
 * More Improvements
@@ -106,80 +106,6 @@ Ring 1.27 introduces performance improvements across many core operations.
 
 
 .. tip:: Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
-
-.. index:: 
-	pair: What is new in Ring 1.27?; Automatic Hash Table
-
-Automatic Hash Table
-====================
-
-Ring 1.27 introduces automatic hash table acceleration for lists used as hash maps with 
-string keys. When a list is accessed using string keys with the aList["key"] syntax, Ring 
-now automatically builds an internal hash table once the number of entries reaches a 
-threshold, replacing the previous linear scan with O(1) lookups.
-This happens transparently with no changes required to existing Ring code. Small lists continue 
-to use the efficient linear scan, while larger lists seamlessly transition to hash table 
-lookups the moment they grow beyond the threshold. The feature is fully compatible with 
-all existing Ring features including add(), del(), and insert() operations on 
-hash-map style lists, and preserves Ring's case-insensitive key matching behavior so 
-that aList["Name"] and aList["name"] correctly refer to the same entry.
-
-Example:
-
-.. code-block:: ring
-
-	Decimals(3)
-	t1 = clock()
-	aList = 1:5	    # [1,2,3,4,5]
-
-	for t=1 to 100
-		aList + [ "key"+t , t*t ]
-	next
-
-	? "Size: " + len(aList)
-
-	// Test Performance
-	for t=1 to 1_000_000
-		aList["key1"]
-		aList["key10"]
-		aList["key100"]
-	next
-
-	? aList["key1"]
-	? aList["key10"]
-	? aList["key100"]
-
-	t2 = clock()
-	? "Time: " + (t2-t1) + " ms"
-
-Output (Using Ring 1.27):
-
-.. code-block:: none
-
-	Size: 105
-	1
-	100
-	10000
-	Time: 239 ms
-
-Output (Using Ring 1.26):
-
-.. code-block:: none
-
-	Size: 105
-	1
-	100
-	10000
-	Time: 2702 ms
-
-.. note:: Ring 1.27 completes in 239 ms versus 2702 ms in Ring 1.26 — a **~11x faster**.
-
-The improvement comes entirely from eliminating the linear scan on a 105-entry list. 
-In Ring 1.26 each aList["key"] call walked up to 105 items comparing strings. 
-In Ring 1.27 the hash table is built once on first access and every subsequent lookup is O(1). 
-With 3 million lookups the difference compounds dramatically
-
-.. tip:: The 5 initial numeric items [1,2,3,4,5] at the start of the list confirm that the hash-map acceleration works correctly on a mixed list, not just a pure hash-map list. 
 
 
 .. index:: 
@@ -396,6 +322,80 @@ Output:
 	sqrt(25) = 5
 	Hello, World! Number: 123
 
+
+.. index:: 
+	pair: What is new in Ring 1.27?; Automatic Hash Table
+
+Automatic Hash Table
+====================
+
+Ring 1.27 introduces automatic hash table acceleration for lists used as hash maps with 
+string keys. When a list is accessed using string keys with the aList["key"] syntax, Ring 
+now automatically builds an internal hash table once the number of entries reaches a 
+threshold, replacing the previous linear scan with O(1) lookups.
+This happens transparently with no changes required to existing Ring code. Small lists continue 
+to use the efficient linear scan, while larger lists seamlessly transition to hash table 
+lookups the moment they grow beyond the threshold. The feature is fully compatible with 
+all existing Ring features including add(), del(), and insert() operations on 
+hash-map style lists, and preserves Ring's case-insensitive key matching behavior so 
+that aList["Name"] and aList["name"] correctly refer to the same entry.
+
+Example:
+
+.. code-block:: ring
+
+	Decimals(3)
+	t1 = clock()
+	aList = 1:5	    # [1,2,3,4,5]
+
+	for t=1 to 100
+		aList + [ "key"+t , t*t ]
+	next
+
+	? "Size: " + len(aList)
+
+	// Test Performance
+	for t=1 to 1_000_000
+		aList["key1"]
+		aList["key10"]
+		aList["key100"]
+	next
+
+	? aList["key1"]
+	? aList["key10"]
+	? aList["key100"]
+
+	t2 = clock()
+	? "Time: " + (t2-t1) + " ms"
+
+Output (Using Ring 1.27):
+
+.. code-block:: none
+
+	Size: 105
+	1
+	100
+	10000
+	Time: 239 ms
+
+Output (Using Ring 1.26):
+
+.. code-block:: none
+
+	Size: 105
+	1
+	100
+	10000
+	Time: 2702 ms
+
+.. note:: Ring 1.27 completes in 239 ms versus 2702 ms in Ring 1.26 — a **~11x faster**.
+
+The improvement comes entirely from eliminating the linear scan on a 105-entry list. 
+In Ring 1.26 each aList["key"] call walked up to 105 items comparing strings. 
+In Ring 1.27 the hash table is built once on first access and every subsequent lookup is O(1). 
+With 3 million lookups the difference compounds dramatically
+
+.. tip:: The 5 initial numeric items [1,2,3,4,5] at the start of the list confirm that the hash-map acceleration works correctly on a mixed list, not just a pure hash-map list. 
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
