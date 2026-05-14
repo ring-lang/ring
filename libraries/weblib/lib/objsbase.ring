@@ -129,74 +129,74 @@ Package System.Web
 		# Context-aware: settitle checks if inside an <a> frame.
 
 		func settype cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["type", cValue]
 			ok
 
 		func setsrc cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["src", cValue]
 			ok
 
 		func setalt cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["alt", cValue]
 			ok
 
 		func setrows cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["rows", cValue]
 			ok
 
 		func setcols cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["cols", cValue]
 			ok
 
 		func setaction cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["action", cValue]
 			ok
 
 		func setmethod cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["method", cValue]
 			ok
 
 		func settarget cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["target", cValue]
 			ok
 
 		func setmultiple cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["multiple", cValue]
 			ok
 
 		func setmin cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["min", cValue]
 			ok
 
 		func setmax cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["max", cValue]
 			ok
 
 		func setchecked cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["checked", cValue]
 			ok
 
 		func settitle cValue
-			if len(aStack) > 0 and aStack[len(aStack)][1] = "a"
+			if aStack and aStack[len(aStack)][1] = "a"
 				aStack[len(aStack)][6] + ["linktitle", cValue]
 			else
 				Title = cValue
 			ok
 
 		func setlink cValue
-			if len(aStack) > 0
+			if aStack
 				aStack[len(aStack)][6] + ["href", cValue]
 			ok
 
