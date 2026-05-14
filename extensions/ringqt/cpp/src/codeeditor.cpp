@@ -170,6 +170,7 @@ void CodeEditor::setCompleter(QCompleter *completer)
     if (!c)
         return;
 
+    c->setParent(this);
     c->setWidget(this);
     c->setCompletionMode(QCompleter::PopupCompletion);
     c->setCaseSensitivity(Qt::CaseInsensitive);
