@@ -1,14 +1,19 @@
 # The Ring Standard Library
 # Web Library
-# 2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2026, Mahmoud Fayed <msfclipper@yahoo.com>
 
 Package System.Web
 
 	Class ObjsBase  From Application
 
-		cOutput = "" aObjs = []  
-
+		cOutput = "" aObjs = []
 		cAttrOutput = "" cStyleOutput = ""
+
+		# Each stack frame: [tag, contentBuf, extraClose, savedAttr, savedStyle, specialAttrs]
+		# savedAttr/savedStyle = parent's buffers saved when this child was pushed.
+		# specialAttrs = list of [name,value] pairs for element-specific HTML attrs
+		# (type, src, alt, rows, cols, action, method, target, multiple, min, max, checked).
+		aStack = []
 
 		AddAttribute(self,htmlcssattributes)
 		AddAttribute(self,aObjsAttributes)
@@ -17,39 +22,212 @@ Package System.Web
 			return cOutput
 
 		func getobjsdata
-			TabPUSH()
-			for x in aObjs
-				cOutput += getTabs() + x.getdata() + nl
-			next
-			TabPOP()
+			# no-op: content built directly via the stack
 
-		Func addattributes 
+		func bracestart
+			# intentionally empty
 
+		# braceend: pops frame, renders element, restores parent attr/style buffers.
+		# Uses cThisAttr/cThisStyle (this element's own buffers) for the tag,
+		# then restores cAttrOutput/cStyleOutput to the parent's saved values.
+		func braceend
+			if len(aStack) = 0 return ok
+			nTop      = len(aStack)
+			frame     = aStack[nTop]
+			cTag      = frame[1]
+			cInner    = frame[2]
+			cExtra    = frame[3]
+			aSpecial  = frame[6]
+			cInd      = copy(char(9), nTop - 1)
+			cThisAttr  = cAttrOutput
+			cThisStyle = cStyleOutput
+			cAttrOutput  = frame[4]
+			cStyleOutput = frame[5]
+			del(aStack, nTop)
+			switch cTag
+			on "audio"
+				cSrc   = _getSpecialAttr(aSpecial,"src")
+				cType  = _getSpecialAttr(aSpecial,"type")
+				cBlock = cInd + "<audio controls>" + nl
+				cBlock += cInd + '<source src="' + cSrc + '" type="' + cType + '">' + nl
+				cBlock += cInd + "Your browser does not support the audio element." + nl
+				cBlock += cInd + "</audio>" + nl
+			on "video"
+				cSrc   = _getSpecialAttr(aSpecial,"src")
+				cType  = _getSpecialAttr(aSpecial,"type")
+				cBlock = cInd + "<video controls" + cThisAttr + ">" + nl
+				cSource = cInd + '<source src="' + cSrc + '" type="' + cType + '"'
+				if cThisStyle != "" cSource += ' style="' + cThisStyle + '"' ok
+				cBlock += cSource + ">" + nl
+				cBlock += cInd + "Your browser does not support the video tag." + nl
+				cBlock += cInd + "</video>" + nl
+			on "a"
+				cHref  = _getSpecialAttr(aSpecial,"href")
+				cTitleText = _getSpecialAttr(aSpecial,"linktitle")
+				cBlock = cInd + "<a href='" + cHref + "'> " + cTitleText + " </a>" + nl
+			on "img"
+				cBlock = cInd + "<img" + _specialAttrsToStr(aSpecial) + cThisAttr
+				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
+				cBlock += " />" + nl
+			on "input"
+				cBlock = cInd + "<input" + _specialAttrsToStr(aSpecial) + cThisAttr
+				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
+				cBlock += " />" + nl
+			on "textarea"
+				cBlock = cInd + "<textarea" + _specialAttrsToStr(aSpecial) + cThisAttr
+				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
+				cBlock += ">" + nl + cInner + cInd + "</textarea>" + nl
+			on "form"
+				cBlock = cInd + "<form" + _specialAttrsToStr(aSpecial) + cThisAttr
+				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
+				cBlock += ">" + nl + cInner + cInd + "</form>" + nl
+			on "select"
+				cBlock = cInd + "<select" + _specialAttrsToStr(aSpecial) + cThisAttr
+				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
+				cBlock += ">" + nl + cInner + cInd + "</select>" + nl
+			other
+				cBlock = cInd + "<" + cTag + _specialAttrsToStr(aSpecial) + cThisAttr
+				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
+				cBlock += ">" + nl + cInner
+				if cExtra != "" cBlock += cExtra ok
+				cBlock += cInd + "</" + cTag + ">" + nl
+			off
+			if len(aStack) = 0
+				cOutput += cBlock
+			else
+				aStack[len(aStack)][2] += cBlock
+			ok
+
+		func _pushTag cTag
+			cSavedAttr  = cAttrOutput
+			cSavedStyle = cStyleOutput
+			cAttrOutput  = ""
+			cStyleOutput = ""
+			aStack + [cTag, "", "", cSavedAttr, cSavedStyle, []]
+
+		func _pushTagExtra cTag, cExtraClose
+			cSavedAttr  = cAttrOutput
+			cSavedStyle = cStyleOutput
+			cAttrOutput  = ""
+			cStyleOutput = ""
+			aStack + [cTag, "", cExtraClose, cSavedAttr, cSavedStyle, []]
+
+		func addattributes
 			cOutput += cAttrOutput
 
-		Func elementattribute cName
+		func elementattribute cName
 			cValue = getattribute(self,cName)
 			if cValue != NULL and cValue != "NULL"
 				cOutput += ' ' + cName + '="' + cValue + '"'
 			ok
 
-		Func elementattribute2 cName,cName2
+		func elementattribute2 cName,cName2
 			cValue = getattribute(self,cName)
 			if cValue != NULL and cValue != "NULL"
 				cOutput += ' ' + lower(cName2) + '="' + cValue + '"'
 			ok
 
-		Func AddStyle
-			
+		func AddStyle
 			if getattribute(self,"style") = "NULL"
-				cOutput += ' style="' 
-				cOutput += cStyleOutput	
-				cOutput += '">' + nl
+				cOutput += ' style="' + cStyleOutput + '">' + nl
 			else
-				cOutput += '>' + nl
+				cOutput += ">" + nl
 			ok
 
-		# Generated setter functions 
+		# Special element attribute setters.
+		# Write into the current stack frame's specialAttrs list (frame[6]).
+		# Context-aware: settitle checks if inside an <a> frame.
+
+		func settype cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["type", cValue]
+			ok
+
+		func setsrc cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["src", cValue]
+			ok
+
+		func setalt cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["alt", cValue]
+			ok
+
+		func setrows cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["rows", cValue]
+			ok
+
+		func setcols cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["cols", cValue]
+			ok
+
+		func setaction cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["action", cValue]
+			ok
+
+		func setmethod cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["method", cValue]
+			ok
+
+		func settarget cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["target", cValue]
+			ok
+
+		func setmultiple cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["multiple", cValue]
+			ok
+
+		func setmin cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["min", cValue]
+			ok
+
+		func setmax cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["max", cValue]
+			ok
+
+		func setchecked cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["checked", cValue]
+			ok
+
+		func settitle cValue
+			if len(aStack) > 0 and aStack[len(aStack)][1] = "a"
+				aStack[len(aStack)][6] + ["linktitle", cValue]
+			else
+				Title = cValue
+			ok
+
+		func setlink cValue
+			if len(aStack) > 0
+				aStack[len(aStack)][6] + ["href", cValue]
+			ok
+
+		func _specialAttrsToStr aSpecial
+			cResult = ""
+			for item in aSpecial
+				if item[1] != "linktitle" and item[1] != "href"
+					cResult += " " + item[1] + '="' + item[2] + '"'
+				ok
+			next
+			return cResult
+
+		func _getSpecialAttr aSpecial, cName
+			for item in aSpecial
+				if item[1] = cName
+					return item[2]
+				ok
+			next
+			return ""
+
+		# Generated setter functions
 
 		func setclassname  cValue
 			cAttrOutput += ' class = "' + cValue + '"'

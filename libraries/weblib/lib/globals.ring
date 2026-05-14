@@ -1,6 +1,6 @@
 # The Ring Standard Library
 # Web Library
-# 2016-2022, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2026, Mahmoud Fayed <msfclipper@yahoo.com>
 
 aPageVars = []
 
@@ -75,4 +75,6 @@ aObjsAttributes = ["link","newline","div","form","input",
 		   "textarea","select","option","image","ul","li","table",
 		   "tr","td","th","thead","tbody","tfoot",
 		   "audio","video","h1","h2","h3","h4","h5",
-		   "h6","p","nav","span","button"]
+		   "h6","p","nav","span","button",
+		   "type","src","alt","rows","cols","action","method","target",
+		   "multiple","min","max","checked"]

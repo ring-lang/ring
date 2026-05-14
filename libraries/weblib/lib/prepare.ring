@@ -1,6 +1,6 @@
 # The Ring Standard Library
 # Web Library
-# 2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2026, Mahmoud Fayed <msfclipper@yahoo.com>
 
 mergemethods("page","stylefunctions")
 mergemethods("page","scriptfunctions")
@@ -12,5 +12,6 @@ mergemethods("objsbase","newobjectsfunctions")
 mergemethods("webpage","stylefunctions")
 mergemethods("webpage","scriptfunctions")
 mergemethods("webpage","newobjectsfunctions")
+mergemethods("webpage","objsbase")
 
 loadvars()
