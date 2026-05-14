@@ -21,9 +21,6 @@ Package System.Web
 		func getdata
 			return cOutput
 
-		func getobjsdata
-			# no-op: content built directly via the stack
-
 		# braceend: pops frame, renders element, restores parent attr/style buffers.
 		# Uses cThisAttr/cThisStyle (this element's own buffers) for the tag,
 		# then restores cAttrOutput/cStyleOutput to the parent's saved values.
