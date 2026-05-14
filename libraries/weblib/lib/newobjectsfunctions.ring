@@ -34,205 +34,147 @@ Package System.Web
 			ok
 
 		Func GetLink
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["a", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["a", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetDiv
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["div", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["div", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetForm
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["form", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["form", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetInput
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["input", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["input", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTextArea
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["textarea", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["textarea", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetSelect
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["select", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["select", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetOption
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["option", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["option", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetImage
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["img", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["img", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetUL
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["ul", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["ul", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetLI
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["li", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["li", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTable
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["table", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["table", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTr
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["tr", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["tr", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTd
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["td", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["td", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTh
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["th", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["th", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetThead
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["thead", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["thead", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTBody
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["tbody", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["tbody", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetTFoot
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["tfoot", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["tfoot", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetAudio
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["audio", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["audio", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetVideo
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["video", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["video", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetH1
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["h1", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["h1", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetH2
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["h2", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["h2", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetH3
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["h3", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["h3", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetH4
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["h4", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["h4", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetH5
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["h5", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["h5", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetH6
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["h6", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["h6", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetP
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["p", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["p", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetNav
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["nav", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["nav", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetSpan
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["span", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["span", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 
 		Func GetButton
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+			aStack + ["button", "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
-			aStack + ["button", "", "", cSavedAttr, cSavedStyle, []]
 			return self
 

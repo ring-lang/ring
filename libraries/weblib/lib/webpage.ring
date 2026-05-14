@@ -19,9 +19,6 @@ Package System.Web
 
 		StartHtml()
 
-		Func bracestart
-			# intentionally empty
-
 		Func braceend
 			if len(aStack) > 0
 				nTop      = len(aStack)
@@ -38,15 +35,15 @@ Package System.Web
 				del(aStack, nTop)
 				switch cTag
 				on "audio"
-					cSrc   = _getSpecialAttr(aSpecial,"src")
-					cType  = _getSpecialAttr(aSpecial,"type")
+					cSrc   = getSpecialAttr(aSpecial,"src")
+					cType  = getSpecialAttr(aSpecial,"type")
 					cBlock = cInd + "<audio controls>" + nl
 					cBlock += cInd + '<source src="' + cSrc + '" type="' + cType + '">' + nl
 					cBlock += cInd + "Your browser does not support the audio element." + nl
 					cBlock += cInd + "</audio>" + nl
 				on "video"
-					cSrc   = _getSpecialAttr(aSpecial,"src")
-					cType  = _getSpecialAttr(aSpecial,"type")
+					cSrc   = getSpecialAttr(aSpecial,"src")
+					cType  = getSpecialAttr(aSpecial,"type")
 					cBlock = cInd + "<video controls" + cThisAttr + ">" + nl
 					cSource = cInd + '<source src="' + cSrc + '" type="' + cType + '"'
 					if cThisStyle != "" cSource += ' style="' + cThisStyle + '"' ok
@@ -54,31 +51,31 @@ Package System.Web
 					cBlock += cInd + "Your browser does not support the video tag." + nl
 					cBlock += cInd + "</video>" + nl
 				on "a"
-					cHref      = _getSpecialAttr(aSpecial,"href")
-					cTitleText = _getSpecialAttr(aSpecial,"linktitle")
+					cHref      = getSpecialAttr(aSpecial,"href")
+					cTitleText = getSpecialAttr(aSpecial,"linktitle")
 					cBlock = cInd + "<a href='" + cHref + "'> " + cTitleText + " </a>" + nl
 				on "img"
-					cBlock = cInd + "<img" + _specialAttrsToStr(aSpecial) + cThisAttr
+					cBlock = cInd + "<img" + specialAttrsToStr(aSpecial) + cThisAttr
 					if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 					cBlock += " />" + nl
 				on "input"
-					cBlock = cInd + "<input" + _specialAttrsToStr(aSpecial) + cThisAttr
+					cBlock = cInd + "<input" + specialAttrsToStr(aSpecial) + cThisAttr
 					if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 					cBlock += " />" + nl
 				on "textarea"
-					cBlock = cInd + "<textarea" + _specialAttrsToStr(aSpecial) + cThisAttr
+					cBlock = cInd + "<textarea" + specialAttrsToStr(aSpecial) + cThisAttr
 					if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 					cBlock += ">" + nl + cInner + cInd + "</textarea>" + nl
 				on "form"
-					cBlock = cInd + "<form" + _specialAttrsToStr(aSpecial) + cThisAttr
+					cBlock = cInd + "<form" + specialAttrsToStr(aSpecial) + cThisAttr
 					if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 					cBlock += ">" + nl + cInner + cInd + "</form>" + nl
 				on "select"
-					cBlock = cInd + "<select" + _specialAttrsToStr(aSpecial) + cThisAttr
+					cBlock = cInd + "<select" + specialAttrsToStr(aSpecial) + cThisAttr
 					if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 					cBlock += ">" + nl + cInner + cInd + "</select>" + nl
 				other
-					cBlock = cInd + "<" + cTag + _specialAttrsToStr(aSpecial) + cThisAttr
+					cBlock = cInd + "<" + cTag + specialAttrsToStr(aSpecial) + cThisAttr
 					if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 					cBlock += ">" + nl + cInner
 					if cExtra != "" cBlock += cExtra ok
@@ -107,19 +104,15 @@ Package System.Web
 				WebPrint( nl + "</body>" + nl + "</html>" + nl )
 			ok
 
-		Func _pushTag cTag
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+		Func pushTag cTag
+			aStack + [cTag, "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput  = ""
 			cStyleOutput = ""
-			aStack + [cTag, "", "", cSavedAttr, cSavedStyle, []]
 
-		Func _pushTagExtra cTag, cExtraClose
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+		Func pushTagExtra cTag, cExtraClose
+			aStack + [cTag, "", cExtraClose, cAttrOutput, cStyleOutput, []]
 			cAttrOutput  = ""
 			cStyleOutput = ""
-			aStack + [cTag, "", cExtraClose, cSavedAttr, cSavedStyle, []]
 
 		Func getobjsdata
 			# no-op

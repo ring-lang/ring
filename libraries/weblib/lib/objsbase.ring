@@ -24,9 +24,6 @@ Package System.Web
 		func getobjsdata
 			# no-op: content built directly via the stack
 
-		func bracestart
-			# intentionally empty
-
 		# braceend: pops frame, renders element, restores parent attr/style buffers.
 		# Uses cThisAttr/cThisStyle (this element's own buffers) for the tag,
 		# then restores cAttrOutput/cStyleOutput to the parent's saved values.
@@ -46,15 +43,15 @@ Package System.Web
 			del(aStack, nTop)
 			switch cTag
 			on "audio"
-				cSrc   = _getSpecialAttr(aSpecial,"src")
-				cType  = _getSpecialAttr(aSpecial,"type")
+				cSrc   = getSpecialAttr(aSpecial,"src")
+				cType  = getSpecialAttr(aSpecial,"type")
 				cBlock = cInd + "<audio controls>" + nl
 				cBlock += cInd + '<source src="' + cSrc + '" type="' + cType + '">' + nl
 				cBlock += cInd + "Your browser does not support the audio element." + nl
 				cBlock += cInd + "</audio>" + nl
 			on "video"
-				cSrc   = _getSpecialAttr(aSpecial,"src")
-				cType  = _getSpecialAttr(aSpecial,"type")
+				cSrc   = getSpecialAttr(aSpecial,"src")
+				cType  = getSpecialAttr(aSpecial,"type")
 				cBlock = cInd + "<video controls" + cThisAttr + ">" + nl
 				cSource = cInd + '<source src="' + cSrc + '" type="' + cType + '"'
 				if cThisStyle != "" cSource += ' style="' + cThisStyle + '"' ok
@@ -62,31 +59,31 @@ Package System.Web
 				cBlock += cInd + "Your browser does not support the video tag." + nl
 				cBlock += cInd + "</video>" + nl
 			on "a"
-				cHref  = _getSpecialAttr(aSpecial,"href")
-				cTitleText = _getSpecialAttr(aSpecial,"linktitle")
+				cHref  = getSpecialAttr(aSpecial,"href")
+				cTitleText = getSpecialAttr(aSpecial,"linktitle")
 				cBlock = cInd + "<a href='" + cHref + "'> " + cTitleText + " </a>" + nl
 			on "img"
-				cBlock = cInd + "<img" + _specialAttrsToStr(aSpecial) + cThisAttr
+				cBlock = cInd + "<img" + specialAttrsToStr(aSpecial) + cThisAttr
 				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 				cBlock += " />" + nl
 			on "input"
-				cBlock = cInd + "<input" + _specialAttrsToStr(aSpecial) + cThisAttr
+				cBlock = cInd + "<input" + specialAttrsToStr(aSpecial) + cThisAttr
 				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 				cBlock += " />" + nl
 			on "textarea"
-				cBlock = cInd + "<textarea" + _specialAttrsToStr(aSpecial) + cThisAttr
+				cBlock = cInd + "<textarea" + specialAttrsToStr(aSpecial) + cThisAttr
 				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 				cBlock += ">" + nl + cInner + cInd + "</textarea>" + nl
 			on "form"
-				cBlock = cInd + "<form" + _specialAttrsToStr(aSpecial) + cThisAttr
+				cBlock = cInd + "<form" + specialAttrsToStr(aSpecial) + cThisAttr
 				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 				cBlock += ">" + nl + cInner + cInd + "</form>" + nl
 			on "select"
-				cBlock = cInd + "<select" + _specialAttrsToStr(aSpecial) + cThisAttr
+				cBlock = cInd + "<select" + specialAttrsToStr(aSpecial) + cThisAttr
 				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 				cBlock += ">" + nl + cInner + cInd + "</select>" + nl
 			other
-				cBlock = cInd + "<" + cTag + _specialAttrsToStr(aSpecial) + cThisAttr
+				cBlock = cInd + "<" + cTag + specialAttrsToStr(aSpecial) + cThisAttr
 				if cThisStyle != "" cBlock += ' style="' + cThisStyle + '"' ok
 				cBlock += ">" + nl + cInner
 				if cExtra != "" cBlock += cExtra ok
@@ -98,19 +95,15 @@ Package System.Web
 				aStack[len(aStack)][2] += cBlock
 			ok
 
-		func _pushTag cTag
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+		func pushTag cTag
+			aStack + [cTag, "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput  = ""
 			cStyleOutput = ""
-			aStack + [cTag, "", "", cSavedAttr, cSavedStyle, []]
 
-		func _pushTagExtra cTag, cExtraClose
-			cSavedAttr  = cAttrOutput
-			cSavedStyle = cStyleOutput
+		func pushTagExtra cTag, cExtraClose
+			aStack + [cTag, "", cExtraClose, cAttrOutput, cStyleOutput, []]
 			cAttrOutput  = ""
 			cStyleOutput = ""
-			aStack + [cTag, "", cExtraClose, cSavedAttr, cSavedStyle, []]
 
 		func addattributes
 			cOutput += cAttrOutput
@@ -210,7 +203,7 @@ Package System.Web
 				aStack[len(aStack)][6] + ["href", cValue]
 			ok
 
-		func _specialAttrsToStr aSpecial
+		func specialAttrsToStr aSpecial
 			cResult = ""
 			for item in aSpecial
 				if item[1] != "linktitle" and item[1] != "href"
@@ -219,7 +212,7 @@ Package System.Web
 			next
 			return cResult
 
-		func _getSpecialAttr aSpecial, cName
+		func getSpecialAttr aSpecial, cName
 			for item in aSpecial
 				if item[1] = cName
 					return item[2]
