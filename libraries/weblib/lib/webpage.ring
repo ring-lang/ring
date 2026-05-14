@@ -6,8 +6,6 @@ Package System.Web
 
 	Class WebPage from Application
 
-		aObjs = []
-
 		# Stack frames: [tag, contentBuf, extraClose, savedAttr, savedStyle, specialAttrs]
 		aStack = []
 
@@ -98,9 +96,6 @@ Package System.Web
 				WebPrint( nl+"</head>" + nl +
 				"<body"+ cBody + "> " + nl )
 				WebPrint( cOutput + nl )
-				for x in aObjs
-					WebPrint( x.getdata() + nl )
-				next
 				WebPrint( nl + "</body>" + nl + "</html>" + nl )
 			ok
 
@@ -113,9 +108,6 @@ Package System.Web
 			aStack + [cTag, "", cExtraClose, cAttrOutput, cStyleOutput, []]
 			cAttrOutput  = ""
 			cStyleOutput = ""
-
-		Func getobjsdata
-			# no-op
 
 		Func getdata
 			return cOutput
