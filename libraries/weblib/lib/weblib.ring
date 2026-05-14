@@ -17,5 +17,4 @@ load "bootstrapwebpage.ring"
 load "htmlpage.ring"
 load "objsbase.ring"
 load "newobjectsfunctions.ring"
-load "webpageelementsclasses.ring"
 
