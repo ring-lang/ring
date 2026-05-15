@@ -8,6 +8,7 @@ All examples were generated 100% using **Claude Code**.
 
 ## Table of Contents
 
+- [Screenshots](#screenshots)
 - [Games](#games)
   - [Classic Arcade](#classic-arcade)
   - [Board Games](#board-games)
@@ -19,11 +20,23 @@ All examples were generated 100% using **Claude Code**.
 
 ---
 
+## Screenshots
+
+| | | | |
+|:---:|:---:|:---:|:---:|
+| ![Pac-Man](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/pacman.png) | ![Bomberman](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/bomberman.png) | ![Mega Man](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/ringman.png) | ![Othello 3D](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/othello.png) |
+| Pac-Man 2D | Ring Bomber | Mega Man | Othello 3D |
+| ![Laser Puzzle](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/laser.png) | ![Diagram Tool](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/diagram.png) | ![Circuit Simulator](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/circuitsimulator.png) | ![Cards Animation](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/cardsanimation.png) |
+| Laser Puzzle 3D | Diagram Tool | Circuit Simulator | Cards Animation |
+
+---
+
 ## Games
 
 ### Classic Arcade
 
 #### `pacman2d.ring` — Pac-Man 2D
+![Pac-Man 2D](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/pacman.png)
 Classic Pac-Man in a faithful 2D recreation. Navigate the maze, eat all pellets, avoid the four ghosts, and grab power pellets to turn the tables. Features the authentic 28×31 maze layout, ghost AI with chase/scatter/frightened modes, and multiple lives.
 
 #### `pacman3d.ring` — Pac-Man 3D
@@ -45,6 +58,7 @@ Tap to flap through endless pipe gaps. Features three difficulty levels (Easy/No
 "Ring Mario" — a classic side-scrolling platformer. Run and jump through levels, stomp enemies, and reach the flag.
 
 #### `megaman.ring` — Mega Man
+![Mega Man](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/ringman.png)
 A Mega Man–style action platformer with multiple stages, each with distinct visual themes and enemy types. Run, jump, and shoot your way through challenging levels.
 
 #### `tanks.ring` — Tanks (2-Player Battle)
@@ -70,6 +84,7 @@ Classic draughts on a full 3D board. Select and move pieces diagonally, jump to 
 The ancient game of Go rendered in 3D with a wooden board aesthetic. Place black and white stones to surround territory and capture opponent groups. Includes territory estimation display and undo support.
 
 #### `othello3d.ring` — 3D Othello (Reversi)
+![Othello 3D](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/othello.png)
 Classic Othello with smooth 3D disc-flip animations. Outflank and flip your opponent's pieces to dominate the board. Features valid-move highlighting, AI opponent, and polished visual effects.
 
 #### `connectfour3d.ring` — 3D Connect Four
@@ -98,6 +113,7 @@ The same Sokoban puzzles elevated to a full 3D warehouse setting with smooth pus
 Slide across icy floors where you cannot stop until you hit a wall or rock. Navigate through maze-like levels to reach the goal. Includes a built-in BFS auto-solver (**H**) and an undo system.
 
 #### `laser3d.ring` — 3D Laser Puzzle
+![Laser Puzzle 3D](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/laser.png)
 Redirect a laser beam from emitter to target by placing and rotating mirrors on the grid. Features 3D beam tracing, placement animations, and multiple puzzle levels of increasing complexity.
 
 #### `pipe3d.ring` — 3D Pipe Connect
@@ -166,6 +182,7 @@ A procedural dungeon crawler with turn-based combat. Explore BSP-generated rooms
 ### Strategy & Simulation
 
 #### `bomberman.ring` — Ring Bomber (Bomberman-Style)
+![Ring Bomber](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/bomberman.png)
 "Ring Bomber" — an arcade game where you place bombs to blast destructible walls, collect power-ups, and eliminate enemies. Features multiple enemy types and power-ups that enhance bomb count, range, and movement speed.
 
 #### `breakout3d.ring` — 3D Breakout
@@ -203,9 +220,11 @@ A smooth animated analog clock rendered with RayLib. Displays hours, minutes, an
 A 2D drawing application with multiple tools: freehand brush, line, rectangle, circle/oval, and fill-rectangle. Supports a color palette and right-click erasing.
 
 #### `diagram.ring` — Diagram / Flowchart Tool
+![Diagram Tool](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/diagram.png)
 A flowchart and diagram maker. Create draggable boxes in five shapes, connect them with arrows, edit label text inline, and auto-arrange with grid snap. Export-ready for quick visual documentation.
 
 #### `circuit.ring` — Logic Circuit Simulator
+![Circuit Simulator](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/circuitsimulator.png)
 A visual logic gate simulator. Place AND, OR, NOT, XOR, NAND, NOR, and other gates on a canvas, wire outputs to inputs, and toggle input switches to watch signals propagate in real time. Features auto-layout, undo, and grid snap.
 
 #### `sortvis.ring` — Sorting Algorithm Visualizer
@@ -243,6 +262,7 @@ Eight mesmerizing animated visual modes — flowing colors, bouncing shapes, Lis
 A first-person walk through a procedurally generated 3D forest. Trees are randomly placed across terrain, creating an immersive outdoor environment to explore freely.
 
 #### `cardsanimation2d.ring` — Cards Animation 2D
+![Cards Animation](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/shots/cardsanimation.png)
 A 2D animated card-dealing and shuffling demonstration. Smooth card movement animations showcase RayLib's 2D rendering and easing capabilities.
 
 #### `cardsanimation3d.ring` — Cards Animation 3D
