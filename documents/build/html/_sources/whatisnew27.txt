@@ -523,6 +523,215 @@ This mix-and-match workflow is exactly how Ring games such as
 DaveTheFighter, Tank3D, LineDrawing3D, and CodeRooms3D were built — 100% with Claude Code, 
 guided by prompts that referenced and combined ideas from samples like these.
 
+.. list-table:: UsingClaude — Ring Language Samples (Generated using Claude Code)
+   :widths: 5 25 70
+   :header-rows: 1
+
+   * - No.
+     - Game / App
+     - Description
+   * - 1
+     - Pac-Man 2D (pacman2d.ring)
+     - Classic Pac-Man in a faithful 2D recreation. Navigate the maze, eat all pellets, avoid the four ghosts, and grab power pellets to turn the tables. Features the authentic 28×31 maze layout, ghost AI with chase/scatter/frightened modes, and multiple lives.
+   * - 2
+     - Pac-Man 3D (pacman3d.ring)
+     - The same beloved Pac-Man experience elevated into full 3D. Multiple camera views let you watch the action from different angles. Includes all classic gameplay elements: pellets, power pellets, ghosts, and bonus fruit.
+   * - 3
+     - Asteroids 2D (asteroids2d.ring)
+     - A faithful remake of the classic vector-graphics space shooter. Pilot your ship, destroy asteroids that split into smaller fragments, and handle UFO attacks.
+   * - 4
+     - Flappy Bird (flappybird.ring)
+     - Tap to flap through endless pipe gaps. Features three difficulty levels (Easy/Normal/Hard), day/night mode toggle, and progressively increasing challenge as you survive longer.
+   * - 5
+     - Space Invaders (spaceinv.ring)
+     - A classic top-down space shooter where waves of alien enemies descend. Destroy all enemies before they reach the ground.
+   * - 6
+     - Donkey Kong (donkeykong.ring)
+     - Inspired by the legendary barrel-jumping arcade classic. Climb platforms, dodge rolling barrels thrown by Kong, and rescue the princess.
+   * - 7
+     - Mario Platformer (mario.ring)
+     - A classic side-scrolling platformer. Run and jump through levels, stomp enemies, and reach the flag.
+   * - 8
+     - Mega Man (megaman.ring)
+     - A Mega Man-style action platformer with multiple stages, each with distinct visual themes and enemy types. Run, jump, and shoot your way through challenging levels.
+   * - 9
+     - Tanks 2-Player Battle (tanks.ring)
+     - A two-player top-down tank battle game. Players navigate a maze of walls and fight to destroy each other's tanks with cannon shots.
+   * - 10
+     - Battlezone 3D (battlezone3d.ring)
+     - First-person tank combat in a 3D arena inspired by the classic Battlezone arcade game. Navigate geometric obstacles, engage waves of enemy tanks, and survive as long as possible. Features a first-person cockpit view and radar with zoom toggle.
+   * - 11
+     - Chess 2D (chess2d.ring)
+     - A complete chess game against the computer. Fully implements chess rules including castling, en passant captures, pawn promotion, check detection, and checkmate. Undo moves and restart at any time.
+   * - 12
+     - Chess 3D (chess3d.ring)
+     - Full chess rendered in beautiful 3D. Choose from three AI difficulty levels (Easy/Medium/Hard) and cycle between Front, Isometric, and Overhead camera views.
+   * - 13
+     - Checkers 3D (checker3d.ring)
+     - Classic draughts on a full 3D board. Select and move pieces diagonally, jump to capture opponents, and crown kings when reaching the far end. Supports Player vs Player and Player vs AI modes.
+   * - 14
+     - Go 3D (go3d.ring)
+     - The ancient game of Go rendered in 3D with a wooden board aesthetic. Place black and white stones to surround territory and capture opponent groups. Includes territory estimation and undo support.
+   * - 15
+     - Othello 3D (othello3d.ring)
+     - Classic Othello with smooth 3D disc-flip animations. Outflank and flip your opponent's pieces to dominate the board. Features valid-move highlighting and an AI opponent.
+   * - 16
+     - Connect Four 3D (connectfour3d.ring)
+     - Drop discs into a 7-column, 6-row board and connect four in a row horizontally, vertically, or diagonally. Rendered in full 3D with smooth fall animations. Supports Player vs Player and Player vs AI modes.
+   * - 17
+     - Hex Game 3D (hexgame3d.ring)
+     - The classic connection strategy game on a diamond-shaped board. Two players compete to connect their opposite sides. Choose from five board sizes (5x5 up to 13x13) with a built-in AI opponent and multiple camera views.
+   * - 18
+     - Cards Game 2D (cards2d.ring)
+     - A two-player card matching game. Players alternate turns revealing face-down cards; matching values get captured, and the special value 5 acts as a wild card that captures all currently revealed cards.
+   * - 19
+     - Cards Game 3D (cards3d.ring)
+     - The same two-player card matching game rendered in full 3D with cards as 3D blocks on a felt table. Match values to capture cards, use the wild 5 to sweep, with a camera-cycle view and immersive table presentation.
+   * - 20
+     - Sokoban 2D (sokoban2d.ring)
+     - The classic box-pushing puzzle in a clean 2D view. Push crates onto all target positions across multiple hand-crafted levels. Features an undo system and standard Sokoban notation for level design.
+   * - 21
+     - Sokoban 3D (sokoban3d.ring)
+     - The same Sokoban puzzles elevated to a full 3D warehouse setting with smooth push animations. Navigate multiple levels with a generous undo system.
+   * - 22
+     - Ice Sliding Puzzle 3D (ice3d.ring)
+     - Slide across icy floors where you cannot stop until you hit a wall or rock. Navigate maze-like levels to reach the goal. Includes a built-in BFS auto-solver and an undo system.
+   * - 23
+     - Laser Puzzle 3D (laser3d.ring)
+     - Redirect a laser beam from emitter to target by placing and rotating mirrors on the grid. Features 3D beam tracing, placement animations, and multiple puzzle levels of increasing complexity.
+   * - 24
+     - Pipe Connect 3D (pipe3d.ring)
+     - Rotate pipe segments to connect a water flow from the source to the drain. Build a continuous path across the board. Rendered in 3D with animated water flow when the puzzle is solved.
+   * - 25
+     - Sliding Puzzle 3D / 15-Puzzle (slide3d.ring)
+     - The classic 15-tile sliding puzzle in stunning 3D. Slide numbered tiles into the correct order with an undo system and multiple board sizes.
+   * - 26
+     - Maze 3D (maze3d.ring)
+     - Navigate a glowing sphere through a procedurally generated 3D maze. Each restart generates a unique maze using the Recursive Backtracker algorithm. Features atmospheric lighting effects.
+   * - 27
+     - Tower of Hanoi 3D (hanoi3d.ring)
+     - The classic Tower of Hanoi puzzle in full 3D. Move discs between three pegs to transfer the entire stack. Adjustable disc count (3-10), an undo system, and an Auto-Solve mode that animates the optimal solution step by step.
+   * - 28
+     - Minesweeper 3D (minesweeper3d.ring)
+     - Classic Minesweeper in a 3D perspective. Reveal cells, flag mines, and clear the board without triggering any explosions. Multiple camera views and flagging support.
+   * - 29
+     - Knight's Tour 3D (knight3d.ring)
+     - Complete a full knight's tour of the chessboard — visit every square exactly once using only L-shaped chess moves. Features Warnsdorff hint highlighting, an auto-solver, undo, and board sizes from 5x5 to 8x8.
+   * - 30
+     - N-Queens Puzzle 3D (nqueens3d.ring)
+     - Place N queens on an NxN chessboard so no two queens threaten each other. Features a threat heatmap overlay, an auto-solver, and adjustable board sizes (4-12).
+   * - 31
+     - Lights Out 3D (lights3d.ring)
+     - Toggle lights on a grid to turn them all off. Each press flips the pressed cell and its orthogonal neighbors. Includes a solution hint overlay and an undo system.
+   * - 32
+     - Match-3 Gem Game 3D (match3d.ring)
+     - Swap adjacent gems to form rows or columns of 3 or more. Chain reactions cascade as gems fall to fill gaps. Features match-hint highlighting, undo for pre-cascade swaps, and multiple board sizes.
+   * - 33
+     - Rescue Rover 3D (rescue3d.ring)
+     - A rich 3D puzzle game: push boxes, collect keys, redirect lasers with ice blocks, fill water with crates, rescue your dog, and escape. Multiple levels with increasing complexity and a generous undo system.
+   * - 34
+     - 2048 3D (the2048game3d.ring)
+     - Slide numbered tiles on a 4x4 grid. When two identical tiles collide they merge into one. Reach the 2048 tile to win. Rendered in 3D with smooth tile-slide animations and multiple camera views.
+   * - 35
+     - Ring Doom 3D (doom3d.ring)
+     - A retro first-person shooter in the style of Wolfenstein/DOOM. Navigate corridors, blast enemies with your pistol, open doors, and find the exit. Features a toggleable map overlay and mouse-look.
+   * - 36
+     - Dungeon Crawler 3D (dungeoncrawler3d.ring)
+     - First-person 3D dungeon exploration. Find keys, unlock doors, fight enemies in melee, and reach the exit. Includes an inventory system, minimap, multiple pre-built levels, and health management.
+   * - 37
+     - The Sword Game (swordgame.ring)
+     - A 3D platformer with sword combat and dungeon traps. Features ledge-grabbing, climbing, crouching, careful-step mechanics, and sword draw/sheathe. A physics-driven action-adventure with atmospheric dungeon environments.
+   * - 38
+     - Helicopter Gunship 3D (helicopter3d.ring)
+     - Fly an attack helicopter over terrain in mission-based gameplay. Destroy ground targets, rescue hostages, and dodge anti-air fire. Features machine gun and rocket weapons, terrain-following flight physics, and multiple missions.
+   * - 39
+     - Endless Runner 3D (runner3d.ring)
+     - An endless lane-running game set in a 3D world. Dodge obstacles, collect coins and power-ups while speed increases over time. Jump, slide, and switch lanes to survive as long as possible.
+   * - 40
+     - Platformer 2D (platform2d.ring)
+     - A classic side-scrolling platformer with precise jump physics. Navigate platforms, avoid hazards, and complete levels.
+   * - 41
+     - Baba Is You 3D (baba3d.ring)
+     - A puzzle game inspired by Baba Is You. Push word blocks around the level to rewrite the rules of the game itself. Changing which words are connected changes what objects do — a mind-bending logic puzzle experience.
+   * - 42
+     - Roguelike 2D (roguelike2d.ring)
+     - A procedural dungeon crawler with turn-based combat. Explore BSP-generated rooms, fight monsters, collect loot, and descend to deeper floors. Features fog of war with line-of-sight, an inventory system with potions and scrolls, and a minimap.
+   * - 43
+     - Ring Bomber / Bomberman (bomberman.ring)
+     - An arcade game where you place bombs to blast destructible walls, collect power-ups, and eliminate enemies. Features multiple enemy types and power-ups that enhance bomb count, range, and movement speed.
+   * - 44
+     - Breakout 3D (breakout3d.ring)
+     - The classic Breakout/Arkanoid brick-breaking game rendered in 3D. Control a paddle, launch the ball, and clear all bricks. Features increasing difficulty across levels.
+   * - 45
+     - Pinball 3D (pinball3d.ring)
+     - A full pinball table in 3D. Launch the ball with the plunger, use left and right flippers, hit bumpers and targets for points. Features multiple camera views and a pause function.
+   * - 46
+     - Racing 3D (racing3d.ring)
+     - Race around a track against three AI opponents. Features acceleration, braking, reversing, handbrake turns, and multiple camera angles. Includes a lap counter and race restart.
+   * - 47
+     - Space Shooter 3D (shooter3d.ring)
+     - Fly your ship through asteroid fields and enemy waves in a 3D space shooter. Move in all four directions, shoot projectiles, and survive increasingly intense waves.
+   * - 48
+     - Tower Defense 2D (towerdefense2d.ring)
+     - Place turrets along enemy paths to prevent waves of enemies from breaking through. Features six turret types, upgrade and sell mechanics, fast-forward mode, and a grid overlay.
+   * - 49
+     - Tower Defense 3D (towerdefense3d.ring)
+     - Tower defense strategy elevated into 3D. Enemies follow a winding path across a grid while you build and upgrade towers to stop them. Four tower types with upgrade paths and wave bonuses.
+   * - 50
+     - Snake 3D (snake3d.ring)
+     - The classic Snake game in full 3D. Guide a glowing snake made of connected spheres across a grid to eat food and grow longer. Features three camera modes (Follow/Top-Down/Isometric) and particle burst effects on eating.
+   * - 51
+     - Tetris 3D (tetris3d.ring)
+     - Classic Tetris rendered in full 3D on a 10-wide x 20-tall playfield. Stack all seven classic tetrominoes, clear lines, hold a piece, hard-drop for speed, and chase high scores across increasing levels.
+   * - 52
+     - Analog Clock (analogclock.ring)
+     - A smooth animated analog clock rendered with RayLib. Displays hours, minutes, and seconds hands with real-time updates.
+   * - 53
+     - Paint Program (paint.ring)
+     - A 2D drawing application with multiple tools: freehand brush, line, rectangle, circle/oval, and fill-rectangle. Supports a color palette and right-click erasing.
+   * - 54
+     - Diagram / Flowchart Tool (diagram.ring)
+     - A flowchart and diagram maker. Create draggable boxes in five shapes, connect them with arrows, edit label text inline, and auto-arrange with grid snap.
+   * - 55
+     - Logic Circuit Simulator (circuit.ring)
+     - A visual logic gate simulator. Place AND, OR, NOT, XOR, NAND, NOR, and other gates on a canvas, wire outputs to inputs, and toggle input switches to watch signals propagate in real time. Features auto-layout, undo, and grid snap.
+   * - 56
+     - Sorting Algorithm Visualizer (sortvis.ring)
+     - Watch six classic sorting algorithms animate on colorful bars: Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort, and Shell Sort. Adjust speed and array size to compare performance visually.
+   * - 57
+     - Solar System 3D (solarsystem.ring)
+     - An interactive 3D solar system with all eight planets orbiting the Sun. Switch between Free, Follow-Planet, Overhead, and Orbit camera modes. Toggle orbit lines, labels, and an info panel.
+   * - 58
+     - Ecosystem Simulator (ecosystemsimulator.ring)
+     - A predator/prey population simulation (foxes and rabbits) demonstrating Lotka-Volterra dynamics. Watch populations rise and fall, spawn extra animals, and choose from preset scenarios.
+   * - 59
+     - Traffic Simulator (trafficsimulator.ring)
+     - Cars drive on a road grid with traffic lights and intersections. Watch traffic flow emerge from signal timing, add cars, switch between grid layouts, and adjust light cycle duration.
+   * - 60
+     - Weather Simulator (weathersimulator.ring)
+     - A living sky simulation with clouds, rain, lightning, wind, snow, and a day/night cycle. Switch between six weather presets and trigger lightning bolts manually.
+   * - 61
+     - Conway's Game of Life 2D (gameoflife2d.ring)
+     - The classic cellular automaton in a zoomable, pannable 2D grid. Toggle cells, step generation by generation, load built-in pattern presets, and adjust simulation speed.
+   * - 62
+     - Conway's Game of Life 3D (gameoflife3d.ring)
+     - Conway's Game of Life visualized as glowing 3D cubes rising from a dark grid plane. Click cells to toggle them, cycle preset patterns, randomize the grid, and adjust simulation speed.
+   * - 63
+     - Particle System Playground (particles.ring)
+     - Interactive particle emitters with physics. Place attractors and repulsors with the mouse, switch between six emitter types (fireworks, fountain, vortex, etc.), cycle color themes, and toggle gravity and wind.
+   * - 64
+     - Color Animation Screensaver (screensaver.ring)
+     - Eight mesmerizing animated visual modes including flowing colors, bouncing shapes, and Lissajous curves. Cycle through color palettes, toggle background trails, and pause/resume the animation.
+   * - 65
+     - Forest Explorer 3D (forest3d.ring)
+     - A first-person walk through a procedurally generated 3D forest. Trees are randomly placed across terrain, creating an immersive outdoor environment to explore freely.
+   * - 66
+     - Cards Animation 2D (cardsanimation2d.ring)
+     - A 2D animated card-dealing and shuffling demonstration. Smooth card movement animations showcase RayLib's 2D rendering and easing capabilities.
+   * - 67
+     - Cards Animation 3D (cardsanimation3d.ring)
+     - The same card animation showcase in full 3D space, demonstrating 3D transformations, rotations, and smooth camera work with playing card assets.
+
 
 .. index:: 
 	pair: What is new in Ring  1.27; More Samples
