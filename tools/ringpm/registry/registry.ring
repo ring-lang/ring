@@ -978,5 +978,9 @@ aPackagesRegistry = [
 	[ :name = "emoji",
 	  :description = "lightweight and efficient emoji processing library for the Ring Programming Language",
 	  :ProviderUserName = "ringeg"
+	],
+	[ :name = "bolt",
+	  :description = "Blazing-fast web framework for the Ring Programming Language",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
