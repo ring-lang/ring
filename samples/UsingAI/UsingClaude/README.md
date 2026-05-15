@@ -1,6 +1,6 @@
 # UsingClaude Folder
 
-The examples folder contains applications and games (over 59,000 lines of code) 
+The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains applications and games (over 59,000 lines of code) 
 
 Developed in the **Ring programming language** using the **RingRayLib** library. 
 
