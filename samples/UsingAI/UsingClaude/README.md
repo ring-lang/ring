@@ -50,6 +50,9 @@ A Mega Man–style action platformer with multiple stages, each with distinct vi
 #### `tanks.ring` — Tanks (2-Player Battle)
 A two-player top-down tank battle game. Players navigate a maze of walls and fight to destroy each other's tanks with cannon shots.
 
+#### `battlezone3d.ring` — Battlezone 3D
+First-person tank combat in a 3D arena inspired by the classic Battlezone arcade game. Navigate geometric obstacles, engage waves of enemy tanks, and survive as long as possible. Features a first-person cockpit view, radar with zoom toggle, and intense cannon fire exchanges.
+
 ---
 
 ### Board Games
@@ -74,6 +77,12 @@ Drop discs into a 7-column, 6-row board and connect four in a row horizontally, 
 
 #### `hexgame3d.ring` — 3D Hex Game
 The classic connection strategy game on a diamond-shaped board. Two players compete to connect their opposite sides. Choose from five board sizes (5×5 up to 13×13) with a built-in AI opponent and multiple camera views.
+
+#### `cards2d.ring` — Cards Game 2D
+A two-player card matching game based on the original RingQt Cards Game by Mahmoud Fayed. Players alternate turns revealing face-down cards; matching values get captured, and the special value 5 acts as a wild card that captures all currently revealed cards. Features a menu, cursor navigation, and mouse support.
+
+#### `cards3d.ring` — Cards Game 3D
+The same two-player card matching game rendered in full 3D with cards as 3D blocks on a felt table. All the same rules apply — match values to capture cards, use the wild 5 to sweep — with an added camera-cycle view and immersive table presentation.
 
 ---
 
@@ -149,6 +158,9 @@ A classic side-scrolling platformer with precise jump physics. Navigate platform
 #### `baba3d.ring` — Baba Is You 3D
 A puzzle game inspired by *Baba Is You*. Push word blocks around the level to rewrite the rules of the game itself. Changing which words are connected changes what objects do — a mind-bending logic puzzle experience.
 
+#### `roguelike2d.ring` — Roguelike 2D
+A procedural dungeon crawler with turn-based combat. Explore BSP-generated rooms, fight monsters, collect loot, and descend to deeper floors. Features fog of war with line-of-sight, an inventory system with potions and scrolls, a minimap, and a full-map toggle.
+
 ---
 
 ### Strategy & Simulation
@@ -173,6 +185,12 @@ Place turrets along enemy paths to prevent waves of enemies from breaking throug
 
 #### `towerdefense3d.ring` — 3D Tower Defense
 The same tower defense strategy elevated into 3D. Enemies follow a winding path across a grid while you build and upgrade towers to stop them. Four tower types with upgrade paths and wave bonuses for sending enemies early.
+
+#### `snake3d.ring` — 3D Snake
+The classic Snake game in full 3D. Guide a glowing snake made of connected spheres across a grid to eat food and grow longer. Features smooth movement, self-collision and wall detection, three camera modes (Follow / Top-Down / Isometric), pulsing food with golden bonus items, and particle burst effects on eating.
+
+#### `tetris3d.ring` — 3D Tetris
+Classic Tetris rendered in full 3D on a 10-wide × 20-tall playfield. Stack all seven classic tetrominoes (I, O, T, S, Z, L, J), clear lines, hold a piece, hard-drop for speed, and chase high scores across increasing levels. Multiple camera views and a pause function included.
 
 ---
 
@@ -231,4 +249,3 @@ A 2D animated card-dealing and shuffling demonstration. Smooth card movement ani
 The same card animation showcase in full 3D space, demonstrating 3D transformations, rotations, and smooth camera work with playing card assets.
 
 ---
-
