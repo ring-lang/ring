@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faster-weblib">Faster WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -241,6 +242,7 @@
 <li><p>Ring-Python Package</p></li>
 <li><p>Ring-CFFI Package</p></li>
 <li><p>Automatic Hash Table</p></li>
+<li><p>Faster WebLib</p></li>
 <li><p>Better Functions</p></li>
 <li><p>Better Ring API</p></li>
 <li><p>More Improvements</p></li>
@@ -578,8 +580,93 @@ With 3 million lookups the difference compounds dramatically</p>
 <p>The 5 initial numeric items [1,2,3,4,5] at the start of the list confirm that the hash-map acceleration works correctly on a mixed list, not just a pure hash-map list.</p>
 </div>
 </section>
+<section id="faster-weblib">
+<span id="index-10"></span><h2>Faster WebLib<a class="headerlink" href="#faster-weblib" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 introduces a major performance improvement to the WebLib library through a new
+stack-based rendering engine for nested HTML elements. In previous versions, every HTML
+element created inside a brace block — such as Table, TR, TD, H1, and so on — allocated a
+separate Ring object in memory. A page with a table of 100 rows and 5 columns would silently
+create over 500 objects, each carrying hundreds of attributes, output string, and child object
+list. The overhead of allocating, initializing, and garbage-collecting all these objects was
+the dominant cost of page generation.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">system.web</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+        <span class="n">cOutput</span> <span class="o">=</span> <span class="nf">createReport</span><span class="p">()</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+        <span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ms&quot;</span>
+        <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span> <span class="n">cOutput</span><span class="p">)</span>
+        <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">createReport</span>
+
+        <span class="n">nCustCount</span> <span class="o">=</span> <span class="mi">100</span>
+
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                <span class="n">Table</span>
+                <span class="p">{</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="nf">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">styleGradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                        <span class="n">TR</span>
+                        <span class="p">{</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="s2">&quot;10%&quot;</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="n">nCustCount</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">Table</span>
+                <span class="p">{</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="nf">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">styleGradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                        <span class="n">TR</span>
+                        <span class="p">{</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">styleGradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="p">}</span>
+                        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nCustCount</span>
+                                <span class="n">TR</span>
+                                <span class="p">{</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Test &quot;</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="p">}</span>
+                        <span class="k">next</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">oPage</span><span class="o">.</span><span class="nf">output</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output (Using Ring 1.27):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Time: 9 ms
+</pre></div>
+</div>
+<p>Output (Using Ring 1.26):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Time: 703 ms
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring 1.27 completes in 9 ms versus 703 ms in Ring 1.26 — a <strong>~78x faster</strong>.</p>
+</div>
+<p>Pages with deeper nesting or more rows benefit proportionally. Existing user code requires
+no changes; the brace-block syntax, attribute assignment, style functions, and all element
+names work exactly as before.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If we need better performance we can generate HTML documents using WebLib functions or HTML Templates.</p>
+</div>
+</section>
 <section id="better-functions">
-<span id="index-10"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -627,7 +714,7 @@ With 3 million lookups the difference compounds dramatically</p>
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-11"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -648,7 +735,7 @@ With 3 million lookups the difference compounds dramatically</p>
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>

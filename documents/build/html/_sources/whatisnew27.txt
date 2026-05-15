@@ -23,6 +23,7 @@ Ring 1.27 comes with the next features!
 * Ring-Python Package
 * Ring-CFFI Package
 * Automatic Hash Table
+* Faster WebLib
 * Better Functions
 * Better Ring API
 * More Improvements
@@ -397,6 +398,99 @@ In Ring 1.27 the hash table is built once on first access and every subsequent l
 With 3 million lookups the difference compounds dramatically
 
 .. tip:: The 5 initial numeric items [1,2,3,4,5] at the start of the list confirm that the hash-map acceleration works correctly on a mixed list, not just a pure hash-map list. 
+
+
+.. index:: 
+	pair: What is new in Ring  1.27; Faster WebLib
+
+Faster WebLib
+=============
+
+Ring 1.27 introduces a major performance improvement to the WebLib library through a new 
+stack-based rendering engine for nested HTML elements. In previous versions, every HTML 
+element created inside a brace block — such as Table, TR, TD, H1, and so on — allocated a 
+separate Ring object in memory. A page with a table of 100 rows and 5 columns would silently 
+create over 500 objects, each carrying hundreds of attributes, output string, and child object 
+list. The overhead of allocating, initializing, and garbage-collecting all these objects was 
+the dominant cost of page generation.
+
+Example:
+
+.. code-block:: ring
+
+	load "weblib.ring"
+	import system.web 
+
+	func main
+
+		t1 = clock()
+		cOutput = createReport()
+		t2 = clock()
+		? "Time: " + (t2-t1) + " ms"
+		write("report.html", cOutput)
+		system("report.html")
+
+	func createReport 
+
+		nCustCount = 100
+
+		oPage = new HtmlPage { 
+			h1 { text("Customers Report") }
+			Table 
+			{ 
+				style = styleWidth("100%")+styleGradient(4)
+				TR 
+				{ 
+					TD { WIDTH = "10%" text("Customers Count : ") }
+					TD { text(nCustCount) }
+				}
+			}
+			Table 
+			{ 
+				style = styleWidth("100%")+styleGradient(26)
+				TR 
+				{ 
+					style = styleWidth("100%")+styleGradient(24)
+					TD { text("Name ") }
+					TD { text("Age") }
+					TD { text("Country") }
+					TD { text("Job") }
+					TD { text("Company") }
+				}
+				for t=1 to nCustCount 
+					TR 
+					{ 
+						TD { text("Test "+t) }
+						TD { text("30") }
+						TD { text("Egypt") }
+						TD { text("Sales") }
+						TD { text("Future") }
+					}
+				next 
+			}
+		}
+
+		return oPage.output()
+
+Output (Using Ring 1.27):
+
+.. code-block:: none
+
+	Time: 9 ms
+
+Output (Using Ring 1.26):
+
+.. code-block:: none
+
+	Time: 703 ms	
+
+.. note:: Ring 1.27 completes in 9 ms versus 703 ms in Ring 1.26 — a **~78x faster**.
+
+Pages with deeper nesting or more rows benefit proportionally. Existing user code requires 
+no changes; the brace-block syntax, attribute assignment, style functions, and all element 
+names work exactly as before.
+
+.. tip:: If we need better performance we can generate HTML documents using WebLib functions or HTML Templates.
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
