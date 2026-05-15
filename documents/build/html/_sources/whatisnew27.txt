@@ -19,6 +19,7 @@ Ring 1.27 comes with the next features!
 * Better Performance
 * Automatic Hash Table
 * Faster WebLib
+* Bolt Web Framework
 * Ring-Python Package
 * Ring-CFFI Package
 * Better Extensions
@@ -275,6 +276,56 @@ no changes; the brace-block syntax, attribute assignment, style functions, and a
 names work exactly as before.
 
 .. tip:: If we need better performance we can generate HTML documents using WebLib functions or HTML Templates.
+
+.. index:: 
+	pair: What is new in Ring  1.27; Bolt Web Framework
+
+Bolt Web Framework
+==================
+
+Bolt brings modern web development to Ring. It pairs an Express.js-like DSL with a 
+Rust-powered HTTP engine, giving you a framework that is both approachable and fast. 
+Write routes in Ring, run them on a Rust async runtime.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install bolt
+
+Example:
+
+.. code-block:: ring
+
+	load "bolt.ring"
+
+	new Bolt() {
+    		port = 3000
+
+    		@get("/", func {
+        		$bolt.send("Hello from Bolt!")
+    		})
+
+    		@get("/users/:id", func {
+        		$bolt.json([
+            			:id   = $bolt.param("id"),
+            			:name = "User " + $bolt.param("id")
+        		])
+    		})
+    		where("id", "[0-9]+")
+
+    		@post("/users", func {
+        		data = $bolt.jsonBody()
+        		$bolt.jsonWithStatus(201, [:created = true, :data = data])
+    		})
+	}
+
+Run:
+
+.. code-block:: none
+
+	ring app.ring
+	# [bolt] Server running on http://0.0.0.0:3000
 
 .. index:: 
 	pair: What is new in Ring  1.27; Ring-Python Package

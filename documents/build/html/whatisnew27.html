@@ -186,6 +186,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-weblib">Faster WebLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bolt-web-framework">Bolt Web Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
@@ -238,6 +239,7 @@
 <li><p>Better Performance</p></li>
 <li><p>Automatic Hash Table</p></li>
 <li><p>Faster WebLib</p></li>
+<li><p>Bolt Web Framework</p></li>
 <li><p>Ring-Python Package</p></li>
 <li><p>Ring-CFFI Package</p></li>
 <li><p>Better Extensions</p></li>
@@ -491,8 +493,48 @@ names work exactly as before.</p>
 <p>If we need better performance we can generate HTML documents using WebLib functions or HTML Templates.</p>
 </div>
 </section>
+<section id="bolt-web-framework">
+<span id="index-6"></span><h2>Bolt Web Framework<a class="headerlink" href="#bolt-web-framework" title="Permalink to this heading"></a></h2>
+<p>Bolt brings modern web development to Ring. It pairs an Express.js-like DSL with a
+Rust-powered HTTP engine, giving you a framework that is both approachable and fast.
+Write routes in Ring, run them on a Rust async runtime.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install bolt
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;bolt.ring&quot;</span>
+
+<span class="kp">new</span> <span class="nc">Bolt</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="mi">3000</span>
+
+        <span class="n">@get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">$bolt</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="s2">&quot;Hello from Bolt!&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="n">@get</span><span class="p">(</span><span class="s2">&quot;/users/:id&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">$bolt</span><span class="o">.</span><span class="nf">json</span><span class="p">([</span>
+                        <span class="ss">:id</span>   <span class="o">=</span> <span class="n">$bolt</span><span class="o">.</span><span class="nf">param</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">),</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;User &quot;</span> <span class="o">+</span> <span class="n">$bolt</span><span class="o">.</span><span class="nf">param</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+                <span class="p">])</span>
+        <span class="p">})</span>
+        <span class="nf">where</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;[0-9]+&quot;</span><span class="p">)</span>
+
+        <span class="n">@post</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">$bolt</span><span class="o">.</span><span class="nf">jsonBody</span><span class="p">()</span>
+                <span class="n">$bolt</span><span class="o">.</span><span class="nf">jsonWithStatus</span><span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="p">[</span><span class="ss">:created</span> <span class="o">=</span> <span class="bp">true</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=</span> <span class="n">data</span><span class="p">])</span>
+        <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring app.ring
+# [bolt] Server running on http://0.0.0.0:3000
+</pre></div>
+</div>
+</section>
 <section id="ring-python-package">
-<span id="index-6"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
 <p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
@@ -535,7 +577,7 @@ Dot:  55
 </div>
 </section>
 <section id="ring-cffi-package">
-<span id="index-7"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
 <p>A Foreign Function Interface library for the Ring programming language!</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
@@ -578,7 +620,7 @@ Hello, World! Number: 123
 </div>
 </section>
 <section id="better-extensions">
-<span id="index-8"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingFastPro Extension - Better Performance</p></li>
 <li><p>RingFastPro Extension - Added Transform3D() function</p></li>
@@ -617,7 +659,7 @@ Hello, World! Number: 123
 <img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
 </section>
 <section id="solitaire-game">
-<span id="index-9"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
 <p>The Solitaire Game (Developed using Ring and RayLib)</p>
 <p>Install and run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
@@ -627,7 +669,7 @@ ringpm run solitaire
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
 <section id="more-samples">
-<span id="index-10"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -666,7 +708,7 @@ ringpm run solitaire
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="better-functions">
-<span id="index-11"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -714,7 +756,7 @@ ringpm run solitaire
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-12"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -735,7 +777,7 @@ ringpm run solitaire
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
