@@ -191,6 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringraylib-samples">RingRayLib Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
@@ -244,6 +245,7 @@
 <li><p>Ring-CFFI Package</p></li>
 <li><p>Better Extensions</p></li>
 <li><p>Solitaire Game</p></li>
+<li><p>RingRayLib Samples</p></li>
 <li><p>More Samples</p></li>
 <li><p>Better Functions</p></li>
 <li><p>Better Ring API</p></li>
@@ -668,8 +670,25 @@ ringpm run solitaire
 </div>
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
+<section id="ringraylib-samples">
+<span id="index-11"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
+<p>We added more samples and applications to the ring/samples/UsingAI/UsingClaude folder</p>
+<p>Over 59,000 lines of code are generated using Claude Code (RingRayLib samples)</p>
+<p>This collection serves three purposes at once. First, it was born as a stress test of
+Claude Code — each app and game was built during hands-on experimentation to explore
+what the tool is genuinely capable of, from simple clocks to shooters. Second, the samples
+double as a living test suite for the Ring language and RingRayLib themselves — using
+Claude Code to generate diverse programs is an effective way to surface edge cases,
+validate library coverage, and push the runtime across many different usage patterns. Third, and
+perhaps most powerfully, the collection acts as a reusable dataset for future
+development: because Claude Code can read and reason about existing code, you can point it
+at any sample here and instruct it to port a specific feature into your own project.
+This mix-and-match workflow is exactly how Ring games such as
+DaveTheFighter, Tank3D, LineDrawing3D, and CodeRooms3D were built — 100% with Claude Code,
+guided by prompts that referenced and combined ideas from samples like these.</p>
+</section>
 <section id="more-samples">
-<span id="index-11"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -709,7 +728,7 @@ ringpm run solitaire
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="better-functions">
-<span id="index-12"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -757,7 +776,7 @@ ringpm run solitaire
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-13"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -778,7 +797,7 @@ ringpm run solitaire
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
