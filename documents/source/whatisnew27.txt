@@ -17,13 +17,13 @@ Ring 1.27 comes with the next features!
 
 * Research Article
 * Better Performance
-* Solitaire Game
-* Better Extensions
-* More Samples
-* Ring-Python Package
-* Ring-CFFI Package
 * Automatic Hash Table
 * Faster WebLib
+* Ring-Python Package
+* Ring-CFFI Package
+* Better Extensions
+* Solitaire Game
+* More Samples
 * Better Functions
 * Better Ring API
 * More Improvements
@@ -107,222 +107,6 @@ Ring 1.27 introduces performance improvements across many core operations.
 
 
 .. tip:: Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
-
-
-.. index:: 
-	pair: What is new in Ring 1.27?; Solitaire Game
-
-Solitaire Game
-==============
-
-The Solitaire Game (Developed using Ring and RayLib) 
-
-Install and run:
-
-.. code-block:: none
-
-	ringpm install solitaire
-	ringpm run solitaire
-
-.. image:: solitaire.png
-	:alt: Solitaire Game
-
-.. index:: 
-	pair: What is new in Ring  1.27; Better Extensions
-
-Better Extensions
-=================
-
-* RingFastPro Extension - Better Performance
-* RingFastPro Extension - Added Transform3D() function
-* RingQt Extension - Added: QStorageInfo class
-* RingQt Extension - Added: QSvgWidget class
-* RingQt Extension - Added: QSvgRenderer class
-* RingQt Extension - Added: QSvgGenerator class
-* RingQt Extension - Added: QQmlContext class
-* RingQt Extension - Added: QQmlProperty class
-* RingQt Extension - Added: QQmlExpression class
-* RingQt Extension - Added: QQmlComponent class
-* RingQt Extension - Added: QQmlApplicationEngine class
-* RingQt Extension - Many classes have been converted into managed classes
-* RingLibSDL Extension - Revised SDL_QueryTexture()
-* RingLibSDL Extension - Revised SDL_RenderGetScale()
-* RingLibSDL Extension - Revised SDL_GL_BindTexture()
-* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
-
-The next samples are added to demonstrates some of the new features
-
-* samples/UsingQt/SVG/test1.ring
-* samples/UsingQt/SVG/test2.ring
-* samples/UsingQML/WebAsm_ChatInterface/main.ring
-* samples/UsingQML/RingQML_Communication/test1.ring
-* samples/UsingQML/RingQML_Communication/test2.ring
-* samples/UsingQML/RingQML_Communication/test3.ring
-* samples/UsingQML/RingQML_Communication/AnalogClock.ring
-* samples/UsingQML/RingQML_Communication/Calculator.ring
-* samples/UsingQML/RingQML_Communication/ColorPicker.ring
-* samples/UsingQML/RingQML_Communication/FormBuilder.ring
-* samples/UsingQML/RingQML_Communication/TodoList.ring
-* samples/UsingQML/RingQML_Communication/QuizGame.ring
-* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
-
-The next screen shot for the Chat Interface sample developed using Ring and QML
-
-.. image:: ringchatandroid.png
-	:alt: Ring Chat (Android)
-
-.. index:: 
-	pair: What is new in Ring  1.27; More Samples
-
-More Samples
-============
-
-(1) The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
-
-(2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
-
-(3) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
-
-(4) The next samples are revised
-
-* samples/UsingLibCurl/test12.ring
-* samples/UsingLibCurl/test13.ring
-* samples/UsingQt/TableWidget/QTableWidget.ring
-* samples/UsingQt/PrintPreview/reportusingweblib.ring 
-
-(5) The next samples are added to the samples foder:
-
-* samples/Language/ClassMethods/nestedanonymous.ring
-* samples/General/RosettaCode/YinYang.ring
-* samples/General/RosettaCode/YinYang2.ring
-* samples/General/FindAnadromes/process.ring
-* samples/General/FindAnadromes/process2.ring
-* samples/General/FindAnadromes/process3.ring
-* samples/General/Performance/ringper.ring
-* samples/General/Performance/nqueensbitmask.ring
-* samples/General/Orbital/Earth_Orbit_Zodiac.ring
-* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
-* samples/UsingArabic/WriteArabicDate/DateServices.ring 
-* samples/UsingFreeGLUT/Hex_Sphere.ring
-* samples/UsingFreeGLUT/Penta_Sphere.ring
-* samples/UsingFreeGLUT/Octagon_Sphere.ring
-* samples/UsingFreeGLUT/SinCos_Surface.ring 
-* samples/UsingRogueUtil/matrix_rain.ring
-* samples/UsingRayLib/more/ex11_matrix_rain.ring
-
-.. image:: advancedfreeglut.png
-	:alt: Advanced FreeGLUT Samples
-
-.. image:: astronomyvisualization.png
-	:alt: Astronomy Visualization
-
-.. index:: 
-	pair: What is new in Ring  1.27; Ring-Python Package
-
-Ring-Python Package
-===================
-
-A library that brings the entire Python ecosystem to the Ring programming language.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install ring-python
-
-Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
-
-Key Features:
-
-* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
-* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
-* Module Import — Import any installed Python package and call its functions directly.
-* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
-* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
-* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
-
-Example:
-
-.. code-block:: ring
-
-	load "python.ring"
-
-	py = new Python()
-	py.exec("import numpy as np")
-
-	# Create array and compute statistics
-	py.exec("
-	data = np.array([1, 2, 3, 4, 5])
-	_mean = str(np.mean(data))
-	_std  = str(np.std(data))
-	_dot  = str(np.dot(data, data))
-	")
-
-	? "Mean: " + py.getVar("_mean")
-	? "Std:  " + py.getVar("_std")
-	? "Dot:  " + py.getVar("_dot")
-
-Output:
-
-.. code-block:: none
-
-	Mean: 3.0
-	Std:  1.4142135623730951
-	Dot:  55	
-
-.. index:: 
-	pair: What is new in Ring  1.27; Ring-CFFI Package
-
-Ring-CFFI Package
-=================
-
-A Foreign Function Interface library for the Ring programming language!
-
-Install:
-
-.. code-block:: none
-
-	ringpm install ring-cffi
-
-Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
-
-Key Features:
-
-* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
-* C Function Calls: Call C functions directly from Ring with automatic type conversion
-* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
-* Struct Support: Define and manipulate C structs with named field access
-* Union & Enum Support: Define and use C unions and enumerations
-* Callbacks: Pass Ring functions as C callbacks
-* Memory Management: Allocate and manage C memory directly
-* C String Handling: Seamless conversion between Ring and C strings
-* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
-* High-Level OOP API: Clean FFI class with intuitive method names
-
-Example:
-
-.. code-block:: ring
-
-	load "cffi.ring"
-
-	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
-	new FFI("libm.so.6") { 
-		# Call a simple function (sqrt)
-		oSqrt = cFunc("sqrt", "double", ["double"])
-		result = invoke(oSqrt, [25.0])
-		? "sqrt(25) = " + result
-		
-		# Call printf (variadic function)
-		oPrintf = varFunc("printf", "int", ["string"])
-		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
-	}
-
-Output:
-
-.. code-block:: none
-
-	sqrt(25) = 5
-	Hello, World! Number: 123
 
 
 .. index:: 
@@ -491,6 +275,225 @@ no changes; the brace-block syntax, attribute assignment, style functions, and a
 names work exactly as before.
 
 .. tip:: If we need better performance we can generate HTML documents using WebLib functions or HTML Templates.
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-Python Package
+
+Ring-Python Package
+===================
+
+A library that brings the entire Python ecosystem to the Ring programming language.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-python
+
+Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
+
+Key Features:
+
+* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
+* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
+* Module Import — Import any installed Python package and call its functions directly.
+* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
+* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
+* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
+
+Example:
+
+.. code-block:: ring
+
+	load "python.ring"
+
+	py = new Python()
+	py.exec("import numpy as np")
+
+	# Create array and compute statistics
+	py.exec("
+	data = np.array([1, 2, 3, 4, 5])
+	_mean = str(np.mean(data))
+	_std  = str(np.std(data))
+	_dot  = str(np.dot(data, data))
+	")
+
+	? "Mean: " + py.getVar("_mean")
+	? "Std:  " + py.getVar("_std")
+	? "Dot:  " + py.getVar("_dot")
+
+Output:
+
+.. code-block:: none
+
+	Mean: 3.0
+	Std:  1.4142135623730951
+	Dot:  55	
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-CFFI Package
+
+Ring-CFFI Package
+=================
+
+A Foreign Function Interface library for the Ring programming language!
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-cffi
+
+Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
+
+Key Features:
+
+* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
+* C Function Calls: Call C functions directly from Ring with automatic type conversion
+* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
+* Struct Support: Define and manipulate C structs with named field access
+* Union & Enum Support: Define and use C unions and enumerations
+* Callbacks: Pass Ring functions as C callbacks
+* Memory Management: Allocate and manage C memory directly
+* C String Handling: Seamless conversion between Ring and C strings
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level OOP API: Clean FFI class with intuitive method names
+
+Example:
+
+.. code-block:: ring
+
+	load "cffi.ring"
+
+	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
+	new FFI("libm.so.6") { 
+		# Call a simple function (sqrt)
+		oSqrt = cFunc("sqrt", "double", ["double"])
+		result = invoke(oSqrt, [25.0])
+		? "sqrt(25) = " + result
+		
+		# Call printf (variadic function)
+		oPrintf = varFunc("printf", "int", ["string"])
+		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
+	}
+
+Output:
+
+.. code-block:: none
+
+	sqrt(25) = 5
+	Hello, World! Number: 123
+
+
+.. index:: 
+	pair: What is new in Ring  1.27; Better Extensions
+
+Better Extensions
+=================
+
+* RingFastPro Extension - Better Performance
+* RingFastPro Extension - Added Transform3D() function
+* RingQt Extension - Added: QStorageInfo class
+* RingQt Extension - Added: QSvgWidget class
+* RingQt Extension - Added: QSvgRenderer class
+* RingQt Extension - Added: QSvgGenerator class
+* RingQt Extension - Added: QQmlContext class
+* RingQt Extension - Added: QQmlProperty class
+* RingQt Extension - Added: QQmlExpression class
+* RingQt Extension - Added: QQmlComponent class
+* RingQt Extension - Added: QQmlApplicationEngine class
+* RingQt Extension - Many classes have been converted into managed classes
+* RingLibSDL Extension - Revised SDL_QueryTexture()
+* RingLibSDL Extension - Revised SDL_RenderGetScale()
+* RingLibSDL Extension - Revised SDL_GL_BindTexture()
+* RingLibSDL Extension - Removed SDL_GetRevisionNumber()
+
+The next samples are added to demonstrates some of the new features
+
+* samples/UsingQt/SVG/test1.ring
+* samples/UsingQt/SVG/test2.ring
+* samples/UsingQML/WebAsm_ChatInterface/main.ring
+* samples/UsingQML/RingQML_Communication/test1.ring
+* samples/UsingQML/RingQML_Communication/test2.ring
+* samples/UsingQML/RingQML_Communication/test3.ring
+* samples/UsingQML/RingQML_Communication/AnalogClock.ring
+* samples/UsingQML/RingQML_Communication/Calculator.ring
+* samples/UsingQML/RingQML_Communication/ColorPicker.ring
+* samples/UsingQML/RingQML_Communication/FormBuilder.ring
+* samples/UsingQML/RingQML_Communication/TodoList.ring
+* samples/UsingQML/RingQML_Communication/QuizGame.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring
+
+The next screen shot for the Chat Interface sample developed using Ring and QML
+
+.. image:: ringchatandroid.png
+	:alt: Ring Chat (Android)
+
+.. index:: 
+	pair: What is new in Ring 1.27?; Solitaire Game
+
+Solitaire Game
+==============
+
+The Solitaire Game (Developed using Ring and RayLib) 
+
+Install and run:
+
+.. code-block:: none
+
+	ringpm install solitaire
+	ringpm run solitaire
+
+.. image:: solitaire.png
+	:alt: Solitaire Game
+
+
+
+.. index:: 
+	pair: What is new in Ring  1.27; More Samples
+
+More Samples
+============
+
+(1) The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder
+
+(2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
+
+(3) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
+
+(4) The next samples are revised
+
+* samples/UsingLibCurl/test12.ring
+* samples/UsingLibCurl/test13.ring
+* samples/UsingQt/TableWidget/QTableWidget.ring
+* samples/UsingQt/PrintPreview/reportusingweblib.ring 
+
+(5) The next samples are added to the samples foder:
+
+* samples/Language/ClassMethods/nestedanonymous.ring
+* samples/General/RosettaCode/YinYang.ring
+* samples/General/RosettaCode/YinYang2.ring
+* samples/General/FindAnadromes/process.ring
+* samples/General/FindAnadromes/process2.ring
+* samples/General/FindAnadromes/process3.ring
+* samples/General/Performance/ringper.ring
+* samples/General/Performance/nqueensbitmask.ring
+* samples/General/Orbital/Earth_Orbit_Zodiac.ring
+* samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
+* samples/UsingArabic/WriteArabicDate/DateServices.ring 
+* samples/UsingFreeGLUT/Hex_Sphere.ring
+* samples/UsingFreeGLUT/Penta_Sphere.ring
+* samples/UsingFreeGLUT/Octagon_Sphere.ring
+* samples/UsingFreeGLUT/SinCos_Surface.ring 
+* samples/UsingRogueUtil/matrix_rain.ring
+* samples/UsingRayLib/more/ex11_matrix_rain.ring
+
+.. image:: advancedfreeglut.png
+	:alt: Advanced FreeGLUT Samples
+
+.. image:: astronomyvisualization.png
+	:alt: Astronomy Visualization
+
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Functions
