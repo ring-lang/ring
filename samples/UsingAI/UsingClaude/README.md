@@ -1,4 +1,4 @@
-# UsingClaude — Ring Language Samples
+# UsingClaude Folder
 
 The examples folder contains applications and games (over 59,000 lines of code) developed in the **Ring programming language** using the **RingRayLib** library. 
 
