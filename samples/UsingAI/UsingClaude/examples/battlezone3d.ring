@@ -29,36 +29,9 @@
 **    - Cockpit HUD overlay
 **    - High score tracking
 **
-**  Sound files (in sounds/ folder):
-**    fire.wav, hit_wall.wav, explosion.wav,
-**    powerup.wav, player_death.wav, steel_hit.wav,
-**    brick_break.wav, level_clear.wav, game_over.wav,
-**    enemy_hit.wav, bomb.wav, engine.wav, victory.wav,
-**    menu_music.wav, battle_music.wav
 */
 
 load "raylib.ring"
-
-// =============================================================
-// Sound & Music Resources
-// =============================================================
-
-sndFire         = NULL
-sndHitWall      = NULL
-sndExplosion    = NULL
-sndPowerup      = NULL
-sndPlayerDeath  = NULL
-sndSteelHit     = NULL
-sndBrickBreak   = NULL
-sndLevelClear   = NULL
-sndGameOver     = NULL
-sndEnemyHit     = NULL
-sndBomb         = NULL
-sndEngine       = NULL
-sndVictory      = NULL
-musMenu         = NULL
-musBattle       = NULL
-musicPlaying    = 0
 
 // =============================================================
 // Constants
@@ -202,9 +175,6 @@ wavesBeat       = 0
 InitWindow(SCREEN_W, SCREEN_H, "Battlezone 3D - Ring RayLib")
 SetTargetFPS(60)
 
-InitAudioDevice()
-bz_loadSounds()
-
 cam = Camera3D(0, 0, 0, 0, 0, 0, 0, 1, 0, 60, CAMERA_PERSPECTIVE)
 
 bz_generateObstacles()
@@ -214,7 +184,6 @@ while !WindowShouldClose()
     if dt > 0.05 dt = 0.05 ok
     animTime += dt
 
-    bz_updateMusic()
     bz_handleInput(dt)
     bz_update(dt)
 
@@ -247,97 +216,7 @@ while !WindowShouldClose()
 end
 
 // Cleanup
-bz_unloadSounds()
-CloseAudioDevice()
 CloseWindow()
-
-// =============================================================
-// Sound Loading
-// =============================================================
-
-func bz_loadSounds
-    if fexists("sounds/fire.wav")
-        sndFire        = LoadSound("sounds/fire.wav")
-        sndHitWall     = LoadSound("sounds/hit_wall.wav")
-        sndExplosion   = LoadSound("sounds/explosion.wav")
-        sndPowerup     = LoadSound("sounds/powerup.wav")
-        sndPlayerDeath = LoadSound("sounds/player_death.wav")
-        sndSteelHit    = LoadSound("sounds/steel_hit.wav")
-        sndBrickBreak  = LoadSound("sounds/brick_break.wav")
-        sndLevelClear  = LoadSound("sounds/level_clear.wav")
-        sndGameOver    = LoadSound("sounds/game_over.wav")
-        sndEnemyHit    = LoadSound("sounds/enemy_hit.wav")
-        sndBomb        = LoadSound("sounds/bomb.wav")
-        sndEngine      = LoadSound("sounds/engine.wav")
-        sndVictory     = LoadSound("sounds/victory.wav")
-
-        SetSoundVolume(sndFire, 0.7)
-        SetSoundVolume(sndExplosion, 0.8)
-        SetSoundVolume(sndHitWall, 0.5)
-        SetSoundVolume(sndPowerup, 0.6)
-        SetSoundVolume(sndPlayerDeath, 0.9)
-        SetSoundVolume(sndEnemyHit, 0.5)
-        SetSoundVolume(sndBomb, 1.0)
-        SetSoundVolume(sndEngine, 0.15)
-    ok
-    if fexists("sounds/menu_music.wav")
-        musMenu = LoadMusicStream("sounds/menu_music.wav")
-        SetMusicVolume(musMenu, 0.4)
-    ok
-    if fexists("sounds/battle_music.wav")
-        musBattle = LoadMusicStream("sounds/battle_music.wav")
-        SetMusicVolume(musBattle, 0.35)
-    ok
-
-func bz_unloadSounds
-    if sndFire != NULL UnloadSound(sndFire) ok
-    if sndHitWall != NULL UnloadSound(sndHitWall) ok
-    if sndExplosion != NULL UnloadSound(sndExplosion) ok
-    if sndPowerup != NULL UnloadSound(sndPowerup) ok
-    if sndPlayerDeath != NULL UnloadSound(sndPlayerDeath) ok
-    if sndSteelHit != NULL UnloadSound(sndSteelHit) ok
-    if sndBrickBreak != NULL UnloadSound(sndBrickBreak) ok
-    if sndLevelClear != NULL UnloadSound(sndLevelClear) ok
-    if sndGameOver != NULL UnloadSound(sndGameOver) ok
-    if sndEnemyHit != NULL UnloadSound(sndEnemyHit) ok
-    if sndBomb != NULL UnloadSound(sndBomb) ok
-    if sndEngine != NULL UnloadSound(sndEngine) ok
-    if sndVictory != NULL UnloadSound(sndVictory) ok
-    if musMenu != NULL UnloadMusicStream(musMenu) ok
-    if musBattle != NULL UnloadMusicStream(musBattle) ok
-
-func bz_updateMusic
-    if musMenu != NULL and musBattle != NULL
-        if gameState = ST_TITLE
-            if musicPlaying != 1
-                StopMusicStream(musBattle)
-                PlayMusicStream(musMenu)
-                musicPlaying = 1
-            ok
-            UpdateMusicStream(musMenu)
-        ok
-        if gameState = ST_PLAYING or gameState = ST_WAVEINTRO
-            if musicPlaying != 2
-                StopMusicStream(musMenu)
-                PlayMusicStream(musBattle)
-                musicPlaying = 2
-            ok
-            UpdateMusicStream(musBattle)
-        ok
-        if gameState = ST_PAUSED
-            if musicPlaying = 2
-                PauseMusicStream(musBattle)
-                musicPlaying = 3
-            ok
-        ok
-        if gameState = ST_GAMEOVER
-            if musicPlaying != 0
-                StopMusicStream(musBattle)
-                StopMusicStream(musMenu)
-                musicPlaying = 0
-            ok
-        ok
-    ok
 
 // =============================================================
 // Arena Generation
@@ -609,14 +488,6 @@ func bz_handleInput dt
             add(pbullets, [bx, bz2, bdx, bdz, true, 0.0])
             pFireCooldown = 0.35
             totalShots += 1
-            if sndFire != NULL PlaySound(sndFire) ok
-        ok
-    ok
-
-    // Engine sound
-    if moving and sndEngine != NULL
-        if !IsSoundPlaying(sndEngine)
-            PlaySound(sndEngine)
         ok
     ok
 
@@ -693,7 +564,6 @@ func bz_update dt
         score += waveBonus
         wavesBeat += 1
         wave += 1
-        if sndLevelClear != NULL PlaySound(sndLevelClear) ok
         // Celebration particles
         for p = 1 to 40
             vx = (GetRandomValue(-100, 100) / 40.0)
@@ -754,7 +624,6 @@ func bz_updatePBullets dt
         if bz_fabs(bx) > ARENA_HALF or bz_fabs(bz2) > ARENA_HALF
             pbullets[i][5] = false
             bz_spawnSmallExplosion(bx, bz2)
-            if sndHitWall != NULL PlaySound(sndHitWall) ok
             i += 1
             loop
         ok
@@ -773,7 +642,6 @@ func bz_updatePBullets dt
         if hitObs
             pbullets[i][5] = false
             bz_spawnSmallExplosion(bx, bz2)
-            if sndSteelHit != NULL PlaySound(sndSteelHit) ok
             i += 1
             loop
         ok
@@ -796,7 +664,6 @@ func bz_updatePBullets dt
                     enemies[e][8] = false
                     bz_spawnBigExplosion(enemies[e][1], enemies[e][2])
                     bz_triggerShake(0.25, 0.3)
-                    if sndExplosion != NULL PlaySound(sndExplosion) ok
                     totalKills += 1
                     // Score
                     eType = enemies[e][7]
@@ -831,7 +698,6 @@ func bz_updatePBullets dt
                     ok
                 else
                     bz_spawnSmallExplosion(bx, bz2)
-                    if sndEnemyHit != NULL PlaySound(sndEnemyHit) ok
                 ok
                 hitEnemy = true
                 exit
@@ -908,22 +774,15 @@ func bz_updateEBullets dt
                     pHP -= dmg
                     hitFlashTimer = 0.3
                     bz_triggerShake(0.3, 0.4)
-                    if sndPlayerDeath != NULL
-                        SetSoundVolume(sndPlayerDeath, 0.5)
-                        PlaySound(sndPlayerDeath)
-                        SetSoundVolume(sndPlayerDeath, 0.9)
-                    ok
                     if pHP <= 0
                         pAlive = false
                         lives -= 1
                         bz_spawnBigExplosion(px, pz)
                         bz_triggerShake(0.5, 0.6)
-                        if sndExplosion != NULL PlaySound(sndExplosion) ok
                         if lives <= 0
                             gameState = ST_GAMEOVER
                             gameOverTimer = 4.0
                             if score > highScore highScore = score ok
-                            if sndGameOver != NULL PlaySound(sndGameOver) ok
                         else
                             pShield = -2.0  // Respawn timer
                         ok
@@ -1055,11 +914,6 @@ func bz_updateEnemies dt
                     ebx = enemies[e][1] + sin(enemies[e][3]) * 1.2
                     ebz = enemies[e][2] + cos(enemies[e][3]) * 1.2
                     add(ebullets, [ebx, ebz, ebdx, ebdz, true, 0.0])
-                    if sndFire != NULL
-                        SetSoundVolume(sndFire, 0.2)
-                        PlaySound(sndFire)
-                        SetSoundVolume(sndFire, 0.7)
-                    ok
                 ok
             ok
         ok
@@ -1073,12 +927,10 @@ func bz_updateEnemies dt
                     lives -= 1
                     bz_spawnBigExplosion(px, pz)
                     bz_triggerShake(0.5, 0.6)
-                    if sndExplosion != NULL PlaySound(sndExplosion) ok
                     if lives <= 0
                         gameState = ST_GAMEOVER
                         gameOverTimer = 4.0
                         if score > highScore highScore = score ok
-                        if sndGameOver != NULL PlaySound(sndGameOver) ok
                     else
                         pShield = -2.0
                     ok
@@ -1140,9 +992,7 @@ func bz_updatePowerups dt
                     next
                     bz_triggerShake(0.6, 0.8)
                     score += 300
-                    if sndBomb != NULL PlaySound(sndBomb) ok
                 ok
-                if sndPowerup != NULL PlaySound(sndPowerup) ok
                 del(powerups, i)
                 loop
             ok
