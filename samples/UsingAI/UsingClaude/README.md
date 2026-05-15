@@ -1,6 +1,8 @@
 # UsingClaude Folder
 
-The examples folder contains applications and games (over 59,000 lines of code) developed in the **Ring programming language** using the **RingRayLib** library. 
+The examples folder contains applications and games (over 59,000 lines of code) 
+
+Developed in the **Ring programming language** using the **RingRayLib** library. 
 
 All examples were generated 100% using **Claude Code**.
 
