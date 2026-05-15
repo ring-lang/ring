@@ -532,6 +532,7 @@ More Samples
 * samples/General/Orbital/Earth_Orbit_Zodiac.ring
 * samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring
 * samples/UsingArabic/WriteArabicDate/DateServices.ring 
+* samples/UsingWebLib/GenReport/genreport.ring
 * samples/UsingFreeGLUT/Hex_Sphere.ring
 * samples/UsingFreeGLUT/Penta_Sphere.ring
 * samples/UsingFreeGLUT/Octagon_Sphere.ring
