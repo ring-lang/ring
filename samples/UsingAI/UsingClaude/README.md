@@ -1,6 +1,8 @@
 # UsingClaude — Ring Language Samples
 
-This folder contains applications and games developed in the **Ring programming language** using the **RingRayLib** library. All projects were generated with the assistance of **Claude Code**.
+The examples folder contains applications and games developed in the **Ring programming language** using the **RingRayLib** library. 
+
+All projects were generated 100% using **Claude Code**.
 
 ---
 
