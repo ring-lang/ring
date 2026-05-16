@@ -1,6 +1,6 @@
 # UsingClaude Folder
 
-The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains applications and games (over 60,000 lines of code) 
+The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains applications and games (over 61,000 lines of code) 
 
 Developed in the **Ring programming language** using the **RingRayLib** library. 
 
@@ -264,6 +264,9 @@ Interactive particle emitters with physics. Place attractors and repulsors with 
 
 #### `screensaver.ring` — Color Animation Screensaver
 Eight mesmerizing animated visual modes — flowing colors, bouncing shapes, Lissajous curves, and more. Cycle through color palettes, toggle background trails, and pause/resume the animation.
+
+#### `voxel3d.ring` — Voxel Terrain Explorer
+A Minecraft-style block world with procedurally generated terrain using Perlin noise. Explore a 48×48 world with grass, dirt, stone, wood, leaves, sand, snow, and water blocks. Break and place blocks in first-person view, toggle fly mode, and watch a full day-night cycle complete with sun, moon, and stars. Features performance-optimized rendering via pre-computed light color tables and reusable C-pointer Vec3 objects. Press **R** to regenerate the world, **T** to cycle time speed, and **1–6** to select the active block type.
 
 #### `forest3d.ring` — 3D Forest Explorer
 A first-person walk through a procedurally generated 3D forest. Trees are randomly placed across terrain, creating an immersive outdoor environment to explore freely.
