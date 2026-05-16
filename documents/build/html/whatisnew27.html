@@ -687,286 +687,98 @@ This mix-and-match workflow is exactly how Ring games such as
 DaveTheFighter, Tank3D, LineDrawing3D, and CodeRooms3D were built — 100% with Claude Code,
 guided by prompts that referenced and combined ideas from samples like these.</p>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">UsingClaude — Ring Language Samples (Generated using Claude Code)</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text">New RingRayLib Samples</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 5%" />
 <col style="width: 25%" />
-<col style="width: 70%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>No.</p></th>
-<th class="head"><p>Game / App</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
 <tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Pac-Man 2D (pacman2d.ring)</p></td>
-<td><p>Classic Pac-Man in a faithful 2D recreation. Navigate the maze, eat all pellets, avoid the four ghosts, and grab power pellets to turn the tables. Features the authentic 28×31 maze layout, ghost AI with chase/scatter/frightened modes, and multiple lives.</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Pac-Man 3D (pacman3d.ring)</p></td>
-<td><p>The same beloved Pac-Man experience elevated into full 3D. Multiple camera views let you watch the action from different angles. Includes all classic gameplay elements: pellets, power pellets, ghosts, and bonus fruit.</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Asteroids 2D (asteroids2d.ring)</p></td>
-<td><p>A faithful remake of the classic vector-graphics space shooter. Pilot your ship, destroy asteroids that split into smaller fragments, and handle UFO attacks.</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>Flappy Bird (flappybird.ring)</p></td>
-<td><p>Tap to flap through endless pipe gaps. Features three difficulty levels (Easy/Normal/Hard), day/night mode toggle, and progressively increasing challenge as you survive longer.</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>Space Invaders (spaceinv.ring)</p></td>
-<td><p>A classic top-down space shooter where waves of alien enemies descend. Destroy all enemies before they reach the ground.</p></td>
-</tr>
-<tr class="row-odd"><td><p>6</p></td>
-<td><p>Donkey Kong (donkeykong.ring)</p></td>
-<td><p>Inspired by the legendary barrel-jumping arcade classic. Climb platforms, dodge rolling barrels thrown by Kong, and rescue the princess.</p></td>
-</tr>
-<tr class="row-even"><td><p>7</p></td>
-<td><p>Mario Platformer (mario.ring)</p></td>
-<td><p>A classic side-scrolling platformer. Run and jump through levels, stomp enemies, and reach the flag.</p></td>
-</tr>
-<tr class="row-odd"><td><p>8</p></td>
-<td><p>Mega Man (megaman.ring)</p></td>
-<td><p>A Mega Man-style action platformer with multiple stages, each with distinct visual themes and enemy types. Run, jump, and shoot your way through challenging levels.</p></td>
-</tr>
-<tr class="row-even"><td><p>9</p></td>
-<td><p>Tanks 2-Player Battle (tanks.ring)</p></td>
-<td><p>A two-player top-down tank battle game. Players navigate a maze of walls and fight to destroy each other’s tanks with cannon shots.</p></td>
-</tr>
-<tr class="row-odd"><td><p>10</p></td>
-<td><p>Battlezone 3D (battlezone3d.ring)</p></td>
-<td><p>First-person tank combat in a 3D arena inspired by the classic Battlezone arcade game. Navigate geometric obstacles, engage waves of enemy tanks, and survive as long as possible. Features a first-person cockpit view and radar with zoom toggle.</p></td>
-</tr>
-<tr class="row-even"><td><p>11</p></td>
-<td><p>Chess 2D (chess2d.ring)</p></td>
-<td><p>A complete chess game against the computer. Fully implements chess rules including castling, en passant captures, pawn promotion, check detection, and checkmate. Undo moves and restart at any time.</p></td>
-</tr>
-<tr class="row-odd"><td><p>12</p></td>
-<td><p>Chess 3D (chess3d.ring)</p></td>
-<td><p>Full chess rendered in beautiful 3D. Choose from three AI difficulty levels (Easy/Medium/Hard) and cycle between Front, Isometric, and Overhead camera views.</p></td>
-</tr>
-<tr class="row-even"><td><p>13</p></td>
-<td><p>Checkers 3D (checker3d.ring)</p></td>
-<td><p>Classic draughts on a full 3D board. Select and move pieces diagonally, jump to capture opponents, and crown kings when reaching the far end. Supports Player vs Player and Player vs AI modes.</p></td>
-</tr>
-<tr class="row-odd"><td><p>14</p></td>
-<td><p>Go 3D (go3d.ring)</p></td>
-<td><p>The ancient game of Go rendered in 3D with a wooden board aesthetic. Place black and white stones to surround territory and capture opponent groups. Includes territory estimation and undo support.</p></td>
-</tr>
-<tr class="row-even"><td><p>15</p></td>
-<td><p>Othello 3D (othello3d.ring)</p></td>
-<td><p>Classic Othello with smooth 3D disc-flip animations. Outflank and flip your opponent’s pieces to dominate the board. Features valid-move highlighting and an AI opponent.</p></td>
-</tr>
-<tr class="row-odd"><td><p>16</p></td>
-<td><p>Connect Four 3D (connectfour3d.ring)</p></td>
-<td><p>Drop discs into a 7-column, 6-row board and connect four in a row horizontally, vertically, or diagonally. Rendered in full 3D with smooth fall animations. Supports Player vs Player and Player vs AI modes.</p></td>
-</tr>
-<tr class="row-even"><td><p>17</p></td>
-<td><p>Hex Game 3D (hexgame3d.ring)</p></td>
-<td><p>The classic connection strategy game on a diamond-shaped board. Two players compete to connect their opposite sides. Choose from five board sizes (5x5 up to 13x13) with a built-in AI opponent and multiple camera views.</p></td>
-</tr>
-<tr class="row-odd"><td><p>18</p></td>
-<td><p>Cards Game 2D (cards2d.ring)</p></td>
-<td><p>A two-player card matching game. Players alternate turns revealing face-down cards; matching values get captured, and the special value 5 acts as a wild card that captures all currently revealed cards.</p></td>
-</tr>
-<tr class="row-even"><td><p>19</p></td>
-<td><p>Cards Game 3D (cards3d.ring)</p></td>
-<td><p>The same two-player card matching game rendered in full 3D with cards as 3D blocks on a felt table. Match values to capture cards, use the wild 5 to sweep, with a camera-cycle view and immersive table presentation.</p></td>
-</tr>
-<tr class="row-odd"><td><p>20</p></td>
-<td><p>Sokoban 2D (sokoban2d.ring)</p></td>
-<td><p>The classic box-pushing puzzle in a clean 2D view. Push crates onto all target positions across multiple hand-crafted levels. Features an undo system and standard Sokoban notation for level design.</p></td>
-</tr>
-<tr class="row-even"><td><p>21</p></td>
-<td><p>Sokoban 3D (sokoban3d.ring)</p></td>
-<td><p>The same Sokoban puzzles elevated to a full 3D warehouse setting with smooth push animations. Navigate multiple levels with a generous undo system.</p></td>
-</tr>
-<tr class="row-odd"><td><p>22</p></td>
-<td><p>Ice Sliding Puzzle 3D (ice3d.ring)</p></td>
-<td><p>Slide across icy floors where you cannot stop until you hit a wall or rock. Navigate maze-like levels to reach the goal. Includes a built-in BFS auto-solver and an undo system.</p></td>
-</tr>
-<tr class="row-even"><td><p>23</p></td>
-<td><p>Laser Puzzle 3D (laser3d.ring)</p></td>
-<td><p>Redirect a laser beam from emitter to target by placing and rotating mirrors on the grid. Features 3D beam tracing, placement animations, and multiple puzzle levels of increasing complexity.</p></td>
-</tr>
-<tr class="row-odd"><td><p>24</p></td>
-<td><p>Pipe Connect 3D (pipe3d.ring)</p></td>
-<td><p>Rotate pipe segments to connect a water flow from the source to the drain. Build a continuous path across the board. Rendered in 3D with animated water flow when the puzzle is solved.</p></td>
-</tr>
-<tr class="row-even"><td><p>25</p></td>
-<td><p>Sliding Puzzle 3D / 15-Puzzle (slide3d.ring)</p></td>
-<td><p>The classic 15-tile sliding puzzle in stunning 3D. Slide numbered tiles into the correct order with an undo system and multiple board sizes.</p></td>
-</tr>
-<tr class="row-odd"><td><p>26</p></td>
-<td><p>Maze 3D (maze3d.ring)</p></td>
-<td><p>Navigate a glowing sphere through a procedurally generated 3D maze. Each restart generates a unique maze using the Recursive Backtracker algorithm. Features atmospheric lighting effects.</p></td>
-</tr>
-<tr class="row-even"><td><p>27</p></td>
-<td><p>Tower of Hanoi 3D (hanoi3d.ring)</p></td>
-<td><p>The classic Tower of Hanoi puzzle in full 3D. Move discs between three pegs to transfer the entire stack. Adjustable disc count (3-10), an undo system, and an Auto-Solve mode that animates the optimal solution step by step.</p></td>
-</tr>
-<tr class="row-odd"><td><p>28</p></td>
-<td><p>Minesweeper 3D (minesweeper3d.ring)</p></td>
-<td><p>Classic Minesweeper in a 3D perspective. Reveal cells, flag mines, and clear the board without triggering any explosions. Multiple camera views and flagging support.</p></td>
-</tr>
-<tr class="row-even"><td><p>29</p></td>
-<td><p>Knight’s Tour 3D (knight3d.ring)</p></td>
-<td><p>Complete a full knight’s tour of the chessboard — visit every square exactly once using only L-shaped chess moves. Features Warnsdorff hint highlighting, an auto-solver, undo, and board sizes from 5x5 to 8x8.</p></td>
-</tr>
-<tr class="row-odd"><td><p>30</p></td>
-<td><p>N-Queens Puzzle 3D (nqueens3d.ring)</p></td>
-<td><p>Place N queens on an NxN chessboard so no two queens threaten each other. Features a threat heatmap overlay, an auto-solver, and adjustable board sizes (4-12).</p></td>
-</tr>
-<tr class="row-even"><td><p>31</p></td>
-<td><p>Lights Out 3D (lights3d.ring)</p></td>
-<td><p>Toggle lights on a grid to turn them all off. Each press flips the pressed cell and its orthogonal neighbors. Includes a solution hint overlay and an undo system.</p></td>
-</tr>
-<tr class="row-odd"><td><p>32</p></td>
-<td><p>Match-3 Gem Game 3D (match3d.ring)</p></td>
-<td><p>Swap adjacent gems to form rows or columns of 3 or more. Chain reactions cascade as gems fall to fill gaps. Features match-hint highlighting, undo for pre-cascade swaps, and multiple board sizes.</p></td>
-</tr>
-<tr class="row-even"><td><p>33</p></td>
-<td><p>Rescue Rover 3D (rescue3d.ring)</p></td>
-<td><p>A rich 3D puzzle game: push boxes, collect keys, redirect lasers with ice blocks, fill water with crates, rescue your dog, and escape. Multiple levels with increasing complexity and a generous undo system.</p></td>
-</tr>
-<tr class="row-odd"><td><p>34</p></td>
-<td><p>2048 3D (the2048game3d.ring)</p></td>
-<td><p>Slide numbered tiles on a 4x4 grid. When two identical tiles collide they merge into one. Reach the 2048 tile to win. Rendered in 3D with smooth tile-slide animations and multiple camera views.</p></td>
-</tr>
-<tr class="row-even"><td><p>35</p></td>
-<td><p>Ring Doom 3D (doom3d.ring)</p></td>
-<td><p>A retro first-person shooter in the style of Wolfenstein/DOOM. Navigate corridors, blast enemies with your pistol, open doors, and find the exit. Features a toggleable map overlay and mouse-look.</p></td>
-</tr>
-<tr class="row-odd"><td><p>36</p></td>
-<td><p>Dungeon Crawler 3D (dungeoncrawler3d.ring)</p></td>
-<td><p>First-person 3D dungeon exploration. Find keys, unlock doors, fight enemies in melee, and reach the exit. Includes an inventory system, minimap, multiple pre-built levels, and health management.</p></td>
-</tr>
-<tr class="row-even"><td><p>37</p></td>
-<td><p>The Sword Game (swordgame.ring)</p></td>
-<td><p>A 3D platformer with sword combat and dungeon traps. Features ledge-grabbing, climbing, crouching, careful-step mechanics, and sword draw/sheathe. A physics-driven action-adventure with atmospheric dungeon environments.</p></td>
-</tr>
-<tr class="row-odd"><td><p>38</p></td>
-<td><p>Helicopter Gunship 3D (helicopter3d.ring)</p></td>
-<td><p>Fly an attack helicopter over terrain in mission-based gameplay. Destroy ground targets, rescue hostages, and dodge anti-air fire. Features machine gun and rocket weapons, terrain-following flight physics, and multiple missions.</p></td>
-</tr>
-<tr class="row-even"><td><p>39</p></td>
-<td><p>Endless Runner 3D (runner3d.ring)</p></td>
-<td><p>An endless lane-running game set in a 3D world. Dodge obstacles, collect coins and power-ups while speed increases over time. Jump, slide, and switch lanes to survive as long as possible.</p></td>
-</tr>
-<tr class="row-odd"><td><p>40</p></td>
-<td><p>Platformer 2D (platform2d.ring)</p></td>
-<td><p>A classic side-scrolling platformer with precise jump physics. Navigate platforms, avoid hazards, and complete levels.</p></td>
-</tr>
-<tr class="row-even"><td><p>41</p></td>
-<td><p>Baba Is You 3D (baba3d.ring)</p></td>
-<td><p>A puzzle game inspired by Baba Is You. Push word blocks around the level to rewrite the rules of the game itself. Changing which words are connected changes what objects do — a mind-bending logic puzzle experience.</p></td>
-</tr>
-<tr class="row-odd"><td><p>42</p></td>
-<td><p>Roguelike 2D (roguelike2d.ring)</p></td>
-<td><p>A procedural dungeon crawler with turn-based combat. Explore BSP-generated rooms, fight monsters, collect loot, and descend to deeper floors. Features fog of war with line-of-sight, an inventory system with potions and scrolls, and a minimap.</p></td>
-</tr>
-<tr class="row-even"><td><p>43</p></td>
-<td><p>Ring Bomber / Bomberman (bomberman.ring)</p></td>
-<td><p>An arcade game where you place bombs to blast destructible walls, collect power-ups, and eliminate enemies. Features multiple enemy types and power-ups that enhance bomb count, range, and movement speed.</p></td>
-</tr>
-<tr class="row-odd"><td><p>44</p></td>
-<td><p>Breakout 3D (breakout3d.ring)</p></td>
-<td><p>The classic Breakout/Arkanoid brick-breaking game rendered in 3D. Control a paddle, launch the ball, and clear all bricks. Features increasing difficulty across levels.</p></td>
-</tr>
-<tr class="row-even"><td><p>45</p></td>
-<td><p>Pinball 3D (pinball3d.ring)</p></td>
-<td><p>A full pinball table in 3D. Launch the ball with the plunger, use left and right flippers, hit bumpers and targets for points. Features multiple camera views and a pause function.</p></td>
-</tr>
-<tr class="row-odd"><td><p>46</p></td>
-<td><p>Racing 3D (racing3d.ring)</p></td>
-<td><p>Race around a track against three AI opponents. Features acceleration, braking, reversing, handbrake turns, and multiple camera angles. Includes a lap counter and race restart.</p></td>
-</tr>
-<tr class="row-even"><td><p>47</p></td>
-<td><p>Space Shooter 3D (shooter3d.ring)</p></td>
-<td><p>Fly your ship through asteroid fields and enemy waves in a 3D space shooter. Move in all four directions, shoot projectiles, and survive increasingly intense waves.</p></td>
-</tr>
-<tr class="row-odd"><td><p>48</p></td>
-<td><p>Tower Defense 2D (towerdefense2d.ring)</p></td>
-<td><p>Place turrets along enemy paths to prevent waves of enemies from breaking through. Features six turret types, upgrade and sell mechanics, fast-forward mode, and a grid overlay.</p></td>
-</tr>
-<tr class="row-even"><td><p>49</p></td>
-<td><p>Tower Defense 3D (towerdefense3d.ring)</p></td>
-<td><p>Tower defense strategy elevated into 3D. Enemies follow a winding path across a grid while you build and upgrade towers to stop them. Four tower types with upgrade paths and wave bonuses.</p></td>
-</tr>
-<tr class="row-odd"><td><p>50</p></td>
-<td><p>Snake 3D (snake3d.ring)</p></td>
-<td><p>The classic Snake game in full 3D. Guide a glowing snake made of connected spheres across a grid to eat food and grow longer. Features three camera modes (Follow/Top-Down/Isometric) and particle burst effects on eating.</p></td>
-</tr>
-<tr class="row-even"><td><p>51</p></td>
-<td><p>Tetris 3D (tetris3d.ring)</p></td>
-<td><p>Classic Tetris rendered in full 3D on a 10-wide x 20-tall playfield. Stack all seven classic tetrominoes, clear lines, hold a piece, hard-drop for speed, and chase high scores across increasing levels.</p></td>
-</tr>
-<tr class="row-odd"><td><p>52</p></td>
-<td><p>Analog Clock (analogclock.ring)</p></td>
-<td><p>A smooth animated analog clock rendered with RayLib. Displays hours, minutes, and seconds hands with real-time updates.</p></td>
-</tr>
-<tr class="row-even"><td><p>53</p></td>
-<td><p>Paint Program (paint.ring)</p></td>
-<td><p>A 2D drawing application with multiple tools: freehand brush, line, rectangle, circle/oval, and fill-rectangle. Supports a color palette and right-click erasing.</p></td>
-</tr>
-<tr class="row-odd"><td><p>54</p></td>
-<td><p>Diagram / Flowchart Tool (diagram.ring)</p></td>
-<td><p>A flowchart and diagram maker. Create draggable boxes in five shapes, connect them with arrows, edit label text inline, and auto-arrange with grid snap.</p></td>
-</tr>
-<tr class="row-even"><td><p>55</p></td>
-<td><p>Logic Circuit Simulator (circuit.ring)</p></td>
-<td><p>A visual logic gate simulator. Place AND, OR, NOT, XOR, NAND, NOR, and other gates on a canvas, wire outputs to inputs, and toggle input switches to watch signals propagate in real time. Features auto-layout, undo, and grid snap.</p></td>
-</tr>
-<tr class="row-odd"><td><p>56</p></td>
-<td><p>Sorting Algorithm Visualizer (sortvis.ring)</p></td>
-<td><p>Watch six classic sorting algorithms animate on colorful bars: Bubble Sort, Selection Sort, Insertion Sort, Quick Sort, Merge Sort, and Shell Sort. Adjust speed and array size to compare performance visually.</p></td>
-</tr>
-<tr class="row-even"><td><p>57</p></td>
-<td><p>Solar System 3D (solarsystem.ring)</p></td>
-<td><p>An interactive 3D solar system with all eight planets orbiting the Sun. Switch between Free, Follow-Planet, Overhead, and Orbit camera modes. Toggle orbit lines, labels, and an info panel.</p></td>
-</tr>
-<tr class="row-odd"><td><p>58</p></td>
-<td><p>Ecosystem Simulator (ecosystemsimulator.ring)</p></td>
-<td><p>A predator/prey population simulation (foxes and rabbits) demonstrating Lotka-Volterra dynamics. Watch populations rise and fall, spawn extra animals, and choose from preset scenarios.</p></td>
-</tr>
-<tr class="row-even"><td><p>59</p></td>
-<td><p>Traffic Simulator (trafficsimulator.ring)</p></td>
-<td><p>Cars drive on a road grid with traffic lights and intersections. Watch traffic flow emerge from signal timing, add cars, switch between grid layouts, and adjust light cycle duration.</p></td>
-</tr>
-<tr class="row-odd"><td><p>60</p></td>
-<td><p>Weather Simulator (weathersimulator.ring)</p></td>
-<td><p>A living sky simulation with clouds, rain, lightning, wind, snow, and a day/night cycle. Switch between six weather presets and trigger lightning bolts manually.</p></td>
-</tr>
-<tr class="row-even"><td><p>61</p></td>
-<td><p>Conway’s Game of Life 2D (gameoflife2d.ring)</p></td>
-<td><p>The classic cellular automaton in a zoomable, pannable 2D grid. Toggle cells, step generation by generation, load built-in pattern presets, and adjust simulation speed.</p></td>
-</tr>
-<tr class="row-odd"><td><p>62</p></td>
-<td><p>Conway’s Game of Life 3D (gameoflife3d.ring)</p></td>
-<td><p>Conway’s Game of Life visualized as glowing 3D cubes rising from a dark grid plane. Click cells to toggle them, cycle preset patterns, randomize the grid, and adjust simulation speed.</p></td>
-</tr>
-<tr class="row-even"><td><p>63</p></td>
-<td><p>Particle System Playground (particles.ring)</p></td>
-<td><p>Interactive particle emitters with physics. Place attractors and repulsors with the mouse, switch between six emitter types (fireworks, fountain, vortex, etc.), cycle color themes, and toggle gravity and wind.</p></td>
-</tr>
-<tr class="row-odd"><td><p>64</p></td>
-<td><p>Color Animation Screensaver (screensaver.ring)</p></td>
-<td><p>Eight mesmerizing animated visual modes including flowing colors, bouncing shapes, and Lissajous curves. Cycle through color palettes, toggle background trails, and pause/resume the animation.</p></td>
-</tr>
-<tr class="row-even"><td><p>65</p></td>
-<td><p>Forest Explorer 3D (forest3d.ring)</p></td>
-<td><p>A first-person walk through a procedurally generated 3D forest. Trees are randomly placed across terrain, creating an immersive outdoor environment to explore freely.</p></td>
-</tr>
-<tr class="row-odd"><td><p>66</p></td>
-<td><p>Cards Animation 2D (cardsanimation2d.ring)</p></td>
-<td><p>A 2D animated card-dealing and shuffling demonstration. Smooth card movement animations showcase RayLib’s 2D rendering and easing capabilities.</p></td>
-</tr>
-<tr class="row-even"><td><p>67</p></td>
-<td><p>Cards Animation 3D (cardsanimation3d.ring)</p></td>
-<td><p>The same card animation showcase in full 3D space, demonstrating 3D transformations, rotations, and smooth camera work with playing card assets.</p></td>
+<tr class="row-odd"><td><p>Pac-Man 2D</p></td>
+<td><p>Pac-Man 3D</p></td>
+<td><p>Asteroids</p></td>
+<td><p>Flappy Bird</p></td>
+</tr>
+<tr class="row-even"><td><p>Space Invaders</p></td>
+<td><p>Donkey Kong</p></td>
+<td><p>Mario</p></td>
+<td><p>Mega Man</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tanks 2-Player Battle</p></td>
+<td><p>Battlezone</p></td>
+<td><p>Chess 2D</p></td>
+<td><p>Chess 3D</p></td>
+</tr>
+<tr class="row-even"><td><p>Checkers 3D</p></td>
+<td><p>Go 3D</p></td>
+<td><p>Othello 3D</p></td>
+<td><p>Connect Four 3D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hex Game 3D</p></td>
+<td><p>Cards Game 2D</p></td>
+<td><p>Cards Game 3D</p></td>
+<td><p>Sokoban 2D</p></td>
+</tr>
+<tr class="row-even"><td><p>Sokoban 3D</p></td>
+<td><p>Ice Sliding Puzzle 3D</p></td>
+<td><p>Laser Puzzle 3D</p></td>
+<td><p>Pipe Connect 3D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sliding Puzzle 3D</p></td>
+<td><p>Maze 3D</p></td>
+<td><p>Tower of Hanoi 3D</p></td>
+<td><p>Minesweeper 3D</p></td>
+</tr>
+<tr class="row-even"><td><p>Knight’s Tour 3D</p></td>
+<td><p>N-Queens Puzzle 3D</p></td>
+<td><p>Lights Out 3D</p></td>
+<td><p>Match-3 Gem Game 3D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rescue</p></td>
+<td><p>2048</p></td>
+<td><p>Ring Doom</p></td>
+<td><p>Dungeon Crawler</p></td>
+</tr>
+<tr class="row-even"><td><p>The Sword Game</p></td>
+<td><p>Helicopter Gunship</p></td>
+<td><p>Endless Runner</p></td>
+<td><p>Platformer 2D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Baba</p></td>
+<td><p>Roguelike</p></td>
+<td><p>Ring Bomber</p></td>
+<td><p>Breakout</p></td>
+</tr>
+<tr class="row-even"><td><p>Pinball</p></td>
+<td><p>Racing</p></td>
+<td><p>Space Shooter</p></td>
+<td><p>Tower Defense 2D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tower Defense 3D</p></td>
+<td><p>Snake 3D</p></td>
+<td><p>Tetris 3D</p></td>
+<td><p>Analog Clock</p></td>
+</tr>
+<tr class="row-even"><td><p>Paint Program</p></td>
+<td><p>Diagram Tool</p></td>
+<td><p>Logic Circuit Simulator</p></td>
+<td><p>Sorting Algorithm Visualizer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solar System</p></td>
+<td><p>Ecosystem Simulator</p></td>
+<td><p>Traffic Simulator</p></td>
+<td><p>Weather Simulator</p></td>
+</tr>
+<tr class="row-even"><td><p>Game of Life 2D</p></td>
+<td><p>Game of Life 3D</p></td>
+<td><p>Particle System</p></td>
+<td><p>Color Animation Screensaver</p></td>
+</tr>
+<tr class="row-odd"><td><p>Forest Explorer</p></td>
+<td><p>Cards Animation 2D</p></td>
+<td><p>Cards Animation 3D</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>
