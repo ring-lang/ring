@@ -506,9 +506,9 @@ Install and run:
 RingRayLib Samples
 ==================
 
-We added 67 new applications and games to the ring/samples/UsingAI/UsingClaude folder
+We added 68 new applications and games to the ring/samples/UsingAI/UsingClaude folder
 
-Over 59,000 lines of code automatically  generated using Claude Code for the RingRayLib samples
+Over 60,000 lines of code automatically  generated using Claude Code for the RingRayLib samples
 
 
 .. image:: raylibsamples.png
@@ -598,7 +598,7 @@ guided by prompts that referenced and combined ideas from samples like these.
    * - Forest Explorer
      - Cards Animation 2D
      - Cards Animation 3D
-     -
+     - Ring Witness
 
 
 .. index:: 
