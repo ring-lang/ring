@@ -528,26 +528,26 @@ DaveTheFighter, Tank3D, LineDrawing3D, and CodeRooms3D were built — 100% with 
 guided by prompts that referenced and combined ideas from samples like these.
 
 .. list-table:: RingRayLib Samples
-   :widths: 25 25 25 25
+   :widths: 20 20 20 20 20
    :header-rows: 0
 
    * - Ring Pac-Man 2D
      - Ring Pac-Man 3D
      - Ring Asteroids
      - Ring Flappy Bird
-   * - Ring Space Invaders
-     - Ring Donkey Kong
+     - Ring Space Invaders
+   * - Ring Donkey Kong
      - Ring Mario
      - Ring Mega Man
-   * - Tanks 2-Player Battle
+     - Tanks 2-Player Battle
      - Ring Battlezone
-     - Chess 2D
+   * - Chess 2D
      - Chess 3D
-   * - Checkers 3D
+     - Checkers 3D
      - Go 3D
      - Othello 3D
-     - Connect Four 3D
-   * - Hex Game 3D
+   * - Connect Four 3D
+     - Hex Game 3D
      - Cards Game 2D
      - Cards Game 3D
      - Sokoban 2D
@@ -555,19 +555,19 @@ guided by prompts that referenced and combined ideas from samples like these.
      - Ice Sliding Puzzle 3D
      - Laser Puzzle 3D
      - Pipe Connect 3D
-   * - Sliding Puzzle 3D
-     - Maze 3D
+     - Sliding Puzzle 3D
+   * - Maze 3D
      - Tower of Hanoi 3D
      - Ring Minesweeper 3D
-   * - Knight's Tour 3D
+     - Knight's Tour 3D
      - N-Queens Puzzle 3D
-     - Lights Out 3D
+   * - Lights Out 3D
      - Match-3 Gem Game 3D
-   * - Rescue
+     - Rescue
      - 2048
      - Ring Doom
-     - Dungeon Crawler
-   * - The Sword Game
+   * - Dungeon Crawler
+     - The Sword Game
      - Helicopter Gunship
      - Endless Runner
      - Platformer 2D
@@ -575,19 +575,19 @@ guided by prompts that referenced and combined ideas from samples like these.
      - Roguelike
      - Ring Bomber
      - Breakout
-   * - Pinball
-     - Racing
+     - Pinball
+   * - Racing
      - Space Shooter
      - Tower Defense 2D
-   * - Tower Defense 3D
+     - Tower Defense 3D
      - Snake 3D
-     - Ring Tetris 3D
+   * - Ring Tetris 3D
      - Analog Clock
-   * - Paint Program
+     - Paint Program
      - Diagram Tool
      - Logic Circuit Simulator
-     - Sorting Algorithm Visualizer
-   * - Solar System
+   * - Sorting Algorithm Visualizer
+     - Solar System
      - Ecosystem Simulator
      - Traffic Simulator
      - Weather Simulator
@@ -595,14 +595,12 @@ guided by prompts that referenced and combined ideas from samples like these.
      - Game of Life 3D
      - Particle System
      - Color Animation Screensaver
-   * - Forest Explorer
-     - Cards Animation 2D
+     - Forest Explorer
+   * - Cards Animation 2D
      - Cards Animation 3D
      - Ring Witness
-   * - Voxel 3D
+     - Voxel 3D
      - Pegblaster
-     -
-     -
 
 
 .. index:: 
