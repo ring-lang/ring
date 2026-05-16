@@ -506,9 +506,13 @@ Install and run:
 RingRayLib Samples
 ==================
 
-We added more samples and applications to the ring/samples/UsingAI/UsingClaude folder
+We added 67 new applications and games to the ring/samples/UsingAI/UsingClaude folder
 
-Over 59,000 lines of code are generated using Claude Code (RingRayLib samples)
+Over 59,000 lines of code automatically  generated using Claude Code for the RingRayLib samples
+
+
+.. image:: raylibsamples.png
+	:alt: RayLib Samples
 
 This collection serves three purposes at once. First, it was born as a stress test of 
 Claude Code — each app and game was built during hands-on experimentation to explore 
@@ -523,20 +527,20 @@ This mix-and-match workflow is exactly how Ring games such as
 DaveTheFighter, Tank3D, LineDrawing3D, and CodeRooms3D were built — 100% with Claude Code, 
 guided by prompts that referenced and combined ideas from samples like these.
 
-.. list-table:: New RingRayLib Samples
+.. list-table:: RingRayLib Samples
    :widths: 25 25 25 25
    :header-rows: 0
 
-   * - Pac-Man 2D
-     - Pac-Man 3D
-     - Asteroids 
-     - Flappy Bird
-   * - Space Invaders
-     - Donkey Kong
-     - Mario 
-     - Mega Man
+   * - Ring Pac-Man 2D
+     - Ring Pac-Man 3D
+     - Ring Asteroids
+     - Ring Flappy Bird
+   * - Ring Space Invaders
+     - Ring Donkey Kong
+     - Ring Mario
+     - Ring Mega Man
    * - Tanks 2-Player Battle
-     - Battlezone 
+     - Ring Battlezone
      - Chess 2D
      - Chess 3D
    * - Checkers 3D
@@ -554,36 +558,36 @@ guided by prompts that referenced and combined ideas from samples like these.
    * - Sliding Puzzle 3D
      - Maze 3D
      - Tower of Hanoi 3D
-     - Minesweeper 3D
+     - Ring Minesweeper 3D
    * - Knight's Tour 3D
      - N-Queens Puzzle 3D
      - Lights Out 3D
      - Match-3 Gem Game 3D
-   * - Rescue 
-     - 2048 
-     - Ring Doom 
+   * - Rescue
+     - 2048
+     - Ring Doom
      - Dungeon Crawler
    * - The Sword Game
-     - Helicopter Gunship 
-     - Endless Runner 
+     - Helicopter Gunship
+     - Endless Runner
      - Platformer 2D
-   * - Baba 
-     - Roguelike 
+   * - Ring Baba
+     - Roguelike
      - Ring Bomber
-     - Breakout 
-   * - Pinball 
-     - Racing 
-     - Space Shooter 
+     - Breakout
+   * - Pinball
+     - Racing
+     - Space Shooter
      - Tower Defense 2D
    * - Tower Defense 3D
      - Snake 3D
-     - Tetris 3D
+     - Ring Tetris 3D
      - Analog Clock
    * - Paint Program
      - Diagram Tool
      - Logic Circuit Simulator
      - Sorting Algorithm Visualizer
-   * - Solar System 
+   * - Solar System
      - Ecosystem Simulator
      - Traffic Simulator
      - Weather Simulator
@@ -591,7 +595,7 @@ guided by prompts that referenced and combined ideas from samples like these.
      - Game of Life 3D
      - Particle System
      - Color Animation Screensaver
-   * - Forest Explorer 
+   * - Forest Explorer
      - Cards Animation 2D
      - Cards Animation 3D
      -
