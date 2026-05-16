@@ -1,6 +1,6 @@
 # UsingClaude Folder
 
-The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains applications and games (over 59,000 lines of code) 
+The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains applications and games (over 60,000 lines of code) 
 
 Developed in the **Ring programming language** using the **RingRayLib** library. 
 
@@ -152,6 +152,9 @@ A rich 3D puzzle game: push boxes, collect keys, redirect lasers with ice blocks
 
 #### `the2048game3d.ring` — 3D 2048
 Slide numbered tiles on a 4×4 grid. When two identical tiles collide they merge into one. Reach the 2048 tile to win. Rendered in 3D with smooth tile-slide animations and multiple camera views.
+
+#### `witness.ring` — 3D Line Trace Puzzle (Inspired by The Witness)
+Trace a continuous path on glowing 3D grid panels from the start circle to the exit notch while satisfying all constraints. Features 15 hand-crafted puzzles of increasing difficulty with multiple constraint types: required dots the path must pass through, broken edges that cannot be traversed, and black/white squares that must be separated into different regions by the path. Includes a BFS auto-solver hint system, smooth glowing path trail with particle effects, visual validation (green flash = correct, red = wrong), and three camera modes. Draw with arrow keys/WASD or mouse drag.
 
 ---
 
