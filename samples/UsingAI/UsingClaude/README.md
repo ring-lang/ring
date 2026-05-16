@@ -1,6 +1,6 @@
 # UsingClaude Folder
 
-The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains applications and games (over 61,000 lines of code) 
+The [examples folder](https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/examples) contains 70 applications and games (over 62,000 lines of code) 
 
 Developed in the **Ring programming language** using the **RingRayLib** library. 
 
@@ -51,6 +51,9 @@ A faithful remake of the classic vector-graphics space shooter. Pilot your ship,
 
 #### `flappybird.ring` — Flappy Bird
 Tap to flap through endless pipe gaps. Features three difficulty levels (Easy/Normal/Hard), day/night mode toggle, and progressively increasing challenge as you survive longer.
+
+#### `pegblaster.ring` — Pegblaster
+A Peggle-style physics arcade game. Aim a cannon with the mouse, fire a ball, and watch it bounce through fields of pegs under gravity. Clear all orange target pegs across 10 procedurally designed levels (grids, diamonds, spirals, waves, hexagons, and a final boss layout). Features circle-vs-circle physics with restitution, trajectory preview dots, blue/orange/green/purple peg types (with multi-ball bursts and +500 jackpot pegs), a moving free-ball bucket, hit-streak combo multipliers up to ×10, particle explosions, screen shake, and three difficulty levels.
 
 #### `spaceinv.ring` — Space Invaders
 "Ring Invaders" — a classic top-down space shooter where waves of alien enemies descend. Destroy all enemies before they reach the ground.
