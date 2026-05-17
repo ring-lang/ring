@@ -982,5 +982,9 @@ aPackagesRegistry = [
 	[ :name = "bolt",
 	  :description = "Blazing-fast web framework for the Ring Programming Language",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "dbflib",
+	  :description = "DBF/FPT library for the Ring Programming Language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
