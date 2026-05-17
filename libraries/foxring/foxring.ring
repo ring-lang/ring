@@ -64,22 +64,6 @@
  *
  */
 
- 
- 
- 
- 
- 
-	/*
-	 * Syntax			: 
-	 * Description		: 
-	 * Arguments   		: 
-	 *					: 
-	 * Returns			: 
-	 * Remarks			: 
-	 * Author	 		:
-	 * History			:
-	 */
-	
 class frFunctions {
 
 	_version 				= "1.0.147"
