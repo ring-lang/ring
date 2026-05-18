@@ -994,5 +994,9 @@ aPackagesRegistry = [
 	[ :name = "svglib",
 	  :description = "SVG (Scalable Vector Graphics) library for the Ring Programming Language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "pdflib",
+	  :description = "PDF library for the Ring Programming Language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
