@@ -16,9 +16,9 @@
 				<tbody>
 				<% aPackages = reverse(aPackagesRegistry) for x in aPackages %>
 				  <tr>
-					<td><%= lower(x[:name]) %></td>
+					<td><%= '<a href="https://github.com/'+x[:providerusername]+'/'+lower(x[:name])+'">' + lower(x[:name]) + '</a>' %></td>
 					<td><%= x[:description] %></td>
-					<td><%= x[:providerusername] %></td>
+					<td><%= '<a href="https://github.com/'+x[:providerusername]+'">' + x[:providerusername] + '</a>' %></td>
 				  </tr>
 				<% next %>				 	  
 				</tbody>
