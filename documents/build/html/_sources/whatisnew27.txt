@@ -473,6 +473,11 @@ Features:
 * Icons — Checkmarks, crosses, arrows, stars
 * No Dependencies — Pure Ring implementation
 
+Screen Shot:
+
+.. image:: svglib.png
+	:alt: SVGLib
+
 .. index:: 
 	pair: What is new in Ring  1.27; DBFLib Package
 
