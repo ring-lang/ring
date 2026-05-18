@@ -189,6 +189,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#bolt-web-framework">Bolt Web Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#svglib-package">SVGLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringraylib-samples">RingRayLib Samples</a></li>
@@ -243,6 +245,8 @@
 <li><p>Bolt Web Framework</p></li>
 <li><p>Ring-Python Package</p></li>
 <li><p>Ring-CFFI Package</p></li>
+<li><p>SVGLib Package</p></li>
+<li><p>DBFLib Package</p></li>
 <li><p>Better Extensions</p></li>
 <li><p>Solitaire Game</p></li>
 <li><p>RingRayLib Samples</p></li>
@@ -621,8 +625,44 @@ Hello, World! Number: 123
 </pre></div>
 </div>
 </section>
+<section id="svglib-package">
+<span id="index-9"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
+<p>SVGLib is a pure Ring library for creating Scalable Vector Graphics (SVG) files using the
+Ring programming language. It generates standard SVG files that can be viewed in any
+web browser, embedded in HTML, or used in other applications.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install svglib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Basic Shapes — Rectangles, circles, ellipses, polygons, stars</p></li>
+<li><p>Lines &amp; Paths — Lines, polylines, arcs, custom paths with curves</p></li>
+<li><p>Text — Formatted text, multiline, centered, text on path</p></li>
+<li><p>Gradients — Linear and radial gradients with multiple stops</p></li>
+<li><p>Patterns — Stripes, dots, grids, custom patterns</p></li>
+<li><p>Filters — Blur, drop shadow, glow effects</p></li>
+<li><p>Transformations — Translate, rotate, scale, skew (per element)</p></li>
+<li><p>Groups — Group elements together</p></li>
+<li><p>Clipping — Clip shapes with masks</p></li>
+<li><p>Markers — Arrows and dots on lines</p></li>
+<li><p>Charts — Bar, line, pie, donut charts</p></li>
+<li><p>Diagrams — Flowcharts, org charts</p></li>
+<li><p>Icons — Checkmarks, crosses, arrows, stars</p></li>
+<li><p>No Dependencies — Pure Ring implementation</p></li>
+</ul>
+</section>
+<section id="dbflib-package">
+<span id="index-10"></span><h2>DBFLib Package<a class="headerlink" href="#dbflib-package" title="Permalink to this heading"></a></h2>
+<p>A pure-Ring library for reading, writing, and maintaining
+Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install dbflib
+</pre></div>
+</div>
+</section>
 <section id="better-extensions">
-<span id="index-9"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingFastPro Extension - Better Performance</p></li>
 <li><p>RingFastPro Extension - Added Transform3D() function</p></li>
@@ -662,7 +702,7 @@ Hello, World! Number: 123
 <img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
 </section>
 <section id="solitaire-game">
-<span id="index-10"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
 <p>The Solitaire Game (Developed using Ring and RayLib)</p>
 <p>Install and run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
@@ -672,7 +712,7 @@ ringpm run solitaire
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
 <section id="ringraylib-samples">
-<span id="index-11"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
 <p>We added 70 new applications and games to the ring/samples/UsingAI/UsingClaude folder</p>
 <p>Over 62,000 lines of code automatically  generated using Claude Code for the RingRayLib samples</p>
 <img alt="RayLib Samples" src="_images/raylibsamples.png" />
@@ -786,7 +826,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </table>
 </section>
 <section id="more-samples">
-<span id="index-12"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -826,7 +866,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="better-functions">
-<span id="index-13"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -874,7 +914,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-14"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -895,7 +935,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>

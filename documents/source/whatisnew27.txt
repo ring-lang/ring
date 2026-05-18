@@ -22,6 +22,8 @@ Ring 1.27 comes with the next features!
 * Bolt Web Framework
 * Ring-Python Package
 * Ring-CFFI Package
+* SVGLib Package
+* DBFLib Package
 * Better Extensions
 * Solitaire Game
 * RingRayLib Samples
@@ -436,6 +438,55 @@ Output:
 	sqrt(25) = 5
 	Hello, World! Number: 123
 
+
+
+.. index:: 
+	pair: What is new in Ring  1.27; SVGLib Package
+
+SVGLib Package
+==============
+
+SVGLib is a pure Ring library for creating Scalable Vector Graphics (SVG) files using the 
+Ring programming language. It generates standard SVG files that can be viewed in any 
+web browser, embedded in HTML, or used in other applications.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install svglib
+
+Features:
+
+* Basic Shapes — Rectangles, circles, ellipses, polygons, stars
+* Lines & Paths — Lines, polylines, arcs, custom paths with curves
+* Text — Formatted text, multiline, centered, text on path
+* Gradients — Linear and radial gradients with multiple stops
+* Patterns — Stripes, dots, grids, custom patterns
+* Filters — Blur, drop shadow, glow effects
+* Transformations — Translate, rotate, scale, skew (per element)
+* Groups — Group elements together
+* Clipping — Clip shapes with masks
+* Markers — Arrows and dots on lines
+* Charts — Bar, line, pie, donut charts
+* Diagrams — Flowcharts, org charts
+* Icons — Checkmarks, crosses, arrows, stars
+* No Dependencies — Pure Ring implementation
+
+.. index:: 
+	pair: What is new in Ring  1.27; DBFLib Package
+
+DBFLib Package
+==============
+
+A pure-Ring library for reading, writing, and maintaining 
+Visual FoxPro .dbf database files and their companion .fpt memo files.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install dbflib
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Extensions
