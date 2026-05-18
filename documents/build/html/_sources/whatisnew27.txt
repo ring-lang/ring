@@ -446,7 +446,7 @@ Output:
 SVGLib Package
 ==============
 
-SVGLib is a pure Ring library for creating Scalable Vector Graphics (SVG) files using the 
+A pure Ring library for creating Scalable Vector Graphics (SVG) files using the 
 Ring programming language. It generates standard SVG files that can be viewed in any 
 web browser, embedded in HTML, or used in other applications.
 
@@ -473,7 +473,50 @@ Features:
 * Icons — Checkmarks, crosses, arrows, stars
 * No Dependencies — Pure Ring implementation
 
-Screen Shot:
+Example:
+
+.. code-block:: ring
+
+	load "svglib.ring"
+
+	svg = new SVGWriter(600, 400) {
+
+		setBackground("#F5F5F5")
+
+		addRect(0, 0, 600, 50, [:fill = "#1565C0"])
+		addText("Analytics Dashboard", 20, 32,
+		[:fontSize = 20, :fontWeight = "bold", :fill = "white"])
+
+		shadow = createShadowFilter(2, 2, 3, "#CCC")
+
+		addRoundedRect(20, 70, 170, 80, 6, [:fill = "white", :filter = shadow])
+		addText("Users",  35, 95,  [:fontSize = 12, :fill = "#1565C0"])
+		addText("24,521", 35, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
+		addText("+12%",  120, 125, [:fontSize = 12, :fill = "#4CAF50"])
+
+		addRoundedRect(210, 70, 170, 80, 6, [:fill = "white", :filter = shadow])
+		addText("Revenue", 225, 95,  [:fontSize = 12, :fill = "#E65100"])
+		addText("$89,430", 225, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
+
+		addRoundedRect(400, 70, 180, 80, 6, [:fill = "white", :filter = shadow])
+		addText("Orders", 415, 95,  [:fontSize = 12, :fill = "#7B1FA2"])
+		addText("1,247",  415, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
+
+		addRoundedRect(20, 170, 350, 210, 6, [:fill = "white", :filter = shadow])
+		addText("Monthly Sales", 35, 195, [:fontSize = 14, :fontWeight = "bold", :fill = "#333"])
+		chartData = [:labels = ["Jan", "Feb", "Mar", "Apr", "May"], :values = [42, 58, 49, 72, 65]]
+		addBarChart(chartData, 25, 200, 340, 170, [:colors = ["#42A5F5"]])
+
+		addRoundedRect(390, 170, 190, 210, 6, [:fill = "white", :filter = shadow])
+		addText("Traffic", 405, 195, [:fontSize = 14, :fontWeight = "bold", :fill = "#333"])
+		pieData = [:labels = ["Organic", "Direct", "Social"], :values = [50, 30, 20]]
+		addPieChart(pieData, 485, 295, 60, [:colors = ["#4CAF50", "#2196F3", "#E91E63"]])
+
+		save("demo18_dashboard.svg")
+
+	}
+
+Screen Shots:
 
 .. image:: svglib.png
 	:alt: SVGLib
@@ -484,7 +527,7 @@ Screen Shot:
 DBFLib Package
 ==============
 
-A pure-Ring library for reading, writing, and maintaining 
+A pure Ring library for reading, writing, and maintaining 
 Visual FoxPro .dbf database files and their companion .fpt memo files.
 
 Install:

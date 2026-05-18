@@ -627,7 +627,7 @@ Hello, World! Number: 123
 </section>
 <section id="svglib-package">
 <span id="index-9"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
-<p>SVGLib is a pure Ring library for creating Scalable Vector Graphics (SVG) files using the
+<p>A pure Ring library for creating Scalable Vector Graphics (SVG) files using the
 Ring programming language. It generates standard SVG files that can be viewed in any
 web browser, embedded in HTML, or used in other applications.</p>
 <p>Install:</p>
@@ -651,12 +651,53 @@ web browser, embedded in HTML, or used in other applications.</p>
 <li><p>Icons — Checkmarks, crosses, arrows, stars</p></li>
 <li><p>No Dependencies — Pure Ring implementation</p></li>
 </ul>
-<p>Screen Shot:</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;svglib.ring&quot;
+
+svg = new SVGWriter(600, 400) {
+
+        setBackground(&quot;#F5F5F5&quot;)
+
+        addRect(0, 0, 600, 50, [:fill = &quot;#1565C0&quot;])
+        addText(&quot;Analytics Dashboard&quot;, 20, 32,
+        [:fontSize = 20, :fontWeight = &quot;bold&quot;, :fill = &quot;white&quot;])
+
+        shadow = createShadowFilter(2, 2, 3, &quot;#CCC&quot;)
+
+        addRoundedRect(20, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Users&quot;,  35, 95,  [:fontSize = 12, :fill = &quot;#1565C0&quot;])
+        addText(&quot;24,521&quot;, 35, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        addText(&quot;+12%&quot;,  120, 125, [:fontSize = 12, :fill = &quot;#4CAF50&quot;])
+
+        addRoundedRect(210, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Revenue&quot;, 225, 95,  [:fontSize = 12, :fill = &quot;#E65100&quot;])
+        addText(&quot;$89,430&quot;, 225, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+
+        addRoundedRect(400, 70, 180, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Orders&quot;, 415, 95,  [:fontSize = 12, :fill = &quot;#7B1FA2&quot;])
+        addText(&quot;1,247&quot;,  415, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+
+        addRoundedRect(20, 170, 350, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Monthly Sales&quot;, 35, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        chartData = [:labels = [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], :values = [42, 58, 49, 72, 65]]
+        addBarChart(chartData, 25, 200, 340, 170, [:colors = [&quot;#42A5F5&quot;]])
+
+        addRoundedRect(390, 170, 190, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Traffic&quot;, 405, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        pieData = [:labels = [&quot;Organic&quot;, &quot;Direct&quot;, &quot;Social&quot;], :values = [50, 30, 20]]
+        addPieChart(pieData, 485, 295, 60, [:colors = [&quot;#4CAF50&quot;, &quot;#2196F3&quot;, &quot;#E91E63&quot;]])
+
+        save(&quot;demo18_dashboard.svg&quot;)
+
+}
+</pre></div>
+</div>
+<p>Screen Shots:</p>
 <img alt="SVGLib" src="_images/svglib.png" />
 </section>
 <section id="dbflib-package">
 <span id="index-10"></span><h2>DBFLib Package<a class="headerlink" href="#dbflib-package" title="Permalink to this heading"></a></h2>
-<p>A pure-Ring library for reading, writing, and maintaining
+<p>A pure Ring library for reading, writing, and maintaining
 Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install dbflib
