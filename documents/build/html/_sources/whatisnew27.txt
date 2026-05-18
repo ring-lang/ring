@@ -24,6 +24,7 @@ Ring 1.27 comes with the next features!
 * Ring-CFFI Package
 * SVGLib Package
 * DBFLib Package
+* PDFLib Package
 * Better Extensions
 * Solitaire Game
 * RingRayLib Samples
@@ -571,6 +572,71 @@ Example:
 		end
 		close()
 	}
+
+.. index:: 
+	pair: What is new in Ring  1.27; PDFLib Package
+
+PDFLib Package
+==============
+
+PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies. 
+Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install pdflib
+
+Features:
+
+* Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins
+* Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment
+* Paragraphs — word-wrapping with configurable line height and alignment
+* Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported
+* Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both
+* Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering
+* Lists — bullet lists and numbered lists
+* Charts — bar charts and pie charts with legends
+* Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required
+* Page numbers — configurable format and position
+* Headers / Footers — per-document text with alignment
+* Watermarks — rotated text at arbitrary angle
+* Graphics state — save/restore, line width, cap, join, dash patterns
+* Document properties — title, author, subject, keywords, creator
+
+Example:
+
+.. code-block:: ring
+
+	load "pdflib.ring"
+
+	items = [
+    		["Description", "Qty", "Price", "Total"],
+    		["Web Design", "1", "$2,500", "$2,500"],
+    		["Hosting (Annual)", "1", "$300", "$300"],
+    		["Domain Name", "2", "$15", "$30"]
+	]
+
+	new PDFWriter() {
+		setTitle("Invoice #1001")
+		setFont(PDF_HELVETICA_BOLD, 28)
+		setTextColor("navy")
+		drawText("INVOICE", 72, 760)
+		setFont(PDF_HELVETICA, 12)
+		setTextColor("gray")
+		drawTextRight("#INV-1001", 540, 760)
+		drawTextRight("Date: 2025-01-15", 540, 740)
+		drawTable(items, 72, 650, [250, 60, 80, 78], [
+    			:headerBg = "navy",
+    			:headerFg = "white"
+		])
+		setFont(PDF_HELVETICA_BOLD, 14)
+		setTextColor("black")
+		drawTextRight("Total: $2,830.00", 540, 540)
+		save("invoice.pdf")
+	}
+
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Extensions

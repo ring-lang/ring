@@ -191,6 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#svglib-package">SVGLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pdflib-package">PDFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringraylib-samples">RingRayLib Samples</a></li>
@@ -247,6 +248,7 @@
 <li><p>Ring-CFFI Package</p></li>
 <li><p>SVGLib Package</p></li>
 <li><p>DBFLib Package</p></li>
+<li><p>PDFLib Package</p></li>
 <li><p>Better Extensions</p></li>
 <li><p>Solitaire Game</p></li>
 <li><p>RingRayLib Samples</p></li>
@@ -738,8 +740,64 @@ Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
 </pre></div>
 </div>
 </section>
+<section id="pdflib-package">
+<span id="index-11"></span><h2>PDFLib Package<a class="headerlink" href="#pdflib-package" title="Permalink to this heading"></a></h2>
+<p>PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies.
+Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pdflib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins</p></li>
+<li><p>Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment</p></li>
+<li><p>Paragraphs — word-wrapping with configurable line height and alignment</p></li>
+<li><p>Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported</p></li>
+<li><p>Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both</p></li>
+<li><p>Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering</p></li>
+<li><p>Lists — bullet lists and numbered lists</p></li>
+<li><p>Charts — bar charts and pie charts with legends</p></li>
+<li><p>Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required</p></li>
+<li><p>Page numbers — configurable format and position</p></li>
+<li><p>Headers / Footers — per-document text with alignment</p></li>
+<li><p>Watermarks — rotated text at arbitrary angle</p></li>
+<li><p>Graphics state — save/restore, line width, cap, join, dash patterns</p></li>
+<li><p>Document properties — title, author, subject, keywords, creator</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;pdflib.ring&quot;
+
+items = [
+        [&quot;Description&quot;, &quot;Qty&quot;, &quot;Price&quot;, &quot;Total&quot;],
+        [&quot;Web Design&quot;, &quot;1&quot;, &quot;$2,500&quot;, &quot;$2,500&quot;],
+        [&quot;Hosting (Annual)&quot;, &quot;1&quot;, &quot;$300&quot;, &quot;$300&quot;],
+        [&quot;Domain Name&quot;, &quot;2&quot;, &quot;$15&quot;, &quot;$30&quot;]
+]
+
+new PDFWriter() {
+        setTitle(&quot;Invoice #1001&quot;)
+        setFont(PDF_HELVETICA_BOLD, 28)
+        setTextColor(&quot;navy&quot;)
+        drawText(&quot;INVOICE&quot;, 72, 760)
+        setFont(PDF_HELVETICA, 12)
+        setTextColor(&quot;gray&quot;)
+        drawTextRight(&quot;#INV-1001&quot;, 540, 760)
+        drawTextRight(&quot;Date: 2025-01-15&quot;, 540, 740)
+        drawTable(items, 72, 650, [250, 60, 80, 78], [
+                :headerBg = &quot;navy&quot;,
+                :headerFg = &quot;white&quot;
+        ])
+        setFont(PDF_HELVETICA_BOLD, 14)
+        setTextColor(&quot;black&quot;)
+        drawTextRight(&quot;Total: $2,830.00&quot;, 540, 540)
+        save(&quot;invoice.pdf&quot;)
+}
+</pre></div>
+</div>
+</section>
 <section id="better-extensions">
-<span id="index-11"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingFastPro Extension - Better Performance</p></li>
 <li><p>RingFastPro Extension - Added Transform3D() function</p></li>
@@ -779,7 +837,7 @@ Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
 <img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
 </section>
 <section id="solitaire-game">
-<span id="index-12"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
 <p>The Solitaire Game (Developed using Ring and RayLib)</p>
 <p>Install and run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
@@ -789,7 +847,7 @@ ringpm run solitaire
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
 <section id="ringraylib-samples">
-<span id="index-13"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
 <p>We added 70 new applications and games to the ring/samples/UsingAI/UsingClaude folder</p>
 <p>Over 62,000 lines of code automatically  generated using Claude Code for the RingRayLib samples</p>
 <img alt="RayLib Samples" src="_images/raylibsamples.png" />
@@ -903,7 +961,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </table>
 </section>
 <section id="more-samples">
-<span id="index-14"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -943,7 +1001,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="better-functions">
-<span id="index-15"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -991,7 +1049,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-16"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -1012,7 +1070,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
