@@ -536,6 +536,42 @@ Install:
 
 	ringpm install dbflib
 
+Example:
+
+.. code-block:: ring
+
+	load "dbflib.ring"
+
+	aFields = [
+		["ID",      "N",  6, 0],
+		["NAME",    "C", 40, 0],
+		["SALARY",  "N", 12, 2],
+		["ACTIVE",  "L",  1, 0],
+		["NOTES",   "M", 10, 0]   
+	]
+
+	new DBFFile {
+		create("employees.dbf", aFields)
+		append()
+		replace("ID",     1)
+		replace("NAME",   "Ahmed Al-Rashid")
+		replace("SALARY", 85000.50)
+		replace("ACTIVE", true)
+		replace("NOTES",  "Senior developer, joined 2023.")
+		close()
+	}
+
+	new DBFFile {
+		open("employees.dbf")
+		goTop()
+		while ! isEof()
+			? trim(fieldGet("NAME")) + " - " + fieldGet("SALARY")
+			? fieldGet("NOTES")
+			skip(1)
+		end
+		close()
+	}
+
 .. index:: 
 	pair: What is new in Ring  1.27; Better Extensions
 
