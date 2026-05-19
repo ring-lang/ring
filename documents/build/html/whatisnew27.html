@@ -193,6 +193,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pdflib-package">PDFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pptxlib-package">PPTXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xlsxlib-package">XLSXLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringraylib-samples">RingRayLib Samples</a></li>
@@ -251,6 +252,7 @@
 <li><p>DBFLib Package</p></li>
 <li><p>PDFLib Package</p></li>
 <li><p>PPTXLib Package</p></li>
+<li><p>XLSXLib Package</p></li>
 <li><p>Better Extensions</p></li>
 <li><p>Solitaire Game</p></li>
 <li><p>RingRayLib Samples</p></li>
@@ -653,7 +655,6 @@ web browser, embedded in HTML, or used in other applications.</p>
 <li><p>Charts — Bar, line, pie, donut charts</p></li>
 <li><p>Diagrams — Flowcharts, org charts</p></li>
 <li><p>Icons — Checkmarks, crosses, arrows, stars</p></li>
-<li><p>No Dependencies — Pure Ring implementation</p></li>
 </ul>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;svglib.ring&quot;
@@ -818,7 +819,6 @@ new PDFWriter() {
 <li><p>Layouts - 16:9, 16:10, 4:3 aspect ratios</p></li>
 <li><p>Quick Layouts - Title slides, two-column layouts</p></li>
 <li><p>Speaker Notes - Add notes to slides</p></li>
-<li><p>No Dependencies - Pure Ring implementation</p></li>
 </ul>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;pptxlib.ring&quot;</span>
@@ -838,8 +838,138 @@ new PDFWriter() {
 <p>Screen Shots:</p>
 <img alt="PPTXLib" src="_images/pptxlib.png" />
 </section>
+<section id="xlsxlib-package">
+<span id="index-13"></span><h2>XLSXLib Package<a class="headerlink" href="#xlsxlib-package" title="Permalink to this heading"></a></h2>
+<p>XLSXLib is a pure-Ring library for creating Excel (.xlsx) files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install xlsxlib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Multiple Worksheets - Create workbooks with many sheets</p></li>
+<li><p>Cell Operations - Set text, numbers, dates, and formulas</p></li>
+<li><p>Styling - Fonts, colors, backgrounds, borders, alignment</p></li>
+<li><p>Number Formats - Currency, percentage, date, time, custom formats</p></li>
+<li><p>Column/Row Formatting - Custom widths and heights</p></li>
+<li><p>Merged Cells - Combine cells horizontally and vertically</p></li>
+<li><p>Auto Filter - Add filter dropdowns to data ranges</p></li>
+<li><p>Freeze Panes - Keep headers visible while scrolling</p></li>
+<li><p>Images - Embed PNG, JPG, BMP, and GIF images</p></li>
+<li><p>Formulas - Full Excel formula support</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;xlsxlib.ring&quot;</span>
+
+<span class="n">cFileName</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;.ring&quot;</span><span class="p">,</span><span class="s2">&quot;.xlsx&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Generate File: &quot;</span> <span class="o">+</span> <span class="n">cFileName</span>
+
+<span class="kp">new</span> <span class="nc">ExcelWriter</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="nf">setTitle</span><span class="p">(</span><span class="s2">&quot;Sales Report 2025&quot;</span><span class="p">)</span>
+        <span class="nf">setAuthor</span><span class="p">(</span><span class="s2">&quot;Sales Department&quot;</span><span class="p">)</span>
+        <span class="nf">setCompany</span><span class="p">(</span><span class="s2">&quot;ABC Corporation&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Summary Sheet</span>
+        <span class="nf">addSheet</span><span class="p">(</span><span class="s2">&quot;Summary&quot;</span><span class="p">)</span>
+
+        <span class="n">titleStyle</span> <span class="o">=</span> <span class="nf">createStyle</span><span class="p">([</span><span class="ss">:bold</span> <span class="o">=</span> <span class="bp">true</span><span class="p">,</span> <span class="ss">:fontSize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span><span class="p">])</span>
+        <span class="n">headerStyle</span> <span class="o">=</span> <span class="nf">createHeaderStyle</span><span class="p">()</span>
+        <span class="n">currencyStyle</span> <span class="o">=</span> <span class="nf">createStyle</span><span class="p">([</span><span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">])</span>
+        <span class="n">totalStyle</span> <span class="o">=</span> <span class="nf">createStyle</span><span class="p">([</span><span class="ss">:bold</span> <span class="o">=</span> <span class="bp">true</span><span class="p">,</span> <span class="ss">:bgColor</span> <span class="o">=</span> <span class="s2">&quot;E2EFDA&quot;</span><span class="p">])</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Annual Sales Report 2025&quot;</span><span class="p">,</span> <span class="n">titleStyle</span><span class="p">)</span>
+        <span class="nf">mergeCells</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Expenses&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Profit&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+
+        <span class="nf">setCell</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q1&quot;</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">250000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">180000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B4-C4&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">280000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">190000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B5-C5&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCell</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q3&quot;</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">310000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">200000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B6-C6&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q4&quot;</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">350000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">220000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B7-C7&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Total&quot;</span><span class="p">,</span> <span class="n">totalStyle</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;SUM(B4:B7)&quot;</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;SUM(C4:C7)&quot;</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;SUM(D4:D7)&quot;</span><span class="p">)</span>
+
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+        <span class="nf">setAutoFilter</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="nf">freezeTopRow</span><span class="p">()</span>
+
+        <span class="c1"># Details Sheet</span>
+        <span class="nf">addSheet</span><span class="p">(</span><span class="s2">&quot;Details&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Product&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Category&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Units Sold&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Unit Price&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Total Revenue&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+
+        <span class="n">products</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">[</span><span class="s2">&quot;Laptop Pro&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">1299</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Laptop Basic&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">699</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Wireless Mouse&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Mechanical Keyboard&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">89</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;4K Monitor&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">449</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;USB Hub&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Webcam HD&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">79</span><span class="p">],</span>
+                <span class="p">[</span><span class="s2">&quot;Headphones&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">149</span><span class="p">]</span>
+        <span class="p">]</span>
+
+        <span class="n">row</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">productsLen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">productsLen</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">products</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+                <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+                <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">currencyStyle</span><span class="p">)</span>
+                <span class="nf">setFormula</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span> <span class="o">+</span> <span class="n">row</span> <span class="o">+</span> <span class="s2">&quot;*D&quot;</span> <span class="o">+</span> <span class="n">row</span><span class="p">)</span>
+                <span class="n">row</span><span class="o">++</span>
+        <span class="k">next</span>
+
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+        <span class="nf">setAutoFilter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="nf">freezeTopRow</span><span class="p">()</span>
+
+        <span class="nf">save</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="XLSXLib" src="_images/xlsxlib.png" />
+</section>
 <section id="better-extensions">
-<span id="index-13"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingFastPro Extension - Better Performance</p></li>
 <li><p>RingFastPro Extension - Added Transform3D() function</p></li>
@@ -880,7 +1010,7 @@ new PDFWriter() {
 <img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
 </section>
 <section id="solitaire-game">
-<span id="index-14"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
 <p>The Solitaire Game (Developed using Ring and RayLib)</p>
 <p>Install and run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
@@ -890,7 +1020,7 @@ ringpm run solitaire
 <img alt="Solitaire Game" src="_images/solitaire.png" />
 </section>
 <section id="ringraylib-samples">
-<span id="index-15"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
 <p>We added 70 new applications and games to the ring/samples/UsingAI/UsingClaude folder</p>
 <p>Over 62,000 lines of code automatically  generated using Claude Code for the RingRayLib samples</p>
 <img alt="RayLib Samples" src="_images/raylibsamples.png" />
@@ -1004,7 +1134,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </table>
 </section>
 <section id="more-samples">
-<span id="index-16"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
 <li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
@@ -1044,7 +1174,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 <img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
 </section>
 <section id="better-functions">
-<span id="index-17"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
 <li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
@@ -1092,7 +1222,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </ul>
 </section>
 <section id="better-ring-api">
-<span id="index-18"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
 <ul class="simple">
 <li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
@@ -1113,7 +1243,7 @@ guided by prompts that referenced and combined ideas from samples like these.</p
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-19"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
 <li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
