@@ -998,5 +998,9 @@ aPackagesRegistry = [
 	[ :name = "pdflib",
 	  :description = "PDF library for the Ring Programming Language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "pptxlib",
+	  :description = "PPTX (PowerPoint) library for the Ring Programming Language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
