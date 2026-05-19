@@ -801,9 +801,7 @@ Example:
 		]
 
 		row = 2
-		productsLen = len(products)
-		for i = 1 to productsLen
-			p = products[i]
+		for p in products
 			setCell(row, 1, p[1])
 			setCell(row, 2, p[2])
 			setCell(row, 3, p[3])

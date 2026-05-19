@@ -940,9 +940,7 @@ new PDFWriter() {
         <span class="p">]</span>
 
         <span class="n">row</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="n">productsLen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">products</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">productsLen</span>
-                <span class="n">p</span> <span class="o">=</span> <span class="n">products</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="k">in</span> <span class="n">products</span>
                 <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
                 <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
