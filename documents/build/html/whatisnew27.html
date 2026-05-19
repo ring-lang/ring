@@ -919,45 +919,6 @@ new PDFWriter() {
         <span class="nf">setAutoFilter</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
         <span class="nf">freezeTopRow</span><span class="p">()</span>
 
-        <span class="c1"># Details Sheet</span>
-        <span class="nf">addSheet</span><span class="p">(</span><span class="s2">&quot;Details&quot;</span><span class="p">)</span>
-
-        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Product&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
-        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Category&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
-        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Units Sold&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
-        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Unit Price&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
-        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Total Revenue&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
-
-        <span class="n">products</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="p">[</span><span class="s2">&quot;Laptop Pro&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="mi">1299</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;Laptop Basic&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">699</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;Wireless Mouse&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;Mechanical Keyboard&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">89</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;4K Monitor&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">449</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;USB Hub&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;Webcam HD&quot;</span><span class="p">,</span> <span class="s2">&quot;Electronics&quot;</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">79</span><span class="p">],</span>
-                <span class="p">[</span><span class="s2">&quot;Headphones&quot;</span><span class="p">,</span> <span class="s2">&quot;Accessories&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">149</span><span class="p">]</span>
-        <span class="p">]</span>
-
-        <span class="n">row</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="k">for</span> <span class="n">p</span> <span class="k">in</span> <span class="n">products</span>
-                <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-                <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-                <span class="nf">setCell</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-                <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">currencyStyle</span><span class="p">)</span>
-                <span class="nf">setFormula</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span> <span class="o">+</span> <span class="n">row</span> <span class="o">+</span> <span class="s2">&quot;*D&quot;</span> <span class="o">+</span> <span class="n">row</span><span class="p">)</span>
-                <span class="n">row</span><span class="o">++</span>
-        <span class="k">next</span>
-
-        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-
-        <span class="nf">setAutoFilter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">row</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-        <span class="nf">freezeTopRow</span><span class="p">()</span>
-
         <span class="nf">save</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
 
 <span class="p">}</span>
