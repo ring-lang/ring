@@ -112,6 +112,36 @@ The next code create a SQLite database, add new records then display the data.
 	next
 	sqlite_close(oSQLite) 
 
+Output:
+
+.. code-block:: ring
+
+	1
+	Mahmoud
+	29
+	Jeddah
+	20000.0
+	2
+	Ahmed
+	27
+	Jeddah
+	15000.0
+	3
+	Mohammed
+	31
+	Egypt
+	20000.0
+	4
+	Ibrahim
+	24
+	Egypt
+	65000.0
+	**************************************************	
+	Mahmoud
+	Ahmed
+	Mohammed
+	Ibrahim
+
 Parameterized Queries Example
 =============================
 
@@ -149,34 +179,3 @@ Output:
 
 	Alice
 	Injection attempt rows: 0
-
-Output:
-
-.. code-block:: ring
-
-	1
-	Mahmoud
-	29
-	Jeddah
-	20000.0
-	2
-	Ahmed
-	27
-	Jeddah
-	15000.0
-	3
-	Mohammed
-	31
-	Egypt
-	20000.0
-	4
-	Ibrahim
-	24
-	Egypt
-	65000.0
-	**************************************************	
-	Mahmoud
-	Ahmed
-	Mohammed
-	Ibrahim
-
