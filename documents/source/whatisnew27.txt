@@ -661,6 +661,7 @@ Better Extensions
 * RingLibSDL Extension - Revised SDL_GL_BindTexture()
 * RingLibSDL Extension - Removed SDL_GetRevisionNumber()
 * RingStbImage - stbi_load functions - Better Implementation
+* RingSQLite - Added Parameterized Query Support
 
 The next samples are added to demonstrates some of the new features
 
