@@ -643,7 +643,7 @@ Example:
 	pair: What is new in Ring  1.27; PPTXLib Package
 
 PPTXLib Package
-==============
+===============
 
 PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.
 
