@@ -81,6 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#sqlite-execute-function">sqlite_execute() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sqlite-close-function">sqlite_close() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameterized-queries-example">Parameterized Queries Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
@@ -244,9 +245,13 @@
 <section id="sqlite-execute-function">
 <span id="index-3"></span><h2>sqlite_execute() function<a class="headerlink" href="#sqlite-execute-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">,</span><span class="n">cSQLStatement</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">SQLite</span> <span class="n">Object</span><span class="p">,</span><span class="n">cSQLStatement</span> <span class="p">[,</span> <span class="n">aParams</span><span class="p">])</span>
 </pre></div>
 </div>
+<p>Execute SQL queries where <code class="docutils literal notranslate"><span class="pre">aParams</span></code> is a list of values
+bound to <code class="docutils literal notranslate"><span class="pre">?</span></code> placeholders in the SQL statement. This prevents SQL injection
+by separating query structure from data. Bind types are auto-detected:
+strings use text binding, numbers use double/int binding, and NULL values use null binding.</p>
 </section>
 <section id="sqlite-close-function">
 <span id="index-4"></span><h2>sqlite_close() function<a class="headerlink" href="#sqlite-close-function" title="Permalink to this heading"></a></h2>
@@ -295,6 +300,40 @@
         <span class="o">?</span> <span class="n">x</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
 <span class="k">next</span>
 <span class="nf">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="parameterized-queries-example">
+<h2>Parameterized Queries Example<a class="headerlink" href="#parameterized-queries-example" title="Permalink to this heading"></a></h2>
+<p>The next code demonstrates parameterized queries to prevent SQL injection.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sqlitelib.ring&quot;</span>
+
+<span class="n">oSQLite</span> <span class="o">=</span> <span class="nf">sqlite_init</span><span class="p">()</span>
+
+<span class="nf">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
+
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span> <span class="s2">&quot;CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Safe inserts using parameterized queries</span>
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span> <span class="s2">&quot;INSERT INTO users (name, age) VALUES (?, ?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span> <span class="s2">&quot;INSERT INTO users (name, age) VALUES (?, ?)&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
+
+<span class="c1"># Parameterized SELECT</span>
+<span class="n">aResult</span> <span class="o">=</span> <span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span> <span class="s2">&quot;SELECT * FROM users WHERE age &gt; ?&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">28</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
+        <span class="o">?</span> <span class="n">x</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
+<span class="k">next</span>
+
+<span class="c1"># SQL injection is safely handled - input treated as literal string</span>
+<span class="n">aResult</span> <span class="o">=</span> <span class="nf">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span> <span class="s2">&quot;SELECT * FROM users WHERE name = ?&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&#39; OR &#39;1&#39;=&#39;1&quot;</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Injection attempt rows: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aResult</span><span class="p">)</span>   <span class="c1"># 0 rows</span>
+
+<span class="nf">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Alice</span>
+<span class="n">Injection</span> <span class="n">attempt</span> <span class="n">rows</span><span class="o">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>Output:</p>

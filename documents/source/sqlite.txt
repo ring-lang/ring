@@ -50,7 +50,7 @@ Syntax:
 
 	sqlite_execute(SQLite Object,cSQLStatement [, aParams])
 
-The second form uses parameterized queries where ``aParams`` is a list of values
+Execute SQL queries where ``aParams`` is a list of values
 bound to ``?`` placeholders in the SQL statement. This prevents SQL injection
 by separating query structure from data. Bind types are auto-detected:
 strings use text binding, numbers use double/int binding, and NULL values use null binding.

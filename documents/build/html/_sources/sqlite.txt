@@ -48,7 +48,12 @@ Syntax:
 
 .. code-block:: ring
 
-	sqlite_execute(SQLite Object,cSQLStatement)
+	sqlite_execute(SQLite Object,cSQLStatement [, aParams])
+
+Execute SQL queries where ``aParams`` is a list of values
+bound to ``?`` placeholders in the SQL statement. This prevents SQL injection
+by separating query structure from data. Bind types are auto-detected:
+strings use text binding, numbers use double/int binding, and NULL values use null binding.
 
 .. index:: 
 	pair: SQLite; sqlite_close()
@@ -106,6 +111,44 @@ The next code create a SQLite database, add new records then display the data.
 		? x[:name] 
 	next
 	sqlite_close(oSQLite) 
+
+Parameterized Queries Example
+=============================
+
+The next code demonstrates parameterized queries to prevent SQL injection.
+
+.. code-block:: ring
+
+	load "sqlitelib.ring"
+
+	oSQLite = sqlite_init()
+
+	sqlite_open(oSQLite,":memory:")
+
+	sqlite_execute(oSQLite, "CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)")
+
+	# Safe inserts using parameterized queries
+	sqlite_execute(oSQLite, "INSERT INTO users (name, age) VALUES (?, ?)", ["Alice", 30])
+	sqlite_execute(oSQLite, "INSERT INTO users (name, age) VALUES (?, ?)", ["Bob", 25])
+
+	# Parameterized SELECT
+	aResult = sqlite_execute(oSQLite, "SELECT * FROM users WHERE age > ?", [28])
+	for x in aResult
+		? x[:name]
+	next
+
+	# SQL injection is safely handled - input treated as literal string
+	aResult = sqlite_execute(oSQLite, "SELECT * FROM users WHERE name = ?", ["' OR '1'='1"])
+	? "Injection attempt rows: " + len(aResult)   # 0 rows
+
+	sqlite_close(oSQLite)
+
+Output:
+
+.. code-block:: ring
+
+	Alice
+	Injection attempt rows: 0
 
 Output:
 
