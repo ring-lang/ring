@@ -25,6 +25,7 @@ Ring 1.27 comes with the next features!
 * SVGLib Package
 * DBFLib Package
 * PDFLib Package
+* PPTXLib Package
 * Better Extensions
 * Solitaire Game
 * RingRayLib Samples
@@ -637,6 +638,57 @@ Example:
 		save("invoice.pdf")
 	}
 
+
+.. index:: 
+	pair: What is new in Ring  1.27; PPTXLib Package
+
+PPTXLib Package
+==============
+
+PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install pptxlib
+
+Features:
+
+* Multiple Slides - Create presentations with many slides
+* Text Boxes - Formatted text with fonts, colors, alignment
+* Rich Text - Multiple formats within a single text box
+* Shapes - Rectangles, circles, ovals, rounded rectangles, lines
+* Images - PNG, JPG, BMP, GIF support
+* Tables - With headers, styling, and zebra striping
+* Lists - Bullet and numbered lists
+* Backgrounds - Solid colors per slide
+* Layouts - 16:9, 16:10, 4:3 aspect ratios
+* Quick Layouts - Title slides, two-column layouts
+* Speaker Notes - Add notes to slides
+* No Dependencies - Pure Ring implementation
+
+Example:
+
+.. code-block:: ring
+
+	load "pptxlib.ring"
+
+	cFileName = substr(filename(),".ring",".pptx")
+	? "Generate File: " + cFileName
+
+	new PPTWriter() {
+		addTitleSlide("My Presentation", "Subtitle here")
+		addSlide()
+		addTitle("First Slide")
+		addTextBox("Hello, World!", 0.5, 1.5, 9, 2, NULL)
+		save(cFileName)
+	}
+
+Screen Shots:
+
+.. image:: pptxlib.png
+	:alt: PPTXLib
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Extensions
