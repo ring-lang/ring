@@ -109,6 +109,67 @@ int ring_vm_sqlite_callback ( void *data, int argc, char **argv, char **ColName 
 	return 0 ;
 }
 
+void ring_vm_sqlite_execute_prepared ( void *pPointer, void *pSqlite )
+{
+	ring_sqlite *psqlite  ;
+	sqlite3_stmt *pStmt  ;
+	int rc, nCol, x, nParamCount  ;
+	List *pList, *pList2, *pParams  ;
+	const unsigned char *cColVal  ;
+	psqlite = (ring_sqlite *) pSqlite ;
+	if ( ! RING_API_ISLIST(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pParams = RING_API_GETLIST(3) ;
+	rc = sqlite3_prepare_v2(psqlite->db, RING_API_GETSTRING(2), -1, &pStmt, NULL);
+	if ( rc != SQLITE_OK ) {
+		RING_API_ERROR(sqlite3_errmsg(psqlite->db));
+		return ;
+	}
+	nParamCount = ring_list_getsize(pParams);
+	for ( x = 1 ; x <= nParamCount ; x++ ) {
+		if ( ring_list_isstring(pParams, x) ) {
+			rc = sqlite3_bind_text(pStmt, x, ring_list_getstring(pParams, x), -1, SQLITE_TRANSIENT);
+		} else if ( ring_list_isdouble(pParams, x) ) {
+			rc = sqlite3_bind_double(pStmt, x, ring_list_getdouble(pParams, x));
+		} else if ( ring_list_isint(pParams, x) ) {
+			rc = sqlite3_bind_int(pStmt, x, ring_list_getint(pParams, x));
+		} else if ( ring_list_gettype(pParams, x) == ITEMTYPE_NOTHING ) {
+			rc = sqlite3_bind_null(pStmt, x);
+		} else {
+			rc = sqlite3_bind_text(pStmt, x, "", 0, SQLITE_TRANSIENT);
+		}
+		if ( rc != SQLITE_OK ) {
+			RING_API_ERROR(sqlite3_errmsg(psqlite->db));
+			sqlite3_finalize(pStmt);
+			return ;
+		}
+	}
+	pList = RING_API_NEWLIST ;
+	while ( 1 ) {
+		rc = sqlite3_step(pStmt);
+		if ( rc == SQLITE_ROW ) {
+			pList2 = ring_list_newlist(pList);
+			nCol = sqlite3_column_count(pStmt);
+			for ( x = 0 ; x < nCol ; x++ ) {
+				List *pColList  ;
+				pColList = ring_list_newlist(pList2);
+				ring_list_addstring(pColList, sqlite3_column_name(pStmt, x));
+				cColVal = sqlite3_column_text(pStmt, x);
+				ring_list_addstring(pColList, cColVal ? (const char *) cColVal : "NULL");
+			}
+		} else if ( rc == SQLITE_DONE ) {
+			break ;
+		} else {
+			RING_API_ERROR(sqlite3_errmsg(psqlite->db));
+			break ;
+		}
+	}
+	sqlite3_finalize(pStmt);
+	RING_API_RETLIST(pList);
+}
+
 void ring_vm_sqlite_execute ( void *pPointer )
 {
 	ring_sqlite *psqlite  ;
@@ -116,7 +177,7 @@ void ring_vm_sqlite_execute ( void *pPointer )
 	List *pList  ;
 	char *ErrMsg  ;
 	ErrMsg = NULL ;
-	if ( RING_API_PARACOUNT != 2 ) {
+	if ( RING_API_PARACOUNT != 2 && RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
@@ -126,9 +187,13 @@ void ring_vm_sqlite_execute ( void *pPointer )
 			return ;
 		}
 		if ( psqlite->db ) {
-			pList = RING_API_NEWLIST ;
-			rc = sqlite3_exec(psqlite->db,RING_API_GETSTRING(2),ring_vm_sqlite_callback,(void *) pList,&ErrMsg);
-			RING_API_RETLIST(pList);
+			if ( RING_API_PARACOUNT == 2 ) {
+				pList = RING_API_NEWLIST ;
+				rc = sqlite3_exec(psqlite->db,RING_API_GETSTRING(2),ring_vm_sqlite_callback,(void *) pList,&ErrMsg);
+				RING_API_RETLIST(pList);
+			} else {
+				ring_vm_sqlite_execute_prepared(pPointer, psqlite);
+			}
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
