@@ -979,6 +979,7 @@ More Samples
 (5) The next samples are added to the samples foder:
 
 * samples/Language/ClassMethods/nestedanonymous.ring
+* samples/Language/EnumConstant/EnumConstantTest.ring
 * samples/General/RosettaCode/YinYang.ring
 * samples/General/RosettaCode/YinYang2.ring
 * samples/General/FindAnadromes/process.ring
