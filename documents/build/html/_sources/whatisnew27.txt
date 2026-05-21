@@ -27,6 +27,7 @@ Ring 1.27 comes with the next features!
 * PDFLib Package
 * PPTXLib Package
 * XLSXLib Package
+* DOCXLib Package
 * Better Extensions
 * Solitaire Game
 * RingRayLib Samples
@@ -788,6 +789,64 @@ Screen Shot:
 
 .. image:: xlsxlib.png
 	:alt: XLSXLib
+
+.. index:: 
+	pair: What is new in Ring  1.27; DOCXLib Package
+
+DOCXLib Package
+===============
+
+DOCXLib is a pure-Ring library for generating and reading Word (.docx) documents. 
+
+Install:
+
+.. code-block:: none
+
+	ringpm install docxlib
+
+Features:
+
+* Zero dependencies — Pure Ring
+* Fluent API — Every method returns self, enabling method chaining
+* Rich tables — Cell merging, per-side borders, row heights, text direction, images, lists inside cells
+* Full typography — Bold/italic/colour/font/size per run, language tags, character styles, custom paragraph styles
+* Paragraph control — Widow/orphan control, hyphenation suppression, keep-together, contextual spacing
+* Navigation — TOC, Table of Figures, Table of Tables, bookmarks, cross-refs
+* Forms — Checkboxes, dropdowns, and text input content controls
+* Shapes — Rectangle, ellipse, diamond, triangle, line (DrawingML)
+* Themes — 8 built-in colour palettes applied to all heading levels
+* Charts — 8 native OOXML chart types with axis formatting, data tables, and style presets
+* Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens
+* Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images
+* Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)
+* WordReader — Parse .docx — extract all content and styles; full round-trip reconstruct and save
+
+Example:
+
+.. code-block:: ring
+
+	load "docxlib.ring"
+
+	? "Generate File: hello.docx" 
+
+	new WordWriter() {
+		setTitle("My First Document")
+		setAuthor("Your Name")
+		setPageSize("a4")
+		addHeading("Hello, DOCXLib!", 1)
+		addParagraph("This document was created entirely from Ring code.", 
+			     [:color = "0000FF"])
+		addBulletList(["Feature A", "Feature B", "Feature C"])
+		save("hello.docx")
+	}
+
+Screen Shots:
+
+.. image:: docxlib1.png
+	:alt: DOCXLib1
+
+.. image:: docxlib2.png
+	:alt: DOCXLib2
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Extensions
