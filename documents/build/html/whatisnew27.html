@@ -187,14 +187,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-weblib">Faster WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bolt-web-framework">Bolt Web Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#svglib-package">SVGLib Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pdflib-package">PDFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pptxlib-package">PPTXLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#xlsxlib-package">XLSXLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#docxlib-package">DOCXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pdflib-package">PDFLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringraylib-samples">RingRayLib Samples</a></li>
@@ -247,14 +247,14 @@
 <li><p>Automatic Hash Table</p></li>
 <li><p>Faster WebLib</p></li>
 <li><p>Bolt Web Framework</p></li>
-<li><p>Ring-Python Package</p></li>
-<li><p>Ring-CFFI Package</p></li>
 <li><p>SVGLib Package</p></li>
-<li><p>DBFLib Package</p></li>
-<li><p>PDFLib Package</p></li>
 <li><p>PPTXLib Package</p></li>
 <li><p>XLSXLib Package</p></li>
 <li><p>DOCXLib Package</p></li>
+<li><p>PDFLib Package</p></li>
+<li><p>DBFLib Package</p></li>
+<li><p>Ring-Python Package</p></li>
+<li><p>Ring-CFFI Package</p></li>
 <li><p>Better Extensions</p></li>
 <li><p>Solitaire Game</p></li>
 <li><p>RingRayLib Samples</p></li>
@@ -547,94 +547,8 @@ Write routes in Ring, run them on a Rust async runtime.</p>
 </pre></div>
 </div>
 </section>
-<section id="ring-python-package">
-<span id="index-7"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
-<p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
-<p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
-</pre></div>
-</div>
-<p>Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.</p>
-<p>Key Features:</p>
-<ul class="simple">
-<li><p>Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.</p></li>
-<li><p>Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.</p></li>
-<li><p>Module Import — Import any installed Python package and call its functions directly.</p></li>
-<li><p>Object-Oriented API — Clean Ring wrapper classes (<cite>Python</cite>, <cite>PyObject</cite>, <cite>PyModule</cite>, etc.) alongside low-level functions for maximum control.</p></li>
-<li><p>Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.</p></li>
-<li><p>Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;python.ring&quot;</span>
-
-<span class="n">py</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Python</span><span class="p">()</span>
-<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;import numpy as np&quot;</span><span class="p">)</span>
-
-<span class="c1"># Create array and compute statistics</span>
-<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;</span>
-<span class="s2">data = np.array([1, 2, 3, 4, 5])</span>
-<span class="s2">_mean = str(np.mean(data))</span>
-<span class="s2">_std  = str(np.std(data))</span>
-<span class="s2">_dot  = str(np.dot(data, data))</span>
-<span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="o">?</span> <span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_mean&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="s2">&quot;Std:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_std&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="s2">&quot;Dot:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_dot&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Mean: 3.0
-Std:  1.4142135623730951
-Dot:  55
-</pre></div>
-</div>
-</section>
-<section id="ring-cffi-package">
-<span id="index-8"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
-<p>A Foreign Function Interface library for the Ring programming language!</p>
-<p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
-</pre></div>
-</div>
-<p>Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.</p>
-<p>Key Features:</p>
-<ul class="simple">
-<li><p>Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime</p></li>
-<li><p>C Function Calls: Call C functions directly from Ring with automatic type conversion</p></li>
-<li><p>Pointer Operations: Pointer arithmetic, dereferencing, read/write access</p></li>
-<li><p>Struct Support: Define and manipulate C structs with named field access</p></li>
-<li><p>Union &amp; Enum Support: Define and use C unions and enumerations</p></li>
-<li><p>Callbacks: Pass Ring functions as C callbacks</p></li>
-<li><p>Memory Management: Allocate and manage C memory directly</p></li>
-<li><p>C String Handling: Seamless conversion between Ring and C strings</p></li>
-<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
-<li><p>High-Level OOP API: Clean FFI class with intuitive method names</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;cffi.ring&quot;</span>
-
-<span class="c1"># msvcrt.dll (Windows), libSystem.B.dylib (macOS)</span>
-<span class="kp">new</span> <span class="nc">FFI</span><span class="p">(</span><span class="s2">&quot;libm.so.6&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1"># Call a simple function (sqrt)</span>
-        <span class="n">oSqrt</span> <span class="o">=</span> <span class="nf">cFunc</span><span class="p">(</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;double&quot;</span><span class="p">])</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">oSqrt</span><span class="p">,</span> <span class="p">[</span><span class="mf">25.0</span><span class="p">])</span>
-        <span class="o">?</span> <span class="s2">&quot;sqrt(25) = &quot;</span> <span class="o">+</span> <span class="n">result</span>
-
-        <span class="c1"># Call printf (variadic function)</span>
-        <span class="n">oPrintf</span> <span class="o">=</span> <span class="nf">varFunc</span><span class="p">(</span><span class="s2">&quot;printf&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">])</span>
-        <span class="nf">varcall</span><span class="p">(</span><span class="n">oPrintf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hello, %s! Number: %d\n&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">])</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sqrt(25) = 5
-Hello, World! Number: 123
-</pre></div>
-</div>
-</section>
 <section id="svglib-package">
-<span id="index-9"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
 <p>A pure Ring library for creating Scalable Vector Graphics (SVG) files using the
 Ring programming language. It generates standard SVG files that can be viewed in any
 web browser, embedded in HTML, or used in other applications.</p>
@@ -702,107 +616,8 @@ svg = new SVGWriter(600, 400) {
 <p>Screen Shots:</p>
 <img alt="SVGLib" src="_images/svglib.png" />
 </section>
-<section id="dbflib-package">
-<span id="index-10"></span><h2>DBFLib Package<a class="headerlink" href="#dbflib-package" title="Permalink to this heading"></a></h2>
-<p>A pure Ring library for reading, writing, and maintaining
-Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
-<p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install dbflib
-</pre></div>
-</div>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;dbflib.ring&quot;</span>
-
-<span class="n">aFields</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>      <span class="s2">&quot;N&quot;</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>    <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span>  <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>  <span class="s2">&quot;L&quot;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="p">[</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>   <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="p">]</span>
-
-<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
-        <span class="nf">create</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">,</span> <span class="n">aFields</span><span class="p">)</span>
-        <span class="nf">append</span><span class="p">()</span>
-        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>     <span class="mi">1</span><span class="p">)</span>
-        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>   <span class="s2">&quot;Ahmed Al-Rashid&quot;</span><span class="p">)</span>
-        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span> <span class="mf">85000.50</span><span class="p">)</span>
-        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
-        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>  <span class="s2">&quot;Senior developer, joined 2023.&quot;</span><span class="p">)</span>
-        <span class="nf">close</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
-        <span class="nf">open</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">)</span>
-        <span class="nf">goTop</span><span class="p">()</span>
-        <span class="k">while</span> <span class="o">!</span> <span class="nf">isEof</span><span class="p">()</span>
-                <span class="o">?</span> <span class="nb">trim</span><span class="p">(</span><span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">)</span>
-                <span class="o">?</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">)</span>
-                <span class="nf">skip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">end</span>
-        <span class="nf">close</span><span class="p">()</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-<section id="pdflib-package">
-<span id="index-11"></span><h2>PDFLib Package<a class="headerlink" href="#pdflib-package" title="Permalink to this heading"></a></h2>
-<p>PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies.
-Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.</p>
-<p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pdflib
-</pre></div>
-</div>
-<p>Features:</p>
-<ul class="simple">
-<li><p>Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins</p></li>
-<li><p>Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment</p></li>
-<li><p>Paragraphs — word-wrapping with configurable line height and alignment</p></li>
-<li><p>Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported</p></li>
-<li><p>Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both</p></li>
-<li><p>Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering</p></li>
-<li><p>Lists — bullet lists and numbered lists</p></li>
-<li><p>Charts — bar charts and pie charts with legends</p></li>
-<li><p>Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required</p></li>
-<li><p>Page numbers — configurable format and position</p></li>
-<li><p>Headers / Footers — per-document text with alignment</p></li>
-<li><p>Watermarks — rotated text at arbitrary angle</p></li>
-<li><p>Graphics state — save/restore, line width, cap, join, dash patterns</p></li>
-<li><p>Document properties — title, author, subject, keywords, creator</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;pdflib.ring&quot;
-
-items = [
-        [&quot;Description&quot;, &quot;Qty&quot;, &quot;Price&quot;, &quot;Total&quot;],
-        [&quot;Web Design&quot;, &quot;1&quot;, &quot;$2,500&quot;, &quot;$2,500&quot;],
-        [&quot;Hosting (Annual)&quot;, &quot;1&quot;, &quot;$300&quot;, &quot;$300&quot;],
-        [&quot;Domain Name&quot;, &quot;2&quot;, &quot;$15&quot;, &quot;$30&quot;]
-]
-
-new PDFWriter() {
-        setTitle(&quot;Invoice #1001&quot;)
-        setFont(PDF_HELVETICA_BOLD, 28)
-        setTextColor(&quot;navy&quot;)
-        drawText(&quot;INVOICE&quot;, 72, 760)
-        setFont(PDF_HELVETICA, 12)
-        setTextColor(&quot;gray&quot;)
-        drawTextRight(&quot;#INV-1001&quot;, 540, 760)
-        drawTextRight(&quot;Date: 2025-01-15&quot;, 540, 740)
-        drawTable(items, 72, 650, [250, 60, 80, 78], [
-                :headerBg = &quot;navy&quot;,
-                :headerFg = &quot;white&quot;
-        ])
-        setFont(PDF_HELVETICA_BOLD, 14)
-        setTextColor(&quot;black&quot;)
-        drawTextRight(&quot;Total: $2,830.00&quot;, 540, 540)
-        save(&quot;invoice.pdf&quot;)
-}
-</pre></div>
-</div>
-</section>
 <section id="pptxlib-package">
-<span id="index-12"></span><h2>PPTXLib Package<a class="headerlink" href="#pptxlib-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>PPTXLib Package<a class="headerlink" href="#pptxlib-package" title="Permalink to this heading"></a></h2>
 <p>PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pptxlib
@@ -841,7 +656,7 @@ new PDFWriter() {
 <img alt="PPTXLib" src="_images/pptxlib.png" />
 </section>
 <section id="xlsxlib-package">
-<span id="index-13"></span><h2>XLSXLib Package<a class="headerlink" href="#xlsxlib-package" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>XLSXLib Package<a class="headerlink" href="#xlsxlib-package" title="Permalink to this heading"></a></h2>
 <p>XLSXLib is a pure-Ring library for creating Excel (.xlsx) files.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install xlsxlib
@@ -930,7 +745,7 @@ new PDFWriter() {
 <img alt="XLSXLib" src="_images/xlsxlib.png" />
 </section>
 <section id="docxlib-package">
-<span id="index-14"></span><h2>DOCXLib Package<a class="headerlink" href="#docxlib-package" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>DOCXLib Package<a class="headerlink" href="#docxlib-package" title="Permalink to this heading"></a></h2>
 <p>DOCXLib is a pure-Ring library for generating Word (.docx) documents.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install docxlib
@@ -972,6 +787,191 @@ new PDFWriter() {
 <p>Screen Shots:</p>
 <img alt="DOCXLib1" src="_images/docxlib1.png" />
 <img alt="DOCXLib2" src="_images/docxlib2.png" />
+</section>
+<section id="pdflib-package">
+<span id="index-11"></span><h2>PDFLib Package<a class="headerlink" href="#pdflib-package" title="Permalink to this heading"></a></h2>
+<p>PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies.
+Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pdflib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins</p></li>
+<li><p>Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment</p></li>
+<li><p>Paragraphs — word-wrapping with configurable line height and alignment</p></li>
+<li><p>Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported</p></li>
+<li><p>Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both</p></li>
+<li><p>Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering</p></li>
+<li><p>Lists — bullet lists and numbered lists</p></li>
+<li><p>Charts — bar charts and pie charts with legends</p></li>
+<li><p>Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required</p></li>
+<li><p>Page numbers — configurable format and position</p></li>
+<li><p>Headers / Footers — per-document text with alignment</p></li>
+<li><p>Watermarks — rotated text at arbitrary angle</p></li>
+<li><p>Graphics state — save/restore, line width, cap, join, dash patterns</p></li>
+<li><p>Document properties — title, author, subject, keywords, creator</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;pdflib.ring&quot;
+
+items = [
+        [&quot;Description&quot;, &quot;Qty&quot;, &quot;Price&quot;, &quot;Total&quot;],
+        [&quot;Web Design&quot;, &quot;1&quot;, &quot;$2,500&quot;, &quot;$2,500&quot;],
+        [&quot;Hosting (Annual)&quot;, &quot;1&quot;, &quot;$300&quot;, &quot;$300&quot;],
+        [&quot;Domain Name&quot;, &quot;2&quot;, &quot;$15&quot;, &quot;$30&quot;]
+]
+
+new PDFWriter() {
+        setTitle(&quot;Invoice #1001&quot;)
+        setFont(PDF_HELVETICA_BOLD, 28)
+        setTextColor(&quot;navy&quot;)
+        drawText(&quot;INVOICE&quot;, 72, 760)
+        setFont(PDF_HELVETICA, 12)
+        setTextColor(&quot;gray&quot;)
+        drawTextRight(&quot;#INV-1001&quot;, 540, 760)
+        drawTextRight(&quot;Date: 2025-01-15&quot;, 540, 740)
+        drawTable(items, 72, 650, [250, 60, 80, 78], [
+                :headerBg = &quot;navy&quot;,
+                :headerFg = &quot;white&quot;
+        ])
+        setFont(PDF_HELVETICA_BOLD, 14)
+        setTextColor(&quot;black&quot;)
+        drawTextRight(&quot;Total: $2,830.00&quot;, 540, 540)
+        save(&quot;invoice.pdf&quot;)
+}
+</pre></div>
+</div>
+</section>
+<section id="dbflib-package">
+<span id="index-12"></span><h2>DBFLib Package<a class="headerlink" href="#dbflib-package" title="Permalink to this heading"></a></h2>
+<p>A pure Ring library for reading, writing, and maintaining
+Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install dbflib
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;dbflib.ring&quot;</span>
+
+<span class="n">aFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>      <span class="s2">&quot;N&quot;</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>    <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span>  <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>  <span class="s2">&quot;L&quot;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>   <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
+        <span class="nf">create</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">,</span> <span class="n">aFields</span><span class="p">)</span>
+        <span class="nf">append</span><span class="p">()</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>     <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>   <span class="s2">&quot;Ahmed Al-Rashid&quot;</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span> <span class="mf">85000.50</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>  <span class="s2">&quot;Senior developer, joined 2023.&quot;</span><span class="p">)</span>
+        <span class="nf">close</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
+        <span class="nf">open</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">)</span>
+        <span class="nf">goTop</span><span class="p">()</span>
+        <span class="k">while</span> <span class="o">!</span> <span class="nf">isEof</span><span class="p">()</span>
+                <span class="o">?</span> <span class="nb">trim</span><span class="p">(</span><span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">)</span>
+                <span class="nf">skip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="nf">close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ring-python-package">
+<span id="index-13"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
+</pre></div>
+</div>
+<p>Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.</p></li>
+<li><p>Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.</p></li>
+<li><p>Module Import — Import any installed Python package and call its functions directly.</p></li>
+<li><p>Object-Oriented API — Clean Ring wrapper classes (<cite>Python</cite>, <cite>PyObject</cite>, <cite>PyModule</cite>, etc.) alongside low-level functions for maximum control.</p></li>
+<li><p>Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.</p></li>
+<li><p>Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;python.ring&quot;</span>
+
+<span class="n">py</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Python</span><span class="p">()</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;import numpy as np&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create array and compute statistics</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">data = np.array([1, 2, 3, 4, 5])</span>
+<span class="s2">_mean = str(np.mean(data))</span>
+<span class="s2">_std  = str(np.std(data))</span>
+<span class="s2">_dot  = str(np.dot(data, data))</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_mean&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Std:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_std&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Dot:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_dot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Mean: 3.0
+Std:  1.4142135623730951
+Dot:  55
+</pre></div>
+</div>
+</section>
+<section id="ring-cffi-package">
+<span id="index-14"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<p>A Foreign Function Interface library for the Ring programming language!</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
+</pre></div>
+</div>
+<p>Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime</p></li>
+<li><p>C Function Calls: Call C functions directly from Ring with automatic type conversion</p></li>
+<li><p>Pointer Operations: Pointer arithmetic, dereferencing, read/write access</p></li>
+<li><p>Struct Support: Define and manipulate C structs with named field access</p></li>
+<li><p>Union &amp; Enum Support: Define and use C unions and enumerations</p></li>
+<li><p>Callbacks: Pass Ring functions as C callbacks</p></li>
+<li><p>Memory Management: Allocate and manage C memory directly</p></li>
+<li><p>C String Handling: Seamless conversion between Ring and C strings</p></li>
+<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
+<li><p>High-Level OOP API: Clean FFI class with intuitive method names</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;cffi.ring&quot;</span>
+
+<span class="c1"># msvcrt.dll (Windows), libSystem.B.dylib (macOS)</span>
+<span class="kp">new</span> <span class="nc">FFI</span><span class="p">(</span><span class="s2">&quot;libm.so.6&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1"># Call a simple function (sqrt)</span>
+        <span class="n">oSqrt</span> <span class="o">=</span> <span class="nf">cFunc</span><span class="p">(</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;double&quot;</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">oSqrt</span><span class="p">,</span> <span class="p">[</span><span class="mf">25.0</span><span class="p">])</span>
+        <span class="o">?</span> <span class="s2">&quot;sqrt(25) = &quot;</span> <span class="o">+</span> <span class="n">result</span>
+
+        <span class="c1"># Call printf (variadic function)</span>
+        <span class="n">oPrintf</span> <span class="o">=</span> <span class="nf">varFunc</span><span class="p">(</span><span class="s2">&quot;printf&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">])</span>
+        <span class="nf">varcall</span><span class="p">(</span><span class="n">oPrintf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hello, %s! Number: %d\n&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sqrt(25) = 5
+Hello, World! Number: 123
+</pre></div>
+</div>
 </section>
 <section id="better-extensions">
 <span id="index-15"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>

@@ -20,14 +20,14 @@ Ring 1.27 comes with the next features!
 * Automatic Hash Table
 * Faster WebLib
 * Bolt Web Framework
-* Ring-Python Package
-* Ring-CFFI Package
 * SVGLib Package
-* DBFLib Package
-* PDFLib Package
 * PPTXLib Package
 * XLSXLib Package
 * DOCXLib Package
+* PDFLib Package
+* DBFLib Package
+* Ring-Python Package
+* Ring-CFFI Package
 * Better Extensions
 * Solitaire Game
 * RingRayLib Samples
@@ -334,115 +334,6 @@ Run:
 	ring app.ring
 	# [bolt] Server running on http://0.0.0.0:3000
 
-.. index:: 
-	pair: What is new in Ring  1.27; Ring-Python Package
-
-Ring-Python Package
-===================
-
-A library that brings the entire Python ecosystem to the Ring programming language.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install ring-python
-
-Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
-
-Key Features:
-
-* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
-* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
-* Module Import — Import any installed Python package and call its functions directly.
-* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
-* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
-* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
-
-Example:
-
-.. code-block:: ring
-
-	load "python.ring"
-
-	py = new Python()
-	py.exec("import numpy as np")
-
-	# Create array and compute statistics
-	py.exec("
-	data = np.array([1, 2, 3, 4, 5])
-	_mean = str(np.mean(data))
-	_std  = str(np.std(data))
-	_dot  = str(np.dot(data, data))
-	")
-
-	? "Mean: " + py.getVar("_mean")
-	? "Std:  " + py.getVar("_std")
-	? "Dot:  " + py.getVar("_dot")
-
-Output:
-
-.. code-block:: none
-
-	Mean: 3.0
-	Std:  1.4142135623730951
-	Dot:  55	
-
-.. index:: 
-	pair: What is new in Ring  1.27; Ring-CFFI Package
-
-Ring-CFFI Package
-=================
-
-A Foreign Function Interface library for the Ring programming language!
-
-Install:
-
-.. code-block:: none
-
-	ringpm install ring-cffi
-
-Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
-
-Key Features:
-
-* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
-* C Function Calls: Call C functions directly from Ring with automatic type conversion
-* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
-* Struct Support: Define and manipulate C structs with named field access
-* Union & Enum Support: Define and use C unions and enumerations
-* Callbacks: Pass Ring functions as C callbacks
-* Memory Management: Allocate and manage C memory directly
-* C String Handling: Seamless conversion between Ring and C strings
-* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
-* High-Level OOP API: Clean FFI class with intuitive method names
-
-Example:
-
-.. code-block:: ring
-
-	load "cffi.ring"
-
-	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
-	new FFI("libm.so.6") { 
-		# Call a simple function (sqrt)
-		oSqrt = cFunc("sqrt", "double", ["double"])
-		result = invoke(oSqrt, [25.0])
-		? "sqrt(25) = " + result
-		
-		# Call printf (variadic function)
-		oPrintf = varFunc("printf", "int", ["string"])
-		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
-	}
-
-Output:
-
-.. code-block:: none
-
-	sqrt(25) = 5
-	Hello, World! Number: 123
-
-
 
 .. index:: 
 	pair: What is new in Ring  1.27; SVGLib Package
@@ -523,121 +414,6 @@ Screen Shots:
 
 .. image:: svglib.png
 	:alt: SVGLib
-
-.. index:: 
-	pair: What is new in Ring  1.27; DBFLib Package
-
-DBFLib Package
-==============
-
-A pure Ring library for reading, writing, and maintaining 
-Visual FoxPro .dbf database files and their companion .fpt memo files.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install dbflib
-
-Example:
-
-.. code-block:: ring
-
-	load "dbflib.ring"
-
-	aFields = [
-		["ID",      "N",  6, 0],
-		["NAME",    "C", 40, 0],
-		["SALARY",  "N", 12, 2],
-		["ACTIVE",  "L",  1, 0],
-		["NOTES",   "M", 10, 0]   
-	]
-
-	new DBFFile {
-		create("employees.dbf", aFields)
-		append()
-		replace("ID",     1)
-		replace("NAME",   "Ahmed Al-Rashid")
-		replace("SALARY", 85000.50)
-		replace("ACTIVE", true)
-		replace("NOTES",  "Senior developer, joined 2023.")
-		close()
-	}
-
-	new DBFFile {
-		open("employees.dbf")
-		goTop()
-		while ! isEof()
-			? trim(fieldGet("NAME")) + " - " + fieldGet("SALARY")
-			? fieldGet("NOTES")
-			skip(1)
-		end
-		close()
-	}
-
-.. index:: 
-	pair: What is new in Ring  1.27; PDFLib Package
-
-PDFLib Package
-==============
-
-PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies. 
-Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install pdflib
-
-Features:
-
-* Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins
-* Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment
-* Paragraphs — word-wrapping with configurable line height and alignment
-* Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported
-* Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both
-* Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering
-* Lists — bullet lists and numbered lists
-* Charts — bar charts and pie charts with legends
-* Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required
-* Page numbers — configurable format and position
-* Headers / Footers — per-document text with alignment
-* Watermarks — rotated text at arbitrary angle
-* Graphics state — save/restore, line width, cap, join, dash patterns
-* Document properties — title, author, subject, keywords, creator
-
-Example:
-
-.. code-block:: ring
-
-	load "pdflib.ring"
-
-	items = [
-    		["Description", "Qty", "Price", "Total"],
-    		["Web Design", "1", "$2,500", "$2,500"],
-    		["Hosting (Annual)", "1", "$300", "$300"],
-    		["Domain Name", "2", "$15", "$30"]
-	]
-
-	new PDFWriter() {
-		setTitle("Invoice #1001")
-		setFont(PDF_HELVETICA_BOLD, 28)
-		setTextColor("navy")
-		drawText("INVOICE", 72, 760)
-		setFont(PDF_HELVETICA, 12)
-		setTextColor("gray")
-		drawTextRight("#INV-1001", 540, 760)
-		drawTextRight("Date: 2025-01-15", 540, 740)
-		drawTable(items, 72, 650, [250, 60, 80, 78], [
-    			:headerBg = "navy",
-    			:headerFg = "white"
-		])
-		setFont(PDF_HELVETICA_BOLD, 14)
-		setTextColor("black")
-		drawTextRight("Total: $2,830.00", 540, 540)
-		save("invoice.pdf")
-	}
 
 
 .. index:: 
@@ -846,6 +622,229 @@ Screen Shots:
 
 .. image:: docxlib2.png
 	:alt: DOCXLib2
+
+.. index:: 
+	pair: What is new in Ring  1.27; PDFLib Package
+
+PDFLib Package
+==============
+
+PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies. 
+Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install pdflib
+
+Features:
+
+* Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins
+* Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment
+* Paragraphs — word-wrapping with configurable line height and alignment
+* Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported
+* Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both
+* Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering
+* Lists — bullet lists and numbered lists
+* Charts — bar charts and pie charts with legends
+* Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required
+* Page numbers — configurable format and position
+* Headers / Footers — per-document text with alignment
+* Watermarks — rotated text at arbitrary angle
+* Graphics state — save/restore, line width, cap, join, dash patterns
+* Document properties — title, author, subject, keywords, creator
+
+Example:
+
+.. code-block:: ring
+
+	load "pdflib.ring"
+
+	items = [
+    		["Description", "Qty", "Price", "Total"],
+    		["Web Design", "1", "$2,500", "$2,500"],
+    		["Hosting (Annual)", "1", "$300", "$300"],
+    		["Domain Name", "2", "$15", "$30"]
+	]
+
+	new PDFWriter() {
+		setTitle("Invoice #1001")
+		setFont(PDF_HELVETICA_BOLD, 28)
+		setTextColor("navy")
+		drawText("INVOICE", 72, 760)
+		setFont(PDF_HELVETICA, 12)
+		setTextColor("gray")
+		drawTextRight("#INV-1001", 540, 760)
+		drawTextRight("Date: 2025-01-15", 540, 740)
+		drawTable(items, 72, 650, [250, 60, 80, 78], [
+    			:headerBg = "navy",
+    			:headerFg = "white"
+		])
+		setFont(PDF_HELVETICA_BOLD, 14)
+		setTextColor("black")
+		drawTextRight("Total: $2,830.00", 540, 540)
+		save("invoice.pdf")
+	}
+
+.. index:: 
+	pair: What is new in Ring  1.27; DBFLib Package
+
+DBFLib Package
+==============
+
+A pure Ring library for reading, writing, and maintaining 
+Visual FoxPro .dbf database files and their companion .fpt memo files.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install dbflib
+
+Example:
+
+.. code-block:: ring
+
+	load "dbflib.ring"
+
+	aFields = [
+		["ID",      "N",  6, 0],
+		["NAME",    "C", 40, 0],
+		["SALARY",  "N", 12, 2],
+		["ACTIVE",  "L",  1, 0],
+		["NOTES",   "M", 10, 0]   
+	]
+
+	new DBFFile {
+		create("employees.dbf", aFields)
+		append()
+		replace("ID",     1)
+		replace("NAME",   "Ahmed Al-Rashid")
+		replace("SALARY", 85000.50)
+		replace("ACTIVE", true)
+		replace("NOTES",  "Senior developer, joined 2023.")
+		close()
+	}
+
+	new DBFFile {
+		open("employees.dbf")
+		goTop()
+		while ! isEof()
+			? trim(fieldGet("NAME")) + " - " + fieldGet("SALARY")
+			? fieldGet("NOTES")
+			skip(1)
+		end
+		close()
+	}
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-Python Package
+
+Ring-Python Package
+===================
+
+A library that brings the entire Python ecosystem to the Ring programming language.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-python
+
+Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.
+
+Key Features:
+
+* Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.
+* Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.
+* Module Import — Import any installed Python package and call its functions directly.
+* Object-Oriented API — Clean Ring wrapper classes (`Python`, `PyObject`, `PyModule`, etc.) alongside low-level functions for maximum control.
+* Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.
+* Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.
+
+Example:
+
+.. code-block:: ring
+
+	load "python.ring"
+
+	py = new Python()
+	py.exec("import numpy as np")
+
+	# Create array and compute statistics
+	py.exec("
+	data = np.array([1, 2, 3, 4, 5])
+	_mean = str(np.mean(data))
+	_std  = str(np.std(data))
+	_dot  = str(np.dot(data, data))
+	")
+
+	? "Mean: " + py.getVar("_mean")
+	? "Std:  " + py.getVar("_std")
+	? "Dot:  " + py.getVar("_dot")
+
+Output:
+
+.. code-block:: none
+
+	Mean: 3.0
+	Std:  1.4142135623730951
+	Dot:  55	
+
+.. index:: 
+	pair: What is new in Ring  1.27; Ring-CFFI Package
+
+Ring-CFFI Package
+=================
+
+A Foreign Function Interface library for the Ring programming language!
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-cffi
+
+Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.
+
+Key Features:
+
+* Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime
+* C Function Calls: Call C functions directly from Ring with automatic type conversion
+* Pointer Operations: Pointer arithmetic, dereferencing, read/write access
+* Struct Support: Define and manipulate C structs with named field access
+* Union & Enum Support: Define and use C unions and enumerations
+* Callbacks: Pass Ring functions as C callbacks
+* Memory Management: Allocate and manage C memory directly
+* C String Handling: Seamless conversion between Ring and C strings
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level OOP API: Clean FFI class with intuitive method names
+
+Example:
+
+.. code-block:: ring
+
+	load "cffi.ring"
+
+	# msvcrt.dll (Windows), libSystem.B.dylib (macOS)
+	new FFI("libm.so.6") { 
+		# Call a simple function (sqrt)
+		oSqrt = cFunc("sqrt", "double", ["double"])
+		result = invoke(oSqrt, [25.0])
+		? "sqrt(25) = " + result
+		
+		# Call printf (variadic function)
+		oPrintf = varFunc("printf", "int", ["string"])
+		varcall(oPrintf, ["Hello, %s! Number: %d\n", "World", 123])
+	}
+
+Output:
+
+.. code-block:: none
+
+	sqrt(25) = 5
+	Hello, World! Number: 123
 
 .. index:: 
 	pair: What is new in Ring  1.27; Better Extensions
