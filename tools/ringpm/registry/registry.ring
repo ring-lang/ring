@@ -1006,5 +1006,9 @@ aPackagesRegistry = [
 	[ :name = "xlsxlib",
 	  :description = "XLSX (Excel) library for the Ring Programming Language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "docxlib",
+	  :description = "DOCX (Word) library for the Ring Programming Language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
