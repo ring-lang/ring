@@ -429,13 +429,9 @@ Example:
 
 	new ExcelWriter() {
 
-		setTitle("Sales Report 2025")
-		setAuthor("Sales Department")
-		setCompany("ABC Corporation")
+		setTitle("Sales Report 2025")  setAuthor("Sales Department")  setCompany("ABC Corporation")
 
-		# Summary Sheet
 		addSheet("Summary")
-
 		titleStyle = createStyle([:bold = true, :fontSize = 16, :align = "center"])
 		headerStyle = createHeaderStyle()
 		currencyStyle = createStyle([:align = "right"])
@@ -449,41 +445,29 @@ Example:
 		setCellWithStyle(3, 3, "Expenses", headerStyle)
 		setCellWithStyle(3, 4, "Profit", headerStyle)
 
-		setCell(4, 1, "Q1")
-		setCellWithStyle(4, 2, 250000, currencyStyle)
-		setCellWithStyle(4, 3, 180000, currencyStyle)
-		setFormula(4, 4, "B4-C4")
+		setCell(4, 1, "Q1")  setCell(5, 1, "Q2")  setCell(6, 1, "Q3")  setCell(7, 1, "Q4")
 
-		setCell(5, 1, "Q2")
-		setCellWithStyle(5, 2, 280000, currencyStyle)
-		setCellWithStyle(5, 3, 190000, currencyStyle)
-		setFormula(5, 4, "B5-C5")
+		setCellWithStyle(4, 2, 250000, currencyStyle)  setCellWithStyle(4, 3, 180000, currencyStyle)
+		setCellWithStyle(5, 2, 280000, currencyStyle)  setCellWithStyle(5, 3, 190000, currencyStyle)
+		setCellWithStyle(6, 2, 310000, currencyStyle)  setCellWithStyle(6, 3, 200000, currencyStyle)
+		setCellWithStyle(7, 2, 350000, currencyStyle)  setCellWithStyle(7, 3, 220000, currencyStyle)
 
-		setCell(6, 1, "Q3")
-		setCellWithStyle(6, 2, 310000, currencyStyle)
-		setCellWithStyle(6, 3, 200000, currencyStyle)
-		setFormula(6, 4, "B6-C6")
-
-		setCell(7, 1, "Q4")
-		setCellWithStyle(7, 2, 350000, currencyStyle)
-		setCellWithStyle(7, 3, 220000, currencyStyle)
-		setFormula(7, 4, "B7-C7")
+		setFormula(4, 4, "B4-C4")  setFormula(5, 4, "B5-C5")
+		setFormula(6, 4, "B6-C6")  setFormula(7, 4, "B7-C7")
 
 		setCellWithStyle(9, 1, "Total", totalStyle)
 		setFormula(9, 2, "SUM(B4:B7)")
 		setFormula(9, 3, "SUM(C4:C7)")
 		setFormula(9, 4, "SUM(D4:D7)")
 
-		setColumnWidth(1, 15)
-		setColumnWidth(2, 15)
-		setColumnWidth(3, 15)
-		setColumnWidth(4, 15)
+		setColumnWidth(1, 15)  setColumnWidth(2, 15)
+		setColumnWidth(3, 15)  setColumnWidth(4, 15)
 
 		setAutoFilter(3, 1, 7, 4)
 		freezeTopRow()
 
 		save(cFileName)
-	
+
 	}
 
 Screen Shot:
