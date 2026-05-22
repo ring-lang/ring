@@ -187,10 +187,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-weblib">Faster WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bolt-web-framework">Bolt Web Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#svglib-package">SVGLib Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pptxlib-package">PPTXLib Package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xlsxlib-package">XLSXLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#docxlib-package">DOCXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xlsxlib-package">XLSXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pptxlib-package">PPTXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#svglib-package">SVGLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pdflib-package">PDFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
@@ -247,10 +247,10 @@
 <li><p>Automatic Hash Table</p></li>
 <li><p>Faster WebLib</p></li>
 <li><p>Bolt Web Framework</p></li>
-<li><p>SVGLib Package</p></li>
-<li><p>PPTXLib Package</p></li>
-<li><p>XLSXLib Package</p></li>
 <li><p>DOCXLib Package</p></li>
+<li><p>XLSXLib Package</p></li>
+<li><p>PPTXLib Package</p></li>
+<li><p>SVGLib Package</p></li>
 <li><p>PDFLib Package</p></li>
 <li><p>DBFLib Package</p></li>
 <li><p>Ring-Python Package</p></li>
@@ -547,116 +547,52 @@ Write routes in Ring, run them on a Rust async runtime.</p>
 </pre></div>
 </div>
 </section>
-<section id="svglib-package">
-<span id="index-7"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
-<p>A pure Ring library for creating Scalable Vector Graphics (SVG) files using the
-Ring programming language. It generates standard SVG files that can be viewed in any
-web browser, embedded in HTML, or used in other applications.</p>
+<section id="docxlib-package">
+<span id="index-7"></span><h2>DOCXLib Package<a class="headerlink" href="#docxlib-package" title="Permalink to this heading"></a></h2>
+<p>DOCXLib is a pure-Ring library for generating Word (.docx) documents.</p>
 <p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install svglib
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install docxlib
 </pre></div>
 </div>
 <p>Features:</p>
 <ul class="simple">
-<li><p>Basic Shapes — Rectangles, circles, ellipses, polygons, stars</p></li>
-<li><p>Lines &amp; Paths — Lines, polylines, arcs, custom paths with curves</p></li>
-<li><p>Text — Formatted text, multiline, centered, text on path</p></li>
-<li><p>Gradients — Linear and radial gradients with multiple stops</p></li>
-<li><p>Patterns — Stripes, dots, grids, custom patterns</p></li>
-<li><p>Filters — Blur, drop shadow, glow effects</p></li>
-<li><p>Transformations — Translate, rotate, scale, skew (per element)</p></li>
-<li><p>Groups — Group elements together</p></li>
-<li><p>Clipping — Clip shapes with masks</p></li>
-<li><p>Markers — Arrows and dots on lines</p></li>
-<li><p>Charts — Bar, line, pie, donut charts</p></li>
-<li><p>Diagrams — Flowcharts, org charts</p></li>
-<li><p>Icons — Checkmarks, crosses, arrows, stars</p></li>
+<li><p>Zero dependencies — Pure Ring</p></li>
+<li><p>Fluent API — Every method returns self, enabling method chaining</p></li>
+<li><p>Rich tables — Cell merging, per-side borders, row heights, text direction, images, lists inside cells</p></li>
+<li><p>Full typography — Bold/italic/colour/font/size per run, language tags, character styles, custom paragraph styles</p></li>
+<li><p>Paragraph control — Widow/orphan control, hyphenation suppression, keep-together, contextual spacing</p></li>
+<li><p>Navigation — TOC, Table of Figures, Table of Tables, bookmarks, cross-refs</p></li>
+<li><p>Forms — Checkboxes, dropdowns, and text input content controls</p></li>
+<li><p>Shapes — Rectangle, ellipse, diamond, triangle, line (DrawingML)</p></li>
+<li><p>Themes — 8 built-in colour palettes applied to all heading levels</p></li>
+<li><p>Charts — 8 native OOXML chart types with axis formatting, data tables, and style presets</p></li>
+<li><p>Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens</p></li>
+<li><p>Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images</p></li>
+<li><p>Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;svglib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;docxlib.ring&quot;</span>
 
-svg = new SVGWriter(600, 400) {
+<span class="o">?</span> <span class="s2">&quot;Generate File: hello.docx&quot;</span>
 
-        setBackground(&quot;#F5F5F5&quot;)
-
-        addRect(0, 0, 600, 50, [:fill = &quot;#1565C0&quot;])
-        addText(&quot;Analytics Dashboard&quot;, 20, 32,
-        [:fontSize = 20, :fontWeight = &quot;bold&quot;, :fill = &quot;white&quot;])
-
-        shadow = createShadowFilter(2, 2, 3, &quot;#CCC&quot;)
-
-        addRoundedRect(20, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
-        addText(&quot;Users&quot;,  35, 95,  [:fontSize = 12, :fill = &quot;#1565C0&quot;])
-        addText(&quot;24,521&quot;, 35, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
-        addText(&quot;+12%&quot;,  120, 125, [:fontSize = 12, :fill = &quot;#4CAF50&quot;])
-
-        addRoundedRect(210, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
-        addText(&quot;Revenue&quot;, 225, 95,  [:fontSize = 12, :fill = &quot;#E65100&quot;])
-        addText(&quot;$89,430&quot;, 225, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
-
-        addRoundedRect(400, 70, 180, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
-        addText(&quot;Orders&quot;, 415, 95,  [:fontSize = 12, :fill = &quot;#7B1FA2&quot;])
-        addText(&quot;1,247&quot;,  415, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
-
-        addRoundedRect(20, 170, 350, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
-        addText(&quot;Monthly Sales&quot;, 35, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
-        chartData = [:labels = [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], :values = [42, 58, 49, 72, 65]]
-        addBarChart(chartData, 25, 200, 340, 170, [:colors = [&quot;#42A5F5&quot;]])
-
-        addRoundedRect(390, 170, 190, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
-        addText(&quot;Traffic&quot;, 405, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
-        pieData = [:labels = [&quot;Organic&quot;, &quot;Direct&quot;, &quot;Social&quot;], :values = [50, 30, 20]]
-        addPieChart(pieData, 485, 295, 60, [:colors = [&quot;#4CAF50&quot;, &quot;#2196F3&quot;, &quot;#E91E63&quot;]])
-
-        save(&quot;demo18_dashboard.svg&quot;)
-
-}
-</pre></div>
-</div>
-<p>Screen Shots:</p>
-<img alt="SVGLib" src="_images/svglib.png" />
-</section>
-<section id="pptxlib-package">
-<span id="index-8"></span><h2>PPTXLib Package<a class="headerlink" href="#pptxlib-package" title="Permalink to this heading"></a></h2>
-<p>PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.</p>
-<p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pptxlib
-</pre></div>
-</div>
-<p>Features:</p>
-<ul class="simple">
-<li><p>Multiple Slides - Create presentations with many slides</p></li>
-<li><p>Text Boxes - Formatted text with fonts, colors, alignment</p></li>
-<li><p>Rich Text - Multiple formats within a single text box</p></li>
-<li><p>Shapes - Rectangles, circles, ovals, rounded rectangles, lines</p></li>
-<li><p>Images - PNG, JPG, BMP, GIF support</p></li>
-<li><p>Tables - With headers, styling, and zebra striping</p></li>
-<li><p>Lists - Bullet and numbered lists</p></li>
-<li><p>Backgrounds - Solid colors per slide</p></li>
-<li><p>Layouts - 16:9, 16:10, 4:3 aspect ratios</p></li>
-<li><p>Quick Layouts - Title slides, two-column layouts</p></li>
-<li><p>Speaker Notes - Add notes to slides</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;pptxlib.ring&quot;</span>
-
-<span class="n">cFileName</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;.ring&quot;</span><span class="p">,</span><span class="s2">&quot;.pptx&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="s2">&quot;Generate File: &quot;</span> <span class="o">+</span> <span class="n">cFileName</span>
-
-<span class="kp">new</span> <span class="nc">PPTWriter</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nf">addTitleSlide</span><span class="p">(</span><span class="s2">&quot;My Presentation&quot;</span><span class="p">,</span> <span class="s2">&quot;Subtitle here&quot;</span><span class="p">)</span>
-        <span class="nf">addSlide</span><span class="p">()</span>
-        <span class="nf">addTitle</span><span class="p">(</span><span class="s2">&quot;First Slide&quot;</span><span class="p">)</span>
-        <span class="nf">addTextBox</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
-        <span class="nf">save</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">WordWriter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">setTitle</span><span class="p">(</span><span class="s2">&quot;My First Document&quot;</span><span class="p">)</span>
+        <span class="nf">setAuthor</span><span class="p">(</span><span class="s2">&quot;Your Name&quot;</span><span class="p">)</span>
+        <span class="nf">setPageSize</span><span class="p">(</span><span class="s2">&quot;a4&quot;</span><span class="p">)</span>
+        <span class="nf">addHeading</span><span class="p">(</span><span class="s2">&quot;Hello, DOCXLib!&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">addParagraph</span><span class="p">(</span><span class="s2">&quot;This document was created entirely from Ring code.&quot;</span><span class="p">,</span>
+                     <span class="p">[</span><span class="ss">:color</span> <span class="o">=</span> <span class="s2">&quot;0000FF&quot;</span><span class="p">])</span>
+        <span class="nf">addBulletList</span><span class="p">([</span><span class="s2">&quot;Feature A&quot;</span><span class="p">,</span> <span class="s2">&quot;Feature B&quot;</span><span class="p">,</span> <span class="s2">&quot;Feature C&quot;</span><span class="p">])</span>
+        <span class="nf">save</span><span class="p">(</span><span class="s2">&quot;hello.docx&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Screen Shots:</p>
-<img alt="PPTXLib" src="_images/pptxlib.png" />
+<img alt="DOCXLib1" src="_images/docxlib1.png" />
+<img alt="DOCXLib2" src="_images/docxlib2.png" />
 </section>
 <section id="xlsxlib-package">
-<span id="index-9"></span><h2>XLSXLib Package<a class="headerlink" href="#xlsxlib-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>XLSXLib Package<a class="headerlink" href="#xlsxlib-package" title="Permalink to this heading"></a></h2>
 <p>XLSXLib is a pure-Ring library for creating Excel (.xlsx) files.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install xlsxlib
@@ -744,49 +680,113 @@ svg = new SVGWriter(600, 400) {
 <p>Screen Shot:</p>
 <img alt="XLSXLib" src="_images/xlsxlib.png" />
 </section>
-<section id="docxlib-package">
-<span id="index-10"></span><h2>DOCXLib Package<a class="headerlink" href="#docxlib-package" title="Permalink to this heading"></a></h2>
-<p>DOCXLib is a pure-Ring library for generating Word (.docx) documents.</p>
+<section id="pptxlib-package">
+<span id="index-9"></span><h2>PPTXLib Package<a class="headerlink" href="#pptxlib-package" title="Permalink to this heading"></a></h2>
+<p>PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.</p>
 <p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install docxlib
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pptxlib
 </pre></div>
 </div>
 <p>Features:</p>
 <ul class="simple">
-<li><p>Zero dependencies — Pure Ring</p></li>
-<li><p>Fluent API — Every method returns self, enabling method chaining</p></li>
-<li><p>Rich tables — Cell merging, per-side borders, row heights, text direction, images, lists inside cells</p></li>
-<li><p>Full typography — Bold/italic/colour/font/size per run, language tags, character styles, custom paragraph styles</p></li>
-<li><p>Paragraph control — Widow/orphan control, hyphenation suppression, keep-together, contextual spacing</p></li>
-<li><p>Navigation — TOC, Table of Figures, Table of Tables, bookmarks, cross-refs</p></li>
-<li><p>Forms — Checkboxes, dropdowns, and text input content controls</p></li>
-<li><p>Shapes — Rectangle, ellipse, diamond, triangle, line (DrawingML)</p></li>
-<li><p>Themes — 8 built-in colour palettes applied to all heading levels</p></li>
-<li><p>Charts — 8 native OOXML chart types with axis formatting, data tables, and style presets</p></li>
-<li><p>Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens</p></li>
-<li><p>Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images</p></li>
-<li><p>Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)</p></li>
+<li><p>Multiple Slides - Create presentations with many slides</p></li>
+<li><p>Text Boxes - Formatted text with fonts, colors, alignment</p></li>
+<li><p>Rich Text - Multiple formats within a single text box</p></li>
+<li><p>Shapes - Rectangles, circles, ovals, rounded rectangles, lines</p></li>
+<li><p>Images - PNG, JPG, BMP, GIF support</p></li>
+<li><p>Tables - With headers, styling, and zebra striping</p></li>
+<li><p>Lists - Bullet and numbered lists</p></li>
+<li><p>Backgrounds - Solid colors per slide</p></li>
+<li><p>Layouts - 16:9, 16:10, 4:3 aspect ratios</p></li>
+<li><p>Quick Layouts - Title slides, two-column layouts</p></li>
+<li><p>Speaker Notes - Add notes to slides</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;docxlib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;pptxlib.ring&quot;</span>
 
-<span class="o">?</span> <span class="s2">&quot;Generate File: hello.docx&quot;</span>
+<span class="n">cFileName</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;.ring&quot;</span><span class="p">,</span><span class="s2">&quot;.pptx&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Generate File: &quot;</span> <span class="o">+</span> <span class="n">cFileName</span>
 
-<span class="kp">new</span> <span class="nc">WordWriter</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nf">setTitle</span><span class="p">(</span><span class="s2">&quot;My First Document&quot;</span><span class="p">)</span>
-        <span class="nf">setAuthor</span><span class="p">(</span><span class="s2">&quot;Your Name&quot;</span><span class="p">)</span>
-        <span class="nf">setPageSize</span><span class="p">(</span><span class="s2">&quot;a4&quot;</span><span class="p">)</span>
-        <span class="nf">addHeading</span><span class="p">(</span><span class="s2">&quot;Hello, DOCXLib!&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="nf">addParagraph</span><span class="p">(</span><span class="s2">&quot;This document was created entirely from Ring code.&quot;</span><span class="p">,</span>
-                     <span class="p">[</span><span class="ss">:color</span> <span class="o">=</span> <span class="s2">&quot;0000FF&quot;</span><span class="p">])</span>
-        <span class="nf">addBulletList</span><span class="p">([</span><span class="s2">&quot;Feature A&quot;</span><span class="p">,</span> <span class="s2">&quot;Feature B&quot;</span><span class="p">,</span> <span class="s2">&quot;Feature C&quot;</span><span class="p">])</span>
-        <span class="nf">save</span><span class="p">(</span><span class="s2">&quot;hello.docx&quot;</span><span class="p">)</span>
+<span class="kp">new</span> <span class="nc">PPTWriter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">addTitleSlide</span><span class="p">(</span><span class="s2">&quot;My Presentation&quot;</span><span class="p">,</span> <span class="s2">&quot;Subtitle here&quot;</span><span class="p">)</span>
+        <span class="nf">addSlide</span><span class="p">()</span>
+        <span class="nf">addTitle</span><span class="p">(</span><span class="s2">&quot;First Slide&quot;</span><span class="p">)</span>
+        <span class="nf">addTextBox</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="nf">save</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Screen Shots:</p>
-<img alt="DOCXLib1" src="_images/docxlib1.png" />
-<img alt="DOCXLib2" src="_images/docxlib2.png" />
+<img alt="PPTXLib" src="_images/pptxlib.png" />
+</section>
+<section id="svglib-package">
+<span id="index-10"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
+<p>A pure Ring library for creating Scalable Vector Graphics (SVG) files using the
+Ring programming language. It generates standard SVG files that can be viewed in any
+web browser, embedded in HTML, or used in other applications.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install svglib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Basic Shapes — Rectangles, circles, ellipses, polygons, stars</p></li>
+<li><p>Lines &amp; Paths — Lines, polylines, arcs, custom paths with curves</p></li>
+<li><p>Text — Formatted text, multiline, centered, text on path</p></li>
+<li><p>Gradients — Linear and radial gradients with multiple stops</p></li>
+<li><p>Patterns — Stripes, dots, grids, custom patterns</p></li>
+<li><p>Filters — Blur, drop shadow, glow effects</p></li>
+<li><p>Transformations — Translate, rotate, scale, skew (per element)</p></li>
+<li><p>Groups — Group elements together</p></li>
+<li><p>Clipping — Clip shapes with masks</p></li>
+<li><p>Markers — Arrows and dots on lines</p></li>
+<li><p>Charts — Bar, line, pie, donut charts</p></li>
+<li><p>Diagrams — Flowcharts, org charts</p></li>
+<li><p>Icons — Checkmarks, crosses, arrows, stars</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;svglib.ring&quot;
+
+svg = new SVGWriter(600, 400) {
+
+        setBackground(&quot;#F5F5F5&quot;)
+
+        addRect(0, 0, 600, 50, [:fill = &quot;#1565C0&quot;])
+        addText(&quot;Analytics Dashboard&quot;, 20, 32,
+        [:fontSize = 20, :fontWeight = &quot;bold&quot;, :fill = &quot;white&quot;])
+
+        shadow = createShadowFilter(2, 2, 3, &quot;#CCC&quot;)
+
+        addRoundedRect(20, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Users&quot;,  35, 95,  [:fontSize = 12, :fill = &quot;#1565C0&quot;])
+        addText(&quot;24,521&quot;, 35, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        addText(&quot;+12%&quot;,  120, 125, [:fontSize = 12, :fill = &quot;#4CAF50&quot;])
+
+        addRoundedRect(210, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Revenue&quot;, 225, 95,  [:fontSize = 12, :fill = &quot;#E65100&quot;])
+        addText(&quot;$89,430&quot;, 225, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+
+        addRoundedRect(400, 70, 180, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Orders&quot;, 415, 95,  [:fontSize = 12, :fill = &quot;#7B1FA2&quot;])
+        addText(&quot;1,247&quot;,  415, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+
+        addRoundedRect(20, 170, 350, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Monthly Sales&quot;, 35, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        chartData = [:labels = [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], :values = [42, 58, 49, 72, 65]]
+        addBarChart(chartData, 25, 200, 340, 170, [:colors = [&quot;#42A5F5&quot;]])
+
+        addRoundedRect(390, 170, 190, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Traffic&quot;, 405, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        pieData = [:labels = [&quot;Organic&quot;, &quot;Direct&quot;, &quot;Social&quot;], :values = [50, 30, 20]]
+        addPieChart(pieData, 485, 295, 60, [:colors = [&quot;#4CAF50&quot;, &quot;#2196F3&quot;, &quot;#E91E63&quot;]])
+
+        save(&quot;demo18_dashboard.svg&quot;)
+
+}
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<img alt="SVGLib" src="_images/svglib.png" />
 </section>
 <section id="pdflib-package">
 <span id="index-11"></span><h2>PDFLib Package<a class="headerlink" href="#pdflib-package" title="Permalink to this heading"></a></h2>

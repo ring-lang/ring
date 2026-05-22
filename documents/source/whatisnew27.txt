@@ -20,10 +20,10 @@ Ring 1.27 comes with the next features!
 * Automatic Hash Table
 * Faster WebLib
 * Bolt Web Framework
-* SVGLib Package
-* PPTXLib Package
-* XLSXLib Package
 * DOCXLib Package
+* XLSXLib Package
+* PPTXLib Package
+* SVGLib Package
 * PDFLib Package
 * DBFLib Package
 * Ring-Python Package
@@ -334,137 +334,62 @@ Run:
 	ring app.ring
 	# [bolt] Server running on http://0.0.0.0:3000
 
-
 .. index:: 
-	pair: What is new in Ring  1.27; SVGLib Package
+	pair: What is new in Ring  1.27; DOCXLib Package
 
-SVGLib Package
-==============
-
-A pure Ring library for creating Scalable Vector Graphics (SVG) files using the 
-Ring programming language. It generates standard SVG files that can be viewed in any 
-web browser, embedded in HTML, or used in other applications.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install svglib
-
-Features:
-
-* Basic Shapes — Rectangles, circles, ellipses, polygons, stars
-* Lines & Paths — Lines, polylines, arcs, custom paths with curves
-* Text — Formatted text, multiline, centered, text on path
-* Gradients — Linear and radial gradients with multiple stops
-* Patterns — Stripes, dots, grids, custom patterns
-* Filters — Blur, drop shadow, glow effects
-* Transformations — Translate, rotate, scale, skew (per element)
-* Groups — Group elements together
-* Clipping — Clip shapes with masks
-* Markers — Arrows and dots on lines
-* Charts — Bar, line, pie, donut charts
-* Diagrams — Flowcharts, org charts
-* Icons — Checkmarks, crosses, arrows, stars
-
-Example:
-
-.. code-block:: ring
-
-	load "svglib.ring"
-
-	svg = new SVGWriter(600, 400) {
-
-		setBackground("#F5F5F5")
-
-		addRect(0, 0, 600, 50, [:fill = "#1565C0"])
-		addText("Analytics Dashboard", 20, 32,
-		[:fontSize = 20, :fontWeight = "bold", :fill = "white"])
-
-		shadow = createShadowFilter(2, 2, 3, "#CCC")
-
-		addRoundedRect(20, 70, 170, 80, 6, [:fill = "white", :filter = shadow])
-		addText("Users",  35, 95,  [:fontSize = 12, :fill = "#1565C0"])
-		addText("24,521", 35, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
-		addText("+12%",  120, 125, [:fontSize = 12, :fill = "#4CAF50"])
-
-		addRoundedRect(210, 70, 170, 80, 6, [:fill = "white", :filter = shadow])
-		addText("Revenue", 225, 95,  [:fontSize = 12, :fill = "#E65100"])
-		addText("$89,430", 225, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
-
-		addRoundedRect(400, 70, 180, 80, 6, [:fill = "white", :filter = shadow])
-		addText("Orders", 415, 95,  [:fontSize = 12, :fill = "#7B1FA2"])
-		addText("1,247",  415, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
-
-		addRoundedRect(20, 170, 350, 210, 6, [:fill = "white", :filter = shadow])
-		addText("Monthly Sales", 35, 195, [:fontSize = 14, :fontWeight = "bold", :fill = "#333"])
-		chartData = [:labels = ["Jan", "Feb", "Mar", "Apr", "May"], :values = [42, 58, 49, 72, 65]]
-		addBarChart(chartData, 25, 200, 340, 170, [:colors = ["#42A5F5"]])
-
-		addRoundedRect(390, 170, 190, 210, 6, [:fill = "white", :filter = shadow])
-		addText("Traffic", 405, 195, [:fontSize = 14, :fontWeight = "bold", :fill = "#333"])
-		pieData = [:labels = ["Organic", "Direct", "Social"], :values = [50, 30, 20]]
-		addPieChart(pieData, 485, 295, 60, [:colors = ["#4CAF50", "#2196F3", "#E91E63"]])
-
-		save("demo18_dashboard.svg")
-
-	}
-
-Screen Shots:
-
-.. image:: svglib.png
-	:alt: SVGLib
-
-
-.. index:: 
-	pair: What is new in Ring  1.27; PPTXLib Package
-
-PPTXLib Package
+DOCXLib Package
 ===============
 
-PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.
+DOCXLib is a pure-Ring library for generating Word (.docx) documents. 
 
 Install:
 
 .. code-block:: none
 
-	ringpm install pptxlib
+	ringpm install docxlib
 
 Features:
 
-* Multiple Slides - Create presentations with many slides
-* Text Boxes - Formatted text with fonts, colors, alignment
-* Rich Text - Multiple formats within a single text box
-* Shapes - Rectangles, circles, ovals, rounded rectangles, lines
-* Images - PNG, JPG, BMP, GIF support
-* Tables - With headers, styling, and zebra striping
-* Lists - Bullet and numbered lists
-* Backgrounds - Solid colors per slide
-* Layouts - 16:9, 16:10, 4:3 aspect ratios
-* Quick Layouts - Title slides, two-column layouts
-* Speaker Notes - Add notes to slides
+* Zero dependencies — Pure Ring
+* Fluent API — Every method returns self, enabling method chaining
+* Rich tables — Cell merging, per-side borders, row heights, text direction, images, lists inside cells
+* Full typography — Bold/italic/colour/font/size per run, language tags, character styles, custom paragraph styles
+* Paragraph control — Widow/orphan control, hyphenation suppression, keep-together, contextual spacing
+* Navigation — TOC, Table of Figures, Table of Tables, bookmarks, cross-refs
+* Forms — Checkboxes, dropdowns, and text input content controls
+* Shapes — Rectangle, ellipse, diamond, triangle, line (DrawingML)
+* Themes — 8 built-in colour palettes applied to all heading levels
+* Charts — 8 native OOXML chart types with axis formatting, data tables, and style presets
+* Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens
+* Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images
+* Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)
 
 Example:
 
 .. code-block:: ring
 
-	load "pptxlib.ring"
+	load "docxlib.ring"
 
-	cFileName = substr(filename(),".ring",".pptx")
-	? "Generate File: " + cFileName
+	? "Generate File: hello.docx" 
 
-	new PPTWriter() {
-		addTitleSlide("My Presentation", "Subtitle here")
-		addSlide()
-		addTitle("First Slide")
-		addTextBox("Hello, World!", 0.5, 1.5, 9, 2, NULL)
-		save(cFileName)
+	new WordWriter() {
+		setTitle("My First Document")
+		setAuthor("Your Name")
+		setPageSize("a4")
+		addHeading("Hello, DOCXLib!", 1)
+		addParagraph("This document was created entirely from Ring code.", 
+			     [:color = "0000FF"])
+		addBulletList(["Feature A", "Feature B", "Feature C"])
+		save("hello.docx")
 	}
 
 Screen Shots:
 
-.. image:: pptxlib.png
-	:alt: PPTXLib
+.. image:: docxlib1.png
+	:alt: DOCXLib1
+
+.. image:: docxlib2.png
+	:alt: DOCXLib2
 
 .. index:: 
 	pair: What is new in Ring  1.27; XLSXLib Package
@@ -567,61 +492,135 @@ Screen Shot:
 	:alt: XLSXLib
 
 .. index:: 
-	pair: What is new in Ring  1.27; DOCXLib Package
+	pair: What is new in Ring  1.27; PPTXLib Package
 
-DOCXLib Package
+PPTXLib Package
 ===============
 
-DOCXLib is a pure-Ring library for generating Word (.docx) documents. 
+PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.
 
 Install:
 
 .. code-block:: none
 
-	ringpm install docxlib
+	ringpm install pptxlib
 
 Features:
 
-* Zero dependencies — Pure Ring
-* Fluent API — Every method returns self, enabling method chaining
-* Rich tables — Cell merging, per-side borders, row heights, text direction, images, lists inside cells
-* Full typography — Bold/italic/colour/font/size per run, language tags, character styles, custom paragraph styles
-* Paragraph control — Widow/orphan control, hyphenation suppression, keep-together, contextual spacing
-* Navigation — TOC, Table of Figures, Table of Tables, bookmarks, cross-refs
-* Forms — Checkboxes, dropdowns, and text input content controls
-* Shapes — Rectangle, ellipse, diamond, triangle, line (DrawingML)
-* Themes — 8 built-in colour palettes applied to all heading levels
-* Charts — 8 native OOXML chart types with axis formatting, data tables, and style presets
-* Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens
-* Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images
-* Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)
+* Multiple Slides - Create presentations with many slides
+* Text Boxes - Formatted text with fonts, colors, alignment
+* Rich Text - Multiple formats within a single text box
+* Shapes - Rectangles, circles, ovals, rounded rectangles, lines
+* Images - PNG, JPG, BMP, GIF support
+* Tables - With headers, styling, and zebra striping
+* Lists - Bullet and numbered lists
+* Backgrounds - Solid colors per slide
+* Layouts - 16:9, 16:10, 4:3 aspect ratios
+* Quick Layouts - Title slides, two-column layouts
+* Speaker Notes - Add notes to slides
 
 Example:
 
 .. code-block:: ring
 
-	load "docxlib.ring"
+	load "pptxlib.ring"
 
-	? "Generate File: hello.docx" 
+	cFileName = substr(filename(),".ring",".pptx")
+	? "Generate File: " + cFileName
 
-	new WordWriter() {
-		setTitle("My First Document")
-		setAuthor("Your Name")
-		setPageSize("a4")
-		addHeading("Hello, DOCXLib!", 1)
-		addParagraph("This document was created entirely from Ring code.", 
-			     [:color = "0000FF"])
-		addBulletList(["Feature A", "Feature B", "Feature C"])
-		save("hello.docx")
+	new PPTWriter() {
+		addTitleSlide("My Presentation", "Subtitle here")
+		addSlide()
+		addTitle("First Slide")
+		addTextBox("Hello, World!", 0.5, 1.5, 9, 2, NULL)
+		save(cFileName)
 	}
 
 Screen Shots:
 
-.. image:: docxlib1.png
-	:alt: DOCXLib1
+.. image:: pptxlib.png
+	:alt: PPTXLib
 
-.. image:: docxlib2.png
-	:alt: DOCXLib2
+
+.. index:: 
+	pair: What is new in Ring  1.27; SVGLib Package
+
+SVGLib Package
+==============
+
+A pure Ring library for creating Scalable Vector Graphics (SVG) files using the 
+Ring programming language. It generates standard SVG files that can be viewed in any 
+web browser, embedded in HTML, or used in other applications.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install svglib
+
+Features:
+
+* Basic Shapes — Rectangles, circles, ellipses, polygons, stars
+* Lines & Paths — Lines, polylines, arcs, custom paths with curves
+* Text — Formatted text, multiline, centered, text on path
+* Gradients — Linear and radial gradients with multiple stops
+* Patterns — Stripes, dots, grids, custom patterns
+* Filters — Blur, drop shadow, glow effects
+* Transformations — Translate, rotate, scale, skew (per element)
+* Groups — Group elements together
+* Clipping — Clip shapes with masks
+* Markers — Arrows and dots on lines
+* Charts — Bar, line, pie, donut charts
+* Diagrams — Flowcharts, org charts
+* Icons — Checkmarks, crosses, arrows, stars
+
+Example:
+
+.. code-block:: ring
+
+	load "svglib.ring"
+
+	svg = new SVGWriter(600, 400) {
+
+		setBackground("#F5F5F5")
+
+		addRect(0, 0, 600, 50, [:fill = "#1565C0"])
+		addText("Analytics Dashboard", 20, 32,
+		[:fontSize = 20, :fontWeight = "bold", :fill = "white"])
+
+		shadow = createShadowFilter(2, 2, 3, "#CCC")
+
+		addRoundedRect(20, 70, 170, 80, 6, [:fill = "white", :filter = shadow])
+		addText("Users",  35, 95,  [:fontSize = 12, :fill = "#1565C0"])
+		addText("24,521", 35, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
+		addText("+12%",  120, 125, [:fontSize = 12, :fill = "#4CAF50"])
+
+		addRoundedRect(210, 70, 170, 80, 6, [:fill = "white", :filter = shadow])
+		addText("Revenue", 225, 95,  [:fontSize = 12, :fill = "#E65100"])
+		addText("$89,430", 225, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
+
+		addRoundedRect(400, 70, 180, 80, 6, [:fill = "white", :filter = shadow])
+		addText("Orders", 415, 95,  [:fontSize = 12, :fill = "#7B1FA2"])
+		addText("1,247",  415, 125, [:fontSize = 22, :fontWeight = "bold", :fill = "#333"])
+
+		addRoundedRect(20, 170, 350, 210, 6, [:fill = "white", :filter = shadow])
+		addText("Monthly Sales", 35, 195, [:fontSize = 14, :fontWeight = "bold", :fill = "#333"])
+		chartData = [:labels = ["Jan", "Feb", "Mar", "Apr", "May"], :values = [42, 58, 49, 72, 65]]
+		addBarChart(chartData, 25, 200, 340, 170, [:colors = ["#42A5F5"]])
+
+		addRoundedRect(390, 170, 190, 210, 6, [:fill = "white", :filter = shadow])
+		addText("Traffic", 405, 195, [:fontSize = 14, :fontWeight = "bold", :fill = "#333"])
+		pieData = [:labels = ["Organic", "Direct", "Social"], :values = [50, 30, 20]]
+		addPieChart(pieData, 485, 295, 60, [:colors = ["#4CAF50", "#2196F3", "#E91E63"]])
+
+		save("demo18_dashboard.svg")
+
+	}
+
+Screen Shots:
+
+.. image:: svglib.png
+	:alt: SVGLib
 
 .. index:: 
 	pair: What is new in Ring  1.27; PDFLib Package
