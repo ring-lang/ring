@@ -33,94 +33,94 @@ Package System.Web
 				cOutput += "<br />"
 			ok
 
-		Func PushNewObjToStack cObjType
+		Func PushNewTag cObjType
 			aStack + [cObjType, "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
 			return self
 
 		Func GetLink
-			return PushNewObjToStack("a")
+			return PushNewTag("a")
 
 		Func GetDiv
-			return PushNewObjToStack("div")
+			return PushNewTag("div")
 
 		Func GetForm
-			return PushNewObjToStack("form")
+			return PushNewTag("form")
 
 		Func GetInput
-			return PushNewObjToStack("input")
+			return PushNewTag("input")
 
 		Func GetTextArea
-			return PushNewObjToStack("textarea")
+			return PushNewTag("textarea")
 
 		Func GetSelect
-			return PushNewObjToStack("select")
+			return PushNewTag("select")
 
 		Func GetOption
-			return PushNewObjToStack("option")
+			return PushNewTag("option")
 
 		Func GetImage
-			return PushNewObjToStack("img")
+			return PushNewTag("img")
 
 		Func GetUL
-			return PushNewObjToStack("ul")
+			return PushNewTag("ul")
 
 		Func GetLI
-			return PushNewObjToStack("li")
+			return PushNewTag("li")
 
 		Func GetTable
-			return PushNewObjToStack("table")
+			return PushNewTag("table")
 
 		Func GetTr
-			return PushNewObjToStack("tr")
+			return PushNewTag("tr")
 
 		Func GetTd
-			return PushNewObjToStack("td")
+			return PushNewTag("td")
 
 		Func GetTh
-			return PushNewObjToStack("th")
+			return PushNewTag("th")
 
 		Func GetThead
-			return PushNewObjToStack("thead")
+			return PushNewTag("thead")
 
 		Func GetTBody
-			return PushNewObjToStack("tbody")
+			return PushNewTag("tbody")
 
 		Func GetTFoot
-			return PushNewObjToStack("tfoot")
+			return PushNewTag("tfoot")
 
 		Func GetAudio
-			return PushNewObjToStack("audio")
+			return PushNewTag("audio")
 
 		Func GetVideo
-			return PushNewObjToStack("video")
+			return PushNewTag("video")
 
 		Func GetH1
-			return PushNewObjToStack("h1")
+			return PushNewTag("h1")
 
 		Func GetH2
-			return PushNewObjToStack("h2")
+			return PushNewTag("h2")
 
 		Func GetH3
-			return PushNewObjToStack("h3")
+			return PushNewTag("h3")
 
 		Func GetH4
-			return PushNewObjToStack("h4")
+			return PushNewTag("h4")
 
 		Func GetH5
-			return PushNewObjToStack("h5")
+			return PushNewTag("h5")
 
 		Func GetH6
-			return PushNewObjToStack("h6")
+			return PushNewTag("h6")
 
 		Func GetP
-			return PushNewObjToStack("p")
+			return PushNewTag("p")
 
 		Func GetNav
-			return PushNewObjToStack("nav")
+			return PushNewTag("nav")
 
 		Func GetSpan
-			return PushNewObjToStack("span")
+			return PushNewTag("span")
 
 		Func GetButton
-			return PushNewObjToStack("button")
+			return PushNewTag("button")
