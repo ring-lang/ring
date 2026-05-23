@@ -99,16 +99,6 @@ Package System.Web
 				WebPrint( nl + "</body>" + nl + "</html>" + nl )
 			ok
 
-		Func pushTag cTag
-			aStack + [cTag, "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput  = ""
-			cStyleOutput = ""
-
-		Func pushTagExtra cTag, cExtraClose
-			aStack + [cTag, "", cExtraClose, cAttrOutput, cStyleOutput, []]
-			cAttrOutput  = ""
-			cStyleOutput = ""
-
 		Func getdata
 			return cOutput
 

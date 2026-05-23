@@ -92,16 +92,6 @@ Package System.Web
 				aStack[len(aStack)][2] += cBlock
 			ok
 
-		func pushTag cTag
-			aStack + [cTag, "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput  = ""
-			cStyleOutput = ""
-
-		func pushTagExtra cTag, cExtraClose
-			aStack + [cTag, "", cExtraClose, cAttrOutput, cStyleOutput, []]
-			cAttrOutput  = ""
-			cStyleOutput = ""
-
 		func addattributes
 			cOutput += cAttrOutput
 
