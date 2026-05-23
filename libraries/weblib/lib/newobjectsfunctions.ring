@@ -33,148 +33,94 @@ Package System.Web
 				cOutput += "<br />"
 			ok
 
-		Func GetLink
-			aStack + ["a", "", "", cAttrOutput, cStyleOutput, []]
+		Func PushNewObjToStack cObjType
+			aStack + [cObjType, "", "", cAttrOutput, cStyleOutput, []]
 			cAttrOutput = "" cStyleOutput = ""
 			return self
+
+		Func GetLink
+			return PushNewObjToStack("a")
 
 		Func GetDiv
-			aStack + ["div", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("div")
 
 		Func GetForm
-			aStack + ["form", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("form")
 
 		Func GetInput
-			aStack + ["input", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("input")
 
 		Func GetTextArea
-			aStack + ["textarea", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("textarea")
 
 		Func GetSelect
-			aStack + ["select", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("select")
 
 		Func GetOption
-			aStack + ["option", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("option")
 
 		Func GetImage
-			aStack + ["img", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("img")
 
 		Func GetUL
-			aStack + ["ul", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("ul")
 
 		Func GetLI
-			aStack + ["li", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("li")
 
 		Func GetTable
-			aStack + ["table", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("table")
 
 		Func GetTr
-			aStack + ["tr", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("tr")
 
 		Func GetTd
-			aStack + ["td", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("td")
 
 		Func GetTh
-			aStack + ["th", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("th")
 
 		Func GetThead
-			aStack + ["thead", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("thead")
 
 		Func GetTBody
-			aStack + ["tbody", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("tbody")
 
 		Func GetTFoot
-			aStack + ["tfoot", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("tfoot")
 
 		Func GetAudio
-			aStack + ["audio", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("audio")
 
 		Func GetVideo
-			aStack + ["video", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("video")
 
 		Func GetH1
-			aStack + ["h1", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("h1")
 
 		Func GetH2
-			aStack + ["h2", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("h2")
 
 		Func GetH3
-			aStack + ["h3", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("h3")
 
 		Func GetH4
-			aStack + ["h4", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("h4")
 
 		Func GetH5
-			aStack + ["h5", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("h5")
 
 		Func GetH6
-			aStack + ["h6", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("h6")
 
 		Func GetP
-			aStack + ["p", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("p")
 
 		Func GetNav
-			aStack + ["nav", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("nav")
 
 		Func GetSpan
-			aStack + ["span", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
+			return PushNewObjToStack("span")
 
 		Func GetButton
-			aStack + ["button", "", "", cAttrOutput, cStyleOutput, []]
-			cAttrOutput = "" cStyleOutput = ""
-			return self
-
+			return PushNewObjToStack("button")
