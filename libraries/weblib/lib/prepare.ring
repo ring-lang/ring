@@ -5,13 +5,10 @@
 mergemethods("page","stylefunctions")
 mergemethods("page","scriptfunctions")
 
-mergemethods("ObjsBase","stylefunctions")
-mergemethods("ObjsBase","scriptfunctions")
+mergemethods("objsbase","stylefunctions")
+mergemethods("objsbase","scriptfunctions")
 mergemethods("objsbase","newobjectsfunctions")
 
-mergemethods("webpage","stylefunctions")
-mergemethods("webpage","scriptfunctions")
-mergemethods("webpage","newobjectsfunctions")
 mergemethods("webpage","objsbase")
 
 loadvars()
