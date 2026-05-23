@@ -440,10 +440,8 @@ Example:
 		setCellWithStyle(1, 1, "Annual Sales Report 2025", titleStyle)
 		mergeCells(1, 1, 1, 4)
 
-		setCellWithStyle(3, 1, "Quarter", headerStyle)
-		setCellWithStyle(3, 2, "Revenue", headerStyle)
-		setCellWithStyle(3, 3, "Expenses", headerStyle)
-		setCellWithStyle(3, 4, "Profit", headerStyle)
+		setCellWithStyle(3, 1, "Quarter", headerStyle)   setCellWithStyle(3, 2, "Revenue", headerStyle)
+		setCellWithStyle(3, 3, "Expenses", headerStyle)  setCellWithStyle(3, 4, "Profit", headerStyle)
 
 		setCell(4, 1, "Q1")  setCell(5, 1, "Q2")  setCell(6, 1, "Q3")  setCell(7, 1, "Q4")
 
@@ -456,12 +454,9 @@ Example:
 		setFormula(6, 4, "B6-C6")  setFormula(7, 4, "B7-C7")
 
 		setCellWithStyle(9, 1, "Total", totalStyle)
-		setFormula(9, 2, "SUM(B4:B7)")
-		setFormula(9, 3, "SUM(C4:C7)")
-		setFormula(9, 4, "SUM(D4:D7)")
+		setFormula(9, 2, "SUM(B4:B7)")  setFormula(9, 3, "SUM(C4:C7)")  setFormula(9, 4, "SUM(D4:D7)")
 
-		setColumnWidth(1, 15)  setColumnWidth(2, 15)
-		setColumnWidth(3, 15)  setColumnWidth(4, 15)
+		setColumnWidth(1, 15)  setColumnWidth(2, 15)  setColumnWidth(3, 15)  setColumnWidth(4, 15)
 
 		setAutoFilter(3, 1, 7, 4)
 		freezeTopRow()
