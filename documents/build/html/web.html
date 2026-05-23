@@ -1085,9 +1085,9 @@ and cellend() functions.</p>
 <section id="generating-pages-using-objects">
 <span id="index-20"></span><h2>Generating Pages using Objects<a class="headerlink" href="#generating-pages-using-objects" title="Permalink to this heading"></a></h2>
 <p>Instead of using functions/methods to generate HTML pages, we can use an object
-for each element in the page.</p>
+and nested braces.</p>
 <p>This choice means more beautiful code but slower.</p>
-<p>The fastest method is to print HTML code directly, then using functions then using
+<p>The fastest method is to generate HTML code directly, then using functions then using
 templates then using objects (slower).</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
 Load &quot;weblib.ring&quot;
@@ -1328,7 +1328,7 @@ Func Main
 <section id="using-bootstrap-library-using-objects">
 <span id="index-23"></span><h2>Using Bootstrap Library using Objects<a class="headerlink" href="#using-bootstrap-library-using-objects" title="Permalink to this heading"></a></h2>
 <p>The next example uses the Bootstrap JavaScript Library when generating the HTML page.</p>
-<p>Instead of using functions to generate the HTML elements, we will use objects.</p>
+<p>Instead of using functions to generate the HTML elements, we will use and object and nested braces.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
 Load &quot;weblib.ring&quot;
 Import System.Web
@@ -2112,7 +2112,7 @@ like username &amp; email.</p>
 </tr>
 </tbody>
 </table>
-<p>The Package System.Web contains the next classes</p>
+<p>The System.Web Package contains the next classes</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Class Name</p></th>
@@ -2155,87 +2155,6 @@ like username &amp; email.</p>
 </tr>
 <tr class="row-odd"><td><p>NewObjectsFunctions</p></td>
 <td><p>Methods to create new objects in the page or element.</p></td>
-</tr>
-<tr class="row-even"><td><p>H1</p></td>
-<td><p>Wraps HTML H1.</p></td>
-</tr>
-<tr class="row-odd"><td><p>H2</p></td>
-<td><p>Wraps HTML H2.</p></td>
-</tr>
-<tr class="row-even"><td><p>H3</p></td>
-<td><p>Wraps HTML H3.</p></td>
-</tr>
-<tr class="row-odd"><td><p>H4</p></td>
-<td><p>Wraps HTML H4.</p></td>
-</tr>
-<tr class="row-even"><td><p>H5</p></td>
-<td><p>Wraps HTML H5.</p></td>
-</tr>
-<tr class="row-odd"><td><p>H6</p></td>
-<td><p>Wraps HTML H6.</p></td>
-</tr>
-<tr class="row-even"><td><p>P</p></td>
-<td><p>Wraps HTML P.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Link</p></td>
-<td><p>Wraps HTML link.</p></td>
-</tr>
-<tr class="row-even"><td><p>NewLine</p></td>
-<td><p>Wraps HTML NewLine.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Div</p></td>
-<td><p>Wraps HTML Div.</p></td>
-</tr>
-<tr class="row-even"><td><p>Form</p></td>
-<td><p>Wraps HTML Form.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Input</p></td>
-<td><p>Wraps HTML Input.</p></td>
-</tr>
-<tr class="row-even"><td><p>TextArea</p></td>
-<td><p>Wraps HTML TextArea.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Select</p></td>
-<td><p>Wraps HTML Select.</p></td>
-</tr>
-<tr class="row-even"><td><p>Option</p></td>
-<td><p>Wraps HTML Option.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Image</p></td>
-<td><p>Wraps HTML Image.</p></td>
-</tr>
-<tr class="row-even"><td><p>UL</p></td>
-<td><p>Wraps HTML UL.</p></td>
-</tr>
-<tr class="row-odd"><td><p>LI</p></td>
-<td><p>Wraps HTML LI.</p></td>
-</tr>
-<tr class="row-even"><td><p>Table</p></td>
-<td><p>Wraps HTML Table.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TR</p></td>
-<td><p>Wraps HTML TR.</p></td>
-</tr>
-<tr class="row-even"><td><p>TD</p></td>
-<td><p>Wraps HTML TD.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TH</p></td>
-<td><p>Wraps HTML TH.</p></td>
-</tr>
-<tr class="row-even"><td><p>Audio</p></td>
-<td><p>Wraps HTML Audio.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Video</p></td>
-<td><p>Wraps HTML Video.</p></td>
-</tr>
-<tr class="row-even"><td><p>Nav</p></td>
-<td><p>Wraps HTML Nav.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Span</p></td>
-<td><p>Wraps HTML Span.</p></td>
-</tr>
-<tr class="row-even"><td><p>Button</p></td>
-<td><p>Wraps HTML Button.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2794,8 +2713,12 @@ Page class, so we can use the next methods with page objects directly.</p>
 </section>
 <section id="webpage-class">
 <span id="index-32"></span><h2>WebPage Class<a class="headerlink" href="#webpage-class" title="Permalink to this heading"></a></h2>
-<p>We use braces to access the active WebPage object attributes</p>
-<p>Each one of these attribute will return a new object to access again using braces.</p>
+<p>We can use braces to access the active WebPage object attributes</p>
+<p>Each one of these attribute will return an object to access again using braces.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the following attributes returns the same object while storing the required information on a stack to improve performance.</p>
+</div>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Attribute</p></th>
