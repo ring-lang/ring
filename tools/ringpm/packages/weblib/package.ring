@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.7",
+	:version = "1.0.8",
 	:ringversion = "1.21",
 	:versions = 	[
 		[
-			:version = "1.0.7",
+			:version = "1.0.8",
 			:branch = "master"
 		]
 	],
@@ -48,7 +48,6 @@ aPackageInfo = [
 		"libraries/weblib/lib/template.ring",
 		"libraries/weblib/lib/weblib.ring",
 		"libraries/weblib/lib/webpage.ring",
-		"libraries/weblib/lib/webpageelementsclasses.ring",
 		"libraries/weblib/README.md",
 		"libraries/weblib/run.bat",
 		"libraries/weblib/test.bat",
