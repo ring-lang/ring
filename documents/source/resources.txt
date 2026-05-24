@@ -38,6 +38,16 @@ If you have any question or would like to send a bug report
 URL: https://groups.google.com/g/ring-lang
 
 .. index:: 
+	pair: Resources; Ring Packages
+
+Ring Packages
+=============
+
+A list of Ring Packages that we can install using RingPM
+
+URL: https://ring-lang.github.io/packages.html
+
+.. index:: 
 	pair: Resources; Ring Team
 
 Ring Team
