@@ -148,7 +148,11 @@ Example:
 <a name="visual-implementation"></a>
 ## 🖌️Visual Implementation
 
-The Ring programming language is designed using the PWCT visual programming tool 
+The Ring programming language is designed using the PWCT visual programming tool.
+
+We designed the Ring compiler and VM using CPWCT, which generates ANSI C code.
+
+Using PWCT, we have full control over the generated code, ensuring it is identical to hand‑written C.
 
 <a name="smart-memory-management-system"></a>
 ## ♻️Smart Memory Management System
