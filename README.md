@@ -157,7 +157,7 @@ Using PWCT, we have full control over the generated code, ensuring it is identic
 <a name="smart-memory-management-system"></a>
 ## ♻️Smart Memory Management System
 
-It utilizes a deterministic, safe, and flexible scope-based memory management system that incorporates 
+Ring utilizes a deterministic, safe, and flexible scope-based memory management system that incorporates 
 escape analysis and optional reference counting with cycle detection. 
 
 Avoid memory problems:-
