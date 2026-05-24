@@ -407,6 +407,8 @@ without code (using natural languages) and is designed to support that.
 What are the advantages of using Ring over native C or C++?
 ===========================================================
 
+Using Ring we can compile our large programs too much faster (Since it's a dynamic language).
+
 Ring provides a better way to mix between different programming paradigms in solving problems.
 
 The different programming paradigms play well together in the same language. 
@@ -415,7 +417,7 @@ The different programming paradigms play well together in the same language.
 
 (2) The paradigms are provided to interact and used together in different layers in the software. 
 
-for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scenes your declarative or natural code will use the object-oriented classes.
+for example we can create a 2D game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scenes your declarative or natural code will use the object-oriented classes.
 
 (3) Ring is more productive and natural than C/C++.
 
@@ -427,6 +429,7 @@ for example you can create a game engine using object-oriented programming but w
 
 (7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
 
+.. note:: Ring is note designed as a replacement for C/C++. Ring is a language designed for applications development.
 
 .. index:: 
 	pair: Frequently Asked Questions; What is the difference between Ring and Python? And is Ring Open Source?
