@@ -8,6 +8,17 @@ project(ring C)
 # An option to build a static ring executable
 option(RING_STATIC "Build a static 'ring' executable." OFF)
 
+# An option to enable computed goto for the VM (GCC/Clang only)
+option(RING_COMPUTED_GOTO "Enable computed goto VM dispatch (requires GCC or Clang)." OFF)
+
+# Validate computed goto option
+if(RING_COMPUTED_GOTO)
+    if(NOT CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+        message(WARNING "RING_COMPUTED_GOTO requires GCC or Clang. Disabling.")
+        set(RING_COMPUTED_GOTO OFF)
+    endif()
+endif()
+
 # Header Files
 include_directories(include)
 
@@ -15,6 +26,16 @@ include_directories(include)
 file(GLOB SOURCES "src/*.c")
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
+
+# Add computed goto source file if enabled
+if(RING_COMPUTED_GOTO)
+    list(APPEND SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/build/vmcgoto/vmcgoto.c)
+endif()
+
+# Add compile definitions for computed goto
+if(RING_COMPUTED_GOTO)
+    add_compile_definitions(RING_VM_COMPUTEDGOTO)
+endif()
 
 # Check the Operating System
 if(WIN32)
