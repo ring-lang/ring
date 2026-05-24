@@ -1589,15 +1589,13 @@ z: 3.000000
 </section>
 <section id="can-ring-work-on-windows-xp">
 <span id="index-44"></span><h2>Can Ring work on Windows XP?<a class="headerlink" href="#can-ring-work-on-windows-xp" title="Permalink to this heading"></a></h2>
-<p>Ring can work on Windows XP and load extensions without problems.</p>
+<p>In Ring project there is no official support for Windows XP</p>
+<p>When we talk about Ring project, we mean Ring Compiler/VM, Standard Extensions/Libraries &amp; Standard Tools.</p>
+<p>But Ring as a language (Compiler/VM) is written in ANSI C, so you can build it on old operating systems including MS-DOS too.</p>
+<p>You can run it on Raspberry Pi Pico (i.e. run Ring on the metal where no operating system is installed)</p>
+<p>So, as a start, you could do this, get latest Ring Release, build it from source code on Windows XP.</p>
+<p>Ring could work on Windows XP and load extensions without problems.</p>
 <p>Just be sure that the extension can work on Windows XP and your compiler version support that (modern compilers requires some flags to support XP)</p>
-<p>Check this topic
-<a class="reference external" href="https://blogs.msdn.microsoft.com/vcblog/2012/10/08/windows-xp-targeting-with-c-in-visual-studio-2012/">https://blogs.msdn.microsoft.com/vcblog/2012/10/08/windows-xp-targeting-with-c-in-visual-studio-2012/</a></p>
-<p>For example, We added</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/link /SUBSYSTEM:CONSOLE,&quot;5.01&quot;
-</pre></div>
-</div>
-<p>To the batch files to support Windows XP</p>
 </section>
 <section id="why-we-don-t-use-after-the-qapp-class-name">
 <span id="index-45"></span><h2>Why we don’t use () after the QApp class name?<a class="headerlink" href="#why-we-don-t-use-after-the-qapp-class-name" title="Permalink to this heading"></a></h2>
