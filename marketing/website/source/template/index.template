@@ -624,7 +624,7 @@
 		The language is simple, trying to be natural, encourage organization and comes with transparent and visual implementation. 
 		It comes with compact syntax and a group of features that enable the programmer to create natural interfaces and declarative 
 		domain-specific languages in a fraction of time. It is very small, flexible and comes with smart
-		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
+		memory management system that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
 		The language is designed for productivity and developing high quality solutions that can scale.
 		
 		</p>
@@ -1394,6 +1394,10 @@ Byte Code - Before Execution by the VM
 	      <div class="panel-body">
 		  
 		  The Ring programming language is designed using the <a href="http://doublesvsoop.sourceforge.net" >PWCT visual programming tool </a>
+		  <br>
+		  We designed the Ring compiler and VM using CPWCT, which generates ANSI C code.
+		  <br>
+		  Using PWCT, we have full control over the generated code, ensuring it is identical to hand‑written C.
 		  <br><br>
 		  
 	<div class="col-xs-12">
@@ -1448,8 +1452,11 @@ Byte Code - Before Execution by the VM
 
 
        <div class="panel panel-primary" id="smartgc">
-	      <div class="panel-heading"><h4> Smart Garbage Collector </h4></div>
+	      <div class="panel-heading"><h4> Smart Memory Management System </h4></div>
 	      <div class="panel-body">
+
+		Ring utilizes a deterministic, safe, and flexible scope-based memory management system that incorporates escape analysis and optional reference counting with cycle detection.
+		<br><br>
 
 		Avoid memory problems :-
 		<br><br>
@@ -1474,8 +1481,6 @@ aList = "nice"
 			</pre>
      After the second line directly, The list [1,2,3,4,5] will be deleted from the memory and we will have a string "nice"
 	<br><br>
-		<li>The programmer can call the function callgc() to force running the garbage collector.</li>
-		<li>If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.</li>
 		</ul>
 	</div>
 	</div>
@@ -1510,7 +1515,7 @@ aList = "nice"
 		</p>
 		<p>
 		Ring can do each of the next tasks in around one second. </br> 
-		Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.21]  <br><br>
+		Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.27]  <br><br>
 		
 		(1) Compiling 200,000 lines of code <br>
 
@@ -1522,11 +1527,9 @@ aList = "nice"
 
 		(5) Printing numbers from 1 to 500,000 using output redirection and Ring Notepad <br>
 
-		(6) Adding 60,000 nodes to the TreeWidget in GUI applications <br>
+		(6) Adding 180,000 nodes to the TreeWidget in GUI applications <br>
 
-		(7) Adding 60,000 items to the ListWidget in GUI applications <br>
-
-		(8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case) <br><br>		
+		(7) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case) <br><br>		
 		
 		Also when we need more speed we can use C/C++ extensions! <br>
 		
@@ -1648,7 +1651,7 @@ aList = "nice"
 		<li>Transparent Implementation provides optional printing for Tokens/Grammar/Byte-Code during execution</li>		
 		<li>Written in ANSI C (The code is generated)</li>
 		<li>Developed using Visual Programming (PWCT)</li>
-		<li>Smart Garbage Collector suitable for Games (Automatic Memory Management using Escape Analysis and Reference Counting)</li>
+		<li>Smart Memory Management System suitable for Games (Scope Based, Escape Analysis and Optional Reference Counting)</li>
 		<li>No Global Interpreter Lock (No GIL)</li>
 		<li>Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.)</li>
 		</ul>
