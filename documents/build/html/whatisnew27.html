@@ -549,7 +549,7 @@ Write routes in Ring, run them on a Rust async runtime.</p>
 </section>
 <section id="docxlib-package">
 <span id="index-7"></span><h2>DOCXLib Package<a class="headerlink" href="#docxlib-package" title="Permalink to this heading"></a></h2>
-<p>DOCXLib is a pure-Ring library for generating Word (.docx) documents.</p>
+<p>DOCXLib is a pure-Ring library for generating and reading Word (.docx) documents.</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install docxlib
 </pre></div>
@@ -569,6 +569,7 @@ Write routes in Ring, run them on a Rust async runtime.</p>
 <li><p>Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens</p></li>
 <li><p>Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images</p></li>
 <li><p>Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)</p></li>
+<li><p>WordReader — Parse .docx files — extract content and styles; full round-trip reconstruct and save</p></li>
 </ul>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;docxlib.ring&quot;</span>
