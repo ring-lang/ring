@@ -18,6 +18,8 @@ Before you begin, ensure you have the following installed on your system:
 
 If you want to build a statically-linked executable, add the `-DRING_STATIC=ON` flag during the CMake configuration step.
 
+If you want to enable computed goto for the VM dispatcher (GCC or Clang only), add the `-DRING_COMPUTED_GOTO=ON` flag. This replaces the switch-based dispatch loop with computed goto labels, which can improve VM performance. The option is automatically disabled with a warning if the compiler does not support computed goto.
+
 **Build Steps:**
 
 1. **Create a build directory:**
@@ -34,6 +36,11 @@ If you want to build a statically-linked executable, add the `-DRING_STATIC=ON` 
       ```bash
       cmake -DRING_STATIC=ON ..
       ```
+    - On Linux/macOS (with computed goto):
+      ```bash
+      cmake -DRING_COMPUTED_GOTO=ON ..
+      ```
+      > **Note:** Computed goto requires GCC or Clang. It is ignored with a warning on other compilers.
       > **Note:** For a fully static build on Linux (with no glibc warnings), use `musl-gcc` or `clang` with musl as your compiler. This ensures the resulting binary does not depend on glibc at runtime.
     - To build a release version:
       ```bash
@@ -41,11 +48,19 @@ If you want to build a statically-linked executable, add the `-DRING_STATIC=ON` 
       # or for static release:
       cmake -DCMAKE_BUILD_TYPE=Release -DRING_STATIC=ON ..
       ```
+    - To enable computed goto for faster VM dispatch (GCC/Clang only):
+      ```bash
+      cmake -DRING_COMPUTED_GOTO=ON ..
+      # or combined with static:
+      cmake -DRING_STATIC=ON -DRING_COMPUTED_GOTO=ON ..
+      ```
     - To use Ninja:
       ```bash
       cmake .. -G Ninja
       # or for static:
       cmake .. -G Ninja -DRING_STATIC=ON
+      # or with computed goto:
+      cmake .. -G Ninja -DRING_COMPUTED_GOTO=ON
       ```
     - On Windows with Visual Studio 2022:
       ```bash
