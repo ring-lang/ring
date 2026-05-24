@@ -7,7 +7,7 @@ Performance Tips
 
 In this chapter we will learn more about the Ring performance.
 
-Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.21]
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.27]
 
 .. index:: 
      pair: Performance Tips; Introduction
@@ -24,9 +24,8 @@ Ring can do each of the following tasks in around one second.
 (3) Creating list contains 7,000,000 items then summing all of the list items
 (4) Printing numbers from 1 to 40,000 using command prompt
 (5) Printing numbers from 1 to 500,000 using output redirection and Ring Notepad
-(6) Adding 60,000 nodes to the TreeWidget in GUI applications
-(7) Adding 60,000 items to the ListWidget in GUI applications
-(8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
+(6) Adding 180,000 nodes to the TreeWidget in GUI applications
+(7) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
 Also when we need more speed we can use C/C++ extensions! 
 
@@ -42,7 +41,7 @@ Output:
 
 .. code-block:: none
 
-	1.06
+	0.83
 
 
 Example:
@@ -69,7 +68,7 @@ Output:
 
 	Create list contains 100,000 items
 	Do 3000 search operations - Find the last item (Worst Case!)
-	Time: 0.81 seconds
+	Time: 0.68 seconds
 
 Example:
 
@@ -77,7 +76,7 @@ Example:
 
 	load "guilib.ring"
 
-	C_NODESCOUNT = 60000
+	C_NODESCOUNT = 180_000
 
 	func main
 	new QApp {
@@ -157,9 +156,9 @@ Output:
 	Create the list using the Range operator
 	Time : 0.001 seconds
 	Create the list using the For loop
-	Time : 0.009 seconds
+	Time : 0.006 seconds
 	Create the list using the list() function and the For loop
-	Time : 0.012 seconds
+	Time : 0.008 seconds
 
 
 .. note:: Creating lists using the Range operator is faster than using the For loop or the list() function
@@ -177,7 +176,7 @@ Example:
 
 .. code-block:: ring
 
-	C_COUNT = 1_000_000
+	C_COUNT = 10_000_000
 
 	? "Using * operator"
 	t1 = clock()
@@ -199,13 +198,11 @@ Output:
 .. code-block:: none
 
 	Using * operator
-	Time : 0.08 seconds
+	Time : 0.43 seconds
 	Using *= operator
-	Time : 0.07 seconds
+	Time : 0.38 seconds
 
-
-.. note:: Using the *= operator is faster that using the * operator
-
+.. note:: Using the *= operator is faster than using the * operator
 
 .. index:: 
      pair: Performance Tips; Using len() and For Loops
@@ -217,7 +214,7 @@ Example:
 
 .. code-block:: ring
 
-	aList = 1:1000000
+	aList = 1:10_000_000
 
 	? "Using len() in the For loop"
 	t1 = clock()
@@ -237,9 +234,9 @@ Output:
 .. code-block:: none
 
 	Using len() in the For loop
-	Time : 0.06 seconds
+	Time : 0.34 seconds
 	Using len() before the For loop
-	Time : 0.03 seconds
+	Time : 0.17 seconds
 
 .. note:: Using len() before the For loop is faster than using len() in the For loop.
 
@@ -254,33 +251,33 @@ Example:
 
 .. code-block:: ring
 
-	? "calling 100000 functions"
+	? "calling 1000000 functions"
 	t1 = clock()
-	for x = 1 to 100000
+	for x = 1 to 1000000
 		test()
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
 	o1 = new test
 
-	? "calling 100000 methods using the dot operator"
+	? "calling 1000000 methods using the dot operator"
 	t1 = clock()
-	for x = 1 to 100000
+	for x = 1 to 1000000
 		o1.test()
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
-	? "calling 100000 methods using braces "
+	? "calling 1000000 methods using braces "
 	t1 = clock()
-	for x = 1 to 100000
+	for x = 1 to 1000000
 		o1 { test() }
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
-	? "calling 100000 methods using braces (outside the loop) "
+	? "calling 1000000 methods using braces (outside the loop) "
 	t1 = clock()
 	o1 {
-	for x = 1 to 100000
+	for x = 1 to 1000000
 		test() 
 	next
 	}
@@ -292,24 +289,23 @@ Example:
 		func test
 
 
+
 Output:
 
 .. code-block:: none
 
-	calling 100000 functions
-	Time : 0.01 seconds
-	calling 100000 methods using the dot operator
+	calling 1000000 functions
 	Time : 0.04 seconds
-	calling 100000 methods using braces 
+	calling 1000000 methods using the dot operator
+	Time : 0.08 seconds
+	calling 1000000 methods using braces
+	Time : 0.20 seconds
+	calling 1000000 methods using braces (outside the loop)
 	Time : 0.09 seconds
-	calling 100000 methods using braces (outside the loop)
-	Time : 0.03 seconds
 
 .. note:: Calling functions is faster than calling methods.
 
 .. note:: Using the dot operator to call a method is faster than using braces.
-
-.. tip:: Using braces before the for loop will be faster
 
 
 
