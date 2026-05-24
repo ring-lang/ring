@@ -183,8 +183,6 @@ Ring is designed to be a simple, lightweight, flexible and embeddable language i
 
 Also, when we need more speed we can use C/C++ extensions! 
 
-![ScreenShot](https://ring-lang.github.io/images/ringdemo4_speed.png)
-
 <a name="building-from-source-code"></a>
 # 🔧Building from source code
 
