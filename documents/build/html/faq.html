@@ -238,7 +238,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget">How to add Combobox and other elements to the cells of a QTableWidget?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget">How to perform some manipulations on selected cells in QTableWidget?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-use-sqlite-using-odbc">How to use SQLite using ODBC?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#can-i-connect-to-dbase-harbour-database">Can I connect to dbase/harbour database?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-i-connect-to-dbase-harbour-vfp-database">Can I connect to dbase/harbour/VFP database?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
@@ -2060,9 +2060,11 @@ SQLite ODBC (UTF-8) Driver - UsageCount=1
 </div>
 <p>And I’m using “SQLite3 ODBC Driver”.</p>
 </section>
-<section id="can-i-connect-to-dbase-harbour-database">
-<span id="index-56"></span><h2>Can I connect to dbase/harbour database?<a class="headerlink" href="#can-i-connect-to-dbase-harbour-database" title="Permalink to this heading"></a></h2>
-<p>You can connect to any database using ODBC</p>
+<section id="can-i-connect-to-dbase-harbour-vfp-database">
+<span id="index-56"></span><h2>Can I connect to dbase/harbour/VFP database?<a class="headerlink" href="#can-i-connect-to-dbase-harbour-vfp-database" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>You can connect to any database using ODBC</p></li>
+</ol>
 <p>To connect to xbase files (<a href="#id21"><span class="problematic" id="id22">*</span></a>.DBF)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s2">&quot;Using DBF Files using ODBC&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="nf">odbc_init</span><span class="p">()</span>
@@ -2115,6 +2117,46 @@ Mahmoud - Egypt - 123456 - Close database...
 <span class="k">See</span> <span class="s2">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
 <span class="nf">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 <span class="nf">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(2) DBFLib package is a pure Ring library for reading, writing, and maintaining
+Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install dbflib
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;dbflib.ring&quot;</span>
+
+<span class="n">aFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>      <span class="s2">&quot;N&quot;</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>    <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span>  <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>  <span class="s2">&quot;L&quot;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>   <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
+        <span class="nf">create</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">,</span> <span class="n">aFields</span><span class="p">)</span>
+        <span class="nf">append</span><span class="p">()</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>     <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>   <span class="s2">&quot;Ahmed Al-Rashid&quot;</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span> <span class="mf">85000.50</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>  <span class="s2">&quot;Senior developer, joined 2023.&quot;</span><span class="p">)</span>
+        <span class="nf">close</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
+        <span class="nf">open</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">)</span>
+        <span class="nf">goTop</span><span class="p">()</span>
+        <span class="k">while</span> <span class="o">!</span> <span class="nf">isEof</span><span class="p">()</span>
+                <span class="o">?</span> <span class="nb">trim</span><span class="p">(</span><span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">)</span>
+                <span class="nf">skip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="nf">close</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>

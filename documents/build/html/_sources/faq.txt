@@ -2456,12 +2456,12 @@ And I'm using "SQLite3 ODBC Driver".
 
 
 .. index:: 
-	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
+	pair: Frequently Asked Questions; Can I connect to dbase/harbour/VFP database?
 
-Can I connect to dbase/harbour database?
-========================================
+Can I connect to dbase/harbour/VFP database?
+============================================
 
-You can connect to any database using ODBC
+(1) You can connect to any database using ODBC
 
 To connect to xbase files (*.DBF)
 
@@ -2524,3 +2524,49 @@ Also you can connect to a Visual FoxPro database (requires installing Visual Fox
 	See "Close database..." + nl
 	odbc_disconnect(pODBC)
 	odbc_close(pODBC)
+
+(2) DBFLib package is a pure Ring library for reading, writing, and maintaining 
+Visual FoxPro .dbf database files and their companion .fpt memo files.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install dbflib
+
+Example:
+
+.. code-block:: ring
+
+	load "dbflib.ring"
+
+	aFields = [
+		["ID",      "N",  6, 0],
+		["NAME",    "C", 40, 0],
+		["SALARY",  "N", 12, 2],
+		["ACTIVE",  "L",  1, 0],
+		["NOTES",   "M", 10, 0]   
+	]
+
+	new DBFFile {
+		create("employees.dbf", aFields)
+		append()
+		replace("ID",     1)
+		replace("NAME",   "Ahmed Al-Rashid")
+		replace("SALARY", 85000.50)
+		replace("ACTIVE", true)
+		replace("NOTES",  "Senior developer, joined 2023.")
+		close()
+	}
+
+	new DBFFile {
+		open("employees.dbf")
+		goTop()
+		while ! isEof()
+			? trim(fieldGet("NAME")) + " - " + fieldGet("SALARY")
+			? fieldGet("NOTES")
+			skip(1)
+		end
+		close()
+	}
+
