@@ -20,7 +20,7 @@
 - [🏗️Implementation](#implementation)
   * [🔍Transparent Implementation](#transparent-implementation)
   * [🖌️Visual Implementation](#visual-implementation)
-  * [🗑️Smart Garbage Collector](#smart-garbage-collector)
+  * [♻️Smart Memory Management System](#smart-memory-management-system)
   * [🔓No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock---no-gil)
   * [🚀Fast Enough For Many Applications](#fast-enough-for-many-applications)
 - [🔧Building from source code](#building-from-source-code)
@@ -28,6 +28,7 @@
 - [📜License](#license)
 
 
+<a name="welcome-to-ring"></a>
 # 📜Welcome to Ring
 
 Ring is a practical general-purpose multi-paradigm dynamic programming language for developing applications, tools, and domain-specific languages.
@@ -39,6 +40,7 @@ Console, GUI, Web, Games, and Mobile applications.
 
 The language is designed to be Simple, Lightweight, Flexible and Embeddable. 
 
+<a name="get-excited"></a>
 # 🎉Get Excited
 
 Ring comes with better support for Natural Language Programming and Declarative Programming. 
@@ -61,22 +63,26 @@ You get the language constructs ready for use to create domain-specific language
 
 * [Programming Without Coding Technology](https://pwct.github.io)
 
+<a name="batteries-included"></a>
 # 🔋Batteries Included
 
 Ring comes with many high quality bindings for popular libraries 
 
 ![ScreenShot](https://ring-lang.github.io/images/libs.png)
 
+<a name="practical"></a>
 # ⚙️Practical
 
 Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself. Ring is ready for use in production and increases the developers productivity. 
 
+<a name="custom-styles-and-modern-programming-paradigms"></a>
 ## 🎨Custom Styles And Modern Programming Paradigms
 
 Using Ring you will feel that the language is yours! A lot of modern programming paradigms are ready for use in production and using Natural Language Programming you can quickly integrate natural interfaces to your programs. 
 
 Also, you can start your software development by writing natural descriptions, then adding the implementation later. 
 
+<a name="gui-applications-development-and-rad-tools"></a>
 ## 🖥️GUI Applications Development And RAD Tools
 
 Many developers reported that using Ring we can develop many GUI applications in a few hours. 
@@ -85,6 +91,7 @@ Also, using the same source code we can distribute our applications for Desktop,
 
 ![ScreenShot](https://ring-lang.github.io/images/newringdemo6.png)
 
+<a name="first-class-support-for-game-development"></a>
 ## 🎮First Class Support For Game Development
 
 We believe in Games as a nice way to encourage people to learn to program.
@@ -94,12 +101,14 @@ Also, Ring comes with a simple game engine for 2D game development using Declara
 
 ![ScreenShot](https://ring-lang.github.io/images/ringdemo13.png)
 
+<a name="webassembly-front-end-web-development"></a>
 ## 🌐WebAssembly (Front-End Web Development)
 
 Using Ring we can quickly develop web applications using WebAssembly (Binary format that allows sand-boxed executable code in web pages. This format is nearly as fast as native machine code and is now supported by all major web browsers) 
 
 ![ScreenShot](https://ring-lang.github.io/images/wasm_demo4.png)
 
+<a name="back-end-web-development"></a>
 ## 🖧Back-End Web Development
 
 Using Ring we can quickly develop web applications using the MVC design pattern. 
@@ -108,12 +117,14 @@ Also, we can generate HTML code from Ring programs using Declarative Programming
 
 ![ScreenShot](https://ring-lang.github.io/images/mycoffee.png)
 
+<a name="mobile-development"></a>
 ## 📱Mobile Development
 
 Using Ring we can distribute our applications for mobile platforms (Android, iOS, etc.)
 
 ![ScreenShot](https://ring-lang.github.io/images/android_demo1.png)
 
+<a name="building-tools-command-line"></a>
 ## 🛠️Building Tools (Command Line)
 
 Using Ring we can whip up a CLI tool quickly and distribute it with ease. 
@@ -122,9 +133,11 @@ We recorded the development time (21 hours of development includes explaining ea
 
 ![ScreenShot](https://ring-lang.github.io/images/cmddemo2.png)
 
+<a name="implementation"></a>
 # 🏗️Implementation
 
-## 🔍Transparent Implementation 
+<a name="transparent-implementation"></a>
+## 🔍Transparent Implementation
 
 Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine 
 
@@ -132,11 +145,16 @@ Example:
 
 	ring helloworld.ring -tokens -rules -ic -norun
 
+<a name="visual-implementation"></a>
 ## 🖌️Visual Implementation
 
 The Ring programming language is designed using the PWCT visual programming tool 
 
-## 🗑️Smart Garbage Collector
+<a name="smart-memory-management-system"></a>
+## ♻️Smart Memory Management System
+
+It utilizes a deterministic, safe, and flexible scope-based memory management system that incorporates 
+escape analysis and optional reference counting with cycle detection. 
 
 Avoid memory problems:-
 
@@ -145,6 +163,7 @@ Avoid memory problems:-
     Uninitialized Memory Access
     Dangling pointer
 
+<a name="no-global-interpreter-vm-lock---no-gil"></a>
 ## 🔓No Global Interpreter (VM) Lock - No GIL
 
 When we use threads in Ring applications, We don't have a global interpreter (VM) lock (No GIL)
@@ -153,6 +172,7 @@ So threads can work in parallel and execute Ring instructions at the same time
 
 This is better for threads and concurrency (More Faster!) 
 
+<a name="fast-enough-for-many-applications"></a>
 ## 🚀Fast Enough For Many Applications
 
 Ring is designed to be a simple, lightweight, flexible and embeddable language in the first place, but also it is fast enough for many applications.
@@ -161,6 +181,7 @@ Also, when we need more speed we can use C/C++ extensions!
 
 ![ScreenShot](https://ring-lang.github.io/images/ringdemo4_speed.png)
 
+<a name="building-from-source-code"></a>
 # 🔧Building from source code
 
 We provide instructions for building on the next platforms:-
@@ -171,6 +192,7 @@ We provide instructions for building on the next platforms:-
 
 -  [macOS](language/README_macOS.md)
 
+<a name="publications"></a>
 # 📚Publications
 
 * [Prompt-Driven Development with Claude Code: Developing a TUI Framework for the Ring Programming Language](https://www.mdpi.com/2079-9292/15/4/903)
@@ -178,6 +200,7 @@ We provide instructions for building on the next platforms:-
 * [Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming](https://www.mdpi.com/2079-9292/13/23/4627)
 * [Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications](https://arxiv.org/abs/2509.20426) 
 
+<a name="license"></a>
 # 📜License 
 
 The Ring programming language is distributed under the MIT License.
