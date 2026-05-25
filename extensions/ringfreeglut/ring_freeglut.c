@@ -917,7 +917,7 @@ RING_FUNC(ring_glutDisplayFunc)
 			RING_API_ERROR(C_CALLBACKCODESIZERROR);
 			return;
 		}
-		strcpy(cDisplayFunction, RING_API_GETSTRING(1) ) ;
+		strncpy(cDisplayFunction, RING_API_GETSTRING(1), 255) ; cDisplayFunction[255] = '\0' ;
 		pRingVMObject = (VM *) pPointer ;
 		glutDisplayFunc(displayFunction);
 	}
@@ -943,7 +943,7 @@ RING_FUNC(ring_glutReshapeFunc)
 			RING_API_ERROR(C_CALLBACKCODESIZERROR);
 			return;
 		}
-		strcpy(cReshapeFunction, RING_API_GETSTRING(1) ) ;
+		strncpy(cReshapeFunction, RING_API_GETSTRING(1), 255) ; cReshapeFunction[255] = '\0' ;
 		pRingVMObject = (VM *) pPointer ;
 		glutReshapeFunc(reshapeFunction);
 	}
@@ -975,7 +975,7 @@ RING_FUNC(ring_glutIdleFunc)
 			RING_API_ERROR(C_CALLBACKCODESIZERROR);
 			return;
 		}
-		strcpy(cIdleFunction, RING_API_GETSTRING(1) ) ;
+		strncpy(cIdleFunction, RING_API_GETSTRING(1), 255) ; cIdleFunction[255] = '\0' ;
 		pRingVMObject = (VM *) pPointer ;
 		glutIdleFunc(IdleFunction);
 	}
@@ -1000,7 +1000,7 @@ RING_FUNC(ring_glutKeyboardFunc)
 			RING_API_ERROR(C_CALLBACKCODESIZERROR);
 			return;
 		}
-		strcpy(cKeyboardFunction, RING_API_GETSTRING(1) ) ;
+		strncpy(cKeyboardFunction, RING_API_GETSTRING(1), 255) ; cKeyboardFunction[255] = '\0' ;
 		pRingVMObject = (VM *) pPointer ;
 		glutKeyboardFunc(KeyboardFunction);
 	}
@@ -1025,7 +1025,7 @@ RING_FUNC(ring_glutSpecialFunc)
 			RING_API_ERROR(C_CALLBACKCODESIZERROR);
 			return;
 		}
-		strcpy(cSpecialFunction, RING_API_GETSTRING(1) ) ;
+		strncpy(cSpecialFunction, RING_API_GETSTRING(1), 255) ; cSpecialFunction[255] = '\0' ;
 		pRingVMObject = (VM *) pPointer ;
 		glutSpecialFunc(SpecialFunction);
 	}
