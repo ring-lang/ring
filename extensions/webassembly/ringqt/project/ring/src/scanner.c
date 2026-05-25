@@ -614,15 +614,19 @@ void ring_scanner_changekeyword(Scanner *pScanner) {
 	    (strcmp(ring_string_get(word2), RING_CSTR_EMPTY) == 0)) {
 		puts(RING_WARNING_CHANGEKEYWORDPARA);
 	} else {
-		nResult = ring_hashtable_findnumber_gc(
-		    pScanner->pRingState, ring_list_gethashtable(pScanner->pKeywords), ring_string_get(word1));
-		if (nResult > 0) {
-			ring_list_setstring_gc(pScanner->pRingState, pScanner->pKeywords, nResult,
-					       ring_string_get(word2));
-			ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pKeywords);
+		if (ring_string_size(word2) > RING_SCANNER_MAXKEYOPSIZE) {
+			puts(RING_WARNING_LONGKEYOP);
 		} else {
-			puts(RING_WARNING_KEYWORDNOTFOUND);
-			printf("Keyword :  %s\n", ring_string_get(word1));
+			nResult = ring_hashtable_findnumber_gc(
+			    pScanner->pRingState, ring_list_gethashtable(pScanner->pKeywords), ring_string_get(word1));
+			if (nResult > 0) {
+				ring_list_setstring_gc(pScanner->pRingState, pScanner->pKeywords, nResult,
+						       ring_string_get(word2));
+				ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pKeywords);
+			} else {
+				puts(RING_WARNING_KEYWORDNOTFOUND);
+				printf("Keyword :  %s\n", ring_string_get(word1));
+			}
 		}
 	}
 	/* Delete Strings */
@@ -663,15 +667,19 @@ void ring_scanner_changeoperator(Scanner *pScanner) {
 	    (strcmp(ring_string_get(word2), RING_CSTR_EMPTY) == 0)) {
 		puts(RING_WARNING_CHANGEOPERATORPARA);
 	} else {
-		nResult = ring_hashtable_findnumber_gc(
-		    pScanner->pRingState, ring_list_gethashtable(pScanner->pOperators), ring_string_get(word1));
-		if (nResult > 0) {
-			ring_list_setstring_gc(pScanner->pRingState, pScanner->pOperators, nResult,
-					       ring_string_get(word2));
-			ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pOperators);
+		if (ring_string_size(word2) > RING_SCANNER_MAXKEYOPSIZE) {
+			puts(RING_WARNING_LONGKEYOP);
 		} else {
-			puts(RING_WARNING_OPERATORNOTFOUND);
-			printf("Operator :  %s\n", ring_string_get(word1));
+			nResult = ring_hashtable_findnumber_gc(
+			    pScanner->pRingState, ring_list_gethashtable(pScanner->pOperators), ring_string_get(word1));
+			if (nResult > 0) {
+				ring_list_setstring_gc(pScanner->pRingState, pScanner->pOperators, nResult,
+						       ring_string_get(word2));
+				ring_list_genhashtable_gc(pScanner->pRingState, pScanner->pOperators);
+			} else {
+				puts(RING_WARNING_OPERATORNOTFOUND);
+				printf("Operator :  %s\n", ring_string_get(word1));
+			}
 		}
 	}
 	/* Delete Strings */

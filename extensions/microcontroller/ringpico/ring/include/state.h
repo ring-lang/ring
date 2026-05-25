@@ -97,6 +97,7 @@ typedef struct RingState {
 #define RING_WARNING_OPERATORNOTFOUND "Warning (W6) : Compiler command ChangeRingOperator - Operator not found!"
 #define RING_WARNING_EXITOUTSIDELOOP "Warning (W7) : Using the EXIT command outside loop!"
 #define RING_WARNING_LOOPOUTSIDELOOP "Warning (W8) : Using the LOOP command outside loop"
+#define RING_WARNING_LONGKEYOP "Warning (W9) : Long Keyword/Operator, Maximum size is 120 characters"
 #define RING_MSG_PRINTRULES "Grammar Rules Used by The Parser "
 #define RING_MSG_PROGRAMRULE "\nRule : Program --> {Statement}\n\nLine 1\n"
 #define RING_CGI_START "Content-Type: text/plain\n\n"
