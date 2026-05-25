@@ -13,18 +13,19 @@
 #include <GL/freeglut.h>
 </filter>
 
+#define C_CALLBACKCODESIZE 256
 
 VM *pRingVMObject ;
-char cDisplayFunction[250];
-char cReshapeFunction[250];
-char cIdleFunction[250];
-char cKeyboardFunction[250];
-char cSpecialFunction[250];
-char cSpecialUpFunction[250];
-char cMouseFunction[250];
-char cMotionFunction[250];
-char cMenuStatusFunction[250];
-char cCloseFunction[250];
+char cDisplayFunction[C_CALLBACKCODESIZE];
+char cReshapeFunction[C_CALLBACKCODESIZE];
+char cIdleFunction[C_CALLBACKCODESIZE];
+char cKeyboardFunction[C_CALLBACKCODESIZE];
+char cSpecialFunction[C_CALLBACKCODESIZE];
+char cSpecialUpFunction[C_CALLBACKCODESIZE];
+char cMouseFunction[C_CALLBACKCODESIZE];
+char cMotionFunction[C_CALLBACKCODESIZE];
+char cMenuStatusFunction[C_CALLBACKCODESIZE];
+char cCloseFunction[C_CALLBACKCODESIZE];
 int nGLUTEventWidth ;
 int nGLUTEventHeight ;
 int nGLUTEventKey ;
