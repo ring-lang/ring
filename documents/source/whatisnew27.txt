@@ -849,6 +849,7 @@ Better Extensions
 * RingLibSDL Extension - Removed SDL_GetRevisionNumber()
 * RingStbImage - stbi_load functions - Better Implementation
 * RingSQLite - Added Parameterized Query Support
+* RingFreeGLUT - Check event string size before usage
 
 The next samples are added to demonstrates some of the new features
 
