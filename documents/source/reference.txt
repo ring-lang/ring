@@ -467,6 +467,7 @@ Compiler Errors
 * Warning (W6) : Compiler command ChangeRingOperator - Operator not found!
 * Warning (W7) : Using the EXIT command outside loop!
 * Warning (W8) : Using the LOOP command outside loop!
+* Warning (W9) : Long Keyword/Operator, Maximum size is 120 characters
 
 .. index:: 
 	pair: Language Specification; Runtime Errors

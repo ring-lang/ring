@@ -1129,6 +1129,7 @@ More Improvements
 * Ring for Android - Avoid setting RING_SIMPLEHASHFUNC 
 * Ring Compiler - Detect unclosed comment error
 * Ring Compiler - Check filename size before loading
+* Ring Compiler - Maximum size for keyword/operator (120 characters)
 * Ring VM - ring_general_justfilename() - Better Code
 * Ring VM - ring_list_sortnum_gc() - Better Performance
 * Ring VM - ring_list_sortstr_gc() - Better Performance
