@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "ringvisualsrc",
 		:branch = "master",
-		:version = "1.26",
+		:version = "1.27",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringsrc",
 		:branch = "master",
-		:version = "1.26",
+		:version = "1.27",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
