@@ -36,7 +36,12 @@ Ring 1.26 comes with the next features!
 Tank3D Game
 ===========
 
-Folder: ring/applications/tank3d
+Install:
+
+.. code-block:: none
+
+	ringpm install tank3d
+
 
 The Tank3D Game (12 Levels)
 
@@ -50,7 +55,11 @@ The Tank3D Game (12 Levels)
 DaveTheFighter Game
 ===================
 
-Folder: ring/applications/davethefighter
+Install:
+
+.. code-block:: none
+
+	ringpm install davethefighter
 
 .. image:: davethefighter_shot1.png
 	:alt: Dave The Fighter Shot1
@@ -64,7 +73,11 @@ Folder: ring/applications/davethefighter
 LineDrawing3D Game
 ==================
 
-Folder: ring/applications/linedrawing3d
+Install:
+
+.. code-block:: none
+
+	ringpm install linedrawing3d
 
 .. image:: linedrawing3d_shot1.png
 	:alt: Line Drawing 3D Shot1
@@ -78,7 +91,11 @@ Folder: ring/applications/linedrawing3d
 CodeRooms3D Game
 ================
 
-Folder: ring/applications/coderooms3d
+Install:
+
+.. code-block:: none
+
+	ringpm install coderooms3d
 
 The player is trapped in a world of rooms separated by closed doors.
 
