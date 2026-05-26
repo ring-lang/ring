@@ -10,9 +10,10 @@ func testpdf
 			script(scriptredirection( "demo.pdf" ))
 		}
 
-#======================================
+#================================================
 # Deprecated (Uses wkhtmltopdf.exe)
-#======================================
+# To install: ringpm install weblibtools
+#================================================
 
 func testPDFUsingHTML2PDF
 
