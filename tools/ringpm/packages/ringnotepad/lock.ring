@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "ringnotepad",
 		:branch = "master",
-		:version = "1.0.30",
+		:version = "1.0.31",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -86,7 +86,7 @@ aLockInfo = [
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.42",
+		:version = "1.0.43",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -107,14 +107,14 @@ aLockInfo = [
 	[
 		:name = "ringqtruntime",
 		:branch = "master",
-		:version = "1.0.32",
+		:version = "1.0.33",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "guilib",
 		:branch = "master",
-		:version = "1.0.28",
+		:version = "1.0.29",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
