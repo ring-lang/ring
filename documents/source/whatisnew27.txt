@@ -906,7 +906,7 @@ Over 62,000 lines of code automatically  generated using Claude Code for the Rin
 	:alt: RayLib Samples
 
 This collection serves three purposes at once. First, it was born as a stress test of 
-Claude Code — each app and game was built during hands-on experimentation to explore 
+using Claude Code to develop RingRayLib games — each app and game was built during hands-on experimentation to explore 
 what the tool is genuinely capable of, from simple clocks to shooters. Second, the samples 
 double as a living test suite for the Ring language and RingRayLib themselves — using 
 Claude Code to generate diverse programs is an effective way to surface edge cases, 
