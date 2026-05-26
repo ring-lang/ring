@@ -332,14 +332,15 @@ The Ring language comes with the next features
 * RingHTTPLib Extension
 * RingFastPro Extension
 * RingRogueUtil Extension
-* RingPDFGen
+* RingPDFGen Extension
 * RingPico - Support Raspberry Pi Pico Microcontroller
-* No Global Interpreter Lock (Enables true parallelism for faster multi-threaded execution)
-* Comes with RingPM (Package Manager)
-* RingPM GUI 
-* RingFmt (Source code formatter and beautifier)
+* No Global Interpreter Lock (Enables true parallelism)
+* Source code formatter (RingFmt)
+* Comes with Package Manager (RingPM)
+* Package Manager GUI
+* Many RingPM packages  
 * Many Samples and Applications
-* Complete Documentation.
+* Complete Documentation
 
 License
 =======
