@@ -1,7 +1,7 @@
 func main
 	? "Removing Samples"
 	cDir = CurrentDir()
-	chdir(exefolder())
+	chdir(exefolder()+"../")
 	OSDeleteFolder("samples")
 	chdir(cDir)
 
