@@ -248,3 +248,8 @@ real-world example.
    use, this organizational pattern protects against name collisions. Specifically, it keeps
    local variables inside functions, class attributes, and global variables defined within
    PDFLib isolated from global variables defined outside the library.
+
+.. tip::
+
+   If the constants defined in ``constants.rh`` are not used within the library itself,
+   loading it a second time with the ``load again`` command can be skipped.
