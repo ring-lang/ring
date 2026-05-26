@@ -14,5 +14,5 @@ To quickly install and run the game using the Ring Package Manager
 
 # Screen Shot
 
-![tank3d](https://raw.githubusercontent.com/ring-lang/ring/master/applications/tank3d/tank3d.png)
+![tank3d](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/tank3d/tank3d.png)
 

@@ -14,8 +14,8 @@ To quickly install and run the game using the Ring Package Manager
 
 # Screen Shot
 
-![linedrawing3d](https://raw.githubusercontent.com/ring-lang/ring/master/applications/linedrawing3d/image/linedrawing3d_shot1.png)
+![linedrawing3d](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/linedrawing3d/image/linedrawing3d_shot1.png)
 
-![linedrawing3d](https://raw.githubusercontent.com/ring-lang/ring/master/applications/linedrawing3d/image/linedrawing3d_shot2.png)
+![linedrawing3d](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/linedrawing3d/image/linedrawing3d_shot2.png)
 
-![linedrawing3d](https://raw.githubusercontent.com/ring-lang/ring/master/applications/linedrawing3d/image/linedrawing3d_shot3.png)
+![linedrawing3d](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/linedrawing3d/image/linedrawing3d_shot3.png)

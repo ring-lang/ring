@@ -14,11 +14,11 @@ To quickly install and run the game using the Ring Package Manager
 
 # Screen Shots
 
-![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/applications/davethefighter/shots/daveworld1.png)
+![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/davethefighter/shots/daveworld1.png)
 
-![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/applications/davethefighter/shots/daveworld2.png)
+![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/davethefighter/shots/daveworld2.png)
 
-![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/applications/davethefighter/shots/daveworld3.png)
+![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/davethefighter/shots/daveworld3.png)
 
-![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/applications/davethefighter/shots/daveworld4.png)
+![davethefighter](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/davethefighter/shots/daveworld4.png)
 

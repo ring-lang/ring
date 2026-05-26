@@ -14,5 +14,5 @@ To quickly install and run the game using the Ring Package Manager
 
 # Screen Shot
 
-![coderooms3d](https://raw.githubusercontent.com/ring-lang/ring/master/applications/coderooms3d/coderooms3d.png)
+![coderooms3d](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingAI/UsingClaude/games/coderooms3d/coderooms3d.png)
 
