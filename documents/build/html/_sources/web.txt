@@ -2136,7 +2136,6 @@ BootStrapWebPage	None		Create new object from the BootStrapWebPage Class
 HTMLSpecialChars	cString		Encode Special characters to HTML equivalent
 Template		cFile,oObject	Execute Ring Code in cFile after accessing oObject using {}
 Alert 			cMessage	Generate HTML Web Page that display cMessage using JavaScript Alert()
-HTML2PDF		cString		Generate and Display PDF File from HTML String (cString)
 =====================	=============	=====================================================================
 
 The System.Web Package contains the next classes
@@ -2149,7 +2148,6 @@ Page			Contains methods to generate HTML pages.
 ScriptFunctions		Contains methods to generate some JavaScript Functions.
 StyleFunctions		Contains methods to generate CSS.
 PageBuffer		Generate HTML Page in memory (don't print the output).
-HTML2PDF		Generate PDF File from HTML code.
 BootStrapPage		Using BootStrap Library.
 WebPage			Generate page using objects for each element.
 HtmlPage		Like WebPage but doesn't print the output to stdout.
