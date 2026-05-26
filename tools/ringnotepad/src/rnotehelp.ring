@@ -3,10 +3,23 @@
 
 class RNoteHelp
 
-	func OpenCHM
-		cFile = substr(exefolder(),"\","/")+"../documents/ring.chm"
+	func DocumentationFileFullPath cFile
+		cFile = substr(exefolder(),"\","/")+"../documents/" + cFile
 		cFile = substr(cFile,"/bin/../","/")
-		if fexists(cFile)
+		return cFile
+
+	func CheckDocmentationFile cFile
+		return fexists(DocumentationFileFullPath(cFile))
+
+	func CheckCHMFile
+		return CheckDocmentationFile("ring.chm")
+
+	func CheckPDFFile
+		return CheckDocmentationFile("ring.pdf")
+
+	func OpenCHM
+		cFile = DocumentationFileFullPath("ring.chm")
+		if CheckCHMFile()
 			new QDesktopServices {
 				OpenURL(new qURL("file:///"+cFile) )
 			}
@@ -17,9 +30,8 @@ class RNoteHelp
 		ok
 
 	func OpenPDF
-		cFile = substr(exefolder(),"\","/")+"../documents/ring.pdf"
-		cFile = substr(cFile,"/bin/../","/")
-		if fexists(cFile)
+		cFile = DocumentationFileFullPath("ring.pdf")
+		if CheckPDFFile()
 			new QDesktopServices {
 				OpenURL(new qURL("file:///"+cFile) )
 			}
