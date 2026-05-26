@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "weblib",
 		:branch = "master",
-		:version = "1.0.8",
+		:version = "1.0.9",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -80,13 +80,6 @@ aLockInfo = [
 		:name = "ringpostgresql",
 		:branch = "master",
 		:version = "1.0.8",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "weblibtools",
-		:branch = "master",
-		:version = "1.0.0",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]

@@ -325,9 +325,6 @@ aAllPackagesInfo = [
 	:ringqtruntime = 	[
 		"ringqt"
 	],
-	:weblibtools = 	[
-		"weblib"
-	],
 	["Chess3D-Qt3D" ,	[
 
 	] ],

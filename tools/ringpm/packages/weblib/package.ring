@@ -5,22 +5,17 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.8",
+	:version = "1.0.9",
 	:ringversion = "1.21",
 	:versions = 	[
 		[
-			:version = "1.0.8",
+			:version = "1.0.9",
 			:branch = "master"
 		]
 	],
 	:libs = 	[
 		[
 			:name = "stdlib",
-			:version = "1.0",
-			:providerusername = ""
-		],
-		[
-			:name = "weblibtools",
 			:version = "1.0",
 			:providerusername = ""
 		]
