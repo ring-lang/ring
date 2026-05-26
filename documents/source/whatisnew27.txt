@@ -1004,16 +1004,23 @@ More Samples
 
 (2) The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder
 
-(3) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
+(3) The next games are moved from ring/applications to samples/UsingAI/UsingClaude/games folder
 
-(4) The next samples are revised
+* Tank3D
+* DaveTheFighter
+* LineDrawing3D
+* CodeRooms3D
+
+(4) Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures
+
+(5) The next samples are revised
 
 * samples/UsingLibCurl/test12.ring
 * samples/UsingLibCurl/test13.ring
 * samples/UsingQt/TableWidget/QTableWidget.ring
 * samples/UsingQt/PrintPreview/reportusingweblib.ring 
 
-(5) The next samples are added to the samples foder:
+(6) The next samples are added to the samples foder:
 
 * samples/Language/ClassMethods/nestedanonymous.ring
 * samples/Language/EnumConstant/EnumConstantTest.ring
@@ -1122,6 +1129,7 @@ Also, the Code Generator for Extensions is revised to support the added features
 More Improvements
 =================
 
+* Better Documentation - Chapter: Program Structure
 * language/build/locatevc.bat - Added: VS 2026 Community Edition support
 * language/build/buildgccstatic.bat - Build ringw.exe too
 * language/build/builddos.bat - Set stack size to 64K
