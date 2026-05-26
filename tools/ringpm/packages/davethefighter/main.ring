@@ -4,9 +4,9 @@ func main
 	? "DaveTheFighter Package"
 	? copy("=",C_LINESIZE)
 	? "DaveTheFighter package for the Ring programming language"
-	? "See the folder : ring/applications/davethefighter"
+	? "See the folder : ring/samples/UsingAI/UsingClaude/games/davethefighter"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/davethefighter")
+	chdir(exefolder()+"/../samples/UsingAI/UsingClaude/games/davethefighter")
 	system("ring davethefighter.ring")
 	chdir(cDir)
