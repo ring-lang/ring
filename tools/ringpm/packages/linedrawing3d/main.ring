@@ -4,9 +4,9 @@ func main
 	? "LineDrawing3D Package"
 	? copy("=",C_LINESIZE)
 	? "LineDrawing3D package for the Ring programming language"
-	? "See the folder : ring/applications/linedrawing3d"
+	? "See the folder : ring/samples/UsingAI/UsingClaude/games/linedrawing3d"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/linedrawing3d")
+	chdir(exefolder()+"/../samples/UsingAI/UsingClaude/games/linedrawing3d")
 	system("ring linedrawing3d.ring")
 	chdir(cDir)
