@@ -7,6 +7,12 @@ Graphics Programming using RingQt3D
 
 In this chapter we will learn how to use Qt3D through many samples.
 
+To install the samples in this chapter using RingPM
+
+.. code-block:: none
+
+	ringpm install ringqt3dsamples
+
 
 .. index:: 
 	pair: Using Qt3D; Drawing Cube
