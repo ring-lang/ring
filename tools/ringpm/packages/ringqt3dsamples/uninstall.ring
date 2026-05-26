@@ -1,8 +1,8 @@
 func main
 	? "Removing Samples"
 	cDir = CurrentDir()
-	chdir(exefolder())
-	OSDeleteFolder("samples")
+	chdir(exefolder()+"../samples")
+	OSDeleteFolder("UsingQt3D")
 	chdir(cDir)
 
 func OSDeleteFolder cFolder 
