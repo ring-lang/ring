@@ -2,6 +2,20 @@ Import System.Web
 
 func testpdf
 
+		New Page
+		{
+			// We can use a Ring library/extension to generate a PDF file
+			// demo.pdf is generated using Ring code (One of PDFLib Package samples)
+			// To install: ringpm install pdflib 
+			script(scriptredirection( "demo.pdf" ))
+		}
+
+#======================================
+# Deprecated (Uses wkhtmltopdf.exe)
+#======================================
+
+func testPDFUsingHTML2PDF
+
 	New HTML2PDF
 	{
 		filepath  = cPDFPath
