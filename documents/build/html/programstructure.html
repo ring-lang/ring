@@ -68,6 +68,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-many-source-code-files">Using Many Source Code Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#load-package">Load Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#load-again">Load Again</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-search-order-and-library-conventions">File Search Order and Library Conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-search-order">File Search Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-structure">Library Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-files-rh">Header Files (<code class="docutils literal notranslate"><span class="pre">*.rh</span></code>)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
@@ -346,6 +352,44 @@ Hello from testloadpackage.ring
                 <span class="k">off</span>
 </pre></div>
 </div>
+</section>
+<section id="file-search-order-and-library-conventions">
+<span id="index-5"></span><h2>File Search Order and Library Conventions<a class="headerlink" href="#file-search-order-and-library-conventions" title="Permalink to this heading"></a></h2>
+<section id="file-search-order">
+<h3>File Search Order<a class="headerlink" href="#file-search-order" title="Permalink to this heading"></a></h3>
+<p>When loading a file, Ring searches the following directories in order, stopping at the first match:</p>
+<ol class="arabic simple">
+<li><p>The directory of the calling file</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ring/bin</span></code> directory</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ring/bin/load</span></code> directory</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">ring/bin</span></code> directory directly is not recommended.</p>
+</div>
+</section>
+<section id="library-structure">
+<h3>Library Structure<a class="headerlink" href="#library-structure" title="Permalink to this heading"></a></h3>
+<p>Ring libraries follow a conventional layout:</p>
+<ul class="simple">
+<li><p>Most libraries place their main loader file in <code class="docutils literal notranslate"><span class="pre">ring/bin/load</span></code>.</p></li>
+<li><p>Most library source files reside in the <code class="docutils literal notranslate"><span class="pre">ring/libraries</span></code> directory.</p></li>
+<li><p>The loader in <code class="docutils literal notranslate"><span class="pre">ring/bin/load</span></code> calls a main library file located at
+<code class="docutils literal notranslate"><span class="pre">ring/libraries/&lt;LIBRARY_FOLDER&gt;/</span></code>.</p></li>
+<li><p>The main file inside <code class="docutils literal notranslate"><span class="pre">ring/libraries/&lt;LIBRARY_FOLDER&gt;/</span></code> is expected to use
+the <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">package</span></code> command.</p></li>
+</ul>
+</section>
+<section id="header-files-rh">
+<h3>Header Files (<code class="docutils literal notranslate"><span class="pre">*.rh</span></code>)<a class="headerlink" href="#header-files-rh" title="Permalink to this heading"></a></h3>
+<p>Library constants are commonly defined in <code class="docutils literal notranslate"><span class="pre">*.rh</span></code> files rather than <code class="docutils literal notranslate"><span class="pre">*.ring</span></code> files.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">*.rh</span></code> file may be loaded twice:</p>
+<ol class="arabic simple">
+<li><p><strong>First load</strong> — in the main global scope, using the <code class="docutils literal notranslate"><span class="pre">load</span></code> command.</p></li>
+<li><p><strong>Second load</strong> — in another global scope (from the file invoked via <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">package</span></code>),
+using the <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">again</span></code> command.</p></li>
+</ol>
+</section>
 </section>
 </section>
 

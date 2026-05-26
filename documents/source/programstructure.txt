@@ -171,3 +171,45 @@ Similar to all of the Load commands, The Load Again command is executed directly
 			off
 
 
+.. index:: 
+	pair: Program Structure; File Search Order and Library Conventions
+
+File Search Order and Library Conventions
+=========================================
+
+File Search Order
+-----------------
+
+When loading a file, Ring searches the following directories in order, stopping at the first match:
+
+1. The directory of the calling file
+2. The ``ring/bin`` directory
+3. The ``ring/bin/load`` directory
+
+.. note::
+
+   Using the ``ring/bin`` directory directly is not recommended.
+
+Library Structure
+-----------------
+
+Ring libraries follow a conventional layout:
+
+- Most libraries place their main loader file in ``ring/bin/load``.
+- Most library source files reside in the ``ring/libraries`` directory.
+- The loader in ``ring/bin/load`` calls a main library file located at
+  ``ring/libraries/<LIBRARY_FOLDER>/``.
+- The main file inside ``ring/libraries/<LIBRARY_FOLDER>/`` is expected to use
+  the ``load package`` command.
+
+Header Files (``*.rh``)
+------------------------
+
+Library constants are commonly defined in ``*.rh`` files rather than ``*.ring`` files.
+
+A ``*.rh`` file may be loaded twice:
+
+1. **First load** — in the main global scope, using the ``load`` command.
+2. **Second load** — in another global scope (from the file invoked via ``load package``),
+   using the ``load again`` command.
+
