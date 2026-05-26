@@ -845,20 +845,22 @@ class RNoteMainWindow
 						addaction(oAction)
 					}
 					subHelp {
-						subHelpLF = addmenu(T_RINGNOTEPAD_LANGUAGEREFERENCE) # "Language Reference"
-						subHelpLF {
-							oAction = new qAction(this.win1) {
-								settext(T_RINGNOTEPAD_CHMFILE) # "CHM File"
-								setclickEvent(Method(:OpenCHM))
+						if this.CheckCHMFile() or this.checkPDFFile()
+							subHelpLF = addmenu(T_RINGNOTEPAD_LANGUAGEREFERENCE) # "Language Reference"
+							subHelpLF {
+								oAction = new qAction(this.win1) {
+									settext(T_RINGNOTEPAD_CHMFILE) # "CHM File"
+									setclickEvent(Method(:OpenCHM))
+								}
+								addaction(oAction)
+								oAction = new qAction(this.win1) {
+									settext(T_RINGNOTEPAD_PDFFILE) # "PDF File"
+									setclickEvent(Method(:OpenPDF))
+								}
+								addaction(oAction)
 							}
-							addaction(oAction)
-							oAction = new qAction(this.win1) {
-								settext(T_RINGNOTEPAD_PDFFILE) # "PDF File"
-								setclickEvent(Method(:OpenPDF))
-							}
-							addaction(oAction)
-						}
-						addseparator()
+							addseparator()
+						ok
 						subHelpTools = addmenu(T_RINGNOTEPAD_DEVELOPMENTTOOLS) # "Development Tools"
 						subHelpTools {
 	
