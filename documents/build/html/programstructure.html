@@ -72,6 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#file-search-order">File Search Order</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#library-structure">Library Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#header-files-rh">Header Files (<code class="docutils literal notranslate"><span class="pre">*.rh</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -389,6 +390,35 @@ the <code class="docutils literal notranslate"><span class="pre">load</span> <sp
 <li><p><strong>Second load</strong> — in another global scope (from the file invoked via <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">package</span></code>),
 using the <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">again</span></code> command.</p></li>
 </ol>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h3>
+<p>The following illustrates the conventions described above using the <strong>PDFLib</strong> package as a
+real-world example.</p>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">ring/bin/load/pdflib.ring</span></code></p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;../../libraries/pdflib/pdflib.ring&quot;</span>
+</pre></div>
+</div>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">ring/libraries/pdflib/pdflib.ring</span></code></p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;lib/constants.rh&quot;</span>
+<span class="kn">load</span> <span class="kd">package</span> <span class="s2">&quot;lib/loadfiles.ring&quot;</span>
+</pre></div>
+</div>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">ring/libraries/pdflib/lib/loadfiles.ring</span></code></p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="k">again</span> <span class="s2">&quot;constants.rh&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;pdfwriter.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;functions.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;arabic.ring&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since Ring does not require variables to be declared with an explicit type or scope before
+use, this organizational pattern protects against name collisions. Specifically, it keeps
+local variables inside functions, class attributes, and global variables defined within
+PDFLib isolated from global variables defined outside the library.</p>
+</div>
 </section>
 </section>
 </section>

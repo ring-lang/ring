@@ -203,7 +203,7 @@ Ring libraries follow a conventional layout:
   the ``load package`` command.
 
 Header Files (``*.rh``)
-------------------------
+-----------------------
 
 Library constants are commonly defined in ``*.rh`` files rather than ``*.ring`` files.
 
@@ -213,3 +213,38 @@ A ``*.rh`` file may be loaded twice:
 2. **Second load** — in another global scope (from the file invoked via ``load package``),
    using the ``load again`` command.
 
+Example
+-------
+
+The following illustrates the conventions described above using the **PDFLib** package as a
+real-world example.
+
+**File:** ``ring/bin/load/pdflib.ring``
+
+.. code-block:: ring
+
+   load "../../libraries/pdflib/pdflib.ring"
+
+**File:** ``ring/libraries/pdflib/pdflib.ring``
+
+.. code-block:: ring
+
+   load "lib/constants.rh"
+   load package "lib/loadfiles.ring"
+
+**File:** ``ring/libraries/pdflib/lib/loadfiles.ring``
+
+.. code-block:: ring
+
+   load again "constants.rh"
+   load "stdlibcore.ring"
+   load "pdfwriter.ring"
+   load "functions.ring"
+   load "arabic.ring"
+
+.. note::
+
+   Since Ring does not require variables to be declared with an explicit type or scope before
+   use, this organizational pattern protects against name collisions. Specifically, it keeps
+   local variables inside functions, class attributes, and global variables defined within
+   PDFLib isolated from global variables defined outside the library.
