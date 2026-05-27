@@ -88,6 +88,48 @@ Example:
 	? aOneKey1[1] = aOneKey2[1]      # 1 (True)
 	? aOneKey1[2] = aOneKey2[2]      # 1 (True)	
 
+We can create nested lists 
+
+Example:
+
+.. code-block:: ring
+
+	person = [
+		:name  = "Alice",
+		:age   = 30,
+		:email = "alice@example.com",
+		:address = [
+			:city    = "Cairo",
+			:country = "Egypt",
+			:zip     = "12345"
+		],
+		:hobbies = ["chess", "coding", "reading"]
+	]
+	? "Name  : " + person[:name]
+	? "Age   : " + person[:age]
+	? "Email : " + person[:email]
+	? "City    : " + person[:address][:city]
+	? "Country : " + person[:address][:country]
+	? "Zip     : " + person[:address][:zip]
+	? "Hobbies:"
+	for hobby in person[:hobbies]
+		? "  - " + hobby
+	next
+
+Output:
+
+.. code-block:: none
+
+	Name  : Alice
+	Age   : 30
+	Email : alice@example.com
+	City    : Cairo
+	Country : Egypt
+	Zip     : 12345
+	Hobbies:
+	  - chess
+	  - coding
+	  - reading
 
 .. note:: the list index start from 1 
 
