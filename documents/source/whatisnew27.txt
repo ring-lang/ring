@@ -1129,6 +1129,8 @@ Also, the Code Generator for Extensions is revised to support the added features
 More Improvements
 =================
 
+* Better Documentation - Chapter: FAQ
+* Better Documentation - Chapter: Lists
 * Better Documentation - Chapter: Program Structure
 * language/build/locatevc.bat - Added: VS 2026 Community Edition support
 * language/build/buildgccstatic.bat - Build ringw.exe too
