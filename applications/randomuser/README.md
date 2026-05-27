@@ -243,7 +243,6 @@ Random User Application
 ## Using GUILib (RingQt)
 
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/user_male.png)
-![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/user_female.png)
 
 ## Using Qt3D
 

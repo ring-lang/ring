@@ -60,9 +60,6 @@ A simple application as an example about using GUILib, InternetLib & JSONLib
 .. image:: user_male.png
 	:alt: randomuser
 
-.. image:: user_female.png
-	:alt: randomuser
-
 .. index:: 
 	pair: What is new in Ring  1.18; Better CitPre application
 
