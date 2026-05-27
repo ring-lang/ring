@@ -81,11 +81,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-lists-during-definition">Using Lists during definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passing-lists-to-functions">Passing Lists to Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#access-list-items-by-string-index">Access List Items by String Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passing-parameters-or-arguments-using-list">Passing Parameters or Arguments Using List</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passing-parameters-or-arguments-using-list-array">Passing Parameters or Arguments Using List Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#return-parameters-as-list-or-hash-table">Return Parameters as List or Hash Table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-a-multi-dimensional-array-using-list">Creating a Multi-Dimensional Array using  List</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#swap-lists-and-items">Swap Lists and Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-multi-dimensional-list">Creating a Multi-Dimensional List</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
@@ -680,8 +681,53 @@ the first item is the left side and the second item is the right side.</p>
 </pre></div>
 </div>
 </section>
+<section id="automatic-hash-table">
+<span id="index-17"></span><h2>Automatic Hash Table<a class="headerlink" href="#automatic-hash-table" title="Permalink to this heading"></a></h2>
+<p>Ring supports automatic hash table acceleration for lists used as hash maps with
+string keys. When a list is accessed using string keys with the aList[“key”] syntax, Ring
+automatically builds an internal hash table once the number of entries reaches a
+threshold.
+Small lists continue to use the efficient linear scan, while larger lists seamlessly
+transition to hash table lookups the moment they grow beyond the threshold.
+The feature preserves Ring’s case-insensitive key matching behavior so
+that aList[“Name”] and aList[“name”] correctly refer to the same entry.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>         <span class="c1"># [1,2,3,4,5]</span>
+
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+        <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="s2">&quot;key&quot;</span><span class="o">+</span><span class="n">t</span> <span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="s2">&quot;Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+<span class="c1">// Test Performance</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>           <span class="c1"># ? aList[:key1]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>          <span class="c1"># ? aList[:key10]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>         <span class="c1"># ? aList[:key100]</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ms&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size: 105
+1
+100
+10000
+Time: 239 ms
+</pre></div>
+</div>
+</section>
 <section id="passing-parameters-or-arguments-using-list">
-<span id="index-17"></span><h2>Passing Parameters or Arguments Using List<a class="headerlink" href="#passing-parameters-or-arguments-using-list" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>Passing Parameters or Arguments Using List<a class="headerlink" href="#passing-parameters-or-arguments-using-list" title="Permalink to this heading"></a></h2>
 <p>This type of lists is very good for passing parameters to functions
 Where the order of parameters will not be important (we can change the order).</p>
 <p>Also some parameters maybe optional.</p>
@@ -700,7 +746,7 @@ Where the order of parameters will not be important (we can change the order).</
 </div>
 </section>
 <section id="passing-parameters-or-arguments-using-list-array">
-<span id="index-18"></span><h2>Passing Parameters or Arguments Using List Array<a class="headerlink" href="#passing-parameters-or-arguments-using-list-array" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>Passing Parameters or Arguments Using List Array<a class="headerlink" href="#passing-parameters-or-arguments-using-list-array" title="Permalink to this heading"></a></h2>
 <p>Passing Arguments or Parameters to a Function in an array format</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>    <span class="c1">### list with args or parms in  an array</span>
@@ -720,7 +766,7 @@ Where the order of parameters will not be important (we can change the order).</
 </div>
 </section>
 <section id="return-parameters-as-list-or-hash-table">
-<span id="index-19"></span><h2>Return Parameters as List or Hash Table<a class="headerlink" href="#return-parameters-as-list-or-hash-table" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>Return Parameters as List or Hash Table<a class="headerlink" href="#return-parameters-as-list-or-hash-table" title="Permalink to this heading"></a></h2>
 <p>Return Parameters from a Function in an Array or Hash Format</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sudoku</span> <span class="o">=</span> <span class="p">[</span>  <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
@@ -773,12 +819,59 @@ Where the order of parameters will not be important (we can change the order).</
 </pre></div>
 </div>
 </section>
-<section id="creating-a-multi-dimensional-array-using-list">
-<span id="index-20"></span><h2>Creating a Multi-Dimensional Array using  List<a class="headerlink" href="#creating-a-multi-dimensional-array-using-list" title="Permalink to this heading"></a></h2>
-<p>A Multi-Dimensional Array of any size can be built using recursion in a  Function</p>
+<section id="swap-lists-and-items">
+<span id="index-21"></span><h2>Swap Lists and Items<a class="headerlink" href="#swap-lists-and-items" title="Permalink to this heading"></a></h2>
+<p>We can swap lists/items using the Swap() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">nItem1</span><span class="p">,</span><span class="n">nItem2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:four</span><span class="p">,</span><span class="ss">:three</span><span class="p">]</span>
+<span class="k">see</span> <span class="n">aList</span>
+<span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span>
+<span class="n">two</span>
+<span class="n">four</span>
+<span class="n">three</span>
+<span class="o">**************************************************</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="n">three</span>
+<span class="n">four</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList1</span>                        <span class="c1"># 1 2 3</span>
+<span class="o">?</span> <span class="n">aList2</span>                        <span class="c1"># 4 5 6</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 4 5 6 1 2 3</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">aList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 1 2 3 4 5 6</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 4 5 6 1 2 3</span>
+<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 1 2 3 4 5 6</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-a-multi-dimensional-list">
+<span id="index-22"></span><h2>Creating a Multi-Dimensional List<a class="headerlink" href="#creating-a-multi-dimensional-list" title="Permalink to this heading"></a></h2>
+<p>A Multi-Dimensional List of any size can be built using recursion in a  Function</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1">###---------------------------------------------------------</span>
-<span class="c1">### Create Array -- Dimensions Any Size:  3D, 4D, 5D etc</span>
+<span class="c1">### Create List -- Dimensions Any Size:  3D, 4D, 5D etc</span>
 
 <span class="n">dimList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">bList</span>   <span class="o">=</span> <span class="nf">createDimList</span><span class="p">(</span><span class="n">dimList</span><span class="p">)</span>
@@ -842,53 +935,6 @@ Where the order of parameters will not be important (we can change the order).</
      <span class="k">next</span>
 
 <span class="k">return</span> <span class="n">alist</span>
-</pre></div>
-</div>
-</section>
-<section id="swap-lists-and-items">
-<span id="index-21"></span><h2>Swap Lists and Items<a class="headerlink" href="#swap-lists-and-items" title="Permalink to this heading"></a></h2>
-<p>We can swap lists/items using the Swap() function.</p>
-<p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
-<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">nItem1</span><span class="p">,</span><span class="n">nItem2</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:one</span><span class="p">,</span><span class="ss">:two</span><span class="p">,</span><span class="ss">:four</span><span class="p">,</span><span class="ss">:three</span><span class="p">]</span>
-<span class="k">see</span> <span class="n">aList</span>
-<span class="k">see</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
-<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">aList</span>
-</pre></div>
-</div>
-<p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span>
-<span class="n">two</span>
-<span class="n">four</span>
-<span class="n">three</span>
-<span class="o">**************************************************</span>
-<span class="n">one</span>
-<span class="n">two</span>
-<span class="n">three</span>
-<span class="n">four</span>
-</pre></div>
-</div>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span>
-<span class="n">aList2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span>
-<span class="nb">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">aList1</span>                        <span class="c1"># 1 2 3</span>
-<span class="o">?</span> <span class="n">aList2</span>                        <span class="c1"># 4 5 6</span>
-
-<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="p">]</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 4 5 6 1 2 3</span>
-<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">aList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 1 2 3 4 5 6</span>
-
-<span class="n">aList</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">4</span><span class="o">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">3</span> <span class="p">]</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 4 5 6 1 2 3</span>
-<span class="nb">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">aList</span>                         <span class="c1"># 1 2 3 4 5 6</span>
 </pre></div>
 </div>
 </section>
