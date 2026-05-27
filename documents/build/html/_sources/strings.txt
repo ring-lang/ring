@@ -13,7 +13,7 @@ In this chapter we are going to learn about strings creation and manipulation.
 String Literals
 ===============
 
-Syntax:
+Example:
 
 .. code-block:: ring
 
@@ -21,6 +21,22 @@ Syntax:
 	cStr2 = 'Another string'
 	cStr3 = :JustAnotherString
 	cStr4 = `Yet "another" 'string' ! `
+	cStr5 = "First line
+	Second line
+	Third line"
+	? cStr ? cStr2 ? cStr3 ? cStr4 ? cStr5
+
+Output:
+
+.. code-block:: none
+
+	This is a string
+	Another string
+	justanotherstring
+	Yet "another" 'string' !
+	First line
+	Second line
+	Third line
 
 .. index:: 
 	pair: Strings; Get String Length
