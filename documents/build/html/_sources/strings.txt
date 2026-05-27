@@ -473,9 +473,9 @@ Example:
 Merge binary characters
 =======================
 
-From Ring 1.0 we can create binary strings and do operations on these strings.
+In Ring we can create binary strings and do operations on these strings.
 
-Starting from Ring 1.8, we can get individual characters from these strings and merge them together using
+Also, we can get individual characters from these strings and merge them together using
 the '+' operator.
 
 Example:
