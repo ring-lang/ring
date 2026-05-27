@@ -33,7 +33,7 @@ Syntax:
 Dynamic Typing
 ==============
 
-Ring is a dynamic programming language that uses `Dynamic Typing <http://en.wikipedia.org/wiki/Type_system>`_.
+Ring is a dynamic programming language that uses Dynamic Typing.
 
 .. code-block:: ring
 
@@ -64,7 +64,7 @@ We can use the assignment operator '=' to copy variables.
 We can do that to copy values like strings & numbers.
 Also, we can copy complete lists & objects.
 The assignment operator will do a complete duplication for us.
-This operation called `Deep Copy <http://en.wikipedia.org/wiki/Object_copy#Deep_copy>`_
+This operation called Deep Copy
 
 
 .. code-block:: ring

@@ -359,7 +359,7 @@ Example:
 Short-circuit evaluation
 ========================
 
-The logical operators and/or follow the `short-circuit evaluation <http://en.wikipedia.org/wiki/Short-circuit_evaluation>`_.
+The logical operators and/or follow the short-circuit evaluation.
 
 If the first argument of the AND operator is zero, then there is no need to evaluate the second
 argument and the result will be zero.
