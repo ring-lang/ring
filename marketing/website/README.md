@@ -1,7 +1,7 @@
 # Ring programming language - Website folder
 
 In this folder we have the Ring website files
-http://ring-lang.net
+http://ring-lang.github.io
 
 Please never modify the html files directly because these files are generated
 automatically from templates using a simple Ring program
