@@ -69,38 +69,39 @@
           </li>	
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Change Log<span class="caret"></span></a>
             <ul class="dropdown-menu" style="max-height: 300px; overflow-y: auto;">
-		  <li><a href="doc1.26/whatisnew26.html">Ring 1.26</a></li>
-		  <li><a href="doc1.26/whatisnew25.html">Ring 1.25</a></li>
-		  <li><a href="doc1.26/whatisnew24.html">Ring 1.24</a></li>
-		  <li><a href="doc1.26/whatisnew23.html">Ring 1.23</a></li>
-		  <li><a href="doc1.26/whatisnew22.html">Ring 1.22</a></li>
-		  <li><a href="doc1.26/whatisnew21.html">Ring 1.21</a></li>
-		  <li><a href="doc1.26/whatisnew20.html">Ring 1.20</a></li>
-		  <li><a href="doc1.26/whatisnew19.html">Ring 1.19</a></li>
-		  <li><a href="doc1.26/whatisnew18.html">Ring 1.18</a></li>
-		  <li><a href="doc1.26/whatisnew17.html">Ring 1.17</a></li>
-		  <li><a href="doc1.26/whatisnew16.html">Ring 1.16</a></li>
-		  <li><a href="doc1.26/whatisnew15.html">Ring 1.15</a></li>
-		  <li><a href="doc1.26/whatisnew14.html">Ring 1.14</a></li>
-		  <li><a href="doc1.26/whatisnew13.html">Ring 1.13</a></li>
-		  <li><a href="doc1.26/whatisnew12.html">Ring 1.12</a></li>
-		  <li><a href="doc1.26/whatisnew11.html">Ring 1.11</a></li>
-		  <li><a href="doc1.26/whatisnew10.html">Ring 1.10</a></li>
-		  <li><a href="doc1.26/whatisnew9.html">Ring 1.9</a></li>
-		  <li><a href="doc1.26/whatisnew8.html">Ring 1.8</a></li>
-		  <li><a href="doc1.26/whatisnew7.html">Ring 1.7</a></li>
-		  <li><a href="doc1.26/whatisnew6.html">Ring 1.6</a></li>
-		  <li><a href="doc1.26/whatisnew5.html">Ring 1.5</a></li>
-		  <li><a href="doc1.26/whatisnew4.html">Ring 1.4</a></li>
-		  <li><a href="doc1.26/whatisnew3.html">Ring 1.3</a></li>
-		  <li><a href="doc1.26/whatisnew2.html">Ring 1.2</a></li>
-	          <li><a href="doc1.26/whatisnew.html">Ring 1.1</a></li>
-          	  <li><a href="doc1.26/languagedesign.html">Ring 1.0</a></li>
+		  <li><a href="doc1.27/whatisnew27.html">Ring 1.27</a></li>
+		  <li><a href="doc1.27/whatisnew26.html">Ring 1.26</a></li>
+		  <li><a href="doc1.27/whatisnew25.html">Ring 1.25</a></li>
+		  <li><a href="doc1.27/whatisnew24.html">Ring 1.24</a></li>
+		  <li><a href="doc1.27/whatisnew23.html">Ring 1.23</a></li>
+		  <li><a href="doc1.27/whatisnew22.html">Ring 1.22</a></li>
+		  <li><a href="doc1.27/whatisnew21.html">Ring 1.21</a></li>
+		  <li><a href="doc1.27/whatisnew20.html">Ring 1.20</a></li>
+		  <li><a href="doc1.27/whatisnew19.html">Ring 1.19</a></li>
+		  <li><a href="doc1.27/whatisnew18.html">Ring 1.18</a></li>
+		  <li><a href="doc1.27/whatisnew17.html">Ring 1.17</a></li>
+		  <li><a href="doc1.27/whatisnew16.html">Ring 1.16</a></li>
+		  <li><a href="doc1.27/whatisnew15.html">Ring 1.15</a></li>
+		  <li><a href="doc1.27/whatisnew14.html">Ring 1.14</a></li>
+		  <li><a href="doc1.27/whatisnew13.html">Ring 1.13</a></li>
+		  <li><a href="doc1.27/whatisnew12.html">Ring 1.12</a></li>
+		  <li><a href="doc1.27/whatisnew11.html">Ring 1.11</a></li>
+		  <li><a href="doc1.27/whatisnew10.html">Ring 1.10</a></li>
+		  <li><a href="doc1.27/whatisnew9.html">Ring 1.9</a></li>
+		  <li><a href="doc1.27/whatisnew8.html">Ring 1.8</a></li>
+		  <li><a href="doc1.27/whatisnew7.html">Ring 1.7</a></li>
+		  <li><a href="doc1.27/whatisnew6.html">Ring 1.6</a></li>
+		  <li><a href="doc1.27/whatisnew5.html">Ring 1.5</a></li>
+		  <li><a href="doc1.27/whatisnew4.html">Ring 1.4</a></li>
+		  <li><a href="doc1.27/whatisnew3.html">Ring 1.3</a></li>
+		  <li><a href="doc1.27/whatisnew2.html">Ring 1.2</a></li>
+	          <li><a href="doc1.27/whatisnew.html">Ring 1.1</a></li>
+          	  <li><a href="doc1.27/languagedesign.html">Ring 1.0</a></li>
             </ul>
           </li>
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
             <ul class="dropdown-menu">
-			  <li><a href="doc1.26/index.html">Documentation</a></li>
+			  <li><a href="doc1.27/index.html">Documentation</a></li>
 			  <li><a href="resources.html">Resources</a></li>	
 			  <li class="hidden-xs hidden-sm"><a href="web/tryringonline/project.html">Try Online</a></li>		  
 			  <li><a href="packages.html">Packages</a></li>	
@@ -113,7 +114,7 @@
     </ul>
 
 	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
-		<form class="search" action="doc1.26/search.html" method="get" style="width:200px" >
+		<form class="search" action="doc1.27/search.html" method="get" style="width:200px" >
 			<div class="input-group">
 				<input name="q" type="text" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
@@ -171,7 +172,7 @@
 				</div>
 
 				<div class="col-sm-12 col-md-3">
-   					<a href="doc1.26/index.html"
+   					<a href="doc1.27/index.html"
        						class="btn btn-default btn-block btn-docs"
        						style="background:#5cb85c; color:#fff;">
        						Documentation
