@@ -526,7 +526,7 @@ Output:
 	First Part
 	4
 	Second Part
-	4	
+	4
 	Third Part
 	4
 	All String
