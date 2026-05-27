@@ -133,7 +133,7 @@ Main Function
 Using the Ring programming language, the Main Function is optional, 
 when it's defined, it will be executed after the end of other statements.
 
-if no other statements comes alone, the main function will be the first `entry point <http://en.wikipedia.org/wiki/Entry_point>`_ 
+if no other statements comes alone, the main function will be the first entry point. 
 
 Example:
 
@@ -153,7 +153,7 @@ Example:
 Variables Scope
 ===============
 
-The Ring programming language uses `lexical scoping <http://en.wikipedia.org/wiki/Scope_%28computer_science%29#Lexical_scope_vs._dynamic_scope>`_ to
+The Ring programming language uses lexical scoping to
 determine the scope of a variable.
  
 Variables defined inside functions (including function parameters) are local variables.
@@ -219,7 +219,7 @@ Example:
 Recursion
 =========
 
-The Ring programming language support `Recursion <http://en.wikipedia.org/wiki/Recursion_%28computer_science%29>`_
+The Ring programming language support Recursion
 and the function can call itself using different parameters.
 
 Example:
