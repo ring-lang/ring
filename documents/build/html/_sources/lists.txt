@@ -34,7 +34,7 @@ Example:
 
 	? aList
 
-Also, we can create new lists using the : operator
+Also, we can create new lists using the : operator (range operator)
 
 
 Example:
@@ -65,17 +65,28 @@ To create 2D list
 
 	list = list(nRows,nCols)
 
-Example (1)
+Example:
 
 .. code-block:: ring
 
 	aList = list(10)	# aList contains 10 items
 
-Example (2)
+Example:
 
 .. code-block:: ring
 
 	aList = list(5,4)	# Create 2D List contains 5 rows and 4 columns
+
+We can create a list that contains Key & Value
+
+Example:
+
+.. code-block:: ring
+
+	aOneKey1 = [ "key1", "value1" ]  # One List (Two Items)
+	aOneKey2 = :key1 = "value1"      # One List (Two Items) 
+	? aOneKey1[1] = aOneKey2[1]      # 1 (True)
+	? aOneKey1[2] = aOneKey2[2]      # 1 (True)	
 
 
 .. note:: the list index start from 1 
@@ -578,8 +589,11 @@ Example:
 	aList = [ :one = 1 , :two = 2 , :three = 3 ]
 	see aList["one"] + nl +
 	    aList["two"] + nl +
-	    aList["three"] + nl	# print 1 2 3
-	see aList[1]		# print one 1
+	    aList["three"] + nl       # print 1 2 3
+	see aList[1]                  # print one 1
+	? aList[:one]                 # 1           
+	? aList[:two]                 # 2
+	? aList[:three]               # 3 
 
 .. tip:: using : before identifier (one word) means literal
 
@@ -597,6 +611,17 @@ Example:
 	aList["KSA"] = "Riyadh"
 	see aList["Egypt"] + nl + 	# print Cairo
 	    aList["KSA"] + nl		# print Riyadh
+
+Example:
+
+.. code-block:: ring
+
+	aKeyValue1 = [ ["key1", "value1"], ["key2", "value2"] ]           # Nested Lists 
+	aKeyValue2 = [ :key1 = "value1"  , :key2 = "value2"   ]           # Nested Lists
+	aOneKey    = :key1 = "value1"	# aOneKey = [ "key1", "value1" ]  # One List
+	? aKeyValue1[:key1] = aKeyValue1["key1"]                          # 1 (True)
+	? aKeyValue1[:key1] = aKeyValue2[:key1]                           # 1 (True)
+	? aKeyValue1[:key1] = aOneKey[:key1]                              # 0 (False)
 
 .. index:: 
 	pair: Lists; Passing Parameters or Arguments Using List
