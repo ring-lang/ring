@@ -1,0 +1,45 @@
+﻿aDownload = [
+		["Ring 1.26 All Platforms",[
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_Windows_64bit.exe">Ring 1.26 For Windows (64bit)</a>',
+							'447 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_Ubuntu.zip">Ring 1.26 For Ubuntu Linux (64bit)</a>',
+							'457 MB</a>'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_macOS_Applesilicon.zip">Ring 1.26 For macOS (Apple silicon)</a>',
+							'471 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_Windows_32bit.exe">Ring 1.26 For Windows (32bit)</a>',
+							'434 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/RingDoc_1.26.pdf">Ring 1.26 Documentation (PDF)</a> ',
+							'63 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/RingDoc_1.26.chm">Ring 1.26 Documentation (CHM)</a>',
+							'64 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/RingDoc_1.26.zip">Ring 1.26 Documentation (HTML)</a>',
+							'67 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_LightRelease_Windows_Binary_64bit.zip">Ring 1.26 (Light Release - Windows Binary - 64bit)</a>',
+							'6 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_LightRelease_SourceCode.zip">Ring 1.26 (Light Release - Source Code - All Platforms)</a>',
+							'2 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.26/Ring_1.26_MSDOS.zip">Ring 1.26 For MS-DOS</a>',
+							'529 KB</a>'						
+						 ]
+			]
+		]
+]
