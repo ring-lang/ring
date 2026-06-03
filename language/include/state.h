@@ -83,9 +83,9 @@ typedef struct RingState {
 	char cCustomPara[2][RING_LARGEBUF];
 } RingState;
 #define RING_VERSION_MAJOR 1
-#define RING_VERSION_MINOR 27
+#define RING_VERSION_MINOR 28
 #define RING_VERSION_PATCH 0
-#define RING_STATE_VERSION "1.27"
+#define RING_STATE_VERSION "1.28"
 #define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".0")
 #define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
 #define RING_WARNING_DUPLICATIONINFILENAME "Warning (W2) : Duplication in file name : "
