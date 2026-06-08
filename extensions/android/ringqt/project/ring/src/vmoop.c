@@ -505,6 +505,10 @@ void ring_vm_oop_parentmethods(VM *pVM, List *pList) {
 					ring_vm_oop_pushclasspackage(pVM, pList4);
 					ring_list_copy_gc(pVM->pRingState, pList3,
 							  ring_list_getlist(pList4, RING_CLASSMAP_METHODSLIST));
+					/* Check HashTable */
+					if (ring_list_gethashtable(pList3) != NULL) {
+						ring_list_genhashtable2_gc(pVM->pRingState, pList3);
+					}
 					cClassName = ring_list_getstring(pList4, RING_CLASSMAP_PARENTCLASS);
 					nFound = 1;
 					break;
