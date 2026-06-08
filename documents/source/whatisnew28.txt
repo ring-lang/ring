@@ -24,3 +24,4 @@ Ring 1.28 comes with the next features!
 More Improvements
 =================
 
+* Ring VM - Check methods hash table during inheritance
