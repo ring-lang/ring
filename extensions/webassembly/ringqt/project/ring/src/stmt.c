@@ -136,11 +136,8 @@ int ring_parser_class(Parser *pParser) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
 		if (ring_parser_isidentifier(pParser)) {
-			/*
-			**  Generate Code
-			**  Return NULL
-			*/
-			ring_parser_icg_retnull(pParser);
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser, ICO_RETNULL);
 			ring_parser_icg_newoperation(pParser, ICO_NEWFUNC);
 			/*
 			**  Add function to Functions Table
