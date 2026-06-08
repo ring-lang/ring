@@ -24,4 +24,5 @@ Ring 1.28 comes with the next features!
 More Improvements
 =================
 
+* Ring Compiler - Always use ICO_RETNULL before functions
 * Ring VM - Check methods hash table during inheritance
