@@ -38,22 +38,6 @@ aApplications = [
 	["Using RayLib",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/games/tank3d" >Tank3D</a>',
-				'<img src="images/tank3d.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/games/davethefighter" >Dave The Fighter</a>',
-				'<img src="images/davethefighter.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/games/linedrawing3d" >Line Drawing 3D</a>',
-				'<img src="images/linedrawing3d.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/samples/UsingAI/UsingClaude/games/coderooms3d" >Code Rooms 3D</a>',
-				'<img src="images/coderooms3d.png" width="100%">'
-			],
-			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" >Space Shooter Game</a>',
 				'<img src="images/spaceshootergame.png" width="100%">'
 			],
