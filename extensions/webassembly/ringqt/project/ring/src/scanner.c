@@ -730,12 +730,12 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 			strcat(cFileName2, "load/");
 			strcat(cFileName2, cFileName);
 			if (ring_general_fexists(cFileName2) == 0) {
-				strcpy(cFileName, cFileName2);
+				strcpy(cFileName2, cFileName);
 			}
 		}
 	}
 	if (ring_general_fexists(cFileName2) == 0) {
-		printf("\nFile: %s doesn't exist!\n", cFileName);
+		printf("\nFile: %s doesn't exist!\n", cFileName2);
 		return;
 	}
 	fp = RING_OPENFILE(cFileName2, "r");
