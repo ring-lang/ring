@@ -698,6 +698,13 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	char cFileName3[RING_PATHSIZE];
 	lEnableTokensOutput = pScanner->lEnableTokensOutput;
 	cFileName = ring_string_get(pScanner->pActiveToken);
+	/* Check File Name/Path size */
+	ring_general_exefolder(cFileName2);
+	/* Take in mind "load/" too */
+	if ((strlen(cFileName) + strlen(cFileName2) + 6) > RING_PATHSIZE) {
+		printf("%s\n", RING_FILENAMETOOLONG);
+		return;
+	}
 	/* Remove Spaces and " " from file name */
 	x = 0;
 	while (((cFileName[x] == ' ') || (cFileName[x] == '"') || (cFileName[x] == '\r')) && (x <= strlen(cFileName))) {
