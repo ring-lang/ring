@@ -26,6 +26,6 @@ More Improvements
 
 * RingRayLib - raylib.rh - Added more constants 
 * Removed Folder: ring/samples/UsingAI 
-* Ring Compiler - Check string size when using LoadSyntax command
+* Ring Compiler - LoadSyntax command - Better Implementation
 * Ring Compiler - Always use ICO_RETNULL before functions
 * Ring VM - Check methods hash table during inheritance
