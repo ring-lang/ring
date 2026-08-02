@@ -1,4 +1,5 @@
 aNews = [
+  ["August 2, 2026",'<a href="https://mayouni.github.io/ringscript/index.html"> RingScript: Script your frontend in Ring</a>'],
   ["July 23, 2026",'<a href="https://store.steampowered.com/app/4965770/Incremental_Birds/"> Game: Incremental Birds</a>'],
   ["July 9, 2026",'<a href="https://store.steampowered.com/app/4820270/Prince_of_Vibe_Code/"> Game: Prince of Vibe Code</a>'],
   ["June 14, 2026",'<a href="https://ysdragon.github.io/bolt/"> Bolt: Web framework for Ring</a>'],
