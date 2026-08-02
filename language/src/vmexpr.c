@@ -900,7 +900,13 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 		return RING_ZEROF;
 	}
 	nResult = strtod(cStr, &cEndStr);
-	if (nResult == 0 && (errno != 0)) {
+	/*
+	**  Some libc implementations (musl) set errno to EINVAL when no conversion
+	**  is performed, while MSVC/glibc keep errno unchanged - without the
+	**  cEndStr != cStr check, ("test" = 5) raises Error (R41) on those
+	**  platforms instead of being evaluated as False
+	*/
+	if (nResult == 0 && (errno != 0) && (cEndStr != cStr)) {
 		if (errno == ERANGE) {
 			ring_vm_error(pVM, RING_VM_ERROR_NUMERICUNDERFLOW);
 		} else {

@@ -228,8 +228,15 @@ int ring_parser_class(Parser *pParser) {
 		if (pParser->lClassStart == 1) {
 			/* Generate Code */
 			ring_parser_icg_retnull(pParser);
-			/* Change Label After Class to BlockFlag to Jump to Private */
-			pList = ring_parser_icg_getoperationlist(pParser, pParser->nClassMark);
+			/*
+			**  Change Label After Class to BlockFlag to Jump to Private
+			**  nClassMark (from newlabel2) is a global instruction number that
+			**  includes nInstructionsCount, while getoperationlist() indexes the
+			**  local pGenCode list - subtract the offset, otherwise using Private
+			**  inside eval() reads outside the list and crashes the VM
+			*/
+			pList = ring_parser_icg_getoperationlist(
+			    pParser, pParser->nClassMark - pParser->pRingState->nInstructionsCount);
 			ring_parser_icg_setopcode(pParser, pList, ICO_BLOCKFLAG);
 			ring_parser_icg_addoperandint(pParser, pList, ring_parser_icg_newlabel(pParser));
 			ring_parser_icg_newoperation(pParser, ICO_PRIVATE);
