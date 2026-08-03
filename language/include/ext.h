@@ -2,12 +2,24 @@
 
 #ifndef ringext_h
 #define ringext_h
-#define RING_VM_LISTFUNCS 1
-#define RING_VM_MATH 1
-#define RING_VM_FILE 1
-#define RING_VM_OS 1
-#define RING_VM_REFMETA 1
-#define RING_VM_INFO 1
+#ifndef RING_VM_LISTFUNCS
+	#define RING_VM_LISTFUNCS 1
+#endif
+#ifndef RING_VM_MATH
+	#define RING_VM_MATH 1
+#endif
+#ifndef RING_VM_FILE
+	#define RING_VM_FILE 1
+#endif
+#ifndef RING_VM_OS
+	#define RING_VM_OS 1
+#endif
+#ifndef RING_VM_REFMETA
+	#define RING_VM_REFMETA 1
+#endif
+#ifndef RING_VM_INFO
+	#define RING_VM_INFO 1
+#endif
 #if RING_NODLL
 	#define RING_VM_DLL 0
 #else

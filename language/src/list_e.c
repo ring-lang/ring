@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_LISTFUNCS
+
 void ring_vm_list_loadfunctions(RingState *pRingState) {
 	/* Lists */
 	RING_API_REGISTER("add", ring_vm_listfuncs_add);
@@ -760,3 +762,5 @@ void ring_vm_listfuncs_refcount(void *pPointer) {
 	}
 	RING_API_ERROR(RING_API_BADPARACOUNT);
 }
+
+#endif

@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_DLL
+
 void ring_vm_dll_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("loadlib", ring_vm_dll_loadlib);
 	RING_API_REGISTER("closelib", ring_vm_dll_closelib);
@@ -105,3 +107,5 @@ void ring_vm_dll_closealllibs(void *pPointer) {
 	}
 	ring_list_deleteallitems_gc(pVM->pRingState, pVM->pCLibraries);
 }
+
+#endif

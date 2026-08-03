@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_OS
+
 void ring_vm_os_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("ismsdos", ring_vm_os_ismsdos);
 	RING_API_REGISTER("iswindows", ring_vm_os_iswindows);
@@ -495,4 +497,6 @@ void ring_vm_os_syssleep(void *pPointer) {
 	RING_API_RETNUMBER(RING_ZEROF);
 	#endif
 }
+#endif
+
 #endif

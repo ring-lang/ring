@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_FILE
+
 void ring_vm_file_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("fopen", ring_vm_file_fopen);
 	RING_API_REGISTER("fclose", ring_vm_file_fclose);
@@ -918,4 +920,6 @@ void ring_vm_file_tempname(void *pPointer) {
 	RING_API_RETSTRING(_tmpfile);
 	#endif
 }
+#endif
+
 #endif

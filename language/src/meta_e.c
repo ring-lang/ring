@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_REFMETA
+
 void ring_vm_refmeta_loadfunctions(RingState *pRingState) {
 	/* Functions */
 	RING_API_REGISTER("locals", ring_vm_refmeta_locals);
@@ -876,3 +878,5 @@ void ring_vm_refmeta_parentclassname(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+#endif

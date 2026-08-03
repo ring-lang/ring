@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_INFO
+
 void ring_vm_info_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("ringvm_fileslist", ring_vm_info_ringvmfileslist);
 	RING_API_REGISTER("ringvm_calllist", ring_vm_info_ringvmcalllist);
@@ -522,3 +524,5 @@ void ring_vm_info_ringvmwriteringo(void *pPointer) {
 	ring_objfile_writecontent(pVM->pRingState, RING_API_GETSTRING(1), pListFiles, pListFunctions, pListClasses,
 				  pListPackages, pListCode);
 }
+
+#endif

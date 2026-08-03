@@ -2,6 +2,8 @@
 
 #include "ring.h"
 
+#if RING_VM_MATH
+
 void ring_vm_math_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("sin", ring_vm_math_sin);
 	RING_API_REGISTER("cos", ring_vm_math_cos);
@@ -532,3 +534,5 @@ void ring_vm_math_checkoverflow(void *pPointer) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+#endif
