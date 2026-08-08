@@ -41,6 +41,9 @@ GAllEvents::GAllEvents(QWidget *parent,VM *pVM)  : QWidget()
 	strcpy(this->cChildAddedEvent,"");
 	strcpy(this->cChildPolishedEvent,"");
 	strcpy(this->cChildRemovedEvent,"");
+	strcpy(this->cWheelEvent,"");
+	this->nWheelDelta = 0;
+	this->nWheelDeltaX = 0;
 	this->lEventOutput = true ;
 
 	strcpy(this->cKeyPressFunc,"");
@@ -211,6 +214,13 @@ bool GAllEvents::eventFilter(QObject *object, QEvent *event)
 	}
  	else if ((event->type() == QEvent::ChildRemoved) && (strcmp(this->cChildRemovedEvent,"")!=0) ) {
 		this->callChildRemovedEvent();
+ 		return this->lEventOutput;
+    	}
+	else if ((event->type() == QEvent::Wheel) && (strcmp(this->cWheelEvent,"")!=0) ) {
+		QWheelEvent *wheelEvent = static_cast<QWheelEvent *>(event);
+		this->nWheelDelta = wheelEvent->angleDelta().y();
+		this->nWheelDeltaX = wheelEvent->angleDelta().x();
+		this->callWheelEvent();
  		return this->lEventOutput;
     	}
 
@@ -826,6 +836,20 @@ void GAllEvents::callChildRemovedEvent(void)
 }
 
 
+void GAllEvents::setWheelEvent(const char *cStr)
+{
+	if (strlen(cStr)<100)
+		strcpy(this->cWheelEvent,cStr);
+}
+
+void GAllEvents::callWheelEvent(void)
+{
+	if (strcmp(this->cWheelEvent,"")==0)
+		return ;
+	ring_vm_runcode(this->pVM,this->cWheelEvent);
+}
+
+
 const char *GAllEvents::getKeyPressEvent(void)
 {
 	return this->cKeyPressEvent  ;
@@ -979,6 +1003,16 @@ const char *GAllEvents::getChildPolishedEvent(void)
 const char *GAllEvents::getChildRemovedEvent(void)
 {
 	return this->cChildRemovedEvent  ;
+}
+
+int GAllEvents::getWheelDelta(void)
+{
+	return this->nWheelDelta ;
+}
+
+int GAllEvents::getWheelDeltaX(void)
+{
+	return this->nWheelDeltaX ;
 }
 
 

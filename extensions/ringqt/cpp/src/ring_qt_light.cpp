@@ -122093,6 +122093,61 @@ RING_FUNC(ring_QAllEvents_setChildRemovedEvent)
 }
 
 
+RING_FUNC(ring_QAllEvents_setWheelEvent)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWheelEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QAllEvents_getWheelDelta)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETNUMBER(pObject->getWheelDelta());
+}
+
+
+RING_FUNC(ring_QAllEvents_getWheelDeltaX)
+{
+	GAllEvents *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GAllEvents *) RING_API_GETCPOINTER(1,"QAllEvents");
+	RING_API_RETNUMBER(pObject->getWheelDeltaX());
+}
+
+
 RING_FUNC(ring_QAllEvents_getKeyPressEvent)
 {
 	GAllEvents *pObject ;
@@ -172608,6 +172663,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qallevents_setchildaddedevent",ring_QAllEvents_setChildAddedEvent);
 	RING_API_REGISTER("qallevents_setchildpolishedevent",ring_QAllEvents_setChildPolishedEvent);
 	RING_API_REGISTER("qallevents_setchildremovedevent",ring_QAllEvents_setChildRemovedEvent);
+	RING_API_REGISTER("qallevents_setwheelevent",ring_QAllEvents_setWheelEvent);
+	RING_API_REGISTER("qallevents_getwheeldelta",ring_QAllEvents_getWheelDelta);
+	RING_API_REGISTER("qallevents_getwheeldeltax",ring_QAllEvents_getWheelDeltaX);
 	RING_API_REGISTER("qallevents_getkeypressevent",ring_QAllEvents_getKeyPressEvent);
 	RING_API_REGISTER("qallevents_getmousebuttonpressevent",ring_QAllEvents_getMouseButtonPressEvent);
 	RING_API_REGISTER("qallevents_getmousebuttonreleaseevent",ring_QAllEvents_getMouseButtonReleaseEvent);

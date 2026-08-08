@@ -9,6 +9,7 @@
 #include <QEvent>
 #include <QKeyEvent>
 #include <QMouseEvent>
+#include <QWheelEvent>
 
 extern "C" {
 #include "ring.h"
@@ -63,7 +64,10 @@ class GAllEvents : public QWidget
     char cPaintEvent[RINGQT_EVENT_SIZE];
     char cChildAddedEvent[RINGQT_EVENT_SIZE];
     char cChildPolishedEvent[RINGQT_EVENT_SIZE];
-    char cChildRemovedEvent[RINGQT_EVENT_SIZE];	
+    char cChildRemovedEvent[RINGQT_EVENT_SIZE];
+    char cWheelEvent[RINGQT_EVENT_SIZE];
+    int nWheelDelta ;
+    int nWheelDeltaX ;
 
     char cKeyPressFunc[RINGQT_EVENT_SIZE];
     char cMouseButtonPressFunc[RINGQT_EVENT_SIZE];
@@ -159,6 +163,7 @@ class GAllEvents : public QWidget
     void setChildAddedEvent(const char *cStr);
     void setChildPolishedEvent(const char *cStr);
     void setChildRemovedEvent(const char *cStr);
+    void setWheelEvent(const char *cStr);
 
     const char *getKeyPressEvent(void);
     const char *getMouseButtonPressEvent(void);
@@ -191,6 +196,8 @@ class GAllEvents : public QWidget
     const char *getChildAddedEvent(void);
     const char *getChildPolishedEvent(void);
     const char *getChildRemovedEvent(void);
+    int getWheelDelta(void);
+    int getWheelDeltaX(void);
 
 
     void setKeyPressFunc(const char *cStr);
@@ -298,6 +305,7 @@ class GAllEvents : public QWidget
     void callChildAddedEvent(void);
     void callChildPolishedEvent(void);
     void callChildRemovedEvent(void);
+    void callWheelEvent(void);
 
     void callKeyPressFunc(void);
     void callMouseButtonPressFunc(void);

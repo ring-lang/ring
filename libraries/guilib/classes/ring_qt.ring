@@ -21693,6 +21693,15 @@ Class QAllEvents from QWidget
 	Func setChildRemovedEvent P1
 		return QAllEvents_setChildRemovedEvent(pObject,P1)
 
+	Func setWheelEvent P1
+		return QAllEvents_setWheelEvent(pObject,P1)
+
+	Func getWheelDelta 
+		return QAllEvents_getWheelDelta(pObject)
+
+	Func getWheelDeltaX 
+		return QAllEvents_getWheelDeltaX(pObject)
+
 	Func getKeyPressEvent 
 		return QAllEvents_getKeyPressEvent(pObject)
 

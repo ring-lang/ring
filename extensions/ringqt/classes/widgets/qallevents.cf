@@ -50,6 +50,10 @@ void setPaintEvent(const char *cStr)
 void setChildAddedEvent(const char *cStr)
 void setChildPolishedEvent(const char *cStr)
 void setChildRemovedEvent(const char *cStr)
+void setWheelEvent(const char *cStr)
+
+int getWheelDelta(void)
+int getWheelDeltaX(void)
 
 const char *getKeyPressEvent(void)
 const char *getMouseButtonPressEvent(void)
