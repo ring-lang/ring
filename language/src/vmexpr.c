@@ -900,7 +900,7 @@ RING_API double ring_vm_stringtonum(VM *pVM, const char *cStr) {
 		return RING_ZEROF;
 	}
 	nResult = strtod(cStr, &cEndStr);
-	if (nResult == 0 && (errno != 0)) {
+	if (nResult == 0 && (errno != 0) && (cStr != cEndStr)) {
 		if (errno == ERANGE) {
 			ring_vm_error(pVM, RING_VM_ERROR_NUMERICUNDERFLOW);
 		} else {
