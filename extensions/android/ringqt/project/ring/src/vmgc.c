@@ -411,8 +411,8 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 	int nOPCode;
 	RingState *pRingState;
 	pRingState = (RingState *)pState;
-	/* Check lDontDelete (Used by Container Variables) */
-	if (pList->vGC.lDontDelete) {
+	/* Check Container Variables */
+	if (ring_list_isrefcontainer_gc(pState, pList)) {
 		/* This is a container that we will not delete, but will be deleted by that list that know about it */
 		return pList;
 	}
