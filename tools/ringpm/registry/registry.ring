@@ -1014,5 +1014,9 @@ aPackagesRegistry = [
 	[ :name = "docxlib",
 	  :description = "DOCX (Word) library for the Ring Programming Language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringscript",
+	  :description = "Run Ring in the browser - the Ring Virtual Machine compiled to WebAssembly, with a Playground and a starter kit",
+	  :ProviderUserName = "mayouni"
 	]
 ]
