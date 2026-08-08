@@ -229,7 +229,8 @@ int ring_parser_class(Parser *pParser) {
 			/* Generate Code */
 			ring_parser_icg_retnull(pParser);
 			/* Change Label After Class to BlockFlag to Jump to Private */
-			pList = ring_parser_icg_getoperationlist(pParser, pParser->nClassMark);
+			pList = ring_parser_icg_getoperationlist(pParser, pParser->nClassMark -
+									      pParser->pRingState->nInstructionsCount);
 			ring_parser_icg_setopcode(pParser, pList, ICO_BLOCKFLAG);
 			ring_parser_icg_addoperandint(pParser, pList, ring_parser_icg_newlabel(pParser));
 			ring_parser_icg_newoperation(pParser, ICO_PRIVATE);
