@@ -249,6 +249,7 @@ aTests = [
 	[ :name = "Eval() Function (Part 34)", :Command = "ring eval/eval23.ring" ],
 	[ :name = "Eval() Function (Part 35)", :Command = "ring eval/shutdownsubstate.ring" ],
 	[ :name = "Eval() Function (Part 36)", :Command = "ring eval/evalinscope.ring" ],
+	[ :name = "Eval() Function (Part 37)", :Command = "ring eval/privateineval.ring" ],
 	[ :name = "Using Self (Part 1)"	, :Command = "ring self/self1.ring" ],
 	[ :name = "Using Self (Part 2)"	, :Command = "ring self/self2.ring" ],
 	[ :name = "Using Self (Part 3)"	, :Command = "ring self/self3.ring" ],
