@@ -638,7 +638,17 @@ void ring_vm_movetoprevscope(VM *pVM) {
 			**  The idea is to return the same object (Keep the Object ID without change)
 			*/
 			if (ring_vm_oop_isobject(pVM, pList)) {
-				if (ring_vm_oop_objtypefromobjlist(pVM, pList) == RING_OBJTYPE_VARIABLE) {
+				/*
+				**  We use ring_list_isdontdelete_gc() to avoid this operation when the list belongs to
+				*the arguments cache
+				**  Without this check the list could escape to caller scope while it can't be deleted
+				**  Also, a swap in that case means a list in arguments cache where lDontDelete is False
+				**  This could led to double free (One at end of scope and one when we delete the
+				*arguments cache)
+				*/
+				if ((ring_vm_oop_objtypefromobjlist(pVM, pList) == RING_OBJTYPE_VARIABLE) &&
+				    !ring_list_isdontdelete_gc(pVM->pRingState,
+							       ring_vm_oop_objvarfromobjlist(pVM, pList))) {
 					/* Take in mind that pList could be stored in a Global Variable - Then
 					 * passed/returned from function */
 					RING_VAR_SETNAME_GC(
