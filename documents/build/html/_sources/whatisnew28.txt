@@ -28,6 +28,7 @@ More Improvements
 * Removed Folder: ring/samples/UsingAI 
 * Ring Compiler - LoadSyntax command - Better Implementation
 * Ring Compiler - Always use ICO_RETNULL before functions
+* Ring Compiler - Support using Private keyword inside Eval()
 * Ring VM - Check methods hash table during inheritance
 * Ring VM - ring_vm_stringtonum() - Better Implementation
 * Ring VM - ring_vm_movetoprevscope() - Check ring_list_isdontdelete_gc() before list swap
