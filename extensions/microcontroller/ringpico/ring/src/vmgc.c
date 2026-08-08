@@ -412,8 +412,11 @@ RING_API List *ring_list_deleteref_gc(void *pState, List *pList) {
 	RingState *pRingState;
 	pRingState = (RingState *)pState;
 	/* Check Container Variables */
-	if (ring_list_isrefcontainer_gc(pState, pList)) {
-		/* This is a container that we will not delete, but will be deleted by that list that know about it */
+	if (ring_list_isdontdelete_gc(pState, pList)) {
+		/*
+		**  This maybe a container that we will not delete, but will be deleted by that list that know about it
+		**  Also, this maybe a list that belongs to the arguments cache that we could reuse
+		*/
 		return pList;
 	}
 	/* Check lErrorOnAssignment used by lists during definition */
