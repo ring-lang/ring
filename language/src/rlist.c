@@ -301,25 +301,6 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 				return pItem;
 			}
 		}
-		/* Reaching here means the cursor could not serve this index, so the
-		** item is about to be found by walking the list. The cursor is a
-		** sequential-access device: against an index that jumps around --
-		** a sorted view, a lookup table, the rebuild inside sort() below --
-		** every access walks and nothing is remembered, so one pass over n
-		** items costs O(n*n).
-		**
-		** Generating the items array once answers this and every later
-		** random access in O(1). It is freed by ring_list_clearcache_gc(),
-		** which every structural change already calls, so it cannot go
-		** stale, and ring_list_genarray_gc() does not call back into this
-		** function. Small lists keep walking, where an allocation would
-		** cost more than it saves. */
-		if (lUseListCache && pList->nSize > RING_LIST_ARRAYONRANDOMACCESS) {
-			ring_list_genarray_gc(pState, pList);
-			if (pList->pItemsArray != NULL) {
-				return pList->pItemsArray[nIndex - 1];
-			}
-		}
 		if (nIndex < (pList->nSize - nIndex)) {
 			/* Linear Search  From Start */
 			pItems = pList->pFirst;
@@ -923,8 +904,9 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, long low, long hig
 	/* Sort index array */
 	ring_list_general_quicksortnum(keys, idx, 0, count - 1);
 	/* The rebuild below reads pList at idx[i] -- in sorted order, which
-	** is to say randomly. Generating the items array first keeps those
-	** reads O(1); without it each one walks the list. */
+	** is to say randomly, so each read walks the list. Generating the
+	** items array first keeps them O(1). Kept local to sort() so that
+	** the array is created in one well-defined place. */
 	if (nColumn != 0) {
 		ring_list_genarray_gc(pState, pList);
 	}
@@ -967,8 +949,9 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, long low, long hig
 	/* Sort index array */
 	ring_list_general_quicksortstr(keys, idx, 0, count - 1);
 	/* The rebuild below reads pList at idx[i] -- in sorted order, which
-	** is to say randomly. Generating the items array first keeps those
-	** reads O(1); without it each one walks the list. */
+	** is to say randomly, so each read walks the list. Generating the
+	** items array first keeps them O(1). Kept local to sort() so that
+	** the array is created in one well-defined place. */
 	if (nColumn != 0) {
 		ring_list_genarray_gc(pState, pList);
 	}
