@@ -903,6 +903,13 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, long low, long hig
 	}
 	/* Sort index array */
 	ring_list_general_quicksortnum(keys, idx, 0, count - 1);
+	/* The rebuild below reads pList at idx[i] -- in sorted order, which
+	** is to say randomly, so each read walks the list. Generating the
+	** items array first keeps them O(1). Kept local to sort() so that
+	** the array is created in one well-defined place. */
+	if (nColumn != 0) {
+		ring_list_genarray_gc(pState, pList);
+	}
 	pList2 = ring_list_new_gc(pState, 0);
 	for (i = 0; i < count; i++) {
 		if (nColumn == 0) {
@@ -941,6 +948,13 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, long low, long hig
 	}
 	/* Sort index array */
 	ring_list_general_quicksortstr(keys, idx, 0, count - 1);
+	/* The rebuild below reads pList at idx[i] -- in sorted order, which
+	** is to say randomly, so each read walks the list. Generating the
+	** items array first keeps them O(1). Kept local to sort() so that
+	** the array is created in one well-defined place. */
+	if (nColumn != 0) {
+		ring_list_genarray_gc(pState, pList);
+	}
 	pList2 = ring_list_new_gc(pState, 0);
 	for (i = 0; i < count; i++) {
 		if (nColumn == 0) {
