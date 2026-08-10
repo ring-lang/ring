@@ -27,6 +27,7 @@ More Improvements
 * Removed Folder: ring/samples/UsingAI 
 * RingRayLib - raylib.rh - Added more constants 
 * RingQt - QAllEvents - Added setWheelEvent() method
+* Sort() function - Better Implementation
 * Ring Compiler - LoadSyntax command - Better Implementation
 * Ring Compiler - Always use ICO_RETNULL before functions
 * Ring Compiler - Support using Private keyword inside Eval()
