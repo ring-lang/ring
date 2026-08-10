@@ -27,10 +27,6 @@ typedef struct List {
 #define RING_LIST_KEYINDEX 1
 #define RING_LIST_MAXSIZE (UINT_MAX - 1)
 #define RING_LIST_MAXSIZEWITHOUTLISTCACHE 6
-/* Above this size, a random access generates the items array instead of
-** walking the list -- see the note in ring_list_getitem_gc(). Below it,
-** the walk is cheaper than the allocation. */
-#define RING_LIST_ARRAYONRANDOMACCESS 64
 #define RING_LISTERROR_COLUMNNOTFOUND UINT_MAX
 #define RING_LISTERROR_PROPERTYNOTFOUND UINT_MAX
 #define RING_LISTOFOBJS_FINDNUMBER 0
