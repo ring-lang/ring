@@ -123,9 +123,15 @@ RING_API int ring_vm_api_ispointer(void *pPointer, int nPara) {
 		return RING_TRUE;
 	}
 	if (RING_API_ISSTRING(nPara)) {
-		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
-		if ((strcmp(RING_API_GETSTRING(nPara), RING_CSTR_EMPTY) == 0) ||
-		    (strcmp(RING_API_GETSTRING(nPara), RING_CSTR_NULL) == 0)) {
+		/*
+		**  Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER()
+		**  We check the string size that the VM already knows, instead of using strcmp()
+		**  Because strcmp() can't distinguish an empty string from binary data that just
+		**  starts with a zero byte - e.g. int2bytes(256) or double2bytes(1.5)
+		*/
+		if ((RING_API_GETSTRINGSIZE(nPara) == 0) ||
+		    ((RING_API_GETSTRINGSIZE(nPara) == 4) &&
+		     (strcmp(RING_API_GETSTRING(nPara), RING_CSTR_NULL) == 0))) {
 			/* Create the list for the NULL Pointer */
 			pList2 = RING_API_NEWLIST;
 			/* Create the variable */
