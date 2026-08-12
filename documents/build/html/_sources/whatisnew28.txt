@@ -33,4 +33,5 @@ More Improvements
 * Ring Compiler - Support using Private keyword inside Eval()
 * Ring VM - Check methods hash table during inheritance
 * Ring VM - ring_vm_stringtonum() - Better Implementation
+* Ring VM - ring_vm_api_ispointer() - Better Implementation
 * Ring VM - ring_vm_movetoprevscope() - Check ring_list_isdontdelete_gc() before list swap
