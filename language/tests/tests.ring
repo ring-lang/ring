@@ -707,6 +707,7 @@ aTests = [
 	[ :name = "General Tests (Part 232)", :Command = "ring general/transcfunc.ring" ],
 	[ :name = "General Tests (Part 233)", :Command = "ring general/isfunc.ring" ],
 	[ :name = "General Tests (Part 234)", :Command = "ring general/transbracenewline.ring" ],
+	[ :name = "General Tests (Part 235)", :Command = "ring general/memcpy.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
