@@ -476,6 +476,10 @@ Syntax:
 
 .. note:: pointer2String() return another copy of the data 
 
+.. note:: pointer2String() doesn't check the boundaries of the data. Passing
+	nCount larger than the data behind the pointer returns the adjacent
+	memory without an error.
+
 .. note:: if nStart is Zero, this means starting from the first character 
 
 Example:
@@ -523,6 +527,10 @@ Syntax:
 
 	memcpy(pDestinationPointer,cSourceString,nSize)		# Short name
 	memorycopy(pDestinationPointer,cSourceString,nSize)	# Long name
+
+.. note:: The destination must be a pointer. Passing a string variable
+	directly does nothing - string arguments are copied to the stack before
+	the function is called, so the copy is modified and the variable is not.
 
 Example:
 
