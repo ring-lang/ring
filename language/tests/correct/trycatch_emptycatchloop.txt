@@ -1,0 +1,3 @@
+stack grew : 0
+survived 2000 empty catches
+non-empty catch ran 2000 times

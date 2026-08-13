@@ -996,6 +996,12 @@ int ring_parser_stmt(Parser *pParser) {
 			nMark1 = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_addoperandint(pParser, pMark, nMark1);
 			RING_STATE_PRINTRULE(RING_RULE_CATCH);
+			/*
+			**  Free the stack on entry to the Catch block
+			**  An empty Catch block contains no statement, so nothing would
+			**  clean the stack and each caught error would leave one value
+			*/
+			ring_parser_icg_freestack(pParser);
 			RING_PARSER_ACCEPTSTATEMENTS;
 			if (ring_parser_iskeyword(pParser, K_DONE) || ring_parser_iskeyword(pParser, K_ENDTRY) ||
 			    ring_parser_iskeyword(pParser, K_END) || ring_parser_csbraceend(pParser)) {
