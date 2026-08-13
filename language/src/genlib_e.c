@@ -1561,6 +1561,7 @@ void ring_vm_generallib_state_runfile(void *pPointer) {
 void ring_vm_generallib_state_findvar(void *pPointer) {
 	RingState *pRingState;
 	List *pList;
+	String *pName;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1576,7 +1577,16 @@ void ring_vm_generallib_state_findvar(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	pList = ring_state_findvar(pRingState, RING_API_GETSTRING(2));
+	/*
+	**  Fold the name before the lookup
+	**  Ring is case-insensitive and stores identifiers in lower case, so a
+	**  caller passing the name as written in their source (nTotal) would
+	**  silently miss the variable stored as (ntotal)
+	*/
+	pName = ring_string_new_gc(pRingState, RING_API_GETSTRING(2));
+	ring_string_tolower_gc(pRingState, pName);
+	pList = ring_state_findvar(pRingState, ring_string_get(pName));
+	ring_string_delete_gc(pRingState, pName);
 	/* Check Variable before usage */
 	if (pList == NULL) {
 		RING_API_RETNUMBER(0);
