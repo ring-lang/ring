@@ -1283,13 +1283,20 @@ void ring_vm_generallib_callgc(void *pPointer) {
 }
 
 void ring_vm_generallib_varptr(void *pPointer) {
-	const char *cStr, *cStr2;
+	char *cStr;
+	const char *cStr2;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
 	}
 	if (RING_API_ISSTRING(1) && RING_API_ISSTRING(2)) {
-		cStr = RING_API_GETSTRING(1);
+		/*
+		**  Fold the name before the lookup
+		**  Ring stores identifiers in lower case, so a caller passing the
+		**  name as written in their own source (nTotal) would otherwise miss
+		**  the variable stored as (ntotal). Same as islocal()/ismethod()
+		*/
+		cStr = ring_general_lower(RING_API_GETSTRING(1));
 		cStr2 = RING_API_GETSTRING(2);
 		RING_API_RETCPOINTER(ring_vm_api_varptr(pPointer, cStr, cStr2), cStr2);
 	} else {
@@ -1561,7 +1568,6 @@ void ring_vm_generallib_state_runfile(void *pPointer) {
 void ring_vm_generallib_state_findvar(void *pPointer) {
 	RingState *pRingState;
 	List *pList;
-	String *pName;
 	if (RING_API_PARACOUNT != 2) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return;
@@ -1579,14 +1585,11 @@ void ring_vm_generallib_state_findvar(void *pPointer) {
 	}
 	/*
 	**  Fold the name before the lookup
-	**  Ring is case-insensitive and stores identifiers in lower case, so a
-	**  caller passing the name as written in their source (nTotal) would
-	**  silently miss the variable stored as (ntotal)
+	**  Ring stores identifiers in lower case, so a caller passing the
+	**  name as written in their own source (nTotal) would otherwise miss
+	**  the variable stored as (ntotal). Same as islocal()/ismethod()
 	*/
-	pName = ring_string_new_gc(pRingState, RING_API_GETSTRING(2));
-	ring_string_tolower_gc(pRingState, pName);
-	pList = ring_state_findvar(pRingState, ring_string_get(pName));
-	ring_string_delete_gc(pRingState, pName);
+	pList = ring_state_findvar(pRingState, ring_general_lower(RING_API_GETSTRING(2)));
 	/* Check Variable before usage */
 	if (pList == NULL) {
 		RING_API_RETNUMBER(0);
@@ -1613,7 +1616,11 @@ void ring_vm_generallib_state_newvar(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	pList = ring_state_newvar(pRingState, RING_API_GETSTRING(2));
+	/*
+	**  Fold before storing, so the key matches what Ring code in the
+	**  sub state will look for, and what findvar()/setvar() will fold to
+	*/
+	pList = ring_state_newvar(pRingState, ring_general_lower(RING_API_GETSTRING(2)));
 	RING_API_RETLIST(pList);
 }
 
@@ -1685,7 +1692,13 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	pList = ring_state_findvar(pRingSubState, RING_API_GETSTRING(2));
+	/*
+	**  Fold the name before the lookup
+	**  Ring stores identifiers in lower case, so a caller passing the
+	**  name as written in their own source (nTotal) would otherwise miss
+	**  the variable stored as (ntotal). Same as islocal()/ismethod()
+	*/
+	pList = ring_state_findvar(pRingSubState, ring_general_lower(RING_API_GETSTRING(2)));
 	/* Check Variable before usage */
 	if (pList == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_NOTVARIABLE);
