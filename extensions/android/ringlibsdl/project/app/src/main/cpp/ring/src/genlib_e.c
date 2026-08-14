@@ -1289,7 +1289,7 @@ void ring_vm_generallib_varptr(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISSTRING(1) && RING_API_ISSTRING(2)) {
-		cStr = RING_API_GETSTRING(1);
+		cStr = ring_general_lower(RING_API_GETSTRING(1));
 		cStr2 = RING_API_GETSTRING(2);
 		RING_API_RETCPOINTER(ring_vm_api_varptr(pPointer, cStr, cStr2), cStr2);
 	} else {
@@ -1576,7 +1576,7 @@ void ring_vm_generallib_state_findvar(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	pList = ring_state_findvar(pRingState, RING_API_GETSTRING(2));
+	pList = ring_state_findvar(pRingState, ring_general_lower(RING_API_GETSTRING(2)));
 	/* Check Variable before usage */
 	if (pList == NULL) {
 		RING_API_RETNUMBER(0);
@@ -1603,7 +1603,7 @@ void ring_vm_generallib_state_newvar(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	pList = ring_state_newvar(pRingState, RING_API_GETSTRING(2));
+	pList = ring_state_newvar(pRingState, ring_general_lower(RING_API_GETSTRING(2)));
 	RING_API_RETLIST(pList);
 }
 
@@ -1675,7 +1675,7 @@ void ring_vm_generallib_state_setvar(void *pPointer) {
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return;
 	}
-	pList = ring_state_findvar(pRingSubState, RING_API_GETSTRING(2));
+	pList = ring_state_findvar(pRingSubState, ring_general_lower(RING_API_GETSTRING(2)));
 	/* Check Variable before usage */
 	if (pList == NULL) {
 		RING_API_ERROR(RING_VM_ERROR_NOTVARIABLE);
