@@ -1,5 +1,0 @@
-nTotal : 7
-ntotal : 7
-NTOTAL : 7
-nTOTAL : 7
-notdefined : 1
