@@ -77,6 +77,37 @@ unsigned int ring_vm_checknull(VM *pVM, int lShowError) {
 
 void ring_vm_varpushv(VM *pVM) {
 	List *pVar, *pList;
+	Item *pItem;
+	String *pString;
+	/*
+	**  The stack may hold an ITEM, not a variable: ring_settemp_var is a
+	**  POINTER global, and when an overloaded operator's right operand is
+	**  an object stored in a list element (o1 + a[1]), ring_vm_findvar2
+	**  dereferences the pointer and pushes the raw Item* with
+	**  RING_OBJTYPE_LISTITEM. Casting it to a variable List* reads a
+	**  type-confused struct. The entry is already a valid operand
+	**  representation (identical to a LOADINDEX result), so mirror the
+	**  variable cases on the item and leave objects in place for the
+	**  call machinery.
+	*/
+	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
+		pItem = (Item *)RING_VM_STACK_READP;
+		switch (ring_item_gettype(pItem)) {
+		case ITEMTYPE_NUMBER:
+			RING_VM_STACK_SETNVALUE(ring_item_getnumber(pItem));
+			break;
+		case ITEMTYPE_STRING:
+			pString = ring_item_getstring(pItem);
+			RING_VM_STACK_SETCVALUE2(ring_string_get(pString), ring_string_size(pString));
+			break;
+		case ITEMTYPE_LIST:
+			/* An object in a list element: keep the item on the stack
+			   (as LOADINDEX would) and register it for braces */
+			ring_vm_oop_setbraceobj(pVM, ring_item_getlist(pItem));
+			break;
+		}
+		return;
+	}
 	pVar = (List *)RING_VM_STACK_READP;
 	/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
 	switch (RING_VAR_VALUETYPE(pVar)) {
