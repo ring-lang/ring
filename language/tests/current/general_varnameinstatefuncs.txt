@@ -1,0 +1,16 @@
+1. varptr
+   lower 'ntotal' -> ok
+   cased 'nTotal' -> ok
+
+2. ring_state_findvar
+   lower 'ncount' -> found
+   cased 'nCount' -> found
+
+3. ring_state_setvar
+   lower -> 99
+   cased -> ok
+
+4. ring_state_newvar
+   findvar 'nYear' -> found
+   findvar 'nyear' -> found
+   [2026]
