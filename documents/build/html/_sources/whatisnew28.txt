@@ -26,6 +26,7 @@ More Improvements
 
 * Removed Folder: ring/samples/UsingAI 
 * RingRayLib - raylib.rh - Added more constants 
+* RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
 * RingQt - QAllEvents - Added setWheelEvent() method
 * Sort() function - Better Implementation
 * State and Low Level Functions - Convert variable name to lower case 
