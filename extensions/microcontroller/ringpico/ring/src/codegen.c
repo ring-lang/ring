@@ -181,12 +181,7 @@ void ring_parser_icg_beforeequal(Parser *pParser, int nBeforeEqual) {
 	ring_parser_icg_newoperandint(pParser, nBeforeEqual);
 }
 
-void ring_parser_icg_retnull(Parser *pParser) {
-	if ((pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_RETURN)) {
-		return;
-	}
-	ring_parser_icg_newoperation(pParser, ICO_RETNULL);
-}
+void ring_parser_icg_retnull(Parser *pParser) { ring_parser_icg_newoperation(pParser, ICO_RETNULL); }
 
 void ring_parser_icg_listitem(Parser *pParser) {
 	int nLastOperation;
