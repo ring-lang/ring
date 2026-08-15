@@ -61,8 +61,6 @@ You get the language constructs ready for use to create domain-specific language
 
 * [Natural Language Programming Library](https://ring-lang.github.io/doc1.27/naturallibrary.html)
 
-* [Programming Without Coding Technology](https://pwct.github.io)
-
 <a name="batteries-included"></a>
 # 🔋Batteries Included
 
