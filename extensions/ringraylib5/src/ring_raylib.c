@@ -10,7 +10,6 @@
 #include "raygui/raygui.h"
 
 #include "raymath/raymath.h"
-
 RING_FUNC(ring_raylib_new_vector2)
 {
 	Vector2 *pMyPointer ;
@@ -9910,12 +9909,7 @@ RING_FUNC(ring_GetFileModTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		long *pValue ; 
-		pValue = (long *) RING_API_MALLOC(sizeof(long)) ;
-		*pValue = GetFileModTime(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"long",RING_API_FREEFUNC);
-	}
+	RING_API_RETNUMBER(GetFileModTime(RING_API_GETSTRING(1)));
 }
 
 
@@ -14033,6 +14027,33 @@ RING_FUNC(ring_LoadFontEx_2)
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
+static Font LoadFontExDefault(const char *fileName, int fontSize)
+{
+	return LoadFontEx(fileName, fontSize, NULL, 0);
+}
+
+RING_FUNC(ring_LoadFontExDefault_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Font *pValue ; 
+		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
+		*pValue = LoadFontExDefault(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
+	}
+}
+
 
 RING_FUNC(ring_LoadFontFromImage_2)
 {
@@ -17114,11 +17135,12 @@ RING_FUNC(ring_UnloadWaveSamples)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	UnloadWaveSamples((float *) RING_API_GETCPOINTER(1,"float"));
+	UnloadWaveSamples(RING_API_GETFLOATPOINTER(1));
+	RING_API_ACCEPTFLOATVALUE(1) ;
 }
 
 
@@ -17943,7 +17965,7 @@ RING_FUNC(ring_GuiSlider_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(4) ) {
+	if ( ! RING_API_ISSTRING(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -17955,9 +17977,10 @@ RING_FUNC(ring_GuiSlider_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(GuiSlider(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(float *) RING_API_GETCPOINTER(4,"float"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
+	RING_API_RETNUMBER(GuiSlider(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETFLOATPOINTER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+	RING_API_ACCEPTFLOATVALUE(4) ;
 }
 
 
@@ -17975,7 +17998,7 @@ RING_FUNC(ring_GuiSliderBar_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(4) ) {
+	if ( ! RING_API_ISSTRING(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -17987,9 +18010,10 @@ RING_FUNC(ring_GuiSliderBar_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(GuiSliderBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(float *) RING_API_GETCPOINTER(4,"float"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
+	RING_API_RETNUMBER(GuiSliderBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETFLOATPOINTER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+	RING_API_ACCEPTFLOATVALUE(4) ;
 }
 
 
@@ -18007,7 +18031,7 @@ RING_FUNC(ring_GuiProgressBar_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(4) ) {
+	if ( ! RING_API_ISSTRING(4) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -18019,9 +18043,10 @@ RING_FUNC(ring_GuiProgressBar_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(GuiProgressBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(float *) RING_API_GETCPOINTER(4,"float"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
+	RING_API_RETNUMBER(GuiProgressBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETFLOATPOINTER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+	RING_API_ACCEPTFLOATVALUE(4) ;
 }
 
 
@@ -19871,13 +19896,14 @@ RING_FUNC(ring_QuaternionToAxisAngle_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(3) ) {
+	if ( ! RING_API_ISSTRING(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QuaternionToAxisAngle(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),(Vector3 *) RING_API_GETCPOINTER(2,"Vector3"),(float *) RING_API_GETCPOINTER(3,"float"));
+	QuaternionToAxisAngle(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),(Vector3 *) RING_API_GETCPOINTER(2,"Vector3"),RING_API_GETFLOATPOINTER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	RING_API_ACCEPTFLOATVALUE(3) ;
 }
 
 
@@ -20417,6 +20443,7 @@ RING_LIBINIT
 	RING_API_REGISTER("getfontdefault_2",ring_GetFontDefault_2);
 	RING_API_REGISTER("loadfont_2",ring_LoadFont_2);
 	RING_API_REGISTER("loadfontex_2",ring_LoadFontEx_2);
+	RING_API_REGISTER("loadfontexdefault_2",ring_LoadFontExDefault_2);
 	RING_API_REGISTER("loadfontfromimage_2",ring_LoadFontFromImage_2);
 	RING_API_REGISTER("loadfontfrommemory_2",ring_LoadFontFromMemory_2);
 	RING_API_REGISTER("isfontready_2",ring_IsFontReady_2);

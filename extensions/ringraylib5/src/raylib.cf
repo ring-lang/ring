@@ -12,7 +12,6 @@
 #include "raygui/raygui.h"
 
 #include "raymath/raymath.h"
-
 </code>
 
 <runcode>
@@ -392,6 +391,15 @@ void DrawTextureNPatch@2(Texture2D texture, NPatchInfo nPatchInfo, Rectangle des
 Font GetFontDefault@2(void)
 Font LoadFont@2(const char *fileName)
 Font LoadFontEx@2(const char *fileName, int fontSize, int *fontChars, int charsCount)
+
+<code>
+static Font LoadFontExDefault(const char *fileName, int fontSize)
+{
+	return LoadFontEx(fileName, fontSize, NULL, 0);
+}
+</code>
+Font LoadFontExDefault@2(const char *fileName, int fontSize)
+
 Font LoadFontFromImage@2(Image image, Color key, int firstChar)
 Font LoadFontFromMemory@2(const char *fileType, const unsigned char *fileData, int dataSize, int fontSize, int *codepoints, int codepointCount)
 bool IsFontReady@2(Font font)

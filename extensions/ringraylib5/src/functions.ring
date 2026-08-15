@@ -1285,6 +1285,11 @@ func LoadFontEx fileName, fontSize, fontChars, charsCount
 	ok
 	return oFont
 
+func LoadFontExDefault fileName, fontSize
+	oFont = new Font
+	oFont.setData(LoadFontExDefault_2( fileName, fontSize ) )
+	return oFont
+
 func LoadFontFromImage image, key, firstChar
 	oFont = new Font 
 	oFont.setData(LoadFontFromImage_2( GPData(image), GPData(key), firstChar) )
