@@ -333,7 +333,7 @@ void ring_vm_loadapushv(VM *pVM) {
 		RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
 		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
 	}
-	ring_vm_varpushv(pVM);
+	ring_vm_pushv(pVM);
 }
 
 void ring_vm_newline(VM *pVM) {
