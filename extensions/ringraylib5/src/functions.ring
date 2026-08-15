@@ -661,7 +661,7 @@ func GuiSliderBar bounds, text, value, minValue, maxValue, lValue
 
 func GuiProgressBar bounds, text, value, minValue, maxValue, lValue
 	value = float2bytes(value)
-	GuiProgressBar_2(GPData(bounds), text, "", VarPtr(:Value,:Float), minValue, maxValue)
+	GuiProgressBar_2(GPData(bounds), text, "", :Value, minValue, maxValue)
 	return bytes2float(value)
 
 func GuiStatusBar bounds, text
