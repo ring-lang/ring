@@ -651,12 +651,12 @@ func GuiTextBoxMulti bounds, text, textSize, editMode
 
 func GuiSlider bounds, text, value, minValue, maxValue, lValue
 	value = float2bytes(value)
-	GuiSlider_2(GPData(bounds), text, "", VarPtr(:Value,:Float), minValue, maxValue)
+	GuiSlider_2(GPData(bounds), text, "", :Value, minValue, maxValue)
 	return bytes2float(value)
 
 func GuiSliderBar bounds, text, value, minValue, maxValue, lValue
 	value = float2bytes(value)
-	GuiSliderBar_2(GPData(bounds), text, "", VarPtr(:Value,:Float), minValue, maxValue)
+	GuiSliderBar_2(GPData(bounds), text, "", :Value, minValue, maxValue)
 	return bytes2float(value)
 
 func GuiProgressBar bounds, text, value, minValue, maxValue, lValue
