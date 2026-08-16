@@ -14032,6 +14032,15 @@ static Font LoadFontExDefault(const char *fileName, int fontSize)
 	return LoadFontEx(fileName, fontSize, NULL, 0);
 }
 
+static Font LoadFontExForText(const char *fileName, int fontSize, const char *text)
+{
+	int codepointCount = 0;
+	int *codepoints = LoadCodepoints(text, &codepointCount);
+	Font font = LoadFontEx(fileName, fontSize, codepoints, codepointCount);
+	UnloadCodepoints(codepoints);
+	return font;
+}
+
 RING_FUNC(ring_LoadFontExDefault_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -14050,6 +14059,33 @@ RING_FUNC(ring_LoadFontExDefault_2)
 		Font *pValue ; 
 		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 		*pValue = LoadFontExDefault(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_LoadFontExForText_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Font *pValue ; 
+		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
+		*pValue = LoadFontExForText(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
 		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
 	}
 }
@@ -20444,6 +20480,7 @@ RING_LIBINIT
 	RING_API_REGISTER("loadfont_2",ring_LoadFont_2);
 	RING_API_REGISTER("loadfontex_2",ring_LoadFontEx_2);
 	RING_API_REGISTER("loadfontexdefault_2",ring_LoadFontExDefault_2);
+	RING_API_REGISTER("loadfontexfortext_2",ring_LoadFontExForText_2);
 	RING_API_REGISTER("loadfontfromimage_2",ring_LoadFontFromImage_2);
 	RING_API_REGISTER("loadfontfrommemory_2",ring_LoadFontFromMemory_2);
 	RING_API_REGISTER("isfontready_2",ring_IsFontReady_2);

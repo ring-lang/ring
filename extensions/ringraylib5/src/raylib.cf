@@ -397,8 +397,19 @@ static Font LoadFontExDefault(const char *fileName, int fontSize)
 {
 	return LoadFontEx(fileName, fontSize, NULL, 0);
 }
+
+static Font LoadFontExForText(const char *fileName, int fontSize, const char *text)
+{
+	int codepointCount = 0;
+	int *codepoints = LoadCodepoints(text, &codepointCount);
+	Font font = LoadFontEx(fileName, fontSize, codepoints, codepointCount);
+	UnloadCodepoints(codepoints);
+	return font;
+}
 </code>
+
 Font LoadFontExDefault@2(const char *fileName, int fontSize)
+Font LoadFontExForText@2(const char *fileName, int fontSize, const char *text)
 
 Font LoadFontFromImage@2(Image image, Color key, int firstChar)
 Font LoadFontFromMemory@2(const char *fileType, const unsigned char *fileData, int dataSize, int fontSize, int *codepoints, int codepointCount)
