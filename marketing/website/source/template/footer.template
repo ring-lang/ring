@@ -61,7 +61,7 @@
 			  <li><a href="doc1.27/stdlib.html">Stdlib Functions</a></li>		  
 			  <li><a href="doc1.27/stdlibclasses.html">Stdlib Classes</a></li>
 			  <li><a href="doc1.27/web.html">Web Development (CGI Library)</a></li>
-			  <li><a href="doc1.27/deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+			  <li><a href="doc1.27/ring_cloud.html">Deploying Web Applications using Docker</a></li>
 			  <li><a href="doc1.27/libcurl.html">Using LibCurl</a></li>
 			  <li><a href="doc1.27/ringzip.html">Using Zip</a></li>			  			  			  			  
 			  <li><a href="doc1.27/allegro.html">2D Games programming using Allegro</a></li>
