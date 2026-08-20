@@ -66,7 +66,6 @@ Contents:
    Using CSVLib <csvlib>
    Using JSONLib <jsonlib>
    Using HTTPLib <httplib>
-   Deploying Web Applications using Heroku <deployincloud>
    Deploying Web Applications using Docker <ring_cloud>
    Deploying Web Applications to Cloud Platforms <ring_cloud_platforms>
    Deploying Web Applications to Shared Hosting <ring_cloud_cgi>
