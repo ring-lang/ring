@@ -1018,5 +1018,9 @@ aPackagesRegistry = [
 	[ :name = "ringscript",
 	  :description = "Run Ring in the browser - the Ring Virtual Machine compiled to WebAssembly, with a Playground and a starter kit",
 	  :ProviderUserName = "mayouni"
+	],
+	[ :name = "ringserv",
+	  :description = "Run Ring on the server - a modern application server in one static binary, with an HTTP core, SQLite and a JavaScript engine inside",
+	  :ProviderUserName = "mayouni"
 	]
 ]
