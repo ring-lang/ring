@@ -1016,15 +1016,15 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "ringscript",
-	  :description = "Run Ring in the browser - the Ring Virtual Machine compiled to WebAssembly, with a Playground and a starter kit",
+	  :description = "Run Ring in the browser (Ring VM compiled to WebAssembly)",
 	  :ProviderUserName = "mayouni"
 	],
 	[ :name = "ringserv",
-	  :description = "Run Ring on the server - a modern application server in one static binary, with an HTTP core, SQLite and a JavaScript engine inside",
+	  :description = "A modern application server in one static binary",
 	  :ProviderUserName = "mayouni"
 	],
 	[ :name = "ringpp",
-	  :description = "Ring, faster, safer and more portable - a dependency-free library and CLI for performant code, static analysis and native builds, with no C compiler ever",
+	  :description = "A dependency-free library for static analysis",
 	  :ProviderUserName = "mayouni"
 	]
 ]
