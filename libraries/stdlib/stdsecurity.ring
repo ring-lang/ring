@@ -49,13 +49,13 @@ Class security
 		return std_encrypt(cString,cKey,cIV)
 		
 	Func encrypt_ex cString,cKey,cIV,cCipher
-		return std_encrypt(cString,cKey,cIV,cCipher)
+		return std_encrypt_ex(cString,cKey,cIV,cCipher)
 
 	Func decrypt cString,cKey,cIV
 		return std_decrypt(cString,cKey,cIV)
 		
 	Func decrypt_ex cString,cKey,cIV,cCipher
-		return std_decrypt(cString,cKey,cIV,cCipher)
+		return std_decrypt_ex(cString,cKey,cIV,cCipher)
 	
 	Func supportedciphers
 		return std_supportedciphers()
