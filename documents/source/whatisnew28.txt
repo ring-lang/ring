@@ -25,6 +25,7 @@ More Improvements
 =================
 
 * Removed Folder: ring/samples/UsingAI 
+* StdLib - Revised: encrypt_ex() and decrypt_ex()
 * RingRayLib - raylib.rh - Added more constants 
 * RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
 * RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
