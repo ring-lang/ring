@@ -1,3 +1,10 @@
+/*
+    Modified    =>  Youssef Saeed (youssefelkholey@gmail.com)
+    Date        =>  28-8-2026
+    Changes     =>  Non-blocking I/O, select() support, sender address
+                    storage (from/fromlen) and new function declarations.
+*/
+
 #ifndef ring_socket_h
 #define ring_socket_h
 
@@ -22,7 +29,11 @@
 #else
     #include <sys/socket.h>
     #include <sys/types.h>
+    #include <sys/select.h>
     #include <netinet/in.h>
+    #include <netinet/tcp.h>
+    #include <fcntl.h>
+    #include <errno.h>
     #include <unistd.h>
     #include <arpa/inet.h>
     #include <netdb.h>
@@ -36,12 +47,16 @@
     
 #endif
 
+#include <stdint.h>
+
 
 typedef struct 
 {
     SOCKET_T sockfd;
     struct addrinfo *addr;
     struct addrinfo hints;
+    struct sockaddr_storage from;
+    socklen_t fromlen;
 } RING_SOCKET;
 
 
@@ -50,6 +65,16 @@ typedef struct
 
 
 void ring_vm_socket_init(void *pPointer);
+void ring_vm_socket_fd(void *pPointer);
+void ring_vm_socket_shutdown(void *pPointer);
+void ring_vm_socket_setnonblocking(void *pPointer);
+void ring_vm_socket_select(void *pPointer);
+void ring_vm_socket_lasterror(void *pPointer);
+void ring_vm_socket_getaddrinfo(void *pPointer);
+void ring_vm_socket_getsockname(void *pPointer);
+void ring_vm_socket_getpeername(void *pPointer);
+void ring_vm_socket_socketpair(void *pPointer);
+void ring_vm_socket_getprotobyname(void *pPointer);
 void ring_vm_socket_setsockopt(void *pPointer);
 void ring_vm_socket_getsockopt(void *pPointer);
 void ring_vm_socket_bind(void *pPointer);

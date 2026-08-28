@@ -4,6 +4,11 @@
     Date        =>  10-12-2020
 */
 
+/*
+    Modified    =>  Youssef Saeed (youssefelkholey@gmail.com)
+    Date        =>  28-8-2026
+*/
+
 # Protocol Families
     PF_UNSPEC       = get_PF_UNSPEC()
     PF_UNIX         = get_PF_UNIX()
@@ -27,6 +32,10 @@
     IPPROTO_IP      = get_IPPROTO_IP()
     IPPROTO_TCP     = get_IPPROTO_TCP()
     IPPROTO_UDP     = get_IPPROTO_UDP()
+    IPPROTO_RAW     = get_IPPROTO_RAW()
+    IPPROTO_ICMP    = get_IPPROTO_ICMP()
+    IPPROTO_IGMP    = get_IPPROTO_IGMP()
+    IPPROTO_SCTP    = get_IPPROTO_SCTP()
     SOL_SOCKET      = get_SOL_SOCKET()
 
 # Option names
@@ -68,4 +77,28 @@
     SO_RCVLOWAT         = get_SO_RCVLOWAT()
     SO_SNDLOWAT         = get_SO_SNDLOWAT()
     SO_RCVTIMEO         = get_SO_RCVTIMEO()
-    
+    SO_SNDTIMEO         = get_SO_SNDTIMEO()
+    SO_EXCLUSIVEADDRUSE = get_SO_EXCLUSIVEADDRUSE()
+    SO_NOSIGPIPE        = get_SO_NOSIGPIPE()
+    SO_REUSEPORT        = get_SO_REUSEPORT()
+
+# Shutdown flags
+    SHUT_RD             = get_SHUT_RD()
+    SHUT_WR             = get_SHUT_WR()
+    SHUT_RDWR           = get_SHUT_RDWR()
+
+# Would-block error code (compare with socklasterror())
+    SOCK_EWOULDBLOCK    = get_SOCK_EWOULDBLOCK()
+
+# TCP socket options
+    TCP_NODELAY         = get_TCP_NODELAY()
+    TCP_KEEPIDLE        = get_TCP_KEEPIDLE()
+    TCP_KEEPINTVL       = get_TCP_KEEPINTVL()
+    TCP_KEEPCNT         = get_TCP_KEEPCNT()
+
+# Message flags (for send / recv / sendto / recvfrom)
+    MSG_OOB             = get_MSG_OOB()
+    MSG_PEEK            = get_MSG_PEEK()
+    MSG_WAITALL         = get_MSG_WAITALL()
+    MSG_DONTWAIT        = get_MSG_DONTWAIT()
+

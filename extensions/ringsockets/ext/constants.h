@@ -1,3 +1,10 @@
+/*
+    Modified    =>  Youssef Saeed (youssefelkholey@gmail.com)
+    Date        =>  28-8-2026
+    Changes     =>  Declarations for new constants (TCP options, message
+                    flags, shutdown flags, protocols, SOCK_EWOULDBLOCK).
+*/
+
 #ifndef HAVE_RING_SOCKET_CONSTANTS
 #define HAVE_RING_SOCKET_CONSTANTS
 
@@ -27,7 +34,37 @@ void ring_vm_socket_constant_sock_seqpacket(void *pPointer);
 void ring_vm_socket_constant_ipproto_ip(void *pPointer);
 void ring_vm_socket_constant_ipproto_tcp(void *pPointer);
 void ring_vm_socket_constant_ipproto_udp(void *pPointer);
+void ring_vm_socket_constant_ipproto_raw(void *pPointer);
+void ring_vm_socket_constant_ipproto_icmp(void *pPointer);
+void ring_vm_socket_constant_ipproto_igmp(void *pPointer);
+void ring_vm_socket_constant_ipproto_sctp(void *pPointer);
 void ring_vm_socket_constant_sol_socket(void *pPointer);
+
+/* TCP socket options */
+void ring_vm_socket_constant_tcp_nodelay(void *pPointer);
+void ring_vm_socket_constant_tcp_keepidle(void *pPointer);
+void ring_vm_socket_constant_tcp_keepintvl(void *pPointer);
+void ring_vm_socket_constant_tcp_keepcnt(void *pPointer);
+
+/* Message flags */
+void ring_vm_socket_constant_msg_oob(void *pPointer);
+void ring_vm_socket_constant_msg_peek(void *pPointer);
+void ring_vm_socket_constant_msg_waitall(void *pPointer);
+void ring_vm_socket_constant_msg_dontwait(void *pPointer);
+
+/* Additional socket options */
+void ring_vm_socket_constant_so_sndtimeo(void *pPointer);
+void ring_vm_socket_constant_so_exclusiveaddruse(void *pPointer);
+void ring_vm_socket_constant_so_nosigpipe(void *pPointer);
+void ring_vm_socket_constant_so_reuseport(void *pPointer);
+
+/* Shutdown flags */
+void ring_vm_socket_constant_shut_rd(void *pPointer);
+void ring_vm_socket_constant_shut_wr(void *pPointer);
+void ring_vm_socket_constant_shut_rdwr(void *pPointer);
+
+/* Would-block error code (portable) */
+void ring_vm_socket_constant_sock_ewouldblock(void *pPointer);
 
 /* Option names */
 void ring_vm_socket_constant_so_debug(void *pPointer);
