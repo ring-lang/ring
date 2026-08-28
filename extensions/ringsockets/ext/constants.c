@@ -1,3 +1,9 @@
+/*
+    Modified    =>  Youssef Saeed (youssefelkholey@gmail.com)
+    Date        =>  28-8-2026
+    Changes     =>  New constant functions with portable fallbacks
+                    (-1 where unsupported).
+*/
 
 #include "constants.h"
 
@@ -84,6 +90,30 @@ void ring_vm_socket_constant_ipproto_udp(void *pPointer)
 void ring_vm_socket_constant_sol_socket(void *pPointer)
 {
     RING_API_RETNUMBER(SOL_SOCKET);
+}
+
+void ring_vm_socket_constant_ipproto_raw(void *pPointer)
+{
+    RING_API_RETNUMBER(IPPROTO_RAW);
+}
+
+void ring_vm_socket_constant_ipproto_icmp(void *pPointer)
+{
+    RING_API_RETNUMBER(IPPROTO_ICMP);
+}
+
+void ring_vm_socket_constant_ipproto_igmp(void *pPointer)
+{
+    RING_API_RETNUMBER(IPPROTO_IGMP);
+}
+
+void ring_vm_socket_constant_ipproto_sctp(void *pPointer)
+{
+#ifdef IPPROTO_SCTP
+    RING_API_RETNUMBER(IPPROTO_SCTP);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
 }
 
 void ring_vm_socket_constant_so_debug(void *pPointer)
@@ -253,4 +283,138 @@ void ring_vm_socket_constant_so_sndlowat(void *pPointer)
 void ring_vm_socket_constant_so_rcvtimeo(void *pPointer)
 {
     RING_API_RETNUMBER(SO_RCVTIMEO);
+}
+
+void ring_vm_socket_constant_so_sndtimeo(void *pPointer)
+{
+    RING_API_RETNUMBER(SO_SNDTIMEO);
+}
+
+void ring_vm_socket_constant_so_exclusiveaddruse(void *pPointer)
+{
+#ifdef SO_EXCLUSIVEADDRUSE
+    RING_API_RETNUMBER(SO_EXCLUSIVEADDRUSE);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_so_nosigpipe(void *pPointer)
+{
+#ifdef SO_NOSIGPIPE
+    RING_API_RETNUMBER(SO_NOSIGPIPE);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_so_reuseport(void *pPointer)
+{
+#ifdef SO_REUSEPORT
+    RING_API_RETNUMBER(SO_REUSEPORT);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_shut_rd(void *pPointer)
+{
+#ifdef SHUT_RD
+    RING_API_RETNUMBER(SHUT_RD);
+#elif defined(SD_RECEIVE)
+    RING_API_RETNUMBER(SD_RECEIVE);
+#else
+    RING_API_RETNUMBER(0);
+#endif
+}
+
+void ring_vm_socket_constant_shut_wr(void *pPointer)
+{
+#ifdef SHUT_WR
+    RING_API_RETNUMBER(SHUT_WR);
+#elif defined(SD_SEND)
+    RING_API_RETNUMBER(SD_SEND);
+#else
+    RING_API_RETNUMBER(1);
+#endif
+}
+
+void ring_vm_socket_constant_shut_rdwr(void *pPointer)
+{
+#ifdef SHUT_RDWR
+    RING_API_RETNUMBER(SHUT_RDWR);
+#elif defined(SD_BOTH)
+    RING_API_RETNUMBER(SD_BOTH);
+#else
+    RING_API_RETNUMBER(2);
+#endif
+}
+
+void ring_vm_socket_constant_sock_ewouldblock(void *pPointer)
+{
+#ifdef _WIN32
+    RING_API_RETNUMBER(WSAEWOULDBLOCK);
+#else
+    RING_API_RETNUMBER(EAGAIN);
+#endif
+}
+
+void ring_vm_socket_constant_tcp_nodelay(void *pPointer)
+{
+    RING_API_RETNUMBER(TCP_NODELAY);
+}
+
+void ring_vm_socket_constant_tcp_keepidle(void *pPointer)
+{
+#ifdef TCP_KEEPIDLE
+    RING_API_RETNUMBER(TCP_KEEPIDLE);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_tcp_keepintvl(void *pPointer)
+{
+#ifdef TCP_KEEPINTVL
+    RING_API_RETNUMBER(TCP_KEEPINTVL);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_tcp_keepcnt(void *pPointer)
+{
+#ifdef TCP_KEEPCNT
+    RING_API_RETNUMBER(TCP_KEEPCNT);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_msg_oob(void *pPointer)
+{
+    RING_API_RETNUMBER(MSG_OOB);
+}
+
+void ring_vm_socket_constant_msg_peek(void *pPointer)
+{
+    RING_API_RETNUMBER(MSG_PEEK);
+}
+
+void ring_vm_socket_constant_msg_waitall(void *pPointer)
+{
+#ifdef MSG_WAITALL
+    RING_API_RETNUMBER(MSG_WAITALL);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
+}
+
+void ring_vm_socket_constant_msg_dontwait(void *pPointer)
+{
+#ifdef MSG_DONTWAIT
+    RING_API_RETNUMBER(MSG_DONTWAIT);
+#else
+    RING_API_RETNUMBER(-1);
+#endif
 }

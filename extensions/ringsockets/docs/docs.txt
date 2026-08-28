@@ -1,24 +1,54 @@
 
 - socket(Address Family , Connection type , proto = 0)  -> return <socket handler>
+- socketfd(socket handler)  -> return <file descriptor (number)>
 - setsockopt(socket handler , level , option_name , value)
-- getsockopt(socket handler , level , option_name)  -> return <1> if option has been used or <0>
+- getsockopt(socket handler , level , option_name)  -> return <the option value (number)>
 - bind(socket handler , host , port)
-- listen(socket handler , backlog)
+- listen(socket handler , backlog = 5)
 - accept(socket handler)    -> return <connection handler>
-- send(connection handler OR socket handler if it the client  , "Your Message")
-- sendto(socket handler , "Your Message")
-- recv(connection handler OR socket handler if it the client , buffer)   -> return <data>
-- recvfrom(socket handler , buffer)     -> return <data>
+- send(connection handler OR socket handler if it the client  , "Your Message" , flags = 0)  -> return <number of bytes sent> (raises error on failure)
+- sendto(socket handler , "Your Message" [, flags] | host , port [, flags])  -> return <number of bytes sent>
+      (no host/port: replies to the last recvfrom source or a connected socket; with host/port: sends to that destination)
+- recv(connection handler OR socket handler if it the client , buffer , flags = 0)   -> return <data> (raises error on failure)
+- recvfrom(socket handler , buffer , flags = 0)     -> return <data> and stores the sender address for a later sendto (raises error on failure)
 - connect(socket handler , host , port)    -> return <0> if successful
 - close(socket handler OR connection handler)
+- shutdownsocket(socket handler , how)   -> how = SHUT_RD | SHUT_WR | SHUT_RDWR
+- setnonblocking(socket handler , flag)   -> flag = 1 (non-blocking) or 0 (blocking)
+- select(readList , writeList , exceptList [, timeout])  -> return <list of 3 lists: ready-to-read, ready-to-write, has-exception>
+- socklasterror()   -> return <last socket error code> (compare with SOCK_EWOULDBLOCK)
+- getaddrinfo(host , service [, family])  -> return <list of {family, socktype, protocol, ip, port}>
+- getsockname(socket handler)  -> return <list of {ip, port}>
+- getpeername(socket handler)  -> return <list of {ip, port}>
+- socketpair(family , type , protocol)  -> return <list of two socket handlers> (on Windows the arguments are ignored and a TCP loopback pair is returned)
+- getprotobyname(name)  -> return <protocol number>
+- gethostbyname(hostname)       ->  return  <IP Address>
+- gethostbyaddr(ip address)     ->  return  <List of host info>
+- gethostname()                 ->  return  <My Hostname>
+- getservbyname(service_name)   ->  return  <service port>
+- getservbyport(port)           ->  return  <service name>
+- inet_pton(AdressFamily, ip)                 ->  return  <packed_address>
+- inet_ntop(AdressFamily, packed_address)     ->  return  <ip>
+- socketsCleanup()
+
+Non-blocking I/O and select
+---------------------------
+When a socket is set non-blocking with setnonblocking(sock, 1), send/recv/sendto/recvfrom
+no longer block. On a temporary "would block" condition they return without raising an
+error; instead check socklasterror():
+    - recv/recvfrom/accept return NULL (nothing). If the peer closed, recv/recvfrom return "" (empty string).
+    - send/sendto return -2.
+    - socklasterror() == SOCK_EWOULDBLOCK means "try again after select()".
+
+Building the lists for select()
+-------------------------------
+Pass socket handlers in plain lists. Create an empty list with [] and add handlers with
+add(), e.g.:
+    r = [] add(r, sock)
+    ready = select(r, [], [], 1)
 
 ------------------------------------------------------------------------------------------
 
-- gethostbyname(hostname)       ->  return  <IP Address>
-- gethostbyaddr(ip address)     ->  return  <List of host info>
-- gethostname()			->  return  <My Hostname>
-- getservbyname(service_name)   ->  return  <service port>
-- getservbyport(port)		->  return  <service name>
 # convert the unsigned short integer (16-bit) netshort from network byte order to host byte order 
 - ntohs(netshort)               ->  return  <hostshort>
 - htons(hostshort)              ->  return  <netshort>
@@ -28,14 +58,6 @@
 # convert ip address into binary data in network byte order
 - inet_addr(ip)                 ->  return  <packed_address>
 - inet_ntoa(packed_address)     ->  return  <ip>
-# convert ipv4|ipv6 address into binary data in network byte order
-- inet_pton(AdressFamily, ip)                 ->  return  <packed_address>
-- inet_ntop(AdressFamily, packed_address)     ->  return  <ip>
-
-------------------------------------------------------------------------------------------
-
-# terminates use of the Winsock (For Windows, should call when finish using the sockets)
-- socketsCleanup()
 
 ------------------------------------------------------------------------------------------
 
@@ -73,18 +95,14 @@ Option names :
                 - IP_DROP_MEMBERSHIP
                 - IP_DROP_SOURCE_MEMBERSHIP
                 - IP_HDRINCL
-                - IP_MTU
-                - IP_MTU_DISCOVER
                 - IP_MULTICAST_LOOP
                 - IP_MULTICAST_TTL
                 - IP_OPTIONS
-                - IP_PKTINFO
                 - IP_RECVTOS
                 - IP_RECVTTL
                 - IP_TOS
                 - IP_TTL
                 - IP_UNBLOCK_SOURCE
-                - IP_UNICAST_IF
                 --------------------------
                 - SO_DEBUG
                 - SO_ACCEPTCONN
@@ -101,7 +119,37 @@ Option names :
                 - SO_RCVLOWAT
                 - SO_SNDLOWAT
                 - SO_RCVTIMEO
+                - SO_SNDTIMEO
+                - SO_EXCLUSIVEADDRUSE   (Windows only; returns -1 elsewhere)
+                - SO_NOSIGPIPE          (macOS/BSD; returns -1 elsewhere)
+                - SO_REUSEPORT          (Linux/BSD/macOS; returns -1 on Windows)
+
+TCP socket options :
+                - TCP_NODELAY
+                - TCP_KEEPIDLE          (returns -1 where unsupported)
+                - TCP_KEEPINTVL         (returns -1 where unsupported)
+                - TCP_KEEPCNT           (returns -1 where unsupported)
+
+Message flags (for send / recv / sendto / recvfrom) :
+                - MSG_OOB
+                - MSG_PEEK
+                - MSG_WAITALL
+                - MSG_DONTWAIT          (Linux/BSD/macOS; returns -1 on Windows)
+
+Shutdown flags (for shutdownsocket) :
+                - SHUT_RD
+                - SHUT_WR
+                - SHUT_RDWR
+
+Error codes (compare with socklasterror()) :
+                - SOCK_EWOULDBLOCK      (EAGAIN/EWOULDBLOCK, or WSAEWOULDBLOCK on Windows)
+
+Protocols :
+                - IPPROTO_RAW
+                - IPPROTO_ICMP
+                - IPPROTO_IGMP
+                - IPPROTO_SCTP          (returns -1 on Windows)
 
 ------------------------------------------------------------------------------------------
 
-You Can Take a Look on Samples Folder For More Info
+You Can Take a Look on the Samples Folder For More Info

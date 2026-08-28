@@ -1,6 +1,7 @@
 load "sockets.ring" 
 
 sock = socket(AF_INET,SOCK_STREAM,0) 
+setsockopt(sock,SOL_SOCKET,SO_REUSEADDR,1)
 bind(sock,"127.0.0.1",5050)
 listen(sock,5)
 ns = accept(sock)
