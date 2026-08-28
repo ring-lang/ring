@@ -20,6 +20,7 @@ Example (TCP Server Code):
 	load "sockets.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM,0) 
+	setsockopt(sock,SOL_SOCKET,SO_REUSEADDR,1)
 	bind(sock,"127.0.0.1",5050)
 	listen(sock,5)
 	ns = accept(sock)
@@ -54,6 +55,133 @@ Example (TCP Client Code):
 	? "socket connection closed"
 
 .. index:: 
+	pair: sockets; UDP Echo Server
+
+UDP Echo Server
+===============
+
+``recvfrom`` stores the sender address, so ``sendto`` can reply without
+passing a destination.
+
+Example (UDP Echo Server Code):
+
+.. code-block:: ring
+
+	load "sockets.ring" 
+
+	sock = socket(AF_INET,SOCK_DGRAM,0)
+	bind(sock,"127.0.0.1",9090)
+
+	while true
+		msg = recvfrom(sock,1024)
+		? "client >> " + msg
+		sendto(sock,"echo: " + msg)
+	end
+
+	close(sock)
+
+.. index:: 
+	pair: sockets; UDP Client
+
+UDP Client
+==========
+
+``connect`` on a UDP socket only sets the default destination, so
+``send``/``recv`` can be used instead of ``sendto``/``recvfrom``.
+
+Example (UDP Client Code):
+
+.. code-block:: ring
+
+	load "sockets.ring" 
+
+	sock = socket(AF_INET,SOCK_DGRAM,0)
+
+	if connect(sock,"127.0.0.1",9090) = 0
+		send(sock,"hello udp")
+		? "server >> " + recv(sock,1024)
+	ok
+
+	close(sock)
+
+.. index:: 
+	pair: sockets; Non-blocking and select
+
+Non-blocking I/O and select()
+=============================
+
+A socket set non-blocking never blocks in ``send``/``recv``/``accept``.
+Use ``select()`` to wait until sockets are ready, and ``socklasterror()``
+to detect the temporary "would block" condition.
+
+Example (using ``socketpair`` so no second process is needed):
+
+.. code-block:: ring
+
+	load "sockets.ring"
+
+	sp = socketpair(AF_UNIX,SOCK_STREAM,0)
+	s1 = sp[1]
+	s2 = sp[2]
+	setnonblocking(s1,1)
+	setnonblocking(s2,1)
+
+	send(s1,"ping")
+
+	# wait (up to 1 second) until s2 is ready to read
+	r = []
+	add(r,s2)
+	ready = select(r,[],[],1)
+	? len(ready[1])            # 1
+
+	? recv(s2,100)             # ping
+
+	d = recv(s2,100)           # nothing left to read
+	? isnull(d)                # 1 = would block
+	? socklasterror() = SOCK_EWOULDBLOCK   # 1
+
+	close(s1)
+	close(s2)
+
+.. index:: 
+	pair: sockets; Utility Functions
+
+Utility Functions
+=================
+
+Example (byte order, address conversion, getsockopt, getpeername, shutdownsocket):
+
+.. code-block:: ring
+
+	load "sockets.ring"
+
+	? htons(80)                    # host -> network byte order
+	? ntohs(htons(80))             # back -> 80
+
+	packed = inet_addr("127.0.0.1")    # 4 binary bytes
+	? inet_ntoa(packed)                # 127.0.0.1
+
+	server = socket(AF_INET,SOCK_STREAM,0)
+	setsockopt(server,SOL_SOCKET,SO_REUSEADDR,1)
+	? getsockopt(server,SOL_SOCKET,SO_TYPE)    # 1 = SOCK_STREAM
+
+	bind(server,"127.0.0.1",5060)
+	listen(server,1)
+	client = socket(AF_INET,SOCK_STREAM,0)
+	connect(client,"127.0.0.1",5060)
+	conn = accept(server)
+
+	? getpeername(client)          # 127.0.0.1 , 5060
+
+	shutdownsocket(client,SHUT_RDWR)
+	? recv(conn,100)               # "" = peer closed
+
+	close(conn)
+	close(client)
+	close(server)
+	socketsCleanup()
+
+.. index:: 
 	pair: sockets; Functions
 
 Functions
@@ -63,25 +191,58 @@ The next functions are provided by this extension
 
 .. code-block:: none
 
-	socket(nAddressFamily, nConnectionType) -> SocketHandle
+	socket(nAddressFamily, nConnectionType [, nProtocol]) -> SocketHandle
+	socketfd(pSocketHandle) -> nFileDescriptor
+	setsockopt(pSocketHandle, nLevel, nOptionName, nValue)
+	getsockopt(pSocketHandle, nLevel, nOptionName) -> nOptionValue
 	bind(pSocketHandle, cHost , nPort)
-	listen(pSocketHandle, nBacklog)
+	listen(pSocketHandle [, nBacklog])    # nBacklog default = 5
 	accept(pSocketHandle) -> pConnectionHandle
-	send(pConnectionHandle|pSocketHandle,cMessage)
-	sendto(pSocketHandle,cMessage)
-	recv(pConnectionHandle|pSocketHandle,nBuffer) -> cData
-	recvfrom(pSocketHandle, nBuffer) -> cData
+	send(pConnectionHandle|pSocketHandle, cMessage [, nFlags]) -> nBytesSent
+	sendto(pSocketHandle, cMessage [, nFlags] | cHost, nPort [, nFlags]) -> nBytesSent
+	recv(pConnectionHandle|pSocketHandle, nBuffer [, nFlags]) -> cData
+	recvfrom(pSocketHandle, nBuffer [, nFlags]) -> cData
 	connect(pSocketHandle, cHost , nPort) -> return <0> if successful
 	close(pSocketHandle|pConnectionHandle)
+	shutdownsocket(pSocketHandle, nHow) -> nHow = SHUT_RD | SHUT_WR | SHUT_RDWR
+	setnonblocking(pSocketHandle, nFlag) -> nFlag = 1 (non-blocking) or 0 (blocking)
+	select(pReadList, pWriteList, pExceptList [, nTimeout]) -> list of 3 lists
+	socklasterror() -> nLastSocketErrorCode
+	getaddrinfo(cHost, cService [, nFamily]) -> list of {family, socktype, protocol, ip, port}
+	getsockname(pSocketHandle) -> list of {ip, port}
+	getpeername(pSocketHandle) -> list of {ip, port}
+	socketpair([nFamily, nType, nProtocol]) -> list of two SocketHandles (on Windows the arguments are ignored and a TCP loopback pair is returned)
+	getprotobyname(cName) -> nProtocolNumber
 	gethostbyname(cHostName) -> cIPAddress
 	gethostbyaddr(cIPAddress) -> aListOfHostInfo
 	gethostname() -> cHostName
 	getservbyname(cName) -> nPort
 	getservbyport(nPort) -> cName
+	ntohs(nNetshort) -> nHostshort
+	htons(nHostshort) -> nNetshort
+	htonl(nHostlong) -> nNetlong
+	ntohl(nNetlong) -> nHostlong
+	inet_addr(cIP) -> packed_address (4 binary bytes)
+	inet_ntoa(packed_address) -> cIP
 	inet_pton(AdressFamily, IP) ->  packed_address
 	inet_ntop(AdressFamily, packed_address) -> IP
 	socketsCleanup()
 
+Notes:
+
+* ``send`` / ``sendto`` return the number of bytes sent and raise an error on failure.
+* ``recv`` / ``recvfrom`` return the received data and raise an error on failure.
+* The optional ``nFlags`` parameter accepts the ``MSG_*`` constants (see below).
+* ``sendto`` may be called with an explicit destination (``cHost, nPort``); otherwise it
+  replies to the last ``recvfrom`` source or a ``connect`` ed socket.
+* ``socketfd`` returns the underlying operating-system file descriptor of the socket,
+  useful when interoperating with other extensions.
+* With ``setnonblocking(sock, 1)``, ``send``/``recv``/``sendto``/``recvfrom``/``accept``
+  do not block. On a temporary "would block" condition they return without error;
+  check ``socklasterror()``: ``recv``/``recvfrom``/``accept`` return NULL (nothing),
+  ``send``/``sendto`` return ``-2``, and ``socklasterror() == SOCK_EWOULDBLOCK`` means
+  "retry after ``select()``". An empty string from ``recv``/``recvfrom`` means the peer
+  closed the connection.
 
 Example:
 
@@ -108,10 +269,21 @@ Example:
 Constants
 =========
 
+Protocol Families:
+
+.. code-block:: none
+
+	PF_UNSPEC
+	PF_UNIX
+	PF_INET
+	PF_INET6
+
 Address Family:
 
 .. code-block:: none   
 
+	AF_UNSPEC
+	AF_UNIX
 	AF_INET       #  mean use IPV4
 	AF_INET6      #  ........ IPV6
 
@@ -121,3 +293,102 @@ Connection type:
 
 	SOCK_STREAM   #  mean use TCP Protocol
 	SOCK_DGRAM    #  ........ UDP ........
+	SOCK_RAW
+	SOCK_RDM
+	SOCK_SEQPACKET
+
+Protocols:
+
+.. code-block:: none
+
+	IPPROTO_IP
+	IPPROTO_TCP
+	IPPROTO_UDP
+	IPPROTO_RAW
+	IPPROTO_ICMP
+	IPPROTO_IGMP
+	IPPROTO_SCTP      # returns -1 on Windows
+
+Levels (for setsockopt / getsockopt):
+
+.. code-block:: none
+
+	SOL_SOCKET
+	IPPROTO_IP
+	IPPROTO_TCP
+	IPPROTO_UDP
+
+Socket Options (SOL_SOCKET level):
+
+.. code-block:: none
+
+	SO_DEBUG
+	SO_ACCEPTCONN
+	SO_BROADCAST
+	SO_DONTROUTE
+	SO_ERROR
+	SO_KEEPALIVE
+	SO_LINGER
+	SO_OOBINLINE
+	SO_RCVBUF
+	SO_REUSEADDR
+	SO_SNDBUF
+	SO_TYPE
+	SO_RCVLOWAT
+	SO_SNDLOWAT
+	SO_RCVTIMEO
+	SO_SNDTIMEO
+	SO_EXCLUSIVEADDRUSE   # Windows only, -1 elsewhere
+	SO_NOSIGPIPE          # macOS/BSD, -1 elsewhere
+	SO_REUSEPORT          # Linux/BSD/macOS, -1 on Windows
+
+IP Option Names (IPPROTO_IP level):
+
+.. code-block:: none
+
+	IP_ADD_MEMBERSHIP
+	IP_ADD_SOURCE_MEMBERSHIP
+	IP_BLOCK_SOURCE
+	IP_DROP_MEMBERSHIP
+	IP_DROP_SOURCE_MEMBERSHIP
+	IP_HDRINCL
+	IP_MULTICAST_LOOP
+	IP_MULTICAST_TTL
+	IP_OPTIONS
+	IP_RECVTOS
+	IP_RECVTTL
+	IP_TOS
+	IP_TTL
+	IP_UNBLOCK_SOURCE
+
+TCP Socket Options (IPPROTO_TCP level):
+
+.. code-block:: none
+
+	TCP_NODELAY
+	TCP_KEEPIDLE    # -1 where unsupported
+	TCP_KEEPINTVL   # -1 where unsupported
+	TCP_KEEPCNT     # -1 where unsupported
+
+Message Flags (for send / recv / sendto / recvfrom):
+
+.. code-block:: none
+
+	MSG_OOB
+	MSG_PEEK
+	MSG_WAITALL
+	MSG_DONTWAIT    # Linux/BSD/macOS, -1 on Windows
+
+Shutdown Flags (for shutdownsocket):
+
+.. code-block:: none
+
+	SHUT_RD
+	SHUT_WR
+	SHUT_RDWR
+
+Error Codes:
+
+.. code-block:: none
+
+	SOCK_EWOULDBLOCK   # portable code for "try again" (EAGAIN / WSAEWOULDBLOCK)
