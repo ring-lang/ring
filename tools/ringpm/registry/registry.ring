@@ -1022,9 +1022,5 @@ aPackagesRegistry = [
 	[ :name = "ringserv",
 	  :description = "A modern application server in one static binary",
 	  :ProviderUserName = "mayouni"
-	],
-	[ :name = "ringpp",
-	  :description = "A dependency-free library for static analysis",
-	  :ProviderUserName = "mayouni"
 	]
 ]
