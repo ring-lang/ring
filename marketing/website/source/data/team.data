@@ -10,16 +10,16 @@ aTeam = [
 			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
 		],
 		[
+			'Mounir IDRASSI (Security Master)',
+			'<img src="images/mounir.png" width="150" height="170">'
+		],
+		[
 			'Ahmed Hassouna (Training Master)',
 			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
 		],
 		[
 			'Mansour Ayouni (Writing Master)',
 			'<img src="images/mansour.jpg" width="150" height="170">'
-		],
-		[
-			'Mounir IDRASSI (Security Master)',
-			'<img src="images/mounir.png" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -39,13 +39,13 @@ aLegends = [
 
 aTopContributors = [
 		  [
-                    'Azzeddine Remmal (Qt/3D/AI Master)',
-                    'C/Ring Expert'                    
-		  ],
-		  [
                     'Ilir Liburn (Performance Master)',
                     'C/C++ Expert'                    
                   ],
+		  [
+                    'Azzeddine Remmal (Qt/3D/AI Master)',
+                    'C/Ring Expert'                    
+		  ],
 		  [
 		    'Mohannad Al-Ayash (Creator of RingQML)',
 		    'Web/GUI Apps'				
