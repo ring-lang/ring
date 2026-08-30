@@ -27,31 +27,18 @@
 
   <div id="news" class="panel-group">
     <div class="panel panel-info">
-      <div class="panel-heading"><h4>News</h4></div>
+      <div class="panel-heading"><h4>Vision</h4></div>
       <div class="panel-body">
 
-			<table class="table table-striped">
-				<thead>
-				  <tr>
-					<th width="40%"></th>
-					<th></th>
-				  </tr>
-				</thead>
-				<tbody>
-				
-				<% for x=1 to 3 %>
-				  <tr>
-					<td><%= aNews[x][1] %></td>
-					<td><%= aNews[x][2] %></td>
-				  </tr>
-				<% next %>				 
+        <p align="justify">
 
-				</tbody>
-			</table>
-			<div style="text-align:right;">	  
-				  <a href="news.html">See more!</a>	  
-			</div>
-	  </div>
+            Ring is built on the principles of Natural Language Programming and Declarative Programming. It encourages developers to think differently about software development and discover better ways to solve problems. 
+            Many developers described Ring as powerful, beautiful, and easy to learn, and they are very happy with the language’s productivity. 
+            Ring is lightweight, embeddable, and cross‑platform. It uses a deterministic, safe, and flexible scope‑based memory management system that incorporates escape analysis and optional reference counting with cycle detection. 
+            It is designed specifically for developing applications, tools, and domain‑specific languages (DSLs).
+
+         </p>
+     </div>
      </div>  
   </div>
 
