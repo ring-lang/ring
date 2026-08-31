@@ -16,10 +16,6 @@ aTeam = [
 		[
 			'Ahmed Hassouna (Training Master)',
 			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
-		],
-		[
-			'Mansour Ayouni (Writing Master)',
-			'<img src="images/mansour.jpg" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -59,6 +55,10 @@ aManyThanks = [
 		[
 			'Marino Esteban (RingQt Samples)',
 			'<img src="images/marino.jpg" width="150" height="170">'
+		],
+		[
+			'Mansour Ayouni (StzLib Library)',
+			'<img src="images/mansour.jpg" width="150" height="170">'
 		],
 		[
 			'Ahmed Baryyan (Marketing)',
