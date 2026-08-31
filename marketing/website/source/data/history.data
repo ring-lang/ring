@@ -1,4 +1,5 @@
 aNews = [
+  ["August 31, 2026",'<a href="https://github.com/ysdragon/ring2apk"> Ring2APK: Build Android APKs from Ring applications without Gradle</a>'],
   ["August 23, 2026",'<a href="https://mayouni.github.io/ringserv/index.html"> RingServ: A server for Ring web services</a>'],
   ["August 5, 2026",'<a href="https://store.steampowered.com/app/4965770/Incremental_Birds/"> Game: Incremental Birds</a>'],
   ["August 2, 2026",'<a href="https://mayouni.github.io/ringscript/index.html"> RingScript: Script your frontend in Ring</a>'],
