@@ -1022,5 +1022,9 @@ aPackagesRegistry = [
 	[ :name = "ringserv",
 	  :description = "A modern application server in one static binary",
 	  :ProviderUserName = "mayouni"
+	],
+	[ :name = "ring2apk",
+	  :description = "Build Android APKs from Ring applications",
+	  :ProviderUserName = "ysdragon"
 	]
 ]
