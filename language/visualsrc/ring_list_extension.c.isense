@@ -61,7 +61,7 @@ Type: VM *
 pVM
 ring_vm_listfuncs_insert
 Type: List *
-pList, *pList2
+pList, *pList2, *pList3
 Type: unsigned int
 nPos
 Type: double

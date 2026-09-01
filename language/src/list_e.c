@@ -432,7 +432,7 @@ void ring_vm_listfuncs_max(void *pPointer) {
 }
 
 void ring_vm_listfuncs_insert(void *pPointer) {
-	List *pList, *pList2;
+	List *pList, *pList2, *pList3;
 	unsigned int nPos;
 	double x;
 	Item *pItem;
@@ -471,7 +471,10 @@ void ring_vm_listfuncs_insert(void *pPointer) {
 			if (ring_list_isref_gc(pVM->pRingState, RING_API_GETLIST(3))) {
 				ring_list_assignreftoitem_gc(pVM->pRingState, RING_API_GETLIST(3), pItem);
 			} else {
-				ring_vm_listcopy(pVM, pList2, RING_API_GETLIST(3));
+				pList3 = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+				ring_vm_listcopy(pVM, pList3, RING_API_GETLIST(3));
+				ring_vm_listcopy(pVM, pList2, pList3);
+				ring_list_delete_gc(pVM->pRingState, pList3);
 				/* Update self object pointer */
 				if (ring_vm_oop_isobject(pVM, pList2)) {
 					ring_vm_oop_updateselfpointer(pVM, pList2, RING_OBJTYPE_LISTITEM, pItem);
