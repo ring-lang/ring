@@ -103,7 +103,6 @@
 <li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
@@ -129,6 +128,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using RingSockets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tcp-server">TCP Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tcp-client">TCP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#udp-echo-server">UDP Echo Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#udp-client">UDP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#non-blocking-i-o-and-select">Non-blocking I/O and select()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utility-functions">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
 </ul>
@@ -187,6 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew25.html">Release Notes: Version 1.25</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew26.html">Release Notes: Version 1.26</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew27.html">Release Notes: Version 1.27</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew28.html">Release Notes: Version 1.28</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
@@ -227,6 +231,7 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">setsockopt</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="n">SO_REUSEADDR</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nf">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
 <span class="nf">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ns</span> <span class="o">=</span> <span class="nf">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
@@ -257,29 +262,167 @@
 </pre></div>
 </div>
 </section>
+<section id="udp-echo-server">
+<span id="index-3"></span><h2>UDP Echo Server<a class="headerlink" href="#udp-echo-server" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">recvfrom</span></code> stores the sender address, so <code class="docutils literal notranslate"><span class="pre">sendto</span></code> can reply without
+passing a destination.</p>
+<p>Example (UDP Echo Server Code):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_DGRAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">9090</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">true</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="nf">recvfrom</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;client &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+        <span class="nf">sendto</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;echo: &quot;</span> <span class="o">+</span> <span class="n">msg</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="nf">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="udp-client">
+<span id="index-4"></span><h2>UDP Client<a class="headerlink" href="#udp-client" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">connect</span></code> on a UDP socket only sets the default destination, so
+<code class="docutils literal notranslate"><span class="pre">send</span></code>/<code class="docutils literal notranslate"><span class="pre">recv</span></code> can be used instead of <code class="docutils literal notranslate"><span class="pre">sendto</span></code>/<code class="docutils literal notranslate"><span class="pre">recvfrom</span></code>.</p>
+<p>Example (UDP Client Code):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_DGRAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nf">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">9090</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nf">send</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s2">&quot;hello udp&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;server &gt;&gt; &quot;</span> <span class="o">+</span> <span class="nf">recv</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="nf">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="non-blocking-i-o-and-select">
+<span id="index-5"></span><h2>Non-blocking I/O and select()<a class="headerlink" href="#non-blocking-i-o-and-select" title="Permalink to this heading"></a></h2>
+<p>A socket set non-blocking never blocks in <code class="docutils literal notranslate"><span class="pre">send</span></code>/<code class="docutils literal notranslate"><span class="pre">recv</span></code>/<code class="docutils literal notranslate"><span class="pre">accept</span></code>.
+Use <code class="docutils literal notranslate"><span class="pre">select()</span></code> to wait until sockets are ready, and <code class="docutils literal notranslate"><span class="pre">socklasterror()</span></code>
+to detect the temporary “would block” condition.</p>
+<p>Example (using <code class="docutils literal notranslate"><span class="pre">socketpair</span></code> so no second process is needed):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
+
+<span class="n">sp</span> <span class="o">=</span> <span class="nf">socketpair</span><span class="p">(</span><span class="n">AF_UNIX</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">sp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">sp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nf">setnonblocking</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nf">setnonblocking</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nf">send</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="s2">&quot;ping&quot;</span><span class="p">)</span>
+
+<span class="c1"># wait (up to 1 second) until s2 is ready to read</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">add</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+<span class="n">ready</span> <span class="o">=</span> <span class="nf">select</span><span class="p">(</span><span class="n">r</span><span class="p">,[],[],</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">ready</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>            <span class="c1"># 1</span>
+
+<span class="o">?</span> <span class="nf">recv</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>             <span class="c1"># ping</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="nf">recv</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>           <span class="c1"># nothing left to read</span>
+<span class="o">?</span> <span class="nb">isnull</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>                <span class="c1"># 1 = would block</span>
+<span class="o">?</span> <span class="nf">socklasterror</span><span class="p">()</span> <span class="o">=</span> <span class="n">SOCK_EWOULDBLOCK</span>   <span class="c1"># 1</span>
+
+<span class="nf">close</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="nf">close</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="utility-functions">
+<span id="index-6"></span><h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading"></a></h2>
+<p>Example (byte order, address conversion, getsockopt, getpeername, shutdownsocket):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
+
+<span class="o">?</span> <span class="nf">htons</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>                    <span class="c1"># host -&gt; network byte order</span>
+<span class="o">?</span> <span class="nf">ntohs</span><span class="p">(</span><span class="nf">htons</span><span class="p">(</span><span class="mi">80</span><span class="p">))</span>             <span class="c1"># back -&gt; 80</span>
+
+<span class="n">packed</span> <span class="o">=</span> <span class="nf">inet_addr</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">)</span>    <span class="c1"># 4 binary bytes</span>
+<span class="o">?</span> <span class="nf">inet_ntoa</span><span class="p">(</span><span class="n">packed</span><span class="p">)</span>                <span class="c1"># 127.0.0.1</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">setsockopt</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="n">SO_REUSEADDR</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">getsockopt</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="n">SO_TYPE</span><span class="p">)</span>    <span class="c1"># 1 = SOCK_STREAM</span>
+
+<span class="nf">bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5060</span><span class="p">)</span>
+<span class="nf">listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="nf">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nf">connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5060</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="nf">accept</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nf">getpeername</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>          <span class="c1"># 127.0.0.1 , 5060</span>
+
+<span class="nf">shutdownsocket</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="n">SHUT_RDWR</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">recv</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>               <span class="c1"># &quot;&quot; = peer closed</span>
+
+<span class="nf">close</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="nf">close</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+<span class="nf">close</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+<span class="nf">socketsCleanup</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 <section id="functions">
-<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <p>The next functions are provided by this extension</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>socket(nAddressFamily, nConnectionType) -&gt; SocketHandle
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>socket(nAddressFamily, nConnectionType [, nProtocol]) -&gt; SocketHandle
+socketfd(pSocketHandle) -&gt; nFileDescriptor
+setsockopt(pSocketHandle, nLevel, nOptionName, nValue)
+getsockopt(pSocketHandle, nLevel, nOptionName) -&gt; nOptionValue
 bind(pSocketHandle, cHost , nPort)
-listen(pSocketHandle, nBacklog)
+listen(pSocketHandle [, nBacklog])    # nBacklog default = 5
 accept(pSocketHandle) -&gt; pConnectionHandle
-send(pConnectionHandle|pSocketHandle,cMessage)
-sendto(pSocketHandle,cMessage)
-recv(pConnectionHandle|pSocketHandle,nBuffer) -&gt; cData
-recvfrom(pSocketHandle, nBuffer) -&gt; cData
+send(pConnectionHandle|pSocketHandle, cMessage [, nFlags]) -&gt; nBytesSent
+sendto(pSocketHandle, cMessage [, nFlags] | cHost, nPort [, nFlags]) -&gt; nBytesSent
+recv(pConnectionHandle|pSocketHandle, nBuffer [, nFlags]) -&gt; cData
+recvfrom(pSocketHandle, nBuffer [, nFlags]) -&gt; cData
 connect(pSocketHandle, cHost , nPort) -&gt; return &lt;0&gt; if successful
 close(pSocketHandle|pConnectionHandle)
+shutdownsocket(pSocketHandle, nHow) -&gt; nHow = SHUT_RD | SHUT_WR | SHUT_RDWR
+setnonblocking(pSocketHandle, nFlag) -&gt; nFlag = 1 (non-blocking) or 0 (blocking)
+select(pReadList, pWriteList, pExceptList [, nTimeout]) -&gt; list of 3 lists
+socklasterror() -&gt; nLastSocketErrorCode
+getaddrinfo(cHost, cService [, nFamily]) -&gt; list of {family, socktype, protocol, ip, port}
+getsockname(pSocketHandle) -&gt; list of {ip, port}
+getpeername(pSocketHandle) -&gt; list of {ip, port}
+socketpair([nFamily, nType, nProtocol]) -&gt; list of two SocketHandles (on Windows the arguments are ignored and a TCP loopback pair is returned)
+getprotobyname(cName) -&gt; nProtocolNumber
 gethostbyname(cHostName) -&gt; cIPAddress
 gethostbyaddr(cIPAddress) -&gt; aListOfHostInfo
 gethostname() -&gt; cHostName
 getservbyname(cName) -&gt; nPort
 getservbyport(nPort) -&gt; cName
+ntohs(nNetshort) -&gt; nHostshort
+htons(nHostshort) -&gt; nNetshort
+htonl(nHostlong) -&gt; nNetlong
+ntohl(nNetlong) -&gt; nHostlong
+inet_addr(cIP) -&gt; packed_address (4 binary bytes)
+inet_ntoa(packed_address) -&gt; cIP
 inet_pton(AdressFamily, IP) -&gt;  packed_address
 inet_ntop(AdressFamily, packed_address) -&gt; IP
 socketsCleanup()
 </pre></div>
 </div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">send</span></code> / <code class="docutils literal notranslate"><span class="pre">sendto</span></code> return the number of bytes sent and raise an error on failure.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recv</span></code> / <code class="docutils literal notranslate"><span class="pre">recvfrom</span></code> return the received data and raise an error on failure.</p></li>
+<li><p>The optional <code class="docutils literal notranslate"><span class="pre">nFlags</span></code> parameter accepts the <code class="docutils literal notranslate"><span class="pre">MSG_*</span></code> constants (see below).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sendto</span></code> may be called with an explicit destination (<code class="docutils literal notranslate"><span class="pre">cHost,</span> <span class="pre">nPort</span></code>); otherwise it
+replies to the last <code class="docutils literal notranslate"><span class="pre">recvfrom</span></code> source or a <code class="docutils literal notranslate"><span class="pre">connect</span></code> ed socket.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">socketfd</span></code> returns the underlying operating-system file descriptor of the socket,
+useful when interoperating with other extensions.</p></li>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">setnonblocking(sock,</span> <span class="pre">1)</span></code>, <code class="docutils literal notranslate"><span class="pre">send</span></code>/<code class="docutils literal notranslate"><span class="pre">recv</span></code>/<code class="docutils literal notranslate"><span class="pre">sendto</span></code>/<code class="docutils literal notranslate"><span class="pre">recvfrom</span></code>/<code class="docutils literal notranslate"><span class="pre">accept</span></code>
+do not block. On a temporary “would block” condition they return without error;
+check <code class="docutils literal notranslate"><span class="pre">socklasterror()</span></code>: <code class="docutils literal notranslate"><span class="pre">recv</span></code>/<code class="docutils literal notranslate"><span class="pre">recvfrom</span></code>/<code class="docutils literal notranslate"><span class="pre">accept</span></code> return NULL (nothing),
+<code class="docutils literal notranslate"><span class="pre">send</span></code>/<code class="docutils literal notranslate"><span class="pre">sendto</span></code> return <code class="docutils literal notranslate"><span class="pre">-2</span></code>, and <code class="docutils literal notranslate"><span class="pre">socklasterror()</span> <span class="pre">==</span> <span class="pre">SOCK_EWOULDBLOCK</span></code> means
+“retry after <code class="docutils literal notranslate"><span class="pre">select()</span></code>”. An empty string from <code class="docutils literal notranslate"><span class="pre">recv</span></code>/<code class="docutils literal notranslate"><span class="pre">recvfrom</span></code> means the peer
+closed the connection.</p></li>
+</ul>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;sockets.ring&quot;</span>
 
@@ -299,15 +442,107 @@ socketsCleanup()
 </div>
 </section>
 <section id="constants">
-<span id="index-4"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
+<p>Protocol Families:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PF_UNSPEC
+PF_UNIX
+PF_INET
+PF_INET6
+</pre></div>
+</div>
 <p>Address Family:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AF_INET       #  mean use IPV4
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AF_UNSPEC
+AF_UNIX
+AF_INET       #  mean use IPV4
 AF_INET6      #  ........ IPV6
 </pre></div>
 </div>
 <p>Connection type:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SOCK_STREAM   #  mean use TCP Protocol
 SOCK_DGRAM    #  ........ UDP ........
+SOCK_RAW
+SOCK_RDM
+SOCK_SEQPACKET
+</pre></div>
+</div>
+<p>Protocols:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IPPROTO_IP
+IPPROTO_TCP
+IPPROTO_UDP
+IPPROTO_RAW
+IPPROTO_ICMP
+IPPROTO_IGMP
+IPPROTO_SCTP      # returns -1 on Windows
+</pre></div>
+</div>
+<p>Levels (for setsockopt / getsockopt):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SOL_SOCKET
+IPPROTO_IP
+IPPROTO_TCP
+IPPROTO_UDP
+</pre></div>
+</div>
+<p>Socket Options (SOL_SOCKET level):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SO_DEBUG
+SO_ACCEPTCONN
+SO_BROADCAST
+SO_DONTROUTE
+SO_ERROR
+SO_KEEPALIVE
+SO_LINGER
+SO_OOBINLINE
+SO_RCVBUF
+SO_REUSEADDR
+SO_SNDBUF
+SO_TYPE
+SO_RCVLOWAT
+SO_SNDLOWAT
+SO_RCVTIMEO
+SO_SNDTIMEO
+SO_EXCLUSIVEADDRUSE   # Windows only, -1 elsewhere
+SO_NOSIGPIPE          # macOS/BSD, -1 elsewhere
+SO_REUSEPORT          # Linux/BSD/macOS, -1 on Windows
+</pre></div>
+</div>
+<p>IP Option Names (IPPROTO_IP level):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IP_ADD_MEMBERSHIP
+IP_ADD_SOURCE_MEMBERSHIP
+IP_BLOCK_SOURCE
+IP_DROP_MEMBERSHIP
+IP_DROP_SOURCE_MEMBERSHIP
+IP_HDRINCL
+IP_MULTICAST_LOOP
+IP_MULTICAST_TTL
+IP_OPTIONS
+IP_RECVTOS
+IP_RECVTTL
+IP_TOS
+IP_TTL
+IP_UNBLOCK_SOURCE
+</pre></div>
+</div>
+<p>TCP Socket Options (IPPROTO_TCP level):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TCP_NODELAY
+TCP_KEEPIDLE    # -1 where unsupported
+TCP_KEEPINTVL   # -1 where unsupported
+TCP_KEEPCNT     # -1 where unsupported
+</pre></div>
+</div>
+<p>Message Flags (for send / recv / sendto / recvfrom):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MSG_OOB
+MSG_PEEK
+MSG_WAITALL
+MSG_DONTWAIT    # Linux/BSD/macOS, -1 on Windows
+</pre></div>
+</div>
+<p>Shutdown Flags (for shutdownsocket):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SHUT_RD
+SHUT_WR
+SHUT_RDWR
+</pre></div>
+</div>
+<p>Error Codes:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SOCK_EWOULDBLOCK   # portable code for &quot;try again&quot; (EAGAIN / WSAEWOULDBLOCK)
 </pre></div>
 </div>
 </section>
