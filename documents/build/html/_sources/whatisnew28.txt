@@ -31,6 +31,7 @@ More Improvements
 * RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
 * RingQt - QAllEvents - Added setWheelEvent() method
 * Sort() function - Better Implementation
+* Insert() function - Better Implementation
 * State and Low Level Functions - Convert variable name to lower case 
 * Ring Compiler - LoadSyntax command - Better Implementation
 * Ring Compiler - Always use ICO_RETNULL before functions
