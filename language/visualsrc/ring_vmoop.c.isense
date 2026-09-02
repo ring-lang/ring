@@ -273,4 +273,6 @@ ring_vm_oop_cleansetpropertylist
 ring_vm_oop_internalcallforbracemethod
 Type: VMState *
 pVMState
+Type: int
+nBraceNewLine
 ring_vm_oop_pushobjstate

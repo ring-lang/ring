@@ -1384,12 +1384,19 @@ void ring_vm_oop_cleansetpropertylist(VM *pVM) {
 
 int ring_vm_oop_internalcallforbracemethod(VM *pVM, const char *cMethod) {
 	VMState *pVMState;
+	int nBraceNewLine;
 	if (pVM->nCurrentObjState && ring_list_getsize(pVM->pBraceObjects) && (pVM->lCallMethod == 0) &&
 	    (ring_vm_oop_callmethodinsideclass(pVM) == 0)) {
 		pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
 		if (ring_vm_oop_cachedismethod(pVM, pVMState, cMethod)) {
-			RING_VM_STACK_POP;
+			nBraceNewLine = strcmp(cMethod, RING_CSTR_BRACENEWLINE);
+			if (nBraceNewLine != 0) {
+				RING_VM_STACK_POP;
+			}
 			ring_vm_callfuncwithouteval(pVM, cMethod, RING_TRUE);
+			if (nBraceNewLine == 0) {
+				RING_VM_STACK_POP;
+			}
 			return RING_TRUE;
 		}
 	}
