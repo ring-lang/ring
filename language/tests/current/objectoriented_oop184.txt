@@ -1,0 +1,10 @@
+braceNewLine
+braceNewLine
+setting x=1
+braceNewLine
+braceNewLine
+braceNewLine
+setting x=3
+braceNewLine
+braceNewLine
+final x=3
