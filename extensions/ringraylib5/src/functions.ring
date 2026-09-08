@@ -621,10 +621,14 @@ func GuiImageButtonEx bounds, texture, texSource, text
 	return GuiImageButtonEx_2(GPData(bounds), GPData(texture), GPData(texSource), text)
 
 func GuiToggle bounds, text, active
-	return GuiToggle_2(GPData(bounds), text, active)
+	active = int2bytes(active)
+	GuiToggle_2(GPData(bounds), text, VarPtr(:active,:bool))
+	return bytes2int(active)
 
 func GuiToggleGroup bounds, text, active
-	return GuiToggleGroup_2(GPData(bounds), text, active)
+	active = int2bytes(active)
+	GuiToggleGroup_2(GPData(bounds), text, :active)
+	return bytes2int(active)
 
 func GuiCheckBox bounds, text, active
 	active = int2bytes(active)
@@ -632,10 +636,14 @@ func GuiCheckBox bounds, text, active
 	return bytes2int(active)
 
 func GuiComboBox bounds, text, active
-	return GuiComboBox_2(GPData(bounds), text, active)
+	active = int2bytes(active)
+	GuiComboBox_2(GPData(bounds), text, :active)
+	return bytes2int(active)
 
 func GuiDropdownBox bounds, text, active, editMode
-	return GuiDropdownBox_2(GPData(bounds), text, active, editMode)
+	active = int2bytes(active)
+	GuiDropdownBox_2(GPData(bounds), text, :active, editMode)
+	return bytes2int(active)
 
 func GuiSpinner bounds, value, minValue, maxValue, editMode
 	return GuiSpinner_2(GPData(bounds), value, minValue, maxValue, editMode)
@@ -677,7 +685,10 @@ func GuiGrid bounds, spacing, subdivs
 	return GuiGrid_2(GPData(bounds), spacing, subdivs)
 
 func GuiListView bounds, text, active, scrollIndex, editMode
-	return GuiListView_2(GPData(bounds), text, active, scrollIndex, editMode)
+	active = int2bytes(active)
+	scrollIndex = int2bytes(scrollIndex)
+	GuiListView_2(GPData(bounds), text, :active, :scrollIndex)
+	return bytes2int(active)
 
 func GuiListViewEx bounds, text, count, enabled, active, focus, scrollIndex, editMode
 	return GuiListViewEx_2(GPData(bounds), text, count, enabled, active, focus, scrollIndex, editMode)
