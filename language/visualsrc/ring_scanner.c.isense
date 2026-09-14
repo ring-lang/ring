@@ -310,13 +310,15 @@ Type: RING_FILE
 fp
 c
 Type: unsigned int
-x,nSize,nLine,lEnableTokensOutput
+x,nSize,nLine,lEnableTokensOutput,nTokensCount,nKeyword
 Type: char
 cFileName2[RING_PATHSIZE]
 Type: char
 cCurrentDir[RING_PATHSIZE]
 Type: char
 cFileName3[RING_PATHSIZE]
+Type: List *
+pList
 ring_scanner_setandgenendofline
 ring_scanner_readtwoparameters
 Type: unsigned int

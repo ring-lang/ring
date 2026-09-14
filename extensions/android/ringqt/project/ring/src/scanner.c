@@ -692,10 +692,11 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	RING_FILE fp;
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c;
-	unsigned int x, nSize, nLine, lEnableTokensOutput;
+	unsigned int x, nSize, nLine, lEnableTokensOutput, nTokensCount, nKeyword;
 	char cFileName2[RING_PATHSIZE];
 	char cCurrentDir[RING_PATHSIZE];
 	char cFileName3[RING_PATHSIZE];
+	List *pList;
 	lEnableTokensOutput = pScanner->lEnableTokensOutput;
 	cFileName = ring_string_get(pScanner->pActiveToken);
 	/* Check File Name/Path size */
@@ -751,6 +752,7 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	nSize = 1;
 	ring_string_set_gc(pScanner->pRingState, pScanner->pActiveToken, RING_CSTR_EMPTY);
 	nLine = pScanner->nLinesCount;
+	nTokensCount = ring_list_getsize(pScanner->pTokens);
 	/* Set the Line Number (To be 1) */
 	ring_scanner_setandgenendofline(pScanner, RING_ONE);
 	RING_READCHAR(fp, c, nSize);
@@ -765,6 +767,23 @@ void ring_scanner_loadsyntax(Scanner *pScanner) {
 	/* Restore the Line Number (After loading the file) */
 	ring_scanner_setandgenendofline(pScanner, nLine);
 	pScanner->lEnableTokensOutput = lEnableTokensOutput;
+	/* Check if the syntax file contains package/class/func */
+	if (nTokensCount != ring_list_getsize(pScanner->pTokens)) {
+		for (x = nTokensCount + 1; x <= ring_list_getsize(pScanner->pTokens); x++) {
+			pList = ring_list_getlist(pScanner->pTokens, x);
+			if (ring_list_getint(pList, RING_SCANNER_TOKENTYPE) == SCANNER_TOKEN_KEYWORD) {
+				nKeyword = atoi(ring_list_getstring(pList, RING_SCANNER_TOKENVALUE));
+				if ((nKeyword == K_PACKAGE) || (nKeyword == K_CLASS) || (nKeyword == K_FUNC) ||
+				    (nKeyword == K_RETURN)) {
+					printf("Error (S3): Syntax file uses package/class/function/return.\n");
+					while (ring_list_getsize(pScanner->pTokens) >= x) {
+						ring_list_deleteitem_gc(pScanner->pRingState, pScanner->pTokens,
+									ring_list_getsize(pScanner->pTokens));
+					}
+				}
+			}
+		}
+	}
 }
 
 void ring_scanner_setandgenendofline(Scanner *pScanner, unsigned int nLine) {
