@@ -1,6 +1,6 @@
 ? "before"
 
-LoadSyntax "badsyntaxfile.ring"
+LoadSyntax "natural/badsyntaxfile.ring"
 
 show "after" + nl
 
