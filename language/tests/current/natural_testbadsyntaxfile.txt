@@ -1,0 +1,6 @@
+Error (S3): Syntax file uses package/class/function/return.
+before
+Welcome...
+after
+Error (R3) : Calling Function without definition: myfunc
+done
