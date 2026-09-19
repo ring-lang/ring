@@ -29,6 +29,7 @@ More Improvements
 * RingRayLib - raylib.rh - Added more constants 
 * RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
 * RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
+* RingRayLib - Revised: GuiToggle(), GuiToggleGroup(), GuiComboBox(), GuiDropdownBox() and GuiListView()
 * RingQt - QAllEvents - Added setWheelEvent() method
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
