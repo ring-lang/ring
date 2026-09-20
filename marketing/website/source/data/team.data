@@ -10,12 +10,12 @@ aTeam = [
 			'<img src="images/YoussefSaeed.png" width="150" height="170">'                    
 		],
 		[
-			'Mounir IDRASSI (Security Master)',
-			'<img src="images/mounir.png" width="150" height="170">'
-		],
-		[
 			'Ahmed Hassouna (Training Master)',
 			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
+		],
+		[
+			'Mounir IDRASSI (Security Master)',
+			'<img src="images/mounir.png" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -39,15 +39,19 @@ aTopContributors = [
                     'C/C++ Expert'                    
                   ],
 		  [
-                    'Azzeddine Remmal (Qt/3D/AI Master)',
-                    'C/Ring Expert'                    
-		  ],
-		  [
 		    'Mohannad Al-Ayash (Creator of RingQML)',
 		    'Web/GUI Apps'				
 		  ]
 ]
 aManyThanks = [
+		[
+			'Mansour Ayouni (StzLib Library)',
+			'<img src="images/mansour.jpg" width="150" height="170">'
+		],
+		[
+			'Azzeddine Remmal (Qt/3D/AI Master)',
+			'<img src="images/Azzeddine.jpg" width="150" height="170">'                    
+		],
 		[
 			'José Rosado (FoxRing Library)',
 			'<img src="images/jose.jpg" width="150" height="170">'
@@ -55,10 +59,6 @@ aManyThanks = [
 		[
 			'Marino Esteban (RingQt Samples)',
 			'<img src="images/marino.jpg" width="150" height="170">'
-		],
-		[
-			'Mansour Ayouni (StzLib Library)',
-			'<img src="images/mansour.jpg" width="150" height="170">'
 		],
 		[
 			'Ahmed Baryyan (Marketing)',
@@ -72,6 +72,11 @@ aManyThanks = [
 aGraphicDesigners = [
 				  [
 					'Mohammed Ali Haggag',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Nouran M. Radwan',
 					'Graphic Designer'
 					
 				  ],			
@@ -99,14 +104,13 @@ aGraphicDesigners = [
 					'Ashraf Nagy',
 					'Graphic Designer'
 					
-				  ],
-				  [
-					'Nouran M. Radwan',
-					'Graphic Designer'
-					
 				  ]
 ]
 aTutorials = [
+		[
+			'Alaa Mohammed Elockle',
+			'Arabic Tutorials'
+		],
 		[
 			'Sara Hamdy Mohamed',
 			'Arabic Tutorials'
@@ -114,10 +118,6 @@ aTutorials = [
 		[
 			'isVowel / GreenWing',
 			'Japanese Tutorials'                    
-		],
-		[
-			'Alaa Mohammed Elockle',
-			'Arabic Tutorials'
 		],
 		[
 			'Amr Essam',
