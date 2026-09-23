@@ -15,8 +15,20 @@ List of changes and new features
 
 Ring 1.28 comes with the next features!
 
+* More RingPM Packages
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring  1.28; More RingPM Packages
+
+More RingPM Packages
+====================
+
+The following packages have been added to the RingPM registry.
+
+* Ring2APK: Build Android APKs from Ring applications
+* RingServ: A modern application server in one static binary
+* RingScript: Run Ring in the browser (Ring VM compiled to WebAssembly)
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
