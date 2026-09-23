@@ -15,8 +15,24 @@ List of changes and new features
 
 Ring 1.28 comes with the next features!
 
+* Better Libs/Extensions
 * More RingPM Packages
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.28; Better Libs/Extensions
+
+Better Libs/Extensions
+======================
+
+* StdLib - Revised: encrypt_ex() and decrypt_ex()
+* RingRayLib - raylib.rh - Added more constants 
+* RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
+* RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
+* RingRayLib - Revised: GuiToggle() and GuiToggleGroup()
+* RingRayLib - Revised: GuiComboBox(), GuiDropdownBox() and GuiListView()
+* RingQt - QAllEvents - Added setWheelEvent() method
+* RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
@@ -37,13 +53,6 @@ More Improvements
 =================
 
 * Removed Folder: ring/samples/UsingAI 
-* StdLib - Revised: encrypt_ex() and decrypt_ex()
-* RingRayLib - raylib.rh - Added more constants 
-* RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
-* RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
-* RingRayLib - Revised: GuiToggle(), GuiToggleGroup(), GuiComboBox(), GuiDropdownBox() and GuiListView()
-* RingQt - QAllEvents - Added setWheelEvent() method
-* RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
 * State and Low Level Functions - Convert variable name to lower case 
