@@ -1026,5 +1026,9 @@ aPackagesRegistry = [
 	[ :name = "ring2apk",
 	  :description = "Build Android APKs from Ring applications",
 	  :ProviderUserName = "ysdragon"
+	],
+	[ :name = "steamlib",
+	  :description = "Support Steam Achievements (for Windows)",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
