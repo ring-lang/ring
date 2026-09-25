@@ -31,9 +31,9 @@ class RNoteControllerBase from WindowsControllerParent
 	aBrowserLinks 		= [
 		[T_RINGNOTEPAD_BROWSERLOCALHELP, GetHelpURL()],
 		[T_RINGNOTEPAD_BROWSERRINGWEBSITE,"http://ring-lang.github.io"],
-		[T_RINGNOTEPAD_BRWOSERRINGSAMPLES,"https://rosettacode.org/wiki/Category:Ring"],
+		[T_RINGNOTEPAD_BRWOSERRINGNEWS,"https://ring-lang.github.io/news.html"],
+		[T_RINGNOTEPAD_BRWOSERRINGPACKAGES,"https://ring-lang.github.io/packages.html"],
 		[T_RINGNOTEPAD_BROWSERRINGRESOURCES,"http://ring-lang.github.io/resources.html"],
-		[T_RINGNOTEPAD_BROWSERRINGSOURCECODE,"https://github.com/ring-lang/ring"],
 		[T_RINGNOTEPAD_BROWSERRINGTEAM,"http://ring-lang.github.io/team.html"]
 	]
 
