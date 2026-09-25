@@ -53,6 +53,7 @@ The following packages have been added to the RingPM registry.
 More Improvements
 =================
 
+* Ring Notepad - Browser Menu - Added links for Packages/News
 * Removed Folder: ring/samples/UsingAI 
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
