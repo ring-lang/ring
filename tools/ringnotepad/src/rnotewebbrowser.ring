@@ -4,7 +4,7 @@
 class RNoteWebBrowser
 
 	func createWebBrowserControl  
-		if ismacOSX()
+		if ismacOSX() or lUseCustomWebView
 			oWebView = new customWebView(this.win1) 
 			oWBBack.hide()
 		else 

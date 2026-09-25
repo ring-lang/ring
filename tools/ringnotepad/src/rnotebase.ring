@@ -152,6 +152,9 @@ class RNoteControllerBase from WindowsControllerParent
 		oCheckAction1 oCheckAction2 oCheckAction3 oCheckAction4
 		oCheckAction5 oCheckAction6 oCheckAction7
 
+	# Custom Web View
+		lUseCustomWebView = True
+
 	func GetFontFamilyName cFamily
 		if cFamily = :Consolas
 			cFontFamilyName = "Consolas"
