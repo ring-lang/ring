@@ -1030,5 +1030,9 @@ aPackagesRegistry = [
 	[ :name = "steamlib",
 	  :description = "Support Steam Achievements (for Windows)",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringenv",
+	  :description = "Download and manage multiple Ring language versions",
+	  :ProviderUserName = "azzeddine2017"
 	]
 ]
