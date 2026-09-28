@@ -46,6 +46,7 @@ The following packages have been added to the RingPM registry.
 * RingServ: A modern application server in one static binary
 * RingScript: Run Ring in the browser (Ring VM compiled to WebAssembly)
 * SteamLib: Support Steam Achievements (for Windows)
+* RingEnv: Download and Manage multiple Ring versions
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
