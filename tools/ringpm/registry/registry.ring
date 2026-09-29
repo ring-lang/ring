@@ -1034,5 +1034,21 @@ aPackagesRegistry = [
 	[ :name = "ringenv",
 	  :description = "Download and manage multiple Ring language versions",
 	  :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "ringqr",
+	  :description = "QR Code generator in pure Ring - ISO/IEC 18004 Model 2, versions 1 to 40, error correction L, M, Q and H",
+	  :ProviderUserName = "gaiamap"
+	],
+	[ :name = "ringbc",
+	  :description = "Barcode generator in pure Ring - EAN-13 and CODE128 sets A, B and C, with automatic type selection",
+	  :ProviderUserName = "gaiamap"
+	],
+	[ :name = "ringfm",
+	  :description = "Text measurement in pure Ring - real font metrics read from a TrueType file, with wrapping and a built-in estimate as a fallback",
+	  :ProviderUserName = "gaiamap"
+	],
+	[ :name = "ascii2label",
+	  :description = "Label layout tool written in Ring - an ASCII drawing and a CSV in, labels out as HTML and SVG; a possible use of ringqr, ringbc and ringfm",
+	  :ProviderUserName = "gaiamap"
 	]
 ]
