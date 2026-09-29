@@ -47,6 +47,10 @@ The following packages have been added to the RingPM registry.
 * RingScript: Run Ring in the browser (Ring VM compiled to WebAssembly)
 * SteamLib: Support Steam Achievements (for Windows)
 * RingEnv: Download and Manage multiple Ring versions
+* ASCII2Label: Label layout tool (An ASCII drawing and a CSV in, labels out as HTML and SVG)
+* RingFM: Text measurement (Real font metrics read from a TrueType file)
+* RingBC: Barcode generator (EAN-13 and CODE128 sets A, B and C, with automatic type selection)
+* RingQR: QR Code generator (ISO/IEC 18004 Model 2, versions 1 to 40, error correction L, M, Q and H)
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
