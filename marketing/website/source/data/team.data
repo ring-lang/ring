@@ -178,6 +178,10 @@ aTeam2 = [
 					'Ali Aliraqi',
 					'Tester'					
 				  ],
+		  		  [
+                    			'Abdallah Mohamed Elsharif',
+                    			'Tester'                    
+		  		  ],
 				  [
 					'Rashad Kamsheh',
 					'Tester'
@@ -613,7 +617,7 @@ aTeam2 = [
                     
                   ],
 				  [
-                    'mahmoud mahran',
+                    'Mahmoud mahran',
                     'Tester'
                     
                   ],
@@ -907,10 +911,6 @@ aTeam2 = [
 		  ],
 		  [
                     'Tawfik Yasser',
-                    'Tester'                    
-		  ],
-		  [
-                    'Abdallah Mohamed Elsharif',
                     'Tester'                    
 		  ],
 		  [
