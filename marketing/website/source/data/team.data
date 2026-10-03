@@ -12,10 +12,6 @@ aTeam = [
 		[
 			'Ahmed Hassouna (Training Master)',
 			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
-		],
-		[
-			'Mounir IDRASSI (Security Master)',
-			'<img src="images/mounir.png" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -26,6 +22,10 @@ aLegends = [
 		[
 			'Majdi Sobain (Extensions Master)',
 			'<img src="images/majdi.jpg" width="150" height="170">'
+		],
+		[
+			'Mounir IDRASSI (Security Master)',
+			'<img src="images/mounir.png" width="150" height="170">'
 		],
 		[
 			'Gal Zsolt (Samples Master)',
@@ -64,6 +64,11 @@ aGraphicDesigners = [
 					'Nouran M. Radwan',
 					'Graphic Designer'
 					
+				  ],
+				  [
+					'Islam Fawzi',
+					'Graphic Designer'
+					
 				  ],			
 				  [
 					'Muhammad Wael',
@@ -77,11 +82,6 @@ aGraphicDesigners = [
 				  ],
 				  [
 					'Mahmoud Hamdy',
-					'Graphic Designer'
-					
-				  ],
-				  [
-					'Islam Fawzi',
 					'Graphic Designer'
 					
 				  ],
@@ -169,6 +169,14 @@ aTeam2 = [
 				  [
 					'Ahmed Omar',
 					'Tester'				
+				  ],
+				  [
+					'Sofy Abbas',
+					'Tester'					
+				  ],
+				  [
+					'Ali Aliraqi',
+					'Tester'					
 				  ],
 				  [
 					'Rashad Kamsheh',
@@ -343,16 +351,6 @@ aTeam2 = [
 				  ],
 				  [
 					'Montasir Mohamed Badreldin',
-					'Tester'
-					
-				  ],
-				  [
-					'Sofy Abbas',
-					'Tester'
-					
-				  ],
-				  [
-					'Ali Aliraqi',
 					'Tester'
 					
 				  ],
