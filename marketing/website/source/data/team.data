@@ -149,6 +149,22 @@ aTeam2 = [
 		  		  [
 		    			'Khaled ABID',
 		    			'Tester'					
+		  		  ],
+		  		  [
+		    			'Hassan Harby',
+		    			'Tester'
+		  		  ], 
+		  		  [
+		    			'Cesare G. Fanelli',
+		    			'Tester'
+		  		  ], 
+		  		  [
+		    			'Charles Michael Farías',
+		    			'Tester'
+		  		  ],
+		  		  [
+		    			'Antonio F.S.',
+		    			'Tester'
 		  		  ],				
 				  [
 					'Ahmed Omar',
@@ -932,23 +948,7 @@ aTeam2 = [
 		    'Tester'
 		  ],
 		  [
-		    'Antonio F.S.',
-		    'Tester'
-		  ],
-		  [
 		    'Weixie Cui',
 		    'Tester'
-		  ],
-		  [
-		    'Hassan Harby',
-		    'Tester'
-		  ],
-		  [
-		    'Charles Michael Farías',
-		    'Tester'
-		  ],
-		  [
-		    'Cesare G. Fanelli',
-		    'Tester'
-		  ]    
+		  ]  
 ]
