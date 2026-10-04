@@ -18,6 +18,10 @@ aApplications = [
 				'<img src="images/ringrepl.png" width="100%">'
 			],
 			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/ringpmgui" >Ring Package Manager (GUI)</a>',
+				'<img src="images/ringpmgui.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" >String To Constant</a>',
 				'<img src="images/string2constant.png" width="100%">'
 			],
@@ -28,10 +32,6 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" >Gold Magic 800 Level Editor</a>',
 				'<img src="images/gm800le.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/ringpmgui" >Ring Package Manager (GUI)</a>',
-				'<img src="images/ringpmgui.png" width="100%">'
 			]
 		]
 	],
@@ -106,20 +106,12 @@ aApplications = [
 				'<img src="images/goldmagic800.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ysdragon/RingVaders" >Ring Vaders</a>',
-				'<img src="images/ringvaders.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" >Squares Puzzle</a>',
+				'<img src="images/squarespuzzle.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" >TicTacToe 3D</a>',
 				'<img src="images/tictactoe3d.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d" >Fifteen Puzzle 3D Game</a>',
-				'<img src="images/fifteen3d.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" >Squares Puzzle</a>',
-				'<img src="images/squarespuzzle.png" width="100%">'
 			]
 		]
 	],
@@ -356,10 +348,6 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" >BMI Caclculator application</a>',
 				'<img src="images/BMI.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" >Convert Numbers To String</a>',
-				'<img src="images/numtostr.jpg" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/hourscounter" >Hours Counter application</a>',
