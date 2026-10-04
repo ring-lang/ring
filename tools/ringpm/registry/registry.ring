@@ -1050,5 +1050,9 @@ aPackagesRegistry = [
 	[ :name = "ascii2label",
 	  :description = "Label layout tool (An ASCII drawing and a CSV in, labels out as HTML and SVG)",
 	  :ProviderUserName = "gaiamap"
+	],
+	[ :name = "ringtest",
+	  :description = "Modern, ultra-fast, and lightweight unit testing framework and test runner for Ring",
+	  :ProviderUserName = "azzeddine2017"
 	]
 ]
