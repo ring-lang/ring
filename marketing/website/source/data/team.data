@@ -54,6 +54,16 @@ aManyThanks = [
 			'<img src="images/amine.jpg" width="150" height="170">'
 		]				  
 ]
+aRingFutureAndVision = [
+		[
+			'Mansour Ayouni (Writing Master)',
+			'<img src="images/Mansour.jpg" width="150" height="170">'                    
+		],
+		[
+			'Mohannad Al-Ayash (QML Master)',
+			'<img src="images/Mohannad.png" width="150" height="170">'                    
+		]
+]
 aGraphicDesigners = [
 				  [
 					'Mohammed Ali Haggag',
@@ -122,6 +132,10 @@ aSuccessPartners = [
 			[
 				'Ibrahim Fayed',
 				'Consultant'		
+			],
+			[
+				'Ilir Liburn',
+				'Consultant'                    
 			]				
 ]
 
@@ -132,18 +146,6 @@ aTeam2 = [
 				  ],
 		  		  [
                     			'Ahmad Zakaria',
-                    			'Tester'                    
-		  		  ],
-		  		  [
-                    			'Ilir Liburn',
-                    			'Tester'                    
-		  		  ],
-		  		  [
-                    			'Mansour Ayouni',
-                    			'Tester'                    
-		  		  ],
-		  		  [
-                    			'Mohannad Al-Ayash',
                     			'Tester'                    
 		  		  ],
 		  		  [
