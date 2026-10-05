@@ -1054,5 +1054,9 @@ aPackagesRegistry = [
 	[ :name = "ringtest",
 	  :description = "Modern, ultra-fast, and lightweight unit testing framework and test runner for Ring",
 	  :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "simpletests",
+	  :description = "Testing Framework Prototype for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
