@@ -51,6 +51,8 @@ The following packages have been added to the RingPM registry.
 * RingFM: Text measurement (Real font metrics read from a TrueType file)
 * RingBC: Barcode generator (EAN-13 and CODE128 sets A, B and C, with automatic type selection)
 * RingQR: QR Code generator (ISO/IEC 18004 Model 2, versions 1 to 40, error correction L, M, Q and H)
+* RingTest: Modern, ultra-fast, and lightweight unit testing framework and test runner
+* SimpleTests: Testing Framework Prototype
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
