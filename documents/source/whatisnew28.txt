@@ -76,3 +76,4 @@ More Improvements
 * Ring VM - ring_vm_movetoprevscope() - Check ring_list_isdontdelete_gc() before list swap
 * Ring VM - ICO_LOADAPUSHV - Use ring_vm_pushv() instead of ring_vm_varpushv()
 * Ring VM - Remove BraceNewLine() output from the VM Stack
+* Ring VM - Produce an error message when attempting to assign a list/object to a string character
