@@ -1,0 +1,6 @@
+start
+Error (R7) : Can't assign to a string letter more than one character
+Error (R7) : Can't assign to a string letter more than one character
+Error (R8) : Variable is not a string
+Error (R8) : Variable is not a string
+done
