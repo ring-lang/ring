@@ -94,6 +94,9 @@ void ring_vm_oop_newobj(VM *pVM) {
 						ring_item_settype_gc(pVM->pRingState, pItem, ITEMTYPE_LIST);
 						pVar = ring_item_getlist(pItem);
 						pList2 = pVar;
+					} else {
+						ring_vm_error(pVM, RING_VM_ERROR_VALUEMORETHANONECHAR);
+						return;
 					}
 					nType = RING_VM_STACK_OBJTYPE;
 					ring_vm_stackdup(pVM);

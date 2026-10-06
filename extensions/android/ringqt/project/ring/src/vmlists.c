@@ -37,10 +37,13 @@ void ring_vm_liststart(VM *pVM) {
 				}
 			}
 			nType = RING_VM_STACK_OBJTYPE;
-			if (nType == RING_OBJTYPE_LISTITEM) {
+			if (nType == RING_OBJTYPE_VARIABLE) {
+				pVar = (List *)RING_VM_STACK_READP;
+			} else if (nType == RING_OBJTYPE_LISTITEM) {
 				pItem = (Item *)RING_VM_STACK_READP;
 			} else {
-				pVar = (List *)RING_VM_STACK_READP;
+				ring_vm_error(pVM, RING_VM_ERROR_VALUEMORETHANONECHAR);
+				return;
 			}
 			/* Support code like  aList = [1,2,3] + 4 */
 			ring_vm_stackdup(pVM);
