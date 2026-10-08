@@ -62,6 +62,8 @@ More Improvements
 
 * Ring Notepad - Browser Menu - Added links for Packages/News
 * Removed Folder: ring/samples/UsingAI 
+* Revised: applications/wordgame/WordList.ring
+* Revised: applications/matching/MatchingList.ring 
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
 * State and Low Level Functions - Convert variable name to lower case 
