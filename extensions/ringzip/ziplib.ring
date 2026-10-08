@@ -31,7 +31,7 @@ class zip
 		zip_addfile(oZip,cFileName)
 
 	func ExtractAllFiles cFolder
-		zip_extract_allfiles(GetFileName(),"myfolder")
+		zip_extract_allfiles(GetFileName(),cFolder)
 
 	func FilesCount
 		return zip_filescount(oZip)
