@@ -83,6 +83,7 @@ Each module contains a function that registers the module functions in the RingV
 			ring_vm_info_loadfunctions(pRingState);
 		#endif
 	}
+
 .. index:: 
 	pair: Extension; Module Organization
 
