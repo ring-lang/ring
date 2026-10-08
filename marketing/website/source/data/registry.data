@@ -1058,5 +1058,9 @@ aPackagesRegistry = [
 	[ :name = "simpletests",
 	  :description = "Testing Framework Prototype for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "spaceshooter3d",
+	  :description = "Space combat simulator and dogfight interceptor built using RingRayLib",
+	  :ProviderUserName = "azzeddine2017"
 	]
 ]
