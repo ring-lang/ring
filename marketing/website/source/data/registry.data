@@ -1062,5 +1062,9 @@ aPackagesRegistry = [
 	[ :name = "spaceshooter3d",
 	  :description = "Space combat simulator and dogfight interceptor built using RingRayLib",
 	  :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "mario3d_sample",
+	  :description = "Nostalgic 3D Third-Person Platformer built using RingRayLib",
+	  :ProviderUserName = "azzeddine2017"
 	]
 ]
