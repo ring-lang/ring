@@ -53,6 +53,8 @@ The following packages have been added to the RingPM registry.
 * RingQR: QR Code generator (ISO/IEC 18004 Model 2, versions 1 to 40, error correction L, M, Q and H)
 * RingTest: Modern, ultra-fast, and lightweight unit testing framework and test runner
 * SimpleTests: Testing Framework Prototype
+* SpaceShooter3D: Space combat simulator and dogfight interceptor built using RingRayLib
+* Mario3D_Sample: Nostalgic 3D Third-Person Platformer built using RingRayLib
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
