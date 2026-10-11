@@ -116,7 +116,7 @@
 
 
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Ring Future (Success Stories and Real‑World Production Use) <span class="badge"><%= len(aRingFutureAndVision) %></span></h4></div>
+      <div class="panel-heading"><h4>Success Stories and Real‑World Production Use <span class="badge"><%= len(aRingFutureAndVision) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">
