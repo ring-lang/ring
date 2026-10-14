@@ -626,7 +626,7 @@ Each package is defined using a list that determine
 * Package Description
 * Provider User Name (GitHub User Name)
 
-We can register new packages by updating the registry file then sending a Pull Request
+Ring packages are registered in the following registry file.
 
 URL : https://github.com/ring-lang/ring/blob/master/tools/ringpm/registry/registry.ring
 
