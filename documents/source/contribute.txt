@@ -53,7 +53,7 @@ The documentation is created using Sphinx : http://www.sphinx-doc.org/en/stable/
 Testing
 =======
 
-We add tests in this folder 
+We add tests to this folder 
 
 https://github.com/ring-lang/ring/tree/master/language/tests/scripts
 
@@ -74,7 +74,7 @@ https://github.com/ring-lang/ring/tree/master/samples
 Applications
 ============
 
-We add new applications to this folder
+We add applications to this folder
 
 https://github.com/ring-lang/ring/tree/master/applications
 
