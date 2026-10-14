@@ -5,13 +5,13 @@
 How to contribute?
 ==================
 
-Ring is a free-open source project, Everyone is welcome to contribute to Ring.
+Ring is a free-open source project
 
-Project Home : https://github.com/ring-lang/ring
+Project Home: https://github.com/ring-lang/ring
 
-To editing on web browser without Git client, when login GitHub then click pencil icon in target file. Then, sends pull request.
+Ring Group: https://groups.google.com/g/ring-lang
 
-You can help in many parts in the project
+We received contributions related to many parts of the projects.
 
 * Documentation
 * Testing
@@ -41,8 +41,9 @@ Ring Team: https://ring-lang.github.io/team.html
 Documentation
 =============
 
-You can modify anything in the documentation, by updating the text files (*.txt)
-in this folder : https://github.com/ring-lang/ring/tree/master/documents/source
+We can modify the documentation, by updating the text files (*.txt)
+
+Folder : https://github.com/ring-lang/ring/tree/master/documents/source
 
 The documentation is created using Sphinx : http://www.sphinx-doc.org/en/stable/
 
@@ -52,7 +53,7 @@ The documentation is created using Sphinx : http://www.sphinx-doc.org/en/stable/
 Testing
 =======
 
-You can write new tests in this folder 
+We add tests in this folder 
 
 https://github.com/ring-lang/ring/tree/master/language/tests/scripts
 
@@ -63,7 +64,7 @@ https://github.com/ring-lang/ring/tree/master/language/tests/scripts
 Samples
 =======
 
-You can add new samples to this folder
+We add samples to this folder
 
 https://github.com/ring-lang/ring/tree/master/samples
 
@@ -73,7 +74,7 @@ https://github.com/ring-lang/ring/tree/master/samples
 Applications
 ============
 
-You can add new applications to this folder
+We add new applications to this folder
 
 https://github.com/ring-lang/ring/tree/master/applications
 
@@ -86,8 +87,6 @@ https://github.com/ring-lang/ring/tree/master/applications
 Editors Support
 ===============
 
-You can help in supporting Ring in different code editors
-
 Check the next folder
 
 https://github.com/ring-lang/ring/tree/master/tools/editors
@@ -95,7 +94,7 @@ https://github.com/ring-lang/ring/tree/master/tools/editors
 Libraries in Ring
 =================
 
-You can update and add libraries to this folder
+We add libraries to this folder
 
 https://github.com/ring-lang/ring/tree/master/libraries
 
@@ -106,7 +105,7 @@ https://github.com/ring-lang/ring/tree/master/libraries
 Extensions in C/C++
 ===================
 
-You can add and update extensions in this folder
+We add extensions to this folder
 
 https://github.com/ring-lang/ring/tree/master/extensions
 
