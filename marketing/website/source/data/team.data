@@ -52,17 +52,11 @@ aManyThanks = [
 		[
 			'Amin Najah (Marketing)',
 			'<img src="images/amine.jpg" width="150" height="170">'
-		]				  
-]
-aRingFutureAndVision = [
-		[
-			'Mansour Ayouni (Business Applications)',
-			'<img src="images/Mansour.jpg" width="150" height="170">'                    
 		],
 		[
 			'Mohannad Al-Ayash (Mobile Applications)',
 			'<img src="images/Mohannad.png" width="150" height="170">'                    
-		]
+		]				  
 ]
 aGraphicDesigners = [
 				  [
