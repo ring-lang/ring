@@ -713,7 +713,7 @@ aPackagesRegistry = [
 	],
 	[ :name = "stzlib",
 	  :description = "Softanza Library for the Ring programming language",
-	  :ProviderUserName = "mayouni"
+	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "httplib",
 	  :description = "RingHTTPLib package for the Ring programming language",
@@ -1017,11 +1017,11 @@ aPackagesRegistry = [
 	],
 	[ :name = "ringscript",
 	  :description = "Run Ring in the browser (Ring VM compiled to WebAssembly)",
-	  :ProviderUserName = "mayouni"
+	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "ringserv",
 	  :description = "A modern application server in one static binary",
-	  :ProviderUserName = "mayouni"
+	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "ring2apk",
 	  :description = "Build Android APKs from Ring applications",
