@@ -711,10 +711,6 @@ aPackagesRegistry = [
 	  :description = "An easy to use pattern matching",
 	  :ProviderUserName = "ringpackages"
 	],
-	[ :name = "stzlib",
-	  :description = "Softanza Library for the Ring programming language",
-	  :ProviderUserName = "ringpackages"
-	],
 	[ :name = "httplib",
 	  :description = "RingHTTPLib package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
@@ -1013,14 +1009,6 @@ aPackagesRegistry = [
 	],
 	[ :name = "docxlib",
 	  :description = "DOCX (Word) library for the Ring Programming Language",
-	  :ProviderUserName = "ringpackages"
-	],
-	[ :name = "ringscript",
-	  :description = "Run Ring in the browser (Ring VM compiled to WebAssembly)",
-	  :ProviderUserName = "ringpackages"
-	],
-	[ :name = "ringserv",
-	  :description = "A modern application server in one static binary",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "ring2apk",
