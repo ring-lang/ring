@@ -43,8 +43,6 @@ More RingPM Packages
 The following packages have been added to the RingPM registry.
 
 * Ring2APK: Build Android APKs from Ring applications
-* RingServ: A modern application server in one static binary
-* RingScript: Run Ring in the browser (Ring VM compiled to WebAssembly)
 * SteamLib: Support Steam Achievements (for Windows)
 * RingEnv: Download and Manage multiple Ring versions
 * ASCII2Label: Label layout tool (An ASCII drawing and a CSV in, labels out as HTML and SVG)
