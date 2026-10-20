@@ -65,6 +65,7 @@ More Improvements
 * Revised: applications/wordgame/WordList.ring
 * Revised: applications/matching/MatchingList.ring
 * Added: samples/UsingRayLib/more/ex12_rubik.ring 
+* Added: samples/UsingRayLib/more/ex13_rubik2.ring 
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
 * State and Low Level Functions - Convert variable name to lower case 
