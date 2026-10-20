@@ -12,6 +12,10 @@ aTeam = [
 		[
 			'Ahmed Hassouna (Training Master)',
 			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
+		],
+		[
+			'Majdi Sobain (Extensions Master)',
+			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
 ]
 aLegends = [
@@ -20,16 +24,12 @@ aLegends = [
 			'<img src="images/UmbertoMariani.png" width="150" height="170">'
 		],
 		[
-			'Majdi Sobain (Extensions Master)',
-			'<img src="images/majdi.jpg" width="150" height="170">'
+			'Gal Zsolt (Samples Master)',
+			'<img src="images/GalZsolt.png" width="150" height="170">'
 		],
 		[
 			'Mounir IDRASSI (Security Master)',
 			'<img src="images/mounir.png" width="150" height="170">'
-		],
-		[
-			'Gal Zsolt (Samples Master)',
-			'<img src="images/GalZsolt.png" width="150" height="170">'
 		]
 ]
 aManyThanks = [
@@ -48,10 +48,6 @@ aManyThanks = [
 		[
 			'Ahmed Baryyan (Marketing)',
 			'<img src="images/ahmedbarayan1.jpg" width="150" height="170">'
-		],
-		[
-			'Amin Najah (Marketing)',
-			'<img src="images/amine.jpg" width="150" height="170">'
 		],
 		[
 			'Mohannad Al-Ayash (Mobile Applications)',
@@ -176,6 +172,10 @@ aTeam2 = [
 				  ],
 		  		  [
                     			'Abdallah Mohamed Elsharif',
+                    			'Tester'                    
+		  		  ],
+		  		  [
+                    			'Amin Najah',
                     			'Tester'                    
 		  		  ],
 				  [
