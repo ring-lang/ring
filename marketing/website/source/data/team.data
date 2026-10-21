@@ -54,61 +54,6 @@ aManyThanks = [
 			'<img src="images/Mohannad.png" width="150" height="170">'                    
 		]				  
 ]
-aGraphicDesigners = [
-				  [
-					'Mohammed Ali Haggag',
-					'Graphic Designer'
-					
-				  ],
-				  [
-					'Nouran M. Radwan',
-					'Graphic Designer'
-					
-				  ],
-				  [
-					'Islam Fawzi',
-					'Graphic Designer'
-					
-				  ],			
-				  [
-					'Muhammad Wael',
-					'Graphic Designer'
-					
-				  ],
-				  [
-					'Sameh Salem',
-					'Graphic Designer'
-					
-				  ],
-				  [
-					'Mahmoud Hamdy',
-					'Graphic Designer'
-					
-				  ],
-				  [
-					'Ashraf Nagy',
-					'Graphic Designer'
-					
-				  ]
-]
-aTutorials = [
-		[
-			'Alaa Mohammed Elockle',
-			'Arabic Tutorials'
-		],
-		[
-			'Sara Hamdy Mohamed',
-			'Arabic Tutorials'
-		],
-		[
-			'isVowel / GreenWing',
-			'Japanese Tutorials'                    
-		],
-		[
-			'Amr Essam',
-			'Tutorials'
-		]
-]
 
 aSuccessPartners = [
 			[
@@ -169,6 +114,18 @@ aTeam2 = [
 				  [
 					'Ali Aliraqi',
 					'Tester'					
+				  ],
+				  [
+					'Alaa Mohammed Elockle',
+					'Tester'
+				  ],
+				  [
+					'Sara Hamdy Mohamed',
+					'Tester'
+				  ],
+				  [
+					'Amr Essam',
+					'Tester'
 				  ],
 		  		  [
                     			'Abdallah Mohamed Elsharif',
@@ -839,20 +796,6 @@ aTeam2 = [
                   ],
 		  [
                     'Shimoo Ali',
-                    'Tester'
-                    
-                  ],
-		  [
-                    'Hebat Alla Ismail',
-                    'Tester'                   
-                  ],
-		  [
-                    'Mona Kamel',
-                    'Tester'
-                    
-                  ],
-		  [
-                    'Heba Omran',
                     'Tester'
                     
                   ],
