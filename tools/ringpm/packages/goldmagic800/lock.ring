@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "goldmagic800",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.6",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -23,14 +23,21 @@ aLockInfo = [
 	[
 		:name = "ringopengl21",
 		:branch = "master",
-		:version = "1.0.11",
+		:version = "1.0.13",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.16",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "tokenslib",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.7",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]

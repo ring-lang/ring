@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.5",
+	:version = "1.0.6",
 	:ringversion = "1.22",
 	:versions = 	[
 		[
-			:version = "1.0.5",
+			:version = "1.0.6",
 			:branch = "master"
 		]
 	],
@@ -144,6 +144,17 @@ aPackageInfo = [
 		"applications/goldmagic800/levels/level42.level",
 		"applications/goldmagic800/levels/level43.level",
 		"applications/goldmagic800/levels/level44.level",
+		"applications/goldmagic800/levels/level45.level",
+		"applications/goldmagic800/levels/level46.level",
+		"applications/goldmagic800/levels/level47.level",
+		"applications/goldmagic800/levels/level48.level",
+		"applications/goldmagic800/levels/level49.level",
+		"applications/goldmagic800/levels/level50.level",
+		"applications/goldmagic800/levels/level51.level",
+		"applications/goldmagic800/levels/level52.level",
+		"applications/goldmagic800/levels/level53.level",
+		"applications/goldmagic800/levels/level54.level",
+		"applications/goldmagic800/levels/level55.level",
 		"applications/goldmagic800/levels/level5.level",
 		"applications/goldmagic800/levels/level6.level",
 		"applications/goldmagic800/levels/level7.level",
