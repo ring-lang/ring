@@ -4,21 +4,19 @@
       <div class="panel-heading"><h4>Packages <span class="badge"><%=len(aPackagesRegistry) %></span></h4></div>
       <div class="panel-body">
   		<div class="table-responsive">
-			<pre><code>Usage: ringpm install &lt;PackageName&gt; from &lt;Provider&gt;</code></pre>
+			<pre><code>Use <b>ringpm refresh</b> to get the latest version of Packages Registry</code></pre><pre><code>Use <b>ringpm install &lt;PackageName&gt;</b> to install any package</code></pre>
 			<table class="table table-striped">
 				<thead>
 				  <tr>
 					<th width="20%">Package Name</th>
 					<th>Description</th>
-					<th width="10%">Provider</th>
 				  </tr>
 				</thead>
 				<tbody>
 				<% aPackages = reverse(aPackagesRegistry) for x in aPackages %>
 				  <tr>
-					<td><%= '<a href="https://github.com/'+x[:providerusername]+'/'+lower(x[:name])+'">' + lower(x[:name]) + '</a>' %></td>
+					<td><%= lower(x[:name]) %></td>
 					<td><%= x[:description] %></td>
-					<td><%= '<a href="https://github.com/'+x[:providerusername]+'">' + x[:providerusername] + '</a>' %></td>
 				  </tr>
 				<% next %>				 	  
 				</tbody>
