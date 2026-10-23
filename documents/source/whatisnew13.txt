@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.13 comes with the next features!
 
+* New Book by Apress
 * Ring For WebAssembly
 * Better Threads Support
 * Laser Game
@@ -33,6 +34,31 @@ Ring 1.13 comes with the next features!
 * More Low Level Functions
 * Better Organization
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; New Book by Apress
+
+New Book by Apress
+==================
+
+Apress: Beginning Ring Programming (From Novice to Professional)
+
+URL: https://www.apress.com/gp/book/9781484258323
+
+.. image:: ringbookbyapress.png
+	:width: 310pt
+	:height: 450pt
+	:alt: Ring Book by Apress
+
+Gain a gentle introduction to the world of Ring programming with clarity as a 
+first concern using a lot of practical examples.
+
+What You Will Learn
+
+* Get started with Ring and master its data types, I/O, functions, and classes
+* Carry out structural, object-oriented, functional, declarative, natural, and meta programming in Ring
+* Use the full power of Ring to refactor program code and develop clean program architectures
+* Quickly design professional-grade video games on top of the Ring game engine
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Ring for WebAssembly
