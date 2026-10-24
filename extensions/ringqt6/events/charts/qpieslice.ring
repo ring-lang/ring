@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GPieSlice" ,
-		:realname = "QtCharts::QPieSlice" ,
+		:realname = "QPieSlice" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject * ",
 		:initparaparent = "",

@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GValueAxis" ,
-		:realname = "QtCharts::QValueAxis" ,
+		:realname = "QValueAxis" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject * ",
 		:initparaparent = "",

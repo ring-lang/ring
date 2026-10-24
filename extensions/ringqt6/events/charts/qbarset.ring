@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GBarSet" ,
-		:realname = "QtCharts::QBarSet" ,
+		:realname = "QBarSet" ,
 		:headerfile = "QtCharts",
 		:initpara = "const QString x,QObject *",
 		:initparaparent = "x,",

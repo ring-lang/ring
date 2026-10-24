@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GCategoryAxis" ,
-		:realname = "QtCharts::QCategoryAxis" ,
+		:realname = "QCategoryAxis" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject *",
 		:events = [

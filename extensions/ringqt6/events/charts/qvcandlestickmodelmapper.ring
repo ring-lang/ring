@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GVCandlestickModelMapper" ,
-		:realname = "QtCharts::QVCandlestickModelMapper" ,
+		:realname = "QVCandlestickModelMapper" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject * ",
 		:initparaparent = "",

@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GCandlestickSeries" ,
-		:realname = "QtCharts::QCandlestickSeries" ,
+		:realname = "QCandlestickSeries" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject *",
 		:events = [

@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GDateTimeAxis" ,
-		:realname = "QtCharts::QDateTimeAxis" ,
+		:realname = "QDateTimeAxis" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject *",
 		:events = [

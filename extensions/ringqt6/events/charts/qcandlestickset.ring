@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GCandlestickSet" ,
-		:realname = "QtCharts::QCandlestickSet" ,
+		:realname = "QCandlestickSet" ,
 		:headerfile = "QtCharts",
 		:initpara = "qreal x,QObject *",
 		:initparaparent = "x,",

@@ -1,7 +1,7 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GLegendMarker" ,
-		:realname = "QtCharts::QLegendMarker" ,
-		:initpara = "QtCharts::QLegendMarkerPrivate &",
+		:realname = "QLegendMarker" ,
+		:initpara = "QLegendMarkerPrivate &",
 		:headerfile = "QtCharts",
 		:events = [
 				[ 	:signal = "brushChanged()" ,

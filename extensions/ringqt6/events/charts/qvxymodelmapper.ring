@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GVXYModelMapper" ,
-		:realname = "QtCharts::QVXYModelMapper" ,
+		:realname = "QVXYModelMapper" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject * ",
 		:initparaparent = "",

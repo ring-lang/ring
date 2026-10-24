@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GChart" ,
-		:realname = "QtCharts::QChart" ,
+		:realname = "QChart" ,
 		:headerfile = "QtCharts",
 		:initpara = "QGraphicsItem *x,Qt::WindowFlags ",
 		:initparaparent = "x,",

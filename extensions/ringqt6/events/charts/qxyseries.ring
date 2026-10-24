@@ -1,8 +1,8 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GXYSeries" ,
-		:realname = "QtCharts::QXYSeries" ,
+		:realname = "QXYSeries" ,
 		:headerfile = "QtCharts",
-		:initpara = "QtCharts::QXYSeriesPrivate &",
+		:initpara = "QXYSeriesPrivate &",
 		:events = [
 				[ 	:signal = "clicked(const QPointF)" ,
 					:slot = "clickedSlot()" ,

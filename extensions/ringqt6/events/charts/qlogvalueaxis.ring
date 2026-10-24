@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GLogValueAxis" ,
-		:realname = "QtCharts::QLogValueAxis" ,
+		:realname = "QLogValueAxis" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject *",
 		:events = [

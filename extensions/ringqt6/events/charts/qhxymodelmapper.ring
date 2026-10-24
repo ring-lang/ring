@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GHXYModelMapper" ,
-		:realname = "QtCharts::QHXYModelMapper" ,
+		:realname = "QHXYModelMapper" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject *",
 		:events = [

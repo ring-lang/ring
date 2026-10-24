@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GBoxPlotSeries" ,
-		:realname = "QtCharts::QBoxPlotSeries" ,
+		:realname = "QBoxPlotSeries" ,
 		:headerfile = "QtCharts",
 		:initpara = "QObject *",
 		:events = [
