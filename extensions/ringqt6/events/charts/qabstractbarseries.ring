@@ -1,7 +1,7 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GAbstractBarSeries" ,
-		:realname = "QtCharts::QAbstractBarSeries" ,
-		:initpara = "QtCharts::QAbstractBarSeriesPrivate &",
+		:realname = "QAbstractBarSeries" ,
+		:initpara = "QAbstractBarSeriesPrivate &",
 		:events = [
 				[ 	:signal = "barsetsAdded(QList<QBarSet *>)" ,
 					:slot = "barsetsAddedSlot()" ,
