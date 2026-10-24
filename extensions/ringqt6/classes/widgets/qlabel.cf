@@ -13,8 +13,14 @@ To maintain compatibility with old code, you can explicitly differentiate
 between the by-pointer function and the by-value function
 </comment>
 
+<filter> sysget("RINGQT_QT6") = ""
 QPicture *picture(void)
 QPixmap *pixmap(void)
+</filter>
+
+<filter> sysget("RINGQT_QT6") != ""
+QPixmap pixmap(void)
+</filter>
 
 int alignment(void)
 QWidget *buddy(void)
