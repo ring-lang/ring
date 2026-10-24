@@ -6,13 +6,11 @@ codename: GSoundEffect
 passvmpointer
 </class>
 
-QString category(void)
 bool isLoaded(void)
 bool isMuted(void)
 bool isPlaying(void)
 int loopCount(void)
 int loopsRemaining(void)
-void setCategory(QString category)
 void setLoopCount(int loopCount)
 void setMuted(bool muted)
 void setSource(QUrl url)
@@ -23,7 +21,11 @@ qreal volume(void)
 void play(void)
 void stop(void)
 
-void setcategoryChangedEvent(const char *)
+<filter> sysget("RINGQT_QT6") = ""
+QString category(void)
+void setCategory(QString category)
+</filter>
+
 void setloadedChangedEvent(const char *)
 void setloopCountChangedEvent(const char *)
 void setloopsRemainingChangedEvent(const char *)
@@ -33,7 +35,6 @@ void setsourceChangedEvent(const char *)
 void setstatusChangedEvent(const char *)
 void setvolumeChangedEvent(const char *)
 
-const char *getcategoryChangedEvent(void)
 const char *getloadedChangedEvent(void)
 const char *getloopCountChangedEvent(void)
 const char *getloopsRemainingChangedEvent(void)
