@@ -1,0 +1,44 @@
+<class>
+name: QSoundEffect
+para: QObject *parent
+parent: QObject
+codename: GSoundEffect
+passvmpointer
+</class>
+
+QString category(void)
+bool isLoaded(void)
+bool isMuted(void)
+bool isPlaying(void)
+int loopCount(void)
+int loopsRemaining(void)
+void setCategory(QString category)
+void setLoopCount(int loopCount)
+void setMuted(bool muted)
+void setSource(QUrl url)
+void setVolume(qreal volume)
+QUrl source(void)
+QSoundEffect::Status status(void)
+qreal volume(void)
+void play(void)
+void stop(void)
+
+void setcategoryChangedEvent(const char *)
+void setloadedChangedEvent(const char *)
+void setloopCountChangedEvent(const char *)
+void setloopsRemainingChangedEvent(const char *)
+void setmutedChangedEvent(const char *)
+void setplayingChangedEvent(const char *)
+void setsourceChangedEvent(const char *)
+void setstatusChangedEvent(const char *)
+void setvolumeChangedEvent(const char *)
+
+const char *getcategoryChangedEvent(void)
+const char *getloadedChangedEvent(void)
+const char *getloopCountChangedEvent(void)
+const char *getloopsRemainingChangedEvent(void)
+const char *getmutedChangedEvent(void)
+const char *getplayingChangedEvent(void)
+const char *getsourceChangedEvent(void)
+const char *getstatusChangedEvent(void)
+const char *getvolumeChangedEvent(void)

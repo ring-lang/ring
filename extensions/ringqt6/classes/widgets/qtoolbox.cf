@@ -1,0 +1,32 @@
+<class>
+name: QToolBox
+para: QWidget *parent
+parent: QFrame
+codename: GToolBox
+passvmpointer
+</class>
+
+int addItem(QWidget *widget, QString text)
+int addItem@2(QWidget *widget, QIcon icon, QString text)
+int count(void)
+int currentIndex(void)
+QWidget *currentWidget(void)
+int indexOf(QWidget *widget)
+int insertItem(int index, QWidget *widget, QString text)
+int insertItem@2(int index, QWidget *widget, QIcon icon, QString text)
+bool isItemEnabled(int index)
+QIcon itemIcon(int index)
+QString itemText(int index)
+QString itemToolTip(int index)
+void removeItem(int index)
+void setItemEnabled(int index, bool enabled)
+void setItemIcon(int index, QIcon icon)
+void setItemText(int index, QString text)
+void setItemToolTip(int index, QString toolTip)
+QWidget *widget(int index)
+void setCurrentIndex(int index)
+void setCurrentWidget(QWidget *widget)
+
+void setcurrentChangedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)

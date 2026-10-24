@@ -1,0 +1,5 @@
+<class>
+name: QPerVertexColorMaterial
+codename: Qt3DExtras::QPerVertexColorMaterial
+para: Qt3DCore::QNode *
+</class>

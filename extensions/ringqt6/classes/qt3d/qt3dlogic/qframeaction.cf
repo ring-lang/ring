@@ -1,0 +1,9 @@
+<class>
+name: QFrameAction
+para: Qt3DCore::QNode *
+codename: GFrameAction
+passvmpointer
+</class>
+
+void settriggeredEvent(const char *)
+const char *gettriggeredEvent(void)

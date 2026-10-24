@@ -1,0 +1,140 @@
+<class>
+name: QFileDialog
+para: QWidget *parent
+parent: QDialog
+codename: GFileDialog
+passvmpointer
+</class>
+
+QFileDialog::AcceptMode acceptMode(void)
+QString defaultSuffix(void)
+QDir directory(void)
+QUrl directoryUrl(void)
+QFileDialog::FileMode fileMode(void)
+QDir::Filters filter(void)
+QStringList history(void)
+QFileIconProvider * iconProvider(void)
+QAbstractItemDelegate * itemDelegate(void)
+QString labelText(QFileDialog::DialogLabel label)
+QStringList mimeTypeFilters(void)
+QStringList nameFilters(void)
+void open(QObject * receiver, char * member)
+QFileDialog::Options options(void)
+QAbstractProxyModel * proxyModel(void)
+bool restoreState(QByteArray state)
+QByteArray saveState(void)
+void selectFile(QString filename)
+void selectMimeTypeFilter(QString filter)
+void selectNameFilter(QString filter)
+void selectUrl(QUrl url)
+QStringList selectedFiles(void)
+QString selectedNameFilter(void)
+QList<QUrl> selectedUrls(void)
+void setAcceptMode(QFileDialog::AcceptMode mode)
+void setDefaultSuffix(QString suffix)
+void setDirectory(QString directory)
+void setDirectory@2(QDir directory)
+void setDirectoryUrl(QUrl directory)
+void setFileMode(QFileDialog::FileMode mode)
+void setFilter(QDir::Filters filters)
+void setHistory(QStringList paths)
+void setIconProvider(QFileIconProvider * provider)
+void setItemDelegate(QAbstractItemDelegate * delegate)
+void setLabelText(QFileDialog::DialogLabel label, QString text)
+void setMimeTypeFilters(QStringList filters)
+void setNameFilter(QString filter)
+void setNameFilters(QStringList filters)
+void setOption(QFileDialog::Option option, bool on)
+void setOptions(QFileDialog::Options options)
+void setProxyModel(QAbstractProxyModel * proxyModel)
+void setSidebarUrls(QList<QUrl> urls)
+void setViewMode(QFileDialog::ViewMode mode)
+QList<QUrl> sidebarUrls(void)
+bool testOption(QFileDialog::Option option)
+QFileDialog::ViewMode viewMode(void)
+QString getExistingDirectory(QWidget * parent, QString caption, QString dir, QFileDialog::Options options)
+QUrl getExistingDirectoryUrl(QWidget * parent, QString caption, QUrl dir, QFileDialog::Options options, QStringList supportedSchemes)
+QString getOpenFileName(QWidget * parent, QString caption, QString dir, QString filter)
+QString getOpenFileName@2(QWidget * parent, QString caption, QString dir, QString filter, QString * selectedFilter, QFileDialog::Options options)
+QStringList getOpenFileNames(QWidget * parent, QString caption, QString dir, QString filter, QString * selectedFilter, QFileDialog::Options options)
+QUrl getOpenFileUrl(QWidget * parent, QString caption, QUrl dir, QString filter, QString * selectedFilter, QFileDialog::Options options, QStringList supportedSchemes)
+QList<QUrl> getOpenFileUrls(QWidget * parent, QString caption, QUrl dir, QString filter, QString * selectedFilter, QFileDialog::Options options, QStringList supportedSchemes)
+QString getSaveFileName(QWidget * parent, QString caption, QString dir, QString filter)
+QString getSaveFileName@2(QWidget * parent, QString caption, QString dir, QString filter, QString * selectedFilter, QFileDialog::Options options)
+QUrl getSaveFileUrl(QWidget * parent, QString caption, QUrl dir, QString filter, QString * selectedFilter, QFileDialog::Options options, QStringList supportedSchemes)
+
+void setcurrentChangedEvent(const char *)
+void setcurrentUrlChangedEvent(const char *)
+void setdirectoryEnteredEvent(const char *)
+void setdirectoryUrlEnteredEvent(const char *)
+void setfileSelectedEvent(const char *)
+void setfilesSelectedEvent(const char *)
+void setfilterSelectedEvent(const char *)
+void seturlSelectedEvent(const char *)
+void seturlsSelectedEvent(const char *)
+
+const char *getcurrentChangedEvent(void)
+const char *getcurrentUrlChangedEvent(void)
+const char *getdirectoryEnteredEvent(void)
+const char *getdirectoryUrlEnteredEvent(void)
+const char *getfileSelectedEvent(void)
+const char *getfilesSelectedEvent(void)
+const char *getfilterSelectedEvent(void)
+const char *geturlSelectedEvent(void)
+const char *geturlsSelectedEvent(void)
+
+<filter> sysget("RINGQT_WEBASSEMBLY") = "1"
+
+void saveFileContent(QByteArray fileContent,QString fileNameHint)
+
+<register>
+void getOpenFileContent(const char *cFileTypes, const char *cCode)
+List *FileContentList(void)
+</register>
+
+<code>
+
+List *pQFileDialogTempList=NULL;
+
+RING_FUNC(ring_QFileDialog_FileContentList)
+{
+	if (pQFileDialogTempList != NULL) {
+		RING_API_RETLIST(pQFileDialogTempList);
+	}
+}
+
+RING_FUNC(ring_QFileDialog_getOpenFileContent)
+{
+	VM *pVM;
+	pVM = (VM *) pPointer ;
+	List *pList;
+	const char *cCodeSrc;
+	const char *cType;
+	cType = RING_API_GETSTRING(2);
+	cCodeSrc = RING_API_GETSTRING(3);
+	char *cCode;
+	cCode = (char *) malloc(RINGQT_EVENT_SIZE);
+	strcpy(cCode,cCodeSrc);
+	if (pQFileDialogTempList != NULL) {
+		ring_list_deleteallitems(pQFileDialogTempList);
+	} else {
+		pQFileDialogTempList = ring_list_new(0);
+	}
+	pList = pQFileDialogTempList;
+	auto fileContentReady = [pVM,cCode,pList](const QString &fileName, const QByteArray &fileContent) {
+		if (! fileName.isEmpty()) {
+			// Use fileName and fileContent
+				ring_list_addstring(pList,fileName.toStdString().c_str());
+				ring_list_addstring2(pList,fileContent.constData(),fileContent.length());
+				if (strcmp(cCode,"")==0)
+					return ;
+            			ring_vm_runcode(pVM,cCode);
+				free(cCode);
+		}
+	};
+	QFileDialog::getOpenFileContent(cType,  fileContentReady);
+}
+
+</code>
+
+</filter>

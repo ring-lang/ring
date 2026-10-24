@@ -1,0 +1,11 @@
+<class>
+name: QBuffer
+para: QObject *
+parent: QIODevice
+</class>
+
+QByteArray buffer(void)
+QByteArray data(void)
+void setBuffer(QByteArray *byteArray)
+void setData(QByteArray data)
+void setData@2(char *data, int size)

@@ -1,0 +1,6 @@
+<class>
+name: QCompleter4
+para: QStringList list, QObject *parent
+parent: QCompleter
+codename: MultiSelectCompleter
+</class>

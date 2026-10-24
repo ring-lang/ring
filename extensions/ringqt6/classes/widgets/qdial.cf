@@ -1,0 +1,33 @@
+<class>
+name: QDial
+para: QWidget *parent
+parent: QAbstractSlider
+codename: GDial
+passvmpointer
+</class>
+
+int notchSize(void)
+qreal notchTarget(void)
+bool notchesVisible(void)
+void setNotchTarget(double target)
+bool wrapping(void)
+QSize minimumSizeHint(void)
+QSize sizeHint(void)
+void setNotchesVisible(bool visible)
+void setWrapping(bool on)
+
+void setactionTriggeredEvent(const char *)
+void setrangeChangedEvent(const char *)
+void setsliderMovedEvent(const char *)
+void setsliderPressedEvent(const char *)
+void setsliderReleasedEvent(const char *)
+void setvalueChangedEvent(const char *)
+
+const char *getactionTriggeredEvent(void)
+const char *getrangeChangedEvent(void)
+const char *getsliderMovedEvent(void)
+const char *getsliderPressedEvent(void)
+const char *getsliderReleasedEvent(void)
+const char *getvalueChangedEvent(void)
+
+

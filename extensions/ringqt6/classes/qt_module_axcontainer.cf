@@ -1,0 +1,10 @@
+<comment>
+				Module (axcontainer)
+</comment>
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "")
+<loadfile> axcontainer/qaxbase.cf
+<loadfile> axcontainer/qaxobject.cf
+<loadfile> axcontainer/qaxwidget.cf
+<loadfile> axcontainer/qaxwidget2.cf
+</filter>

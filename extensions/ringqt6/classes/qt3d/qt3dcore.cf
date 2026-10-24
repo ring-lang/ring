@@ -1,0 +1,6 @@
+<loadfile> qt3dcore/qabstractaspect.cf
+<loadfile> qt3dcore/qnode.cf
+<loadfile> qt3dcore/qentity.cf
+<loadfile> qt3dcore/qtransform.cf
+<loadfile> qt3dcore/qaspectengine.cf
+<loadfile> qt3dcore/qcomponent.cf

@@ -1,0 +1,91 @@
+<comment>
+				Module ( gui )
+</comment>
+
+<loadfile> gui/qdesktopservices.cf
+<loadfile> gui/qbitmap.cf
+<loadfile> gui/qpixmap.cf
+<loadfile> gui/qpixmap2.cf
+<loadfile> gui/qicon.cf
+<loadfile> gui/qpainter.cf
+<loadfile> gui/qpainter2.cf
+<loadfile> gui/qpicture.cf
+<loadfile> gui/qpen.cf
+<loadfile> gui/qcolor.cf
+<loadfile> gui/qfont.cf
+<loadfile> gui/qbrush.cf
+<loadfile> gui/qtextcursor.cf
+<loadfile> gui/qkeysequence.cf
+<loadfile> gui/qtextdocument.cf
+<loadfile> gui/qtextoption.cf
+<loadfile> gui/qtextblock.cf
+<loadfile> gui/qpainterpath.cf
+<loadfile> gui/qimage.cf
+<loadfile> gui/qtextcharformat.cf
+<loadfile> gui/qtextblockformat.cf
+<loadfile> gui/qtextlistformat.cf
+<loadfile> gui/qtexttableformat.cf
+<loadfile> gui/qtextframeformat.cf
+<loadfile> gui/qtexttable.cf
+<loadfile> gui/qtexttablecell.cf
+<loadfile> gui/qtextframe.cf
+<loadfile> gui/qtextlist.cf
+<loadfile> gui/qfontmetrics.cf
+<loadfile> gui/qlineargradient.cf
+<loadfile> gui/qradialgradient.cf
+<loadfile> gui/qconicalgradient.cf
+<loadfile> gui/qgradient.cf
+<loadfile> gui/qcursor.cf
+<loadfile> gui/qscreen.cf
+<loadfile> gui/qwindow.cf
+<loadfile> gui/qguiapplication.cf
+<loadfile> gui/qregion.cf
+<loadfile> gui/qvector2d.cf
+<loadfile> gui/qvector3d.cf
+<loadfile> gui/qvector4d.cf
+<loadfile> gui/qquaternion.cf
+<loadfile> gui/qmatrix4x4.cf
+<loadfile> gui/qdrag.cf
+<loadfile> gui/qdropevent.cf
+<loadfile> gui/qdragmoveevent.cf
+<loadfile> gui/qdragenterevent.cf
+<loadfile> gui/qdragleaveevent.cf
+<loadfile> gui/qclipboard.cf
+<loadfile> gui/qmovie.cf
+<loadfile> gui/qfontdatabase.cf
+<loadfile> gui/qvalidator.cf
+<loadfile> gui/qintvalidator.cf
+<loadfile> gui/qdoublevalidator.cf
+<loadfile> gui/qregularexpressionvalidator.cf
+<loadfile> gui/qpalette.cf
+<loadfile> gui/qkeyevent.cf
+<loadfile> gui/qmouseevent.cf
+<loadfile> gui/qwheelevent.cf
+<loadfile> gui/qpolygon.cf
+<loadfile> gui/qpolygonf.cf
+<loadfile> gui/qstatictext.cf
+<loadfile> gui/qpagesize.cf
+<loadfile> gui/qpagelayout.cf
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<loadfile> gui/qopenglfunctions.cf
+<loadfile> gui/qopenglcontext.cf
+<loadfile> gui/qopenglfunctions_3_2_core.cf
+<loadfile> gui/qsurfaceformat.cf
+<loadfile> gui/qopenglversionprofile.cf
+<loadfile> gui/qopenglpaintdevice.cf
+<loadfile> gui/qpaintdevice.cf
+<loadfile> gui/qopengltimerquery.cf
+<loadfile> gui/qopengldebuglogger.cf
+<loadfile> gui/qopenglframebufferobject.cf
+<loadfile> gui/qopenglvertexarrayobject.cf
+<loadfile> gui/qopenglbuffer.cf
+<loadfile> gui/qopenglshaderprogram.cf
+<loadfile> gui/qopenglshader.cf
+<loadfile> gui/qopengltexture.cf
+</filter>
+
+<loadfile> gui/qtransform.cf
+<loadfile> gui/qstandarditemmodel.cf
+<loadfile> gui/qstandarditem.cf
+<loadfile> gui/qitemselectionmodel.cf

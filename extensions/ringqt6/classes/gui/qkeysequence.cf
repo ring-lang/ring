@@ -1,0 +1,6 @@
+<class>
+name: QKeySequence
+para: QString 
+managed
+</class>
+

@@ -1,0 +1,13 @@
+<class>
+name: QValidator
+parent: QObject
+abstract
+</class>
+
+<comment>
+void fixup(QString input)
+QValidator::State validate(QString input, int pos)
+</comment>
+
+QLocale locale(void)
+void setLocale(QLocale locale)

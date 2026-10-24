@@ -1,0 +1,13 @@
+<class>
+name: QSplashScreen
+para: QPixmap
+parent: QWidget
+</class>
+
+void  finish(QWidget *mainWin)
+QPixmap pixmap(void)
+void repaint(void)
+void setPixmap(QPixmap pixmap)
+
+void clearMessage(void)
+void showMessage(QString message, int alignment ,QColor color)

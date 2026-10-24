@@ -1,0 +1,11 @@
+<class>
+name: QEntity
+codename: Qt3DCore::QEntity
+para: Qt3DCore::QNode *
+parent: QNode
+</class>
+
+void addComponent(Qt3DCore::QComponent *comp)
+Qt3DCore::QComponentVector components(void)
+Qt3DCore::QEntity * parentEntity(void)
+void removeComponent(Qt3DCore::QComponent *comp)

@@ -1,0 +1,6 @@
+<class>
+name: QFrame3
+para: QWidget *parent
+parent: QFrame
+codename: QFrame
+</class>

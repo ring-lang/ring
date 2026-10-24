@@ -1,0 +1,11 @@
+<class>
+name: QAbstractGraphicsShapeItem
+para: QGraphicsItem *
+parent: QGraphicsItem
+abstract
+</class>
+
+QBrush brush(void)
+QPen pen(void)
+void setBrush(QBrush brush)
+void setPen(QPen pen)

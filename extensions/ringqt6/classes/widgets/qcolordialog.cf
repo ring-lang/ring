@@ -1,0 +1,49 @@
+<class>
+name: QColorDialog
+para: void
+parent: QDialog
+codename: GColorDialog
+passvmpointer
+passnullbeforevmpointer
+</class>
+
+QColor currentColor(void)
+void open(QObject * receiver, char * member)
+QColorDialog::ColorDialogOptions options(void)
+QColor selectedColor(void)
+void setCurrentColor(QColor color)
+void setOption(QColorDialog::ColorDialogOption option, bool on)
+void setOptions(QColorDialog::ColorDialogOptions options)
+bool testOption(QColorDialog::ColorDialogOption option)
+QColor customColor(int index)
+int customCount(void)
+QColor getColor@2(QColor initial, QWidget * parent, QString title, QColorDialog::ColorDialogOptions options)
+void setCustomColor(int index, QColor color)
+void setStandardColor(int index, QColor color)
+QColor standardColor(int index)
+
+void setcolorSelectedEvent(const char *)
+void setcurrentColorChangedEvent(const char *)
+
+const char *getcolorSelectedEvent(void)
+const char *getcurrentColorChangedEvent(void)
+
+<register>
+int getcolor(void)
+</register>
+
+<code>
+
+RING_FUNC(ring_QColorDialog_getcolor)
+{
+	List *pList;
+	pList = RING_API_NEWLIST ;
+	QColor pValue = QColorDialog::getColor();		
+	ring_list_adddouble(pList,pValue.red());
+	ring_list_adddouble(pList,pValue.green());
+	ring_list_adddouble(pList,pValue.blue());
+	RING_API_RETLIST(pList);
+}
+
+</code>
+

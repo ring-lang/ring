@@ -1,0 +1,9 @@
+<class>
+name: QStyleOptionGraphicsItem
+parent: QStyleOption
+para: void
+staticmethods
+managed
+</class>
+
+qreal levelOfDetailFromTransform(QTransform worldTransform)

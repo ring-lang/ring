@@ -1,0 +1,31 @@
+<class>
+name: QDoubleSpinBox
+para: QWidget *parent
+parent: QWidget
+codename: GDoubleSpinBox
+passvmpointer
+</class>
+
+QString cleanText(void)
+int decimals(void)
+double maximum(void)
+double minimum(void)
+QString prefix(void)
+void setDecimals(int prec)
+void setMaximum(double max)
+void setMinimum(double min)
+void setPrefix(QString prefix)
+void setRange(double minimum, double maximum)
+void setSingleStep(double val)
+void setSuffix(QString suffix)
+void setStepType(QAbstractSpinBox::StepType stepType)
+double singleStep(void)
+QString suffix(void)
+double value(void)
+void setValue(double val)
+QString textFromValue(double value)
+double valueFromText(QString text)
+
+void setvalueChangedEvent(const char *)
+
+const char *getvalueChangedEvent(void)

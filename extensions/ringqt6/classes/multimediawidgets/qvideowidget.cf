@@ -1,0 +1,33 @@
+<class>
+name: QVideoWidget
+para: QWidget *parent
+parent: QWidget
+codename: GVideoWidget
+passvmpointer
+</class>
+
+int aspectRatioMode(void)
+int brightness(void)
+int contrast(void)
+int hue(void)
+bool isFullScreen(void)
+int saturation(void)
+void setAspectRatioMode(Qt::AspectRatioMode mode)
+void setBrightness(int brightness)
+void setContrast(int contrast)
+void setFullScreen(bool fullScreen)
+void setHue(int hue)
+void setSaturation(int saturation)
+
+void setbrightnessChangedEvent(const char *)
+void setcontrastChangedEvent(const char *)
+void setfullScreenChangedEvent(const char *)
+void sethueChangedEvent(const char *)
+void setsaturationChangedEvent(const char *)
+
+const char *getbrightnessChangedEvent(void)
+const char *getcontrastChangedEvent(void)
+const char *getfullScreenChangedEvent(void)
+const char *gethueChangedEvent(void)
+const char *getsaturationChangedEvent(void)
+

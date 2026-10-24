@@ -1,0 +1,39 @@
+<libinitfunc> ring_qt_start
+
+<runcodenow> if sysget("RINGQT_CORE_ALONE") = "1" $globals[:AppType] = :Core  ok
+<runcodenow> if $globals[:AppType] = NULL  $globals[:AppType] = :Application  ok
+
+<code>
+extern "C" {
+
+	RING_API void ring_qt_start(RingState *pRingState);
+
+	RING_LIBINIT
+	{
+</code>
+
+<filter> $globals[:AppType] = :Application
+<code>
+		new QApplication(pRingState->nArgc,pRingState->pArgv);
+</code>
+</filter>
+
+<filter> $globals[:AppType] = :GUI
+<code>
+		new QGuiApplication(pRingState->nArgc,pRingState->pArgv);
+</code>
+</filter>
+
+<filter> $globals[:AppType] = :Core
+<code>
+		new QCoreApplication(pRingState->nArgc,pRingState->pArgv);
+</code>
+</filter>
+
+<code>
+ 	   	ring_qt_start(pRingState) ;
+	}
+
+}
+</code>
+

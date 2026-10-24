@@ -1,0 +1,12 @@
+<class>
+name: QConicalGradient
+para: void
+parent: QGradient
+managed
+</class>
+
+qreal angle(void)
+QPointF center(void)
+void setAngle(qreal angle)
+void setCenter(QPointF center)
+void setCenter@2(qreal x, qreal y)

@@ -1,0 +1,14 @@
+<class>
+name: QTorusMesh
+codename: Qt3DExtras::QTorusMesh
+para: Qt3DCore::QNode *
+</class>
+
+float minorRadius(void)
+float radius(void)
+int rings(void)
+int slices(void)
+void setMinorRadius(float minorRadius)
+void setRadius(float radius)
+void setRings(int rings)
+void setSlices(int slices)

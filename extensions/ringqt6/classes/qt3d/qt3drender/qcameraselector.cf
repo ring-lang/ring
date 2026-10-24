@@ -1,0 +1,8 @@
+<class>
+name: QCameraSelector
+codename: Qt3DRender::QCameraSelector
+para: Qt3DCore::QNode *
+</class>
+
+Qt3DCore::QEntity * camera(void)
+void setCamera(Qt3DCore::QEntity *camera)

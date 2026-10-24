@@ -1,0 +1,13 @@
+<class>
+name: QLinearGradient
+para: void
+parent: QGradient
+managed
+</class>
+
+QPointF finalStop(void)
+void setFinalStop(QPointF stop)
+void setFinalStop@2(qreal x,qreal y)
+void setStart(QPointF start)
+void setStart@2(qreal x,qreal y)
+QPointF start(void)

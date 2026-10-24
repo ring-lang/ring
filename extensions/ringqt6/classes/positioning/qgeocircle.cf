@@ -1,0 +1,12 @@
+<class>
+name: QGeoCircle
+para: void
+managed
+</class>
+
+QGeoCoordinate center(void)
+qreal radius(void)
+void setCenter(QGeoCoordinate center)
+void setRadius(qreal radius)
+void translate(double degreesLatitude, double degreesLongitude)
+QGeoCircle translated(double degreesLatitude, double degreesLongitude)

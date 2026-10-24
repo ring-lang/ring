@@ -1,0 +1,8 @@
+<class>
+name: QGraphicsItemGroup
+para: QGraphicsItem *
+parent: QGraphicsItem
+</class>
+
+void addToGroup(QGraphicsItem *item)
+void removeFromGroup(QGraphicsItem *item)

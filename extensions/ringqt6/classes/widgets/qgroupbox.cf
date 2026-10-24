@@ -1,0 +1,24 @@
+<class>
+name: QGroupBox
+para: QWidget *
+parent: QWidget
+codename: GGroupBox
+passvmpointer
+</class>
+
+Qt::Alignment alignment(void)
+bool isCheckable(void)
+bool isChecked(void)
+bool isFlat(void)
+void setAlignment(int alignment)
+void setCheckable(bool checkable)
+void setFlat(bool flat)
+void setTitle(QString title)
+QString title(void)
+void setChecked(bool checked)
+
+void setclickedEvent(const char *)
+void settoggledEvent(const char *)
+
+const char *getclickedEvent(void)
+const char *gettoggledEvent(void)

@@ -1,0 +1,7 @@
+<class>
+name: QHorizontalStackedBarSeries
+para: QObject *
+parent: QAbstractBarSeries
+</class>
+
+QAbstractSeries::SeriesType type(void)

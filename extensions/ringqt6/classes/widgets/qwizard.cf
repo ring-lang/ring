@@ -1,0 +1,50 @@
+<class>
+name: QWizard
+para: QWidget *parent
+parent: QDialog
+codename: GWizard
+passvmpointer
+</class>
+
+int addPage(QWizardPage *page)
+QAbstractButton *button(QWizard::WizardButton which)
+QString buttonText(QWizard::WizardButton which)
+int currentId(void)
+QWizardPage *currentPage(void)
+QVariant field(QString name)
+bool hasVisitedPage(int id)
+int nextId(void)
+QWizard::WizardOptions options(void)
+QWizardPage *page(int id)
+QList<int> pageIds(void)
+QPixmap pixmap(QWizard::WizardPixmap which)
+void removePage(int id)
+void setButton(QWizard::WizardButton which, QAbstractButton *button)
+void setButtonText(QWizard::WizardButton which, QString text)
+void setField(QString name, QVariant value)
+void setOption(QWizard::WizardOption option, bool on)
+void setOptions(QWizard::WizardOptions options)
+void setPage(int id, QWizardPage *page)
+void setPixmap(QWizard::WizardPixmap which, QPixmap pixmap)
+void setSideWidget(QWidget *widget)
+void setStartId(int id)
+void setSubTitleFormat(Qt::TextFormat format)
+void setTitleFormat(Qt::TextFormat format)
+void setWizardStyle(QWizard::WizardStyle style)
+QWidget *sideWidget(void)
+int startId(void)
+Qt::TextFormat subTitleFormat(void)
+Qt::TextFormat titleFormat(void)
+QList<int> visitedPages(void)
+QWizard::WizardStyle wizardStyle(void)
+void back(void)
+void next(void)
+void restart(void)
+
+void setcurrentIdChangedEvent(const char *)
+void setpageAddedEvent(const char *)
+void setpageRemovedEvent(const char *)
+
+const char *getcurrentIdChangedEvent(void)
+const char *getpageAddedEvent(void)
+const char *getpageRemovedEvent(void)

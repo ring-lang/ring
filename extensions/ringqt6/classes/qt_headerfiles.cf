@@ -1,0 +1,368 @@
+<code>
+
+extern "C" {
+	#include "ring.h"
+}
+
+<filter> sysget("RINGQT_NOCORE") = ""
+#include "gtimer.h"
+#include "giodevice.h"
+#include "gprocess.h"
+#include "gthread.h"
+#include "gfilesystemwatcher.h"
+#include <QtCore>
+</filter>
+
+<filter> sysget("RINGQT_NOGUI") = ""
+#include "gwindow.h"
+#include "gguiapplication.h"
+#include "gdrag.h"
+#include "gmovie.h"
+#include "ggroupbox.h"
+#include <QtGui>
+</filter>
+
+<filter> sysget("RINGQT_NOWIDGETS") = ""
+#include "gallevents.h"
+#include "gaction.h"
+#include "gpushbutton.h"
+#include "glineedit.h"
+#include "gtextedit.h"
+#include "glistwidget.h"
+#include "gtreeview.h"
+#include "gtreewidget.h"
+#include "gcombobox.h"
+#include "gtabwidget.h"
+#include "gtablewidget.h"
+#include "gprogressbar.h"
+#include "gspinbox.h"
+#include "gslider.h"
+#include "gdial.h"
+#include "gcheckbox.h"
+#include "gradiobutton.h"
+#include "gbuttongroup.h"
+#include "gcolordialog.h"
+#include "gplaintextedit.h"
+#include "gheaderview.h"
+#include "codeeditor.h"
+#include "highlighter.h"
+#include "gtoolbutton.h"
+#include "gtextbrowser.h"
+#include "gdockwidget.h"
+#include "gstackedwidget.h"
+#include "gcalendarwidget.h"
+#include "gtabbar.h"
+#include "ggraphicsscene.h"
+#include "gcolordialog.h"
+#include "gfontdialog.h"
+#include "gfiledialog.h"
+#include "gdatetimeedit.h"
+#include "gdoublespinbox.h"
+#include "gdialogbuttonbox.h"
+#include "gshortcut.h"
+#include "gprogressdialog.h"
+#include "gtoolbox.h"
+#include "gwizard.h"
+#include "gwizardpage.h"
+#include "gundostack.h"
+#include "gstackedlayout.h"
+#include "gdatawidgetmapper.h"
+#include "gkeysequenceedit.h"
+#include "gcolumnview.h" 
+#include "mscompleter.h"
+#include <QtWidgets>
+
+#include <QGraphicsEffect>
+#include "ggraphicseffect.h"
+#include <QGraphicsObject>
+#include "ggraphicsobject.h"
+#include <QGraphicsTextItem>
+#include "ggraphicstextitem.h"
+#include <QGraphicsView>
+#include "ggraphicsview.h"
+#include <QGraphicsWidget>
+#include "ggraphicswidget.h"
+
+</filter>
+
+<filter> sysget("RINGQT_NOGRAPHICSSVG") = ""
+#include <QGraphicsSvgItem>
+</filter>
+
+<filter> sysget("RINGQT_NOMULTIMEDIA") = ""
+#include "gvideowidget.h"
+#include "gsoundeffect.h"
+#include "gaudioinput.h"
+#include "gmediarecorder.h"
+#include "gaudiorecorder.h"
+#include "gaudioprobe.h"
+#include "gvideoprobe.h"
+
+#include <QMediaContent>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QVideoWidget>
+#include <QCameraViewfinder>
+#include <QGraphicsVideoItem>
+#include <QVideoWidgetControl>
+#include <QCamera>
+#include <QCameraImageCapture>
+#include <QAudioOutput>
+#include <QSoundEffect>
+#include <QAudioInput>
+#include <QMediaRecorder>
+#include <QAudioRecorder>
+#include <QAudioProbe>
+#include <QVideoProbe>
+#include <QAudioDeviceInfo>
+#include <QAudioFormat>
+</filter>
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
+#include "gbluetoothdevicediscoveryagent.h"
+#include "gbluetoothlocaldevice.h"
+#include "gbluetoothserver.h"
+#include "gbluetoothservicediscoveryagent.h"
+#include "gbluetoothsocket.h"
+#include "gbluetoothtransfermanager.h"
+#include "gbluetoothtransferreply.h"
+</filter>
+
+<filter> sysget("RINGQT_NOSQL") = ""
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlDriver>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QSqlIndex>
+#include <QSqlRecord>
+#include <QSqlField>
+#include <QSqlDriverCreatorBase>
+#include "gsqltablemodel.h"
+#include "gsqlrelationaltablemodel.h"
+</filter>
+
+<filter> sysget("RINGQT_NONETWORK") = ""
+#include <QtNetwork>
+#include "gnetworkaccessmanager.h"
+#include "gtcpserver.h"
+#include "gabstractsocket.h"
+#include "gtcpsocket.h"
+</filter>
+
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_WEBASSEMBLY") = "")
+#include "gudpsocket.h"
+#include "gsslsocket.h"
+#include "gnetworkconfigurationmanager.h"
+</filter>
+
+<filter> sysget("RINGQT_NOBLUETOOTH") = ""
+#include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothDeviceInfo>
+#include <QBluetoothUuid>
+#include <QBluetoothHostInfo>
+#include <QBluetoothLocalDevice>
+#include <QBluetoothServer>
+#include <QBluetoothServiceDiscoveryAgent>
+#include <QBluetoothServiceInfo>
+#include <QBluetoothSocket>
+#include <QBluetoothTransferManager>
+#include <QBluetoothTransferReply>
+#include <QBluetoothTransferRequest>
+#include <QBluetoothUuid>
+</filter>
+
+<filter> sysget("RINGQT_NOPOSITIONING") = ""
+#include "ggeopositioninfosource.h"
+#include <QGeoPositionInfo>
+#include <QGeoCoordinate>
+#include <QGeoAddress>
+#include <QGeoAreaMonitorInfo>
+#include <QGeoAreaMonitorSource>
+#include <QGeoCircle>
+#include <QGeoPositionInfoSource>
+#include <QGeoRectangle>
+#include <QGeoShape>
+#include <QGeoSatelliteInfo>
+#include <QGeoSatelliteInfoSource>
+#include <QNmeaPositionInfoSource>
+</filter>
+
+<filter> sysget("RINGQT_NOTESTLIB") = ""
+#include <QTest>
+</filter>
+
+<filter> sysget("RINGQT_NOPRINTSUPPORT") = ""
+#include "gprintpreviewwidget.h"
+#include "gprintpreviewdialog.h"
+#include "gprintdialog.h"
+#include <QPrinter>
+#include <QPrinterInfo>
+#include <QPrintPreviewWidget>
+#include <QPrintPreviewDialog>
+#include <QPageSetupDialog>
+#include <QAbstractPrintDialog>
+#include <QPrintDialog>
+</filter>
+
+
+<filter> sysget("RINGQT_NOQML") = ""
+#include "gquickwidget.h"
+#include <QQuickWidget>
+#include <QQmlError>
+#include <QQuickView>
+#include <QQmlEngine>
+#include <QQmlContext>
+#include <QQmlProperty>
+#include <QQmlComponent>
+#include <QQmlApplicationEngine>
+#include <QQmlExpression>
+</filter>
+
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = ""
+#include "openglwidget.h"
+#include <QOpenGLFunctions>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
+#include <QOpenGLFunctions_3_2_Core>
+#include <QOpenGLVersionProfile>
+#include <QOpenGLPaintDevice>
+#include <QPaintDevice>
+#include <QOpenGLTimerQuery>
+#include <QOpenGLDebugLogger>
+#include <QOpenGLFramebufferObject>
+#include <QOpenGLVertexArrayObject>
+#include <QOpenGLBuffer>
+#include <QOpenGLShaderProgram>
+#include <QOpenGLShader>
+#include <QOpenGLTexture>
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOSERIALPORT") = ""
+#include "gserialport.h"
+#include <QSerialPort>
+#include <QSerialPortInfo>
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "" and sysget("RINGQT_NOWEBKITWIDGETS") = "" and ismacOSX() = 0) 
+#include "gwebview.h"
+#include <QWebSettings>
+#include <QWebView>
+</filter>
+
+<filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1" and sysget("RINGQT_NOWEBENGINEWIDGETS") = "" and ismacOSX() = 0)
+#include "gwebengineview.h"
+#include <QWebEngineSettings>
+#include <QWebEngineView>
+#include <QWebEnginePage>
+#include <QWebEngineHistory>
+#include "gwebenginepage.h"
+</filter>
+
+
+<filter> (iswindows() and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOAXCONTAINER") = "")
+#include <QAxBase>
+#include <QAxObject>
+#include <QAxWidget>
+</filter>
+
+<filter> sysget("RINGQT_NOSPEECH") = ""
+#include "gtexttospeech.h"
+#include <QTextToSpeech>
+#include <QVoice>
+</filter>
+
+<filter> sysget("RINGQT_NOQT3D") = ""
+#include "gobjectpicker.h"
+#include "gframeaction.h"
+#include <Qt3DCore/QAbstractAspect>
+#include <Qt3DCore/QNode>
+#include <Qt3DCore/QNodeCommand>
+#include <Qt3DCore/QEntity>
+#include <Qt3DCore/QTransform>
+#include <Qt3DCore/QAspectEngine>
+#include <Qt3DExtras/QTorusMesh>
+#include <Qt3DExtras/QConeMesh>
+#include <Qt3DExtras/QCylinderMesh>
+#include <Qt3DExtras/QCuboidMesh>
+#include <Qt3DExtras/QPlaneMesh>
+#include <Qt3DExtras/QSphereMesh>
+#include <Qt3DExtras/QPhongMaterial>
+#include <Qt3DExtras/QForwardRenderer>
+#include <Qt3DExtras/Qt3DWindow>
+#include <Qt3DExtras/QAbstractCameraController>
+#include <Qt3DExtras/QFirstPersonCameraController>
+#include <Qt3DRender/QCamera>
+#include <Qt3DRender/QCameraLens>
+#include <Qt3DRender/QMesh>
+#include <Qt3DRender/QTechnique>
+#include <Qt3DRender/QMaterial>
+#include <Qt3DRender/QEffect>
+#include <Qt3DRender/QTexture>
+#include <Qt3DRender/QRenderPass>
+#include <Qt3DRender/QSceneLoader>
+#include <Qt3DRender/QPointLight>
+#include <Qt3DRender/QRenderAspect>
+#include <Qt3DInput/QInputAspect>
+#include <Qt3DRender/QTexture>
+#include <Qt3DExtras/QTextureMaterial>
+#include <Qt3DRender/QObjectPicker>
+#include <Qt3DLogic/QFrameAction>
+#include <Qt3DLogic/QLogicAspect>
+#include <Qt3DExtras/QExtrudedTextMesh>
+#include <Qt3DExtras/QText2DEntity>
+#include <Qt3DExtras/QSkyboxEntity>
+#include <Qt3DExtras/QConeGeometry>
+#include <Qt3DExtras/QOrbitCameraController>
+#include <QDiffuseSpecularMaterial>
+#include <QGoochMaterial>
+#include <QMetalRoughMaterial>
+#include <QMorphPhongMaterial>
+#include <QPerVertexColorMaterial>
+#include <QCameraSelector>
+#include <QCullFace>
+#include <QDepthTest>
+#include <QViewport>
+</filter>
+
+<filter> sysget("RINGQT_NOCHARTS") = ""
+#include "gabstractbarseries.h"
+#include "gabstractaxis.h"
+#include "gabstractseries.h"
+#include "gareaseries.h"
+#include "gbarcategoryaxis.h"
+#include "gbarset.h"
+#include "gboxplotseries.h"
+#include "gboxset.h"
+#include "gcandlestickmodelmapper.h"
+#include "gcandlestickseries.h"
+#include "gcandlestickset.h"
+#include "gcategoryaxis.h"
+#include "gchart.h"
+#include "gdatetimeaxis.h"
+#include "ghbarmodelmapper.h"
+#include "ghboxplotmodelmapper.h"
+#include "ghcandlestickmodelmapper.h"
+#include "ghpiemodelmapper.h"
+#include "ghxymodelmapper.h"
+#include "glegendmarker.h"
+#include "glogvalueaxis.h"
+#include "gpieseries.h"
+#include "gpieslice.h"
+#include "gscatterseries.h"
+#include "gvbarmodelmapper.h"
+#include "gvboxplotmodelmapper.h"
+#include "gvcandlestickmodelmapper.h"
+#include "gvpiemodelmapper.h"
+#include "gvxymodelmapper.h"
+#include "gvalueaxis.h"
+#include "gxyseries.h"
+#include <QtCharts>
+</filter>
+
+<filter> sysget("RINGQT_NOSVG") = ""
+#include <QtSvg>
+</filter>
+
+</code>

@@ -1,0 +1,7 @@
+<class>
+name: QGeoSatelliteInfoSource
+nonew
+</class>
+
+QString sourceName(void)
+int updateInterval(void)

@@ -1,0 +1,10 @@
+<class>
+name: QTextureLoader
+codename: Qt3DRender::QTextureLoader
+para: Qt3DCore::QNode *
+</class>
+
+bool isMirrored(void)
+QUrl source(void)
+void setMirrored(bool mirrored)
+void setSource(QUrl source)

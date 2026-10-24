@@ -1,0 +1,57 @@
+<class>
+name: QCalendarWidget
+para: QWidget *
+parent: QWidget
+codename: GCalendarWidget
+passvmpointer
+</class>
+
+int dateEditAcceptDelay(void)
+QMap<QDate, QTextCharFormat> dateTextFormat(void)
+QTextCharFormat dateTextFormat@2(QDate date)
+Qt::DayOfWeek firstDayOfWeek(void)
+QTextCharFormat headerTextFormat(void)
+QCalendarWidget::HorizontalHeaderFormat horizontalHeaderFormat(void)
+bool isDateEditEnabled(void)
+bool isGridVisible(void)
+bool isNavigationBarVisible(void)
+QDate maximumDate(void)
+QDate minimumDate(void)
+int monthShown(void)
+QDate selectedDate(void)
+QCalendarWidget::SelectionMode selectionMode(void)
+void setDateEditAcceptDelay(int delay)
+void setDateEditEnabled(bool enable)
+void setDateTextFormat(QDate date, QTextCharFormat format)
+void setFirstDayOfWeek(Qt::DayOfWeek dayOfWeek)
+void setHeaderTextFormat(QTextCharFormat format)
+void setHorizontalHeaderFormat(QCalendarWidget::HorizontalHeaderFormat format)
+void setMaximumDate(QDate date)
+void setMinimumDate(QDate date)
+void setSelectionMode(QCalendarWidget::SelectionMode mode)
+void setVerticalHeaderFormat(QCalendarWidget::VerticalHeaderFormat format)
+void setWeekdayTextFormat(Qt::DayOfWeek dayOfWeek, QTextCharFormat format)
+QCalendarWidget::VerticalHeaderFormat verticalHeaderFormat(void)
+QTextCharFormat weekdayTextFormat(Qt::DayOfWeek dayOfWeek)
+int yearShown(void)
+void setCurrentPage(int year, int month)
+void setDateRange(QDate min, QDate max)
+void setGridVisible(bool show)
+void setNavigationBarVisible(bool visible)
+void setSelectedDate(QDate date)
+void showNextMonth(void)
+void showNextYear(void)
+void showPreviousMonth(void)
+void showPreviousYear(void)
+void showSelectedDate(void)
+void showToday(void)
+
+void setactivatedEvent(const char *)
+void setclickedEvent(const char *)
+void setcurrentPageChangedEvent(const char *)
+void setselectionChangedEvent(const char *)
+
+const char *getactivatedEvent(void)
+const char *getclickedEvent(void)
+const char *getcurrentPageChangedEvent(void)
+const char *getselectionChangedEvent(void)

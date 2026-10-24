@@ -1,0 +1,15 @@
+<class>
+name: QDoubleValidator
+para: QObject *
+parent: QValidator
+</class>
+
+double bottom(void)
+int decimals(void)
+QDoubleValidator::Notation notation(void)
+void setBottom(double)
+void setDecimals(int)
+void setNotation(QDoubleValidator::Notation)
+void setRange(double minimum, double maximum, int decimals)
+void setTop(double)
+double top(void)

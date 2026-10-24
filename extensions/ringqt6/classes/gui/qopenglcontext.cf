@@ -1,0 +1,52 @@
+<class>
+name: QOpenGLContext
+para: QObject *
+parent: QObject
+</class>
+
+bool create(void)
+GLuint defaultFramebufferObject(void)
+void doneCurrent(void)
+QSet<QByteArray> extensions(void)
+<comment>
+QOpenGLExtraFunctions * extraFunctions(void)
+</comment>
+QSurfaceFormat format(void)
+QOpenGLFunctions * functions(void)
+QFunctionPointer getProcAddress(QByteArray procName)
+QFunctionPointer getProcAddress@2(char *procName)
+bool hasExtension(QByteArray extension)
+bool isOpenGLES(void)
+bool isValid(void)
+bool makeCurrent(QSurface *surface)
+QVariant nativeHandle(void)
+QScreen * screen(void)
+void setFormat(QSurfaceFormat format)
+void setNativeHandle(QVariant handle)
+void setScreen(QScreen *screen)
+void setShareContext(QOpenGLContext *shareContext)
+QOpenGLContext * shareContext(void)
+QOpenGLContextGroup * shareGroup(void)
+QSurface * surface(void)
+void swapBuffers(QSurface *surface)
+QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))
+TYPE * versionFunctions@2(void)
+bool areSharing(QOpenGLContext *first, QOpenGLContext *second)
+QOpenGLContext * currentContext(void)
+QOpenGLContext * globalShareContext(void)
+void * openGLModuleHandle(void)
+QOpenGLContext::OpenGLModuleType openGLModuleType(void)
+bool supportsThreadedOpenGL(void)
+
+<register>
+QOpenGLFunctions_3_2_Core *opengl32(void)
+<register>
+
+<code>
+RING_FUNC(ring_QOpenGLContext_opengl32)
+{
+	QOpenGLFunctions_3_2_Core *f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_3_2_Core>();
+	RING_API_RETCPOINTER(f,"QOpenGLFunctions_3_2_Core") ;
+}
+</code>
+

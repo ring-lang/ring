@@ -1,0 +1,9 @@
+<class>
+name: QAbstractAspect
+codename: Qt3DCore::QAbstractAspect
+para: QObject *
+parent: QObject
+abstract
+</class>
+
+void scheduleSingleShotJob(Qt3DCore::QAspectJobPtr job)

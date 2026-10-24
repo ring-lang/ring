@@ -1,0 +1,16 @@
+<loadfile> qt3drender/qcamera.cf
+<loadfile> qt3drender/qcameralens.cf
+<loadfile> qt3drender/qmesh.cf
+<loadfile> qt3drender/qtechnique.cf
+<loadfile> qt3drender/qmaterial.cf
+<loadfile> qt3drender/qeffect.cf
+<loadfile> qt3drender/qrenderpass.cf
+<loadfile> qt3drender/qsceneloader.cf
+<loadfile> qt3drender/qpointlight.cf
+<loadfile> qt3drender/qrenderaspect.cf
+<loadfile> qt3drender/qtextureloader.cf
+<loadfile> qt3drender/qobjectpicker.cf
+<loadfile> qt3drender/qcameraselector.cf
+<loadfile> qt3drender/qcullface.cf
+<loadfile> qt3drender/qdepthtest.cf
+<loadfile> qt3drender/qviewport.cf

@@ -1,0 +1,7 @@
+<class>
+name: QFile2
+para: QString
+parent: QFile
+codename: QFile
+managed
+</class>

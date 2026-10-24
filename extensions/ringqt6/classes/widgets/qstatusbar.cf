@@ -1,0 +1,16 @@
+<class>
+name: QStatusBar
+para: QWidget *
+parent: QWidget
+</class>
+
+void addPermanentWidget(QWidget * widget, int stretch)
+void addWidget(QWidget * widget, int stretch)
+QString currentMessage(void) 
+int insertPermanentWidget(int index, QWidget * widget, int stretch)
+int insertWidget(int index, QWidget * widget, int stretch)
+bool isSizeGripEnabled(void)
+void removeWidget(QWidget *widget)
+void setSizeGripEnabled(bool)
+void clearMessage(void)
+void showMessage(QString , int timeout)

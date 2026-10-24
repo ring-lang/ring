@@ -1,0 +1,29 @@
+<class>
+name: QToolBar
+para: QWidget *
+parent: QWidget
+</class>
+
+QAction *actionAt(int x, int y)
+QAction *addAction(QString)
+QAction *addSeparator(void)
+QAction *addWidget(QWidget *widget)
+int allowedAreas(void)
+void clear(void)
+QSize iconSize(void)
+QAction *insertSeparator(QAction *before)
+QAction *insertWidget(QAction *before, QWidget *widget)
+bool isAreaAllowed(Qt::ToolBarArea area)
+bool isFloatable(void)
+bool isFloating(void)
+bool isMovable(void)
+int orientation(void)
+void setAllowedAreas(Qt::ToolBarArea areas)
+void setFloatable(bool floatable)
+void setMovable(bool movable)
+void setOrientation(Qt::Orientation orientation)
+QAction *toggleViewAction(void)
+int toolButtonStyle(void)
+QWidget *widgetForAction(QAction *action)
+void setIconSize(QSize)
+void setToolButtonStyle(Qt::ToolButtonStyle toolButtonStyle)

@@ -1,0 +1,10 @@
+<class>
+name: QSqlRelation
+para: QString tableName, QString indexColumn, QString displayColumn
+managed
+</class>
+
+QString displayColumn(void)
+QString indexColumn(void)
+bool isValid(void)
+QString tableName(void)

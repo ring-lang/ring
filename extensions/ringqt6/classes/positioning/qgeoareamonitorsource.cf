@@ -1,0 +1,11 @@
+<class>
+name: QGeoAreaMonitorSource
+para: QObject *
+parent: QObject
+nonew
+</class>
+
+QString sourceName(void)
+QStringList availableSources(void)
+QGeoAreaMonitorSource * createDefaultSource(QObject * parent)
+QGeoAreaMonitorSource * createSource(QString sourceName, QObject * parent)

@@ -1,0 +1,15 @@
+<class>
+name: QGraphicsAnchorLayout
+para: QGraphicsLayoutItem *
+parent: QGraphicsLayout
+</class>
+
+QGraphicsAnchor * addAnchor(QGraphicsLayoutItem *firstItem, Qt::AnchorPoint firstEdge, QGraphicsLayoutItem *secondItem, Qt::AnchorPoint secondEdge)
+void addAnchors(QGraphicsLayoutItem *firstItem, QGraphicsLayoutItem *secondItem, Qt::Orientations orientations)
+void addCornerAnchors(QGraphicsLayoutItem *firstItem, Qt::Corner firstCorner, QGraphicsLayoutItem *secondItem, Qt::Corner secondCorner)
+QGraphicsAnchor * anchor(QGraphicsLayoutItem *firstItem, Qt::AnchorPoint firstEdge, QGraphicsLayoutItem *secondItem, Qt::AnchorPoint secondEdge)
+qreal horizontalSpacing(void)
+void setHorizontalSpacing(qreal spacing)
+void setSpacing(qreal spacing)
+void setVerticalSpacing(qreal spacing)
+qreal verticalSpacing(void)

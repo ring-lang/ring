@@ -1,0 +1,18 @@
+<class>
+name: QCuboidMesh
+codename: Qt3DExtras::QCuboidMesh
+para: Qt3DCore::QNode *
+</class>
+
+float xExtent(void)
+QSize xyMeshResolution(void)
+QSize xzMeshResolution(void)
+float yExtent(void)
+QSize yzMeshResolution(void)
+float zExtent(void)
+void setXExtent(float xExtent)
+void setXYMeshResolution(QSize resolution)
+void setXZMeshResolution(QSize resolution)
+void setYExtent(float yExtent)
+void setYZMeshResolution(QSize resolution)
+void setZExtent(float zExtent)

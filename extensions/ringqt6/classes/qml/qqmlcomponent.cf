@@ -1,0 +1,19 @@
+<class>
+name: QQmlComponent
+para: QQmlEngine *engine
+parent: QObject
+</class>
+
+QUrl url(void)
+QQmlComponent::Status status(void)
+bool isNull(void)
+bool isReady(void)
+bool isError(void)
+bool isLoading(void)
+qreal progress(void)
+QQmlContext *creationContext(void)
+QObject *create(QQmlContext *context)
+void loadUrl(QUrl url)
+void loadUrl@2(QUrl url, QQmlComponent::CompilationMode mode)
+void setData(QByteArray data, QUrl url)
+QList<QQmlError> errors(void)

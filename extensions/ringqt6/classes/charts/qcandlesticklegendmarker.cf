@@ -1,0 +1,9 @@
+<class>
+name: QCandlestickLegendMarker
+parent: QLegendMarker
+nonew
+</class>
+
+
+QCandlestickSeries * series(void)
+QLegendMarker::LegendMarkerType type(void)

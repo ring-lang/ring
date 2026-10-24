@@ -1,0 +1,26 @@
+<class>
+name: QNetworkConfigurationManager
+para: QObject *parent
+parent: QObject
+codename: GNetworkConfigurationManager
+passvmpointer
+</class>
+
+QList<QNetworkConfiguration> allConfigurations(QNetworkConfiguration::StateFlags filter)
+QNetworkConfigurationManager::Capabilities capabilities(void)
+QNetworkConfiguration configurationFromIdentifier(QString identifier)
+QNetworkConfiguration defaultConfiguration(void)
+bool isOnline(void)
+void updateConfigurations(void)
+
+void setconfigurationAddedEvent(const char *)
+void setconfigurationChangedEvent(const char *)
+void setconfigurationRemovedEvent(const char *)
+void setonlineStateChangedEvent(const char *)
+void setupdateCompletedEvent(const char *)
+
+const char *getconfigurationAddedEvent(void)
+const char *getconfigurationChangedEvent(void)
+const char *getconfigurationRemovedEvent(void)
+const char *getonlineStateChangedEvent(void)
+const char *getupdateCompletedEvent(void)

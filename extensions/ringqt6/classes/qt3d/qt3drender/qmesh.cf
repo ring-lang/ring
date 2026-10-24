@@ -1,0 +1,11 @@
+<class>
+name: QMesh
+codename: Qt3DRender::QMesh
+para: Qt3DCore::QNode *
+</class>
+
+QString meshName(void)
+QUrl source(void)
+Qt3DRender::QMesh::Status status(void)
+void setMeshName(QString meshName)
+void setSource(QUrl source)

@@ -1,0 +1,34 @@
+<class>
+name: QLegend
+parent: QGraphicsWidget
+nonew
+</class>
+
+Qt::Alignment alignment(void)
+void attachToChart(void)
+QColor borderColor(void)
+QBrush brush(void)
+QColor color(void)
+void detachFromChart(void)
+QFont font(void)
+bool isAttachedToChart(void)
+bool isBackgroundVisible(void)
+QBrush labelBrush(void)
+QColor labelColor(void)
+QLegend::MarkerShape markerShape(void)
+QList<QLegendMarker *> markers(QAbstractSeries *series)
+QPen pen(void)
+bool reverseMarkers(void)
+void setAlignment(Qt::Alignment alignment)
+void setBackgroundVisible(bool visible)
+void setBorderColor(QColor color)
+void setBrush(QBrush brush)
+void setColor(QColor color)
+void setFont(QFont font)
+void setLabelBrush(QBrush brush)
+void setLabelColor(QColor color)
+void setMarkerShape(QLegend::MarkerShape shape)
+void setPen(QPen pen)
+void setReverseMarkers(bool reverseMarkers)
+void setShowToolTips(bool show)
+bool showToolTips(void)

@@ -1,0 +1,24 @@
+<class>
+name: QScatterSeries
+para: QObject *
+parent: QXYSeries
+codename: GScatterSeries
+passvmpointer
+</class>
+QColor borderColor(void)
+QBrush brush(void)
+QScatterSeries::MarkerShape markerShape(void)
+qreal markerSize(void)
+void setBorderColor(QColor color)
+void setMarkerShape(QScatterSeries::MarkerShape shape)
+void setMarkerSize(qreal size)
+
+void setborderColorChangedEvent(const char *)
+void setcolorChangedEvent(const char *)
+void setmarkerShapeChangedEvent(const char *)
+void setmarkerSizeChangedEvent(const char *)
+
+const char *getborderColorChangedEvent(void)
+const char *getcolorChangedEvent(void)
+const char *getmarkerShapeChangedEvent(void)
+const char *getmarkerSizeChangedEvent(void)

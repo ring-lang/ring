@@ -1,0 +1,22 @@
+<class>
+name: QMdiSubWindow
+para: QWidget *
+parent: QWidget
+</class>
+
+bool isShaded(void)
+int keyboardPageStep(void)
+int keyboardSingleStep(void)
+QMdiArea * mdiArea(void)
+void setKeyboardPageStep(int step)
+void setKeyboardSingleStep(int step)
+void setOption(QMdiSubWindow::SubWindowOption option, bool on )
+void setSystemMenu(QMenu * systemMenu)
+void setWidget(QWidget * widget)
+QMenu * systemMenu(void)
+bool testOption(QMdiSubWindow::SubWindowOption option)
+QWidget * widget(void)
+
+void showShaded(void)
+void showSystemMenu(void)
+

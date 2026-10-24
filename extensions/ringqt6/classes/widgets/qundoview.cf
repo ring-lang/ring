@@ -1,0 +1,12 @@
+<class>
+name: QUndoView
+para: QWidget *parent
+parent: QListView
+</class>
+
+QIcon cleanIcon(void)
+QString emptyLabel(void)
+QUndoStack *stack(void)
+void setCleanIcon(QIcon icon)
+void setEmptyLabel(QString label)
+void setStack(QUndoStack *stack)

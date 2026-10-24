@@ -1,0 +1,21 @@
+<class>
+name: QForwardRenderer
+codename: Qt3DExtras::QForwardRenderer
+para: Qt3DCore::QNode *
+</class>
+
+
+Qt3DCore::QEntity * camera(void)
+QColor clearColor(void)
+QSize externalRenderTargetSize(void)
+float gamma(void)
+bool isFrustumCullingEnabled(void)
+QObject * surface(void)
+QRectF viewportRect(void)
+void setCamera(Qt3DCore::QEntity *camera)
+void setClearColor(QColor clearColor)
+void setExternalRenderTargetSize(QSize size)
+void setFrustumCullingEnabled(bool enabled)
+void setGamma(float gamma)
+void setSurface(QObject *surface)
+void setViewportRect(QRectF viewportRect)

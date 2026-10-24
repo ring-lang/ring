@@ -1,0 +1,19 @@
+<class>
+name: QOpenGLDebugLogger
+para: QObject *
+</class>
+
+void disableMessages(QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types, QOpenGLDebugMessage::Severities severities)
+void disableMessages@2(QVector<GLuint> ids, QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types)
+void enableMessages(QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types, QOpenGLDebugMessage::Severities severities)
+void enableMessages@2(QVector<GLuint> ids, QOpenGLDebugMessage::Sources sources, QOpenGLDebugMessage::Types types)
+bool initialize(void)
+bool isLogging(void)
+QList<QOpenGLDebugMessage> loggedMessages(void)
+QOpenGLDebugLogger::LoggingMode loggingMode(void)
+qint64 maximumMessageLength(void)
+void popGroup(void)
+void pushGroup(QString name, GLuint id, QOpenGLDebugMessage::Source source)
+void logMessage(QOpenGLDebugMessage debugMessage)
+void startLogging(QOpenGLDebugLogger::LoggingMode loggingMode)
+void stopLogging(void)

@@ -1,0 +1,17 @@
+<class>
+name: QText2DEntity
+codename: Qt3DExtras::QText2DEntity
+para: Qt3DCore::QNode *
+parent: QEntity
+</class>
+
+QColor color(void)
+QFont font(void)
+float height(void)
+void setColor(QColor color)
+void setFont(QFont font)
+void setHeight(float height)
+void setText(QString text)
+void setWidth(float width)
+QString text(void)
+float width(void)

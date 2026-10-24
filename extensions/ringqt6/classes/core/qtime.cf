@@ -1,0 +1,25 @@
+<class>
+name: QTime
+para: void
+managed
+</class>
+
+QTime addMSecs(int ms)
+QTime addSecs(int s)
+
+int hour(void)
+bool isNull(void)
+bool isValid(void)
+int minute(void)
+int msec(void)
+int msecsSinceStartOfDay(void)
+int msecsTo(QTime)
+int second(void)
+int secsTo(QTime)
+bool setHMS(int h, int m, int s, int ms)
+QString toString(QString)
+QTime currentTime(void)
+QTime fromMSecsSinceStartOfDay(int msecs)
+QTime fromString(QString,QString)
+
+

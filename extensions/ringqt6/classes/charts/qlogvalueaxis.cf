@@ -1,0 +1,36 @@
+<class>
+name: QLogValueAxis
+para: QObject *
+parent: QAbstractAxis
+codename: GLogValueAxis
+passvmpointer
+</class>
+
+qreal base(void)
+QString labelFormat(void)
+qreal max(void)
+qreal min(void)
+int minorTickCount(void)
+void setBase(qreal base)
+void setLabelFormat(QString format)
+void setMax(qreal max)
+void setMin(qreal min)
+void setMinorTickCount(int minorTickCount)
+void setRange(qreal min, qreal max)
+int tickCount(void)
+
+void setbaseChangedEvent(const char *)
+void setlabelFormatChangedEvent(const char *)
+void setmaxChangedEvent(const char *)
+void setminChangedEvent(const char *)
+void setminorTickCountChangedEvent(const char *)
+void setrangeChangedEvent(const char *)
+void settickCountChangedEvent(const char *)
+
+const char *getbaseChangedEvent(void)
+const char *getlabelFormatChangedEvent(void)
+const char *getmaxChangedEvent(void)
+const char *getminChangedEvent(void)
+const char *getminorTickCountChangedEvent(void)
+const char *getrangeChangedEvent(void)
+const char *gettickCountChangedEvent(void)

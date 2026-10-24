@@ -1,0 +1,38 @@
+<class>
+name: QStyle
+para: void
+parent: QObject
+nonew
+</class>
+
+int combinedLayoutSpacing(QSizePolicy::ControlTypes controls1, QSizePolicy::ControlTypes controls2, Qt::Orientation orientation, QStyleOption *option, QWidget *widget)
+void drawComplexControl(QStyle::ComplexControl control, QStyleOptionComplex *option, QPainter *painter, QWidget *widget)
+void drawControl(QStyle::ControlElement element, QStyleOption *option, QPainter *painter, QWidget *widget)
+void drawItemPixmap(QPainter *painter, QRect rectangle, int alignment, QPixmap pixmap)
+void drawItemText(QPainter *painter, QRect rectangle, int alignment, QPalette palette, bool enabled, QString text, QPalette::ColorRole textRole)
+void drawPrimitive(QStyle::PrimitiveElement element, QStyleOption *option, QPainter *painter, QWidget *widget)
+QPixmap generatedIconPixmap(QIcon::Mode iconMode, QPixmap pixmap, QStyleOption *option)
+QStyle::SubControl hitTestComplexControl(QStyle::ComplexControl control, QStyleOptionComplex *option, QPoint position, QWidget *widget)
+QRect itemPixmapRect(QRect rectangle, int alignment, QPixmap pixmap)
+QRect itemTextRect(QFontMetrics metrics, QRect rectangle, int alignment, bool enabled, QString text)
+int layoutSpacing(QSizePolicy::ControlType control1, QSizePolicy::ControlType control2, Qt::Orientation orientation, QStyleOption *option, QWidget *widget)
+int pixelMetric(QStyle::PixelMetric metric)
+int pixelMetric@2(QStyle::PixelMetric metric, QStyleOption *option, QWidget *widget)
+void polish(QWidget *widget)
+void polish@2(QApplication *application)
+void polish@3(QPalette palette)
+QStyle * proxy(void)
+QSize sizeFromContents(QStyle::ContentsType type, QStyleOption *option, QSize contentsSize, QWidget *widget)
+QIcon standardIcon(QStyle::StandardPixmap standardIcon, QStyleOption *option, QWidget *widget)
+QPalette standardPalette(void)
+int styleHint(QStyle::StyleHint hint, QStyleOption *option, QWidget *widget, QStyleHintReturn *returnData)
+QRect subControlRect(QStyle::ComplexControl control, QStyleOptionComplex *option, QStyle::SubControl subControl, QWidget *widget)
+QRect subElementRect(QStyle::SubElement element, QStyleOption *option, QWidget *widget)
+void unpolish(QWidget *widget)
+void unpolish@2(QApplication *application)
+QRect alignedRect(Qt::LayoutDirection direction, Qt::Alignment alignment, QSize size, QRect rectangle)
+int sliderPositionFromValue(int min, int max, int logicalValue, int span, bool upsideDown)
+int sliderValueFromPosition(int min, int max, int position, int span, bool upsideDown)
+Qt::Alignment visualAlignment(Qt::LayoutDirection direction, Qt::Alignment alignment)
+QPoint visualPos(Qt::LayoutDirection direction, QRect boundingRectangle, QPoint logicalPosition)
+QRect visualRect(Qt::LayoutDirection direction, QRect boundingRectangle, QRect logicalRectangle)

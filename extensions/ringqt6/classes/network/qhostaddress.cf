@@ -1,0 +1,17 @@
+<class>
+name: QHostAddress
+para: void
+managed
+</class>
+
+void clear(void)
+bool isInSubnet(QHostAddress, int netmask)
+bool isNull(void)
+int protocol(void)
+QString scopeId(void)
+bool setAddress(QString)
+int toIPv4Address(void)
+Q_IPV6ADDR toIPv6Address(void) 
+QString toString(void)
+
+

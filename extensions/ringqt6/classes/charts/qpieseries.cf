@@ -1,0 +1,52 @@
+<class>
+name: QPieSeries
+para: QObject *
+parent: QAbstractSeries
+codename: GPieSeries
+passvmpointer
+</class>
+bool append(QPieSlice *slice)
+bool append@2(QList<QPieSlice *> slices)
+QPieSlice * append@3(QString label, qreal value)
+void clear(void)
+int count(void)
+qreal holeSize(void)
+qreal horizontalPosition(void)
+bool insert(int index, QPieSlice *slice)
+bool isEmpty(void)
+qreal pieEndAngle(void)
+qreal pieSize(void)
+qreal pieStartAngle(void)
+bool remove(QPieSlice *slice)
+void setHoleSize(qreal holeSize)
+void setHorizontalPosition(qreal relativePosition)
+void setLabelsPosition(QPieSlice::LabelPosition position)
+void setLabelsVisible(bool visible)
+void setPieEndAngle(qreal angle)
+void setPieSize(qreal relativeSize)
+void setPieStartAngle(qreal startAngle)
+void setVerticalPosition(qreal relativePosition)
+QList<QPieSlice *> slices(void)
+qreal sum(void)
+bool take(QPieSlice *slice)
+qreal verticalPosition(void)
+
+void setaddedEvent(const char *)
+void setclickedEvent(const char *)
+void setcountChangedEvent(const char *)
+void setdoubleClickedEvent(const char *)
+void sethoveredEvent(const char *)
+void setpressedEvent(const char *)
+void setreleasedEvent(const char *)
+void setremovedEvent(const char *)
+void setsumChangedEvent(const char *)
+
+const char *getaddedEvent(void)
+const char *getclickedEvent(void)
+const char *getcountChangedEvent(void)
+const char *getdoubleClickedEvent(void)
+const char *gethoveredEvent(void)
+const char *getpressedEvent(void)
+const char *getreleasedEvent(void)
+const char *getremovedEvent(void)
+const char *getsumChangedEvent(void)

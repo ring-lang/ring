@@ -1,0 +1,53 @@
+<class>
+name: QFontDialog
+para: void
+parent: QDialog
+codename: GFontDialog
+passvmpointer
+passnullbeforevmpointer
+</class>
+
+QFont currentFont(void)
+void open(QObject * receiver, char * member)
+QFontDialog::FontDialogOptions options(void)
+QFont selectedFont(void)
+void setCurrentFont(QFont font)
+void setOption(QFontDialog::FontDialogOption option, bool on)
+void setOptions(QFontDialog::FontDialogOptions options)
+bool testOption(QFontDialog::FontDialogOption option)
+QFont getFont@2(bool * ok, QFont initial, QWidget * parent, QString title, QFontDialog::FontDialogOptions options)
+QFont getFont@3(bool * ok, QWidget * parent)
+
+void setcurrentFontChangedEvent(const char *)
+void setfontSelectedEvent(const char *)
+
+const char *getcurrentFontChangedEvent(void)
+const char *getfontSelectedEvent(void)
+
+<register>
+int getfont(void)
+</register>
+
+<code>
+
+RING_FUNC(ring_QFontDialog_getfont)
+{
+	List *pList;
+	pList = RING_API_NEWLIST ;
+	bool lok ;
+	QFont pFont ;
+	QFont pValue = QFontDialog::getFont(&lok,pFont,NULL);		
+	if (lok) {
+		ring_list_addstring(pList,pValue.toString().toStdString().c_str());
+		ring_list_adddouble(pList,pValue.pointSize());
+   	}
+	else {
+		ring_list_addstring(pList,"");
+		ring_list_adddouble(pList,10);
+	}
+	RING_API_RETLIST(pList);
+}
+
+</code>
+
+

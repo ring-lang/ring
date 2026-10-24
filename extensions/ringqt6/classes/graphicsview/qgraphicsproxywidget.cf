@@ -1,0 +1,10 @@
+<class>
+name: QGraphicsProxyWidget
+para: QGraphicsItem *,Qt::WindowFlags
+parent: QGraphicsWidget
+</class>
+
+QGraphicsProxyWidget * createProxyForChildWidget(QWidget *child)
+void setWidget(QWidget *widget)
+QRectF subWidgetRect(QWidget *widget)
+QWidget * widget(void)

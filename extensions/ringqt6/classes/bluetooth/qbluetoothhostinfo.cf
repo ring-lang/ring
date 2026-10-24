@@ -1,0 +1,10 @@
+<class>
+name: QBluetoothHostInfo
+para: void
+managed
+</class>
+
+QBluetoothAddress address(void)
+QString name(void)
+void setAddress(QBluetoothAddress address)
+void setName(QString name)

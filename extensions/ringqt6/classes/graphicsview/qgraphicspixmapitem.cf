@@ -1,0 +1,15 @@
+<class>
+name: QGraphicsPixmapItem
+para: QGraphicsItem *
+parent: QGraphicsItem
+</class>
+
+QPointF offset(void)
+QPixmap pixmap(void)
+void setOffset(QPointF offset)
+void setOffset@2(qreal x, qreal y)
+void setPixmap(QPixmap pixmap)
+void setShapeMode(QGraphicsPixmapItem::ShapeMode mode)
+void setTransformationMode(Qt::TransformationMode mode)
+QGraphicsPixmapItem::ShapeMode shapeMode(void)
+Qt::TransformationMode transformationMode(void)

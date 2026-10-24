@@ -1,0 +1,58 @@
+<class>
+name: QMediaRecorder
+para: QMediaObject *
+parent: QObject
+codename: GMediaRecorder
+passvmpointer
+</class>
+
+QUrl actualLocation(void)
+QAudioEncoderSettings audioSettings(void)
+QMultimedia::AvailabilityStatus availability(void)
+QString containerDescription(QString format)
+QString containerFormat(void)
+qint64 duration(void)
+QMediaRecorder::Error error(void)
+QString errorString(void)
+bool isAvailable(void)
+bool isMetaDataAvailable(void)
+bool isMetaDataWritable(void)
+bool isMuted(void)
+QVariant metaData(QString key)
+QUrl outputLocation(void)
+bool setOutputLocation(QUrl location)
+QMediaRecorder::State state(void)
+QMediaRecorder::Status status(void)
+QStringList supportedAudioCodecs(void)
+QStringList supportedContainers(void)
+QStringList supportedVideoCodecs(void)
+QString videoCodecDescription(QString codec)
+QVideoEncoderSettings videoSettings(void)
+qreal volume(void)
+void pause(void)
+void record(void)
+void setAudioSettings(QAudioEncoderSettings settings)
+void setEncodingSettings(QAudioEncoderSettings audio, QVideoEncoderSettings video, QString container)
+void setMetaData(QString key, QVariant value)
+void setMuted(bool muted)
+void setVideoSettings(QVideoEncoderSettings settings)
+void setVolume(qreal volume)
+void stop(void)
+
+void setactualLocationChangedEvent(const char *)
+void setdurationChangedEvent(const char *)
+void seterrorEvent(const char *)
+void setmetaDataChangedEvent(const char *)
+void setmutedChangedEvent(const char *)
+void setstateChangedEvent(const char *)
+void setstatusChangedEvent(const char *)
+void setvolumeChangedEvent(const char *)
+
+const char *getactualLocationChangedEvent(void)
+const char *getdurationChangedEvent(void)
+const char *geterrorEvent(void)
+const char *getmetaDataChangedEvent(void)
+const char *getmutedChangedEvent(void)
+const char *getstateChangedEvent(void)
+const char *getstatusChangedEvent(void)
+const char *getvolumeChangedEvent(void)

@@ -1,0 +1,10 @@
+<class>
+name: QDesktopWidget
+para: void
+parent: QWidget
+</class>
+
+QRect availableGeometry(QWidget *)
+QScreen *screen(void)
+QRect screenGeometry(QWidget *)
+int screenNumber(QWidget *widget)

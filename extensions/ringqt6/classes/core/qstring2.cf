@@ -1,0 +1,55 @@
+<class>
+name: QString2
+para: void
+codename: QString
+managed
+</class>
+
+QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
+QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
+
+QString append(QString  str)
+QString append@2(QChar ch)
+QByteArray toUtf8(void)
+QByteArray toLatin1(void)
+QByteArray toLocal8Bit(void)
+
+QChar * unicode(void)
+QString number(ulong n, int base)
+int count(void)
+QString left(int n)
+QString mid(int position, int n)
+QString right(int n)
+int compare(QString  other, Qt::CaseSensitivity cs )
+bool contains(QString  str, Qt::CaseSensitivity cs )
+int indexOf(QString str,int from,Qt::CaseSensitivity cs )
+int lastIndexOf(QString str,int from,Qt::CaseSensitivity cs )
+QString insert(int position,  QString  str)
+bool isRightToLeft(void)
+QString repeated(int times)
+QString replace(int position, int n,  QString  after)
+QString replace@2(QString before, QString after, Qt::CaseSensitivity)
+bool startsWith( QString  s, Qt::CaseSensitivity cs )
+bool endsWith( QString  s, Qt::CaseSensitivity cs )
+QString toHtmlEscaped(void)
+void clear(void)
+bool isNull(void)
+void resize(int size)
+QString fill(QChar ch, int size)
+
+int localeAwareCompare( QString other)
+QString leftJustified(int width, QChar fill, bool truncate)
+QString rightJustified(int width, QChar fill, bool truncate)
+QString section@1(QChar sep, int start, int end, QString::SectionFlags flags)
+QString section@2(QString sep, int start, int end, QString::SectionFlags flags)
+QString section@3(QRegExp reg, int start, int end, QString::SectionFlags flags)
+QString section@4(QRegularExpression re, int start, int end, QString::SectionFlags flags)
+QString simplified(void)
+QString toCaseFolded(void)
+QString trimmed(void)
+void truncate(int position)
+
+qsizetype length(void)
+qsizetype size(void)

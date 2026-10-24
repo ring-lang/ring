@@ -1,0 +1,8 @@
+<class>
+name: QGraphicsSceneMoveEvent
+parent: QGraphicsSceneEvent
+abstract
+</class>
+
+QPointF newPos(void)
+QPointF oldPos(void)

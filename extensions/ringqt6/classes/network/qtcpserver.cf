@@ -1,0 +1,31 @@
+<class>
+name: QTcpServer
+para: QWidget *
+codename: GTcpServer
+passvmpointer
+</class>
+
+void close(void)
+QString errorString(void)
+bool hasPendingConnections(void)
+bool isListening(void)
+bool listen(QHostAddress, int port)
+int maxPendingConnections(void)
+QTcpSocket *nextPendingConnection(void)
+void pauseAccepting(void)
+QNetworkProxy proxy(void)
+void resumeAccepting(void)
+QHostAddress serverAddress(void)
+int serverError(void)
+int serverPort(void)
+void setMaxPendingConnections(int numConnections)
+void setProxy(QNetworkProxy)
+bool setSocketDescriptor(qintptr socketDescriptor)
+int *socketDescriptor(void)
+bool waitForNewConnection(int msec, bool *timedOut)
+
+void setacceptErrorEvent(const char *)
+void setnewConnectionEvent(const char *)
+
+const char *getacceptErrorEvent(void)
+const char *getnewConnectionEvent(void)

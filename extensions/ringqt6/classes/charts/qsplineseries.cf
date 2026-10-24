@@ -1,0 +1,7 @@
+<class>
+name: QSplineSeries
+para: QObject *
+parent: QLineSeries
+</class>
+
+QAbstractSeries::SeriesType type(void)

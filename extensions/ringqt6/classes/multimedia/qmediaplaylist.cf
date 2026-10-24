@@ -1,0 +1,47 @@
+<class>
+name: QMediaPlaylist
+para: void
+</class>
+
+<comment>
+bool addMedia(QMediaContent)
+</comment>
+bool addMedia(QUrl)
+<comment>
+bool addMedia(const QList<QMediaContent> & items)
+</comment>
+bool clear(void)
+int currentIndex(void)
+QMediaContent currentMedia(void)
+int error(void)
+QString errorString(void)
+bool insertMedia(int pos, QMediaContent)
+<comment>
+bool insertMedia(int pos, const QList<QMediaContent> & items)
+</comment>
+bool isEmpty(void)
+bool isReadOnly(void)
+<comment>
+void load(QNetworkRequest, const char * format)
+void load(QIODevice *device, const char *format)
+</comment>
+void load(QUrl, const char *format) # In RingQt use : void loadfile(QUrl, const char *format)
+QMediaContent media(int index)
+int mediaCount(void)
+int nextIndex(int steps)
+int playbackMode(void)
+int previousIndex(int steps)
+<comment>
+bool removeMedia(int pos)
+</comment>
+bool removeMedia(int start, int end)
+bool save(QUrl, const char * format)
+<comment>
+bool save(QIODevice *device, const char *format)
+</comment>
+void setPlaybackMode(QMediaPlaylist::PlaybackMode mode)
+void next(void) # In RingQt use : void movenext(void)
+void previous(void)
+void setCurrentIndex(int playlistPosition)
+void shuffle(void)
+

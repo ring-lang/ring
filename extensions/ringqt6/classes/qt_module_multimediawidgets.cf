@@ -1,0 +1,8 @@
+<comment>
+				Module (multimediawidgets)
+</comment>
+
+<loadfile> multimediawidgets/qvideowidget.cf
+<loadfile> multimediawidgets/qcameraviewfinder.cf
+<loadfile> multimediawidgets/qgraphicsvideoitem.cf
+<loadfile> multimediawidgets/qvideowidgetcontrol.cf

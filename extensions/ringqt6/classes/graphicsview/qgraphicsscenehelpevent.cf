@@ -1,0 +1,8 @@
+<class>
+name: QGraphicsSceneHelpEvent
+parent: QGraphicsSceneEvent
+abstract
+</class>
+
+QPointF scenePos(void)
+QPoint screenPos(void)

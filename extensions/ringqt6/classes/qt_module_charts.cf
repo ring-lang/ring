@@ -1,0 +1,52 @@
+<comment>
+				Module (Charts)
+</comment>
+
+<loadfile> charts/qabstractaxis.cf
+<loadfile> charts/qabstractbarseries.cf
+<loadfile> charts/qabstractseries.cf
+<loadfile> charts/qareaseries.cf
+<loadfile> charts/qbarcategoryaxis.cf
+<loadfile> charts/qbarseries.cf
+<loadfile> charts/qbarset.cf
+<loadfile> charts/qarealegendmarker.cf
+<loadfile> charts/qbarlegendmarker.cf
+<loadfile> charts/qboxplotlegendmarker.cf
+<loadfile> charts/qboxplotseries.cf
+<loadfile> charts/qboxset.cf
+<loadfile> charts/qcandlesticklegendmarker.cf
+<loadfile> charts/qcandlestickmodelmapper.cf
+<loadfile> charts/qcandlestickseries.cf
+<loadfile> charts/qcandlestickset.cf
+<loadfile> charts/qcategoryaxis.cf
+<loadfile> charts/qchart.cf
+<loadfile> charts/qchartview.cf
+<loadfile> charts/qdatetimeaxis.cf
+<loadfile> charts/qhbarmodelmapper.cf
+<loadfile> charts/qhboxplotmodelmapper.cf
+<loadfile> charts/qhcandlestickmodelmapper.cf
+<loadfile> charts/qhpiemodelmapper.cf
+<loadfile> charts/qhxymodelmapper.cf
+<loadfile> charts/qhorizontalbarseries.cf
+<loadfile> charts/qhorizontalpercentbarseries.cf
+<loadfile> charts/qhorizontalstackedbarseries.cf
+<loadfile> charts/qlegend.cf
+<loadfile> charts/qlegendmarker.cf
+<loadfile> charts/qlineseries.cf
+<loadfile> charts/qlogvalueaxis.cf
+<loadfile> charts/qpercentbarseries.cf
+<loadfile> charts/qpielegendmarker.cf
+<loadfile> charts/qpieseries.cf
+<loadfile> charts/qpieslice.cf
+<loadfile> charts/qpolarchart.cf
+<loadfile> charts/qscatterseries.cf
+<loadfile> charts/qsplineseries.cf
+<loadfile> charts/qstackedbarseries.cf
+<loadfile> charts/qvbarmodelmapper.cf
+<loadfile> charts/qvboxplotmodelmapper.cf
+<loadfile> charts/qvcandlestickmodelmapper.cf
+<loadfile> charts/qvpiemodelmapper.cf
+<loadfile> charts/qvxymodelmapper.cf
+<loadfile> charts/qvalueaxis.cf
+<loadfile> charts/qxylegendmarker.cf
+<loadfile> charts/qxyseries.cf

@@ -1,0 +1,17 @@
+<class>
+name: QPointLight
+codename: Qt3DRender::QPointLight
+para: Qt3DCore::QNode *
+</class>
+
+
+float constantAttenuation(void)
+float linearAttenuation(void)
+float quadraticAttenuation(void)
+void setConstantAttenuation(float value)
+void setLinearAttenuation(float value)
+void setQuadraticAttenuation(float value)
+
+
+void setColor(QColor)
+void setIntensity(float intensity)

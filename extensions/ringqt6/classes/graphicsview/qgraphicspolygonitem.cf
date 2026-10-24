@@ -1,0 +1,10 @@
+<class>
+name: QGraphicsPolygonItem
+para: QGraphicsItem *
+parent: QAbstractGraphicsShapeItem
+</class>
+
+Qt::FillRule fillRule(void)
+QPolygonF polygon(void)
+void setFillRule(Qt::FillRule rule)
+void setPolygon(QPolygonF polygon)

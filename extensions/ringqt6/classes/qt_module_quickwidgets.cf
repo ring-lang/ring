@@ -1,0 +1,6 @@
+<comment>
+				Module (quickwidgets)
+</comment>
+
+<loadfile> quick/qquickwidget.cf
+<loadfile> quick/qquickview.cf

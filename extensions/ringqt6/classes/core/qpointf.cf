@@ -1,0 +1,15 @@
+<class>
+name: QPointF
+para: void
+managed
+</class>
+
+bool isNull(void)
+qreal manhattanLength(void)
+qreal rx(void)
+qreal ry(void)
+void setX(qreal x)
+void setY(qreal y)
+QPoint toPoint(void)
+qreal x(void)
+qreal y(void)

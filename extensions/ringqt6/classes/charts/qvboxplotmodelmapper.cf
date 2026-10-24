@@ -1,0 +1,33 @@
+<class>
+name: QVBoxPlotModelMapper
+para: QObject *
+parent: QObject
+codename: GVBoxPlotModelMapper
+passvmpointer
+</class>
+int firstBoxSetColumn(void)
+int firstRow(void)
+int lastBoxSetColumn(void)
+QAbstractItemModel * model(void)
+int rowCount(void)
+QBoxPlotSeries * series(void)
+void setFirstBoxSetColumn(int firstBoxSetColumn)
+void setFirstRow(int firstRow)
+void setLastBoxSetColumn(int lastBoxSetColumn)
+void setModel(QAbstractItemModel *model)
+void setRowCount(int rowCount)
+void setSeries(QBoxPlotSeries *series)
+
+void setfirstBoxSetColumnChangedEvent(const char *)
+void setfirstRowChangedEvent(const char *)
+void setlastBoxSetColumnChangedEvent(const char *)
+void setmodelReplacedEvent(const char *)
+void setrowCountChangedEvent(const char *)
+void setseriesReplacedEvent(const char *)
+
+const char *getfirstBoxSetColumnChangedEvent(void)
+const char *getfirstRowChangedEvent(void)
+const char *getlastBoxSetColumnChangedEvent(void)
+const char *getmodelReplacedEvent(void)
+const char *getrowCountChangedEvent(void)
+const char *getseriesReplacedEvent(void)

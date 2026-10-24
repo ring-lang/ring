@@ -1,0 +1,11 @@
+<class>
+name: QGeoShape
+para: void
+managed
+</class>
+
+bool contains(QGeoCoordinate coordinate)
+bool isEmpty(void)
+bool isValid(void)
+QGeoShape::ShapeType type(void)
+

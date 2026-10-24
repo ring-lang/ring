@@ -1,0 +1,15 @@
+<class>
+name: QSphereMesh
+codename: Qt3DExtras::QSphereMesh
+para: Qt3DCore::QNode *
+</class>
+
+
+bool generateTangents(void)
+float radius(void)
+int rings(void)
+int slices(void)
+void setGenerateTangents(bool gen)
+void setRadius(float radius)
+void setRings(int rings)
+void setSlices(int slices)

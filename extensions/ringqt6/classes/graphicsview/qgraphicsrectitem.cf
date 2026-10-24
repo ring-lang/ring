@@ -1,0 +1,9 @@
+<class>
+name: QGraphicsRectItem
+para: QGraphicsItem *
+parent: QAbstractGraphicsShapeItem
+</class>
+
+QRectF rect(void)
+void setRect(QRectF rectangle)
+void setRect@2(qreal x, qreal y, qreal width, qreal height)

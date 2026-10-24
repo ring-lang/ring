@@ -1,0 +1,8 @@
+<class>
+name: QLineSeries
+para: QObject *
+parent: QXYSeries
+abstract
+</class>
+
+QAbstractSeries::SeriesType type(void)

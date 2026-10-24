@@ -1,0 +1,9 @@
+<class>
+name: QOrbitCameraController
+codename: Qt3DExtras::QOrbitCameraController
+para: Qt3DCore::QNode *
+parent: QAbstractCameraController
+</class>
+
+void setZoomInLimit(float zoomInLimit)
+float zoomInLimit(void)

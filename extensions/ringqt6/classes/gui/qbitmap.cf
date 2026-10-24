@@ -1,0 +1,12 @@
+<class>
+name: QBitmap
+para: void
+parent: QPixmap
+managed
+</class>
+
+void clear(void)
+void swap(QBitmap)
+QBitmap transformed(QTransform)
+QBitmap fromData(QSize, const uchar * bits, QImage::Format monoFormat)
+QBitmap fromImage(QImage, Qt::ImageConversionFlags flags)

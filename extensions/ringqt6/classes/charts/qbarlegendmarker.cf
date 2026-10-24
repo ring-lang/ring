@@ -1,0 +1,9 @@
+<class>
+name: QBarLegendMarker
+parent: QLegendMarker
+nonew
+</class>
+
+
+QBarSet * barset(void)
+QAbstractBarSeries * series(void)

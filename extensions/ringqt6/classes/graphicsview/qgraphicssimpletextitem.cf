@@ -1,0 +1,10 @@
+<class>
+name: QGraphicsSimpleTextItem
+para: QGraphicsItem *
+parent: QAbstractGraphicsShapeItem
+</class>
+
+QFont font(void)
+void setFont(QFont font)
+void setText(QString text)
+QString text(void)

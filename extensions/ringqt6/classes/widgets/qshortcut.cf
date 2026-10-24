@@ -1,0 +1,25 @@
+<class>
+name: QShortcut
+para: QWidget *parent
+parent: QWidget
+codename: GShortcut
+passvmpointer
+</class>
+
+bool autoRepeat(void)
+Qt::ShortcutContext context(void)
+int id(void)
+bool isEnabled(void)
+QKeySequence key(void)
+void setAutoRepeat(bool on)
+void setContext(Qt::ShortcutContext context)
+void setEnabled(bool enable)
+void setKey(QKeySequence key)
+void setWhatsThis(QString text)
+QString whatsThis(void)
+
+void setactivatedEvent(const char *)
+void setactivatedAmbiguouslyEvent(const char *)
+
+const char *getactivatedEvent(void)
+const char *getactivatedAmbiguouslyEvent(void)

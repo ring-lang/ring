@@ -1,0 +1,30 @@
+<class>
+name: QBluetoothServer
+para: QBluetoothServiceInfo::Protocol,QObject *
+parent: QObject
+codename: GBluetoothServer
+passvmpointer
+</class>
+
+
+void close(void)
+QBluetoothServer::Error error(void)
+bool hasPendingConnections(void)
+bool isListening(void)
+bool listen(QBluetoothAddress address, quint16 port)
+QBluetoothServiceInfo listen@2(QBluetoothUuid uuid, QString serviceName))
+int maxPendingConnections(void)
+QBluetoothSocket * nextPendingConnection(void)
+QBluetooth::SecurityFlags securityFlags(void)
+QBluetoothAddress serverAddress(void)
+quint16 serverPort(void)
+QBluetoothServiceInfo::Protocol serverType(void)
+void setMaxPendingConnections(int numConnections)
+void setSecurityFlags(QBluetooth::SecurityFlags security)
+
+void seterrorEvent(const char *)
+void setnewConnectionEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getnewConnectionEvent(void)
+

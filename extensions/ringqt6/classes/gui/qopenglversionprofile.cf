@@ -1,0 +1,13 @@
+<class>
+name: QOpenGLVersionProfile
+para: void
+managed
+</class>
+
+bool hasProfiles(void)
+bool isLegacyVersion(void)
+bool isValid(void)
+QSurfaceFormat::OpenGLContextProfile profile(void)
+void setProfile(QSurfaceFormat::OpenGLContextProfile profile)
+void setVersion(int majorVersion, int minorVersion)
+QPair<int, int> version(void)

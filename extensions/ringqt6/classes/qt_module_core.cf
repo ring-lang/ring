@@ -1,0 +1,82 @@
+<comment>
+				Module (core)
+</comment>
+
+<loadfile> core/qobject.cf
+<loadfile> core/qsize.cf
+<loadfile> core/qdir.cf
+<loadfile> core/qurl.cf
+<loadfile> core/qevent.cf
+<loadfile> core/qtimer.cf
+<loadfile> core/qbytearray.cf
+<loadfile> core/qiodevice.cf
+<loadfile> core/qfileinfo.cf
+<loadfile> core/qstringlist.cf
+<loadfile> core/qrect.cf
+<loadfile> core/qtime.cf
+<loadfile> core/qdate.cf
+<loadfile> core/qtextcodec.cf
+<loadfile> core/qvariant.cf
+<loadfile> core/qxmlstreamreader.cf
+<loadfile> core/qxmlstreamwriter.cf
+<loadfile> core/qxmlstreamnotationdeclaration.cf
+<loadfile> core/qxmlstreamnamespacedeclaration.cf
+<loadfile> core/qxmlstreamentitydeclaration.cf
+<loadfile> core/qxmlstreamentityresolver.cf
+<loadfile> core/qxmlstreamattributes.cf
+<loadfile> core/qxmlstreamattribute.cf
+<loadfile> core/qregularexpression.cf
+<loadfile> core/qregularexpressionmatch.cf
+<loadfile> core/qregularexpressionmatchiterator.cf
+<loadfile> core/qjsonarray.cf
+<loadfile> core/qjsondocument.cf
+<loadfile> core/qjsonobject.cf
+<loadfile> core/qjsonparseerror.cf
+<loadfile> core/qjsonvalue.cf
+<loadfile> core/qpointf.cf
+<loadfile> core/qpoint.cf
+<loadfile> core/qstring2.cf
+<loadfile> core/qstringref.cf
+<loadfile> core/qbuffer.cf
+<loadfile> core/qdatetime.cf
+<loadfile> core/qcoreapplication.cf
+<loadfile> core/qfile.cf
+<loadfile> core/qfile2.cf
+<loadfile> core/qfiledevice.cf
+<loadfile> core/qstandardpaths.cf
+<loadfile> core/qmimedata.cf
+<loadfile> core/qchar.cf
+<loadfile> core/qchildevent.cf
+<loadfile> core/qtextstream.cf
+<loadfile> core/qtextstream2.cf
+<loadfile> core/qtextstream3.cf
+<loadfile> core/qtextstream4.cf
+<loadfile> core/qtextstream5.cf
+<loadfile> core/qlocale.cf
+
+<filter> sysget("RINGQT_WEBASSEMBLY") = ""
+<loadfile> core/qthread.cf
+<loadfile> core/qthreadpool.cf
+<loadfile> core/qprocess.cf
+<loadfile> core/quuid.cf
+<loadfile> core/qmutex.cf
+<loadfile> core/qmutexlocker.cf
+</filter>
+
+<loadfile> core/qrectf.cf
+<loadfile> core/qlinef.cf
+<loadfile> core/qregexp.cf
+<loadfile> core/qmodelindex.cf
+<loadfile> core/qversionnumber.cf
+<loadfile> core/qlibraryinfo.cf
+<loadfile> core/qelapsedtimer.cf
+<loadfile> core/qsizef.cf
+<loadfile> core/qmargins.cf
+<loadfile> core/qmarginsf.cf
+<loadfile> core/qsettings.cf
+<loadfile> core/qdatastream.cf
+<loadfile> core/qsortfilterproxymodel.cf
+<loadfile> core/qfilesystemwatcher.cf
+<loadfile> core/qtemporaryfile.cf
+<loadfile> core/qsavefile.cf
+<loadfile> core/qstorageinfo.cf

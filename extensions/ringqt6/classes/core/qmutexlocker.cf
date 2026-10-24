@@ -1,0 +1,9 @@
+<class>
+name: QMutexLocker
+para: QMutex *
+managed
+</class>
+
+QMutex * mutex(void)
+void relock(void)
+void unlock(void)

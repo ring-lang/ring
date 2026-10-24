@@ -1,0 +1,5 @@
+<class>
+name: QCameraViewfinder
+para: QWidget *
+parent: QVideoWidget
+</class>

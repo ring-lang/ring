@@ -1,0 +1,49 @@
+<class>
+name: QSslSocket
+para: QObject *parent
+parent: QTcpSocket
+codename: GSslSocket
+passvmpointer
+</class>
+
+void abort(void)
+void connectToHostEncrypted(QString hostName, quint16 port, QIODevice::OpenMode mode, QAbstractSocket::NetworkLayerProtocol protocol)
+void connectToHostEncrypted@2(QString hostName, quint16 port, QString sslPeerName, QIODevice::OpenMode mode, QAbstractSocket::NetworkLayerProtocol protocol)
+qint64 encryptedBytesAvailable(void)
+qint64 encryptedBytesToWrite(void)
+void ignoreSslErrors(void)
+bool isEncrypted(void)
+QSslCertificate localCertificate(void)
+QSslSocket::SslMode mode(void)
+QSslCertificate peerCertificate(void)
+int peerVerifyDepth(void)
+QSslSocket::PeerVerifyMode peerVerifyMode(void)
+QString peerVerifyName(void)
+QSslKey privateKey(void)
+QSsl::SslProtocol protocol(void)
+QSslCipher sessionCipher(void)
+QSsl::SslProtocol sessionProtocol(void)
+void setLocalCertificate(QSslCertificate certificate)
+void setPeerVerifyDepth(int depth)
+void setPeerVerifyMode(QSslSocket::PeerVerifyMode mode)
+void setPeerVerifyName(QString hostName)
+void setPrivateKey(QSslKey key)
+void setProtocol(QSsl::SslProtocol protocol)
+void setSslConfiguration(QSslConfiguration configuration)
+QSslConfiguration sslConfiguration(void)
+QList<QSslError> sslHandshakeErrors(void)
+bool waitForEncrypted(int msecs)
+void startClientEncryption(void)
+void startServerEncryption(void)
+
+void setencryptedEvent(const char *)
+void setencryptedBytesWrittenEvent(const char *)
+void setmodeChangedEvent(const char *)
+void setpeerVerifyErrorEvent(const char *)
+void setsslErrorsEvent(const char *)
+
+const char *getencryptedEvent(void)
+const char *getencryptedBytesWrittenEvent(void)
+const char *getmodeChangedEvent(void)
+const char *getpeerVerifyErrorEvent(void)
+const char *getsslErrorsEvent(void)

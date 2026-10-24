@@ -1,0 +1,5 @@
+<comment>
+				Module ( testlib )
+</comment>
+
+<loadfile> testlib/qtest.cf

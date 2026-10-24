@@ -1,0 +1,43 @@
+<comment>
+				Module (widgets) - Graphics View Framework
+</comment>
+
+
+<loadfile> graphicsview/qgraphicsview.cf
+<loadfile> graphicsview/qgraphicsscene.cf
+<loadfile> graphicsview/qgraphicsitem.cf
+<loadfile> graphicsview/qabstractgraphicsshapeitem.cf
+<loadfile> graphicsview/qgraphicsanchor.cf
+<loadfile> graphicsview/qgraphicsanchorlayout.cf
+<loadfile> graphicsview/qgraphicslayout.cf
+<loadfile> graphicsview/qgraphicsellipseitem.cf
+<loadfile> graphicsview/qgraphicsgridlayout.cf
+<loadfile> graphicsview/qgraphicsitemgroup.cf
+<loadfile> graphicsview/qgraphicslayoutitem.cf
+<loadfile> graphicsview/qgraphicslineitem.cf
+<loadfile> graphicsview/qgraphicslinearlayout.cf
+<loadfile> graphicsview/qgraphicspathitem.cf
+<loadfile> graphicsview/qgraphicspixmapitem.cf
+<loadfile> graphicsview/qgraphicspolygonitem.cf
+<loadfile> graphicsview/qgraphicsproxywidget.cf
+<loadfile> graphicsview/qgraphicsrectitem.cf
+<loadfile> graphicsview/qgraphicsscenecontextmenuevent.cf
+<loadfile> graphicsview/qgraphicsscenedragdropevent.cf
+<loadfile> graphicsview/qgraphicssceneevent.cf
+<loadfile> graphicsview/qgraphicsscenehelpevent.cf
+<loadfile> graphicsview/qgraphicsscenehoverevent.cf
+<loadfile> graphicsview/qgraphicsscenemouseevent.cf
+<loadfile> graphicsview/qgraphicsscenemoveevent.cf
+<loadfile> graphicsview/qgraphicssceneresizeevent.cf
+<loadfile> graphicsview/qgraphicsscenewheelevent.cf
+<loadfile> graphicsview/qgraphicssimpletextitem.cf
+<loadfile> graphicsview/qstyleoptiongraphicsitem.cf
+
+<filter> sysget("RINGQT_NOGRAPHICSSVG") = ""
+<loadfile> graphicsview/qgraphicssvgitem.cf
+</filter>
+
+<loadfile> graphicsview/qgraphicseffect.cf
+<loadfile> graphicsview/qgraphicsobject.cf
+<loadfile> graphicsview/qgraphicstextitem.cf
+<loadfile> graphicsview/qgraphicswidget.cf

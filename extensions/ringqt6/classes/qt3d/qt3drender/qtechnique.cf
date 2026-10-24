@@ -1,0 +1,16 @@
+<class>
+name: QTechnique
+codename: Qt3DRender::QTechnique
+para: Qt3DCore::QNode *
+</class>
+
+void addFilterKey(Qt3DRender::QFilterKey *filterKey)
+void addParameter(Qt3DRender::QParameter *parameter)
+void addRenderPass(Qt3DRender::QRenderPass *pass)
+QVector<Qt3DRender::QFilterKey *> filterKeys(void)
+Qt3DRender::QGraphicsApiFilter * graphicsApiFilter(void)
+QVector<Qt3DRender::QParameter *> parameters(void)
+void removeFilterKey(Qt3DRender::QFilterKey *filterKey)
+void removeParameter(Qt3DRender::QParameter *parameter)
+void removeRenderPass(Qt3DRender::QRenderPass *pass)
+QVector<Qt3DRender::QRenderPass *> renderPasses(void)

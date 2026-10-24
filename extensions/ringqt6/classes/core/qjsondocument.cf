@@ -1,0 +1,20 @@
+<class>
+name: QJsonDocument
+para: void
+managed
+</class>
+
+QJsonArray array(void)
+bool isArray(void)
+bool isEmpty(void)
+bool isNull(void)
+bool isObject(void)
+QJsonObject object(void)
+void setArray(QJsonArray  array)
+void setObject(QJsonObject  object)
+QByteArray toJson(QJsonDocument::JsonFormat format)
+QVariant toVariant(void)
+
+QJsonDocument fromJson( QByteArray  json, QJsonParseError * error)
+QJsonDocument fromVariant( QVariant  variant)
+

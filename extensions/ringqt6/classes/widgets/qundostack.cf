@@ -1,0 +1,43 @@
+<class>
+name: QUndoStack
+para: QObject *
+parent: QObject
+codename: GUndoStack
+passvmpointer
+</class>
+
+bool canRedo(void)
+bool canUndo(void)
+int cleanIndex(void)
+void clear(void)
+int count(void)
+QAction *createRedoAction(QObject *parent, QString prefix)
+QAction *createUndoAction(QObject *parent, QString prefix)
+int index(void)
+bool isActive(void)
+bool isClean(void)
+void push(QUndoCommand *cmd)
+QString redoText(void)
+void setActive(bool active)
+void setUndoLimit(int limit)
+QString text(int index)
+int undoLimit(void)
+QString undoText(void)
+void redo(void)
+void setClean(void)
+void setIndex(int idx)
+void undo(void)
+
+void setcanRedoChangedEvent(const char *)
+void setcanUndoChangedEvent(const char *)
+void setcleanChangedEvent(const char *)
+void setindexChangedEvent(const char *)
+void setredoTextChangedEvent(const char *)
+void setundoTextChangedEvent(const char *)
+
+const char *getcanRedoChangedEvent(void)
+const char *getcanUndoChangedEvent(void)
+const char *getcleanChangedEvent(void)
+const char *getindexChangedEvent(void)
+const char *getredoTextChangedEvent(void)
+const char *getundoTextChangedEvent(void)

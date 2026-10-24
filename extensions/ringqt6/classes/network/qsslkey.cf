@@ -1,0 +1,14 @@
+<class>
+name: QSslKey
+para: void
+managed
+</class>
+
+QSsl::KeyAlgorithm algorithm(void)
+void clear(void)
+bool isNull(void)
+int length(void)
+QByteArray toDer(QByteArray passPhrase)
+QByteArray toPem(QByteArray passPhrase)
+QSsl::KeyType type(void)
+void swap(QSslKey other)

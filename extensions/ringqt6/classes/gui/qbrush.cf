@@ -1,0 +1,20 @@
+<class>
+name: QBrush
+para: void
+managed
+</class>
+
+QColor color(void)
+QGradient *gradient(void)
+bool isOpaque(void)
+void setColor(QColor)
+void setStyle(Qt::BrushStyle style)
+void setTexture(QPixmap)
+void setTextureImage(QImage)
+void setTransform(QTransform)
+int style(void)
+void swap(QBrush)
+QPixmap texture(void)
+QImage textureImage(void)
+QTransform transform(void)
+

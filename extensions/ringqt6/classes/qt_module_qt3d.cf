@@ -1,0 +1,5 @@
+<loadfile> qt3d/qt3dcore.cf
+<loadfile> qt3d/qt3dextras.cf
+<loadfile> qt3d/qt3drender.cf
+<loadfile> qt3d/qt3dinput.cf
+<loadfile> qt3d/qt3dlogic.cf

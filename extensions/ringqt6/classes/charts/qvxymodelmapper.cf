@@ -1,0 +1,34 @@
+<class>
+name: QVXYModelMapper
+para: QObject *
+parent: QXYModelMapper
+codename: GVXYModelMapper
+passvmpointer
+</class>
+
+int firstRow(void)
+QAbstractItemModel * model(void)
+int rowCount(void)
+QXYSeries * series(void)
+void setFirstRow(int firstRow)
+void setModel(QAbstractItemModel *model)
+void setRowCount(int rowCount)
+void setSeries(QXYSeries *series)
+void setXColumn(int xColumn)
+void setYColumn(int yColumn)
+int xColumn(void)
+int yColumn(void)
+
+void setfirstRowChangedEvent(const char *)
+void setmodelReplacedEvent(const char *)
+void setrowCountChangedEvent(const char *)
+void setseriesReplacedEvent(const char *)
+void setxColumnChangedEvent(const char *)
+void setyColumnChangedEvent(const char *)
+
+const char *getfirstRowChangedEvent(void)
+const char *getmodelReplacedEvent(void)
+const char *getrowCountChangedEvent(void)
+const char *getseriesReplacedEvent(void)
+const char *getxColumnChangedEvent(void)
+const char *getyColumnChangedEvent(void)

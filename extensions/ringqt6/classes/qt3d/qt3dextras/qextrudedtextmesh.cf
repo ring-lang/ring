@@ -1,0 +1,13 @@
+<class>
+name: QExtrudedTextMesh
+codename: Qt3DExtras::QExtrudedTextMesh
+para: Qt3DCore::QNode *
+</class>
+
+
+float depth(void)
+QFont font(void)
+QString text(void)
+void setDepth(float depth)
+void setFont(QFont font)
+void setText(QString text)

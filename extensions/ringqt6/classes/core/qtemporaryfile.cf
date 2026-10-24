@@ -1,0 +1,13 @@
+<class>
+name: QTemporaryFile
+para: void
+parent: QFile
+managed
+</class>
+
+bool autoRemove(void)
+QString fileName(void)
+QString fileTemplate(void)
+bool open(void)
+void setAutoRemove(bool b)
+void setFileTemplate(QString name)

@@ -1,0 +1,11 @@
+<class>
+name: QTextFrame
+para: void
+nonew
+</class>
+
+QTextCursor firstCursorPosition(void)
+QTextFrameFormat frameFormat(void)
+QTextCursor lastCursorPosition(void)
+QTextFrame *parentFrame(void)
+void setFrameFormat(QTextFrameFormat format)

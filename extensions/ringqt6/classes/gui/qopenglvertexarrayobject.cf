@@ -1,0 +1,12 @@
+<class>
+name: QOpenGLVertexArrayObject
+para: QObject *
+</class>
+
+void bind(void)
+bool create(void)
+void destroy(void)
+bool isCreated(void)
+GLuint objectId(void)
+void release(void)
+

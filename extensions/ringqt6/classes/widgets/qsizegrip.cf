@@ -1,0 +1,7 @@
+<class>
+name: QSizeGrip
+para: QWidget *parent
+parent: QWidget
+</class>
+
+void setVisible(bool visible)

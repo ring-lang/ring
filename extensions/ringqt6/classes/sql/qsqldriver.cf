@@ -1,0 +1,13 @@
+<class>
+name: QSqlDriver
+para: void
+abstract
+</class>
+
+<comment>
+DbmsType dbmsType(void)
+</comment>
+bool isOpenError(void)
+QSqlError lastError(void)
+QSql::NumericalPrecisionPolicy numericalPrecisionPolicy(void)
+void setNumericalPrecisionPolicy(QSql::NumericalPrecisionPolicy)

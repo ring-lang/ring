@@ -1,0 +1,21 @@
+<class>
+name: QGoochMaterial
+codename: Qt3DExtras::QGoochMaterial
+para: Qt3DCore::QNode *
+</class>
+
+
+float alpha(void)
+float beta(void)
+QColor cool(void)
+QColor diffuse(void)
+float shininess(void)
+QColor specular(void)
+QColor warm(void)
+void setAlpha(float alpha)
+void setBeta(float beta)
+void setCool(QColor cool)
+void setDiffuse(QColor diffuse)
+void setShininess(float shininess)
+void setSpecular(QColor specular)
+void setWarm(QColor warm)

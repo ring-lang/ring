@@ -1,0 +1,12 @@
+<class>
+name: QEffect
+codename: Qt3DRender::QEffect
+para: Qt3DCore::QNode *
+</class>
+
+void addParameter(Qt3DRender::QParameter *parameter)
+void addTechnique(Qt3DRender::QTechnique *t)
+QVector<Qt3DRender::QParameter *> parameters(void)
+void removeParameter(Qt3DRender::QParameter *parameter)
+void removeTechnique(Qt3DRender::QTechnique *t)
+QVector<Qt3DRender::QTechnique *> techniques(void)

@@ -1,0 +1,33 @@
+<class>
+name: QDialogButtonBox
+para: QWidget *parent
+parent: QWidget
+codename: GDialogButtonBox
+passvmpointer
+</class>
+
+void addButton(QAbstractButton *button, QDialogButtonBox::ButtonRole role)
+QPushButton *addButton@2(QString text, QDialogButtonBox::ButtonRole role)
+QPushButton *addButton@3(QDialogButtonBox::StandardButton button)
+QPushButton *button(QDialogButtonBox::StandardButton which)
+QDialogButtonBox::ButtonRole buttonRole(QAbstractButton *button)
+QList<QAbstractButton *> buttons(void)
+bool centerButtons(void)
+void clear(void)
+Qt::Orientation orientation(void)
+void removeButton(QAbstractButton *button)
+void setCenterButtons(bool center)
+void setOrientation(Qt::Orientation orientation)
+void setStandardButtons(QDialogButtonBox::StandardButton buttons)
+QDialogButtonBox::StandardButton standardButton(QAbstractButton *button)
+QDialogButtonBox::StandardButton standardButtons(void)
+
+void setacceptedEvent(const char *)
+void setrejectedEvent(const char *)
+void setclickedEvent(const char *)
+void sethelpRequestedEvent(const char *)
+
+const char *getacceptedEvent(void)
+const char *getrejectedEvent(void)
+const char *getclickedEvent(void)
+const char *gethelpRequestedEvent(void)

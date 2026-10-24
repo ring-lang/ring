@@ -1,0 +1,34 @@
+<class>
+name: QMenu
+para: QWidget *
+parent: QWidget
+</class>
+
+QAction *actionAt(QPoint)
+QRect actionGeometry(QAction *act)
+QAction *activeAction(void)
+void addAction(QAction *)
+QMenu *addMenu(QString)
+QAction *addSeparator(void)
+void clear(void)
+QAction *defaultAction(void)
+QAction *exec(const QPoint &)
+QAction *exec@2(void)
+QAction *exec@3(const QPoint &,QAction *)
+void hideTearOffMenu(void)
+QIcon icon(void)
+QAction *insertMenu(QAction *before, QMenu *menu)
+QAction *insertSeparator(QAction *before)
+bool isEmpty(void)
+bool isTearOffEnabled(void)
+bool isTearOffMenuVisible(void)
+QAction *menuAction(void)
+void popup(QPoint, QAction *atAction)
+bool separatorsCollapsible(void)
+void setActiveAction(QAction *act)
+void setDefaultAction(QAction *act)
+void setIcon(QIcon)
+void setSeparatorsCollapsible(bool collapse)
+void setTearOffEnabled(bool)
+void setTitle(QString)
+QString title(void)

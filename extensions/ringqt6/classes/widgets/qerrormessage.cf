@@ -1,0 +1,8 @@
+<class>
+name: QErrorMessage
+para: QWidget *parent
+parent: QDialog
+</class>
+
+void showMessage(QString message)
+void showMessage@2(QString message, QString type)

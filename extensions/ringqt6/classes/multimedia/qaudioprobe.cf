@@ -1,0 +1,17 @@
+<class>
+name: QAudioProbe
+para: QObject *
+parent: QObject
+codename: GAudioProbe
+passvmpointer
+</class>
+
+bool isActive(void)
+bool setSource(QMediaObject *source)
+bool setSource@2(QMediaRecorder *source)
+
+void setaudioBufferProbedEvent(const char *)
+void setflushEvent(const char *)
+
+const char *getaudioBufferProbedEvent(void)
+const char *getflushEvent(void)

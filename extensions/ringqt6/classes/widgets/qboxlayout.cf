@@ -1,0 +1,26 @@
+<class>
+name: QBoxLayout
+para: QBoxLayout::Direction dir, QWidget *parent
+parent: QLayout
+</class>
+
+void  addLayout(QLayout * layout, int stretch )
+void  addSpacerItem(QSpacerItem * spacerItem)
+void  addSpacing(int size)
+void  addStretch(int stretch )
+void  addStrut(int size)
+void  addWidget(QWidget * widget, int stretch , Qt::Alignment alignment )
+QBoxLayout::Direction  direction(void)
+void  insertLayout(int index, QLayout * layout, int stretch )
+void  insertSpacerItem(int index, QSpacerItem * spacerItem)
+void  insertSpacing(int index, int size)
+void  insertStretch(int index, int stretch )
+void  insertWidget(int index, QWidget * widget, int stretch , Qt::Alignment alignment )
+void  setDirection(QBoxLayout::Direction direction)
+void  setSpacing(int spacing)
+void  setStretch(int index, int stretch)
+bool  setStretchFactor(QWidget * widget, int stretch)
+bool  setStretchFactor@2(QLayout * layout, int stretch)
+int  spacing(void)
+int  stretch(int index)
+

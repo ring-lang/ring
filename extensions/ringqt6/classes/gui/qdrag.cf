@@ -1,0 +1,30 @@
+<class>
+name: QDrag
+para: QObject *
+parent: QObject
+codename: GDrag
+passvmpointer
+</class>
+
+
+Qt::DropAction defaultAction(void)
+QPixmap dragCursor(Qt::DropAction action)
+Qt::DropAction exec(Qt::DropActions supportedActions)
+Qt::DropAction exec@2(Qt::DropActions supportedActions, Qt::DropAction defaultDropAction)
+QPoint hotSpot(void)
+QMimeData *mimeData(void)
+QPixmap pixmap(void)
+void setDragCursor(QPixmap cursor, Qt::DropAction action)
+void setHotSpot(QPoint hotspot)
+void setMimeData(QMimeData * data)
+void setPixmap(QPixmap pixmap)
+QObject * source(void)
+Qt::DropActions supportedActions(void)
+QObject * target(void)
+
+void setactionChangedEvent(const char *)
+void settargetChangedEvent(const char *)
+
+const char *getactionChangedEvent(void)
+const char *gettargetChangedEvent(void)
+

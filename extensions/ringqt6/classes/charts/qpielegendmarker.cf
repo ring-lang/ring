@@ -1,0 +1,7 @@
+<class>
+name: QPieLegendMarker
+parent: QLegendMarker
+abstract
+</class>
+
+QPieSlice * slice(void)

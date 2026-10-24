@@ -1,0 +1,12 @@
+<class>
+name: QGraphicsLineItem
+para: QGraphicsItem *
+parent: QGraphicsItem
+abstract
+</class>
+
+QLineF line(void)
+QPen pen(void)
+void setLine(QLineF line)
+void setLine@2(qreal x1, qreal y1, qreal x2, qreal y2)
+void setPen(QPen pen)

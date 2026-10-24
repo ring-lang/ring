@@ -1,0 +1,40 @@
+<class>
+name: QTextToSpeech
+para: QObject *
+parent: QObject
+codename: GTextToSpeech
+passvmpointer
+</class>
+
+QVector<QLocale> availableLocales(void)
+QVector<QVoice> availableVoices(void)
+QLocale locale(void)
+double pitch(void)
+double rate(void)
+QTextToSpeech::State state(void)
+QVoice voice(void)
+double volume(void)
+void pause(void)
+void resume(void)
+void say(QString text)
+void setLocale(QLocale locale)
+void setPitch(double pitch)
+void setRate(double rate)
+void setVoice(QVoice voice)
+void setVolume(double volume)
+void stop(void)
+QStringList availableEngines(void)
+
+void setlocaleChangedEvent(const char *)
+void setpitchChangedEvent(const char *)
+void setrateChangedEvent(const char *)
+void setstateChangedEvent(const char *)
+void setvoiceChangedEvent(const char *)
+void setvolumeChangedEvent(const char *)
+
+const char *getlocaleChangedEvent(void)
+const char *getpitchChangedEvent(void)
+const char *getrateChangedEvent(void)
+const char *getstateChangedEvent(void)
+const char *getvoiceChangedEvent(void)
+const char *getvolumeChangedEvent(void)

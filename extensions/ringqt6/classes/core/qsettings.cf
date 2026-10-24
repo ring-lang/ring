@@ -1,0 +1,31 @@
+<class>
+name: QSettings
+para: QString, QString
+parent: QObject
+</class>
+
+QStringList allKeys(void)
+QString applicationName(void)
+void beginGroup(QString prefix)
+int beginReadArray(QString prefix)
+void beginWriteArray(QString prefix, int size)
+QStringList childGroups(void)
+QStringList childKeys(void)
+void clear(void)
+bool contains(QString key)
+void endArray(void)
+void endGroup(void)
+bool fallbacksEnabled(void)
+QString fileName(void)
+QSettings::Format format(void)
+QString group(void)
+bool isWritable(void)
+QString organizationName(void)
+void remove(QString key)
+QSettings::Scope scope(void)
+void setArrayIndex(int i)
+void setFallbacksEnabled(bool b)
+void setValue(QString key, QVariant value)
+QSettings::Status status(void)
+void sync(void)
+QVariant value(QString key, QVariant defaultValue)

@@ -1,0 +1,7 @@
+<runcode>
+
+aStringTypes + "QString"
+
+aBeforeReturn + ["QString",".toStdString().c_str()"]
+
+</runcode>

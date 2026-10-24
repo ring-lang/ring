@@ -1,0 +1,18 @@
+<comment>
+				Module (sql)
+</comment>
+
+<loadfile> sql/qsqldatabase.cf
+<loadfile> sql/qsqldriver.cf
+<loadfile> sql/qsqlquery.cf
+<loadfile> sql/qsqlerror.cf
+<loadfile> sql/qsqlindex.cf
+<loadfile> sql/qsqlrecord.cf
+<loadfile> sql/qsqlfield.cf
+<loadfile> sql/qsqldrivercreatorbase.cf
+<loadfile> sql/qsqlquerymodel.cf
+<loadfile> sql/qsqltablemodel.cf
+<loadfile> sql/qsqlrelation.cf
+<loadfile> sql/qsqlrelationaltablemodel.cf
+<loadfile> sql/qsqlrelationaldelegate.cf
+

@@ -1,0 +1,12 @@
+<class>
+name: QGraphicsSvgItem
+para: QGraphicsItem *
+parent: QGraphicsObject
+</class>
+
+QString elementId(void)
+QSize maximumCacheSize(void)
+QSvgRenderer * renderer(void)
+void setElementId(QString id)
+void setMaximumCacheSize(QSize size)
+void setSharedRenderer(QSvgRenderer *renderer)

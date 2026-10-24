@@ -1,0 +1,15 @@
+<class>
+name: QMargins
+para: void
+managed
+</class>
+
+int bottom(void)
+bool isNull(void)
+int left(void)
+int right(void)
+int top(void)
+void setBottom(int bottom)
+void setLeft(int left)
+void setRight(int right)
+void setTop(int top)
