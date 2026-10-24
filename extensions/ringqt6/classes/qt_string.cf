@@ -1,7 +1,9 @@
 <runcode>
 
 aStringTypes + "QString"
+aStringTypes + "QStringView"
 
 aBeforeReturn + ["QString",".toStdString().c_str()"]
+aBeforeReturn + ["QStringView",".toString().toStdString().c_str()"]
 
 </runcode>
