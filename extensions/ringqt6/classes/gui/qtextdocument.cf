@@ -70,7 +70,12 @@ void setUndoRedoEnabled(bool enable)
 void setUseDesignMetrics(bool b)
 QSizeF size(void)
 qreal textWidth(void)
+<filter> sysget("RINGQT_QT6") = ""
 QString toHtml(QByteArray encoding)
+</filter>
+<filter> sysget("RINGQT_QT6") != ""
+QString toHtml(void)
+</filter>
 QString toPlainText(void)
 void undo(QTextCursor *cursor)
 bool useDesignMetrics(void)
