@@ -1,7 +1,7 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GAbstractAxis" ,
-		:realname = "QtCharts::QAbstractAxis" ,
-		:initpara = "QtCharts::QAbstractAxisPrivate &",
+		:realname = "QAbstractAxis" ,
+		:initpara = "QAbstractAxisPrivate &",
 		:events = [
 				[ 	:signal = "colorChanged(QColor)" ,
 					:slot = "colorChangedSlot()" ,
