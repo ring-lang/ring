@@ -1,10 +1,12 @@
 <class>
 name: QMutex
-para: QMutex::RecursionMode
+para: void
 managed
 </class>
 
-bool isRecursive(void)
 void lock(void)
 void unlock(void)
 
+<filter> sysget("RINGQT_QT6") = ""
+bool isRecursive(void)
+</filter>
