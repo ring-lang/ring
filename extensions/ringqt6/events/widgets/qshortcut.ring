@@ -1,5 +1,7 @@
 aClasses +	[	:name = "GShortcut" ,
 			:realname = "QShortcut" ,
+			:useqobject = True ,
+			:CustomCodeAfterInclude = "#include <QWidget>" ,
 			:events = [
 					[ 	:signal = "activated()" ,
 						:slot = "activatedSlot()" ,
@@ -10,4 +12,4 @@ aClasses +	[	:name = "GShortcut" ,
 						:event = "activatedAmbiguously"
 					]
 				  ]
-		] 
+		]
