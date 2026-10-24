@@ -28,15 +28,8 @@ void updatePreview(void)
 void zoomIn(qreal factor)
 void zoomOut(qreal factor)
 
-<filter> sysget("RINGQT_QT6") = ""
-QPrinter::Orientation orientation(void)
-void setOrientation(QPrinter::Orientation orientation)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 QPageLayout::Orientation orientation(void)
 void setOrientation(QPageLayout::Orientation orientation)
-</filter>
 
 void setpaintRequestedEvent(const char *)
 void setpreviewChangedEvent(const char *)

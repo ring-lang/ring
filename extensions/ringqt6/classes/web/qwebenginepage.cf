@@ -12,9 +12,6 @@ QSizeF contentsSize(void)
 <comment>
 QWebEngineContextMenuData contextMenuData(void)
 </comment>
-<filter> sysget("RINGQT_QT6") = ""
-QMenu * createStandardContextMenu(void)
-</filter>
 QWebEnginePage * devToolsPage(void)
 void download(QUrl url, QString filename)
 void findText(QString subString, QWebEnginePage::FindFlags options)
@@ -69,9 +66,6 @@ void setUrl(QUrl url)
 <comment>
 void setUrlRequestInterceptor(QWebEngineUrlRequestInterceptor *interceptor)
 </comment>
-<filter> sysget("RINGQT_QT6") = ""
-void setView(QWidget *view)
-</filter>
 <comment>
 void setVisible(bool visible)
 </comment>
@@ -86,9 +80,6 @@ void toPlainText(QWebEngineCallback<const QString &>)
 </comment>
 void triggerAction(QWebEnginePage::WebAction action, bool checked)
 QUrl url(void)
-<filter> sysget("RINGQT_QT6") = ""
-QWidget * view(void)
-</filter>
 QWebChannel * webChannel(void)
 qreal zoomFactor(void)
 

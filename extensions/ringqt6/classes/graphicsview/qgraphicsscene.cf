@@ -76,9 +76,6 @@ void setSceneRect@2(qreal x, qreal y, qreal w, qreal h)
 void setSelectionArea(QPainterPath path, QTransform deviceTransform)
 void setSelectionArea@3(QPainterPath path, Qt::ItemSelectionOperation selectionOperation, Qt::ItemSelectionMode mode, QTransform deviceTransform)
 
-<filter> sysget("RINGQT_QT6") = ""
-void setSelectionArea@2(QPainterPath path, Qt::ItemSelectionMode mode, QTransform deviceTransform)
-</filter>
 void setStickyFocus(bool enabled)
 void setStyle(QStyle *style)
 bool stickyFocus(void)

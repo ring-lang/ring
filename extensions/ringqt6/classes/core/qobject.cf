@@ -31,7 +31,3 @@ int startTimer(int interval)
 QThread *thread(void)
 void deleteLater(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-bool setProperty@5(const char *name, QString)
-bool setProperty@string(const char *name, QString)
-</filter>

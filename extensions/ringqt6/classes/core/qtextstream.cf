@@ -14,9 +14,6 @@ managed
 
 bool atEnd(void)
 bool autoDetectUnicode(void)
-<filter> sysget("RINGQT_QT6") = ""
-QTextCodec * codec(void)
-</filter>
 QIODevice * device(void)
 QTextStream::FieldAlignment fieldAlignment(void)
 int fieldWidth(void)
@@ -36,10 +33,6 @@ void reset(void)
 void resetStatus(void)
 bool seek(qint64 pos)
 void setAutoDetectUnicode(bool enabled)
-<filter> sysget("RINGQT_QT6") = ""
-void setCodec(QTextCodec * codec)
-void setCodec@2(char * codecName)
-</filter>
 void setDevice(QIODevice * device)
 void setFieldAlignment(QTextStream::FieldAlignment mode)
 void setFieldWidth(int width)

@@ -13,8 +13,3 @@
 <loadfile> bluetooth/qbluetoothsocket.cf
 <loadfile> bluetooth/qbluetoothuuid.cf
 
-<filter> sysget("RINGQT_QT6") = ""
-<loadfile> bluetooth/qbluetoothtransfermanager.cf
-<loadfile> bluetooth/qbluetoothtransferreply.cf
-<loadfile> bluetooth/qbluetoothtransferrequest.cf
-</filter>

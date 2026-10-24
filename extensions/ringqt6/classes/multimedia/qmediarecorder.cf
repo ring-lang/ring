@@ -12,38 +12,10 @@ QMediaRecorder::Error error(void)
 QString errorString(void)
 bool isAvailable(void)
 QUrl outputLocation(void)
-<filter> sysget("RINGQT_QT6") = ""
-bool setOutputLocation(QUrl location)
-</filter>
-<filter> sysget("RINGQT_QT6") != ""
 void setOutputLocation(QUrl location)
-</filter>
 void pause(void)
 void record(void)
 void stop(void)
-
-<filter> sysget("RINGQT_QT6") = ""
-QMultimedia::AvailabilityStatus availability(void)
-QString containerDescription(QString format)
-QString containerFormat(void)
-bool isMetaDataAvailable(void)
-bool isMetaDataWritable(void)
-bool isMuted(void)
-QVariant metaData(QString key)
-QStringList supportedAudioCodecs(void)
-QStringList supportedContainers(void)
-QStringList supportedVideoCodecs(void)
-QString videoCodecDescription(QString codec)
-qreal volume(void)
-void setAudioSettings(QAudioEncoderSettings settings)
-void setEncodingSettings(QAudioEncoderSettings audio, QVideoEncoderSettings video, QString container)
-void setMetaData(QString key, QVariant value)
-void setMuted(bool muted)
-void setVideoSettings(QVideoEncoderSettings settings)
-void setVolume(qreal volume)
-QMediaRecorder::State state(void)
-QMediaRecorder::Status status(void)
-</filter>
 
 void setactualLocationChangedEvent(const char *)
 void setdurationChangedEvent(const char *)

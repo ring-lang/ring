@@ -31,12 +31,4 @@ void setProxy(QNetworkProxy)
 void setProxyFactory(QNetworkProxyFactory *factory)
 QStringList supportedSchemes(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-QNetworkConfiguration activeConfiguration(void)
-QNetworkConfiguration configuration(void)
-QNetworkAccessManager::NetworkAccessibility networkAccessible(void)
-void setConfiguration(QNetworkConfiguration)
-void setNetworkAccessible(QNetworkAccessManager::NetworkAccessibility accessible)
-</filter>
-
 void geteventparameters(void)

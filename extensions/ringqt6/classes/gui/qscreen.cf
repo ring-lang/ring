@@ -23,17 +23,11 @@ QRect mapBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b, QRect rect)
 QString name(void)
 Qt::ScreenOrientation nativeOrientation(void)
 Qt::ScreenOrientation orientation(void)
-<filter> sysget("RINGQT_QT6") = ""
-Qt::ScreenOrientations orientationUpdateMask(void)
-</filter>
 qreal physicalDotsPerInch(void)
 qreal physicalDotsPerInchX(void)
 qreal physicalDotsPerInchY(void)
 QSizeF physicalSize(void)
 Qt::ScreenOrientation primaryOrientation(void)
 qreal refreshRate(void)
-<filter> sysget("RINGQT_QT6") = ""
-void setOrientationUpdateMask(Qt::ScreenOrientations mask)
-</filter>
 QSize size(void)
 QTransform transformBetween(Qt::ScreenOrientation a, Qt::ScreenOrientation b, QRect target)

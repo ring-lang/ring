@@ -21,11 +21,6 @@ qreal volume(void)
 void play(void)
 void stop(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-QString category(void)
-void setCategory(QString category)
-</filter>
-
 void setloadedChangedEvent(const char *)
 void setloopCountChangedEvent(const char *)
 void setloopsRemainingChangedEvent(const char *)

@@ -42,12 +42,7 @@ void setStyleHint(QFont::StyleHint hint, QFont::StyleStrategy strategy)
 void setStyleName(QString)
 void setStyleStrategy(QFont::StyleStrategy s)
 void setUnderline(bool enable)
-<filter> sysget("RINGQT_QT6") = ""
-void setWeight(int weight)
-</filter>
-<filter> sysget("RINGQT_QT6") != ""
 void setLegacyWeight(int weight)
-</filter>
 void setWordSpacing(double spacing)
 int stretch(void)
 bool strikeOut(void)

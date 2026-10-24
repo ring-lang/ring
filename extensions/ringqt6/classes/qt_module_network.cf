@@ -23,6 +23,3 @@
 <loadfile> network/qsslsocket.cf
 </filter>
 
-<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_QT6") = "")
-<loadfile> network/qnetworkconfigurationmanager.cf
-</filter>

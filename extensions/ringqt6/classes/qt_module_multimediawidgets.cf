@@ -5,7 +5,3 @@
 <loadfile> multimediawidgets/qvideowidget.cf
 <loadfile> multimediawidgets/qgraphicsvideoitem.cf
 
-<filter> sysget("RINGQT_QT6") = ""
-<loadfile> multimediawidgets/qcameraviewfinder.cf
-<loadfile> multimediawidgets/qvideowidgetcontrol.cf
-</filter>

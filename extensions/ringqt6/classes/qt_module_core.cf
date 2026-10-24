@@ -62,10 +62,6 @@
 <loadfile> core/qmutex.cf
 </filter>
 
-<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_QT6") = "")
-<loadfile> core/qmutexlocker.cf
-</filter>
-
 <loadfile> core/qrectf.cf
 <loadfile> core/qlinef.cf
 <loadfile> core/qregexp.cf

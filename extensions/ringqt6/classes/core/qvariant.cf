@@ -39,9 +39,6 @@ QRect toRect(void)
 QRectF toRectF(void)
 QRegularExpression toRegularExpression(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-QRegExp toRegExp(void)
-</filter>
 QSize toSize(void)
 QSizeF toSizeF(void)
 QStringList toStringList(void)

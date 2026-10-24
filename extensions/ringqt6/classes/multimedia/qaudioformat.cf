@@ -10,13 +10,3 @@ int sampleRate(void)
 void setChannelCount(int channels)
 void setSampleRate(int samplerate)
 
-<filter> sysget("RINGQT_QT6") = ""
-QAudioFormat::Endian byteOrder(void)
-QString codec(void)
-int sampleSize(void)
-QAudioFormat::SampleType sampleType(void)
-void setByteOrder(QAudioFormat::Endian byteOrder)
-void setCodec(QString codec)
-void setSampleSize(int sampleSize)
-void setSampleType(QAudioFormat::SampleType sampleType)
-</filter>

@@ -33,29 +33,10 @@ QOpenGLContext * globalShareContext(void)
 QOpenGLContext::OpenGLModuleType openGLModuleType(void)
 bool supportsThreadedOpenGL(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-QVariant nativeHandle(void)
-void setNativeHandle(QVariant handle)
-QAbstractOpenGLFunctions * versionFunctions(QOpenGLVersionProfile versionProfile))
-TYPE * versionFunctions@2(void)
-void * openGLModuleHandle(void)
-</filter>
-
 <register>
 QOpenGLFunctions_3_2_Core *opengl32(void)
 <register>
 
-<filter> sysget("RINGQT_QT6") = ""
-<code>
-RING_FUNC(ring_QOpenGLContext_opengl32)
-{
-	QOpenGLFunctions_3_2_Core *f = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_3_2_Core>();
-	RING_API_RETCPOINTER(f,"QOpenGLFunctions_3_2_Core") ;
-}
-</code>
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 <code>
 RING_FUNC(ring_QOpenGLContext_opengl32)
 {
@@ -63,4 +44,3 @@ RING_FUNC(ring_QOpenGLContext_opengl32)
 	RING_API_RETCPOINTER(f,"QOpenGLFunctions_3_2_Core") ;
 }
 </code>
-</filter>

@@ -7,9 +7,6 @@ managed
 
 QStringList split( QString  sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@2(QChar sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
-<filter> sysget("RINGQT_QT6") = ""
-QStringList split@3( QRegExp  rx, Qt::SplitBehavior behavior )
-</filter>
 QStringList split@4( QRegularExpression  re, Qt::SplitBehavior behavior )
 
 QString append(QString  str)
@@ -46,9 +43,6 @@ QString leftJustified(int width, QChar fill, bool truncate)
 QString rightJustified(int width, QChar fill, bool truncate)
 QString section@1(QChar sep, int start, int end, QString::SectionFlags flags)
 QString section@2(QString sep, int start, int end, QString::SectionFlags flags)
-<filter> sysget("RINGQT_QT6") = ""
-QString section@3(QRegExp reg, int start, int end, QString::SectionFlags flags)
-</filter>
 QString section@4(QRegularExpression re, int start, int end, QString::SectionFlags flags)
 
 QString simplified(void)

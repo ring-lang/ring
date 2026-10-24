@@ -36,8 +36,3 @@ void writeStartElement@2(QString qualifiedName)
 void writeTextElement(QString namespaceUri, QString name, QString text)
 void writeTextElement@2(QString qualifiedName, QString text)
 
-<filter> sysget("RINGQT_QT6") = ""
-QTextCodec *codec(void)
-void setCodec(QTextCodec *codec)
-void setCodec@2(const char *codecName)
-</filter>

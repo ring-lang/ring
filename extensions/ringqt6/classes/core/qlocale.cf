@@ -16,17 +16,6 @@ QString dateFormat(QLocale::FormatType format)
 QString dateTimeFormat(QLocale::FormatType format)
 QString dayName(int day, QLocale::FormatType type)
 
-<filter> sysget("RINGQT_QT6") = ""
-QChar decimalPoint(void)
-QChar exponential(void)
-QChar groupSeparator(void)
-QChar negativeSign(void)
-QChar percent(void)
-QChar positiveSign(void)
-QChar zeroDigit(void)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 QString decimalPoint(void)
 QString exponential(void)
 QString groupSeparator(void)
@@ -34,7 +23,6 @@ QString negativeSign(void)
 QString percent(void)
 QString positiveSign(void)
 QString zeroDigit(void)
-</filter>
 
 Qt::DayOfWeek firstDayOfWeek(void)
 <comment>
@@ -112,23 +100,5 @@ QString scriptToString(QLocale::Script script)
 void setDefault(QLocale locale)
 QLocale system(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-QString quoteString@2(QStringRef str, QLocale::QuotationStyle style)
-double toDouble@2(QStringRef s, bool *ok)
-float toFloat@2(QStringRef s, bool *ok)
-int toInt@2(QStringRef s, bool *ok)
-qlonglong toLongLong@2(QStringRef s, bool *ok)
-short toShort@2(QStringRef s, bool *ok)
-uint toUInt@2(QStringRef s, bool *ok)
-qulonglong toULongLong@2(QStringRef s, bool *ok)
-ushort toUShort@2(QStringRef s, bool *ok)
-long toLong(QString s, bool *ok)
-long toLong@2(QStringRef s, bool *ok)
-ulong toULong(QString s, bool *ok)
-ulong toULong@2(QStringRef s, bool *ok)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 long toLong(QString s, bool *ok)
 ulong toULong(QString s, bool *ok)
-</filter>

@@ -4,29 +4,10 @@ para: void
 parent: QObject
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
-int bufferStatus(void)
-QMediaContent currentMedia(void)
-QMediaContent media(void)
-QIODevice *mediaStream(void)
-QMediaPlaylist *playlist(void)
-bool isAudioAvailable(void)
-bool isVideoAvailable(void)
-void setMedia(QUrl)
-void setPlaylist(QMediaPlaylist *playlist)
-bool isMuted(void)
-int state(void)
-int volume(void)
-void setMuted(bool muted)
-void setVolume(int volume)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 float bufferProgress(void)
 QUrl source(void)
 void setSource(QUrl url)
 int playbackState(void)
-</filter>
 
 int duration(void)
 int error(void)

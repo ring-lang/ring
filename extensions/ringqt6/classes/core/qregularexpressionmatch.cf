@@ -22,7 +22,3 @@ QRegularExpression::MatchType matchType(void)
 QRegularExpression regularExpression(void)
 void swap(QRegularExpressionMatch  other)
 
-<filter> sysget("RINGQT_QT6") = ""
-QStringRef capturedRef(int nth)
-QStringRef capturedRef@2(const QString  name)
-</filter>

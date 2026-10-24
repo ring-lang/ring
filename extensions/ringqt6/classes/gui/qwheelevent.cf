@@ -10,16 +10,5 @@ bool inverted(void)
 QPoint pixelDelta(void)
 Qt::ScrollPhase phase(void)
 
-<filter> sysget("RINGQT_QT6") = ""
-QPointF globalPosF(void)
-int globalX(void)
-int globalY(void)
-QPointF posF(void)
-int x(void)
-int y(void)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 QPointF position(void)
 QPointF globalPosition(void)
-</filter>

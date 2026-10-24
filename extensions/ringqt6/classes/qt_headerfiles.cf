@@ -113,37 +113,12 @@ public:
 #include <QGraphicsVideoItem>
 </filter>
 
-<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_QT6") = "")
-#include "gaudioinput.h"
-#include "gaudiorecorder.h"
-#include "gaudioprobe.h"
-#include "gvideoprobe.h"
-#include <QMediaContent>
-#include <QMediaPlaylist>
-#include <QCameraViewfinder>
-#include <QGraphicsVideoItem>
-#include <QVideoWidgetControl>
-#include <QCamera>
-#include <QCameraImageCapture>
-#include <QAudioOutput>
-#include <QAudioInput>
-#include <QAudioRecorder>
-#include <QAudioProbe>
-#include <QVideoProbe>
-#include <QAudioDeviceInfo>
-</filter>
-
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""
 #include "gbluetoothdevicediscoveryagent.h"
 #include "gbluetoothlocaldevice.h"
 #include "gbluetoothserver.h"
 #include "gbluetoothservicediscoveryagent.h"
 #include "gbluetoothsocket.h"
-</filter>
-
-<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_QT6") = "")
-#include "gbluetoothtransfermanager.h"
-#include "gbluetoothtransferreply.h"
 </filter>
 
 <filter> sysget("RINGQT_NOSQL") = ""
@@ -173,10 +148,6 @@ public:
 #include "gsslsocket.h"
 </filter>
 
-<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_QT6") = "")
-#include "gnetworkconfigurationmanager.h"
-</filter>
-
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""
 #include <QBluetoothAddress>
 #include <QBluetoothDeviceDiscoveryAgent>
@@ -188,12 +159,6 @@ public:
 #include <QBluetoothServiceDiscoveryAgent>
 #include <QBluetoothServiceInfo>
 #include <QBluetoothSocket>
-</filter>
-
-<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_QT6") = "")
-#include <QBluetoothTransferManager>
-#include <QBluetoothTransferReply>
-#include <QBluetoothTransferRequest>
 </filter>
 
 <filter> sysget("RINGQT_NOPOSITIONING") = ""
@@ -346,10 +311,6 @@ public:
 #include <Qt3DRender/QCullFace>
 #include <Qt3DRender/QDepthTest>
 #include <Qt3DRender/QViewport>
-</filter>
-
-<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_QT6") = "")
-#include <Qt3DCore/QNodeCommand>
 </filter>
 
 <filter> sysget("RINGQT_NOCHARTS") = ""

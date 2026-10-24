@@ -12,12 +12,5 @@ void setBoundingRect(QRect)
 int size(void)
 void swap(QPicture)
 
-<filter> sysget("RINGQT_QT6") = ""
-bool load(QString, const char *format)
-bool save(QString, const char *format)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 bool load(QString)
 bool save(QString)
-</filter>

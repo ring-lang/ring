@@ -15,12 +15,5 @@ void setPos@2(QScreen *screen, int x, int y)
 void setPos@3(QPoint)
 void setPos@4(QScreen *screen, QPoint)
 
-<filter> sysget("RINGQT_QT6") = ""
-QBitmap *bitmap(void)
-QBitmap *mask(void)
-</filter>
-
-<filter> sysget("RINGQT_QT6") != ""
 QBitmap bitmap(void)
 QBitmap mask(void)
-</filter>
