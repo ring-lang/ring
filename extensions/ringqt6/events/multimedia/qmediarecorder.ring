@@ -1,6 +1,6 @@
 aClasses +	[	:name = "GMediaRecorder" ,
 			:realname = "QMediaRecorder",
-			:initpara = "QMediaObject *",
+			:useqobject = True ,
 			:events = [
 					[ 	:signal = "actualLocationChanged(QUrl)" ,
 						:slot = "actualLocationChangedSlot()" ,
@@ -10,29 +10,13 @@ aClasses +	[	:name = "GMediaRecorder" ,
 						:slot = "durationChangedSlot()" ,
 						:event = "durationChanged"
 					] ,
-					[ 	:signal = "error(QMediaRecorder::Error)" ,
-						:slot = "errorSlot()" ,
-						:event = "error"
-					] ,
-					[ 	:signal = "metaDataChanged()" ,
-						:slot = "metaDataChangedSlot()" ,
-						:event = "metaDataChanged"
-					] ,
-					[ 	:signal = "mutedChanged(bool)" ,
-						:slot = "mutedChangedSlot()" ,
-						:event = "mutedChanged"
-					] ,
-					[ 	:signal = "stateChanged(QMediaRecorder::State)" ,
+					[ 	:signal = "recorderStateChanged(QMediaRecorder::RecorderState)" ,
 						:slot = "stateChangedSlot()" ,
 						:event = "stateChanged"
 					] ,
-					[ 	:signal = "statusChanged(QMediaRecorder::Status)" ,
-						:slot = "statusChangedSlot()" ,
-						:event = "statusChanged"
-					] ,
-					[ 	:signal = "volumeChanged(qreal)" ,
-						:slot = "volumeChangedSlot()" ,
-						:event = "volumeChanged"
+					[ 	:signal = "errorOccurred(QMediaRecorder::Error,const QString &)" ,
+						:slot = "errorSlot()" ,
+						:event = "error"
 					]
 				  ]
-		] 
+		]
