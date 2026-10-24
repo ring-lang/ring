@@ -15,13 +15,23 @@ int cyan(void)
 double cyanF(void)
 QColor darker(int factor)
 void getCmyk(int *c, int *m, int *y, int *k, int *a)
-void getCmykF(qreal *c, qreal *m, qreal *y, qreal *k, qreal *a)
 void getHsl(int *h, int *s, int *l, int *a)
-void getHslF(qreal *h, qreal *s, qreal *l, qreal *a)
 void getHsv(int *h, int *s, int *v, int *a)
-void getHsvF(qreal *h, qreal *s, qreal *v, qreal *a)
 void getRgb(int *r, int *g, int *b, int *a)
+
+<filter> sysget("RINGQT_QT6") = ""
+void getCmykF(qreal *c, qreal *m, qreal *y, qreal *k, qreal *a)
+void getHslF(qreal *h, qreal *s, qreal *l, qreal *a)
+void getHsvF(qreal *h, qreal *s, qreal *v, qreal *a)
 void getRgbF(qreal *r, qreal *g, qreal *b, qreal *a)
+</filter>
+
+<filter> sysget("RINGQT_QT6") != ""
+void getCmykF(float *c, float *m, float *y, float *k, float *a)
+void getHslF(float *h, float *s, float *l, float *a)
+void getHsvF(float *h, float *s, float *v, float *a)
+void getRgbF(float *r, float *g, float *b, float *a)
+</filter>
 int green(void)
 double greenF(void)
 int hslHue(void)
