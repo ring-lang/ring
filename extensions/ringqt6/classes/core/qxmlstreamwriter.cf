@@ -6,13 +6,10 @@ managed
 
 bool autoFormatting(void)
 int autoFormattingIndent(void)
-QTextCodec *codec(void)
 QIODevice *device(void)
 bool hasError(void)
 void setAutoFormatting(bool enable)
 void setAutoFormattingIndent(int spacesOrTabs)
-void setCodec(QTextCodec *codec)
-void setCodec@2(const char *codecName)
 void setDevice(QIODevice *device)
 void writeAttribute(QString, QString,QString)
 void writeAttribute@2(QString, QString)
@@ -38,3 +35,9 @@ void writeStartElement(QString namespaceUri, QString name)
 void writeStartElement@2(QString qualifiedName)
 void writeTextElement(QString namespaceUri, QString name, QString text)
 void writeTextElement@2(QString qualifiedName, QString text)
+
+<filter> sysget("RINGQT_QT6") = ""
+QTextCodec *codec(void)
+void setCodec(QTextCodec *codec)
+void setCodec@2(const char *codecName)
+</filter>

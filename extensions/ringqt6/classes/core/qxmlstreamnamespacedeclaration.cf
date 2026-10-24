@@ -4,6 +4,5 @@ para: void
 managed
 </class>
 
-QStringRef namespaceUri(void)
-QStringRef prefix(void)
-
+QStringView namespaceUri(void)
+QStringView prefix(void)

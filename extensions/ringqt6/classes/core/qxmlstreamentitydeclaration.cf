@@ -4,8 +4,8 @@ para: void
 managed
 </class>
 
-QStringRef name(void)
-QStringRef notationName(void)
-QStringRef publicId(void)
-QStringRef systemId(void)
-QStringRef value(void)
+QStringView name(void)
+QStringView notationName(void)
+QStringView publicId(void)
+QStringView systemId(void)
+QStringView value(void)
