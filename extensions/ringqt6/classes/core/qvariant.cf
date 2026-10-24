@@ -37,8 +37,11 @@ QPointF toPointF(void)
 qreal toReal(bool *ok)
 QRect toRect(void)
 QRectF toRectF(void)
-QRegExp toRegExp(void)
 QRegularExpression toRegularExpression(void)
+
+<filter> sysget("RINGQT_QT6") = ""
+QRegExp toRegExp(void)
+</filter>
 QSize toSize(void)
 QSizeF toSizeF(void)
 QStringList toStringList(void)
@@ -80,7 +83,6 @@ managed
 name: QVariant5
 parent: QVariant
 para: QString
-codename: QVariant
 managed
 </class>
 
@@ -112,6 +114,5 @@ managed
 name: QVariantString
 parent: QVariant
 para: QString
-codename: QVariant
 managed
 </class>
