@@ -2,13 +2,12 @@
 name: QPrintPreviewWidget
 para: QPrinter *
 parent: QWidget
-codename: GPrintPreviewWidget 
+codename: GPrintPreviewWidget
 passvmpointer
 </class>
 
 
 int currentPage(void)
-QPrinter::Orientation orientation(void)
 int pageCount(void)
 QPrintPreviewWidget::ViewMode viewMode(void)
 qreal zoomFactor(void)
@@ -20,7 +19,6 @@ void setAllPagesViewMode(void)
 void setCurrentPage(int page)
 void setFacingPagesViewMode(void)
 void setLandscapeOrientation(void)
-void setOrientation(QPrinter::Orientation orientation)
 void setPortraitOrientation(void)
 void setSinglePageViewMode(void)
 void setViewMode(QPrintPreviewWidget::ViewMode mode)
@@ -29,6 +27,16 @@ void setZoomMode(QPrintPreviewWidget::ZoomMode zoomMode)
 void updatePreview(void)
 void zoomIn(qreal factor)
 void zoomOut(qreal factor)
+
+<filter> sysget("RINGQT_QT6") = ""
+QPrinter::Orientation orientation(void)
+void setOrientation(QPrinter::Orientation orientation)
+</filter>
+
+<filter> sysget("RINGQT_QT6") != ""
+QPageLayout::Orientation orientation(void)
+void setOrientation(QPageLayout::Orientation orientation)
+</filter>
 
 void setpaintRequestedEvent(const char *)
 void setpreviewChangedEvent(const char *)

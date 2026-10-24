@@ -60,5 +60,7 @@ bool supportsMultipleCopies(void)
 int toPage(void)
 bool newPage(void)
 QPaintEngine *paintEngine(void)
+<filter> sysget("RINGQT_QT6") = ""
 void setPageSizeMM(QSizeF)
+</filter>
 
