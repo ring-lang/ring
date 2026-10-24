@@ -1,7 +1,7 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GAbstractSeries" ,
-		:realname = "QtCharts::QAbstractSeries" ,
-		:initpara = "QtCharts::QAbstractSeriesPrivate &",
+		:realname = "QAbstractSeries" ,
+		:initpara = "QAbstractSeriesPrivate &",
 		:events = [
 				[ 	:signal = "nameChanged()" ,
 					:slot = "nameChangedSlot()" ,
