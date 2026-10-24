@@ -1,6 +1,6 @@
-aClasses + [
+﻿aClasses + [
 		:name = "GAreaSeries" ,
-		:realname = "QtCharts::QAreaSeries" ,
+		:realname = "QAreaSeries" ,
 		:initpara = "QObject *",
 		:events = [
 				[ 	:signal = "borderColorChanged(QColor)" ,
