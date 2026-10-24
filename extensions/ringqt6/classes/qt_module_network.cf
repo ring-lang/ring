@@ -17,9 +17,12 @@
 <loadfile> network/qnetworkinterface.cf
 <loadfile> network/qnetworkcookie.cf
 <loadfile> network/qnetworkcookiejar.cf
-<loadfile> network/qnetworkconfigurationmanager.cf
 <loadfile> network/qsslconfiguration.cf
 <loadfile> network/qsslcertificate.cf
 <loadfile> network/qsslkey.cf
 <loadfile> network/qsslsocket.cf
+</filter>
+
+<filter> (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_QT6") = "")
+<loadfile> network/qnetworkconfigurationmanager.cf
 </filter>
