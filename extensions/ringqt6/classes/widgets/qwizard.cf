@@ -35,7 +35,12 @@ QWidget *sideWidget(void)
 int startId(void)
 Qt::TextFormat subTitleFormat(void)
 Qt::TextFormat titleFormat(void)
+<filter> sysget("RINGQT_QT6") = ""
 QList<int> visitedPages(void)
+</filter>
+<filter> sysget("RINGQT_QT6") != ""
+QList<int> visitedIds(void)
+</filter>
 QWizard::WizardStyle wizardStyle(void)
 void back(void)
 void next(void)
