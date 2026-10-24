@@ -4,15 +4,6 @@ para: void
 managed
 </class>
 
-<comment>
-See: https://doc.qt.io/qt-5/qcursor.html#bitmap-1
-Previously, Qt provided a version of bitmap() which returned the bitmap by-pointer.
-That version is now deprecated
-</comment>
-
-QBitmap *bitmap(void)
-QBitmap *mask(void)
-
 QPoint hotSpot(void)
 QPixmap pixmap(void)
 void setShape(Qt::CursorShape shape)
@@ -24,3 +15,12 @@ void setPos@2(QScreen *screen, int x, int y)
 void setPos@3(QPoint)
 void setPos@4(QScreen *screen, QPoint)
 
+<filter> sysget("RINGQT_QT6") = ""
+QBitmap *bitmap(void)
+QBitmap *mask(void)
+</filter>
+
+<filter> sysget("RINGQT_QT6") != ""
+QBitmap bitmap(void)
+QBitmap mask(void)
+</filter>
