@@ -4,16 +4,19 @@ para: void
 managed
 </class>
 
-QAudioFormat::Endian byteOrder(void)
 int channelCount(void)
-QString codec(void)
 bool isValid(void)
 int sampleRate(void)
+void setChannelCount(int channels)
+void setSampleRate(int samplerate)
+
+<filter> sysget("RINGQT_QT6") = ""
+QAudioFormat::Endian byteOrder(void)
+QString codec(void)
 int sampleSize(void)
 QAudioFormat::SampleType sampleType(void)
 void setByteOrder(QAudioFormat::Endian byteOrder)
-void setChannelCount(int channels)
 void setCodec(QString codec)
-void setSampleRate(int samplerate)
 void setSampleSize(int sampleSize)
 void setSampleType(QAudioFormat::SampleType sampleType)
+</filter>
