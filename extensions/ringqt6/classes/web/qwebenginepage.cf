@@ -12,10 +12,12 @@ QSizeF contentsSize(void)
 <comment>
 QWebEngineContextMenuData contextMenuData(void)
 </comment>
+<filter> sysget("RINGQT_QT6") = ""
 QMenu * createStandardContextMenu(void)
+</filter>
 QWebEnginePage * devToolsPage(void)
 void download(QUrl url, QString filename)
-void findText(QString subString, QWebEnginePage::FindFlags options, QWebEngineCallback<bool> resultCallback)
+void findText(QString subString, QWebEnginePage::FindFlags options)
 bool hasSelection(void)
 QWebEngineHistory * history(void)
 QIcon icon(void)
@@ -28,7 +30,9 @@ QWebEnginePage::LifecycleState lifecycleState(void)
 </comment>
 void load@2(QUrl url)
 void load@3(QWebEngineHttpRequest request)
+<comment>
 void print(QPrinter *printer,QWebEngineCallback<bool>)
+</comment>
 <comment>
 void printToPdf(QString filePath, QPageLayout pageLayout, QPageLayout::Portrait, QMarginsF)
 void printToPdf@2(QWebEngineCallback<QByteArray > resultCallback, QPageLayout pageLayout, QPageLayout::Portrait, QMarginsF)
@@ -48,7 +52,7 @@ void runJavaScript@3(QString scriptSource, QWebEngineCallback<QVariant > resultC
 void runJavaScript@4(QString scriptSource, quint32 worldId, QWebEngineCallback<QVariant > resultCallback)
 QWebEngineScriptCollection scripts(void)
 </comment>
-void save(QString filePath, QWebEngineDownloadItem::SavePageFormat format)
+void save(QString filePath, QWebEngineDownloadRequest::SavePageFormat format)
 QPointF scrollPosition(void)
 QString selectedText(void)
 void setAudioMuted(bool muted)
@@ -65,7 +69,9 @@ void setUrl(QUrl url)
 <comment>
 void setUrlRequestInterceptor(QWebEngineUrlRequestInterceptor *interceptor)
 </comment>
+<filter> sysget("RINGQT_QT6") = ""
 void setView(QWidget *view)
+</filter>
 <comment>
 void setVisible(bool visible)
 </comment>
@@ -80,7 +86,9 @@ void toPlainText(QWebEngineCallback<const QString &>)
 </comment>
 void triggerAction(QWebEnginePage::WebAction action, bool checked)
 QUrl url(void)
+<filter> sysget("RINGQT_QT6") = ""
 QWidget * view(void)
+</filter>
 QWebChannel * webChannel(void)
 qreal zoomFactor(void)
 
