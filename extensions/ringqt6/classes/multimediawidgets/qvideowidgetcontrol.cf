@@ -1,5 +1,0 @@
-<class>
-name: QVideoWidgetControl
-parent: QMediaControl
-abstract
-</class>
