@@ -26,7 +26,12 @@ void setShortcut(QKeySequence)
 void setText(QString)
 QKeySequence shortcut(void)
 QString text(void)
+<filter> sysget("RINGQT_QT6") = ""
 void animateClick(int msec)
+</filter>
+<filter> sysget("RINGQT_QT6") != ""
+void animateClick(void)
+</filter>
 void click(void)
 void setChecked(bool)
 void setIconSize(QSize)
