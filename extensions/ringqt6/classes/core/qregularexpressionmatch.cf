@@ -10,8 +10,6 @@ int capturedEnd(int nth)
 int capturedEnd@2(const QString  name)
 int capturedLength(int nth)
 int capturedLength@2(const QString  name)
-QStringRef capturedRef(int nth)
-QStringRef capturedRef@2(const QString  name)
 int capturedStart(int nth)
 int capturedStart@2(const QString  name)
 QStringList capturedTexts(void)
@@ -23,3 +21,8 @@ QRegularExpression::MatchOptions matchOptions(void)
 QRegularExpression::MatchType matchType(void)
 QRegularExpression regularExpression(void)
 void swap(QRegularExpressionMatch  other)
+
+<filter> sysget("RINGQT_QT6") = ""
+QStringRef capturedRef(int nth)
+QStringRef capturedRef@2(const QString  name)
+</filter>
