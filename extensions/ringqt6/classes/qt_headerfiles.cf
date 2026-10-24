@@ -11,7 +11,18 @@ extern "C" {
 #include "gthread.h"
 #include "gfilesystemwatcher.h"
 #include <QtCore>
+#include <QtCore5Compat>
+
+class QVariant5 : public QVariant {
+public:
+    QVariant5(const char *s) : QVariant(QString::fromUtf8(s)) {}
+};
+class QVariantString : public QVariant {
+public:
+    QVariantString(const char *s) : QVariant(QString::fromUtf8(s)) {}
+};
 </filter>
+
 
 <filter> sysget("RINGQT_NOGUI") = ""
 #include "gwindow.h"
@@ -92,30 +103,34 @@ extern "C" {
 <filter> sysget("RINGQT_NOMULTIMEDIA") = ""
 #include "gvideowidget.h"
 #include "gsoundeffect.h"
-#include "gaudioinput.h"
 #include "gmediarecorder.h"
+
+#include <QMediaPlayer>
+#include <QVideoWidget>
+#include <QSoundEffect>
+#include <QMediaRecorder>
+#include <QAudioFormat>
+#include <QGraphicsVideoItem>
+</filter>
+
+<filter> (sysget("RINGQT_NOMULTIMEDIA") = "") and (sysget("RINGQT_QT6") = "")
+#include "gaudioinput.h"
 #include "gaudiorecorder.h"
 #include "gaudioprobe.h"
 #include "gvideoprobe.h"
-
 #include <QMediaContent>
-#include <QMediaPlayer>
 #include <QMediaPlaylist>
-#include <QVideoWidget>
 #include <QCameraViewfinder>
 #include <QGraphicsVideoItem>
 #include <QVideoWidgetControl>
 #include <QCamera>
 #include <QCameraImageCapture>
 #include <QAudioOutput>
-#include <QSoundEffect>
 #include <QAudioInput>
-#include <QMediaRecorder>
 #include <QAudioRecorder>
 #include <QAudioProbe>
 #include <QVideoProbe>
 #include <QAudioDeviceInfo>
-#include <QAudioFormat>
 </filter>
 
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""
@@ -124,6 +139,9 @@ extern "C" {
 #include "gbluetoothserver.h"
 #include "gbluetoothservicediscoveryagent.h"
 #include "gbluetoothsocket.h"
+</filter>
+
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_QT6") = "")
 #include "gbluetoothtransfermanager.h"
 #include "gbluetoothtransferreply.h"
 </filter>
@@ -153,6 +171,9 @@ extern "C" {
 <filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_WEBASSEMBLY") = "")
 #include "gudpsocket.h"
 #include "gsslsocket.h"
+</filter>
+
+<filter> (sysget("RINGQT_NONETWORK") = "") and (sysget("RINGQT_WEBASSEMBLY") = "") and (sysget("RINGQT_QT6") = "")
 #include "gnetworkconfigurationmanager.h"
 </filter>
 
@@ -167,10 +188,12 @@ extern "C" {
 #include <QBluetoothServiceDiscoveryAgent>
 #include <QBluetoothServiceInfo>
 #include <QBluetoothSocket>
+</filter>
+
+<filter> (sysget("RINGQT_NOBLUETOOTH") = "") and (sysget("RINGQT_QT6") = "")
 #include <QBluetoothTransferManager>
 #include <QBluetoothTransferReply>
 #include <QBluetoothTransferRequest>
-#include <QBluetoothUuid>
 </filter>
 
 <filter> sysget("RINGQT_NOPOSITIONING") = ""
@@ -237,6 +260,7 @@ extern "C" {
 #include <QOpenGLShaderProgram>
 #include <QOpenGLShader>
 #include <QOpenGLTexture>
+#include <QOpenGLVersionFunctionsFactory>
 </filter>
 
 <filter> (sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOSERIALPORT") = ""
@@ -278,7 +302,6 @@ extern "C" {
 #include "gframeaction.h"
 #include <Qt3DCore/QAbstractAspect>
 #include <Qt3DCore/QNode>
-#include <Qt3DCore/QNodeCommand>
 #include <Qt3DCore/QEntity>
 #include <Qt3DCore/QTransform>
 #include <Qt3DCore/QAspectEngine>
@@ -305,7 +328,6 @@ extern "C" {
 #include <Qt3DRender/QPointLight>
 #include <Qt3DRender/QRenderAspect>
 #include <Qt3DInput/QInputAspect>
-#include <Qt3DRender/QTexture>
 #include <Qt3DExtras/QTextureMaterial>
 #include <Qt3DRender/QObjectPicker>
 #include <Qt3DLogic/QFrameAction>
@@ -315,15 +337,19 @@ extern "C" {
 #include <Qt3DExtras/QSkyboxEntity>
 #include <Qt3DExtras/QConeGeometry>
 #include <Qt3DExtras/QOrbitCameraController>
-#include <QDiffuseSpecularMaterial>
-#include <QGoochMaterial>
-#include <QMetalRoughMaterial>
-#include <QMorphPhongMaterial>
-#include <QPerVertexColorMaterial>
-#include <QCameraSelector>
-#include <QCullFace>
-#include <QDepthTest>
-#include <QViewport>
+#include <Qt3DExtras/QDiffuseSpecularMaterial>
+#include <Qt3DExtras/QGoochMaterial>
+#include <Qt3DExtras/QMetalRoughMaterial>
+#include <Qt3DExtras/QMorphPhongMaterial>
+#include <Qt3DExtras/QPerVertexColorMaterial>
+#include <Qt3DRender/QCameraSelector>
+#include <Qt3DRender/QCullFace>
+#include <Qt3DRender/QDepthTest>
+#include <Qt3DRender/QViewport>
+</filter>
+
+<filter> (sysget("RINGQT_NOQT3D") = "") and (sysget("RINGQT_QT6") = "")
+#include <Qt3DCore/QNodeCommand>
 </filter>
 
 <filter> sysget("RINGQT_NOCHARTS") = ""
@@ -363,6 +389,7 @@ extern "C" {
 
 <filter> sysget("RINGQT_NOSVG") = ""
 #include <QtSvg>
+#include <QtSvgWidgets>
 </filter>
 
 </code>
