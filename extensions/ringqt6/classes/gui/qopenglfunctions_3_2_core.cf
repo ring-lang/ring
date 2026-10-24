@@ -172,8 +172,10 @@ void glGetVertexAttribdv(GLuint index, GLenum pname, GLdouble *params)
 void glGetVertexAttribfv(GLuint index, GLenum pname, GLfloat *params)
 void glGetVertexAttribiv(GLuint index, GLenum pname, GLint *params)
 void glHint(GLenum target, GLenum mode)
+<filter> sysget("RINGQT_QT6") = ""
 void glIndexub(GLubyte c)
 void glIndexubv(GLubyte *c)
+</filter>
 GLboolean glIsBuffer(GLuint buffer)
 GLboolean glIsEnabled(GLenum cap)
 GLboolean glIsEnabledi(GLenum target, GLuint index)
