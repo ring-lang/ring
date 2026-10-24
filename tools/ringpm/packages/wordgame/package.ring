@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.3",
+	:version = "1.0.4",
 	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.0.3",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -35,7 +35,6 @@ aPackageInfo = [
 		"applications/wordgame/images/WordGameIcon.png",
 		"applications/wordgame/README.md",
 		"applications/wordgame/WordGame.ring",
-		"applications/wordgame/WordGame.ringo",
 		"applications/wordgame/WordList.ring"
 	],
 	:windowsfiles = 	[
