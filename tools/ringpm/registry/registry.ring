@@ -1054,5 +1054,9 @@ aPackagesRegistry = [
 	[ :name = "mario3d_sample",
 	  :description = "Nostalgic 3D Third-Person Platformer built using RingRayLib",
 	  :ProviderUserName = "azzeddine2017"
+	],
+	[ :name = "claudelib",
+	  :description = "Ring programming language library for the Anthropic Claude Messages API",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
