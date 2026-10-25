@@ -15,9 +15,26 @@ List of changes and new features
 
 Ring 1.28 comes with the next features!
 
+* Better GoldMagic800  
 * Better Libs/Extensions
 * More RingPM Packages
 * More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.28?; Better GoldMagic800
+
+Better GoldMagic800
+===================
+
+The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
+
+.. image:: gm800_level55.jpg
+	:alt: GoldMagic800 Level 55
+
+.. image:: gm800_level45.jpg
+	:alt: GoldMagic800 Level 45
+
 
 .. index:: 
 	pair: What is new in Ring  1.28; Better Libs/Extensions
@@ -61,7 +78,6 @@ More Improvements
 =================
 
 * Ring Notepad - Browser Menu - Added links for Packages/News
-* Gold Magic 800 - Added levels from 45 to 55
 * Removed Folder: ring/samples/UsingAI 
 * Revised: applications/wordgame/WordList.ring
 * Revised: applications/matching/MatchingList.ring
