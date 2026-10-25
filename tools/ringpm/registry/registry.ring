@@ -1058,5 +1058,9 @@ aPackagesRegistry = [
 	[ :name = "claudelib",
 	  :description = "Ring programming language library for the Anthropic Claude Messages API",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "xmllib",
+	  :description = "XML library for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
