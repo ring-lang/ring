@@ -1062,5 +1062,9 @@ aPackagesRegistry = [
 	[ :name = "xmllib",
 	  :description = "XML library for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "zipstorelib",
+	  :description = "A pure Ring library for merging files into ZIP archives without compression",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
