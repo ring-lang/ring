@@ -73,6 +73,7 @@ The following packages have been added to the RingPM registry.
 * ClaudeLib: Ring library for the Anthropic Claude Messages API
 * XMLLib: Pure Ring library for building and parsing XML documents 
 * ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression
+* HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
