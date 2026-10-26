@@ -1066,5 +1066,9 @@ aPackagesRegistry = [
 	[ :name = "zipstorelib",
 	  :description = "A pure Ring library for merging files into ZIP archives without compression",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "htmllib",
+	  :description = "HTML/CSS3 generation with JavaScript, Bootstrap and Three.js support",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
