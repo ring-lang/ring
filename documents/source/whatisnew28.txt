@@ -72,6 +72,7 @@ The following packages have been added to the RingPM registry.
 * Mario3D_Sample: Nostalgic 3D Third-Person Platformer built using RingRayLib
 * ClaudeLib: Ring library for the Anthropic Claude Messages API
 * XMLLib: Pure Ring library for building and parsing XML documents 
+* ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
