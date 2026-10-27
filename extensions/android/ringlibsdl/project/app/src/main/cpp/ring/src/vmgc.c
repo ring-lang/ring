@@ -843,15 +843,15 @@ RING_API void ring_state_free(void *pState, void *pMemory) {
 			ring_vm_custmutexlock(pRingState->pVM, pRingState->vPoolManager.pMutex);
 		}
 		pBlocks = pRingState->vPoolManager.pBlocks;
-		if (pBlocks != NULL) {
-			for (x = 1; x <= ring_list_getsize(pBlocks); x++) {
+		if ((pBlocks != NULL) && (ring_list_getsize(pBlocks) > 0)) {
+			x = ring_state_findblock(pState, pBlocks, pMemory);
+			if (x != 0) {
 				pBlock = ring_list_getlist(pBlocks, x);
 				pBlockStart = ring_list_getpointer(pBlock, RING_VM_BLOCKSTART);
 				pBlockEnd = ring_list_getpointer(pBlock, RING_VM_BLOCKEND);
 				if ((pMemory >= pBlockStart) && (pMemory <= pBlockEnd)) {
 					/* We have the memory inside a block, so we will not delete it! */
 					lFound = 1;
-					break;
 				}
 			}
 		}
@@ -937,11 +937,17 @@ RING_API void *ring_state_realloc(void *pState, void *pPointer, size_t nAllocate
 }
 
 RING_API void ring_state_registerblock(void *pState, void *pStart, void *pEnd) {
+	unsigned int x;
 	List *pList;
 	RingState *pRingState;
 	pRingState = (RingState *)pState;
 	ring_vm_custmutexlock(pRingState->pVM, pRingState->vPoolManager.pMutex);
-	pList = ring_list_newlist(pRingState->vPoolManager.pBlocks);
+	x = ring_state_findblock(pState, pRingState->vPoolManager.pBlocks, pStart);
+	if (x == ring_list_getsize(pRingState->vPoolManager.pBlocks)) {
+		pList = ring_list_newlist(pRingState->vPoolManager.pBlocks);
+	} else {
+		pList = ring_list_insertlist(pRingState->vPoolManager.pBlocks, x);
+	}
 	ring_list_addpointer(pList, pStart);
 	ring_list_addpointer(pList, pEnd);
 	ring_list_genarray(pRingState->vPoolManager.pBlocks);
@@ -955,12 +961,18 @@ RING_API void ring_state_unregisterblock(void *pState, void *pStart) {
 	void *pBlockStart;
 	pRingState = (RingState *)pState;
 	ring_vm_custmutexlock(pRingState->pVM, pRingState->vPoolManager.pMutex);
-	for (x = 1; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks); x++) {
-		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks, x);
-		pBlockStart = ring_list_getpointer(pList, RING_VM_BLOCKSTART);
-		if (pBlockStart == pStart) {
-			ring_list_deleteitem(pRingState->vPoolManager.pBlocks, x);
-			break;
+	x = ring_state_findblock(pState, pRingState->vPoolManager.pBlocks, pStart);
+	if ((x != 0) && (ring_list_getpointer(ring_list_getlist(pRingState->vPoolManager.pBlocks, x),
+					      RING_VM_BLOCKSTART) == pStart)) {
+		ring_list_deleteitem(pRingState->vPoolManager.pBlocks, x);
+	} else {
+		for (x = 1; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks); x++) {
+			pList = ring_list_getlist(pRingState->vPoolManager.pBlocks, x);
+			pBlockStart = ring_list_getpointer(pList, RING_VM_BLOCKSTART);
+			if (pBlockStart == pStart) {
+				ring_list_deleteitem(pRingState->vPoolManager.pBlocks, x);
+				break;
+			}
 		}
 	}
 	ring_list_genarray(pRingState->vPoolManager.pBlocks);
@@ -1025,6 +1037,37 @@ RING_API void ring_state_willunregisterblock(void *pState, void *pStart) {
 		}
 	}
 	ring_vm_custmutexunlock(pRingState->pVM, pRingState->vPoolManager.pMutex);
+}
+
+RING_API unsigned int ring_state_findblock(void *pState, List *pBlocks, void *pMemory) {
+	Item **pArray;
+	unsigned int x, nLow, nHigh, nMid;
+	void *pStart;
+	/*
+	**  Return the position of the last block where block start <= pMemory
+	**  Note: The blocks are sorted by block start
+	*/
+	pArray = pBlocks->pItemsArray;
+	if (pArray == NULL) {
+		for (x = ring_list_getsize(pBlocks); x >= 1; x--) {
+			if (ring_list_getpointer(ring_list_getlist(pBlocks, x), RING_VM_BLOCKSTART) <= pMemory) {
+				return x;
+			}
+		}
+		return 0;
+	}
+	nLow = 0;
+	nHigh = ring_list_getsize(pBlocks);
+	while (nLow < nHigh) {
+		nMid = nLow + (nHigh - nLow) / 2;
+		pStart = pArray[nMid]->data.pList->pFirst->pValue->data.pPointer;
+		if (pStart <= pMemory) {
+			nLow = nMid + 1;
+		} else {
+			nHigh = nMid;
+		}
+	}
+	return nLow;
 }
 /* Pool Manager Functions */
 

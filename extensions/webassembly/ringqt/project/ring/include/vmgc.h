@@ -165,6 +165,8 @@ RING_API void ring_state_registerblock(void *pState, void *pStart, void *pEnd);
 RING_API void ring_state_unregisterblock(void *pState, void *pStart);
 
 RING_API void ring_state_willunregisterblock(void *pState, void *pStart);
+
+RING_API unsigned int ring_state_findblock(void *pState, List *pBlocks, void *pMemory);
 /* Pool Manager Functions */
 
 RING_API void ring_poolmanager_new(RingState *pRingState);

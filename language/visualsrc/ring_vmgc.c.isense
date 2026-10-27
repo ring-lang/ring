@@ -368,6 +368,8 @@ nLevel, nUseMalloc
 Type: size_t
 x
 ring_state_registerblock
+Type: unsigned int
+x
 Type: List *
 pList
 Type: RingState *
@@ -394,6 +396,13 @@ Type: RingState *
 pRingState
 Type: void *
 pBlockStart, *pBlockEnd
+ring_state_findblock
+Type: Item **
+pArray
+Type: unsigned int
+x, nLow, nHigh, nMid
+Type: void *
+pStart
 ring_poolmanager_new
 ring_poolmanager_newblock
 Type: PoolData *
