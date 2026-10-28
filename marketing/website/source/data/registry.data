@@ -1074,5 +1074,9 @@ aPackagesRegistry = [
 	[ :name = "raylibgui",
 	  :description = "GUI widgets library written in Ring on top of RayLib and Supports Arabic",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringlua",
+	  :description = "Embeds the Lua 5.5 scripting engine in Ring programs",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
