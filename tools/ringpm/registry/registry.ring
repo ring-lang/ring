@@ -1071,7 +1071,7 @@ aPackagesRegistry = [
 	  :description = "HTML/CSS3 generation with JavaScript, Bootstrap and Three.js support",
 	  :ProviderUserName = "ringpackages"
 	],
-	[ :name = "raylibui",
+	[ :name = "raylibgui",
 	  :description = "GUI widgets library written in Ring on top of RayLib and Supports Arabic",
 	  :ProviderUserName = "ringpackages"
 	]
