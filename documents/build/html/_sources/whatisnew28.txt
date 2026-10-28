@@ -75,6 +75,7 @@ The following packages have been added to the RingPM registry.
 * ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression
 * HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support
 * RayLibGUI: GUI widgets library written in Ring on top of RayLib and Supports Arabic
+* RingLua: Embeds the Lua 5.5 scripting engine in Ring programs
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
