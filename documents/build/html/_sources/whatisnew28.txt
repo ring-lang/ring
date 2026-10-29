@@ -77,6 +77,7 @@ The following packages have been added to the RingPM registry.
 * RayLibGUI: GUI widgets library written in Ring on top of RayLib and Supports Arabic
 * RingLua: Embeds the Lua 5.5 scripting engine in Ring programs
 * TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension
+* RingRogueUtil: RogueUtil extension for the Ring programming language
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
