@@ -1082,5 +1082,9 @@ aPackagesRegistry = [
 	[ :name = "tuilib",
 	  :description = "TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringrogueutil",
+	  :description = "RingRogueUtil extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
