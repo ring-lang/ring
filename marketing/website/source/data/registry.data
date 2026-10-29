@@ -1078,5 +1078,9 @@ aPackagesRegistry = [
 	[ :name = "ringlua",
 	  :description = "Embeds the Lua 5.5 scripting engine in Ring programs",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "tuilib",
+	  :description = "TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
