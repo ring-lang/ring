@@ -76,6 +76,7 @@ The following packages have been added to the RingPM registry.
 * HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support
 * RayLibGUI: GUI widgets library written in Ring on top of RayLib and Supports Arabic
 * RingLua: Embeds the Lua 5.5 scripting engine in Ring programs
+* TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
