@@ -1,1 +1,0 @@
-load "/../../extensions/ringnappgui/nappgui.ring"
