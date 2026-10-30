@@ -78,6 +78,7 @@ The following packages have been added to the RingPM registry.
 * RingLua: Embeds the Lua 5.5 scripting engine in Ring programs
 * TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension
 * RingRogueUtil: RogueUtil extension for the Ring programming language
+* RingUTF8Proc: Unicode text processing for Ring using utf8proc library
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
