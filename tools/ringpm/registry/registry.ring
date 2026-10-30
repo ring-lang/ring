@@ -1090,5 +1090,9 @@ aPackagesRegistry = [
 	[ :name = "ringutf8proc",
 	  :description = "Unicode text processing for the Ring programming language using utf8proc library",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringnappgui",
+	  :description = "RingNAPPGUI extension for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
