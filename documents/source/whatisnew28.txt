@@ -79,6 +79,7 @@ The following packages have been added to the RingPM registry.
 * TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension
 * RingRogueUtil: RogueUtil extension for the Ring programming language
 * RingUTF8Proc: Unicode text processing for Ring using utf8proc library
+* RingNAPPGUI: Brings the NAppGUI library (a cross-platform C SDK) to Ring
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
