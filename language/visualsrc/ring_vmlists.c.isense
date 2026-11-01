@@ -71,3 +71,4 @@ Type: unsigned int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
+ring_vm_checkitemsarray

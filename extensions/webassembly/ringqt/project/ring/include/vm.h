@@ -884,6 +884,8 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr);
 unsigned int ring_vm_isoperationaftersublist(VM *pVM);
 
 void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);
+
+void ring_vm_checkitemsarray(VM *pVM, List *pList, unsigned int nIndex);
 /* Functions */
 
 int ring_vm_loadfunc(VM *pVM);
