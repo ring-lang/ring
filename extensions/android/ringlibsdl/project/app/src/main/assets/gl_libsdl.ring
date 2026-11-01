@@ -57,6 +57,10 @@ sdl_v4=0
 SDL_event_queue = null
 SDL_NEVENT = 0
 
+# Bitmaps : the handle is an index to [surface, texture]
+# so copies of the handle always reach the current texture
+SDL_aBitmaps = []
+
 # Android
 GL_AC_BACK = SDLK_AC_BACK
 
@@ -88,13 +92,15 @@ func gl_map_rgb r,g,b
 
 func gl_load_bitmap cFileName
 	image = IMG_Load(cFileName)
-	tex = SDL_CreateTextureFromSurface(SDL_ren,image)	
-	return [image,tex]
+	tex = SDL_CreateTextureFromSurface(SDL_ren,image)
+	SDL_aBitmaps + [image,tex]
+	return len(SDL_aBitmaps)
 
-func gl_destroy_bitmap image
-	SDL_FreeSurface(image[1])
-	SDL_DestroyTexture(image[2])
-	image = []
+func gl_destroy_bitmap nBitmap
+	if len(SDL_aBitmaps[nBitmap]) = 0 return ok
+	SDL_FreeSurface(SDL_aBitmaps[nBitmap][1])
+	SDL_DestroyTexture(SDL_aBitmaps[nBitmap][2])
+	SDL_aBitmaps[nBitmap] = []
 
 func gl_load_ttf_font cfilename,nSize,p3
 	return TTF_OpenFont(cfilename,nSize)
@@ -160,18 +166,20 @@ func gl_exit
 func gl_destroy display,event_queue,timeout,ev,timer
 	Mix_CloseAudio()
 	Mix_Quit()
+	SDL_DestroyRenderer(SDL_ren)
 	SDL_DestroyWindow(SDL_win)
 
-func gl_convert_mask_to_alpha image,transparentcolor
-	myformat = SDL_get_sdl_surface_format(image[1])	
+func gl_convert_mask_to_alpha nBitmap,transparentcolor
+	surface = SDL_aBitmaps[nBitmap][1]
+	myformat = SDL_get_sdl_surface_format(surface)
 	white = SDL_MapRGB(myformat, 255, 255, 255)
-	SDL_SetColorKey(image[1], SDL_True, white)
-	SDL_DestroyTexture(image[2])
-	image[2] = SDL_CreateTextureFromSurface(SDL_ren,image[1])	
+	SDL_SetColorKey(surface, SDL_True, white)
+	SDL_DestroyTexture(SDL_aBitmaps[nBitmap][2])
+	SDL_aBitmaps[nBitmap][2] = SDL_CreateTextureFromSurface(SDL_ren,surface)
 
 
 func gl_draw_bitmap image,x,y,nvalue
-	tex = image[2]
+	tex = gl_bitmap_texture(image)
 	rect = sdl_new_sdl_rect()
 	sdl_set_sdl_rect_x(rect,x)
 	sdl_set_sdl_rect_y(rect,y)
@@ -181,13 +189,13 @@ func gl_draw_bitmap image,x,y,nvalue
 	sdl_destroy_sdl_rect(rect)
 
 func gl_get_bitmap_height image
-	return gl_texture_height(image[2])
+	return gl_texture_height(gl_bitmap_texture(image))
 
 func gl_get_bitmap_width image
-	return gl_texture_width(image[2])
+	return gl_texture_width(gl_bitmap_texture(image))
 
 func gl_draw_scaled_bitmap image,p2,p3,p4,p5,p6,p7,p8,p9,p10
-	tex = image[2]
+	tex = gl_bitmap_texture(image)
 	rect = sdl_new_sdl_rect()
 	sdl_set_sdl_rect_x(rect,p2)
 	sdl_set_sdl_rect_y(rect,p3)
@@ -222,7 +230,7 @@ func gl_draw_text font,color,x,y,nAlign,text
 	sdl_destroy_sdl_rect(rect2)
 
 func gl_draw_bitmap_region image,p2,p3,p4,p5,p6,p7,p8
-	tex = image[2]
+	tex = gl_bitmap_texture(image)
 	rect = sdl_new_sdl_rect()
 	sdl_set_sdl_rect_x(rect,p2)
 	sdl_set_sdl_rect_y(rect,p3)
@@ -336,3 +344,6 @@ func gl_rect p1,p2,p3,p4
 
 func gl_errormsg cMessage 
 	? cMessage
+
+func gl_bitmap_texture nBitmap
+	return SDL_aBitmaps[nBitmap][2]
