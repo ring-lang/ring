@@ -43,6 +43,7 @@ Better Libs/Extensions
 ======================
 
 * StdLib - Revised: encrypt_ex() and decrypt_ex()
+* GameEngine - gl_libsdl.ring - The bitmaps are now handles into a shared table
 * RingRayLib - raylib.rh - Added more constants 
 * RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
 * RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
