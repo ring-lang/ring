@@ -990,7 +990,7 @@ void ring_vm_generallib_substr(void *pPointer) {
 			cString = ring_general_find3(cStr, nSize, cStr2, nSize2);
 		}
 		if (cString == NULL) {
-			RING_API_RETSTRING(cStr);
+			RING_API_RETSTRING2(cStr, nSize);
 			return;
 		}
 		cStr3 = RING_API_GETSTRING(3);
