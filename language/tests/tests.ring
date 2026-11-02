@@ -747,6 +747,7 @@ aTests = [
 	[ :name = "Performance (Part 7)", :Command = "ring performance/listashash.ring" ],
 	[ :name = "Performance (Part 8)", :Command = "ring performance/randomread.ring" ],
 	[ :name = "Performance (Part 9)", :Command = "ring performance/substrper.ring" ],
+	[ :name = "Performance (Part 10)", :Command = "ring performance/strpass.ring" ],
 	[ :name = "Power Operator (Part 1)", :Command = "ring poweroperator/powoperator.ring" ],
 	[ :name = "Power Operator (Part 2)", :Command = "ring poweroperator/powoperator2.ring" ],
 	[ :name = "Stack Overflow (Part 1)", :Command = "ring stack/rec_overflow.ring" ],
