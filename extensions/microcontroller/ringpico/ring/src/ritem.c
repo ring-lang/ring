@@ -9,13 +9,15 @@ RING_API Item *ring_item_new_gc(void *pState, unsigned int nItemType) {
 	pItem->nType = ITEMTYPE_NOTHING;
 	/* Delete pointer information */
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
-	pItem->lAssignment = RING_ZERO;
+	pItem->lAssignment = RING_FALSE;
 	/* Delete number information */
 	pItem->data.dNumber = 0;
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
+	/* Lend String */
+	pItem->lLendString = RING_FALSE;
 	/* Reference Count */
 	ring_vm_gc_cleardata(pState, pItem);
-	pItem->lUnusedFlag = RING_ZERO;
+	pItem->lUnusedFlag = RING_FALSE;
 	ring_item_settype_gc(pState, pItem, nItemType);
 	return pItem;
 }
@@ -113,9 +115,10 @@ RING_API void ring_item_print_gc(void *pState, Item *pItem) {
 RING_API void ring_item_init_gc(void *pState, Item *pItem) {
 	pItem->nType = ITEMTYPE_NOTHING;
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
+	pItem->lLendString = RING_FALSE;
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
-	pItem->lAssignment = RING_ZERO;
-	pItem->lUnusedFlag = RING_ZERO;
+	pItem->lAssignment = RING_FALSE;
+	pItem->lUnusedFlag = RING_FALSE;
 }
 
 RING_API double ring_item_getnumber_gc(void *pState, Item *pItem) {
@@ -135,7 +138,7 @@ RING_API void ring_itemarray_setpointer_gc(void *pState, Item aItems[], unsigned
 	ring_item_settype_gc(pState, &aItems[nIndex], ITEMTYPE_POINTER);
 	aItems[nIndex].data.pPointer = pValue;
 	aItems[nIndex].nObjectType = ITEM_OBJTYPE_NOTHING;
-	aItems[nIndex].lAssignment = RING_ZERO;
+	aItems[nIndex].lAssignment = RING_FALSE;
 }
 
 RING_API void ring_itemarray_setdouble_gc(void *pState, Item aItems[], unsigned int nIndex, double nNumber) {

@@ -1,12 +1,6 @@
 ring_item_h
 Parent: Item
 Parent: data
-Type: char
-cCharacter
-Type: signed char
-sCharacter
-Type: unsigned char
-uCharacter
 Type: short int
 sNumber
 Type: unsigned short int
@@ -33,7 +27,9 @@ END:
 Type: unsigned int
 nType:3
 Type: unsigned int
-nNumberFlag:2
+nNumberFlag:1
+Type: unsigned int
+lLendString: 1
 Type: unsigned int
 nObjectType:2
 Type: unsigned int
@@ -57,9 +53,9 @@ ITEMTYPE_NUMBER
 ITEMTYPE_POINTER
 ITEMTYPE_LIST
 ITEMTYPE_FUNCPOINTER
-ITEM_NUMBERFLAG_NOTHING
 ITEM_NUMBERFLAG_INT
 ITEM_NUMBERFLAG_DOUBLE
+ITEM_NUMBERFLAG_NOTHING
 ITEM_OBJTYPE_NOTHING
 ring_item_getstring_gc(pState,pItem)
 ring_item_getdouble_gc(pState,pItem)
