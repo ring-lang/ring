@@ -84,7 +84,9 @@ void ring_vm_varpushv(VM *pVM) {
 		RING_VM_STACK_PUSHNVAR;
 		break;
 	case ITEMTYPE_STRING:
-		RING_VM_STACK_PUSHCVAR;
+		if (!ring_vm_lendstring(pVM, pVar)) {
+			RING_VM_STACK_PUSHCVAR;
+		}
 		break;
 	case ITEMTYPE_LIST:
 		/* Support using { } to access object after object name */
@@ -847,4 +849,75 @@ unsigned int ring_vm_isinsideloop(VM *pVM) {
 unsigned int ring_vm_isstackpointertoobjstate(VM *pVM) {
 	/* This check also take in mind RING_VARSCOPE_GLOBAL and RING_VARSCOPE_DEFINEDGLOBALS */
 	return (pVM->nLoadAddressScope >= RING_VARSCOPE_OBJSTATE);
+}
+
+int ring_vm_lendstring(VM *pVM, List *pVar) {
+	FuncCall *pFuncCall;
+	ByteCode *pIns;
+	Item *pItem;
+	unsigned int x, nOPCode, lBraces;
+	if (pVM->lTrace || (RING_VM_FUNCCALLSCOUNT == 0)) {
+		return RING_FALSE;
+	}
+	pFuncCall = RING_VM_LASTFUNCCALL;
+	if ((pFuncCall->nType != RING_FUNCTYPE_C) || (pFuncCall->nStatus != RING_FUNCSTATUS_LOAD) ||
+	    (pVM->nSP <= pFuncCall->nSP) || !ring_vm_funcacceptlendstring(pVM)) {
+		return RING_FALSE;
+	}
+	lBraces = ring_list_getsize(pVM->pBraceObjects) > 0;
+	pIns = pVM->pByteCodeIR + 1;
+	for (x = 0; x < 16; x++) {
+		nOPCode = pIns->nOPCode;
+		if (nOPCode == ICO_CALL) {
+			break;
+		}
+		switch (nOPCode) {
+		case ICO_PUSHN:
+			break;
+		case ICO_PUSH2N:
+			break;
+		case ICO_PUSHC:
+			break;
+		case ICO_PUSHV:
+			break;
+		case ICO_PUSHP:
+			break;
+		case ICO_PUSHPV:
+			break;
+		case ICO_PUSHPLOCAL:
+			break;
+		case ICO_PUSHARG:
+			break;
+		case ICO_LOADAPUSHV:
+			if (!lBraces) {
+				break;
+			}
+		case ICO_LOADADDRESS:
+			if (!lBraces) {
+				break;
+			}
+		default:
+			return RING_FALSE;
+		}
+		pIns++;
+	}
+	if (x == 16) {
+		return RING_FALSE;
+	}
+	pItem = &pVM->aStack[pVM->nSP];
+	ring_item_deletecontent_gc(pVM->pRingState, pItem);
+	pItem->nType = ITEMTYPE_STRING;
+	pItem->lLendString = RING_TRUE;
+	pItem->data.pString = RING_VAR_GETSTRINGOBJ(pVar);
+	return RING_TRUE;
+}
+
+int ring_vm_funcacceptlendstring(VM *pVM) {
+	FuncCall *pFuncCall;
+	pFuncCall = RING_VM_LASTFUNCCALL;
+	if ((pFuncCall->pFunc == ring_vm_generallib_len) || (pFuncCall->pFunc == ring_vm_generallib_substr) ||
+	    (pFuncCall->pFunc == ring_vm_generallib_left) || (pFuncCall->pFunc == ring_vm_generallib_right)) {
+		return RING_TRUE;
+	}
+	return RING_FALSE;
 }

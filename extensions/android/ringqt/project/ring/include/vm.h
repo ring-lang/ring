@@ -737,6 +737,10 @@ void ring_vm_stackswap(VM *pVM, int nSP1, int nSP2);
 unsigned int ring_vm_varcontainsobjhaveoperatormethod(VM *pVM, List *pVar);
 
 unsigned int ring_vm_itemcontainsobjhaveoperatormethod(VM *pVM, Item *pItem);
+
+int ring_vm_lendstring(VM *pVM, List *pVar);
+
+int ring_vm_funcacceptlendstring(VM *pVM);
 /* Compare */
 
 void ring_vm_equal(VM *pVM);
