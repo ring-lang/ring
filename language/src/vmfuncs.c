@@ -499,8 +499,7 @@ void ring_vm_newfunc(VM *pVM) {
 					ring_general_word(cParameters, x, pParameter);
 				}
 				if (RING_VM_STACK_ISSTRING) {
-					ring_vm_addstringarg(pVM, pParameter, RING_VM_STACK_READC,
-							     RING_VM_STACK_STRINGSIZE);
+					ring_vm_movestringarg(pVM, pParameter);
 					RING_VM_STACK_SETNVALUE(0.0);
 				} else if (RING_VM_STACK_ISNUMBER) {
 					ring_vm_addnumberarg(pVM, pParameter, RING_VM_STACK_READN);
@@ -977,4 +976,20 @@ List *ring_vm_findfuncusinghashtable(VM *pVM, List *pFuncsList, const char *cFun
 	pFuncList = (List *)ring_hashtable_findpointer(ring_list_gethashtable(pFuncsList), cFuncName);
 	ring_vm_custmutexunlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 	return pFuncList;
+}
+
+void ring_vm_movestringarg(VM *pVM, const char *cVar) {
+	List *pList;
+	Item *pItem, *pVarItem;
+	String *pString;
+	pItem = &pVM->aStack[pVM->nSP];
+	if (pItem->lLendString) {
+		ring_vm_addstringarg(pVM, cVar, RING_VM_STACK_READC, RING_VM_STACK_STRINGSIZE);
+		return;
+	}
+	pList = ring_vm_addstringarg(pVM, cVar, RING_CSTR_EMPTY, RING_ZERO);
+	pVarItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
+	pString = pVarItem->data.pString;
+	pVarItem->data.pString = pItem->data.pString;
+	pItem->data.pString = pString;
 }

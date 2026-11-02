@@ -852,6 +852,8 @@ List *ring_vm_addnumberarg(VM *pVM, const char *cVar, double nNumber);
 List *ring_vm_addpointerarg(VM *pVM, const char *cVar, void *pPointer, unsigned int nType);
 
 List *ring_vm_addlistarg(VM *pVM, const char *cVar);
+
+void ring_vm_movestringarg(VM *pVM, const char *cVar);
 /* Jump */
 
 void ring_vm_jumpzero(VM *pVM);
