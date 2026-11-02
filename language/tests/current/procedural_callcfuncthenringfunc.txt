@@ -1,0 +1,13 @@
+Test 1: Ring function then Ring function
+f1() called
+f2() called
+Test 2: Ring function then C function
+f1() called
+3
+Test 3: C function then C function
+3
+ABC
+Test 4: C function then Ring function
+3
+f1() called
+Done
