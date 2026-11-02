@@ -96,6 +96,8 @@ More Improvements
 * Added: samples/UsingRayLib/more/ex13_rubik2.ring 
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
+* SubStr() function - Better Implementation - Handling strings that contains the NULL character
+* Call command - Better Implementation - Switching between C and Ring functions
 * State and Low Level Functions - Convert variable name to lower case 
 * Ring Compiler - LoadSyntax command - Better Implementation (Finding file path)
 * Ring Compiler - LOADSYNTAX command - Produce an error message if the file contains functions/classes
@@ -111,3 +113,5 @@ More Improvements
 * Ring VM - Produce an error message when attempting to assign a list/object to a string character
 * Ring VM - Better Performance - Using binary search to check memory blocks
 * Ring VM - Better Performance - Switch List to Array of Pointers when reading items many times
+* Ring VM - Better Performance - Pass strings to len()/left()/right()/substr() functions by reference
+* Ring API - Added: RING_API_REGISTERLENDSTRING
