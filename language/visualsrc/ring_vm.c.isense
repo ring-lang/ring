@@ -44,9 +44,9 @@ lFlagReg: 1
 Type: unsigned int
 lFlagReg2: 1
 Type: unsigned int
-lLiteral: 1
+lFlagReg3: 1
 Type: unsigned int
-lUnusedFlag: 1
+lLiteral: 1
 Type: unsigned int
 nReg1Type: 2
 Type: unsigned int
@@ -71,6 +71,8 @@ Type: const char *
 cName
 Type: struct CFunction *
 pNext
+Type: unsigned int
+lLendString
 END:
 Type: CFunction
 struct CFunction
@@ -122,7 +124,9 @@ nStatus: 8
 Type: unsigned int
 nLoadAddressScope: 8
 Type: unsigned int
-lMethod: 8
+lMethod: 7
+Type: unsigned int
+lLendString: 1
 END:
 Type: FuncCall
 struct FuncCall
@@ -516,11 +520,13 @@ RING_VM_IR_REG1
 RING_VM_IR_REG2
 RING_VM_IR_SETFLAGREG2(nValue)
 RING_VM_IR_GETFLAGREG2
+RING_VM_IR_SETFLAGREG3(nValue)
 RING_VM_IR_SETSMALLINTREG(nValue)
 RING_VM_IR_GETSMALLINTREG
 RING_VM_IR_SETINTREGATINS(nIns,nValue)
 RING_VM_IR_INTATINS(nIns)
 RING_VM_PUSHNTHENJUMP
+RING_VM_IR_GETFLAGREG2
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCSTATUS_LOAD
@@ -623,6 +629,7 @@ RING_VM_BYTECODE_INS(x)
 RING_VM_BYTECODE_INSINT(x,y)
 RING_VM_BYTECODE_INSINTINT(x,y,z)
 RING_VM_BYTECODE_INSSTR(x,y)
+RING_VM_LENDSTRING_INSTOCHECK
 RING_VM_ERROR_DIVIDEBYZERO
 RING_VM_ERROR_INDEXOUTOFRANGE
 RING_VM_ERROR_FUNCNOTFOUND

@@ -82,6 +82,7 @@ RING_API_RETLISTBYREF(pList)
 RING_API_RETNEWREF(pList)
 ring_vm_funcregister(cName,pFunc)
 RING_API_REGISTER(cName,pFunc)
+RING_API_REGISTERLENDSTRING(cName,pFunc)
 RING_API_MALLOC(nSize)
 RING_API_CALLOC(nCount,nSize)
 RING_API_REALLOC(pPtr,nOldSize,nNewSize)
@@ -99,6 +100,7 @@ RING_API_SCOPESCOUNT
 RING_API_CHECKNULLPOINTER(ptr)
 ring_vm_loadcfunctions
 ring_vm_funcregister2
+ring_vm_funcregister3
 Type: CFunction *
 pCFunc
 ring_vm_api_isstring

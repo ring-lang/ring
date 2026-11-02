@@ -91,6 +91,7 @@
 #define RING_API_RETNEWREF(pList) ring_vm_api_retlist2(pPointer, pList, RING_OUTPUT_RETNEWREF)
 #define ring_vm_funcregister(cName, pFunc) ring_vm_funcregister2(pRingState, cName, pFunc)
 #define RING_API_REGISTER(cName, pFunc) ring_vm_funcregister2(pRingState, cName, pFunc)
+#define RING_API_REGISTERLENDSTRING(cName, pFunc) ring_vm_funcregister3(pRingState, cName, pFunc, RING_TRUE)
 #define RING_API_MALLOC(nSize) ring_state_malloc(((VM *)pPointer)->pRingState, nSize)
 #define RING_API_CALLOC(nCount, nSize) ring_state_calloc(((VM *)pPointer)->pRingState, nCount, nSize)
 #define RING_API_REALLOC(pPtr, nOldSize, nNewSize)                                                                     \
@@ -124,6 +125,9 @@ void ring_vm_extension(RingState *pRingState);
 RING_API void ring_vm_loadcfunctions(RingState *pRingState);
 
 RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *));
+
+RING_API void ring_vm_funcregister3(RingState *pRingState, const char *cStr, void (*pFunc)(void *),
+				    unsigned int lLendString);
 
 RING_API int ring_vm_api_isstring(void *pPointer, int nPara);
 

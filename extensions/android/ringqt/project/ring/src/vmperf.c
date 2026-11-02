@@ -178,6 +178,7 @@ void ring_vm_loadfuncp(VM *pVM) {
 	pFuncCall->cNewFileName = pVM->cFileName;
 	/* Method/Function & Scope */
 	pFuncCall->lMethod = RING_VM_IR_GETFLAGREG2;
+	pFuncCall->lLendString = RING_VM_IR_GETFLAGREG3;
 	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope;
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING;
 	/* Store List information */
@@ -360,9 +361,5 @@ int ring_vm_lendstring(VM *pVM, List *pVar) {
 int ring_vm_funcacceptlendstring(VM *pVM) {
 	FuncCall *pFuncCall;
 	pFuncCall = RING_VM_LASTFUNCCALL;
-	if ((pFuncCall->pFunc == ring_vm_generallib_len) || (pFuncCall->pFunc == ring_vm_generallib_substr) ||
-	    (pFuncCall->pFunc == ring_vm_generallib_left) || (pFuncCall->pFunc == ring_vm_generallib_right)) {
-		return RING_TRUE;
-	}
-	return RING_FALSE;
+	return pFuncCall->lLendString;
 }

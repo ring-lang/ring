@@ -9,6 +9,11 @@ RING_API void ring_vm_loadcfunctions(RingState *pRingState) {
 }
 
 RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, void (*pFunc)(void *)) {
+	ring_vm_funcregister3(pRingState, cStr, pFunc, RING_FALSE);
+}
+
+RING_API void ring_vm_funcregister3(RingState *pRingState, const char *cStr, void (*pFunc)(void *),
+				    unsigned int lLendString) {
 	CFunction *pCFunc;
 #if RING_LOWMEM
 	pCFunc = (CFunction *)ring_state_malloc(NULL, sizeof(CFunction));
@@ -17,6 +22,7 @@ RING_API void ring_vm_funcregister2(RingState *pRingState, const char *cStr, voi
 #endif
 	pCFunc->cName = cStr;
 	pCFunc->pFunc = pFunc;
+	pCFunc->lLendString = lLendString;
 	pCFunc->pNext = pRingState->pVM->pCFunction;
 	pRingState->pVM->pCFunction = pCFunc;
 }

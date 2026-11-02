@@ -49,8 +49,8 @@ typedef struct ByteCode {
 	unsigned int nOPCode : 8;
 	unsigned int lFlagReg : 1;
 	unsigned int lFlagReg2 : 1;
+	unsigned int lFlagReg3 : 1;
 	unsigned int lLiteral : 1;
-	unsigned int lUnusedFlag : 1;
 	unsigned int nReg1Type : 2;
 	unsigned int nReg2Type : 2;
 	unsigned int nSmallIntReg : 16;
@@ -61,6 +61,7 @@ typedef struct CFunction {
 	const char *cName;
 	void (*pFunc)(void *);
 	struct CFunction *pNext;
+	unsigned int lLendString;
 } CFunction;
 typedef struct FuncCall {
 	const char *cName;
@@ -84,7 +85,8 @@ typedef struct FuncCall {
 	unsigned int nType : 8;
 	unsigned int nStatus : 8;
 	unsigned int nLoadAddressScope : 8;
-	unsigned int lMethod : 8;
+	unsigned int lMethod : 7;
+	unsigned int lLendString : 1;
 } FuncCall;
 typedef struct ObjState {
 	List *pScope;
@@ -405,6 +407,8 @@ typedef struct VM {
 #define RING_VM_IR_REG2 1
 #define RING_VM_IR_SETFLAGREG2(nValue) pVM->pByteCodeIR->lFlagReg2 = nValue
 #define RING_VM_IR_GETFLAGREG2 pVM->pByteCodeIR->lFlagReg2
+#define RING_VM_IR_SETFLAGREG3(nValue) pVM->pByteCodeIR->lFlagReg3 = nValue
+#define RING_VM_IR_GETFLAGREG3 pVM->pByteCodeIR->lFlagReg3
 #define RING_VM_IR_SETSMALLINTREG(nValue) pVM->pByteCodeIR->nSmallIntReg = nValue
 #define RING_VM_IR_GETSMALLINTREG pVM->pByteCodeIR->nSmallIntReg
 #define RING_VM_IR_SETINTREGATINS(nIns, nValue) (pVM->pByteCode + nIns)->nIntReg = nValue

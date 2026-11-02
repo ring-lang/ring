@@ -28,16 +28,16 @@ RING_API void ring_vm_generallib_loadfunctions(RingState *pRingState) {
 	RING_API_REGISTER("ascii", ring_vm_generallib_ascii);
 	RING_API_REGISTER("char", ring_vm_generallib_char);
 	/* String */
-	RING_API_REGISTER("left", ring_vm_generallib_left);
-	RING_API_REGISTER("right", ring_vm_generallib_right);
+	RING_API_REGISTERLENDSTRING("left", ring_vm_generallib_left);
+	RING_API_REGISTERLENDSTRING("right", ring_vm_generallib_right);
 	RING_API_REGISTER("trim", ring_vm_generallib_trim);
 	RING_API_REGISTER("copy", ring_vm_generallib_copy);
-	RING_API_REGISTER("substr", ring_vm_generallib_substr);
+	RING_API_REGISTERLENDSTRING("substr", ring_vm_generallib_substr);
 	RING_API_REGISTER("lower", ring_vm_generallib_lower);
 	RING_API_REGISTER("upper", ring_vm_generallib_upper);
 	RING_API_REGISTER("lines", ring_vm_generallib_lines);
 	RING_API_REGISTER("strcmp", ring_vm_generallib_strcmp);
-	RING_API_REGISTER("len", ring_vm_generallib_len);
+	RING_API_REGISTERLENDSTRING("len", ring_vm_generallib_len);
 	/* Eval */
 	RING_API_REGISTER("eval", ring_vm_generallib_eval);
 	/* Error Handling */

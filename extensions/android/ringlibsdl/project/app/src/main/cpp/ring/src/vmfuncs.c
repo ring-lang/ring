@@ -145,6 +145,7 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 			pCFunc->cName = ring_list_getstring(pOptionalFunctions, nPos);
 			pCFunc->pFunc = ring_vm_optionalfunc;
 			pCFunc->pNext = NULL;
+			pCFunc->lLendString = RING_FALSE;
 		}
 	}
 	if (pCFunc != NULL) {
@@ -156,6 +157,7 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 		pFuncCall->cName = cStr;
 		pFuncCall->pFunc = pCFunc->pFunc;
 		pFuncCall->nSP = pVM->nSP;
+		pFuncCall->lLendString = pCFunc->lLendString;
 		/*
 		**  File Name
 		**  The old source file name
@@ -897,6 +899,7 @@ FuncCall *ring_vm_funccallnew(VM *pVM) {
 	pFuncCall->nStatus = RING_FUNCSTATUS_LOAD;
 	pFuncCall->pVMState = NULL;
 	pFuncCall->nParaCount = 0;
+	pFuncCall->lLendString = RING_FALSE;
 	if ((pVM->nSP > 0) && RING_VM_STACK_ISPOINTER) {
 		RING_VM_STACK_ASSIGNMENTFLAG = RING_FALSE;
 	}
@@ -926,6 +929,7 @@ void ring_vm_funccalluseloadfuncp(VM *pVM, FuncCall *pFuncCall, int nPerformance
 		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2), (void *)pFuncCall->pFunc);
 		RING_VM_IR_SETFLAGREG(pFuncCall->nType);
 		RING_VM_IR_SETFLAGREG2(pFuncCall->lMethod);
+		RING_VM_IR_SETFLAGREG3(pFuncCall->lLendString);
 		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
 	}
 }
