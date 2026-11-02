@@ -569,6 +569,8 @@ typedef struct VM {
 #define RING_VM_BYTECODE_INSSTR(x, y)                                                                                  \
 	RING_VM_BYTECODE_INS(x);                                                                                       \
 	ring_list_addstring_gc(pVM->pRingState, pByteCodeIns, y);
+/* Lend String */
+#define RING_VM_LENDSTRING_INSTOCHECK 16
 /* Runtime Error Messages */
 #define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 #define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"

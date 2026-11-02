@@ -313,7 +313,7 @@ int ring_vm_lendstring(VM *pVM, List *pVar) {
 	}
 	lBraces = ring_list_getsize(pVM->pBraceObjects) > 0;
 	pIns = pVM->pByteCodeIR + 1;
-	for (x = 0; x < 16; x++) {
+	for (x = 0; x < RING_VM_LENDSTRING_INSTOCHECK; x++) {
 		nOPCode = pIns->nOPCode;
 		if (nOPCode == ICO_CALL) {
 			break;
@@ -346,7 +346,7 @@ int ring_vm_lendstring(VM *pVM, List *pVar) {
 		}
 		pIns++;
 	}
-	if (x == 16) {
+	if (x == RING_VM_LENDSTRING_INSTOCHECK) {
 		return RING_FALSE;
 	}
 	pItem = &pVM->aStack[pVM->nSP];

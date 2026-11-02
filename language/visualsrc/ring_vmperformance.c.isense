@@ -50,3 +50,6 @@ Type: Item *
 pItem
 Type: unsigned int
 x, nOPCode, lBraces
+ring_vm_funcacceptlendstring
+Type: FuncCall *
+pFuncCall
