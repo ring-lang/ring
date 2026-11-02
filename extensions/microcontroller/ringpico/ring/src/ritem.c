@@ -72,13 +72,14 @@ RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItem
 }
 
 RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem) {
-	unsigned int nType;
+	unsigned int nType, lLendString;
 	nType = pItem->nType;
+	lLendString = pItem->lLendString;
 	/* Set Type */
 	ring_item_init_gc(pState, pItem);
 	switch (nType) {
 	case ITEMTYPE_STRING:
-		if (!pItem->lLendString) {
+		if (!lLendString) {
 			pItem->data.pString = ring_string_delete_gc(pState, pItem->data.pString);
 		}
 		break;
