@@ -28,7 +28,8 @@ RING_API Item *ring_item_delete_gc(void *pState, Item *pItem) {
 }
 
 RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItemType) {
-	if ((nItemType == pItem->nType) && ((nItemType == ITEMTYPE_STRING) || (nItemType == ITEMTYPE_NUMBER))) {
+	if ((nItemType == pItem->nType) && ((nItemType == ITEMTYPE_STRING) || (nItemType == ITEMTYPE_NUMBER)) &&
+	    !pItem->lLendString) {
 		/*
 		**  If the current item type is a String and the new type is also a String - We do nothing
 		**  In this case the item will contains the old data
@@ -77,7 +78,9 @@ RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem) {
 	ring_item_init_gc(pState, pItem);
 	switch (nType) {
 	case ITEMTYPE_STRING:
-		pItem->data.pString = ring_string_delete_gc(pState, pItem->data.pString);
+		if (!pItem->lLendString) {
+			pItem->data.pString = ring_string_delete_gc(pState, pItem->data.pString);
+		}
 		break;
 	case ITEMTYPE_LIST:
 		pItem->data.pList = ring_list_delete_gc(pState, pItem->data.pList);
