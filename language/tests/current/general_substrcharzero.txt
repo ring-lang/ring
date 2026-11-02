@@ -1,0 +1,9 @@
+Test 1: cOld is found
+Size: 3 (expected 3)
+Test 2: cOld is not found
+Size: 3 (expected 3)
+Test 3: cOld is not found (not case sensitive)
+Size: 3 (expected 3)
+Test 4: Binary data, replace a byte that is not used
+Size: 6 (expected 6)
+Done

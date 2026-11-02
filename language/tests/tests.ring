@@ -716,6 +716,7 @@ aTests = [
 	[ :name = "General Tests (Part 236)", :Command = "ring general/memcpy2.ring" ],
 	[ :name = "General Tests (Part 237)", :Command = "ring general/varnameinstatefuncs.ring" ],
 	[ :name = "General Tests (Part 238)", :Command = "ring general/insertlisttoitself.ring" ],
+	[ :name = "General Tests (Part 239)", :Command = "ring general/substrcharzero.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
