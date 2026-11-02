@@ -920,6 +920,9 @@ void ring_vm_funccalldelete(void *pState, void *pMemory) {
 }
 
 void ring_vm_funccalluseloadfuncp(VM *pVM, FuncCall *pFuncCall, int nPerformance) {
+	if (RING_VM_IR_OPCODE == ICO_ANONYMOUS) {
+		return;
+	}
 	if ((nPerformance == 1) || (pFuncCall->nType == RING_FUNCTYPE_C)) {
 		/* Replace Instruction with ICO_LOADFUNCP for better performance */
 		RING_VM_IR_OPCODE = ICO_LOADFUNCP;
