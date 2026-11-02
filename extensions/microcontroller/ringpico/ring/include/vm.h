@@ -888,8 +888,6 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr);
 unsigned int ring_vm_isoperationaftersublist(VM *pVM);
 
 void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);
-
-void ring_vm_checkitemsarray(VM *pVM, List *pList, unsigned int nIndex);
 /* Functions */
 
 int ring_vm_loadfunc(VM *pVM);
@@ -1131,6 +1129,8 @@ void ring_vm_divn(VM *pVM);
 void ring_vm_modn(VM *pVM);
 
 void ring_vm_pown(VM *pVM);
+
+void ring_vm_checkitemsarray(VM *pVM, List *pList, unsigned int nIndex);
 #ifdef RING_VM_COMPUTEDGOTO
 
 void ring_vm_computedgoto(VM *pVM);

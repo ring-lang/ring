@@ -283,3 +283,17 @@ void ring_vm_pown(VM *pVM) {
 	RING_VM_STACK_PUSHN;
 	ring_vm_pow(pVM);
 }
+
+void ring_vm_checkitemsarray(VM *pVM, List *pList, unsigned int nIndex) {
+	if ((pList->pItemsArray != NULL) || (nIndex == 1) || (nIndex == pList->nSize) ||
+	    (pList->nSize <= RING_VM_SMALLLISTSIZE) || pVM->pRingState->lUsingThreads) {
+		return;
+	}
+	if ((RING_VM_IR_READPVALUE(RING_VM_IR_REG1) == (void *)pList) &&
+	    ((unsigned int)RING_VM_IR_READIVALUE(RING_VM_IR_REG2) == pList->nSize)) {
+		ring_list_genarray_gc(pVM->pRingState, pList);
+		return;
+	}
+	RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG1), pList);
+	RING_VM_IR_READIVALUE(RING_VM_IR_REG2) = pList->nSize;
+}
