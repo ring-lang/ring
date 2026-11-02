@@ -108,15 +108,3 @@ ring_vm_isinsideloop
 Type: FuncCall *
 pFuncCall
 ring_vm_isstackpointertoobjstate
-ring_vm_lendstring
-Type: FuncCall *
-pFuncCall
-Type: ByteCode *
-pIns
-Type: Item *
-pItem
-Type: unsigned int
-x, nOPCode, lBraces
-ring_vm_funcacceptlendstring
-Type: FuncCall *
-pFuncCall

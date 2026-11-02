@@ -737,10 +737,6 @@ void ring_vm_stackswap(VM *pVM, int nSP1, int nSP2);
 unsigned int ring_vm_varcontainsobjhaveoperatormethod(VM *pVM, List *pVar);
 
 unsigned int ring_vm_itemcontainsobjhaveoperatormethod(VM *pVM, Item *pItem);
-
-int ring_vm_lendstring(VM *pVM, List *pVar);
-
-int ring_vm_funcacceptlendstring(VM *pVM);
 /* Compare */
 
 void ring_vm_equal(VM *pVM);
@@ -1131,6 +1127,10 @@ void ring_vm_modn(VM *pVM);
 void ring_vm_pown(VM *pVM);
 
 void ring_vm_checkitemsarray(VM *pVM, List *pList, unsigned int nIndex);
+
+int ring_vm_lendstring(VM *pVM, List *pVar);
+
+int ring_vm_funcacceptlendstring(VM *pVM);
 #ifdef RING_VM_COMPUTEDGOTO
 
 void ring_vm_computedgoto(VM *pVM);

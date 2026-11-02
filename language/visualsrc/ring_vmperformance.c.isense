@@ -40,3 +40,13 @@ ring_vm_muln
 ring_vm_divn
 ring_vm_modn
 ring_vm_pown
+ring_vm_checkitemsarray
+ring_vm_lendstring
+Type: FuncCall *
+pFuncCall
+Type: ByteCode *
+pIns
+Type: Item *
+pItem
+Type: unsigned int
+x, nOPCode, lBraces
