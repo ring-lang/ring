@@ -890,9 +890,10 @@ int ring_vm_lendstring(VM *pVM, List *pVar) {
 			break;
 		case ICO_LOADAPUSHV:
 		case ICO_LOADADDRESS:
-			if (!lBraces) {
-				break;
+			if (lBraces) {
+				return RING_FALSE;
 			}
+			break;
 		default:
 			return RING_FALSE;
 		}
