@@ -47,11 +47,11 @@ aLibrary = [:name = :qt ,
 		"libringqt.dylib"
 	 ],
 	 :ubuntudep = "qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qtmultimedia5-dev "+
-		      "libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev qtdeclarative5-dev "+
+		      "libqt5serialport5-dev qtconnectivity5-dev qtdeclarative5-dev "+
 		      "libqt5opengl5-dev libqt5texttospeech5-dev qtpositioning5-dev qt3d5-dev "+
 		      "qt3d5-dev-tools libqt5charts5 libqt5charts5-dev libqt5svg5-dev qtwebengine5-dev "+
 		      "qml-module-qtquick-controls qml-module-qtcharts",
 	 :fedoradep = "qt5-qtbase-devel qt5-qtmultimedia-devel "+
-		      "qt5-qtwebkit-devel qt5-qtserialport-devel qt5-qtconnectivity-devel qt5-qtdeclarative-devel qt5-qtlocation-devel",
+		      "qt5-qtwebengine qt5-qtserialport-devel qt5-qtconnectivity-devel qt5-qtdeclarative-devel qt5-qtlocation-devel",
 	 :macosxdep = "qt@5"
 	]
