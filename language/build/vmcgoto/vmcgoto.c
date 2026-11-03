@@ -124,6 +124,8 @@ void ring_vm_computedgoto(VM *pVM) {
 		[ICO_KILLREFERENCE] = &&L_ICO_KILLREFERENCE,
 		[ICO_ASSIGNMENTPOINTER] = &&L_ICO_ASSIGNMENTPOINTER,
 		[ICO_BEFOREEQUAL] = &&L_ICO_BEFOREEQUAL,
+		[ICO_INCPJUMPFORSTEP1] = &&L_ICO_INCPJUMPFORSTEP1,
+		[ICO_INCLPJUMPFORSTEP1] = &&L_ICO_INCLPJUMPFORSTEP1,
 	};
 	#define NEXT() do { \
 		if (pVM->nPC > RING_VM_INSTRUCTIONSCOUNT) return; \
@@ -492,6 +494,12 @@ void ring_vm_computedgoto(VM *pVM) {
 		NEXT();
 	L_ICO_BEFOREEQUAL:
 		pVM->nBeforeEqual = RING_VM_IR_READI;
+		NEXT();
+	L_ICO_INCPJUMPFORSTEP1:
+		ring_vm_incpjumpforstep1(pVM);
+		NEXT();
+	L_ICO_INCLPJUMPFORSTEP1:
+		ring_vm_inclpjumpforstep1(pVM);
 		NEXT();
 	L_default:
 		NEXT();
