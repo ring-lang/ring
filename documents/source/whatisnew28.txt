@@ -116,6 +116,7 @@ More Improvements
 * Ring VM - Better Performance - Using binary search to check memory blocks
 * Ring VM - Better Performance - Switch List to Array of Pointers when reading items many times
 * Ring VM - Better Performance - Pass strings to len()/left()/right()/substr() functions by reference
-* Ring VM - Better Performance - Using ring_vm_movestringarg()
-* Ring VM - Better Performance - State Management when using pSetProperty and pPCBlockFlag
+* Ring VM - Better Performance - Using ring_vm_movestringarg() to avoid unnecessary copy of strings
+* Ring VM - Better Performance - Faster state management when using pSetProperty and pPCBlockFlag
+* Ring VM - Better Performance - Specific VM instructions for For Loops with a Step Value of one
 * Ring API - Added: RING_API_REGISTERLENDSTRING
