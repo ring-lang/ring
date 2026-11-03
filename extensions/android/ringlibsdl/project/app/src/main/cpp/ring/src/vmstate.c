@@ -117,7 +117,8 @@ void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int 
 				}
 				/* Delete pSetProperty */
 				pListPointer = (List *)pVMStateForFunc->aPointers[6];
-				if (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer)) {
+				if ((pListPointer != pVM->pSetProperty) &&
+				    (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer))) {
 					ring_list_addpointer_gc(pVM->pRingState, aListsToDelete, pListPointer);
 				}
 			}
@@ -141,7 +142,8 @@ void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int 
 			}
 			/* Delete pSetProperty */
 			pListPointer = (List *)pVMStateForObj->aPointers[8];
-			if (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer)) {
+			if ((pListPointer != pVM->pSetProperty) &&
+			    (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer))) {
 				ring_list_addpointer_gc(pVM->pRingState, aListsToDelete, pListPointer);
 			}
 		}
@@ -218,12 +220,16 @@ VMState *ring_vm_savestateformethods(VM *pVM) {
 	pVMState->aPointers[4] = pVM->pGetSetObject;
 	pVMState->aPointers[5] = RING_VAR_GETPOINTER(pThis);
 	pVMState->aPointers[6] = pVM->pSetProperty;
-	pVM->pSetProperty = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	if (ring_list_getsize(pVM->pSetProperty) > 0) {
+		pVM->pSetProperty = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	}
 	/* Save State */
 	pVM->lInsideBraceFlag = 0;
 	/* Save BlockFlag */
 	pVM->nBlockCounter = 0;
-	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	if (ring_list_getsize(pVM->pPCBlockFlag) > 0) {
+		pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+	}
 	/* Save lPrivateFlag, set it to 0 (public not private) */
 	pVM->lPrivateFlag = 0;
 	/* Save nCallClassInit */
@@ -255,9 +261,15 @@ void ring_vm_restorestateformethods(VM *pVM, VMState *pVMState) {
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[7];
 	pVM->pActiveMem = (List *)pVMState->aPointers[1];
 	/* Restore BlockFLag */
-	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState, pVM->pPCBlockFlag);
+	if (pVM->pPCBlockFlag == (List *)pVMState->aPointers[2]) {
+		if (ring_list_getsize(pVM->pPCBlockFlag) > 0) {
+			ring_list_deleteallitems_gc(pVM->pRingState, pVM->pPCBlockFlag);
+		}
+	} else {
+		pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState, pVM->pPCBlockFlag);
+		pVM->pPCBlockFlag = (List *)pVMState->aPointers[2];
+	}
 	pVM->nBlockCounter = pVMState->aNumbers[8];
-	pVM->pPCBlockFlag = (List *)pVMState->aPointers[2];
 	/* Restore lPrivateFlag */
 	pVM->lPrivateFlag = pVMState->aNumbers[9];
 	/* Restore nCallClassInit */
@@ -274,8 +286,14 @@ void ring_vm_restorestateformethods(VM *pVM, VMState *pVMState) {
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, pVMState->aPointers[5]);
 	RING_VAR_SETPVALUETYPE(pThis, pVMState->aNumbers[11]);
 	/* Restore pSetProperty */
-	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState, pVM->pSetProperty);
-	pVM->pSetProperty = (List *)pVMState->aPointers[6];
+	if (pVM->pSetProperty == (List *)pVMState->aPointers[6]) {
+		if (ring_list_getsize(pVM->pSetProperty) > 0) {
+			ring_list_deleteallitems_gc(pVM->pRingState, pVM->pSetProperty);
+		}
+	} else {
+		pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState, pVM->pSetProperty);
+		pVM->pSetProperty = (List *)pVMState->aPointers[6];
+	}
 }
 
 void ring_vm_savestatefornewobjects(VM *pVM) {
