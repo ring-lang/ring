@@ -475,6 +475,7 @@ void ring_vm_tobytecode(VM *pVM, int nIns) {
 		pItem->data.iNumber = ICO_INCJUMP;
 		break;
 	case ICO_INCLPJUMPSTEP1:
+	case ICO_INCLPJUMPFORSTEP1:
 		pItem->data.iNumber = ICO_INCJUMP;
 		break;
 	}
@@ -663,6 +664,7 @@ void ring_vm_afterscopeidoverflow(VM *pVM) {
 			pByteCode->nOPCode = ICO_INCJUMP;
 			break;
 		case ICO_INCLPJUMPSTEP1:
+		case ICO_INCLPJUMPFORSTEP1:
 			pByteCode->nOPCode = ICO_INCJUMP;
 			break;
 		}
@@ -988,6 +990,12 @@ void ring_vm_execute(VM *pVM) {
 		break;
 	case ICO_CHECKBRACEMETHOD:
 		ring_vm_oop_checkbracemethod(pVM);
+		break;
+	case ICO_INCPJUMPFORSTEP1:
+		ring_vm_incpjumpforstep1(pVM);
+		break;
+	case ICO_INCLPJUMPFORSTEP1:
+		ring_vm_inclpjumpforstep1(pVM);
 		break;
 	/* Try-Catch-Done */
 	case ICO_TRY:

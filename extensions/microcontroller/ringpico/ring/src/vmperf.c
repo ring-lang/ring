@@ -94,7 +94,11 @@ void ring_vm_incjump(VM *pVM) {
 	if (pVM->nVarScope == RING_VARSCOPE_GLOBAL) {
 		/* Replace ICO_INCJUMP with IncPJUMP for better performance */
 		if (nNum1 == 1.0) {
-			RING_VM_IR_OPCODE = ICO_INCPJUMPSTEP1;
+			if (ring_vm_canfuseforstep(pVM)) {
+				RING_VM_IR_OPCODE = ICO_INCPJUMPFORSTEP1;
+			} else {
+				RING_VM_IR_OPCODE = ICO_INCPJUMPSTEP1;
+			}
 		} else {
 			RING_VM_IR_OPCODE = ICO_INCPJUMP;
 		}
@@ -102,7 +106,11 @@ void ring_vm_incjump(VM *pVM) {
 	} else if (pVM->nVarScope == RING_VARSCOPE_LOCAL) {
 		/* Replace ICO_INCJUMP with IncLPJUMP for better performance */
 		if (nNum1 == 1.0) {
-			RING_VM_IR_OPCODE = ICO_INCLPJUMPSTEP1;
+			if (ring_vm_canfuseforstep(pVM)) {
+				RING_VM_IR_OPCODE = ICO_INCLPJUMPFORSTEP1;
+			} else {
+				RING_VM_IR_OPCODE = ICO_INCLPJUMPSTEP1;
+			}
 		} else {
 			RING_VM_IR_OPCODE = ICO_INCLPJUMP;
 		}
@@ -210,6 +218,51 @@ void ring_vm_inclpjumpstep1(VM *pVM) {
 		return;
 	}
 	ring_vm_incpjumpstep1(pVM);
+}
+
+int ring_vm_canfuseforstep(VM *pVM) {
+	unsigned int nTarget;
+	nTarget = RING_VM_IR_READIVALUE(RING_VM_IR_REG2);
+	if ((nTarget < 1) || (nTarget + 1 > RING_VM_INSTRUCTIONSCOUNT)) {
+		return RING_FALSE;
+	}
+	return (RING_VM_IR_OPCODEVALUE(nTarget - 1) == ICO_PUSHN);
+}
+
+void ring_vm_inclpjumpforstep1(VM *pVM) {
+	if (RING_VM_IR_GETINTREG != pVM->nActiveScopeID) {
+		ring_vm_incjump(pVM);
+		return;
+	}
+	ring_vm_incpjumpforstep1(pVM);
+}
+
+void ring_vm_incpjumpforstep1(VM *pVM) {
+	Item *pItem;
+	ByteCode *pPushN, *pJumpFor;
+	unsigned int nTarget;
+	RING_VM_IR_LOAD;
+	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(RING_VM_IR_REG1));
+	pItem = (Item *)RING_VM_IR_READPVALUE(RING_VM_IR_REG2);
+	RING_VM_IR_UNLOAD;
+	nTarget = RING_VM_IR_READIVALUE(RING_VM_IR_REG2);
+	if (!ring_item_isdouble(pItem)) {
+		pVM->nPC = nTarget;
+		ring_vm_error(pVM, RING_VM_ERROR_FORLOOPDATATYPE);
+		return;
+	}
+	ring_item_incdouble(pItem);
+	pPushN = pVM->pByteCode + nTarget - 1;
+	pJumpFor = pPushN + 1;
+	if (ring_item_getdouble(pItem) > pPushN->aReg[0].dNumber) {
+		pVM->nPC = pJumpFor->aReg[0].iNumber;
+	} else {
+		pVM->nPC = nTarget + 2;
+	}
+	pVM->pByteCodeIR = pJumpFor;
+	if (ring_vm_timetofreetemplists(pVM)) {
+		ring_vm_freetemplists(pVM);
+	}
 }
 
 void ring_vm_setopcode(VM *pVM) {

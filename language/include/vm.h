@@ -999,6 +999,12 @@ void ring_vm_incpjumpstep1(VM *pVM);
 void ring_vm_inclpjumpstep1(VM *pVM);
 
 void ring_vm_updatescopeinfo(VM *pVM, int nScope);
+
+void ring_vm_incpjumpforstep1(VM *pVM);
+
+void ring_vm_inclpjumpforstep1(VM *pVM);
+
+int ring_vm_canfuseforstep(VM *pVM);
 /* End Program / Exit from Loop / Loop (Continue) */
 
 void ring_vm_bye(VM *pVM);

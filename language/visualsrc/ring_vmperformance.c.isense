@@ -31,6 +31,17 @@ ring_vm_incpjumpstep1
 Type: Item *
 pItem
 ring_vm_inclpjumpstep1
+ring_vm_canfuseforstep
+Type: unsigned int
+nTarget
+ring_vm_inclpjumpforstep1
+ring_vm_incpjumpforstep1
+Type: Item *
+pItem
+Type: ByteCode *
+pPushN, *pJumpFor
+Type: unsigned int
+nTarget
 ring_vm_setopcode
 Type: int
 nIns,nOPCode
