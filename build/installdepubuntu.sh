@@ -23,7 +23,6 @@ sudo apt-get install \
 	libqt5serialport5-dev \
 	libqt5svg5-dev \
 	libqt5texttospeech5-dev \
-	libqt5webkit5-dev \
 	libqt5webview5-dev \
 	libsdl2-dev \
 	libsdl2-image-dev \
