@@ -96,6 +96,7 @@ More Improvements
 * Revised: applications/matching/MatchingList.ring
 * Added: samples/UsingRayLib/more/ex12_rubik.ring 
 * Added: samples/UsingRayLib/more/ex13_rubik2.ring 
+* Revised: samples/General/HTMLExtract/HTMLExtract.ring - Closed the multiline comment and removed extra lines
 * Sort() function - Better Implementation
 * Insert() function - Better Implementation
 * SubStr() function - Better Implementation - Handling strings that contains the NULL character
