@@ -21,10 +21,8 @@ typedef struct Item {
 	} data;
 	/* Item Type */
 	unsigned int nType : 3;
-	/* The number type, 0 = int , 1 = double */
-	unsigned int nNumberFlag : 1;
-	/* Lend String */
-	unsigned int lLendString : 1;
+	/* The number type, 0 = nothing, 1 = int , 2 = double */
+	unsigned int nNumberFlag : 2;
 	/*
 	**  what is the type of the object that the pointer refer to
 	**  Used when putting the item in the stack to refer to list or listitem or string char
@@ -34,7 +32,8 @@ typedef struct Item {
 	unsigned int lAssignment : 1;
 	/* Garbage Collector Data (Reference Counting) */
 	unsigned int nGCReferenceCount : RING_VM_BITSFORREFCOUNT;
-	unsigned int lUnusedFlag : 1;
+	/* Lend String */
+	unsigned int lLendString : 1;
 	void (*pGCFreeFunc)(void *, void *);
 } Item;
 /* Constants */
@@ -44,9 +43,9 @@ typedef struct Item {
 #define ITEMTYPE_POINTER 3
 #define ITEMTYPE_LIST 4
 #define ITEMTYPE_FUNCPOINTER 5
-#define ITEM_NUMBERFLAG_INT 0
-#define ITEM_NUMBERFLAG_DOUBLE 1
-#define ITEM_NUMBERFLAG_NOTHING ITEM_NUMBERFLAG_INT
+#define ITEM_NUMBERFLAG_NOTHING 0
+#define ITEM_NUMBERFLAG_INT 1
+#define ITEM_NUMBERFLAG_DOUBLE 2
 #define ITEM_OBJTYPE_NOTHING 0
 /* Macro */
 #define ring_item_getstring_gc(pState, pItem) pItem->data.pString
