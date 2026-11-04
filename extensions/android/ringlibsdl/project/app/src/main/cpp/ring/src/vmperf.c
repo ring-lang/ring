@@ -226,7 +226,7 @@ int ring_vm_canfuseforstep(VM *pVM) {
 	if ((nTarget < 1) || (nTarget + 1 > RING_VM_INSTRUCTIONSCOUNT)) {
 		return RING_FALSE;
 	}
-	return (RING_VM_IR_OPCODEVALUE(nTarget - 1) == ICO_PUSHN);
+	return (RING_VM_IR_OPCODEVALUE(nTarget - 1) == ICO_PUSHN) && (RING_VM_IR_OPCODEVALUE(nTarget) == ICO_JUMPFOR);
 }
 
 void ring_vm_inclpjumpforstep1(VM *pVM) {
