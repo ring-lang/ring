@@ -719,6 +719,7 @@ aTests = [
 	[ :name = "General Tests (Part 238)", :Command = "ring general/insertlisttoitself.ring" ],
 	[ :name = "General Tests (Part 239)", :Command = "ring general/substrcharzero.ring" ],
 	[ :name = "General Tests (Part 240)", :Command = "ring general/forlimit.ring" ],
+	[ :name = "General Tests (Part 241)", :Command = "ring general/rangebadvalues.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
