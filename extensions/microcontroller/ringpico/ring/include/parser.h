@@ -143,7 +143,7 @@ typedef struct Parser {
 #define RING_RULE_EXIT "Rule : Statement  --> 'Exit'"
 #define RING_RULE_LOOP "Rule : Statement  --> 'Loop'"
 #define RING_RULE_SWITCH "Rule : Statement  --> 'Switch' Expr {ON} [Other] OFF"
-#define RING_RULE_ONEXPR "Rule : ON --> 'on' Expr {Statement}"
+#define RING_RULE_ONEXPR "Rule : ON --> 'on' Expr { ',' Expr } {Statement}"
 #define RING_RULE_OTHER "Rule : Other --> 'Other' {Statement}"
 #define RING_RULE_OFF "Rule : OFF --> 'Off'"
 #define RING_RULE_EXPR "Rule : Statement  --> Expr"

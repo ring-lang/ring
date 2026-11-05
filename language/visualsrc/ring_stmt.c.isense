@@ -15,7 +15,7 @@ nVar,nLine,nLine2,lRetItemRef,nRequiredSize
 Type: String *
 pString
 Type: List *
-pMark,*pMark2,*pMark3,*pMark4,*pList2
+pMark,*pMark2,*pMark3,*pMark4,*pList2,*pList3
 cStr
 Type: char
 cFileName[RING_PATHSIZE]
