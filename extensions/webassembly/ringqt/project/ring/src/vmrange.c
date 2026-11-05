@@ -37,9 +37,10 @@ void ring_vm_stackdup(VM *pVM) {
 
 void ring_vm_range(VM *pVM) {
 	double nNum1, nNum2;
-	int x, nSize1, nSize2;
+	int x, nSize1, nSize2, lListCreated;
 	char cStr[RING_CHARBUF];
 	List *pVar;
+	lListCreated = RING_FALSE;
 	if (RING_VM_STACK_ISNUMBER) {
 		nNum1 = RING_VM_STACK_READN;
 		RING_VM_STACK_POP;
@@ -47,6 +48,7 @@ void ring_vm_range(VM *pVM) {
 			nNum2 = RING_VM_STACK_READN;
 			RING_VM_STACK_POP;
 			/* Create List Variable */
+			lListCreated = RING_TRUE;
 			pVar = ring_vm_rangenewlist(pVM);
 			ring_list_enablecopybyref_gc(pVM->pRingState, pVar);
 			/* Create List */
@@ -64,18 +66,15 @@ void ring_vm_range(VM *pVM) {
 		nSize1 = RING_VM_STACK_STRINGSIZE;
 		if (nSize1 == 1) {
 			nNum1 = RING_VM_STACK_READC[0];
-		}
-		RING_VM_STACK_POP;
-		if (nSize1 == 1) {
+			RING_VM_STACK_POP;
 			if (RING_VM_STACK_ISSTRING) {
 				nSize2 = RING_VM_STACK_STRINGSIZE;
 				if (nSize2 == 1) {
 					nNum2 = RING_VM_STACK_READC[0];
-				}
-				RING_VM_STACK_POP;
-				if (nSize2 == 1) {
+					RING_VM_STACK_POP;
 					cStr[1] = '\0';
 					/* Create List Variable */
+					lListCreated = RING_TRUE;
 					pVar = ring_vm_rangenewlist(pVM);
 					ring_list_enablecopybyref_gc(pVM->pRingState, pVar);
 					/* Create List */
@@ -93,6 +92,9 @@ void ring_vm_range(VM *pVM) {
 				}
 			}
 		}
+	}
+	if (!lListCreated) {
+		ring_vm_error(pVM, RING_VM_ERROR_BADVALUES);
 	}
 }
 

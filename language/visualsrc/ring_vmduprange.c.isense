@@ -10,7 +10,7 @@ nType
 ring_vm_range
 nNum1,nNum2
 Type: int
-x,nSize1,nSize2
+x,nSize1,nSize2,lListCreated
 cStr
 Type: List *
 pVar
