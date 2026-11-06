@@ -722,6 +722,7 @@ aTests = [
 	[ :name = "General Tests (Part 241)", :Command = "ring general/rangebadvalues.ring" ],
 	[ :name = "General Tests (Part 242)", :Command = "ring general/switchmanyvalues.ring" ],
 	[ :name = "General Tests (Part 243)", :Command = "ring general/switchmanyvalues2.ring" ],
+	[ :name = "General Tests (Part 244)", :Command = "ring general/hashread.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
