@@ -1472,6 +1472,10 @@ void ring_vm_generallib_memcpy(void *pPointer) {
 	}
 	/* Get Parameters */
 	if (RING_API_ISSTRING(1)) {
+		if (sizeof(void *) != RING_API_GETSTRINGSIZE(1)) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
+		}
 		pDest = (void *)RING_API_GETSTRING(1);
 	}
 	if (RING_API_ISCPOINTER(1)) {
@@ -1484,6 +1488,10 @@ void ring_vm_generallib_memcpy(void *pPointer) {
 	if (RING_API_ISCPOINTER(2)) {
 		pList = RING_API_GETLIST(2);
 		pSrc = (const void *)ring_list_getpointer(pList, RING_CPOINTER_POINTER);
+	}
+	if ((pDest == NULL) || (pSrc == NULL)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
 	}
 	dNum = RING_API_GETNUMBER(3);
 	if ((dNum < 0) || (dNum != dNum) || (dNum > (double)UINT_MAX)) {
