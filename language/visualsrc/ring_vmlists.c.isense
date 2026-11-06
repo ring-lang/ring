@@ -59,6 +59,14 @@ Type: Item *
 pItem
 Type: const char *
 cStr2
+ring_vm_listgetvalueisread
+Type: unsigned int
+nPC
+ring_vm_listgetvaluenotfound
+Type: List *
+pList
+Type: Item *
+pItem
 ring_vm_listcopy
 Type: unsigned int
 x,nMax
@@ -71,4 +79,3 @@ Type: unsigned int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
-ring_vm_checkitemsarray

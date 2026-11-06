@@ -889,6 +889,10 @@ void ring_vm_listassignment(VM *pVM, unsigned int nBeforeEqual);
 
 void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr);
 
+unsigned int ring_vm_listgetvalueisread(VM *pVM);
+
+void ring_vm_listgetvaluenotfound(VM *pVM, List *pVar, const char *cStr);
+
 unsigned int ring_vm_isoperationaftersublist(VM *pVM);
 
 void ring_vm_listcopy(VM *pVM, List *pNewList, List *pList);

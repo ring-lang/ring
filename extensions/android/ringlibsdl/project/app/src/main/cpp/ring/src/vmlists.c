@@ -451,12 +451,7 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
 			return;
 		}
-		pList = ring_list_newlist_gc(pVM->pRingState, pVar);
-		ring_list_addstring_gc(pVM->pRingState, pList, cStr);
-		ring_list_addstring_gc(pVM->pRingState, pList, RING_CSTR_EMPTY);
-		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_LISTHASH_VALUE);
-		RING_VM_STACK_PUSHPVALUE(pItem);
-		RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM;
+		ring_vm_listgetvaluenotfound(pVM, pVar, cStr);
 		return;
 	}
 	if (ring_list_getsize_gc(pVM->pRingState, pVar) >= RING_HASHMAP_THRESHOLD) {
@@ -498,6 +493,28 @@ void ring_vm_listgetvalue(VM *pVM, List *pVar, const char *cStr) {
 				}
 			}
 		}
+	}
+	ring_vm_listgetvaluenotfound(pVM, pVar, cStr);
+}
+
+unsigned int ring_vm_listgetvalueisread(VM *pVM) {
+	unsigned int nPC;
+	if (RING_VM_IR_OPCODE != ICO_LOADINDEXADDRESS) {
+		return RING_FALSE;
+	}
+	nPC = pVM->nPC;
+	while ((nPC <= RING_VM_INSTRUCTIONSCOUNT) && (RING_VM_IR_OPCODEVALUE(nPC - 1) == ICO_NEWLINE)) {
+		nPC++;
+	}
+	return (nPC <= RING_VM_INSTRUCTIONSCOUNT) && (RING_VM_IR_OPCODEVALUE(nPC - 1) == ICO_PUSHV);
+}
+
+void ring_vm_listgetvaluenotfound(VM *pVM, List *pVar, const char *cStr) {
+	List *pList;
+	Item *pItem;
+	if (ring_vm_listgetvalueisread(pVM)) {
+		RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
+		return;
 	}
 	/* Add Item if not found */
 	pList = ring_list_newlist_gc(pVM->pRingState, pVar);
