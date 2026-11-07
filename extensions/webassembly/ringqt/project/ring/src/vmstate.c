@@ -499,9 +499,12 @@ void ring_vm_savestateforbraces(VM *pVM) {
 	pVMState->aNumbers[RING_BRACEOBJECTS_NNESTEDLISTS] = ring_list_getsize(pVM->pNestedLists);
 	ring_vm_newnestedlists(pVM);
 	/* Store GetSet Object */
-	pSetProperty = ring_list_new_gc(pVM->pRingState, RING_ZERO);
-	ring_list_copy_gc(pVM->pRingState, pSetProperty, pVM->pSetProperty);
-	ring_list_deleteallitems_gc(pVM->pRingState, pVM->pSetProperty);
+	pSetProperty = NULL;
+	if (ring_list_getsize(pVM->pSetProperty) > RING_ZERO) {
+		pSetProperty = ring_list_new_gc(pVM->pRingState, RING_ZERO);
+		ring_list_copy_gc(pVM->pRingState, pSetProperty, pVM->pSetProperty);
+		ring_list_deleteallitems_gc(pVM->pRingState, pVM->pSetProperty);
+	}
 	pVMState->aPointers[RING_BRACEOBJECTS_SETPROPERTY] = pSetProperty;
 	/* Store nLoadAddressScope */
 	pVMState->aNumbers[RING_BRACEOBJECTS_NLOADASCOPE] = pVM->nLoadAddressScope;
@@ -527,9 +530,13 @@ void ring_vm_restorestateforbraces(VM *pVM, VMState *pVMState) {
 	pVM->nSP = pVMState->aNumbers[RING_BRACEOBJECTS_NSP];
 	/* Restore GetSet Object */
 	pSetProperty = (List *)pVMState->aPointers[RING_BRACEOBJECTS_SETPROPERTY];
-	ring_list_deleteallitems_gc(pVM->pRingState, pVM->pSetProperty);
-	ring_list_copy_gc(pVM->pRingState, pVM->pSetProperty, pSetProperty);
-	pVMState->aPointers[RING_BRACEOBJECTS_SETPROPERTY] = ring_list_delete_gc(pVM->pRingState, pSetProperty);
+	if (ring_list_getsize(pVM->pSetProperty) > 0) {
+		ring_list_deleteallitems_gc(pVM->pRingState, pVM->pSetProperty);
+	}
+	if (pSetProperty != NULL) {
+		ring_list_copy_gc(pVM->pRingState, pVM->pSetProperty, pSetProperty);
+		pVMState->aPointers[RING_BRACEOBJECTS_SETPROPERTY] = ring_list_delete_gc(pVM->pRingState, pSetProperty);
+	}
 	/* Restore nLoadAddressScope */
 	pVM->nLoadAddressScope = pVMState->aNumbers[RING_BRACEOBJECTS_NLOADASCOPE];
 	/* Restore nNoSetterMethod */
