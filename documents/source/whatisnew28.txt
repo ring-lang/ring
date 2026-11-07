@@ -125,5 +125,6 @@ More Improvements
 * Ring VM - Better Performance - Using ring_vm_movestringarg() to avoid unnecessary copy of strings
 * Ring VM - Better Performance - Faster state management when using pSetProperty and pPCBlockFlag
 * Ring VM - Better Performance - Specific VM instructions for For Loops with a Step Value of one
+* Ring VM - Better Performance - ring_vm_oop_checkbracemethod() - Cache/Restore the result 
 * Ring Compiler/VM - Item structure - nNumberFlag is renamed to nNumberType
 * Ring API - Added: RING_API_REGISTERLENDSTRING
