@@ -1,0 +1,79 @@
+test
+wow
+========
+test
+wow
+========
+braceend2
+test2
+wow2
+========
+before
+x: 1000
+y: 2000
+z: 3000
+
+after
+braceend3
+x: 10000
+y: 20000
+z: 30000
+
+========
+x: 1000
+y: 2000
+z: 3000
+
+before2
+x: 1000
+y: 2000
+z: 3000
+
+after2
+braceend3
+x: 10000
+y: 20000
+z: 30000
+
+========
+before3
+x: 1000
+y: 2000
+z: 3000
+
+after3
+braceend3
+nice and good
+happy
+What
+========
+nice and good
+happy
+What
+========
+braceend3
+nice and good
+happy
+What
+========
+before4
+x: 10000
+y: 50000
+z: 30000
+
+after4
+braceend3
+nice and good
+happy
+What
+========
+before5
+x: NULL
+y: NULL
+z: NULL
+
+after5
+braceend3
+nice and good
+happy
+What
