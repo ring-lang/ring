@@ -1362,9 +1362,22 @@ void ring_vm_oop_callclassinit(VM *pVM) {
 
 void ring_vm_oop_checkbracemethod(VM *pVM) {
 	VMState *pVMState;
+	List *pObject, *pClass, *pMethods;
 	unsigned int lResult;
 	pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects, ring_list_getsize(pVM->pBraceObjects));
-	lResult = ring_vm_oop_cachedismethod(pVM, pVMState, RING_VM_IR_READC);
+	pObject = (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT];
+	pClass = (List *)RING_OBJECT_GETCLASSPOINTER(pObject);
+	pMethods = ring_list_getlist(pClass, RING_CLASSMAP_METHODSLIST);
+	if ((RING_VM_IR_READPVALUE(RING_VM_IR_REG2) == (void *)pClass) &&
+	    (RING_VM_IR_GETINTREG == ring_list_getsize(pMethods))) {
+		lResult = RING_VM_IR_GETSMALLINTREG;
+	} else {
+		lResult = ring_vm_oop_ismethod(pVM, pObject, RING_VM_IR_READC);
+		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2), (void *)pClass);
+		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
+		RING_VM_IR_SETINTREG(ring_list_getsize(pMethods));
+		RING_VM_IR_SETSMALLINTREG(lResult);
+	}
 	RING_VM_STACK_PUSHNVALUE(lResult);
 }
 

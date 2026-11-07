@@ -266,6 +266,8 @@ ring_vm_oop_callclassinit
 ring_vm_oop_checkbracemethod
 Type: VMState *
 pVMState
+Type: List *
+pObject, *pClass, *pMethods
 Type: unsigned int
 lResult
 ring_vm_oop_addattribute
