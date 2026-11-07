@@ -61,6 +61,9 @@ typedef struct Parser {
 	unsigned int lNewObject : 1;
 	/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
 	unsigned int lFuncCallOnly : 1;
+	/* Control the Mixer */
+	unsigned int lInitCallOnly : 1;
+	unsigned int lInitBracesOnly : 1;
 	/* Using Self or This with LoadAddress */
 	unsigned int lThisOrSelfLoadA : 1;
 	unsigned int lThisLoadA : 1;
@@ -284,6 +287,8 @@ int ring_parser_range(Parser *pParser);
 int ring_parser_factor(Parser *pParser, int *nFlag);
 
 int ring_parser_mixer(Parser *pParser);
+
+int ring_parser_newobjectvalue(Parser *pParser);
 
 int ring_parser_list(Parser *pParser);
 

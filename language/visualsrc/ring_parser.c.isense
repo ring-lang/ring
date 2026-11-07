@@ -65,6 +65,10 @@ lNewObject: 1
 Type: unsigned int
 lFuncCallOnly: 1
 Type: unsigned int
+lInitCallOnly: 1
+Type: unsigned int
+lInitBracesOnly: 1
+Type: unsigned int
 lThisOrSelfLoadA: 1
 Type: unsigned int
 lThisLoadA: 1

@@ -398,13 +398,13 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		/* Generate Code */
 		ring_parser_icg_loadaddress(pParser, pParser->cTokenText);
 		/* Check Loading Self or This */
-		pParser->lThisLoadA = 0;
+		pParser->lThisLoadA = RING_FALSE;
 		if (strcmp(pParser->cTokenText, RING_CSTR_THIS) == 0) {
-			pParser->lThisLoadA = 1;
+			pParser->lThisLoadA = RING_TRUE;
 		}
-		pParser->lThisOrSelfLoadA = 0;
+		pParser->lThisOrSelfLoadA = RING_FALSE;
 		if (strcmp(pParser->cTokenText, RING_CSTR_SELF) == 0 || pParser->lThisLoadA) {
-			pParser->lThisOrSelfLoadA = 1;
+			pParser->lThisOrSelfLoadA = RING_TRUE;
 		}
 		ring_parser_nexttoken(pParser);
 		/* Set Identifier Flag */
@@ -454,18 +454,18 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		} else if (ring_parser_isoperator2(pParser, OP_POWEQUAL)) {
 			nBeforeEqual = OP_POWEQUAL;
 		} else {
-			lequal = 0;
+			lequal = RING_FALSE;
 			nBeforeEqual = OP_EQUAL;
 		}
-		if ((lequal == 1) && (pParser->lAssignmentFlag == 1)) {
+		if ((lequal == RING_TRUE) && (pParser->lAssignmentFlag == RING_TRUE)) {
 			ring_parser_nexttoken(pParser);
 			/* Check if the Assignment after object attribute name */
 			lThisOrSelfLoadA = pParser->lThisOrSelfLoadA;
 			lThisLoadA = pParser->lThisLoadA;
 			if (nLastOperation == ICO_LOADSUBADDRESS) {
-				lSetProperty = 1;
+				lSetProperty = RING_TRUE;
 			} else {
-				lSetProperty = 0;
+				lSetProperty = RING_FALSE;
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser, ICO_ASSIGNMENTPOINTER);
@@ -487,15 +487,15 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 				pPushVPos = ring_parser_icg_getactiveoperation(pParser);
 			}
 			RING_PARSER_IGNORENEWLINE;
-			pParser->lNewObject = 0;
-			pParser->lAssignmentFlag = 0;
+			pParser->lNewObject = RING_FALSE;
+			pParser->lAssignmentFlag = RING_FALSE;
 			lNewAfterEqual = ring_parser_iskeyword(pParser, K_NEW);
 			x = ring_parser_expr(pParser);
-			pParser->lAssignmentFlag = 1;
+			pParser->lAssignmentFlag = RING_TRUE;
 			/* Check New Object and this.property or self.property to disable set property */
 			if (pParser->lNewObject && lSetProperty) {
-				if (lThisLoadA || (lThisOrSelfLoadA && (pParser->nBracesCounter == 0))) {
-					lSetProperty = 0;
+				if (lThisLoadA || (lThisOrSelfLoadA && (pParser->nBracesCounter == RING_ZERO))) {
+					lSetProperty = RING_FALSE;
 				}
 			}
 			if (x == RING_PARSER_OK) {
@@ -514,7 +514,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 				lAfterListEnd =
 				    lAfterListEnd || (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND);
 				lAfterListEnd = lAfterListEnd && (nBeforeEqual == OP_EQUAL);
-				if (lAfterListEnd && (pParser->nBracesCounter == 0)) {
+				if (lAfterListEnd && (pParser->nBracesCounter == RING_ZERO)) {
 					if ((lSetProperty == 0) || pParser->lThisOrSelfLoadA) {
 						return x;
 					}
@@ -528,7 +528,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 					**  ICO_NOOP can be converted to Set Property when we access object attributes
 					*inside {}
 					*/
-					if (lSetProperty == 1) {
+					if (lSetProperty == RING_TRUE) {
 						/* Disable Assignment Pointer */
 						ring_parser_icg_setoperandint(pParser, pAssignmentPointerPos,
 									      RING_PARSER_ICG_ASSIGNPTRENABLEPOS,
@@ -568,7 +568,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 						ring_parser_icg_newoperation(pParser, ICO_POW);
 					}
 				}
-				if (lSetProperty == 0) {
+				if (lSetProperty == RING_FALSE) {
 					if (nNOOP == 0) {
 						ring_parser_icg_newoperation(pParser, ICO_ASSIGNMENT);
 					} else {
@@ -584,13 +584,13 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 				}
 			} else {
 				/* In this case we have (New Object) */
-				pParser->lNewObject = 0;
+				pParser->lNewObject = RING_FALSE;
 				/*
 				**  Before Equal
 				**  Generate Code
 				*/
 				ring_parser_icg_beforeequal(pParser, nBeforeEqual);
-				if (lSetProperty == 0) {
+				if (lSetProperty == RING_FALSE) {
 					ring_parser_icg_newoperation(pParser, ICO_ASSIGNMENT);
 					if (!lNewAfterEqual) {
 						/* Disable Assignment Pointer */
@@ -730,7 +730,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			return RING_PARSER_OK;
 		}
 		x = pParser->lAssignmentFlag;
-		pParser->lAssignmentFlag = 0;
+		pParser->lAssignmentFlag = RING_FALSE;
 		if (ring_parser_expr(pParser)) {
 			pParser->lAssignmentFlag = x;
 			if (ring_parser_isoperator2(pParser, OP_FCLOSE)) {
@@ -770,11 +770,11 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
 		/* Check creating new object from variable */
-		lNewFrom = 0;
+		lNewFrom = RING_FALSE;
 		if (ring_parser_iskeyword(pParser, K_FROM)) {
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE;
-			lNewFrom = 1;
+			lNewFrom = RING_TRUE;
 		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser, ICO_NEWOBJ);
@@ -786,7 +786,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			RING_PARSER_IGNORENEWLINE;
 			if (ring_parser_isoperator2(pParser, OP_BRACEOPEN)) {
 				x = ring_parser_mixer(pParser);
-				pParser->lNewObject = 1;
+				pParser->lNewObject = ring_parser_newobjectvalue(pParser);
 				return x;
 			} else if (ring_parser_isoperator2(pParser, OP_FOPEN)) {
 				/*
@@ -800,19 +800,29 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 				/* Generate Code ( Call Function ) */
 				ring_parser_icg_loadaddress(pParser, RING_CSTR_INIT);
 				/* Function Parameters */
-				pParser->lFuncCallOnly = 1;
+				pParser->lFuncCallOnly = RING_TRUE;
+				pParser->lInitCallOnly = RING_TRUE;
 				ring_parser_mixer(pParser);
-				pParser->lFuncCallOnly = 0;
+				pParser->lFuncCallOnly = RING_FALSE;
+				pParser->lInitCallOnly = RING_FALSE;
 				/* Generate Code (End Brace) */
 				ring_parser_icg_newoperation(pParser, ICO_CALLCLASSINIT);
 				ring_parser_icg_newoperandint(pParser, RING_ZERO);
 				RING_PARSER_IGNORENEWLINE;
-				x = ring_parser_mixer(pParser);
+				if (ring_parser_isoperator2(pParser, OP_BRACEOPEN)) {
+					pParser->lInitBracesOnly = RING_TRUE;
+					x = ring_parser_mixer(pParser);
+					pParser->lInitBracesOnly = RING_FALSE;
+					if (x != RING_PARSER_OK) {
+						return x;
+					}
+				}
 				ring_parser_icg_newoperation(pParser, ICO_BRACEEND);
-				pParser->lNewObject = 1;
+				x = ring_parser_mixer(pParser);
+				pParser->lNewObject = ring_parser_newobjectvalue(pParser);
 				return x;
 			}
-			pParser->lNewObject = 1;
+			pParser->lNewObject = RING_TRUE;
 			return RING_PARSER_OK;
 		}
 	}
@@ -854,10 +864,10 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			x2 = pParser->lNewObject;
 			x3 = pParser->nBracesCounter;
 			x4 = pParser->lFuncCallOnly;
-			pParser->lAssignmentFlag = 1;
-			pParser->lNewObject = 0;
-			pParser->nBracesCounter = 0;
-			pParser->lFuncCallOnly = 0;
+			pParser->lAssignmentFlag = RING_TRUE;
+			pParser->lNewObject = RING_FALSE;
+			pParser->nBracesCounter = RING_ZERO;
+			pParser->lFuncCallOnly = RING_FALSE;
 			RING_PARSER_ACCEPTSTATEMENTS;
 			pParser->lAssignmentFlag = x;
 			pParser->lNewObject = x2;
@@ -923,8 +933,20 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	return RING_PARSER_FAIL;
 }
 
+int ring_parser_newobjectvalue(Parser *pParser) {
+	unsigned int nLastOperation;
+	nLastOperation = ring_parser_icg_getlastoperation(pParser);
+	if (nLastOperation == ICO_BRACEEND) {
+		return RING_TRUE;
+	}
+	if (nLastOperation != ICO_CALL) {
+		ring_parser_icg_newoperation(pParser, ICO_PUSHV);
+	}
+	return RING_FALSE;
+}
+
 int ring_parser_mixer(Parser *pParser) {
-	int x, nCallMethod, nStatus, nFlag, nNew;
+	int x, nCallMethod, nStatus, nFlag, nNew, lCallOnly, lBracesOnly;
 	/*
 	**  { . Identifier }
 	**  Object Attributes
@@ -967,6 +989,8 @@ int ring_parser_mixer(Parser *pParser) {
 			ring_parser_icg_deleteoperand(pParser, RING_PARSER_ICG_LOADASETTERPOS);
 			nCallMethod = 1;
 		}
+		lCallOnly = pParser->lInitCallOnly;
+		pParser->lInitCallOnly = RING_FALSE;
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE;
 		if (ring_parser_isoperator2(pParser, OP_FCLOSE)) {
@@ -975,13 +999,16 @@ int ring_parser_mixer(Parser *pParser) {
 			ring_parser_icg_gencall(pParser, nCallMethod);
 			RING_STATE_PRINTRULE(RING_RULE_MIXERISGROUP);
 			RING_PARSER_IGNORENEWLINE;
+			if (lCallOnly) {
+				return RING_PARSER_OK;
+			}
 			x = ring_parser_mixer(pParser);
 			return x;
 		}
 		while (1) {
 			nFlag = pParser->lAssignmentFlag;
 			nNew = pParser->lNewObject;
-			pParser->lAssignmentFlag = 0;
+			pParser->lAssignmentFlag = RING_FALSE;
 			if (ring_parser_expr(pParser)) {
 				pParser->lAssignmentFlag = nFlag;
 				pParser->lNewObject = nNew;
@@ -994,6 +1021,9 @@ int ring_parser_mixer(Parser *pParser) {
 					/* Generate Code */
 					ring_parser_icg_gencall(pParser, nCallMethod);
 					RING_PARSER_IGNORENEWLINE;
+					if (lCallOnly) {
+						return RING_PARSER_OK;
+					}
 					x = ring_parser_mixer(pParser);
 					return x;
 				} else {
@@ -1007,11 +1037,13 @@ int ring_parser_mixer(Parser *pParser) {
 		}
 	}
 	/* Function Call Only */
-	if (pParser->lFuncCallOnly == 1) {
+	if (pParser->lFuncCallOnly == RING_TRUE) {
 		return RING_PARSER_OK;
 	}
 	/* '{' {Statement} '}' */
-	if (ring_parser_isoperator2(pParser, OP_BRACEOPEN) && pParser->lControlStructureExpr == 0) {
+	if (ring_parser_isoperator2(pParser, OP_BRACEOPEN) && pParser->lControlStructureExpr == RING_FALSE) {
+		lBracesOnly = pParser->lInitBracesOnly;
+		pParser->lInitBracesOnly = RING_FALSE;
 		pParser->nBracesCounter++;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser, ICO_PUSHV);
@@ -1021,7 +1053,7 @@ int ring_parser_mixer(Parser *pParser) {
 		ring_parser_icg_gencallbracemethod(pParser, RING_CSTR_BRACESTART, RING_FALSE);
 		ring_parser_nexttoken(pParser);
 		nStatus = pParser->lAssignmentFlag;
-		pParser->lAssignmentFlag = 1;
+		pParser->lAssignmentFlag = RING_TRUE;
 		RING_PARSER_ACCEPTSTATEMENTS;
 		pParser->lAssignmentFlag = nStatus;
 		if (ring_parser_isoperator2(pParser, OP_BRACECLOSE)) {
@@ -1034,6 +1066,9 @@ int ring_parser_mixer(Parser *pParser) {
 			ring_parser_icg_newoperation(pParser, ICO_BRACEEND);
 			RING_STATE_PRINTRULE(RING_RULE_BRACEEND);
 			ring_parser_nexttoken(pParser);
+			if (lBracesOnly) {
+				return RING_PARSER_OK;
+			}
 			x = ring_parser_mixer(pParser);
 			return x;
 		} else {
