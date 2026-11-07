@@ -12,7 +12,7 @@ RING_API Item *ring_item_new_gc(void *pState, unsigned int nItemType) {
 	pItem->lAssignment = RING_FALSE;
 	/* Delete number information */
 	pItem->data.dNumber = 0;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
+	pItem->nNumberType = ITEM_NUMBERTYPE_NOTHING;
 	/* Lend String */
 	pItem->lLendString = RING_FALSE;
 	/* Reference Count */
@@ -52,7 +52,7 @@ RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItem
 	case ITEMTYPE_NUMBER:
 		pItem->nType = ITEMTYPE_NUMBER;
 		pItem->data.dNumber = 0;
-		pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE;
+		pItem->nNumberType = ITEM_NUMBERTYPE_DOUBLE;
 		break;
 	case ITEMTYPE_POINTER:
 		pItem->nType = ITEMTYPE_POINTER;
@@ -100,7 +100,7 @@ RING_API void ring_item_print_gc(void *pState, Item *pItem) {
 		ring_string_print(pItem->data.pString);
 		break;
 	case ITEMTYPE_NUMBER:
-		if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
+		if (pItem->nNumberType == ITEM_NUMBERTYPE_INT) {
 			printf("%d\n ", pItem->data.iNumber);
 		} else {
 			printf("%f \n", pItem->data.dNumber);
@@ -117,14 +117,14 @@ RING_API void ring_item_print_gc(void *pState, Item *pItem) {
 
 RING_API void ring_item_init_gc(void *pState, Item *pItem) {
 	pItem->nType = ITEMTYPE_NOTHING;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
+	pItem->nNumberType = ITEM_NUMBERTYPE_NOTHING;
 	pItem->lLendString = RING_FALSE;
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
 	pItem->lAssignment = RING_FALSE;
 }
 
 RING_API double ring_item_getnumber_gc(void *pState, Item *pItem) {
-	if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
+	if (pItem->nNumberType == ITEM_NUMBERTYPE_INT) {
 		return (double)pItem->data.iNumber;
 	}
 	return pItem->data.dNumber;
@@ -133,7 +133,7 @@ RING_API double ring_item_getnumber_gc(void *pState, Item *pItem) {
 RING_API void ring_itemarray_setint_gc(void *pState, Item aItems[], unsigned int nIndex, int nNumber) {
 	ring_item_settype_gc(pState, &aItems[nIndex], ITEMTYPE_NUMBER);
 	aItems[nIndex].data.iNumber = nNumber;
-	aItems[nIndex].nNumberFlag = ITEM_NUMBERFLAG_INT;
+	aItems[nIndex].nNumberType = ITEM_NUMBERTYPE_INT;
 }
 
 RING_API void ring_itemarray_setpointer_gc(void *pState, Item aItems[], unsigned int nIndex, void *pValue) {
@@ -146,7 +146,7 @@ RING_API void ring_itemarray_setpointer_gc(void *pState, Item aItems[], unsigned
 RING_API void ring_itemarray_setdouble_gc(void *pState, Item aItems[], unsigned int nIndex, double nNumber) {
 	ring_item_settype_gc(pState, &aItems[nIndex], ITEMTYPE_NUMBER);
 	aItems[nIndex].data.dNumber = nNumber;
-	aItems[nIndex].nNumberFlag = ITEM_NUMBERFLAG_DOUBLE;
+	aItems[nIndex].nNumberType = ITEM_NUMBERTYPE_DOUBLE;
 }
 
 RING_API void ring_itemarray_setstring_gc(void *pState, Item aItems[], unsigned int nIndex, const char *cStr) {
@@ -174,7 +174,7 @@ RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cSt
 RING_API void ring_item_setdouble_gc(void *pState, Item *pItem, double x) {
 	ring_item_settype_gc(pState, pItem, ITEMTYPE_NUMBER);
 	pItem->data.dNumber = x;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE;
+	pItem->nNumberType = ITEM_NUMBERTYPE_DOUBLE;
 }
 
 RING_API void ring_item_setpointer_gc(void *pState, Item *pItem, void *pValue) {
@@ -186,7 +186,7 @@ RING_API void ring_item_setpointer_gc(void *pState, Item *pItem, void *pValue) {
 RING_API void ring_item_setint_gc(void *pState, Item *pItem, int x) {
 	ring_item_settype_gc(pState, pItem, ITEMTYPE_NUMBER);
 	pItem->data.iNumber = x;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_INT;
+	pItem->nNumberType = ITEM_NUMBERTYPE_INT;
 }
 /* Functions without state pointer */
 

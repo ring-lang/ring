@@ -14,7 +14,7 @@ RING_API Items *ring_items_new_gc(void *pState) {
 	pItem->nType = ITEMTYPE_NOTHING;
 	pItem->nObjectType = 0;
 	pItem->data.dNumber = 0;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
+	pItem->nNumberType = ITEM_NUMBERTYPE_NOTHING;
 	pItem->lLendString = RING_FALSE;
 	ring_vm_gc_cleardata(pState, pItem);
 	ring_vm_gc_newitemreference(pState, pItem);

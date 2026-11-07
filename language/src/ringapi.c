@@ -546,7 +546,7 @@ RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize
 				pItems->pValue = pItem;
 				pItem->nType = ITEMTYPE_NUMBER;
 				pItem->data.dNumber = 0;
-				pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE;
+				pItem->nNumberType = ITEM_NUMBERTYPE_DOUBLE;
 			}
 			pList->nSize = nSize;
 		} else if ((nSize > 0) && (nSize2 > 0)) {
@@ -616,7 +616,7 @@ RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize
 					pItems->pValue = pItem;
 					pItem->nType = ITEMTYPE_NUMBER;
 					pItem->data.dNumber = 0;
-					pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE;
+					pItem->nNumberType = ITEM_NUMBERTYPE_DOUBLE;
 				}
 				pList2->nSize = nSize2;
 				/* Set the Sub List Cache */

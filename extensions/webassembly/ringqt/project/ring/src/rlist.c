@@ -395,7 +395,7 @@ RING_API void ring_list_setint_gc(void *pState, List *pList, unsigned int nIndex
 	pItem = ring_list_getitem_gc(pState, pList, nIndex);
 	ring_item_settype_gc(pState, pItem, ITEMTYPE_NUMBER);
 	pItem->data.iNumber = nNumber;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_INT;
+	pItem->nNumberType = ITEM_NUMBERTYPE_INT;
 }
 
 RING_API void ring_list_addint_gc(void *pState, List *pList, int x) {
@@ -436,7 +436,7 @@ RING_API void ring_list_setdouble_gc(void *pState, List *pList, unsigned int nIn
 	pItem = ring_list_getitem_gc(pState, pList, nIndex);
 	ring_item_settype_gc(pState, pItem, ITEMTYPE_NUMBER);
 	pItem->data.dNumber = nNumber;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE;
+	pItem->nNumberType = ITEM_NUMBERTYPE_DOUBLE;
 }
 
 RING_API void ring_list_adddouble_gc(void *pState, List *pList, double x) {

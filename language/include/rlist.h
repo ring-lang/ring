@@ -40,10 +40,10 @@ typedef struct List {
 /* Macro */
 #define ring_list_isdouble_gc(pState, pList, nIndex)                                                                   \
 	(ring_list_gettype_gc(pState, pList, nIndex) == ITEMTYPE_NUMBER) &&                                            \
-	    (ring_list_getitem_gc(pState, pList, nIndex)->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE)
+	    (ring_list_getitem_gc(pState, pList, nIndex)->nNumberType == ITEM_NUMBERTYPE_DOUBLE)
 #define ring_list_isint_gc(pState, pList, nIndex)                                                                      \
 	(ring_list_gettype_gc(pState, pList, nIndex) == ITEMTYPE_NUMBER) &&                                            \
-	    (ring_list_getitem_gc(pState, pList, nIndex)->nNumberFlag == ITEM_NUMBERFLAG_INT)
+	    (ring_list_getitem_gc(pState, pList, nIndex)->nNumberType == ITEM_NUMBERTYPE_INT)
 #define ring_list_gethashtable_gc(pState, pList) (pList->pHashTable)
 #define ring_list_getint_gc(pState, pList, nIndex) (ring_list_getitem_gc(pState, pList, nIndex)->data.iNumber)
 #define ring_list_getpointer_gc(pState, pList, nIndex) (ring_list_getitem_gc(pState, pList, nIndex)->data.pPointer)

@@ -22,7 +22,7 @@ typedef struct Item {
 	/* Item Type */
 	unsigned int nType : 3;
 	/* The number type, 0 = nothing, 1 = int , 2 = double */
-	unsigned int nNumberFlag : 2;
+	unsigned int nNumberType : 2;
 	/*
 	**  what is the type of the object that the pointer refer to
 	**  Used when putting the item in the stack to refer to list or listitem or string char
@@ -43,9 +43,9 @@ typedef struct Item {
 #define ITEMTYPE_POINTER 3
 #define ITEMTYPE_LIST 4
 #define ITEMTYPE_FUNCPOINTER 5
-#define ITEM_NUMBERFLAG_NOTHING 0
-#define ITEM_NUMBERFLAG_INT 1
-#define ITEM_NUMBERFLAG_DOUBLE 2
+#define ITEM_NUMBERTYPE_NOTHING 0
+#define ITEM_NUMBERTYPE_INT 1
+#define ITEM_NUMBERTYPE_DOUBLE 2
 #define ITEM_OBJTYPE_NOTHING 0
 /* Macro */
 #define ring_item_getstring_gc(pState, pItem) pItem->data.pString
@@ -67,7 +67,7 @@ typedef struct Item {
 #define ring_item_isstring_gc(pState, pItem) (pItem->nType == ITEMTYPE_STRING)
 #define ring_item_islist_gc(pState, pItem) (pItem->nType == ITEMTYPE_LIST)
 #define ring_item_isdouble_gc(pState, pItem)                                                                           \
-	((pItem->nType == ITEMTYPE_NUMBER) && (pItem->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE))
+	((pItem->nType == ITEMTYPE_NUMBER) && (pItem->nNumberType == ITEM_NUMBERTYPE_DOUBLE))
 #define ring_item_incdouble_gc(pState, pItem) ++pItem->data.dNumber
 /* Macro without state pointer */
 #define ring_item_getstring(pItem) ring_item_getstring_gc(NULL, pItem)
