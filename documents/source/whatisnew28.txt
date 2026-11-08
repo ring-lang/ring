@@ -126,5 +126,7 @@ More Improvements
 * Ring VM - Better Performance - Faster state management when using pSetProperty and pPCBlockFlag
 * Ring VM - Better Performance - Specific VM instructions for For Loops with a Step Value of one
 * Ring VM - Better Performance - ring_vm_oop_checkbracemethod() - Cache/Restore the result 
+* Ring VM - New Instruction - ICO_POP
 * Ring Compiler/VM - Item structure - nNumberFlag is renamed to nNumberType
+* Ring Compiler/VM - Init() method support - Better Implementation
 * Ring API - Added: RING_API_REGISTERLENDSTRING
