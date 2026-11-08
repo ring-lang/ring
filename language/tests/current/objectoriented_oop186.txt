@@ -1,0 +1,26 @@
+x: 10
+y: 20
+z: 30
+
+x: 10
+y: 20
+z: 30
+
+Hello from test() method
+x: 100
+y: 200
+z: 300
+
+Hello from test() method
+x: 100
+y: 200
+z: 300
+
+nice
+x: 100
+y: 200
+z: 300
+x: 10
+y: 20
+z: 30
+
