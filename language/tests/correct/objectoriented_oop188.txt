@@ -1,0 +1,19 @@
+Start
+x: 100
+y: 200
+z: 300
+
+101
+in init, oSeen.v = 5
+5
+12
+replaced 10
+10 30
+1 2 3 
+no init: 1
+7
+8
+99
+100
+2
+Done
