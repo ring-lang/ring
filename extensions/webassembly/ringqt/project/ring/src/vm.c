@@ -1008,6 +1008,9 @@ void ring_vm_execute(VM *pVM) {
 	case ICO_DUPLICATE:
 		ring_vm_stackdup(pVM);
 		break;
+	case ICO_POP:
+		RING_VM_STACK_POP;
+		break;
 	case ICO_RANGE:
 		ring_vm_range(pVM);
 		break;

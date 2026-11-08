@@ -509,8 +509,9 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 				**  We do this when we are not inside Brace
 				*/
 				nNOOP = 0;
-				lAfterListEnd = (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) &&
-						ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_LISTEND;
+				lAfterListEnd =
+				    (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) &&
+				    (ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_LISTEND);
 				lAfterListEnd =
 				    lAfterListEnd || (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND);
 				lAfterListEnd = lAfterListEnd && (nBeforeEqual == OP_EQUAL);
@@ -790,24 +791,23 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 				return x;
 			} else if (ring_parser_isoperator2(pParser, OP_FOPEN)) {
 				/*
-				**  Calling the init method using { }
-				**  Generate Code (Start Brace)
+				**  Calling the init method as obj.init(args) does
+				**  Generate Code
 				*/
-				ring_parser_icg_newoperation(pParser, ICO_PUSHV);
-				ring_parser_icg_newoperation(pParser, ICO_BRACESTART);
-				ring_parser_icg_newoperation(pParser, ICO_CALLCLASSINIT);
-				ring_parser_icg_newoperandint(pParser, RING_TRUE);
-				/* Generate Code ( Call Function ) */
-				ring_parser_icg_loadaddress(pParser, RING_CSTR_INIT);
-				/* Function Parameters */
-				pParser->lFuncCallOnly = RING_TRUE;
-				pParser->lInitCallOnly = RING_TRUE;
-				ring_parser_mixer(pParser);
-				pParser->lFuncCallOnly = RING_FALSE;
-				pParser->lInitCallOnly = RING_FALSE;
-				/* Generate Code (End Brace) */
-				ring_parser_icg_newoperation(pParser, ICO_CALLCLASSINIT);
+				ring_parser_icg_newoperation(pParser, ICO_DUPLICATE);
+				pMark = ring_parser_icg_getactiveoperation(pParser);
+				/* The mixer changes LoadSubAddress to LoadMethod when it finds (args) */
+				ring_parser_icg_newoperation(pParser, ICO_LOADSUBADDRESS);
+				ring_parser_icg_newoperand(pParser, RING_CSTR_INIT);
 				ring_parser_icg_newoperandint(pParser, RING_ZERO);
+				/* Function Parameters (the mixer stops after the call) */
+				pParser->lInitCallOnly = RING_TRUE;
+				x = ring_parser_mixer(pParser);
+				pParser->lInitCallOnly = RING_FALSE;
+				if (x != RING_PARSER_OK) {
+					return x;
+				}
+				/* Take in mind new class(args) { } */
 				RING_PARSER_IGNORENEWLINE;
 				if (ring_parser_isoperator2(pParser, OP_BRACEOPEN)) {
 					pParser->lInitBracesOnly = RING_TRUE;
@@ -817,10 +817,21 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 						return x;
 					}
 				}
-				ring_parser_icg_newoperation(pParser, ICO_BRACEEND);
-				x = ring_parser_mixer(pParser);
-				pParser->lNewObject = ring_parser_newobjectvalue(pParser);
-				return x;
+				if (ring_parser_isoperator2(pParser, OP_DOT) ||
+				    ring_parser_isoperator2(pParser, OP_LOPEN)) {
+					ring_parser_icg_setopcode(pParser, pMark, ICO_NOOP);
+					x = ring_parser_mixer(pParser);
+					if ((ring_parser_icg_getlastoperation(pParser) != ICO_CALL) &&
+					    (ring_parser_icg_getlastoperation(pParser) != ICO_BRACEEND)) {
+						ring_parser_icg_newoperation(pParser, ICO_PUSHV);
+					}
+					pParser->lNewObject = RING_FALSE;
+					return x;
+				}
+				/* Remove the value returned by init */
+				ring_parser_icg_newoperation(pParser, ICO_POP);
+				pParser->lNewObject = RING_TRUE;
+				return RING_PARSER_OK;
 			}
 			pParser->lNewObject = RING_TRUE;
 			return RING_PARSER_OK;

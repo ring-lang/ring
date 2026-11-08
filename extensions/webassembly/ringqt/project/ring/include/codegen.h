@@ -151,7 +151,8 @@ typedef enum IC_OPERATIONS {
 	ICO_LOADMETHODP,
 	ICO_LOADBRACEMETHODP,
 	ICO_INCPJUMPFORSTEP1,
-	ICO_INCLPJUMPFORSTEP1
+	ICO_INCLPJUMPFORSTEP1,
+	ICO_POP
 } IC_OPERATIONS;
 /* Operations Text (Array) */
 static const char *RING_IC_OP[] = {"NewLine",
@@ -276,7 +277,8 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "LoadMethodP",
 				   "LoadBraceMethodP",
 				   "IncPJumpForStep1",
-				   "IncLPJumpForStep1"};
+				   "IncLPJumpForStep1",
+				   "Pop"};
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE 1
