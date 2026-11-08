@@ -1,0 +1,14 @@
+A getter()
+100
+B getter()
+200
+C getter()
+300
+A Setter
+A getter()
+100
+Welcome to init()
+x: 10
+y: 20
+z: 30
+
