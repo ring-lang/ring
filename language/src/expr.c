@@ -957,7 +957,12 @@ int ring_parser_newobjectvalue(Parser *pParser) {
 }
 
 int ring_parser_mixer(Parser *pParser) {
-	int x, nCallMethod, nStatus, nFlag, nNew, lCallOnly, lBracesOnly;
+	int x, nCallMethod, nStatus, nFlag, nNew, lCallOnly, lBracesOnly, lAfterCall;
+	unsigned int nStartToken;
+	/* Prepare AfterCall */
+	lAfterCall = pParser->lAfterCall;
+	pParser->lAfterCall = RING_FALSE;
+	nStartToken = pParser->nActiveToken;
 	/*
 	**  { . Identifier }
 	**  Object Attributes
@@ -990,6 +995,10 @@ int ring_parser_mixer(Parser *pParser) {
 	}
 	/* |  [ ( [ Expr { , Expr } ] ) ]  ] */
 	if (ring_parser_isoperator2(pParser, OP_FOPEN)) {
+		/* Check lAfterCall */
+		if (lAfterCall && (pParser->nActiveToken == nStartToken)) {
+			return RING_PARSER_OK;
+		}
 		/* Generate Code */
 		nCallMethod = 0;
 		if (ring_parser_icg_getlastoperation(pParser) == ICO_LOADADDRESS) {
@@ -1013,6 +1022,7 @@ int ring_parser_mixer(Parser *pParser) {
 			if (lCallOnly) {
 				return RING_PARSER_OK;
 			}
+			pParser->lAfterCall = RING_TRUE;
 			x = ring_parser_mixer(pParser);
 			return x;
 		}
@@ -1035,6 +1045,7 @@ int ring_parser_mixer(Parser *pParser) {
 					if (lCallOnly) {
 						return RING_PARSER_OK;
 					}
+					pParser->lAfterCall = RING_TRUE;
 					x = ring_parser_mixer(pParser);
 					return x;
 				} else {

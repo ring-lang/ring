@@ -64,6 +64,7 @@ typedef struct Parser {
 	/* Control the Mixer */
 	unsigned int lInitCallOnly : 1;
 	unsigned int lInitBracesOnly : 1;
+	unsigned int lAfterCall : 1;
 	/* Using Self or This with LoadAddress */
 	unsigned int lThisOrSelfLoadA : 1;
 	unsigned int lThisLoadA : 1;

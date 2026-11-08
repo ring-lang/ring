@@ -53,7 +53,9 @@ Type: unsigned int
 nLastOperation
 ring_parser_mixer
 Type: int
-x,nCallMethod,nStatus,nFlag,nNew,lCallOnly,lBracesOnly
+x,nCallMethod,nStatus,nFlag,nNew,lCallOnly,lBracesOnly,lAfterCall
+Type: unsigned int
+nStartToken
 ring_parser_ppmm
 Type: int
 nLastOperation,nMode,nValue

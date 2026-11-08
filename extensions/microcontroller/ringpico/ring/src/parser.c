@@ -71,6 +71,7 @@ Parser *ring_parser_new(RingState *pRingState, List *pTokens) {
 	pParser->lFuncCallOnly = 0;
 	pParser->lInitCallOnly = 0;
 	pParser->lInitBracesOnly = 0;
+	pParser->lAfterCall = 0;
 	pParser->lControlStructureExpr = 0;
 	pParser->nControlStructureBrace = 0;
 	pParser->lThisOrSelfLoadA = 0;

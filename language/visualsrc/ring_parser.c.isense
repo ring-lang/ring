@@ -69,6 +69,8 @@ lInitCallOnly: 1
 Type: unsigned int
 lInitBracesOnly: 1
 Type: unsigned int
+lAfterCall: 1
+Type: unsigned int
 lThisOrSelfLoadA: 1
 Type: unsigned int
 lThisLoadA: 1
