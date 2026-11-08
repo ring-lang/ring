@@ -59,8 +59,6 @@ typedef struct Parser {
 	unsigned int lPrivateFlag : 1;
 	/* required for using { } after using new object to avoid assignment */
 	unsigned int lNewObject : 1;
-	/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
-	unsigned int lFuncCallOnly : 1;
 	/* Control the Mixer */
 	unsigned int lInitCallOnly : 1;
 	unsigned int lInitBracesOnly : 1;

@@ -384,7 +384,7 @@ int ring_parser_range(Parser *pParser) {
 }
 
 int ring_parser_factor(Parser *pParser, int *nFlag) {
-	int x, x2, x3, x4, nLastOperation, nCount, nNOOP, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
+	int x, x2, x3, nLastOperation, nCount, nNOOP, nMark, nFlag2, lThisOrSelfLoadA, lThisLoadA, lNewFrom,
 	    lAfterListEnd;
 	unsigned int nToken;
 	List *pList, *pMark, *pAssignmentPointerPos, *pDupPos, *pPushVPos;
@@ -874,16 +874,13 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 			x = pParser->lAssignmentFlag;
 			x2 = pParser->lNewObject;
 			x3 = pParser->nBracesCounter;
-			x4 = pParser->lFuncCallOnly;
 			pParser->lAssignmentFlag = RING_TRUE;
 			pParser->lNewObject = RING_FALSE;
 			pParser->nBracesCounter = RING_ZERO;
-			pParser->lFuncCallOnly = RING_FALSE;
 			RING_PARSER_ACCEPTSTATEMENTS;
 			pParser->lAssignmentFlag = x;
 			pParser->lNewObject = x2;
 			pParser->nBracesCounter = x3;
-			pParser->lFuncCallOnly = x4;
 			RING_PARSER_IGNORENEWLINE;
 			if (ring_parser_isoperator2(pParser, OP_BRACECLOSE)) {
 				ring_parser_nexttoken(pParser);
@@ -1057,10 +1054,6 @@ int ring_parser_mixer(Parser *pParser) {
 			}
 			RING_PARSER_IGNORENEWLINE;
 		}
-	}
-	/* Function Call Only */
-	if (pParser->lFuncCallOnly == RING_TRUE) {
-		return RING_PARSER_OK;
 	}
 	/* '{' {Statement} '}' */
 	if (ring_parser_isoperator2(pParser, OP_BRACEOPEN) && pParser->lControlStructureExpr == RING_FALSE) {
