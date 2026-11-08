@@ -942,7 +942,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 }
 
 int ring_parser_newobjectvalue(Parser *pParser) {
-	unsigned int nLastOperation;
+	int nLastOperation;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser);
 	if (nLastOperation == ICO_BRACEEND) {
 		return RING_TRUE;
