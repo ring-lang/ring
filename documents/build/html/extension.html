@@ -167,6 +167,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-ring-api-retmanagedcpointer">Using RING_API_RETMANAGEDCPOINTER()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#memory-functions">Memory Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-api-registerlendstring">RING_API_REGISTERLENDSTRING</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
@@ -957,6 +958,31 @@ RING_API_FREEFUNC
 <li><p>Use RING_API_FREE() instead of the free() function.</p></li>
 <li><p>RING_API_FREEFUNC provides a function pointer to the ring_state_free() function</p></li>
 </ul>
+</section>
+<section id="ring-api-registerlendstring">
+<span id="index-20"></span><h2>RING_API_REGISTERLENDSTRING<a class="headerlink" href="#ring-api-registerlendstring" title="Permalink to this heading"></a></h2>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_API_REGISTERLENDSTRING(cFunctionName,pFunctionPointer)
+</pre></div>
+</div>
+<p>RING_API_REGISTERLENDSTRING registers a C function in the Ring VM, just like RING_API_REGISTER,
+and also tells the VM that the function only reads its string parameters: it doesn’t change them,
+and it doesn’t keep them after it returns.</p>
+<p>When such a function is called with a string variable as a parameter, the Ring VM can lend the
+string of the variable to the function instead of copying it. This avoids allocating and copying
+the string, which is faster when the function is called many times or the string is large.</p>
+<p>The VM lends the string only when nothing between loading the function and calling it can change
+the variable (the parameters are numbers, literals or variables). Otherwise, the string is copied
+as before.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use RING_API_REGISTER for functions that change their string parameters or keep them.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_API_REGISTERLENDSTRING(&quot;left&quot;, ring_vm_generallib_left);
+RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
+</pre></div>
+</div>
 </section>
 </section>
 

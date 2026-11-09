@@ -136,7 +136,7 @@ Output:
 	black : Other color
 
 .. index:: 
-	pair: What is new in Ring  1.28; Better Ring API
+	pair: What is new in Ring 1.28; Better Ring API
 
 Better Ring API
 ===============
@@ -165,7 +165,7 @@ Example:
 	RING_API_REGISTERLENDSTRING("right", ring_vm_generallib_right);
 
 .. index::
-	pair: What is new in Ring  1.28; More Improvements
+	pair: What is new in Ring 1.28; More Improvements
 
 More Improvements
 =================
