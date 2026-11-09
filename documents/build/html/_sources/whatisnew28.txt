@@ -16,8 +16,8 @@ List of changes and new features
 Ring 1.28 comes with the next features!
 
 * Better GoldMagic800  
-* Better Libs/Extensions
 * More RingPM Packages
+* Better Libs/Extensions
 * More Improvements
 
 
@@ -31,23 +31,6 @@ The Gold Magic 800 game is updated and added 11 new levels from level 45 to leve
 
 .. image:: gm800_level45.jpg
 	:alt: GoldMagic800 Level 45
-
-
-.. index:: 
-	pair: What is new in Ring  1.28; Better Libs/Extensions
-
-Better Libs/Extensions
-======================
-
-* StdLib - Revised: encrypt_ex() and decrypt_ex()
-* GameEngine - gl_libsdl.ring - The bitmaps are now handles into a shared table
-* RingRayLib - raylib.rh - Added more constants 
-* RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
-* RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
-* RingRayLib - Revised: GuiToggle() and GuiToggleGroup()
-* RingRayLib - Revised: GuiComboBox(), GuiDropdownBox() and GuiListView()
-* RingQt - QAllEvents - Added setWheelEvent() method
-* RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
@@ -78,6 +61,22 @@ The following packages have been added to the RingPM registry.
 * RingRogueUtil: RogueUtil extension for the Ring programming language
 * RingUTF8Proc: Unicode text processing for Ring using utf8proc library
 * RingNAPPGUI: Brings the NAppGUI library (a cross-platform C SDK) to Ring
+
+.. index:: 
+	pair: What is new in Ring  1.28; Better Libs/Extensions
+
+Better Libs/Extensions
+======================
+
+* StdLib - Revised: encrypt_ex() and decrypt_ex()
+* GameEngine - gl_libsdl.ring - The bitmaps are now handles into a shared table
+* RingRayLib - raylib.rh - Added more constants 
+* RingRayLib - Added: LoadFontExDefault(fileName, fontSize) function
+* RingRayLib - Added: LoadFontExForText(fileName, fontSize, text) function
+* RingRayLib - Revised: GuiToggle() and GuiToggleGroup()
+* RingRayLib - Revised: GuiComboBox(), GuiDropdownBox() and GuiListView()
+* RingQt - QAllEvents - Added setWheelEvent() method
+* RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage
 
 .. index:: 
 	pair: What is new in Ring  1.28; More Improvements
