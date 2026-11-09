@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew27.html">Release Notes: Version 1.27</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.28</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raylibgui-package">RayLibGUI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-goldmagic800">Better GoldMagic800</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
@@ -229,6 +230,7 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
 <p>Ring 1.28 comes with the next features!</p>
 <ul class="simple">
+<li><p>RayLibGUI Package</p></li>
 <li><p>Better GoldMagic800</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Performance</p></li>
@@ -238,16 +240,32 @@
 <li><p>More Improvements</p></li>
 </ul>
 </section>
+<section id="raylibgui-package">
+<span id="index-2"></span><h2>RayLibGUI Package<a class="headerlink" href="#raylibgui-package" title="Permalink to this heading"></a></h2>
+<p>RayLibGUI is a GUI widgets library written in Ring on top of RayLib.</p>
+<p>It provides a dark-themed widget toolkit with keyboard and mouse support.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install raylibgui
+</pre></div>
+</div>
+<img alt="RayLibGUIShot1" src="_images/raylibgui_shot1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The library supports the Arabic language and Right-to-Left controls.</p>
+</div>
+<img alt="RayLibGUIShot2" src="_images/raylibgui_shot2.png" />
+</section>
 <section id="better-goldmagic800">
-<span id="index-2"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
 <p>The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55</p>
+<p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install goldmagic800
 </pre></div>
 </div>
 <img alt="GoldMagic800 Level 45" src="_images/gm800_level45.jpg" />
 </section>
 <section id="more-ringpm-packages">
-<span id="index-3"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>Ring2APK: Build Android APKs from Ring applications</p></li>
@@ -265,7 +283,6 @@
 <li><p>XMLLib: Pure Ring library for building and parsing XML documents</p></li>
 <li><p>ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression</p></li>
 <li><p>HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support</p></li>
-<li><p>RayLibGUI: GUI widgets library written in Ring on top of RayLib and Supports Arabic</p></li>
 <li><p>RingLua: Embeds the Lua 5.5 scripting engine in Ring programs</p></li>
 <li><p>TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension</p></li>
 <li><p>RingRogueUtil: RogueUtil extension for the Ring programming language</p></li>
@@ -274,7 +291,7 @@
 </ul>
 </section>
 <section id="better-performance">
-<span id="index-4"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
 <p>Ring 1.28 introduces performance improvements across many core operations.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Performance Comparison: Ring 1.27 vs Ring 1.28 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
@@ -432,7 +449,7 @@
 </div>
 </section>
 <section id="better-switch-statement">
-<span id="index-5"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
 <p>A case in the Switch statement can have many expressions separated by commas, like (case 1, 2).</p>
 <p>The statements of the case are executed when the switch value is equal to any of these expressions.</p>
 <p>The expressions are checked in order, and the check stops at the first match.</p>
@@ -473,7 +490,7 @@ black : Other color
 </div>
 </section>
 <section id="better-ring-api">
-<span id="index-6"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>Added: RING_API_REGISTERLENDSTRING(cFunctionName,pFunctionPointer)</p>
 <p>RING_API_REGISTERLENDSTRING registers a C function in the Ring VM, just like RING_API_REGISTER,
 and also tells the VM that the function only reads its string parameters: it doesn’t change them,
@@ -495,7 +512,7 @@ RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
 </div>
 </section>
 <section id="better-libs-extensions">
-<span id="index-7"></span><h2>Better Libs/Extensions<a class="headerlink" href="#better-libs-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Better Libs/Extensions<a class="headerlink" href="#better-libs-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>StdLib - Revised: encrypt_ex() and decrypt_ex()</p></li>
 <li><p>GameEngine - gl_libsdl.ring - The bitmaps are now handles into a shared table</p></li>
@@ -509,7 +526,7 @@ RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/pgo folder - Building Ring using Clang, LTO and PGO</p></li>
 <li><p>build/installdepubuntu.sh - Removed: libqt5webkit5-dev</p></li>
