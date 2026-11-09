@@ -18,6 +18,7 @@ Ring 1.28 comes with the next features!
 * Better GoldMagic800  
 * More RingPM Packages
 * Better Libs/Extensions
+* Better Ring API
 * More Improvements
 
 
@@ -79,6 +80,26 @@ Better Libs/Extensions
 * RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage
 
 .. index:: 
+	pair: What is new in Ring  1.28; Better Ring API
+
+Better Ring API
+===============
+
+Added: RING_API_REGISTERLENDSTRING
+
+When we register a C function in Ring VM we can use RING_API_REGISTERLENDSTRING to declare that
+this function doesn't modify the parameters 
+
+Example:
+
+The next code enable Ring VM to pass strings by reference to left()/right() functions
+
+.. code-block:: none
+
+	RING_API_REGISTERLENDSTRING("left", ring_vm_generallib_left);
+	RING_API_REGISTERLENDSTRING("right", ring_vm_generallib_right);
+
+.. index:: 
 	pair: What is new in Ring  1.28; More Improvements
 
 More Improvements
@@ -128,5 +149,4 @@ More Improvements
 * Ring Compiler/VM - New Instruction: ICO_POP
 * Ring Compiler/VM - New Instruction: ICO_INCPJUMPFORSTEP1
 * Ring Compiler/VM - New Instruction: ICO_INCLPJUMPFORSTEP1
-* Ring Compiler/VM - Removed old/unused instruction: ICO_CALLCLASSINIT 
-* Ring API - Added: RING_API_REGISTERLENDSTRING
+* Ring Compiler/VM - Removed old/unused instruction: ICO_CALLCLASSINIT  

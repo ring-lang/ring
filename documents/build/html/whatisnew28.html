@@ -185,6 +185,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-goldmagic800">Better GoldMagic800</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-libs-extensions">Better Libs/Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -229,6 +230,7 @@
 <li><p>Better GoldMagic800</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Libs/Extensions</p></li>
+<li><p>Better Ring API</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -278,8 +280,20 @@
 <li><p>RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage</p></li>
 </ul>
 </section>
+<section id="better-ring-api">
+<span id="index-5"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<p>Added: RING_API_REGISTERLENDSTRING</p>
+<p>When we register a C function in Ring VM we can use RING_API_REGISTERLENDSTRING to declare that
+this function doesn’t modify the parameters</p>
+<p>Example:</p>
+<p>The next code enable Ring VM to pass strings by reference to left()/right() functions</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_API_REGISTERLENDSTRING(&quot;left&quot;, ring_vm_generallib_left);
+RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-5"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>build/installdepubuntu.sh - Removed: libqt5webkit5-dev</p></li>
 <li><p>tools/ring2exe/libs/qt.ring - Removed: libqt5webkit5-dev</p></li>
@@ -326,7 +340,6 @@
 <li><p>Ring Compiler/VM - New Instruction: ICO_INCPJUMPFORSTEP1</p></li>
 <li><p>Ring Compiler/VM - New Instruction: ICO_INCLPJUMPFORSTEP1</p></li>
 <li><p>Ring Compiler/VM - Removed old/unused instruction: ICO_CALLCLASSINIT</p></li>
-<li><p>Ring API - Added: RING_API_REGISTERLENDSTRING</p></li>
 </ul>
 </section>
 </section>
