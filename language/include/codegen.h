@@ -4,15 +4,22 @@
 #define ring_codegen_h
 /* Intermediate Code */
 typedef enum IC_OPERATIONS {
-	/* General */
+	/* Debug Information */
 	ICO_NEWLINE = RING_ZERO,
 	ICO_FILENAME,
+	/* Program Structure */
+	ICO_PACKAGE,
+	ICO_IMPORT,
 	ICO_NEWCLASS,
 	ICO_NEWFUNC,
 	ICO_NEWOBJ,
 	ICO_PRIVATE,
 	ICO_NEWLABEL,
 	ICO_SETOPCODE,
+	/* Custom Global Scope */
+	ICO_NEWGLOBALSCOPE,
+	ICO_ENDGLOBALSCOPE,
+	ICO_SETGLOBALSCOPE,
 	/* Control Structure */
 	ICO_JUMP,
 	ICO_JUMPZERO,
@@ -71,6 +78,7 @@ typedef enum IC_OPERATIONS {
 	ICO_RETFROMEVAL,
 	ICO_RETITEMREF,
 	ICO_RETURNN,
+	ICO_ANONYMOUS,
 	/* Lists */
 	ICO_LISTSTART,
 	ICO_LISTITEM,
@@ -111,9 +119,6 @@ typedef enum IC_OPERATIONS {
 	ICO_OPTIONALLOOP,
 	/* Loop optimization in functions (local scope) */
 	ICO_INCLPJUMP,
-	/* Packages */
-	ICO_PACKAGE,
-	ICO_IMPORT,
 	/* Property */
 	ICO_SETPROPERTY,
 	ICO_NOOP,
@@ -142,23 +147,22 @@ typedef enum IC_OPERATIONS {
 	ICO_INCPJUMPSTEP1,
 	ICO_INCLPJUMPSTEP1,
 	ICO_INCPJUMPFORSTEP1,
-	ICO_INCLPJUMPFORSTEP1,
-	/* Anonymous Functions */
-	ICO_ANONYMOUS,
-	/* Custom Global Scope */
-	ICO_NEWGLOBALSCOPE,
-	ICO_ENDGLOBALSCOPE,
-	ICO_SETGLOBALSCOPE
+	ICO_INCLPJUMPFORSTEP1
 } IC_OPERATIONS;
 /* Operations Text (Array) */
 static const char *RING_IC_OP[] = {"NewLine",
 				   "FileName",
+				   "Package",
+				   "Import",
 				   "Class",
 				   "Func",
 				   "New",
 				   "Private",
 				   "NewLabel",
 				   "SetOPCode",
+				   "NewGlobalScope",
+				   "EndGlobalScope",
+				   "SetGlobalScope",
 				   "Jump",
 				   "JumpZ",
 				   "Jump1",
@@ -211,6 +215,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "RetFromEval",
 				   "RetItemRef",
 				   "ReturnN",
+				   "Anonymous",
 				   "ListStart",
 				   "ListItem",
 				   "ListItemN",
@@ -245,8 +250,6 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "Loop",
 				   "OptionalLoop",
 				   "IncLPJump",
-				   "Package",
-				   "Import",
 				   "SetProperty",
 				   "NoOperation",
 				   "AfterCallMethod2",
@@ -269,11 +272,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "IncPJumpStep1",
 				   "IncLPJumpStep1",
 				   "IncPJumpForStep1",
-				   "IncLPJumpForStep1",
-				   "Anonymous",
-				   "NewGlobalScope",
-				   "EndGlobalScope",
-				   "SetGlobalScope"};
+				   "IncLPJumpForStep1"};
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE 1
