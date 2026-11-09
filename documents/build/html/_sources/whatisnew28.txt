@@ -267,10 +267,6 @@ Better Switch Statement
 
 A case in the Switch statement can have many expressions separated by commas, like (case 1, 2).
 
-The statements of the case are executed when the switch value is equal to any of these expressions.
-
-The expressions are checked in order, and the check stops at the first match.
-
 Example:
 
 .. code-block:: ring
