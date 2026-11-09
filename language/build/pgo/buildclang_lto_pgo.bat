@@ -90,7 +90,7 @@ for %%f in ("%SRCDIR%\*.c") do (
 )
 set "LIBS=-ladvapi32 -lshell32 -luser32"
 
-rem ---- Stage 1: instrumented build ---------------------------------------
+rem ---- (1): instrumented build ---------------------------------------
 echo.
 echo (1) Instrumented build (-flto -fprofile-instr-generate)
 clang %RINGCFLAGS% -w -flto -fuse-ld=lld -fprofile-instr-generate -shared -I"%INCDIR%" %FILES% -o "%STAGE1%\ring.dll" %LIBS%
@@ -98,7 +98,7 @@ if errorlevel 1 goto failed
 clang %RINGCFLAGS% -w -I"%INCDIR%" "%SRCDIR%\ring.c" "%STAGE1%\ring.lib" -o "%STAGE1%\ring.exe" -Wl,/STACK:8388608
 if errorlevel 1 goto failed
 
-rem ---- Stage 2: training run ---------------------------------------------
+rem ---- (2): training run ---------------------------------------------
 echo.
 echo (2) Training run (tests\tests.ring programs)
 xcopy /e /i /q "%TESTDIR%\scripts" "%WORK%\train" >nul
@@ -115,7 +115,7 @@ dir /b /s "%PROF%\*.profraw" > "%WORK%\profiles.txt"
 llvm-profdata merge -f "%WORK%\profiles.txt" -o "%WORK%\ring.profdata"
 if errorlevel 1 goto failed
 
-rem ---- Stage 3: optimized build (LTO + PGO) ------------------------------
+rem ---- (3): optimized build (LTO + PGO) ------------------------------
 echo.
 echo (3) Optimized build (-flto -fprofile-instr-use)
 rem ring.dll and its import library ring.lib go to lib (as ..\buildvc.bat), then ring.dll is copied to bin
