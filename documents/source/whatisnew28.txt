@@ -105,6 +105,58 @@ Ring 1.28 introduces performance improvements across many core operations.
    The most significant improvements are in loops. Ring loops are now **~4x faster**.
 
 
+Many programs also run faster, especially those that process strings and lists.
+
+.. list-table:: Benchmarks: Ring 1.27 vs Ring 1.28
+   :widths: 40 15 15 15
+   :header-rows: 1
+
+   * - Benchmark
+     - Ring 1.27 (s)
+     - Ring 1.28 (s)
+     - Speedup
+   * - Bubble sort (2000 items)
+     - 0.29
+     - 0.21
+     - ~1.4x
+   * - Sieve of Eratosthenes (2M)
+     - 0.50
+     - 0.36
+     - ~1.4x
+   * - Matrix multiplication (120x120)
+     - 0.20
+     - 0.15
+     - ~1.3x
+   * - Split words by characters (880K characters)
+     - 27.59
+     - 0.14
+     - ~197x
+   * - Word count using find() (180K words)
+     - 0.32
+     - 0.05
+     - ~6.4x
+   * - Split and capitalize words
+     - 33.29
+     - 0.41
+     - ~81x
+   * - 20K objects: create, filter and call a method
+     - 3.62
+     - 0.19
+     - ~19x
+   * - Build and parse CSV (20K lines)
+     - 4.09
+     - 0.18
+     - ~23x
+   * - Hash keys aList[:key] (5000 keys)
+     - 0.06
+     - 0.01
+     - ~6.0x
+   * - Recursive quicksort (30000 items)
+     - 4.46
+     - 0.46
+     - ~9.7x
+
+
 .. tip:: Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
 
