@@ -183,6 +183,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.28</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-goldmagic800">Better GoldMagic800</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-libs-extensions">Better Libs/Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-switch-statement">Better Switch Statement</a></li>
@@ -229,6 +230,7 @@
 <p>Ring 1.28 comes with the next features!</p>
 <ul class="simple">
 <li><p>Better GoldMagic800</p></li>
+<li><p>Better Performance</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Libs/Extensions</p></li>
 <li><p>Better Switch Statement</p></li>
@@ -244,8 +246,93 @@
 </div>
 <img alt="GoldMagic800 Level 45" src="_images/gm800_level45.jpg" />
 </section>
+<section id="better-performance">
+<span id="index-3"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
+<p>Ring 1.28 introduces performance improvements across many core operations.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Performance Comparison: Ring 1.27 vs Ring 1.28 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Test Program</p></th>
+<th class="head"><p>Ring 1.27 (s)</p></th>
+<th class="head"><p>Ring 1.28 (s)</p></th>
+<th class="head"><p>Speedup</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Loop</p></td>
+<td><p>0.08</p></td>
+<td><p>0.02</p></td>
+<td><p>~4.0x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Variable read</p></td>
+<td><p>0.18</p></td>
+<td><p>0.08</p></td>
+<td><p>~2.3x</p></td>
+</tr>
+<tr class="row-even"><td><p>Variable write</p></td>
+<td><p>0.24</p></td>
+<td><p>0.12</p></td>
+<td><p>~2.0x</p></td>
+</tr>
+<tr class="row-odd"><td><p>List item read</p></td>
+<td><p>0.29</p></td>
+<td><p>0.17</p></td>
+<td><p>~1.7x</p></td>
+</tr>
+<tr class="row-even"><td><p>List item write</p></td>
+<td><p>0.36</p></td>
+<td><p>0.24</p></td>
+<td><p>~1.5x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calling C functions</p></td>
+<td><p>0.23</p></td>
+<td><p>0.17</p></td>
+<td><p>~1.4x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring functions</p></td>
+<td><p>0.34</p></td>
+<td><p>0.30</p></td>
+<td><p>~1.1x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calling Ring methods using the dot operator</p></td>
+<td><p>0.73</p></td>
+<td><p>0.52</p></td>
+<td><p>~1.4x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring methods using braces (outside the loop)</p></td>
+<td><p>0.69</p></td>
+<td><p>0.52</p></td>
+<td><p>~1.3x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object brace open/close</p></td>
+<td><p>1.05</p></td>
+<td><p>0.43</p></td>
+<td><p>~2.4x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring methods using braces (inside the loop)</p></td>
+<td><p>1.88</p></td>
+<td><p>0.94</p></td>
+<td><p>~2.0x</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most significant improvements are in loops. Ring loops are now <strong>~4x faster</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
+</div>
+</section>
 <section id="more-ringpm-packages">
-<span id="index-3"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>Ring2APK: Build Android APKs from Ring applications</p></li>
@@ -272,7 +359,7 @@
 </ul>
 </section>
 <section id="better-libs-extensions">
-<span id="index-4"></span><h2>Better Libs/Extensions<a class="headerlink" href="#better-libs-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Better Libs/Extensions<a class="headerlink" href="#better-libs-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>StdLib - Revised: encrypt_ex() and decrypt_ex()</p></li>
 <li><p>GameEngine - gl_libsdl.ring - The bitmaps are now handles into a shared table</p></li>
@@ -286,7 +373,7 @@
 </ul>
 </section>
 <section id="better-switch-statement">
-<span id="index-5"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
 <p>A case in the Switch statement can have many expressions separated by commas, like (case 1, 2).</p>
 <p>The statements of the case are executed when the switch value is equal to any of these expressions.</p>
 <p>The expressions are checked in order, and the check stops at the first match.</p>
@@ -327,7 +414,7 @@ black : Other color
 </div>
 </section>
 <section id="better-ring-api">
-<span id="index-6"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>Added: RING_API_REGISTERLENDSTRING(cFunctionName,pFunctionPointer)</p>
 <p>RING_API_REGISTERLENDSTRING registers a C function in the Ring VM, just like RING_API_REGISTER,
 and also tells the VM that the function only reads its string parameters: it doesn’t change them,
@@ -349,7 +436,7 @@ RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/pgo folder - Building Ring using Clang, LTO and PGO</p></li>
 <li><p>build/installdepubuntu.sh - Removed: libqt5webkit5-dev</p></li>
