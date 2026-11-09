@@ -39,7 +39,7 @@ void ring_vm_savestate(VM *pVM, List *pList) {
 	pVMState->aNumbers[25] = pVM->nBeforeEqual;
 	pVMState->aNumbers[26] = pVM->lNoAssignment;
 	pVMState->aNumbers[27] = pVM->nCurrentGlobalScope;
-	pVMState->aNumbers[29] = RING_VAR_GETPVALUETYPE(pThis);
+	pVMState->aNumbers[28] = RING_VAR_GETPVALUETYPE(pThis);
 	pVMState->aPointers[0] = pVM->pBraceObject;
 	pVMState->aPointers[1] = (void *)pVM->cFileName;
 	pVMState->aPointers[2] = pVM->pActiveMem;
@@ -176,7 +176,7 @@ void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int 
 	/* Restore This variable */
 	pThis = pVM->pThis;
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, pVMState->aPointers[3]);
-	RING_VAR_SETPVALUETYPE(pThis, pVMState->aNumbers[29]);
+	RING_VAR_SETPVALUETYPE(pThis, pVMState->aNumbers[28]);
 	/* Process aListsToDelete */
 	for (x = 1; x <= ring_list_getsize(aListsToDelete); x++) {
 		pListPointer = (List *)ring_list_getpointer(aListsToDelete, x);
@@ -202,12 +202,12 @@ VMState *ring_vm_savestateformethods(VM *pVM) {
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope;
 	pVMState->aNumbers[8] = pVM->nBlockCounter;
 	pVMState->aNumbers[9] = pVM->lPrivateFlag;
-	pVMState->aNumbers[11] = RING_VAR_GETPVALUETYPE(pThis);
+	pVMState->aNumbers[10] = pVM->nBeforeEqual;
+	pVMState->aNumbers[11] = pVM->nNoSetterMethod;
 	pVMState->aNumbers[12] = pVM->nInClassRegion;
 	pVMState->aNumbers[13] = pVM->nActiveScopeID;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pScopeNewObj);
-	pVMState->aNumbers[15] = pVM->nNoSetterMethod;
-	pVMState->aNumbers[16] = pVM->nBeforeEqual;
+	pVMState->aNumbers[15] = RING_VAR_GETPVALUETYPE(pThis);
 	pVMState->aPointers[0] = pVM->pBraceObject;
 	pVMState->aPointers[1] = pVM->pActiveMem;
 	pVMState->aPointers[2] = pVM->pPCBlockFlag;
@@ -265,17 +265,17 @@ void ring_vm_restorestateformethods(VM *pVM, VMState *pVMState) {
 	pVM->nBlockCounter = pVMState->aNumbers[8];
 	/* Restore lPrivateFlag */
 	pVM->lPrivateFlag = pVMState->aNumbers[9];
+	pVM->nBeforeEqual = pVMState->aNumbers[10];
+	pVM->nNoSetterMethod = pVMState->aNumbers[11];
 	pVM->pAssignment = (void *)pVMState->aPointers[3];
 	pVM->nInClassRegion = pVMState->aNumbers[12];
 	pVM->nActiveScopeID = pVMState->aNumbers[13];
 	ring_vm_backstate(pVM, pVM->pScopeNewObj, pVMState->aNumbers[14]);
-	pVM->nBeforeEqual = pVMState->aNumbers[16];
-	pVM->nNoSetterMethod = pVMState->aNumbers[15];
 	pVM->pGetSetObject = (void *)pVMState->aPointers[4];
 	/* Restore This variable */
 	pThis = pVM->pThis;
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, pVMState->aPointers[5]);
-	RING_VAR_SETPVALUETYPE(pThis, pVMState->aNumbers[11]);
+	RING_VAR_SETPVALUETYPE(pThis, pVMState->aNumbers[15]);
 	/* Restore pSetProperty */
 	if (pVM->pSetProperty == (List *)pVMState->aPointers[6]) {
 		if (ring_list_getsize(pVM->pSetProperty) > 0) {
@@ -312,6 +312,9 @@ void ring_vm_savestatefornewobjects(VM *pVM) {
 	pVM->lInsideBraceFlag = 0;
 	pVMState->aPointers[2] = pVM->pBraceObject;
 	pVM->pBraceObject = NULL;
+	/* Save nInClassRegion */
+	pVMState->aNumbers[5] = pVM->nInClassRegion;
+	pVM->nInClassRegion = 0;
 	/* Save Line Number */
 	pVMState->aNumbers[6] = RING_VM_IR_GETLINENUMBER;
 	/* Save Function Stack */
@@ -369,9 +372,6 @@ void ring_vm_savestatefornewobjects(VM *pVM) {
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState, RING_ZERO);
 	/* Save pActivePackage */
 	pVMState->aNumbers[25] = ring_list_getsize(pVM->pActivePackage);
-	/* Save nInClassRegion */
-	pVMState->aNumbers[26] = pVM->nInClassRegion;
-	pVM->nInClassRegion = 0;
 	/* Save pBeforeObjState */
 	pVMState->aNumbers[27] = pVM->nBeforeObjStateCount;
 	/* Save pSetProperty */
@@ -398,6 +398,8 @@ void ring_vm_restorestatefornewobjects(VM *pVM) {
 	/* Restore InsideBrace Flag */
 	pVM->lInsideBraceFlag = pVMState->aNumbers[4];
 	pVM->pBraceObject = (List *)pVMState->aPointers[2];
+	/* Restore nInClassRegion */
+	pVM->nInClassRegion = pVMState->aNumbers[5];
 	/* Restore nLineNumber */
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[6]);
 	/* Restore Function Stack */
@@ -447,8 +449,6 @@ void ring_vm_restorestatefornewobjects(VM *pVM) {
 	pVM->pPCBlockFlag = (List *)pVMState->aPointers[7];
 	/* Restore pActivePackage */
 	ring_vm_backstate(pVM, pVM->pActivePackage, pVMState->aNumbers[25]);
-	/* Restore nInClassRegion */
-	pVM->nInClassRegion = pVMState->aNumbers[26];
 	/* Restore pBeforeObjState */
 	RING_VM_BACKBEFOREOBJSTATE(pVMState->aNumbers[27]);
 	/* Restore pSetProperty */
