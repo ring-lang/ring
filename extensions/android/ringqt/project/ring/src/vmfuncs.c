@@ -27,12 +27,6 @@ RING_API int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 				continue;
 			}
 			pOS = &pVM->aObjState[pVM->nCurrentObjState];
-			/* Pass Braces for Class Init() method */
-			if ((pVM->nCurrentObjState > 1) && (pVM->nCallClassInit)) {
-				if (strcmp(cStr, RING_CSTR_INIT) != 0) {
-					pOS = &pVM->aObjState[pVM->nCurrentObjState - 1];
-				}
-			}
 			pList = pOS->pMethods;
 			if (pList == NULL) {
 				continue;

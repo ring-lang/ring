@@ -168,7 +168,6 @@ typedef struct VM {
 	unsigned int nBeforeEqual : 8;
 	unsigned int nDecimals : 8;
 	unsigned int nRetItemRef : 8;
-	unsigned int nCallClassInit : 8;
 	unsigned int nRunCode : 8;
 	unsigned int nTraceEvent : 8;
 	unsigned int nEvalInScope : 8;

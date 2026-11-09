@@ -134,8 +134,6 @@ typedef enum IC_OPERATIONS {
 	ICO_INCLPJUMPSTEP1,
 	/* Anonymous Functions */
 	ICO_ANONYMOUS,
-	/* Class Init */
-	ICO_CALLCLASSINIT,
 	/* Custom Global Scope */
 	ICO_NEWGLOBALSCOPE,
 	ICO_ENDGLOBALSCOPE,
@@ -265,7 +263,6 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "IncPJumpStep1",
 				   "IncLPJumpStep1",
 				   "Anonymous",
-				   "CallClassInit",
 				   "NewGlobalScope",
 				   "EndGlobalScope",
 				   "SetGlobalScope",

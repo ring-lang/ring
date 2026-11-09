@@ -144,14 +144,6 @@ VM *ring_vm_new(RingState *pRingState) {
 	/* Ignore C Pointer Type Check in extension functions */
 	pVM->lIgnoreCPointerTypeCheck = 0;
 	/*
-	**  Flag when we call class init using new obj()
-	**  Since we call init() using generated braces { }
-	**  setting this flag enable LoadAddress to pass these braces
-	**  To access the class attributes of the caller
-	**  because {} hides the class attributes and we need to avoid that!
-	*/
-	pVM->nCallClassInit = 0;
-	/*
 	**  Flag to avoid deleting Byte Code using Return From Eval()
 	**  When we use eval() then inside eval we uses eval for setter/getter/operator overloading
 	**  Then deleting byte code will cause a problem in setter/getter/operator overloading
@@ -1056,9 +1048,6 @@ void ring_vm_execute(VM *pVM) {
 		break;
 	case ICO_SETPROPERTY:
 		ring_vm_oop_setproperty(pVM);
-		break;
-	case ICO_CALLCLASSINIT:
-		ring_vm_oop_callclassinit(pVM);
 		break;
 	/* Bitwise Operators */
 	case ICO_BITAND:

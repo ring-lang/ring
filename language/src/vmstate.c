@@ -39,7 +39,6 @@ void ring_vm_savestate(VM *pVM, List *pList) {
 	pVMState->aNumbers[25] = pVM->nBeforeEqual;
 	pVMState->aNumbers[26] = pVM->lNoAssignment;
 	pVMState->aNumbers[27] = pVM->nCurrentGlobalScope;
-	pVMState->aNumbers[28] = pVM->nCallClassInit;
 	pVMState->aNumbers[29] = RING_VAR_GETPVALUETYPE(pThis);
 	pVMState->aPointers[0] = pVM->pBraceObject;
 	pVMState->aPointers[1] = (void *)pVM->cFileName;
@@ -174,7 +173,6 @@ void ring_vm_restorestate(VM *pVM, List *pList, unsigned int nPos, unsigned int 
 	pVM->lNoAssignment = pVMState->aNumbers[26];
 	/* We restore the global scope before the This variable, because This use global scope */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[27];
-	pVM->nCallClassInit = pVMState->aNumbers[28];
 	/* Restore This variable */
 	pThis = pVM->pThis;
 	RING_VAR_SETPOINTER_GC(pVM->pRingState, pThis, pVMState->aPointers[3]);
@@ -204,7 +202,6 @@ VMState *ring_vm_savestateformethods(VM *pVM) {
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope;
 	pVMState->aNumbers[8] = pVM->nBlockCounter;
 	pVMState->aNumbers[9] = pVM->lPrivateFlag;
-	pVMState->aNumbers[10] = pVM->nCallClassInit;
 	pVMState->aNumbers[11] = RING_VAR_GETPVALUETYPE(pThis);
 	pVMState->aNumbers[12] = pVM->nInClassRegion;
 	pVMState->aNumbers[13] = pVM->nActiveScopeID;
@@ -230,8 +227,6 @@ VMState *ring_vm_savestateformethods(VM *pVM) {
 	}
 	/* Save lPrivateFlag, set it to 0 (public not private) */
 	pVM->lPrivateFlag = 0;
-	/* Save nCallClassInit */
-	pVM->nCallClassInit = 0;
 	pVM->nInClassRegion = 0;
 	pVM->pAssignment = NULL;
 	pVM->lNoAssignment = 0;
@@ -270,8 +265,6 @@ void ring_vm_restorestateformethods(VM *pVM, VMState *pVMState) {
 	pVM->nBlockCounter = pVMState->aNumbers[8];
 	/* Restore lPrivateFlag */
 	pVM->lPrivateFlag = pVMState->aNumbers[9];
-	/* Restore nCallClassInit */
-	pVM->nCallClassInit = pVMState->aNumbers[10];
 	pVM->pAssignment = (void *)pVMState->aPointers[3];
 	pVM->nInClassRegion = pVMState->aNumbers[12];
 	pVM->nActiveScopeID = pVMState->aNumbers[13];
@@ -319,9 +312,6 @@ void ring_vm_savestatefornewobjects(VM *pVM) {
 	pVM->lInsideBraceFlag = 0;
 	pVMState->aPointers[2] = pVM->pBraceObject;
 	pVM->pBraceObject = NULL;
-	/* Save nCallClassInit */
-	pVMState->aNumbers[5] = pVM->nCallClassInit;
-	pVM->nCallClassInit = 0;
 	/* Save Line Number */
 	pVMState->aNumbers[6] = RING_VM_IR_GETLINENUMBER;
 	/* Save Function Stack */
@@ -408,8 +398,6 @@ void ring_vm_restorestatefornewobjects(VM *pVM) {
 	/* Restore InsideBrace Flag */
 	pVM->lInsideBraceFlag = pVMState->aNumbers[4];
 	pVM->pBraceObject = (List *)pVMState->aPointers[2];
-	/* Restore nCallClassInit */
-	pVM->nCallClassInit = pVMState->aNumbers[5];
 	/* Restore nLineNumber */
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[6]);
 	/* Restore Function Stack */

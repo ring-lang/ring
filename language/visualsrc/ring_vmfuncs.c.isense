@@ -115,6 +115,8 @@ ring_vm_findfuncusinghashtable
 Type: List *
 pFuncList
 ring_vm_movestringarg
+Type: List *
+pList
 Type: Item *
 pItem, *pVarItem
 Type: String *

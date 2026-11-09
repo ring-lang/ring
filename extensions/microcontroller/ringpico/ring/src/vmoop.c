@@ -1174,22 +1174,8 @@ void ring_vm_oop_callmethodfrombrace(VM *pVM) {
 
 void ring_vm_oop_preparecallmethodfrombrace(VM *pVM) {
 	unsigned int nSrcIndex;
-	FuncCall *pFuncCall;
-	const char *cStr;
 	List *pList;
 	nSrcIndex = pVM->nCurrentObjState;
-	/* Pass Brace when we call class init , using new object() */
-	if ((pVM->nCurrentObjState > 1) && (pVM->nCallClassInit)) {
-		if (RING_VM_FUNCCALLSCOUNT > 0) {
-			pFuncCall = RING_VM_LASTFUNCCALL;
-			cStr = pFuncCall->cName;
-			if (strcmp(cStr, RING_CSTR_INIT) != 0) {
-				nSrcIndex = pVM->nCurrentObjState - 1;
-			}
-		} else {
-			nSrcIndex = pVM->nCurrentObjState - 1;
-		}
-	}
 	pVM->nCurrentObjState++;
 	if (pVM->nCurrentObjState > RING_VM_STACK_CHECKOVERFLOW) {
 		ring_vm_error(pVM, RING_VM_ERROR_STACKOVERFLOW);
@@ -1350,14 +1336,6 @@ unsigned int ring_vm_oop_callingclassmethodfromclassregion(VM *pVM, List *pMetho
 		}
 	}
 	return RING_FALSE;
-}
-
-void ring_vm_oop_callclassinit(VM *pVM) {
-	if (RING_VM_IR_READIVALUE(RING_VM_IR_REG1)) {
-		pVM->nCallClassInit++;
-	} else {
-		pVM->nCallClassInit--;
-	}
 }
 
 void ring_vm_oop_checkbracemethod(VM *pVM) {

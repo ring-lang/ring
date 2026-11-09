@@ -126,13 +126,6 @@ unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
 				if (pList == NULL) {
 					continue;
 				}
-				/* Pass Braces for Class Init() method */
-				if ((pVM->nCurrentObjState > pVM->nCallClassInit) && (pVM->nCallClassInit)) {
-					pList = pVM->aObjState[pVM->nCurrentObjState - pVM->nCallClassInit].pScope;
-					if (pList == NULL) {
-						continue;
-					}
-				}
 			} else {
 				/*
 				**  Check to Avoid the global scope
@@ -158,7 +151,7 @@ unsigned int ring_vm_findvar(VM *pVM, const char *cStr) {
 }
 
 unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const char *cStr) {
-	unsigned int nPC, nType, lPrivateError, nAssignmentPos;
+	unsigned int nPC, nType, nAssignmentPos;
 	Item *pItem;
 	List *pList, *pThis;
 	VMState *pVMState;
@@ -203,20 +196,8 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 			 * it) */
 			if (!((pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE) && (pVM->nInClassRegion == 1))) {
 				if (ring_vm_oop_callmethodinsideclass(pVM) == 0) {
-					lPrivateError = 1;
-					/* Pass Braces for Class Init() to be sure we are inside a method or not */
-					if ((pVM->nCurrentObjState > pVM->nCallClassInit) && (pVM->nCallClassInit)) {
-						pOS = &pVM->aObjState[pVM->nCurrentObjState - pVM->nCallClassInit];
-						if (pOS->lIsMethod && (pVM->lCallMethod == 0)) {
-							/* Here we have a method, So we avoid the private attribute
-							 * error! */
-							lPrivateError = 0;
-						}
-					}
-					if (lPrivateError) {
-						ring_vm_error2(pVM, RING_VM_ERROR_USINGPRIVATEATTRIBUTE, cStr);
-						return RING_FALSE;
-					}
+					ring_vm_error2(pVM, RING_VM_ERROR_USINGPRIVATEATTRIBUTE, cStr);
+					return RING_FALSE;
 				}
 			}
 		}
@@ -237,15 +218,6 @@ unsigned int ring_vm_findvar2(VM *pVM, unsigned int nLevel, List *pList2, const 
 			if (ring_list_getsize(pVM->pBraceObjects) > 0) {
 				pVMState = (VMState *)ring_list_getpointer(pVM->pBraceObjects,
 									   ring_list_getsize(pVM->pBraceObjects));
-				/* Pass braces { } for class init() method */
-				if (pVM->nCallClassInit) {
-					/*
-					**  Here ring_vm_oop_callmethodinsideclass(pVM) will return 0 because of class
-					*init() calling
-					**  This check can be done here or in ring_vm_oop_callmethodinsideclass()
-					*/
-					return RING_TRUE;
-				}
 				/* Get Object List */
 				pList = (List *)pVMState->aPointers[RING_BRACEOBJECTS_BRACEOBJECT];
 				nType = ring_vm_oop_objtypefromobjlist(pVM, pList);
