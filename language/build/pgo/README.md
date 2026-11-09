@@ -70,7 +70,7 @@ Everything is built in a temporary folder `work` first and copied at the end, so
 | `RINGCFLAGS` | `-O2` | Optimization flags |
 | `RINGKEEPWORK` | not set | When set, the `work` folder (profile data, training copy) is kept |
 
-The same options apply to `buildclang_lto_pgo_cgoto.bat`.
+The same options apply to `buildclang_lto_pgo_cgoto.bat` but it uses `workcgoto` folder instead of `work` folder.
 
 For example, to build into another folder without touching `ring/bin`:
 
