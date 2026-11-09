@@ -9,7 +9,6 @@ typedef enum IC_OPERATIONS {
 	ICO_FILENAME,
 	ICO_NEWCLASS,
 	ICO_NEWFUNC,
-	ICO_DUPLICATE,
 	ICO_NEWOBJ,
 	ICO_PRIVATE,
 	ICO_NEWLABEL,
@@ -35,7 +34,7 @@ typedef enum IC_OPERATIONS {
 	ICO_NOTEQUAL,
 	ICO_LESSEQUAL,
 	ICO_GREATEREQUAL,
-	/* Data */
+	/* Push Data to Stack */
 	ICO_PUSHC,
 	ICO_PUSHNL,
 	ICO_PUSHN,
@@ -80,7 +79,9 @@ typedef enum IC_OPERATIONS {
 	ICO_OR,
 	ICO_NOT,
 	/* Stack and Jump */
+	ICO_POP,
 	ICO_FREESTACK,
+	ICO_DUPLICATE,
 	ICO_BLOCKFLAG,
 	ICO_BYE,
 	ICO_EXITMARK,
@@ -98,8 +99,9 @@ typedef enum IC_OPERATIONS {
 	ICO_BRACEEND,
 	ICO_LOADFUNCP,
 	ICO_FREELOADASCOPE,
-	/* Loop */
+	/* Loop/Continue */
 	ICO_LOOP,
+	ICO_OPTIONALLOOP,
 	/* Loop optimization in functions (local scope) */
 	ICO_INCLPJUMP,
 	/* Packages */
@@ -132,32 +134,27 @@ typedef enum IC_OPERATIONS {
 	ICO_LOADAFIRST,
 	ICO_INCPJUMPSTEP1,
 	ICO_INCLPJUMPSTEP1,
+	ICO_INCPJUMPFORSTEP1,
+	ICO_INCLPJUMPFORSTEP1,
 	/* Anonymous Functions */
 	ICO_ANONYMOUS,
 	/* Custom Global Scope */
 	ICO_NEWGLOBALSCOPE,
 	ICO_ENDGLOBALSCOPE,
 	ICO_SETGLOBALSCOPE,
-	/* Temp Lists */
-	ICO_FREETEMPLISTS,
 	/* Better Performance */
+	ICO_FREETEMPLISTS,
 	ICO_LEN,
 	ICO_SETOPCODE,
 	ICO_CHECKBRACEMETHOD,
-	/* More */
-	ICO_OPTIONALLOOP,
 	ICO_LOADMETHODP,
-	ICO_LOADBRACEMETHODP,
-	ICO_INCPJUMPFORSTEP1,
-	ICO_INCLPJUMPFORSTEP1,
-	ICO_POP
+	ICO_LOADBRACEMETHODP
 } IC_OPERATIONS;
 /* Operations Text (Array) */
 static const char *RING_IC_OP[] = {"NewLine",
 				   "FileName",
 				   "Class",
 				   "Func",
-				   "Dup",
 				   "New",
 				   "Private",
 				   "NewLabel",
@@ -219,7 +216,9 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "And",
 				   "Or",
 				   "Not",
+				   "Pop",
 				   "FreeStack",
+				   "Dup",
 				   "BlockFlag",
 				   "Bye",
 				   "ExitMark",
@@ -238,6 +237,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "LoadFuncP",
 				   "FreeLoadAScope",
 				   "Loop",
+				   "OptionalLoop",
 				   "IncLPJump",
 				   "Package",
 				   "Import",
@@ -262,6 +262,8 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "LoadAFirst",
 				   "IncPJumpStep1",
 				   "IncLPJumpStep1",
+				   "IncPJumpForStep1",
+				   "IncLPJumpForStep1",
 				   "Anonymous",
 				   "NewGlobalScope",
 				   "EndGlobalScope",
@@ -270,12 +272,8 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "Len",
 				   "SetOPCode",
 				   "CheckBraceMethod",
-				   "OptionalLoop",
 				   "LoadMethodP",
-				   "LoadBraceMethodP",
-				   "IncPJumpForStep1",
-				   "IncLPJumpForStep1",
-				   "Pop"};
+				   "LoadBraceMethodP"};
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE 1
