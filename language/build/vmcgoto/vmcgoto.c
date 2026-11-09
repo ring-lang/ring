@@ -104,7 +104,6 @@ void ring_vm_computedgoto(VM *pVM) {
 		[ICO_IMPORT] = &&L_ICO_IMPORT,
 		[ICO_PRIVATE] = &&L_ICO_PRIVATE,
 		[ICO_SETPROPERTY] = &&L_ICO_SETPROPERTY,
-		[ICO_CALLCLASSINIT] = &&L_ICO_CALLCLASSINIT,
 		[ICO_BITAND] = &&L_ICO_BITAND,
 		[ICO_BITOR] = &&L_ICO_BITOR,
 		[ICO_BITXOR] = &&L_ICO_BITXOR,
@@ -126,6 +125,7 @@ void ring_vm_computedgoto(VM *pVM) {
 		[ICO_BEFOREEQUAL] = &&L_ICO_BEFOREEQUAL,
 		[ICO_INCPJUMPFORSTEP1] = &&L_ICO_INCPJUMPFORSTEP1,
 		[ICO_INCLPJUMPFORSTEP1] = &&L_ICO_INCLPJUMPFORSTEP1,
+		[ICO_POP] = &&L_ICO_POP,
 	};
 	#define NEXT() do { \
 		if (pVM->nPC > RING_VM_INSTRUCTIONSCOUNT) return; \
@@ -435,9 +435,6 @@ void ring_vm_computedgoto(VM *pVM) {
 	L_ICO_SETPROPERTY:
 		ring_vm_oop_setproperty(pVM);
 		NEXT();
-	L_ICO_CALLCLASSINIT:
-		ring_vm_oop_callclassinit(pVM);
-		NEXT();
 	L_ICO_BITAND:
 		ring_vm_bitand(pVM);
 		NEXT();
@@ -500,6 +497,9 @@ void ring_vm_computedgoto(VM *pVM) {
 		NEXT();
 	L_ICO_INCLPJUMPFORSTEP1:
 		ring_vm_inclpjumpforstep1(pVM);
+		NEXT();
+	L_ICO_POP:
+		RING_VM_STACK_POP;
 		NEXT();
 	L_default:
 		NEXT();
