@@ -63,8 +63,6 @@ Install:
 
 .. note:: The library supports the Arabic language and Right-to-Left controls.
 
-.. image:: raylibgui_shot2.png
-	:alt: RayLibGUIShot2
 
 RingTest Package
 ================
