@@ -15,14 +15,32 @@ List of changes and new features
 
 Ring 1.28 comes with the next features!
 
-* RayLibGUI Package
 * Better GoldMagic800
+* RayLibGUI Package
+* RingTest Package
 * More RingPM Packages
 * Better Performance  
 * Better Switch Statement
 * Better Ring API
 * Better Libs/Extensions
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.28?; Better GoldMagic800
+
+Better GoldMagic800
+===================
+
+The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
+
+Install:
+
+.. code-block:: none
+
+	ringpm install goldmagic800
+
+.. image:: gm800_level45.jpg
+	:alt: GoldMagic800 Level 45
 
 .. index:: 
 	pair: What is new in Ring  1.28; RayLibGUI Package
@@ -48,22 +66,37 @@ Install:
 .. image:: raylibgui_shot2.png
 	:alt: RayLibGUIShot2
 
-.. index:: 
-	pair: What is new in Ring 1.28?; Better GoldMagic800
+RingTest Package
+================
 
-Better GoldMagic800
-===================
-
-The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
+RingTest is a modern, ultra-fast, and lightweight unit testing framework and test runner.
 
 Install:
 
 .. code-block:: none
 
-	ringpm install goldmagic800
+	ringpm install ringtest
 
-.. image:: gm800_level45.jpg
-	:alt: GoldMagic800 Level 45
+Example:
+
+.. code-block:: ring
+
+	describe("Math Operations", func {
+
+		it("should add numbers correctly", func {
+			expect(10 + 20).toBe(30)
+		})
+
+		test("should compare numerical bounds", func {
+			expect(100).toBeGreaterThanOrEqual(100)
+			expect(25).toBeLessThan(50)
+		})
+
+		it("should catch runtime exceptions", func {
+			expect("1 / 0").toThrowError("Zero")
+		})
+
+	})
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
@@ -80,7 +113,6 @@ The following packages have been added to the RingPM registry.
 * RingFM: Text measurement (Real font metrics read from a TrueType file)
 * RingBC: Barcode generator (EAN-13 and CODE128 sets A, B and C, with automatic type selection)
 * RingQR: QR Code generator (ISO/IEC 18004 Model 2, versions 1 to 40, error correction L, M, Q and H)
-* RingTest: Modern, ultra-fast, and lightweight unit testing framework and test runner
 * SimpleTests: Testing Framework Prototype
 * SpaceShooter3D: Space combat simulator and dogfight interceptor built using RingRayLib
 * Mario3D_Sample: Nostalgic 3D Third-Person Platformer built using RingRayLib

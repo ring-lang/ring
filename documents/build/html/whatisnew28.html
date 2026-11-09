@@ -182,8 +182,9 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew27.html">Release Notes: Version 1.27</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.28</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#raylibgui-package">RayLibGUI Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-goldmagic800">Better GoldMagic800</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raylibgui-package">RayLibGUI Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringtest-package">RingTest Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-switch-statement">Better Switch Statement</a></li>
@@ -230,8 +231,9 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
 <p>Ring 1.28 comes with the next features!</p>
 <ul class="simple">
-<li><p>RayLibGUI Package</p></li>
 <li><p>Better GoldMagic800</p></li>
+<li><p>RayLibGUI Package</p></li>
+<li><p>RingTest Package</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Performance</p></li>
 <li><p>Better Switch Statement</p></li>
@@ -240,8 +242,17 @@
 <li><p>More Improvements</p></li>
 </ul>
 </section>
+<section id="better-goldmagic800">
+<span id="index-2"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
+<p>The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install goldmagic800
+</pre></div>
+</div>
+<img alt="GoldMagic800 Level 45" src="_images/gm800_level45.jpg" />
+</section>
 <section id="raylibgui-package">
-<span id="index-2"></span><h2>RayLibGUI Package<a class="headerlink" href="#raylibgui-package" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>RayLibGUI Package<a class="headerlink" href="#raylibgui-package" title="Permalink to this heading"></a></h2>
 <p>RayLibGUI is a GUI widgets library written in Ring on top of RayLib.</p>
 <p>It provides a dark-themed widget toolkit with keyboard and mouse support.</p>
 <p>Install:</p>
@@ -255,14 +266,32 @@
 </div>
 <img alt="RayLibGUIShot2" src="_images/raylibgui_shot2.png" />
 </section>
-<section id="better-goldmagic800">
-<span id="index-3"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
-<p>The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55</p>
+<section id="ringtest-package">
+<h2>RingTest Package<a class="headerlink" href="#ringtest-package" title="Permalink to this heading"></a></h2>
+<p>RingTest is a modern, ultra-fast, and lightweight unit testing framework and test runner.</p>
 <p>Install:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install goldmagic800
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ringtest
 </pre></div>
 </div>
-<img alt="GoldMagic800 Level 45" src="_images/gm800_level45.jpg" />
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">describe</span><span class="p">(</span><span class="s2">&quot;Math Operations&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+
+        <span class="nf">it</span><span class="p">(</span><span class="s2">&quot;should add numbers correctly&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="nf">expect</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="nf">toBe</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="nf">test</span><span class="p">(</span><span class="s2">&quot;should compare numerical bounds&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="nf">expect</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="nf">toBeGreaterThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+                <span class="nf">expect</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="nf">toBeLessThan</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="nf">it</span><span class="p">(</span><span class="s2">&quot;should catch runtime exceptions&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="nf">expect</span><span class="p">(</span><span class="s2">&quot;1 / 0&quot;</span><span class="p">)</span><span class="o">.</span><span class="nf">toThrowError</span><span class="p">(</span><span class="s2">&quot;Zero&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+
+<span class="p">})</span>
+</pre></div>
+</div>
 </section>
 <section id="more-ringpm-packages">
 <span id="index-4"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
@@ -275,7 +304,6 @@
 <li><p>RingFM: Text measurement (Real font metrics read from a TrueType file)</p></li>
 <li><p>RingBC: Barcode generator (EAN-13 and CODE128 sets A, B and C, with automatic type selection)</p></li>
 <li><p>RingQR: QR Code generator (ISO/IEC 18004 Model 2, versions 1 to 40, error correction L, M, Q and H)</p></li>
-<li><p>RingTest: Modern, ultra-fast, and lightweight unit testing framework and test runner</p></li>
 <li><p>SimpleTests: Testing Framework Prototype</p></li>
 <li><p>SpaceShooter3D: Space combat simulator and dogfight interceptor built using RingRayLib</p></li>
 <li><p>Mario3D_Sample: Nostalgic 3D Third-Person Platformer built using RingRayLib</p></li>
