@@ -6,7 +6,8 @@ This folder builds the Ring Compiler/VM for Windows using clang with:
   into each other;
 * **PGO** (profile-guided optimization): a first build records which code paths are hot while running real Ring
   programs, then a second build is optimized using this profile;
-* the **standard switch dispatcher** of the VM (no computed goto).
+* the **standard switch dispatcher** of the VM (no computed goto), or the **computed goto dispatcher** of
+  `../vmcgoto` (`buildclang_lto_pgo_cgoto.bat`).
 
 The sources are built as they are; nothing in `language/src` or `language/include` is changed.
 
@@ -15,6 +16,7 @@ The sources are built as they are; nothing in `language/src` or `language/includ
 | File | Purpose |
 |---|---|
 | `buildclang_lto_pgo.bat` | The build: instrumented build, training run, optimized build |
+| `buildclang_lto_pgo_cgoto.bat` | The same build, using the computed goto dispatcher (see [Computed goto](#computed-goto)) |
 | `pgotrain.ring` | The training run: executes every program of `language/tests/tests.ring` (called by the batch file) |
 | `README.md` | This file |
 
@@ -68,6 +70,8 @@ Everything is built in a temporary folder `work` first and copied at the end, so
 | `RINGCFLAGS` | `-O2` | Optimization flags |
 | `RINGKEEPWORK` | not set | When set, the `work` folder (profile data, training copy) is kept |
 
+The same options apply to `buildclang_lto_pgo_cgoto.bat`.
+
 For example, to build into another folder without touching `ring/bin`:
 
 ```
@@ -76,3 +80,22 @@ set RINGLIBOUT=c:\temp\ringpgo
 buildclang_lto_pgo.bat
 ```
 
+## Computed goto
+
+`buildclang_lto_pgo_cgoto.bat` does the same steps as `buildclang_lto_pgo.bat`, with the computed goto dispatcher
+of the VM:
+
+```
+cd ring\languageuild\pgo
+buildclang_lto_pgo_cgoto.bat
+```
+
+* `../vmcgoto/vmcgoto.c` (`ring_vm_computedgoto()`) is added to the files of `ring.dll`;
+* `-DRING_VM_COMPUTEDGOTO=1` is passed to every clang command: `ring_vm_mainloop()` (`vm.c`) then calls
+  `ring_vm_computedgoto()` instead of the `ring_vm_fetch()` loop. This is what `../vmcgoto/rconfig_updated.h` does,
+  but `include/rconfig.h` is not changed;
+* the temporary folder is `workcgoto` (not `work`), so both builds can be kept with `RINGKEEPWORK`.
+
+The output files and folders are the same as `buildclang_lto_pgo.bat` (it replaces the files in `ring/bin` and
+`ring/lib`). `vmcgoto.c` is used when `__GNUC__` or `__clang__` is defined (clang for Windows doesn't define
+`__GNUC__`).
