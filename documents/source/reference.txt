@@ -582,7 +582,7 @@ Statement ---> 'give'|'get' <Identifier>
 
 Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'|'endif'
 
-Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'|'endswitch'
+Statement ---> 'Switch' <Expr> { ',' <Expr> } ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'|'endswitch'
 
 Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'|'endfor'
 
