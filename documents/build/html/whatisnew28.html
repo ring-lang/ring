@@ -185,6 +185,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-goldmagic800">Better GoldMagic800</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-libs-extensions">Better Libs/Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-switch-statement">Better Switch Statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -230,6 +231,7 @@
 <li><p>Better GoldMagic800</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Libs/Extensions</p></li>
+<li><p>Better Switch Statement</p></li>
 <li><p>Better Ring API</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -237,6 +239,9 @@
 <section id="better-goldmagic800">
 <span id="index-2"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
 <p>The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install goldmagic800
+</pre></div>
+</div>
 <img alt="GoldMagic800 Level 45" src="_images/gm800_level45.jpg" />
 </section>
 <section id="more-ringpm-packages">
@@ -280,8 +285,49 @@
 <li><p>RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage</p></li>
 </ul>
 </section>
+<section id="better-switch-statement">
+<span id="index-5"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
+<p>A case in the Switch statement can have many expressions separated by commas, like (case 1, 2).</p>
+<p>The statements of the case are executed when the switch value is equal to any of these expressions.</p>
+<p>The expressions are checked in order, and the check stops at the first match.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aDays</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sun&quot;</span><span class="p">,</span><span class="s2">&quot;Mon&quot;</span><span class="p">,</span><span class="s2">&quot;Tue&quot;</span><span class="p">,</span><span class="s2">&quot;Wed&quot;</span><span class="p">,</span><span class="s2">&quot;Thu&quot;</span><span class="p">,</span><span class="s2">&quot;Fri&quot;</span><span class="p">,</span><span class="s2">&quot;Sat&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">nDay</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">aDays</span><span class="p">)</span>
+        <span class="k">switch</span> <span class="n">nDay</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span>
+                <span class="o">?</span> <span class="n">aDays</span><span class="p">[</span><span class="n">nDay</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; : Weekend&quot;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+                <span class="o">?</span> <span class="n">aDays</span><span class="p">[</span><span class="n">nDay</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; : Workday&quot;</span>
+        <span class="k">end</span>
+<span class="k">next</span>
+
+<span class="k">for</span> <span class="n">cColor</span> <span class="k">in</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">]</span>
+        <span class="k">switch</span> <span class="n">cColor</span>
+        <span class="k">case</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span>
+                <span class="o">?</span> <span class="n">cColor</span> <span class="o">+</span> <span class="s2">&quot; : Primary color&quot;</span>
+        <span class="k">else</span>
+                <span class="o">?</span> <span class="n">cColor</span> <span class="o">+</span> <span class="s2">&quot; : Other color&quot;</span>
+        <span class="k">end</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sun : Weekend
+Mon : Workday
+Tue : Workday
+Wed : Workday
+Thu : Workday
+Fri : Workday
+Sat : Weekend
+red : Primary color
+green : Primary color
+black : Other color
+</pre></div>
+</div>
+</section>
 <section id="better-ring-api">
-<span id="index-5"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>Added: RING_API_REGISTERLENDSTRING(cFunctionName,pFunctionPointer)</p>
 <p>RING_API_REGISTERLENDSTRING registers a C function in the Ring VM, just like RING_API_REGISTER,
 and also tells the VM that the function only reads its string parameters: it doesn’t change them,
@@ -303,7 +349,7 @@ RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>build/installdepubuntu.sh - Removed: libqt5webkit5-dev</p></li>
 <li><p>tools/ring2exe/libs/qt.ring - Removed: libqt5webkit5-dev</p></li>

@@ -18,6 +18,7 @@ Ring 1.28 comes with the next features!
 * Better GoldMagic800  
 * More RingPM Packages
 * Better Libs/Extensions
+* Better Switch Statement
 * Better Ring API
 * More Improvements
 
@@ -29,6 +30,10 @@ Better GoldMagic800
 ===================
 
 The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
+
+.. code-block:: none
+
+	ringpm install goldmagic800
 
 .. image:: gm800_level45.jpg
 	:alt: GoldMagic800 Level 45
@@ -79,6 +84,57 @@ Better Libs/Extensions
 * RingQt - QAllEvents - Added setWheelEvent() method
 * RingQt - libraries/guilib/loadlibfile.ring - Revised LoadLib() usage
 
+.. index::
+	pair: What is new in Ring  1.28; Better Switch Statement
+
+Better Switch Statement
+=======================
+
+A case in the Switch statement can have many expressions separated by commas, like (case 1, 2).
+
+The statements of the case are executed when the switch value is equal to any of these expressions.
+
+The expressions are checked in order, and the check stops at the first match.
+
+Example:
+
+.. code-block:: ring
+
+	aDays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+
+	for nDay = 1 to len(aDays)
+		switch nDay
+		case 1, 7
+			? aDays[nDay] + " : Weekend"
+		case 2, 3, 4, 5, 6
+			? aDays[nDay] + " : Workday"
+		end
+	next
+
+	for cColor in ["red", "green", "black"]
+		switch cColor
+		case "red", "green", "blue"
+			? cColor + " : Primary color"
+		else
+			? cColor + " : Other color"
+		end
+	next
+
+Output:
+
+.. code-block:: none
+
+	Sun : Weekend
+	Mon : Workday
+	Tue : Workday
+	Wed : Workday
+	Thu : Workday
+	Fri : Workday
+	Sat : Weekend
+	red : Primary color
+	green : Primary color
+	black : Other color
+
 .. index:: 
 	pair: What is new in Ring  1.28; Better Ring API
 
@@ -108,7 +164,7 @@ Example:
 	RING_API_REGISTERLENDSTRING("left", ring_vm_generallib_left);
 	RING_API_REGISTERLENDSTRING("right", ring_vm_generallib_right);
 
-.. index:: 
+.. index::
 	pair: What is new in Ring  1.28; More Improvements
 
 More Improvements
