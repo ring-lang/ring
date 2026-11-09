@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-#ifdef __GNUC__
+#if defined(__GNUC__) || defined(__clang__)
 
 void ring_vm_computedgoto(VM *pVM) {
 	static void *const dispatch[] = {
