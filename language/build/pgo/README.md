@@ -86,16 +86,13 @@ buildclang_lto_pgo.bat
 of the VM:
 
 ```
-cd ring\languageuild\pgo
+cd ring\language\build\pgo
 buildclang_lto_pgo_cgoto.bat
 ```
 
 * `../vmcgoto/vmcgoto.c` (`ring_vm_computedgoto()`) is added to the files of `ring.dll`;
-* `-DRING_VM_COMPUTEDGOTO=1` is passed to every clang command: `ring_vm_mainloop()` (`vm.c`) then calls
-  `ring_vm_computedgoto()` instead of the `ring_vm_fetch()` loop. This is what `../vmcgoto/rconfig_updated.h` does,
-  but `include/rconfig.h` is not changed;
+* `-DRING_VM_COMPUTEDGOTO=1` is passed to every clang command
 * the temporary folder is `workcgoto` (not `work`), so both builds can be kept with `RINGKEEPWORK`.
 
 The output files and folders are the same as `buildclang_lto_pgo.bat` (it replaces the files in `ring/bin` and
-`ring/lib`). `vmcgoto.c` is used when `__GNUC__` or `__clang__` is defined (clang for Windows doesn't define
-`__GNUC__`).
+`ring/lib`).
