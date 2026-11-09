@@ -170,6 +170,7 @@ Example:
 More Improvements
 =================
 
+* language/build/pgo folder - Building Ring using Clang, LTO and PGO
 * build/installdepubuntu.sh - Removed: libqt5webkit5-dev
 * tools/ring2exe/libs/qt.ring - Removed: libqt5webkit5-dev
 * Ring Notepad - Browser Menu - Added links for Packages/News
