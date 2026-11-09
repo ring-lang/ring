@@ -62,8 +62,9 @@ typedef enum IC_OPERATIONS {
 	ICO_DIVN,
 	ICO_MODN,
 	ICO_POWN,
-	/* Functions/Methods */
+	/* Functions */
 	ICO_LOADFUNC,
+	ICO_LOADFUNCP,
 	ICO_CALL,
 	ICO_RETURN,
 	ICO_RETNULL,
@@ -78,6 +79,7 @@ typedef enum IC_OPERATIONS {
 	ICO_LISTEND,
 	ICO_FREETEMPLISTS,
 	ICO_LEN,
+	ICO_RANGE,
 	/* Logic */
 	ICO_AND,
 	ICO_OR,
@@ -95,13 +97,15 @@ typedef enum IC_OPERATIONS {
 	ICO_INCPJUMP,
 	ICO_TRY,
 	ICO_DONE,
-	ICO_RANGE,
+	/* Methods/Braces */
 	ICO_LOADMETHOD,
 	ICO_SETSCOPE,
 	ICO_AFTERCALLMETHOD,
 	ICO_BRACESTART,
 	ICO_BRACEEND,
-	ICO_LOADFUNCP,
+	ICO_CHECKBRACEMETHOD,
+	ICO_LOADMETHODP,
+	ICO_LOADBRACEMETHODP,
 	/* Loop/Continue */
 	ICO_LOOP,
 	ICO_OPTIONALLOOP,
@@ -144,11 +148,7 @@ typedef enum IC_OPERATIONS {
 	/* Custom Global Scope */
 	ICO_NEWGLOBALSCOPE,
 	ICO_ENDGLOBALSCOPE,
-	ICO_SETGLOBALSCOPE,
-	/* Better Performance */
-	ICO_CHECKBRACEMETHOD,
-	ICO_LOADMETHODP,
-	ICO_LOADBRACEMETHODP
+	ICO_SETGLOBALSCOPE
 } IC_OPERATIONS;
 /* Operations Text (Array) */
 static const char *RING_IC_OP[] = {"NewLine",
@@ -204,6 +204,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "ModN",
 				   "PowN",
 				   "LoadFunc",
+				   "LoadFuncP",
 				   "Call",
 				   "Return",
 				   "ReturnNull",
@@ -217,6 +218,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "ListEnd",
 				   "FreeTempLists",
 				   "Len",
+				   "Range",
 				   "And",
 				   "Or",
 				   "Not",
@@ -232,13 +234,14 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "IncPJump",
 				   "Try",
 				   "Done",
-				   "Range",
 				   "LoadMethod",
 				   "SetScope",
 				   "AfterCallMethod",
 				   "BraceStart",
 				   "BraceEnd",
-				   "LoadFuncP",
+				   "CheckBraceMethod",
+				   "LoadMethodP",
+				   "LoadBraceMethodP",
 				   "Loop",
 				   "OptionalLoop",
 				   "IncLPJump",
@@ -270,10 +273,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "Anonymous",
 				   "NewGlobalScope",
 				   "EndGlobalScope",
-				   "SetGlobalScope",
-				   "CheckBraceMethod",
-				   "LoadMethodP",
-				   "LoadBraceMethodP"};
+				   "SetGlobalScope"};
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE 1
