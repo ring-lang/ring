@@ -85,14 +85,23 @@ Better Libs/Extensions
 Better Ring API
 ===============
 
-Added: RING_API_REGISTERLENDSTRING
+Added: RING_API_REGISTERLENDSTRING(cFunctionName,pFunctionPointer)
 
-When we register a C function in Ring VM we can use RING_API_REGISTERLENDSTRING to declare that
-this function doesn't modify the parameters 
+RING_API_REGISTERLENDSTRING registers a C function in the Ring VM, just like RING_API_REGISTER,
+and also tells the VM that the function only reads its string parameters: it doesn't change them,
+and it doesn't keep them after it returns.
+
+When such a function is called with a string variable as a parameter, the Ring VM can lend the
+string of the variable to the function instead of copying it. This avoids allocating and copying
+the string, which is faster when the function is called many times or the string is large.
+
+The VM lends the string only when nothing between loading the function and calling it can change
+the variable (the parameters are numbers, literals or variables). Otherwise, the string is copied
+as before.
+
+.. tip:: Use RING_API_REGISTER for functions that change their string parameters or keep them.
 
 Example:
-
-The next code enable Ring VM to pass strings by reference to left()/right() functions
 
 .. code-block:: none
 
