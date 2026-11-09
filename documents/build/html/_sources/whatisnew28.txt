@@ -191,7 +191,6 @@ More Improvements
 * Ring Compiler - Always use ICO_RETNULL before functions
 * Ring Compiler - Support using Private keyword inside Eval()
 * Ring Compiler - Use ICO_FREESTACK before Catch block in Try/Catch
-* Ring Compiler - Switch statements - Support multiple expressions in switch cases
 * Ring Compiler - Prevent invalid nested calls without an identifier before parentheses
 * Ring VM - Check methods hash table during inheritance
 * Ring VM - ring_vm_stringtonum() - Better Implementation
