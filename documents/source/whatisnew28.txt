@@ -29,9 +29,6 @@ Better GoldMagic800
 
 The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
 
-.. image:: gm800_level55.jpg
-	:alt: GoldMagic800 Level 55
-
 .. image:: gm800_level45.jpg
 	:alt: GoldMagic800 Level 45
 
