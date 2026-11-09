@@ -61,7 +61,7 @@ Syntax:
 .. code-block:: ring
 
 	switch Expression
-	case Expression
+	case Expression [, Expression, ...]
 		Block of statements
 	else
 		Block of statements

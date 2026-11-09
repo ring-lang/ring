@@ -59,7 +59,7 @@ Syntax:
 .. code-block:: ring
 
 	switch Expression
-	on Expression
+	on Expression [, Expression, ...]
 		Block of statements
 	other
 		Block of statements
