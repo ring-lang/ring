@@ -79,6 +79,8 @@ Install:
 
 Example:
 
+File: my_test.ring
+
 .. code-block:: ring
 
 	describe("Math Operations", func {
@@ -97,6 +99,17 @@ Example:
 		})
 
 	})
+
+To run the tests:
+
+.. code-block:: none
+
+	ringtest
+
+Output:
+
+.. image:: ringtest.png
+	:alt: RingTest
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
