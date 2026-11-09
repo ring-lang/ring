@@ -824,6 +824,8 @@ ICO_PUSHARG			Push pointer to argument variable using argument number (REG1)
 ICO_INCLPJUMP			Increment value using pointer to local variable then jump
 ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
 ICO_INCLPJUMPSTEP1		Increment value using local variable pointer then jump (for loop step = 1)
+ICO_INCPJUMPFORSTEP1		Increment using pointer then check the loop limit (for loop step = 1)
+ICO_INCLPJUMPFORSTEP1		Increment using local variable pointer then check the loop limit (step = 1)
 ICO_LEN				Remove list from the stack and push the list size
 ========================	============================================================================
 
@@ -836,12 +838,13 @@ ICO_TRY			Start try region
 ICO_DONE		End try region
 =======================	============================================================================
 
-(Duplicate and Range)
+(Duplicate, Pop and Range)
 
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
 ICO_DUPLICATE		Duplicate stack value
+ICO_POP			Remove the value on the top of the stack, POP stack[nSize]
 ICO_RANGE		Create list from value to value
 =======================	============================================================================
 
@@ -864,7 +867,6 @@ ICO_IMPORT		Import package
 ICO_NEWLABEL		Start a new section of byte code (Just for organization)
 ICO_PRIVATE		Start private attributes region
 ICO_SETPROPERTY		Set attribute value - check for setter	
-ICO_CALLCLASSINIT	Call class init() method
 ICO_CHECKBRACEMETHOD	Check if a method exist using braces
 =======================	============================================================================
 
