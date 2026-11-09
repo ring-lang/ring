@@ -53,6 +53,23 @@ typedef enum IC_OPERATIONS {
 	ICO_INCPJUMP,
 	ICO_TRY,
 	ICO_DONE,
+	/* Loop/Continue */
+	ICO_LOOP,
+	ICO_OPTIONALLOOP,
+	/* Loop optimization in functions (local scope) */
+	ICO_INCLPJUMP,
+	/* For-In References */
+	ICO_SETREFERENCE,
+	ICO_KILLREFERENCE,
+	/* For Loop Step */
+	ICO_STEPNUMBER,
+	ICO_STEPFROMREG,
+	ICO_POPSTEP,
+	ICO_LOADAFIRST,
+	ICO_INCPJUMPSTEP1,
+	ICO_INCLPJUMPSTEP1,
+	ICO_INCPJUMPFORSTEP1,
+	ICO_INCLPJUMPFORSTEP1,
 	/* Variables */
 	ICO_LOADADDRESS,
 	ICO_BEFOREEQUAL,
@@ -128,24 +145,7 @@ typedef enum IC_OPERATIONS {
 	ICO_CHECKBRACEMETHOD,
 	ICO_LOADMETHODP,
 	ICO_LOADBRACEMETHODP,
-	ICO_SETPROPERTY,
-	/* Loop/Continue */
-	ICO_LOOP,
-	ICO_OPTIONALLOOP,
-	/* Loop optimization in functions (local scope) */
-	ICO_INCLPJUMP,
-	/* For-In References */
-	ICO_SETREFERENCE,
-	ICO_KILLREFERENCE,
-	/* For Loop Step */
-	ICO_STEPNUMBER,
-	ICO_STEPFROMREG,
-	ICO_POPSTEP,
-	ICO_LOADAFIRST,
-	ICO_INCPJUMPSTEP1,
-	ICO_INCLPJUMPSTEP1,
-	ICO_INCPJUMPFORSTEP1,
-	ICO_INCLPJUMPFORSTEP1
+	ICO_SETPROPERTY
 } IC_OPERATIONS;
 /* Operations Text (Array) */
 static const char *RING_IC_OP[] = {"NewLine",
@@ -188,6 +188,19 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "IncPJump",
 				   "Try",
 				   "Done",
+				   "Loop",
+				   "OptionalLoop",
+				   "IncLPJump",
+				   "SetReference",
+				   "KillReference",
+				   "StepNumber",
+				   "StepFromReg",
+				   "PopStep",
+				   "LoadAFirst",
+				   "IncPJumpStep1",
+				   "IncLPJumpStep1",
+				   "IncPJumpForStep1",
+				   "IncLPJumpForStep1",
 				   "LoadA",
 				   "BeforeEqual",
 				   "AssignmentPointer",
@@ -257,20 +270,7 @@ static const char *RING_IC_OP[] = {"NewLine",
 				   "CheckBraceMethod",
 				   "LoadMethodP",
 				   "LoadBraceMethodP",
-				   "SetProperty",
-				   "Loop",
-				   "OptionalLoop",
-				   "IncLPJump",
-				   "SetReference",
-				   "KillReference",
-				   "StepNumber",
-				   "StepFromReg",
-				   "PopStep",
-				   "LoadAFirst",
-				   "IncPJumpStep1",
-				   "IncLPJumpStep1",
-				   "IncPJumpForStep1",
-				   "IncLPJumpForStep1"};
+				   "SetProperty"};
 /* Constants */
 #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 #define RING_PARSER_ICG_OPERATIONCODE 1
