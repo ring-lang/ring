@@ -49,7 +49,7 @@ cFuncName[RING_MEDIUMBUF]
 Type: char
 cKeyword[RING_MEDIUMBUF]
 ring_parser_newobjectvalue
-Type: unsigned int
+Type: int
 nLastOperation
 ring_parser_mixer
 Type: int

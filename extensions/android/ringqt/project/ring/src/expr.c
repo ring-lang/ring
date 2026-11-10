@@ -941,18 +941,6 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	return RING_PARSER_FAIL;
 }
 
-int ring_parser_newobjectvalue(Parser *pParser) {
-	int nLastOperation;
-	nLastOperation = ring_parser_icg_getlastoperation(pParser);
-	if (nLastOperation == ICO_BRACEEND) {
-		return RING_TRUE;
-	}
-	if (nLastOperation != ICO_CALL) {
-		ring_parser_icg_newoperation(pParser, ICO_PUSHV);
-	}
-	return RING_FALSE;
-}
-
 int ring_parser_mixer(Parser *pParser) {
 	int x, nCallMethod, nStatus, nFlag, nNew, lCallOnly, lBracesOnly, lAfterCall;
 	unsigned int nStartToken;
@@ -1148,4 +1136,16 @@ int ring_parser_objattributes(Parser *pParser) {
 		}
 	}
 	return RING_PARSER_OK;
+}
+
+int ring_parser_newobjectvalue(Parser *pParser) {
+	int nLastOperation;
+	nLastOperation = ring_parser_icg_getlastoperation(pParser);
+	if (nLastOperation == ICO_BRACEEND) {
+		return RING_TRUE;
+	}
+	if (nLastOperation != ICO_CALL) {
+		ring_parser_icg_newoperation(pParser, ICO_PUSHV);
+	}
+	return RING_FALSE;
 }
