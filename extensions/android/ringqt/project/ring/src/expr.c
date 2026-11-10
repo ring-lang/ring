@@ -644,11 +644,6 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		if (ring_parser_ppmm(pParser)) {
 			return RING_PARSER_OK;
 		}
-		/* Check using '(' after number */
-		if (ring_parser_isoperator2(pParser, OP_FOPEN)) {
-			ring_parser_error(pParser, RING_PARSER_ERROR_USINGBRACTAFTERNUM);
-			return RING_PARSER_FAIL;
-		}
 		return RING_PARSER_OK;
 	}
 	/* Factor --> Literal */

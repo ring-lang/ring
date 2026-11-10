@@ -96,7 +96,7 @@ typedef struct Parser {
 #define RING_PARSER_ERROR_PACKAGENAME "Error (C20) : Error in package name"
 #define RING_PARSER_ERROR_AGAIN "Error (C21) : Unclosed control structure, 'again' is missing"
 #define RING_PARSER_ERROR_FUNCREDEFINE "Error (C22) : Function redefinition, function is already defined!"
-#define RING_PARSER_ERROR_USINGBRACTAFTERNUM "Error (C23) : Using '(' after number!"
+#define RING_PARSER_ERROR_EXPECTPARENTHESES "Error (C23) : Parentheses '(' is expected"
 #define RING_PARSER_ERROR_PARENTLIKESUBCLASS "Error (C24) : The parent class name is identical to the subclass name"
 #define RING_PARSER_ERROR_ACCESSSELFREF "Error (C25) : Trying to access the self reference after the object name"
 #define RING_PARSER_ERROR_CLASSREDEFINE "Error (C26) : Class redefinition, class is already defined!"
@@ -104,7 +104,6 @@ typedef struct Parser {
 #define RING_PARSER_ERROR_EXPRESSIONISEXPECTED "Error (C28) : Expression is expected!"
 #define RING_PARSER_ERROR_BRACEISMISSINGTOSTARTANONFUNC "Error (C29) : Braces are missing to define anonymous function!"
 #define RING_PARSER_ERROR_ARGREDEFINE "Error (C30) : Argument redefinition, argument is already defined!"
-#define RING_PARSER_ERROR_EXPECTPARENTHESES "Error (C31) : Parentheses '(' is expected"
 /* Constants */
 #define RING_PARSER_NUMBERLENGTH 97
 /* Packages List */
