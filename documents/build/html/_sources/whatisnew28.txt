@@ -19,6 +19,7 @@ Ring 1.28 comes with the next features!
 * RayLibGUI Package
 * RingTest Package
 * Ring2APK Package
+* ClaudeLib Package
 * More RingPM Packages
 * Better Performance  
 * Better Switch Statement
@@ -129,6 +130,23 @@ Install:
 	:alt: Ring2APKShot
 
 .. index:: 
+	pair: What is new in Ring  1.28; ClaudeLib Package
+
+ClaudeLib Package
+=================
+
+A library for the Anthropic Claude Messages API.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install claudelib
+
+.. image:: claudelib.png
+	:alt: ClaudeLibShot
+
+.. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
 
 More RingPM Packages
@@ -150,7 +168,6 @@ The following packages have been added to the RingPM registry.
 * SimpleTests: Testing Framework Prototype
 * SpaceShooter3D: Space combat simulator and dogfight interceptor built using RingRayLib
 * Mario3D_Sample: Nostalgic 3D Third-Person Platformer built using RingRayLib
-* ClaudeLib: Ring library for the Anthropic Claude Messages API
 * XMLLib: Pure Ring library for building and parsing XML documents 
 * ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression
 * HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support
