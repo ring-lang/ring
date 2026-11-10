@@ -299,6 +299,33 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install xmllib
 </pre></div>
 </div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;xmllib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s2">&quot;Demo 12: Build from Ring lists...&quot;</span>
+
+<span class="n">oXml</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">XMLWriter</span>
+<span class="n">oXml</span><span class="o">.</span><span class="nf">addDeclaration</span><span class="p">()</span>
+
+<span class="c1"># Build person from list</span>
+<span class="n">oXml</span><span class="o">.</span><span class="nf">addFromList</span><span class="p">(</span><span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Adam&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;adam@example.com&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;phone&quot;</span><span class="p">,</span> <span class="s2">&quot;+20-123-456-7890&quot;</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="o">?</span> <span class="n">oXml</span><span class="o">.</span><span class="nf">output</span><span class="p">()</span>
+<span class="o">?</span> <span class="s2">&quot;&quot;</span>
+
+<span class="c1"># Multiple items with same tag</span>
+<span class="n">oXml2</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">XMLWriter</span>
+<span class="n">oXml2</span><span class="o">.</span><span class="nf">startElement</span><span class="p">(</span><span class="s2">&quot;fruits&quot;</span><span class="p">)</span>
+<span class="n">oXml2</span><span class="o">.</span><span class="nf">addListAsElements</span><span class="p">(</span><span class="s2">&quot;fruit&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Cherry&quot;</span><span class="p">,</span> <span class="s2">&quot;Date&quot;</span><span class="p">])</span>
+<span class="n">oXml2</span><span class="o">.</span><span class="nf">endElement</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="n">oXml2</span><span class="o">.</span><span class="nf">output</span><span class="p">()</span>
+</pre></div>
+</div>
 <img alt="XMLLibShot" src="_images/xmllib.png" />
 </section>
 <section id="claudelib-package">
