@@ -1,0 +1,25 @@
+Ignore some expressions
+Print some expressions
+1
+10
+1
+Print some expressions using braces
+1
+10
+1
+5
+1
+10
+1
+10
+1
+5
+1
+10
+1
+10
+1
+5
+1
+10
+Expressions count: 18
