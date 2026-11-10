@@ -1,0 +1,28 @@
+=== The trap: 1500 -200 is subtraction ===
+User1 | 1300
+User1 | 1700
+User1Admin
+
+=== (1) Parentheses ===
+User1 | 1500 | -200
+
+=== (2) Comma ends the statement ===
+User1 | 1500 | -200
+User1 | 1500 | 200
+User1 | Admin
+
+=== (3) Zero minus (works, but reads like math) ===
+User1 | 1500 | -200
+
+=== Comma after identifiers like True/NULL ===
+User1 | 1 | [2025,2026]
+
+=== Records: negative values, NULL, and a row-length check ===
+Warning: row 4 has 3 values, expected 4 (use NULL for missing data)
+
+User Name     Salary        Bonus         Years         
+User1         1500          -200          [2025,2026]   
+User2         2400          -150          [2024,2025]   
+User3         NULL          300           [2023,2024]   
+User4         3300          [2022,2023]   
+User5         1800          -50           [2021,2022]   
