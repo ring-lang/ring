@@ -18,6 +18,7 @@ Ring 1.28 comes with the next features!
 * Better GoldMagic800
 * RayLibGUI Package
 * RingTest Package
+* Ring2APK Package
 * More RingPM Packages
 * Better Performance  
 * Better Switch Statement
@@ -110,6 +111,25 @@ Output:
 	:alt: RingTest
 
 .. index:: 
+	pair: What is new in Ring  1.28; Ring2APK Package
+
+Ring2APK Package
+================
+
+Build Android APKs from Ring applications. 
+
+The package includes examples demonstrating the use of RayLib and WebView.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring2apk
+
+.. image:: ring2apk.png
+	:alt: Ring2APKShot
+
+.. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
 
 More RingPM Packages
@@ -117,7 +137,6 @@ More RingPM Packages
 
 The following packages have been added to the RingPM registry.
 
-* Ring2APK: Build Android APKs from Ring applications
 * SteamLib: Support Steam Achievements (for Windows)
 * RingEnv: Download and Manage multiple Ring versions
 * ASCII2Label: Label layout tool (An ASCII drawing and a CSV in, labels out as HTML and SVG)
