@@ -16,10 +16,10 @@ List of changes and new features
 Ring 1.28 comes with the next features!
 
 * Ring2APK Package
-* RayLibGUI Package
 * RingTest Package
 * XMLLib Package
 * ClaudeLib Package
+* RayLibGUI Package
 * More RingPM Packages
 * Better GoldMagic800
 * Better Performance  
@@ -47,26 +47,6 @@ Install:
 .. image:: ring2apk.png
 	:alt: Ring2APKShot
 
-.. index:: 
-	pair: What is new in Ring  1.28; RayLibGUI Package
-
-RayLibGUI Package
-=================
-
-RayLibGUI is a GUI widgets library written in Ring on top of RayLib.
-
-It provides a dark-themed widget toolkit with keyboard and mouse support.
-
-.. note:: The library provides support for the Arabic language and right-to-left (RTL) user interface controls.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install raylibgui
-
-.. image:: raylibgui_shot1.png
-	:alt: RayLibGUIShot1
 
 RingTest Package
 ================
@@ -146,6 +126,30 @@ Install:
 
 .. image:: claudelib.png
 	:alt: ClaudeLibShot
+
+.. index:: 
+	pair: What is new in Ring  1.28; RayLibGUI Package
+
+RayLibGUI Package
+=================
+
+RayLibGUI is a GUI widgets library written in Ring on top of RayLib.
+
+It provides a dark-themed widget toolkit with keyboard and mouse support.
+
+.. note:: The library provides support for the Arabic language and right-to-left (RTL) user interface controls.
+
+Install:
+
+.. code-block:: none
+
+	ringpm install raylibgui
+
+.. image:: raylibgui_shot1.png
+	:alt: RayLibGUIShot1
+
+.. image:: raylibgui_shot2.png
+	:alt: RayLibGUIShot2
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
