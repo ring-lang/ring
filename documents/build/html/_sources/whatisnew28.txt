@@ -15,13 +15,13 @@ List of changes and new features
 
 Ring 1.28 comes with the next features!
 
-* Better GoldMagic800
+* Ring2APK Package
 * RayLibGUI Package
 * RingTest Package
-* Ring2APK Package
-* ClaudeLib Package
 * XMLLib Package
+* ClaudeLib Package
 * More RingPM Packages
+* Better GoldMagic800
 * Better Performance  
 * Better Switch Statement
 * Better Ring API
@@ -29,21 +29,23 @@ Ring 1.28 comes with the next features!
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring 1.28?; Better GoldMagic800
+	pair: What is new in Ring  1.28; Ring2APK Package
 
-Better GoldMagic800
-===================
+Ring2APK Package
+================
 
-The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
+Build Android APKs from Ring applications. 
+
+The package includes examples demonstrating the use of RayLib and WebView.
 
 Install:
 
 .. code-block:: none
 
-	ringpm install goldmagic800
+	ringpm install ring2apk
 
-.. image:: gm800_level45.jpg
-	:alt: GoldMagic800 Level 45
+.. image:: ring2apk.png
+	:alt: Ring2APKShot
 
 .. index:: 
 	pair: What is new in Ring  1.28; RayLibGUI Package
@@ -112,23 +114,21 @@ Output:
 	:alt: RingTest
 
 .. index:: 
-	pair: What is new in Ring  1.28; Ring2APK Package
+	pair: What is new in Ring  1.28; XMLLib Package
 
-Ring2APK Package
-================
+XMLLib Package
+==============
 
-Build Android APKs from Ring applications. 
-
-The package includes examples demonstrating the use of RayLib and WebView.
+Pure Ring library for building and parsing XML documents.
 
 Install:
 
 .. code-block:: none
 
-	ringpm install ring2apk
+	ringpm install xmllib
 
-.. image:: ring2apk.png
-	:alt: Ring2APKShot
+.. image:: xmllib.png
+	:alt: XMLLibShot
 
 .. index:: 
 	pair: What is new in Ring  1.28; ClaudeLib Package
@@ -146,23 +146,6 @@ Install:
 
 .. image:: claudelib.png
 	:alt: ClaudeLibShot
-
-.. index:: 
-	pair: What is new in Ring  1.28; XMLLib Package
-
-XMLLib Package
-==============
-
-Pure Ring library for building and parsing XML documents.
-
-Install:
-
-.. code-block:: none
-
-	ringpm install xmllib
-
-.. image:: xmllib.png
-	:alt: XMLLibShot
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
@@ -189,6 +172,22 @@ The following packages have been added to the RingPM registry.
 * ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression
 * HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support
 
+.. index:: 
+	pair: What is new in Ring 1.28?; Better GoldMagic800
+
+Better GoldMagic800
+===================
+
+The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55
+
+Install:
+
+.. code-block:: none
+
+	ringpm install goldmagic800
+
+.. image:: gm800_level45.jpg
+	:alt: GoldMagic800 Level 45
 
 .. index:: 
 	pair: What is new in Ring  1.28; Better Performance
