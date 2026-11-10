@@ -61,8 +61,6 @@ Install:
 
 Example:
 
-File: my_test.ring
-
 .. code-block:: ring
 
 	describe("Math Operations", func {
@@ -81,12 +79,6 @@ File: my_test.ring
 		})
 
 	})
-
-To run the tests:
-
-.. code-block:: none
-
-	ringtest
 
 Output:
 
@@ -135,6 +127,8 @@ Example:
 	oXml2.endElement()
 
 	? oXml2.output()
+
+Output:
 
 .. image:: xmllib.png
 	:alt: XMLLibShot
