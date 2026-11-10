@@ -53,6 +53,8 @@ RayLibGUI is a GUI widgets library written in Ring on top of RayLib.
 
 It provides a dark-themed widget toolkit with keyboard and mouse support.
 
+.. note:: The library provides support for the Arabic language and right-to-left (RTL) user interface controls.
+
 Install:
 
 .. code-block:: none
@@ -61,9 +63,6 @@ Install:
 
 .. image:: raylibgui_shot1.png
 	:alt: RayLibGUIShot1
-
-.. note:: The library supports the Arabic language and Right-to-Left controls.
-
 
 RingTest Package
 ================
@@ -137,6 +136,11 @@ More RingPM Packages
 
 The following packages have been added to the RingPM registry.
 
+* RingUTF8Proc: Unicode text processing for Ring using utf8proc library
+* RingNAPPGUI: Brings the NAppGUI library (a cross-platform C SDK) to Ring
+* RingLua: Embeds the Lua 5.5 scripting engine in Ring programs
+* TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension
+* RingRogueUtil: RogueUtil extension for the Ring programming language
 * SteamLib: Support Steam Achievements (for Windows)
 * RingEnv: Download and Manage multiple Ring versions
 * ASCII2Label: Label layout tool (An ASCII drawing and a CSV in, labels out as HTML and SVG)
@@ -150,11 +154,7 @@ The following packages have been added to the RingPM registry.
 * XMLLib: Pure Ring library for building and parsing XML documents 
 * ZipStoreLib: Pure Ring library for merging files into ZIP archives without compression
 * HTMLLib: Pure Ring library for HTML/CSS3 generation with JS, Bootstrap and Three.js support
-* RingLua: Embeds the Lua 5.5 scripting engine in Ring programs
-* TUILib: TUI Framework for Windows/Linux/macOS based on RingRogueUtil extension
-* RingRogueUtil: RogueUtil extension for the Ring programming language
-* RingUTF8Proc: Unicode text processing for Ring using utf8proc library
-* RingNAPPGUI: Brings the NAppGUI library (a cross-platform C SDK) to Ring
+
 
 .. index:: 
 	pair: What is new in Ring  1.28; Better Performance
