@@ -23,6 +23,8 @@ nClassMark
 Type: unsigned int
 nBracesCounter
 Type: unsigned int
+nParenthesesCounter
+Type: unsigned int
 nIfCounter
 Type: unsigned int
 nSwitchCounter
@@ -62,8 +64,6 @@ Type: unsigned int
 lPrivateFlag: 1
 Type: unsigned int
 lNewObject: 1
-Type: unsigned int
-lFuncCallOnly: 1
 Type: unsigned int
 lInitCallOnly: 1
 Type: unsigned int

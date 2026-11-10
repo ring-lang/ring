@@ -48,9 +48,6 @@ Type: char
 cFuncName[RING_MEDIUMBUF]
 Type: char
 cKeyword[RING_MEDIUMBUF]
-ring_parser_newobjectvalue
-Type: int
-nLastOperation
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag,nNew,lCallOnly,lBracesOnly,lAfterCall
@@ -60,3 +57,6 @@ ring_parser_ppmm
 Type: int
 nLastOperation,nMode,nValue
 ring_parser_objattributes
+ring_parser_newobjectvalue
+Type: int
+nLastOperation

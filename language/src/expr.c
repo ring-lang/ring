@@ -637,7 +637,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		RING_STATE_PRINTRULE(RING_RULE_FACTORISNUMBER);
 		ring_parser_nexttoken(pParser);
 		/* If we have condition - pass new lines */
-		if (pParser->lControlStructureExpr) {
+		if (pParser->lControlStructureExpr && pParser->nParenthesesCounter) {
 			RING_PARSER_IGNORENEWLINE;
 		}
 		/* ++ and -- */
@@ -659,7 +659,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		RING_STATE_PRINTRULE(RING_RULE_FACTORISLITERAL);
 		ring_parser_nexttoken(pParser);
 		/* If we have condition - pass new lines */
-		if (pParser->lControlStructureExpr) {
+		if (pParser->lControlStructureExpr && pParser->nParenthesesCounter) {
 			RING_PARSER_IGNORENEWLINE;
 		}
 		return RING_PARSER_OK;
@@ -723,8 +723,10 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 	}
 	/* Factor --> ( Expr ) */
 	if (ring_parser_isoperator2(pParser, OP_FOPEN)) {
+		pParser->nParenthesesCounter++;
 		ring_parser_nexttoken(pParser);
 		if (ring_parser_isoperator2(pParser, OP_FCLOSE)) {
+			pParser->nParenthesesCounter--;
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE;
 			RING_STATE_PRINTRULE(RING_RULE_FACTORISEMPTYGROUP);
@@ -735,6 +737,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		if (ring_parser_expr(pParser)) {
 			pParser->lAssignmentFlag = x;
 			if (ring_parser_isoperator2(pParser, OP_FCLOSE)) {
+				pParser->nParenthesesCounter--;
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE;
 				RING_STATE_PRINTRULE(RING_RULE_FACTORISGROUP);

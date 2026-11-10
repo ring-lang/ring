@@ -61,6 +61,7 @@ Parser *ring_parser_new(RingState *pRingState, List *pTokens) {
 	pParser->nClassMark = 0;
 	pParser->lPrivateFlag = 0;
 	pParser->nBracesCounter = 0;
+	pParser->nParenthesesCounter = 0;
 	pParser->nIfCounter = 0;
 	pParser->nSwitchCounter = 0;
 	pParser->nTryCatchCounter = 0;
