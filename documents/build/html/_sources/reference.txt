@@ -446,7 +446,7 @@ Compiler Errors
 * Error (C20) : Error in package name
 * Error (C21) : Unclosed control structure, 'again' is missing
 * Error (C22) : Function redefinition, function is already defined!
-* Error (C23) : Using '(' after number!
+* Error (C23) : Parentheses '(' is expected
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name
 * Error (C26) : Class redefinition, class is already defined!
@@ -454,7 +454,6 @@ Compiler Errors
 * Error (C28) : Expression is expected!
 * Error (C29) : Braces are missing to define anonymous function!
 * Error (C30) : Argument redefinition, argument is already defined!
-* Error (C31) : Parentheses '(' is expected
 
 * Error (S1) : Literal not closed!
 * Error (S2) : Unclosed comment
