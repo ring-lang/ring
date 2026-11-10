@@ -459,6 +459,7 @@ More Improvements
 * Ring Compiler - Support using Private keyword inside Eval()
 * Ring Compiler - Use ICO_FREESTACK before Catch block in Try/Catch
 * Ring Compiler - Prevent invalid nested calls without an identifier before parentheses
+* Ring Compiler - Ignore new lines after number/literal when the condition is written between parentheses
 * Ring VM - Check methods hash table during inheritance
 * Ring VM - ring_vm_stringtonum() - Better Implementation
 * Ring VM - ring_vm_api_ispointer() - Better Implementation
