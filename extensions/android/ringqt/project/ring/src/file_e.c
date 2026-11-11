@@ -496,7 +496,7 @@ void ring_vm_file_read(void *pPointer) {
 		}
 		if (fseek(pFile, 0, SEEK_END) == 0) {
 			nSize = ftell(pFile);
-			if ((nSize != -1) && (fseek(pFile, 0, SEEK_SET) == 0)) {
+			if ((nSize >= 0) && (nSize < INT_MAX) && (fseek(pFile, 0, SEEK_SET) == 0)) {
 				lError = RING_FALSE;
 			}
 		}
