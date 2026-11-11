@@ -1094,5 +1094,9 @@ aPackagesRegistry = [
 	[ :name = "ringnappgui",
 	  :description = "RingNAPPGUI extension for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "winutf8path",
+	  :description = "A Ring library to process files that uses UTF8 filename/path on Windows",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
