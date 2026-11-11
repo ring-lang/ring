@@ -451,6 +451,7 @@ More Improvements
 * Insert() function - Better Implementation
 * SubStr() function - Better Implementation - Handling strings that contains the NULL character
 * MemCpy() function - Better Implementation - Added more checks for parameters 
+* Read() function - Better Implementation - Added more checks for file size
 * Call command - Better Implementation - Switching between C and Ring functions
 * State and Low Level Functions - Convert variable name to lower case 
 * Ring Compiler - LoadSyntax command - Better Implementation (Finding file path)
