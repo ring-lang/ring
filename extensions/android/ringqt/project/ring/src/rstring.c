@@ -10,21 +10,25 @@ RING_API String *ring_string_new_gc(void *pState, const char *cStr) {
 
 RING_API String *ring_string_new2_gc(void *pState, const char *cStr, unsigned int nStrSize) {
 	String *pString;
-	unsigned int x, nSize;
-	nSize = (unsigned int)nStrSize;
+	unsigned int x, nRequiredSize;
+	if (nStrSize == UINT_MAX) {
+		printf(RING_OOM);
+		exit(RING_EXIT_FAIL);
+	}
+	nRequiredSize = nStrSize + 1;
 	pString = (struct String *)ring_state_malloc(pState, sizeof(struct String));
-	if ((nSize + 1) <= RING_STRING_ARRAYSIZE) {
+	if (nRequiredSize <= RING_STRING_ARRAYSIZE) {
 		pString->cStr = pString->cStrArray;
 		pString->nCapacity = RING_STRING_ARRAYSIZE;
 	} else {
-		pString->cStr = (char *)ring_state_malloc(pState, nSize + 1);
-		pString->nCapacity = nSize + 1;
+		pString->cStr = (char *)ring_state_malloc(pState, nRequiredSize);
+		pString->nCapacity = nRequiredSize;
 	}
 	if (cStr) {
-		RING_MEMCPY(pString->cStr, cStr, nSize);
+		RING_MEMCPY(pString->cStr, cStr, nStrSize);
 	}
-	pString->nSize = nSize;
-	pString->cStr[nSize] = '\0';
+	pString->nSize = nStrSize;
+	pString->cStr[nStrSize] = '\0';
 	return pString;
 }
 
@@ -48,15 +52,18 @@ RING_API void ring_string_set_gc(void *pState, String *pString, const char *cStr
 }
 
 RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cStr, unsigned int nStrSize) {
-	unsigned int x, nRequiredSize, nNewCapacity;
-	nRequiredSize = (unsigned int)nStrSize;
-	if ((pString->cStr == cStr) && (pString->nSize == nRequiredSize)) {
+	unsigned int x, nNewCapacity;
+	if (nStrSize == UINT_MAX) {
+		printf(RING_OOM);
+		exit(RING_EXIT_FAIL);
+	}
+	if ((pString->cStr == cStr) && (pString->nSize == nStrSize)) {
 		/* Setting the string by itself - Do nothing! */
 		return;
 	}
 	/* Check if we need to reallocate or delete large buffers when the string is empty */
-	nNewCapacity = nRequiredSize + 1;
-	if ((nNewCapacity > pString->nCapacity) || (nRequiredSize == 0)) {
+	nNewCapacity = nStrSize + 1;
+	if ((nNewCapacity > pString->nCapacity) || (nStrSize == 0)) {
 		/* Free the old heap buffer if it exists */
 		if (pString->cStr != pString->cStrArray) {
 			ring_state_free(pState, pString->cStr);
@@ -72,10 +79,10 @@ RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cSt
 	}
 	/* Now we have enough capacity, copy the data. */
 	if (cStr) {
-		RING_MEMCPY(pString->cStr, cStr, nRequiredSize);
+		RING_MEMCPY(pString->cStr, cStr, nStrSize);
 	}
-	pString->nSize = nRequiredSize;
-	pString->cStr[nRequiredSize] = '\0';
+	pString->nSize = nStrSize;
+	pString->cStr[nStrSize] = '\0';
 }
 
 RING_API void ring_string_add_gc(void *pState, String *pString, const char *cStr) {

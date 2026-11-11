@@ -33,14 +33,14 @@ ring_string_new2_gc
 Type: String *
 pString
 Type: unsigned int
-x, nSize
+x,nRequierdSize
 ring_string_delete_gc
 ring_string_set_gc
 Type: unsigned int
 x
 ring_string_set2_gc
 Type: unsigned int
-x, nRequiredSize, nNewCapacity
+x, nNewCapacity
 ring_string_add_gc
 Type: unsigned int
 x
