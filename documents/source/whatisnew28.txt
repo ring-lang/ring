@@ -483,4 +483,5 @@ More Improvements
 * Ring Compiler/VM - New Instruction: ICO_POP
 * Ring Compiler/VM - New Instruction: ICO_INCPJUMPFORSTEP1
 * Ring Compiler/VM - New Instruction: ICO_INCLPJUMPFORSTEP1
-* Ring Compiler/VM - Removed old/unused instruction: ICO_CALLCLASSINIT  
+* Ring Compiler/VM - Removed old/unused instruction: ICO_CALLCLASSINIT
+* Ring Compiler/VM - Better check for string size before creating new strings  
