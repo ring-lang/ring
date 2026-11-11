@@ -12,7 +12,7 @@ RING_API String *ring_string_new2_gc(void *pState, const char *cStr, unsigned in
 	String *pString;
 	unsigned int x, nRequiredSize;
 	if (nStrSize == UINT_MAX) {
-		printf(RING_OOM);
+		printf(RING_STRINGSIZEOVERFLOW);
 		exit(RING_EXIT_FAIL);
 	}
 	nRequiredSize = nStrSize + 1;
@@ -54,7 +54,7 @@ RING_API void ring_string_set_gc(void *pState, String *pString, const char *cStr
 RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cStr, unsigned int nStrSize) {
 	unsigned int x, nNewCapacity;
 	if (nStrSize == UINT_MAX) {
-		printf(RING_OOM);
+		printf(RING_STRINGSIZEOVERFLOW);
 		exit(RING_EXIT_FAIL);
 	}
 	if ((pString->cStr == cStr) && (pString->nSize == nStrSize)) {

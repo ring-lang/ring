@@ -33,7 +33,7 @@ ring_string_new2_gc
 Type: String *
 pString
 Type: unsigned int
-x,nRequierdSize
+x,nRequiredSize
 ring_string_delete_gc
 ring_string_set_gc
 Type: unsigned int
