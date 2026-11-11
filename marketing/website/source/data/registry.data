@@ -1098,5 +1098,9 @@ aPackagesRegistry = [
 	[ :name = "winutf8path",
 	  :description = "A Ring library to process files that uses UTF8 filename/path on Windows",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "wincom",
+	  :description = "A Ring library for Windows that supports COM (Component Object Model)",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
