@@ -100,7 +100,7 @@ RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cSt
 	}
 	nOriginalSize = pString->nSize;
 	/* Check for overflow before addition */
-	if (nOriginalSize > UINT_MAX - nStrSize) {
+	if (nOriginalSize >= UINT_MAX - nStrSize) {
 		printf(RING_STRINGSIZEOVERFLOW);
 		exit(RING_EXIT_FAIL);
 	}
