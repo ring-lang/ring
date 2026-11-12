@@ -1102,5 +1102,29 @@ aPackagesRegistry = [
 	[ :name = "wincom",
 	  :description = "A Ring library for Windows that supports COM (Component Object Model)",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "qt612runtime",
+	  :description = "Qt612Runtime package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "qt612qmlruntime",
+	  :description = "Qt612QMLRuntime package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringqt6runtime",
+	  :description = "RingQt6Runtime package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringqt6",
+	  :description = "RingQt6 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "androidringqt6",
+	  :description = "AndroidRingQt6 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "webassemblyringqt6",
+	  :description = "WebAssemblyRingQt6 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
