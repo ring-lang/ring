@@ -637,7 +637,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		RING_STATE_PRINTRULE(RING_RULE_FACTORISNUMBER);
 		ring_parser_nexttoken(pParser);
 		/* If we have condition - pass new lines */
-		if (pParser->lControlStructureExpr && pParser->nParenthesesCounter) {
+		if (ring_parser_ismultilinecondition(pParser)) {
 			RING_PARSER_IGNORENEWLINE;
 		}
 		/* ++ and -- */
@@ -654,7 +654,7 @@ int ring_parser_factor(Parser *pParser, int *nFlag) {
 		RING_STATE_PRINTRULE(RING_RULE_FACTORISLITERAL);
 		ring_parser_nexttoken(pParser);
 		/* If we have condition - pass new lines */
-		if (pParser->lControlStructureExpr && pParser->nParenthesesCounter) {
+		if (ring_parser_ismultilinecondition(pParser)) {
 			RING_PARSER_IGNORENEWLINE;
 		}
 		return RING_PARSER_OK;

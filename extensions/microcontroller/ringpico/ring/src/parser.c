@@ -198,6 +198,31 @@ void ring_parser_processkeywords(Parser *pParser) {
 		  ring_parser_iskeyword(pParser, K_BRACENEWLINE)))
 		ring_parser_keywordtoidentifier(pParser, RING_TRUE);
 }
+
+int ring_parser_ismultilinecondition(Parser *pParser) {
+	int nActiveToken, nMultiLineCondition;
+	if (pParser->nParenthesesCounter) {
+		return RING_TRUE;
+	}
+	nMultiLineCondition = RING_FALSE;
+	if (ring_parser_isendline(pParser)) {
+		nActiveToken = pParser->nActiveToken;
+		while (ring_parser_isendline(pParser) && ring_parser_nexttoken(pParser)) {
+		}
+		nMultiLineCondition =
+		    nMultiLineCondition || ring_parser_iskeyword(pParser, K_OR) ||
+		    ring_parser_isoperator2(pParser, OP_LOGOR) || ring_parser_iskeyword(pParser, K_AND) ||
+		    ring_parser_isoperator2(pParser, OP_LOGAND) || ring_parser_isoperator2(pParser, OP_EQUAL) ||
+		    ring_parser_isoperator2(pParser, OP_NOTEQUAL) || ring_parser_isoperator2(pParser, OP_LESS) ||
+		    ring_parser_isoperator2(pParser, OP_LESSEQUAL) || ring_parser_isoperator2(pParser, OP_GREATER) ||
+		    ring_parser_isoperator2(pParser, OP_GREATEREQUAL) || ring_parser_isoperator2(pParser, OP_BITOR) ||
+		    ring_parser_isoperator2(pParser, OP_BITAND) || ring_parser_isoperator2(pParser, OP_XOR) ||
+		    ring_parser_isoperator2(pParser, OP_SHL) || ring_parser_isoperator2(pParser, OP_SHR);
+		pParser->nActiveToken = nActiveToken;
+		ring_parser_loadtoken(pParser);
+	}
+	return nMultiLineCondition;
+}
 /* Display Errors */
 
 void ring_parser_error(Parser *pParser, const char *cStr) {
