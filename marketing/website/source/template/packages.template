@@ -15,7 +15,7 @@
 				<tbody>
 				<% for x in aPackagesRegistry %>
 				  <tr>
-					<td><%= lower(x[:name]) %></td>
+					<td><%= '<a href="https://github.com/'+x[:providerusername]+'/'+lower(x[:name])+'">' + lower(x[:name]) + '</a>'%></td>
 					<td><%= x[:description] %></td>
 				  </tr>
 				<% next %>				 	  
