@@ -156,5 +156,11 @@ unix:!macx {
     LIBS +=  /usr/lib/libring.so
 }
 
+unix {
+    QT += openglwidgets
+    SOURCES += cpp/src/openglwidget.cpp
+    HEADERS += cpp/include/openglwidget.h
+}
+
 CONFIG += warn_off
 CONFIG += release
