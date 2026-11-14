@@ -187,6 +187,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#xmllib-package">XMLLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#claudelib-package">ClaudeLib Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#raylibgui-package">RayLibGUI Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringqt6-package">RingQt6 Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-goldmagic800">Better GoldMagic800</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
@@ -239,6 +240,7 @@
 <li><p>XMLLib Package</p></li>
 <li><p>ClaudeLib Package</p></li>
 <li><p>RayLibGUI Package</p></li>
+<li><p>RingQt6 Package</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>Better GoldMagic800</p></li>
 <li><p>Better Performance</p></li>
@@ -348,8 +350,29 @@
 <img alt="RayLibGUIShot1" src="_images/raylibgui_shot1.png" />
 <img alt="RayLibGUIShot2" src="_images/raylibgui_shot2.png" />
 </section>
+<section id="ringqt6-package">
+<span id="index-6"></span><h2>RingQt6 Package<a class="headerlink" href="#ringqt6-package" title="Permalink to this heading"></a></h2>
+<p>Using this package we can use RingQt with Qt6 instead of Qt5</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ringqt6
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>RingQt uses Qt 5.15.19</p></li>
+<li><p>RingQt6 uses Qt 6.12.0</p></li>
+</ul>
+<p>RingQt6 uses the same libraries/guilib folder and load the guilib.ring file as RingQt, so applications don’t change.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>RingQt and RingQt6 are alternatives: install only one of them in the same Ring folder.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The RingQt6 package contains the binary files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.dll) for Windows. For Linux and macOS, the package must be built from source code.</p>
+</div>
+</section>
 <section id="more-ringpm-packages">
-<span id="index-6"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>RingUTF8Proc: Unicode text processing for Ring using utf8proc library</p></li>
@@ -373,7 +396,7 @@
 </ul>
 </section>
 <section id="better-goldmagic800">
-<span id="index-7"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Better GoldMagic800<a class="headerlink" href="#better-goldmagic800" title="Permalink to this heading"></a></h2>
 <p>The Gold Magic 800 game is updated and added 11 new levels from level 45 to level 55</p>
 <p>Install:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install goldmagic800
@@ -382,10 +405,10 @@
 <img alt="GoldMagic800 Level 45" src="_images/gm800_level45.jpg" />
 </section>
 <section id="better-performance">
-<span id="index-8"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
 <p>Ring 1.28 introduces performance improvements across many core operations.</p>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Performance Comparison: Ring 1.27 vs Ring 1.28 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Performance Comparison: Ring 1.27 vs Ring 1.28 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 47%" />
 <col style="width: 18%" />
@@ -462,8 +485,8 @@
 <p>The most significant improvements are in loops. Ring loops are now <strong>~4x faster</strong>.</p>
 </div>
 <p>Many programs also run faster, especially those that process strings and lists.</p>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Benchmarks: Ring 1.27 vs Ring 1.28</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Benchmarks: Ring 1.27 vs Ring 1.28</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 47%" />
 <col style="width: 18%" />
@@ -540,7 +563,7 @@
 </div>
 </section>
 <section id="better-switch-statement">
-<span id="index-9"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better Switch Statement<a class="headerlink" href="#better-switch-statement" title="Permalink to this heading"></a></h2>
 <p>A case in the Switch statement can have many expressions separated by commas, like (case 1, 2).</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aDays</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sun&quot;</span><span class="p">,</span><span class="s2">&quot;Mon&quot;</span><span class="p">,</span><span class="s2">&quot;Tue&quot;</span><span class="p">,</span><span class="s2">&quot;Wed&quot;</span><span class="p">,</span><span class="s2">&quot;Thu&quot;</span><span class="p">,</span><span class="s2">&quot;Fri&quot;</span><span class="p">,</span><span class="s2">&quot;Sat&quot;</span><span class="p">]</span>
@@ -579,7 +602,7 @@ black : Other color
 </div>
 </section>
 <section id="better-ring-api">
-<span id="index-10"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
 <p>Added: RING_API_REGISTERLENDSTRING(cFunctionName,pFunctionPointer)</p>
 <p>RING_API_REGISTERLENDSTRING registers a C function in the Ring VM, just like RING_API_REGISTER,
 and also tells the VM that the function only reads its string parameters: it doesn’t change them,
@@ -601,7 +624,7 @@ RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
 </div>
 </section>
 <section id="better-libs-extensions">
-<span id="index-11"></span><h2>Better Libs/Extensions<a class="headerlink" href="#better-libs-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better Libs/Extensions<a class="headerlink" href="#better-libs-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>StdLib - Revised: encrypt_ex() and decrypt_ex()</p></li>
 <li><p>GameEngine - gl_libsdl.ring - The bitmaps are now handles into a shared table</p></li>
@@ -615,7 +638,7 @@ RING_API_REGISTERLENDSTRING(&quot;right&quot;, ring_vm_generallib_right);
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>language/build/pgo folder - Building Ring using Clang, LTO and PGO</p></li>
 <li><p>build/installdepubuntu.sh - Removed: libqt5webkit5-dev</p></li>

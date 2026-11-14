@@ -20,6 +20,7 @@ Ring 1.28 comes with the next features!
 * XMLLib Package
 * ClaudeLib Package
 * RayLibGUI Package
+* RingQt6 Package
 * More RingPM Packages
 * Better GoldMagic800
 * Better Performance  
@@ -173,6 +174,31 @@ Install:
 
 .. image:: raylibgui_shot2.png
 	:alt: RayLibGUIShot2
+
+.. index:: 
+	pair: What is new in Ring  1.28; More RingPM Packages
+
+RingQt6 Package
+===============
+
+Using this package we can use RingQt with Qt6 instead of Qt5 
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ringqt6
+
+
+* RingQt uses Qt 5.15.19
+* RingQt6 uses Qt 6.12.0
+
+RingQt6 uses the same libraries/guilib folder and load the guilib.ring file as RingQt, so applications don't change. 
+
+.. tip:: RingQt and RingQt6 are alternatives: install only one of them in the same Ring folder.
+
+.. note:: The RingQt6 package contains the binary files (*.dll) for Windows. For Linux and macOS, the package must be built from source code.
+
 
 .. index:: 
 	pair: What is new in Ring  1.28; More RingPM Packages
