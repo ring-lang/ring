@@ -32,7 +32,7 @@ ring_vm_math_sqrt
 Type: double
 nNum
 ring_vm_math_unsigned
-Type: RING_UNSIGNEDLONGLONG
+Type: unsigned int
 nNum1 = 0,nNum2 = 0,nNum3 = 0
 Type: const char *
 cStr

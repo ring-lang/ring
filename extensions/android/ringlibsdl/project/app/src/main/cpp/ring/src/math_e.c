@@ -303,38 +303,38 @@ void ring_vm_math_sqrt(void *pPointer) {
 }
 
 void ring_vm_math_unsigned(void *pPointer) {
-	RING_UNSIGNEDLONGLONG nNum1 = 0, nNum2 = 0, nNum3 = 0;
+	unsigned int nNum1 = 0, nNum2 = 0, nNum3 = 0;
 	const char *cStr;
 	double nNum;
 	/* Check numbers */
 	if ((RING_API_PARACOUNT >= 1) && RING_API_ISNUMBER(1)) {
 		nNum = RING_API_GETNUMBER(1);
-		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)(RING_LONGLONG_HIGHVALUE * 2))) {
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)UINT_MAX)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
 	}
 	if ((RING_API_PARACOUNT >= 2) && RING_API_ISNUMBER(2)) {
 		nNum = RING_API_GETNUMBER(2);
-		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)(RING_LONGLONG_HIGHVALUE * 2))) {
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)UINT_MAX)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
 	}
 	if ((RING_API_PARACOUNT == 3) && RING_API_ISNUMBER(3)) {
 		nNum = RING_API_GETNUMBER(3);
-		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)(RING_LONGLONG_HIGHVALUE * 2))) {
+		if ((nNum < RING_ZEROF) || (nNum != nNum) || (nNum > (double)UINT_MAX)) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return;
 		}
 	}
 	if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISSTRING(2)) {
-			nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(1);
+			nNum1 = (unsigned int)RING_API_GETNUMBER(1);
 			cStr = RING_API_GETSTRING(2);
 		} else if (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2)) {
 			cStr = RING_API_GETSTRING(1);
-			nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(2);
+			nNum1 = (unsigned int)RING_API_GETNUMBER(2);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return;
@@ -352,26 +352,26 @@ void ring_vm_math_unsigned(void *pPointer) {
 		return;
 	}
 	if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2) && RING_API_ISSTRING(3)) {
-		nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(1);
-		nNum2 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(2);
+		nNum1 = (unsigned int)RING_API_GETNUMBER(1);
+		nNum2 = (unsigned int)RING_API_GETNUMBER(2);
 		cStr = RING_API_GETSTRING(3);
 	} else if (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3)) {
 		cStr = RING_API_GETSTRING(1);
-		nNum1 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(2);
-		nNum2 = (RING_UNSIGNEDLONGLONG)RING_API_GETNUMBER(3);
+		nNum1 = (unsigned int)RING_API_GETNUMBER(2);
+		nNum2 = (unsigned int)RING_API_GETNUMBER(3);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
 	/* Processing */
 	if (strcmp(cStr, ">>") == 0) {
-		if (nNum2 >= (sizeof(RING_UNSIGNEDLONGLONG) * 8)) {
+		if (nNum2 >= (sizeof(unsigned int) * 8)) {
 			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
 			return;
 		}
 		nNum3 = nNum1 >> nNum2;
 	} else if (strcmp(cStr, "<<") == 0) {
-		if (nNum2 >= (sizeof(RING_UNSIGNEDLONGLONG) * 8)) {
+		if (nNum2 >= (sizeof(unsigned int) * 8)) {
 			RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
 			return;
 		}
