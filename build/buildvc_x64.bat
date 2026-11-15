@@ -261,7 +261,7 @@ cd ..\..\..
 echo Prepare Runtime files...
 copy tools\ringnotepad\rnoteexe\RingNotepad.exe . >nul
 cd bin
-copy ..\extensions\libdepwin\extra\*.dll . >nul
+copy ..\extensions\libdepwin\extra_x64\*.dll . >nul
 copy ..\extensions\libdepwin\cruntime_x64\*.dll . >nul
 copy ..\extensions\libdepwin\Allegro5.2.8\bin\x64\*.dll . >nul
 copy ..\extensions\libdepwin\freeglut\bin\x64\*.dll . >nul
