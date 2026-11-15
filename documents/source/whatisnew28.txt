@@ -470,6 +470,8 @@ More Improvements
 * Updated files in ring/extensions/libdepwin/cruntime
 * Ring Notepad - Browser Menu - Added links for Packages/News
 * Removed Folder: ring/samples/UsingAI 
+* Added: extensions/libdepwin/extra_x64 folder 
+* Revised: extensions/libdepwin/extra folder files
 * Revised: applications/wordgame/WordList.ring
 * Revised: applications/matching/MatchingList.ring
 * Added: samples/UsingRayLib/more/ex12_rubik.ring 
