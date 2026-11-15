@@ -487,7 +487,7 @@ More Improvements
 * Call command - Better Implementation - Switching between C and Ring functions
 * State and Low Level Functions - Convert variable name to lower case 
 * Ring Compiler - LoadSyntax command - Better Implementation (Finding file path)
-* Ring Compiler - LOADSYNTAX command - Produce an error message if the file contains functions/classes
+* Ring Compiler - LoadSyntax command - Produce an error message if the file contains functions/classes
 * Ring Compiler - Always use ICO_RETNULL before functions
 * Ring Compiler - Support using Private keyword inside Eval()
 * Ring Compiler - Use ICO_FREESTACK before Catch block in Try/Catch
