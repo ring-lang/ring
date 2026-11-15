@@ -37,7 +37,7 @@
         <ul class="nav navbar-nav">
           <li><a href="index.html#">Home</a></li>
           <li><a href="news.html">News</a></li>
-          <li><a href="doc1.27/index.html">Docs</a></li>
+          <li><a href="doc1.28/index.html">Docs</a></li>
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
             <ul class="dropdown-menu" style="max-height: 300px; overflow-y: auto;">
 		  <li><a href="download.html">Ring 1.27</a></li>
@@ -84,7 +84,7 @@
     </ul>
 
 	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
-		<form class="search" action="doc1.27/search.html" method="get" style="width:200px" >
+		<form class="search" action="doc1.28/search.html" method="get" style="width:200px" >
 			<div class="input-group">
 				<input name="q" type="text" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
@@ -143,7 +143,7 @@
 				</div>
 
 				<div class="col-sm-12 col-md-3">
-   					<a href="doc1.27/index.html"
+   					<a href="doc1.28/index.html"
        						class="btn btn-default btn-block btn-docs"
        						style="background:#5cb85c; color:#fff;">
        						Documentation
