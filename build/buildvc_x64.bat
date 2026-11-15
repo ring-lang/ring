@@ -258,6 +258,10 @@ cd samples\Drawing\Mandelbrot
 @call buildvc_x64 >nul
 cd ..\..\..
 
+cd samples\Drawing\CalculusConics
+@call buildvc_x64 >nul
+cd ..\..\..
+
 echo Prepare Runtime files...
 copy tools\ringnotepad\rnoteexe\RingNotepad.exe . >nul
 cd bin
