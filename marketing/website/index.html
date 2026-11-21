@@ -810,11 +810,10 @@
 
 		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code. 
 		<br>
-		To print something using the standard output, We can use the 'See' command.		
-
+		To print something using the standard output, we have several options, including the 'See' command, the 'print()' function, and the '?' operator.
 		<p>
 			<pre>
-<font color="purple">see</font> "Hello, World!" 
+<font color="purple">?</font> "Hello, World!" 
 			</pre>
 		</p>
 
@@ -823,7 +822,7 @@
 		<p>
 			<pre>
 <font color="purple">func</font> main
-	<font color="purple">see</font> "Hello, World!" 
+	<font color="purple">?</font> "Hello, World!" 
 			</pre>
 		</p>
 
@@ -836,7 +835,7 @@
 nCount = 10	<font color="green"># Global variable</font>
 <font color="purple">func</font> main
 	nID = 1	<font color="green"># Local variable</font>
-	<font color="purple">see</font> "Count = " + nCount + nl + " ID = " + nID
+	<font color="purple">?</font> "Count = " + nCount + nl + " ID = " + nID
 			</pre>
 		</p>
 
@@ -853,9 +852,9 @@ nCount = 10	<font color="green"># Global variable</font>
 		
 		<p>
 			<pre>
-<font color="purple">see</font> "Enter your name ? " 
+<font color="purple">?</font> "Enter your name ? " 
 <font color="purple">give</font> name
-<font color="purple">see</font> "Hello " + Name	<font color="green"># Name is the same as name </font>
+<font color="purple">?</font> "Hello " + Name	<font color="green"># Name is the same as name </font>
 			</pre>
 		</p>
 
@@ -864,7 +863,7 @@ nCount = 10	<font color="green"># Global variable</font>
 		<p>
 			<pre>
 aList = ["one","two","three"]
-<font color="purple">see</font> aList[1]	<font color="green"># print one</font>
+<font color="purple">?</font> aList[1]	<font color="green"># print one</font>
 			</pre>
 		</p>
 
@@ -875,11 +874,11 @@ one()
 two() 
 three()
 <font color="purple">func</font> one 
-	<font color="purple">see</font> "One" 
+	<font color="purple">?</font> "One" 
 <font color="purple">func</font> two 
-	<font color="purple">see</font> "two" 
+	<font color="purple">?</font> "two" 
 <font color="purple">func</font> three 
-	<font color="purple">see</font> "three" 
+	<font color="purple">?</font> "three" 
 			</pre>
 		</p>
 
@@ -890,8 +889,8 @@ three()
 aList = ["one","two","three"]
 aList2 = aList
 aList[1] = 1
-<font color="purple">see</font> alist[1]	<font color="green"># print 1</font>
-<font color="purple">see</font> aList2[1]	<font color="green"># print one</font>
+<font color="purple">?</font> alist[1]	<font color="green"># print 1</font>
+<font color="purple">?</font> aList2[1]	<font color="green"># print one</font>
 			</pre>
 		</p>
 
@@ -903,7 +902,7 @@ aList[1] = 1
 <font color="purple">func</font> main
 	aList = [1,2,3]
 	update(aList)
-	<font color="purple">see</font> aList	<font color="green"># print one two three</font>
+	<font color="purple">?</font> aList	<font color="green"># print one two three</font>
 
 <font color="purple">func</font> update aList
 	<font color="purple">for</font> x <font color="purple">in</font> aList
@@ -920,7 +919,7 @@ aList[1] = 1
 		<p>
 			<pre>
 aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
-<font color="purple">see</font> aList       <font color="green"># print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</font>
+<font color="purple">?</font> aList       <font color="green"># print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</font>
 			</pre>
 		</p>
 		Exit from more than one loop
@@ -929,7 +928,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 			<pre>
 <font color="purple">for</font> x = 1 <font color="purple">to</font> 10
         <font color="purple">for</font> y = 1 <font color="purple">to</font> 10
-                <font color="purple">see</font> "x=" + x + " y=" + y + nl
+                <font color="purple">?</font> "x=" + x + " y=" + y + nl
                 <font color="purple">if</font> x = 3 <font color="purple">and</font> y = 5
                         <font color="purple">exit</font> 2     <font color="green"># exit from 2 loops</font>
                 <font color="purple">ok</font>
@@ -973,11 +972,11 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 	Author       : Ring Team 
 */</font>
 
-<font color="purple">see</font> "What is your name? " 	<font color="green"># print message on screen</font>
+<font color="purple">?</font> "What is your name? " 	<font color="green"># print message on screen</font>
 <font color="purple">give</font> cName 			<font color="green"># get input from the user</font>
-<font color="purple">see</font> "Hello " + cName	<font color="green">	# say hello!</font>
+<font color="purple">?</font> "Hello " + cName	<font color="green">	# say hello!</font>
 
-<font color="green">// See "End of Program!"</font>
+<font color="green">// ? "End of Program!"</font>
 			</pre>
 		</p>
 
@@ -1070,8 +1069,8 @@ Using classes and operator overloading we can create custom types<br>
 		</p>
 		<p>
 			<pre>
-<font color="purple">see</font> "The First Message"	<font color="purple">see</font> " Another message in the same line! " + <font color="red">nl</font>
-<font color="purple">see</font> "Enter your name?" <font color="purple">give</font> <font color="red">Name</font> <font color="purple">see</font> "Hello " + <font color="red">Name</font>
+<font color="purple">See</font> "The First Message"	<font color="purple">See</font> " Another message in the same line! " + <font color="red">nl</font>
+<font color="purple">See</font> "Enter your name?" <font color="purple">give</font> <font color="red">Name</font> <font color="purple">?</font> "Hello " + <font color="red">Name</font>
 			</pre>
 		</p>
 		<p>
@@ -1090,7 +1089,7 @@ Using classes and operator overloading we can create custom types<br>
 		</p>
 		<p>
 			<pre>
-o1 = <font color="purple">new</font> point	o1.x=10    o1.y=20   o1.z=30	<font color="purple">see</font> O1	<font color="purple">class</font> Point X Y Z
+o1 = <font color="purple">new</font> point	o1.x=10    o1.y=20   o1.z=30	<font color="purple">?</font> O1	<font color="purple">class</font> Point X Y Z
 			</pre>
 		</p>
 		<p>
@@ -1099,7 +1098,7 @@ o1 = <font color="purple">new</font> point	o1.x=10    o1.y=20   o1.z=30	<font co
 		</p>
 		<p>
 			<pre> 
-o1 = <font color="purple">new</font> point { x=10 y=20 z=30 } <font color="purple">see</font> O1  <font color="purple">class</font> Point X Y Z
+o1 = <font color="purple">new</font> point { x=10 y=20 z=30 } <font color="purple">?</font> O1  <font color="purple">class</font> Point X Y Z
 			 </pre>
 		</p>
 		<p>
@@ -1116,7 +1115,7 @@ oPerson = <font color="purple">new</font> Person
 }
 <font color="purple">class</font> Person Name Address Phone
 	<font color="purple">func</font> Print
-		<font color="purple">see</font> "Name :" + name + nl +
+		<font color="purple">?</font> "Name :" + name + nl +
 		    "Address :" + Address + nl +
 		    "Phone : " + phone + nl
 </pre>
@@ -1129,19 +1128,19 @@ oPerson = <font color="purple">new</font> Person
 		<p>
 <pre>
 <font color="purple">new</font> Number {
-		<font color="purple">see</font> one		<font color="green"># Execute GetOne()</font>
-		<font color="purple">see</font> two		<font color="green"># Execute GetTwo()</font>
-		<font color="purple">see</font> three	<font color="green"># Execute GetThree()</font>
+		<font color="purple">?</font> one		<font color="green"># Execute GetOne()</font>
+		<font color="purple">?</font> two		<font color="green"># Execute GetTwo()</font>
+		<font color="purple">?</font> three		<font color="green"># Execute GetThree()</font>
 }
 <font color="purple">class</font> Number one two three
 	<font color="purple">func</font> GetOne
-		<font color="purple">see</font> "Number : One" + nl
+		<font color="purple">?</font> "Number : One" + nl
 		<font color="purple">return</font> 1
 	<font color="purple">func</font> GetTwo
-		<font color="purple">see</font> "Number : Two" + nl
+		<font color="purple">?</font> "Number : Two" + nl
 		<font color="purple">return</font> 2
 	<font color="purple">func</font> GetThree
-		<font color="purple">see</font> "Number : Three" + nl
+		<font color="purple">?</font> "Number : Three" + nl
 		<font color="purple">return</font> 3	
 </pre>
 </p>
@@ -1275,7 +1274,7 @@ TimeForFun = <font color="purple">new</font> journey
 		</p>
 <p>
 <pre>
-cCode = "See 'Code that will be executed later!' "
+cCode = "? 'Code that will be executed later!' "
 Eval(cCode)	<font color="green"># execute the code to print the message</font>
 </pre>
 </p>
@@ -1296,7 +1295,7 @@ aWords = ["hello","it","is","me"]
 		</p>
 <p>
 <pre>
-<font color="purple">see</font> "Enter File Name:" <font color="purple">give</font> cFileName <font color="purple">see</font> read(cFileName) <font color="green"># Print the file content</font>
+<font color="purple">?</font> "Enter File Name:" <font color="purple">give</font> cFileName <font color="purple">?</font> read(cFileName) <font color="green"># Print the file content</font>
 </pre>
 </p>
 
