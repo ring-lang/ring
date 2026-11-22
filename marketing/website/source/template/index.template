@@ -125,7 +125,7 @@
 
 		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code. 
 		<br>
-		To print something using the standard output, we have several options, including the 'See' command, the 'print()' function, and the '?' operator.
+		To print something using the standard output, we have several options, including the 'See' and 'Put' commands, the 'print()' function, and the '?' operator.
 		<p>
 			<pre>
 <font color="purple">?</font> "Hello, World!" 
@@ -167,8 +167,8 @@ nCount = 10	<font color="green"># Global variable</font>
 		
 		<p>
 			<pre>
-<font color="purple">?</font> "Enter your name ? " 
-<font color="purple">give</font> name
+<font color="purple">?</font> "Enter your name ?" 
+<font color="purple">Get </font>name
 <font color="purple">?</font> "Hello " + Name	<font color="green"># Name is the same as name </font>
 			</pre>
 		</p>
@@ -287,8 +287,8 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 	Author       : Ring Team 
 */</font>
 
-<font color="purple">?</font> "What is your name? " 	<font color="green"># print message on screen</font>
-<font color="purple">give</font> cName 			<font color="green"># get input from the user</font>
+<font color="purple">?</font> "What is your name?" <font color="green">		# print message on screen</font>
+<font color="purple">Get</font> cName <font color="green">			# get input from the user</font>
 <font color="purple">?</font> "Hello " + cName	<font color="green">	# say hello!</font>
 
 <font color="green">// ? "End of Program!"</font>
@@ -384,8 +384,8 @@ Using classes and operator overloading we can create custom types<br>
 		</p>
 		<p>
 			<pre>
-<font color="purple">See</font> "The First Message"	<font color="purple">See</font> " Another message in the same line! " + <font color="red">nl</font>
-<font color="purple">See</font> "Enter your name?" <font color="purple">give</font> <font color="red">Name</font> <font color="purple">?</font> "Hello " + <font color="red">Name</font>
+<font color="purple">Put</font> "The First Message"	<font color="purple">Put</font> " Another message in the same line! " + <font color="red">nl</font>
+<font color="purple">Put</font> "Enter your name?" <font color="purple">Get</font> <font color="red">Name</font> <font color="purple">?</font> "Hello " + <font color="red">Name</font>
 			</pre>
 		</p>
 		<p>
@@ -610,7 +610,7 @@ aWords = ["hello","it","is","me"]
 		</p>
 <p>
 <pre>
-<font color="purple">?</font> "Enter File Name:" <font color="purple">give</font> cFileName <font color="purple">?</font> read(cFileName) <font color="green"># Print the file content</font>
+<font color="purple">?</font> "Enter File Name:" <font color="purple">Get</font> cFileName <font color="purple">?</font> read(cFileName) <font color="green"># Print the file content</font>
 </pre>
 </p>
 
