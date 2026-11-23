@@ -1126,5 +1126,9 @@ aPackagesRegistry = [
 	[ :name = "webassemblyringqt6",
 	  :description = "WebAssemblyRingQt6 package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringdotnet",
+	  :description = "Use .NET classes and methods directly from the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
