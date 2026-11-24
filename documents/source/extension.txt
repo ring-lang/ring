@@ -11,57 +11,52 @@ The RingVM comes with many functions written in C that we can call like any Ring
 We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared 
 library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.
 
-The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c
+The core source tree controls built-in module registration in language/include/ext.h and language/src/ext.c. ext.h defines the RING_VM_* switches, and ext.c calls the registration function for each enabled module.
 
 .. index:: 
-	pair: Extension; ring_ext.h
+	pair: Extension; language/include/ext.h
 
-ring_ext.h
-==========
+language/include/ext.h
+======================
 
-The file ring_ext.h contains constants that we can change to include/exclude modules during the build process.
+The file language/include/ext.h defines switches for built-in RingVM modules.
 
 .. code-block:: C
 
 	#ifndef ringext_h
 	#define ringext_h
-	/* Constants */
-	#define RING_VM_LISTFUNCS 	1
-	#define RING_VM_REFMETA 	1
-	#define RING_VM_MATH		1
-	#define RING_VM_FILE 		1
-	#define RING_VM_OS 		1
-	#define RING_VM_MYSQL 		1
-	#define RING_VM_ODBC 		1
-	#define RING_VM_OPENSSL		1
-	#define RING_VM_CURL 		1
-	#define RING_VM_DLL 		1
+	#define RING_VM_LISTFUNCS 1
+	#define RING_VM_MATH 1
+	#define RING_VM_FILE 1
+	#define RING_VM_OS 1
+	#define RING_VM_REFMETA 1
+	#define RING_VM_INFO 1
+	#if RING_NODLL
+		#define RING_VM_DLL 0
+	#else
+		#define RING_VM_DLL 1
+	#endif
 	#endif
 
 
 .. index:: 
-	pair: Extension; ring_ext.c
+	pair: Extension; language/src/ext.c
 
-ring_ext.c
-==========
+language/src/ext.c
+==================
 
-The file ring_ext.c check constants defined in ring_ext.h before calling the start-up function in each module.
+The file language/src/ext.c checks these switches before registering each built-in module.
 
-Each module contains a function that register the module functions in the RingVM.
+Each module contains a function that registers the module functions in the RingVM.
 
 .. code-block:: C
 
 	#include "ring.h"
 
-	void ring_vm_extension ( RingState *pRingState )
-	{
-		/* Reflection and Meta-programming */
-		#if RING_VM_REFMETA
-			ring_vm_refmeta_loadfunctions(pRingState);
-		#endif
-		/* List Functions */
+	void ring_vm_extension(RingState *pRingState) {
+		/* List */
 		#if RING_VM_LISTFUNCS
-			ring_vm_listfuncs_loadfunctions(pRingState);
+			ring_vm_list_loadfunctions(pRingState);
 		#endif
 		/* Math */
 		#if RING_VM_MATH
@@ -75,25 +70,17 @@ Each module contains a function that register the module functions in the RingVM
 		#if RING_VM_OS
 			ring_vm_os_loadfunctions(pRingState);
 		#endif
-		/* MySQL */
-		#if RING_VM_MYSQL
-			ring_vm_mysql_loadfunctions(pRingState);
-		#endif
-		/* ODBC */
-		#if RING_VM_ODBC
-			ring_vm_odbc_loadfunctions(pRingState);
-		#endif
-		/* OPENSSL */
-		#if RING_VM_OPENSSL
-			ring_vm_openssl_loadfunctions(pRingState);
-		#endif
-		/* CURL */
-		#if RING_VM_CURL
-			ring_vm_curl_loadfunctions(pRingState);
-		#endif
 		/* DLL */
 		#if RING_VM_DLL
 			ring_vm_dll_loadfunctions(pRingState);
+		#endif
+		/* Reflection and Meta-programming */
+		#if RING_VM_REFMETA
+			ring_vm_refmeta_loadfunctions(pRingState);
+		#endif
+		/* VM Information */
+		#if RING_VM_INFO
+			ring_vm_info_loadfunctions(pRingState);
 		#endif
 	}
 
@@ -146,7 +133,7 @@ for example, the ring_vmmath.c module contains the next code to register the mod
 	}
 
 .. tip:: Remember that the function ring_vm_math_loadfunctions() will be called by the 
-		 ring_vm_extension() function (in the ring_ext.c file). 
+		 ring_vm_extension() function in language/src/ext.c. 
 
 .. index:: 
 	pair: Extension; Function Structure
